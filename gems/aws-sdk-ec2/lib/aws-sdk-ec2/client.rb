@@ -100,7 +100,7 @@ module AWS::SDK::EC2
         operation_name: :accept_address_transfer,
         tracer: tracer
       )
-      Telemetry::AcceptAddressTransfer.span(context) do
+      Telemetry::AcceptAddressTransfer.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#accept_address_transfer] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -149,7 +149,7 @@ module AWS::SDK::EC2
         operation_name: :accept_reserved_instances_exchange_quote,
         tracer: tracer
       )
-      Telemetry::AcceptReservedInstancesExchangeQuote.span(context) do
+      Telemetry::AcceptReservedInstancesExchangeQuote.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#accept_reserved_instances_exchange_quote] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -203,7 +203,7 @@ module AWS::SDK::EC2
         operation_name: :accept_transit_gateway_multicast_domain_associations,
         tracer: tracer
       )
-      Telemetry::AcceptTransitGatewayMulticastDomainAssociations.span(context) do
+      Telemetry::AcceptTransitGatewayMulticastDomainAssociations.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#accept_transit_gateway_multicast_domain_associations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -264,7 +264,7 @@ module AWS::SDK::EC2
         operation_name: :accept_transit_gateway_peering_attachment,
         tracer: tracer
       )
-      Telemetry::AcceptTransitGatewayPeeringAttachment.span(context) do
+      Telemetry::AcceptTransitGatewayPeeringAttachment.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#accept_transit_gateway_peering_attachment] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -325,7 +325,7 @@ module AWS::SDK::EC2
         operation_name: :accept_transit_gateway_vpc_attachment,
         tracer: tracer
       )
-      Telemetry::AcceptTransitGatewayVpcAttachment.span(context) do
+      Telemetry::AcceptTransitGatewayVpcAttachment.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#accept_transit_gateway_vpc_attachment] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -374,7 +374,7 @@ module AWS::SDK::EC2
         operation_name: :accept_vpc_endpoint_connections,
         tracer: tracer
       )
-      Telemetry::AcceptVpcEndpointConnections.span(context) do
+      Telemetry::AcceptVpcEndpointConnections.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#accept_vpc_endpoint_connections] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -445,7 +445,7 @@ module AWS::SDK::EC2
         operation_name: :accept_vpc_peering_connection,
         tracer: tracer
       )
-      Telemetry::AcceptVpcPeeringConnection.span(context) do
+      Telemetry::AcceptVpcPeeringConnection.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#accept_vpc_peering_connection] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -509,7 +509,7 @@ module AWS::SDK::EC2
         operation_name: :advertise_byoip_cidr,
         tracer: tracer
       )
-      Telemetry::AdvertiseByoipCidr.span(context) do
+      Telemetry::AdvertiseByoipCidr.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#advertise_byoip_cidr] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -594,7 +594,7 @@ module AWS::SDK::EC2
         operation_name: :allocate_address,
         tracer: tracer
       )
-      Telemetry::AllocateAddress.span(context) do
+      Telemetry::AllocateAddress.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#allocate_address] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -659,7 +659,7 @@ module AWS::SDK::EC2
         operation_name: :allocate_hosts,
         tracer: tracer
       )
-      Telemetry::AllocateHosts.span(context) do
+      Telemetry::AllocateHosts.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#allocate_hosts] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -722,7 +722,7 @@ module AWS::SDK::EC2
         operation_name: :allocate_ipam_pool_cidr,
         tracer: tracer
       )
-      Telemetry::AllocateIpamPoolCidr.span(context) do
+      Telemetry::AllocateIpamPoolCidr.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#allocate_ipam_pool_cidr] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -769,7 +769,7 @@ module AWS::SDK::EC2
         operation_name: :apply_security_groups_to_client_vpn_target_network,
         tracer: tracer
       )
-      Telemetry::ApplySecurityGroupsToClientVpnTargetNetwork.span(context) do
+      Telemetry::ApplySecurityGroupsToClientVpnTargetNetwork.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#apply_security_groups_to_client_vpn_target_network] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -831,7 +831,7 @@ module AWS::SDK::EC2
         operation_name: :assign_ipv6_addresses,
         tracer: tracer
       )
-      Telemetry::AssignIpv6Addresses.span(context) do
+      Telemetry::AssignIpv6Addresses.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#assign_ipv6_addresses] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -921,7 +921,7 @@ module AWS::SDK::EC2
         operation_name: :assign_private_ip_addresses,
         tracer: tracer
       )
-      Telemetry::AssignPrivateIpAddresses.span(context) do
+      Telemetry::AssignPrivateIpAddresses.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#assign_private_ip_addresses] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -977,7 +977,7 @@ module AWS::SDK::EC2
         operation_name: :assign_private_nat_gateway_address,
         tracer: tracer
       )
-      Telemetry::AssignPrivateNatGatewayAddress.span(context) do
+      Telemetry::AssignPrivateNatGatewayAddress.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#assign_private_nat_gateway_address] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1062,7 +1062,7 @@ module AWS::SDK::EC2
         operation_name: :associate_address,
         tracer: tracer
       )
-      Telemetry::AssociateAddress.span(context) do
+      Telemetry::AssociateAddress.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#associate_address] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1109,7 +1109,7 @@ module AWS::SDK::EC2
         operation_name: :associate_client_vpn_target_network,
         tracer: tracer
       )
-      Telemetry::AssociateClientVpnTargetNetwork.span(context) do
+      Telemetry::AssociateClientVpnTargetNetwork.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#associate_client_vpn_target_network] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1171,7 +1171,7 @@ module AWS::SDK::EC2
         operation_name: :associate_dhcp_options,
         tracer: tracer
       )
-      Telemetry::AssociateDhcpOptions.span(context) do
+      Telemetry::AssociateDhcpOptions.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#associate_dhcp_options] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1227,7 +1227,7 @@ module AWS::SDK::EC2
         operation_name: :associate_enclave_certificate_iam_role,
         tracer: tracer
       )
-      Telemetry::AssociateEnclaveCertificateIamRole.span(context) do
+      Telemetry::AssociateEnclaveCertificateIamRole.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#associate_enclave_certificate_iam_role] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1300,7 +1300,7 @@ module AWS::SDK::EC2
         operation_name: :associate_iam_instance_profile,
         tracer: tracer
       )
-      Telemetry::AssociateIamInstanceProfile.span(context) do
+      Telemetry::AssociateIamInstanceProfile.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#associate_iam_instance_profile] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1378,7 +1378,7 @@ module AWS::SDK::EC2
         operation_name: :associate_instance_event_window,
         tracer: tracer
       )
-      Telemetry::AssociateInstanceEventWindow.span(context) do
+      Telemetry::AssociateInstanceEventWindow.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#associate_instance_event_window] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1427,7 +1427,7 @@ module AWS::SDK::EC2
         operation_name: :associate_ipam_byoasn,
         tracer: tracer
       )
-      Telemetry::AssociateIpamByoasn.span(context) do
+      Telemetry::AssociateIpamByoasn.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#associate_ipam_byoasn] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1495,7 +1495,7 @@ module AWS::SDK::EC2
         operation_name: :associate_ipam_resource_discovery,
         tracer: tracer
       )
-      Telemetry::AssociateIpamResourceDiscovery.span(context) do
+      Telemetry::AssociateIpamResourceDiscovery.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#associate_ipam_resource_discovery] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1558,7 +1558,7 @@ module AWS::SDK::EC2
         operation_name: :associate_nat_gateway_address,
         tracer: tracer
       )
-      Telemetry::AssociateNatGatewayAddress.span(context) do
+      Telemetry::AssociateNatGatewayAddress.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#associate_nat_gateway_address] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1621,7 +1621,7 @@ module AWS::SDK::EC2
         operation_name: :associate_route_table,
         tracer: tracer
       )
-      Telemetry::AssociateRouteTable.span(context) do
+      Telemetry::AssociateRouteTable.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#associate_route_table] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1671,7 +1671,7 @@ module AWS::SDK::EC2
         operation_name: :associate_subnet_cidr_block,
         tracer: tracer
       )
-      Telemetry::AssociateSubnetCidrBlock.span(context) do
+      Telemetry::AssociateSubnetCidrBlock.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#associate_subnet_cidr_block] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1727,7 +1727,7 @@ module AWS::SDK::EC2
         operation_name: :associate_transit_gateway_multicast_domain,
         tracer: tracer
       )
-      Telemetry::AssociateTransitGatewayMulticastDomain.span(context) do
+      Telemetry::AssociateTransitGatewayMulticastDomain.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#associate_transit_gateway_multicast_domain] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1774,7 +1774,7 @@ module AWS::SDK::EC2
         operation_name: :associate_transit_gateway_policy_table,
         tracer: tracer
       )
-      Telemetry::AssociateTransitGatewayPolicyTable.span(context) do
+      Telemetry::AssociateTransitGatewayPolicyTable.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#associate_transit_gateway_policy_table] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1822,7 +1822,7 @@ module AWS::SDK::EC2
         operation_name: :associate_transit_gateway_route_table,
         tracer: tracer
       )
-      Telemetry::AssociateTransitGatewayRouteTable.span(context) do
+      Telemetry::AssociateTransitGatewayRouteTable.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#associate_transit_gateway_route_table] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1880,7 +1880,7 @@ module AWS::SDK::EC2
         operation_name: :associate_trunk_interface,
         tracer: tracer
       )
-      Telemetry::AssociateTrunkInterface.span(context) do
+      Telemetry::AssociateTrunkInterface.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#associate_trunk_interface] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1948,7 +1948,7 @@ module AWS::SDK::EC2
         operation_name: :associate_vpc_cidr_block,
         tracer: tracer
       )
-      Telemetry::AssociateVpcCidrBlock.span(context) do
+      Telemetry::AssociateVpcCidrBlock.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#associate_vpc_cidr_block] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2002,7 +2002,7 @@ module AWS::SDK::EC2
         operation_name: :attach_classic_link_vpc,
         tracer: tracer
       )
-      Telemetry::AttachClassicLinkVpc.span(context) do
+      Telemetry::AttachClassicLinkVpc.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#attach_classic_link_vpc] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2054,7 +2054,7 @@ module AWS::SDK::EC2
         operation_name: :attach_internet_gateway,
         tracer: tracer
       )
-      Telemetry::AttachInternetGateway.span(context) do
+      Telemetry::AttachInternetGateway.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#attach_internet_gateway] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2117,7 +2117,7 @@ module AWS::SDK::EC2
         operation_name: :attach_network_interface,
         tracer: tracer
       )
-      Telemetry::AttachNetworkInterface.span(context) do
+      Telemetry::AttachNetworkInterface.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#attach_network_interface] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2200,7 +2200,7 @@ module AWS::SDK::EC2
         operation_name: :attach_verified_access_trust_provider,
         tracer: tracer
       )
-      Telemetry::AttachVerifiedAccessTrustProvider.span(context) do
+      Telemetry::AttachVerifiedAccessTrustProvider.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#attach_verified_access_trust_provider] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2290,7 +2290,7 @@ module AWS::SDK::EC2
         operation_name: :attach_volume,
         tracer: tracer
       )
-      Telemetry::AttachVolume.span(context) do
+      Telemetry::AttachVolume.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#attach_volume] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2337,7 +2337,7 @@ module AWS::SDK::EC2
         operation_name: :attach_vpn_gateway,
         tracer: tracer
       )
-      Telemetry::AttachVpnGateway.span(context) do
+      Telemetry::AttachVpnGateway.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#attach_vpn_gateway] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2387,7 +2387,7 @@ module AWS::SDK::EC2
         operation_name: :authorize_client_vpn_ingress,
         tracer: tracer
       )
-      Telemetry::AuthorizeClientVpnIngress.span(context) do
+      Telemetry::AuthorizeClientVpnIngress.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#authorize_client_vpn_ingress] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2560,7 +2560,7 @@ module AWS::SDK::EC2
         operation_name: :authorize_security_group_egress,
         tracer: tracer
       )
-      Telemetry::AuthorizeSecurityGroupEgress.span(context) do
+      Telemetry::AuthorizeSecurityGroupEgress.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#authorize_security_group_egress] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2752,7 +2752,7 @@ module AWS::SDK::EC2
         operation_name: :authorize_security_group_ingress,
         tracer: tracer
       )
-      Telemetry::AuthorizeSecurityGroupIngress.span(context) do
+      Telemetry::AuthorizeSecurityGroupIngress.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#authorize_security_group_ingress] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2822,7 +2822,7 @@ module AWS::SDK::EC2
         operation_name: :bundle_instance,
         tracer: tracer
       )
-      Telemetry::BundleInstance.span(context) do
+      Telemetry::BundleInstance.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#bundle_instance] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2879,7 +2879,7 @@ module AWS::SDK::EC2
         operation_name: :cancel_bundle_task,
         tracer: tracer
       )
-      Telemetry::CancelBundleTask.span(context) do
+      Telemetry::CancelBundleTask.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#cancel_bundle_task] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2925,7 +2925,7 @@ module AWS::SDK::EC2
         operation_name: :cancel_capacity_reservation,
         tracer: tracer
       )
-      Telemetry::CancelCapacityReservation.span(context) do
+      Telemetry::CancelCapacityReservation.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#cancel_capacity_reservation] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2992,7 +2992,7 @@ module AWS::SDK::EC2
         operation_name: :cancel_capacity_reservation_fleets,
         tracer: tracer
       )
-      Telemetry::CancelCapacityReservationFleets.span(context) do
+      Telemetry::CancelCapacityReservationFleets.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#cancel_capacity_reservation_fleets] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3037,7 +3037,7 @@ module AWS::SDK::EC2
         operation_name: :cancel_conversion_task,
         tracer: tracer
       )
-      Telemetry::CancelConversionTask.span(context) do
+      Telemetry::CancelConversionTask.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#cancel_conversion_task] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3078,7 +3078,7 @@ module AWS::SDK::EC2
         operation_name: :cancel_export_task,
         tracer: tracer
       )
-      Telemetry::CancelExportTask.span(context) do
+      Telemetry::CancelExportTask.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#cancel_export_task] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3122,7 +3122,7 @@ module AWS::SDK::EC2
         operation_name: :cancel_image_launch_permission,
         tracer: tracer
       )
-      Telemetry::CancelImageLaunchPermission.span(context) do
+      Telemetry::CancelImageLaunchPermission.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#cancel_image_launch_permission] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3166,7 +3166,7 @@ module AWS::SDK::EC2
         operation_name: :cancel_import_task,
         tracer: tracer
       )
-      Telemetry::CancelImportTask.span(context) do
+      Telemetry::CancelImportTask.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#cancel_import_task] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3231,7 +3231,7 @@ module AWS::SDK::EC2
         operation_name: :cancel_reserved_instances_listing,
         tracer: tracer
       )
-      Telemetry::CancelReservedInstancesListing.span(context) do
+      Telemetry::CancelReservedInstancesListing.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#cancel_reserved_instances_listing] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3329,7 +3329,7 @@ module AWS::SDK::EC2
         operation_name: :cancel_spot_fleet_requests,
         tracer: tracer
       )
-      Telemetry::CancelSpotFleetRequests.span(context) do
+      Telemetry::CancelSpotFleetRequests.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#cancel_spot_fleet_requests] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3396,7 +3396,7 @@ module AWS::SDK::EC2
         operation_name: :cancel_spot_instance_requests,
         tracer: tracer
       )
-      Telemetry::CancelSpotInstanceRequests.span(context) do
+      Telemetry::CancelSpotInstanceRequests.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#cancel_spot_instance_requests] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3452,7 +3452,7 @@ module AWS::SDK::EC2
         operation_name: :confirm_product_instance,
         tracer: tracer
       )
-      Telemetry::ConfirmProductInstance.span(context) do
+      Telemetry::ConfirmProductInstance.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#confirm_product_instance] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3497,7 +3497,7 @@ module AWS::SDK::EC2
         operation_name: :copy_fpga_image,
         tracer: tracer
       )
-      Telemetry::CopyFpgaImage.span(context) do
+      Telemetry::CopyFpgaImage.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#copy_fpga_image] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3577,7 +3577,7 @@ module AWS::SDK::EC2
         operation_name: :copy_image,
         tracer: tracer
       )
-      Telemetry::CopyImage.span(context) do
+      Telemetry::CopyImage.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#copy_image] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3672,7 +3672,7 @@ module AWS::SDK::EC2
         operation_name: :copy_snapshot,
         tracer: tracer
       )
-      Telemetry::CopySnapshot.span(context) do
+      Telemetry::CopySnapshot.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#copy_snapshot] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3781,7 +3781,7 @@ module AWS::SDK::EC2
         operation_name: :create_capacity_reservation,
         tracer: tracer
       )
-      Telemetry::CreateCapacityReservation.span(context) do
+      Telemetry::CreateCapacityReservation.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_capacity_reservation] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3875,7 +3875,7 @@ module AWS::SDK::EC2
         operation_name: :create_capacity_reservation_fleet,
         tracer: tracer
       )
-      Telemetry::CreateCapacityReservationFleet.span(context) do
+      Telemetry::CreateCapacityReservationFleet.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_capacity_reservation_fleet] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3936,7 +3936,7 @@ module AWS::SDK::EC2
         operation_name: :create_carrier_gateway,
         tracer: tracer
       )
-      Telemetry::CreateCarrierGateway.span(context) do
+      Telemetry::CreateCarrierGateway.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_carrier_gateway] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4037,7 +4037,7 @@ module AWS::SDK::EC2
         operation_name: :create_client_vpn_endpoint,
         tracer: tracer
       )
-      Telemetry::CreateClientVpnEndpoint.span(context) do
+      Telemetry::CreateClientVpnEndpoint.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_client_vpn_endpoint] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4085,7 +4085,7 @@ module AWS::SDK::EC2
         operation_name: :create_client_vpn_route,
         tracer: tracer
       )
-      Telemetry::CreateClientVpnRoute.span(context) do
+      Telemetry::CreateClientVpnRoute.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_client_vpn_route] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4132,7 +4132,7 @@ module AWS::SDK::EC2
         operation_name: :create_coip_cidr,
         tracer: tracer
       )
-      Telemetry::CreateCoipCidr.span(context) do
+      Telemetry::CreateCoipCidr.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_coip_cidr] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4193,7 +4193,7 @@ module AWS::SDK::EC2
         operation_name: :create_coip_pool,
         tracer: tracer
       )
-      Telemetry::CreateCoipPool.span(context) do
+      Telemetry::CreateCoipPool.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_coip_pool] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4292,7 +4292,7 @@ module AWS::SDK::EC2
         operation_name: :create_customer_gateway,
         tracer: tracer
       )
-      Telemetry::CreateCustomerGateway.span(context) do
+      Telemetry::CreateCustomerGateway.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_customer_gateway] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4370,7 +4370,7 @@ module AWS::SDK::EC2
         operation_name: :create_default_subnet,
         tracer: tracer
       )
-      Telemetry::CreateDefaultSubnet.span(context) do
+      Telemetry::CreateDefaultSubnet.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_default_subnet] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4441,7 +4441,7 @@ module AWS::SDK::EC2
         operation_name: :create_default_vpc,
         tracer: tracer
       )
-      Telemetry::CreateDefaultVpc.span(context) do
+      Telemetry::CreateDefaultVpc.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_default_vpc] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4596,7 +4596,7 @@ module AWS::SDK::EC2
         operation_name: :create_dhcp_options,
         tracer: tracer
       )
-      Telemetry::CreateDhcpOptions.span(context) do
+      Telemetry::CreateDhcpOptions.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_dhcp_options] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4662,7 +4662,7 @@ module AWS::SDK::EC2
         operation_name: :create_egress_only_internet_gateway,
         tracer: tracer
       )
-      Telemetry::CreateEgressOnlyInternetGateway.span(context) do
+      Telemetry::CreateEgressOnlyInternetGateway.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_egress_only_internet_gateway] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4936,7 +4936,7 @@ module AWS::SDK::EC2
         operation_name: :create_fleet,
         tracer: tracer
       )
-      Telemetry::CreateFleet.span(context) do
+      Telemetry::CreateFleet.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_fleet] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5023,7 +5023,7 @@ module AWS::SDK::EC2
         operation_name: :create_flow_logs,
         tracer: tracer
       )
-      Telemetry::CreateFlowLogs.span(context) do
+      Telemetry::CreateFlowLogs.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_flow_logs] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5087,7 +5087,7 @@ module AWS::SDK::EC2
         operation_name: :create_fpga_image,
         tracer: tracer
       )
-      Telemetry::CreateFpgaImage.span(context) do
+      Telemetry::CreateFpgaImage.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_fpga_image] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5166,7 +5166,7 @@ module AWS::SDK::EC2
         operation_name: :create_image,
         tracer: tracer
       )
-      Telemetry::CreateImage.span(context) do
+      Telemetry::CreateImage.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_image] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5248,7 +5248,7 @@ module AWS::SDK::EC2
         operation_name: :create_instance_connect_endpoint,
         tracer: tracer
       )
-      Telemetry::CreateInstanceConnectEndpoint.span(context) do
+      Telemetry::CreateInstanceConnectEndpoint.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_instance_connect_endpoint] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5351,7 +5351,7 @@ module AWS::SDK::EC2
         operation_name: :create_instance_event_window,
         tracer: tracer
       )
-      Telemetry::CreateInstanceEventWindow.span(context) do
+      Telemetry::CreateInstanceEventWindow.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_instance_event_window] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5429,7 +5429,7 @@ module AWS::SDK::EC2
         operation_name: :create_instance_export_task,
         tracer: tracer
       )
-      Telemetry::CreateInstanceExportTask.span(context) do
+      Telemetry::CreateInstanceExportTask.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_instance_export_task] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5508,7 +5508,7 @@ module AWS::SDK::EC2
         operation_name: :create_internet_gateway,
         tracer: tracer
       )
-      Telemetry::CreateInternetGateway.span(context) do
+      Telemetry::CreateInternetGateway.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_internet_gateway] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5593,7 +5593,7 @@ module AWS::SDK::EC2
         operation_name: :create_ipam,
         tracer: tracer
       )
-      Telemetry::CreateIpam.span(context) do
+      Telemetry::CreateIpam.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_ipam] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5705,7 +5705,7 @@ module AWS::SDK::EC2
         operation_name: :create_ipam_pool,
         tracer: tracer
       )
-      Telemetry::CreateIpamPool.span(context) do
+      Telemetry::CreateIpamPool.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_ipam_pool] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5777,7 +5777,7 @@ module AWS::SDK::EC2
         operation_name: :create_ipam_resource_discovery,
         tracer: tracer
       )
-      Telemetry::CreateIpamResourceDiscovery.span(context) do
+      Telemetry::CreateIpamResourceDiscovery.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_ipam_resource_discovery] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5846,7 +5846,7 @@ module AWS::SDK::EC2
         operation_name: :create_ipam_scope,
         tracer: tracer
       )
-      Telemetry::CreateIpamScope.span(context) do
+      Telemetry::CreateIpamScope.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_ipam_scope] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5925,7 +5925,7 @@ module AWS::SDK::EC2
         operation_name: :create_key_pair,
         tracer: tracer
       )
-      Telemetry::CreateKeyPair.span(context) do
+      Telemetry::CreateKeyPair.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_key_pair] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -6284,7 +6284,7 @@ module AWS::SDK::EC2
         operation_name: :create_launch_template,
         tracer: tracer
       )
-      Telemetry::CreateLaunchTemplate.span(context) do
+      Telemetry::CreateLaunchTemplate.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_launch_template] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -6823,7 +6823,7 @@ module AWS::SDK::EC2
         operation_name: :create_launch_template_version,
         tracer: tracer
       )
-      Telemetry::CreateLaunchTemplateVersion.span(context) do
+      Telemetry::CreateLaunchTemplateVersion.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_launch_template_version] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -6892,7 +6892,7 @@ module AWS::SDK::EC2
         operation_name: :create_local_gateway_route,
         tracer: tracer
       )
-      Telemetry::CreateLocalGatewayRoute.span(context) do
+      Telemetry::CreateLocalGatewayRoute.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_local_gateway_route] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -6961,7 +6961,7 @@ module AWS::SDK::EC2
         operation_name: :create_local_gateway_route_table,
         tracer: tracer
       )
-      Telemetry::CreateLocalGatewayRouteTable.span(context) do
+      Telemetry::CreateLocalGatewayRouteTable.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_local_gateway_route_table] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -7027,7 +7027,7 @@ module AWS::SDK::EC2
         operation_name: :create_local_gateway_route_table_virtual_interface_group_association,
         tracer: tracer
       )
-      Telemetry::CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation.span(context) do
+      Telemetry::CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_local_gateway_route_table_virtual_interface_group_association] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -7091,7 +7091,7 @@ module AWS::SDK::EC2
         operation_name: :create_local_gateway_route_table_vpc_association,
         tracer: tracer
       )
-      Telemetry::CreateLocalGatewayRouteTableVpcAssociation.span(context) do
+      Telemetry::CreateLocalGatewayRouteTableVpcAssociation.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_local_gateway_route_table_vpc_association] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -7166,7 +7166,7 @@ module AWS::SDK::EC2
         operation_name: :create_managed_prefix_list,
         tracer: tracer
       )
-      Telemetry::CreateManagedPrefixList.span(context) do
+      Telemetry::CreateManagedPrefixList.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_managed_prefix_list] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -7294,7 +7294,7 @@ module AWS::SDK::EC2
         operation_name: :create_nat_gateway,
         tracer: tracer
       )
-      Telemetry::CreateNatGateway.span(context) do
+      Telemetry::CreateNatGateway.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_nat_gateway] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -7413,7 +7413,7 @@ module AWS::SDK::EC2
         operation_name: :create_network_acl,
         tracer: tracer
       )
-      Telemetry::CreateNetworkAcl.span(context) do
+      Telemetry::CreateNetworkAcl.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_network_acl] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -7492,7 +7492,7 @@ module AWS::SDK::EC2
         operation_name: :create_network_acl_entry,
         tracer: tracer
       )
-      Telemetry::CreateNetworkAclEntry.span(context) do
+      Telemetry::CreateNetworkAclEntry.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_network_acl_entry] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -7598,7 +7598,7 @@ module AWS::SDK::EC2
         operation_name: :create_network_insights_access_scope,
         tracer: tracer
       )
-      Telemetry::CreateNetworkInsightsAccessScope.span(context) do
+      Telemetry::CreateNetworkInsightsAccessScope.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_network_insights_access_scope] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -7690,7 +7690,7 @@ module AWS::SDK::EC2
         operation_name: :create_network_insights_path,
         tracer: tracer
       )
-      Telemetry::CreateNetworkInsightsPath.span(context) do
+      Telemetry::CreateNetworkInsightsPath.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_network_insights_path] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -7854,7 +7854,7 @@ module AWS::SDK::EC2
         operation_name: :create_network_interface,
         tracer: tracer
       )
-      Telemetry::CreateNetworkInterface.span(context) do
+      Telemetry::CreateNetworkInterface.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_network_interface] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -7908,7 +7908,7 @@ module AWS::SDK::EC2
         operation_name: :create_network_interface_permission,
         tracer: tracer
       )
-      Telemetry::CreateNetworkInterfacePermission.span(context) do
+      Telemetry::CreateNetworkInterfacePermission.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_network_interface_permission] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -7992,7 +7992,7 @@ module AWS::SDK::EC2
         operation_name: :create_placement_group,
         tracer: tracer
       )
-      Telemetry::CreatePlacementGroup.span(context) do
+      Telemetry::CreatePlacementGroup.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_placement_group] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -8043,7 +8043,7 @@ module AWS::SDK::EC2
         operation_name: :create_public_ipv4_pool,
         tracer: tracer
       )
-      Telemetry::CreatePublicIpv4Pool.span(context) do
+      Telemetry::CreatePublicIpv4Pool.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_public_ipv4_pool] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -8115,7 +8115,7 @@ module AWS::SDK::EC2
         operation_name: :create_replace_root_volume_task,
         tracer: tracer
       )
-      Telemetry::CreateReplaceRootVolumeTask.span(context) do
+      Telemetry::CreateReplaceRootVolumeTask.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_replace_root_volume_task] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -8201,7 +8201,7 @@ module AWS::SDK::EC2
         operation_name: :create_reserved_instances_listing,
         tracer: tracer
       )
-      Telemetry::CreateReservedInstancesListing.span(context) do
+      Telemetry::CreateReservedInstancesListing.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_reserved_instances_listing] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -8260,7 +8260,7 @@ module AWS::SDK::EC2
         operation_name: :create_restore_image_task,
         tracer: tracer
       )
-      Telemetry::CreateRestoreImageTask.span(context) do
+      Telemetry::CreateRestoreImageTask.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_restore_image_task] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -8345,7 +8345,7 @@ module AWS::SDK::EC2
         operation_name: :create_route,
         tracer: tracer
       )
-      Telemetry::CreateRoute.span(context) do
+      Telemetry::CreateRoute.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_route] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -8468,7 +8468,7 @@ module AWS::SDK::EC2
         operation_name: :create_route_table,
         tracer: tracer
       )
-      Telemetry::CreateRouteTable.span(context) do
+      Telemetry::CreateRouteTable.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_route_table] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -8556,7 +8556,7 @@ module AWS::SDK::EC2
         operation_name: :create_security_group,
         tracer: tracer
       )
-      Telemetry::CreateSecurityGroup.span(context) do
+      Telemetry::CreateSecurityGroup.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_security_group] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -8674,7 +8674,7 @@ module AWS::SDK::EC2
         operation_name: :create_snapshot,
         tracer: tracer
       )
-      Telemetry::CreateSnapshot.span(context) do
+      Telemetry::CreateSnapshot.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_snapshot] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -8760,7 +8760,7 @@ module AWS::SDK::EC2
         operation_name: :create_snapshots,
         tracer: tracer
       )
-      Telemetry::CreateSnapshots.span(context) do
+      Telemetry::CreateSnapshots.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_snapshots] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -8828,7 +8828,7 @@ module AWS::SDK::EC2
         operation_name: :create_spot_datafeed_subscription,
         tracer: tracer
       )
-      Telemetry::CreateSpotDatafeedSubscription.span(context) do
+      Telemetry::CreateSpotDatafeedSubscription.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_spot_datafeed_subscription] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -8880,7 +8880,7 @@ module AWS::SDK::EC2
         operation_name: :create_store_image_task,
         tracer: tracer
       )
-      Telemetry::CreateStoreImageTask.span(context) do
+      Telemetry::CreateStoreImageTask.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_store_image_task] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -9009,7 +9009,7 @@ module AWS::SDK::EC2
         operation_name: :create_subnet,
         tracer: tracer
       )
-      Telemetry::CreateSubnet.span(context) do
+      Telemetry::CreateSubnet.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_subnet] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -9076,7 +9076,7 @@ module AWS::SDK::EC2
         operation_name: :create_subnet_cidr_reservation,
         tracer: tracer
       )
-      Telemetry::CreateSubnetCidrReservation.span(context) do
+      Telemetry::CreateSubnetCidrReservation.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_subnet_cidr_reservation] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -9148,7 +9148,7 @@ module AWS::SDK::EC2
         operation_name: :create_tags,
         tracer: tracer
       )
-      Telemetry::CreateTags.span(context) do
+      Telemetry::CreateTags.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_tags] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -9229,7 +9229,7 @@ module AWS::SDK::EC2
         operation_name: :create_traffic_mirror_filter,
         tracer: tracer
       )
-      Telemetry::CreateTrafficMirrorFilter.span(context) do
+      Telemetry::CreateTrafficMirrorFilter.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_traffic_mirror_filter] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -9298,7 +9298,7 @@ module AWS::SDK::EC2
         operation_name: :create_traffic_mirror_filter_rule,
         tracer: tracer
       )
-      Telemetry::CreateTrafficMirrorFilterRule.span(context) do
+      Telemetry::CreateTrafficMirrorFilterRule.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_traffic_mirror_filter_rule] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -9377,7 +9377,7 @@ module AWS::SDK::EC2
         operation_name: :create_traffic_mirror_session,
         tracer: tracer
       )
-      Telemetry::CreateTrafficMirrorSession.span(context) do
+      Telemetry::CreateTrafficMirrorSession.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_traffic_mirror_session] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -9450,7 +9450,7 @@ module AWS::SDK::EC2
         operation_name: :create_traffic_mirror_target,
         tracer: tracer
       )
-      Telemetry::CreateTrafficMirrorTarget.span(context) do
+      Telemetry::CreateTrafficMirrorTarget.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_traffic_mirror_target] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -9550,7 +9550,7 @@ module AWS::SDK::EC2
         operation_name: :create_transit_gateway,
         tracer: tracer
       )
-      Telemetry::CreateTransitGateway.span(context) do
+      Telemetry::CreateTransitGateway.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_transit_gateway] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -9617,7 +9617,7 @@ module AWS::SDK::EC2
         operation_name: :create_transit_gateway_connect,
         tracer: tracer
       )
-      Telemetry::CreateTransitGatewayConnect.span(context) do
+      Telemetry::CreateTransitGatewayConnect.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_transit_gateway_connect] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -9701,7 +9701,7 @@ module AWS::SDK::EC2
         operation_name: :create_transit_gateway_connect_peer,
         tracer: tracer
       )
-      Telemetry::CreateTransitGatewayConnectPeer.span(context) do
+      Telemetry::CreateTransitGatewayConnectPeer.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_transit_gateway_connect_peer] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -9773,7 +9773,7 @@ module AWS::SDK::EC2
         operation_name: :create_transit_gateway_multicast_domain,
         tracer: tracer
       )
-      Telemetry::CreateTransitGatewayMulticastDomain.span(context) do
+      Telemetry::CreateTransitGatewayMulticastDomain.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_transit_gateway_multicast_domain] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -9854,7 +9854,7 @@ module AWS::SDK::EC2
         operation_name: :create_transit_gateway_peering_attachment,
         tracer: tracer
       )
-      Telemetry::CreateTransitGatewayPeeringAttachment.span(context) do
+      Telemetry::CreateTransitGatewayPeeringAttachment.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_transit_gateway_peering_attachment] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -9914,7 +9914,7 @@ module AWS::SDK::EC2
         operation_name: :create_transit_gateway_policy_table,
         tracer: tracer
       )
-      Telemetry::CreateTransitGatewayPolicyTable.span(context) do
+      Telemetry::CreateTransitGatewayPolicyTable.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_transit_gateway_policy_table] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -9967,7 +9967,7 @@ module AWS::SDK::EC2
         operation_name: :create_transit_gateway_prefix_list_reference,
         tracer: tracer
       )
-      Telemetry::CreateTransitGatewayPrefixListReference.span(context) do
+      Telemetry::CreateTransitGatewayPrefixListReference.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_transit_gateway_prefix_list_reference] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -10021,7 +10021,7 @@ module AWS::SDK::EC2
         operation_name: :create_transit_gateway_route,
         tracer: tracer
       )
-      Telemetry::CreateTransitGatewayRoute.span(context) do
+      Telemetry::CreateTransitGatewayRoute.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_transit_gateway_route] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -10083,7 +10083,7 @@ module AWS::SDK::EC2
         operation_name: :create_transit_gateway_route_table,
         tracer: tracer
       )
-      Telemetry::CreateTransitGatewayRouteTable.span(context) do
+      Telemetry::CreateTransitGatewayRouteTable.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_transit_gateway_route_table] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -10150,7 +10150,7 @@ module AWS::SDK::EC2
         operation_name: :create_transit_gateway_route_table_announcement,
         tracer: tracer
       )
-      Telemetry::CreateTransitGatewayRouteTableAnnouncement.span(context) do
+      Telemetry::CreateTransitGatewayRouteTableAnnouncement.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_transit_gateway_route_table_announcement] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -10232,7 +10232,7 @@ module AWS::SDK::EC2
         operation_name: :create_transit_gateway_vpc_attachment,
         tracer: tracer
       )
-      Telemetry::CreateTransitGatewayVpcAttachment.span(context) do
+      Telemetry::CreateTransitGatewayVpcAttachment.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_transit_gateway_vpc_attachment] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -10347,7 +10347,7 @@ module AWS::SDK::EC2
         operation_name: :create_verified_access_endpoint,
         tracer: tracer
       )
-      Telemetry::CreateVerifiedAccessEndpoint.span(context) do
+      Telemetry::CreateVerifiedAccessEndpoint.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_verified_access_endpoint] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -10424,7 +10424,7 @@ module AWS::SDK::EC2
         operation_name: :create_verified_access_group,
         tracer: tracer
       )
-      Telemetry::CreateVerifiedAccessGroup.span(context) do
+      Telemetry::CreateVerifiedAccessGroup.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_verified_access_group] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -10495,7 +10495,7 @@ module AWS::SDK::EC2
         operation_name: :create_verified_access_instance,
         tracer: tracer
       )
-      Telemetry::CreateVerifiedAccessInstance.span(context) do
+      Telemetry::CreateVerifiedAccessInstance.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_verified_access_instance] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -10598,7 +10598,7 @@ module AWS::SDK::EC2
         operation_name: :create_verified_access_trust_provider,
         tracer: tracer
       )
-      Telemetry::CreateVerifiedAccessTrustProvider.span(context) do
+      Telemetry::CreateVerifiedAccessTrustProvider.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_verified_access_trust_provider] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -10744,7 +10744,7 @@ module AWS::SDK::EC2
         operation_name: :create_volume,
         tracer: tracer
       )
-      Telemetry::CreateVolume.span(context) do
+      Telemetry::CreateVolume.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_volume] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -10857,7 +10857,7 @@ module AWS::SDK::EC2
         operation_name: :create_vpc,
         tracer: tracer
       )
-      Telemetry::CreateVpc.span(context) do
+      Telemetry::CreateVpc.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_vpc] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -10972,7 +10972,7 @@ module AWS::SDK::EC2
         operation_name: :create_vpc_endpoint,
         tracer: tracer
       )
-      Telemetry::CreateVpcEndpoint.span(context) do
+      Telemetry::CreateVpcEndpoint.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_vpc_endpoint] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -11032,7 +11032,7 @@ module AWS::SDK::EC2
         operation_name: :create_vpc_endpoint_connection_notification,
         tracer: tracer
       )
-      Telemetry::CreateVpcEndpointConnectionNotification.span(context) do
+      Telemetry::CreateVpcEndpointConnectionNotification.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_vpc_endpoint_connection_notification] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -11132,7 +11132,7 @@ module AWS::SDK::EC2
         operation_name: :create_vpc_endpoint_service_configuration,
         tracer: tracer
       )
-      Telemetry::CreateVpcEndpointServiceConfiguration.span(context) do
+      Telemetry::CreateVpcEndpointServiceConfiguration.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_vpc_endpoint_service_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -11224,7 +11224,7 @@ module AWS::SDK::EC2
         operation_name: :create_vpc_peering_connection,
         tracer: tracer
       )
-      Telemetry::CreateVpcPeeringConnection.span(context) do
+      Telemetry::CreateVpcPeeringConnection.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_vpc_peering_connection] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -11443,7 +11443,7 @@ module AWS::SDK::EC2
         operation_name: :create_vpn_connection,
         tracer: tracer
       )
-      Telemetry::CreateVpnConnection.span(context) do
+      Telemetry::CreateVpnConnection.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_vpn_connection] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -11487,7 +11487,7 @@ module AWS::SDK::EC2
         operation_name: :create_vpn_connection_route,
         tracer: tracer
       )
-      Telemetry::CreateVpnConnectionRoute.span(context) do
+      Telemetry::CreateVpnConnectionRoute.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_vpn_connection_route] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -11558,7 +11558,7 @@ module AWS::SDK::EC2
         operation_name: :create_vpn_gateway,
         tracer: tracer
       )
-      Telemetry::CreateVpnGateway.span(context) do
+      Telemetry::CreateVpnGateway.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_vpn_gateway] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -11612,7 +11612,7 @@ module AWS::SDK::EC2
         operation_name: :delete_carrier_gateway,
         tracer: tracer
       )
-      Telemetry::DeleteCarrierGateway.span(context) do
+      Telemetry::DeleteCarrierGateway.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_carrier_gateway] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -11656,7 +11656,7 @@ module AWS::SDK::EC2
         operation_name: :delete_client_vpn_endpoint,
         tracer: tracer
       )
-      Telemetry::DeleteClientVpnEndpoint.span(context) do
+      Telemetry::DeleteClientVpnEndpoint.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_client_vpn_endpoint] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -11704,7 +11704,7 @@ module AWS::SDK::EC2
         operation_name: :delete_client_vpn_route,
         tracer: tracer
       )
-      Telemetry::DeleteClientVpnRoute.span(context) do
+      Telemetry::DeleteClientVpnRoute.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_client_vpn_route] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -11751,7 +11751,7 @@ module AWS::SDK::EC2
         operation_name: :delete_coip_cidr,
         tracer: tracer
       )
-      Telemetry::DeleteCoipCidr.span(context) do
+      Telemetry::DeleteCoipCidr.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_coip_cidr] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -11801,7 +11801,7 @@ module AWS::SDK::EC2
         operation_name: :delete_coip_pool,
         tracer: tracer
       )
-      Telemetry::DeleteCoipPool.span(context) do
+      Telemetry::DeleteCoipPool.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_coip_pool] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -11850,7 +11850,7 @@ module AWS::SDK::EC2
         operation_name: :delete_customer_gateway,
         tracer: tracer
       )
-      Telemetry::DeleteCustomerGateway.span(context) do
+      Telemetry::DeleteCustomerGateway.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_customer_gateway] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -11898,7 +11898,7 @@ module AWS::SDK::EC2
         operation_name: :delete_dhcp_options,
         tracer: tracer
       )
-      Telemetry::DeleteDhcpOptions.span(context) do
+      Telemetry::DeleteDhcpOptions.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_dhcp_options] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -11939,7 +11939,7 @@ module AWS::SDK::EC2
         operation_name: :delete_egress_only_internet_gateway,
         tracer: tracer
       )
-      Telemetry::DeleteEgressOnlyInternetGateway.span(context) do
+      Telemetry::DeleteEgressOnlyInternetGateway.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_egress_only_internet_gateway] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -12018,7 +12018,7 @@ module AWS::SDK::EC2
         operation_name: :delete_fleets,
         tracer: tracer
       )
-      Telemetry::DeleteFleets.span(context) do
+      Telemetry::DeleteFleets.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_fleets] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -12066,7 +12066,7 @@ module AWS::SDK::EC2
         operation_name: :delete_flow_logs,
         tracer: tracer
       )
-      Telemetry::DeleteFlowLogs.span(context) do
+      Telemetry::DeleteFlowLogs.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_flow_logs] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -12107,7 +12107,7 @@ module AWS::SDK::EC2
         operation_name: :delete_fpga_image,
         tracer: tracer
       )
-      Telemetry::DeleteFpgaImage.span(context) do
+      Telemetry::DeleteFpgaImage.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_fpga_image] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -12168,7 +12168,7 @@ module AWS::SDK::EC2
         operation_name: :delete_instance_connect_endpoint,
         tracer: tracer
       )
-      Telemetry::DeleteInstanceConnectEndpoint.span(context) do
+      Telemetry::DeleteInstanceConnectEndpoint.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_instance_connect_endpoint] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -12214,7 +12214,7 @@ module AWS::SDK::EC2
         operation_name: :delete_instance_event_window,
         tracer: tracer
       )
-      Telemetry::DeleteInstanceEventWindow.span(context) do
+      Telemetry::DeleteInstanceEventWindow.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_instance_event_window] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -12263,7 +12263,7 @@ module AWS::SDK::EC2
         operation_name: :delete_internet_gateway,
         tracer: tracer
       )
-      Telemetry::DeleteInternetGateway.span(context) do
+      Telemetry::DeleteInternetGateway.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_internet_gateway] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -12328,7 +12328,7 @@ module AWS::SDK::EC2
         operation_name: :delete_ipam,
         tracer: tracer
       )
-      Telemetry::DeleteIpam.span(context) do
+      Telemetry::DeleteIpam.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_ipam] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -12411,7 +12411,7 @@ module AWS::SDK::EC2
         operation_name: :delete_ipam_pool,
         tracer: tracer
       )
-      Telemetry::DeleteIpamPool.span(context) do
+      Telemetry::DeleteIpamPool.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_ipam_pool] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -12466,7 +12466,7 @@ module AWS::SDK::EC2
         operation_name: :delete_ipam_resource_discovery,
         tracer: tracer
       )
-      Telemetry::DeleteIpamResourceDiscovery.span(context) do
+      Telemetry::DeleteIpamResourceDiscovery.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_ipam_resource_discovery] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -12523,7 +12523,7 @@ module AWS::SDK::EC2
         operation_name: :delete_ipam_scope,
         tracer: tracer
       )
-      Telemetry::DeleteIpamScope.span(context) do
+      Telemetry::DeleteIpamScope.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_ipam_scope] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -12574,7 +12574,7 @@ module AWS::SDK::EC2
         operation_name: :delete_key_pair,
         tracer: tracer
       )
-      Telemetry::DeleteKeyPair.span(context) do
+      Telemetry::DeleteKeyPair.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_key_pair] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -12644,7 +12644,7 @@ module AWS::SDK::EC2
         operation_name: :delete_launch_template,
         tracer: tracer
       )
-      Telemetry::DeleteLaunchTemplate.span(context) do
+      Telemetry::DeleteLaunchTemplate.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_launch_template] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -12731,7 +12731,7 @@ module AWS::SDK::EC2
         operation_name: :delete_launch_template_versions,
         tracer: tracer
       )
-      Telemetry::DeleteLaunchTemplateVersions.span(context) do
+      Telemetry::DeleteLaunchTemplateVersions.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_launch_template_versions] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -12785,7 +12785,7 @@ module AWS::SDK::EC2
         operation_name: :delete_local_gateway_route,
         tracer: tracer
       )
-      Telemetry::DeleteLocalGatewayRoute.span(context) do
+      Telemetry::DeleteLocalGatewayRoute.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_local_gateway_route] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -12842,7 +12842,7 @@ module AWS::SDK::EC2
         operation_name: :delete_local_gateway_route_table,
         tracer: tracer
       )
-      Telemetry::DeleteLocalGatewayRouteTable.span(context) do
+      Telemetry::DeleteLocalGatewayRouteTable.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_local_gateway_route_table] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -12896,7 +12896,7 @@ module AWS::SDK::EC2
         operation_name: :delete_local_gateway_route_table_virtual_interface_group_association,
         tracer: tracer
       )
-      Telemetry::DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation.span(context) do
+      Telemetry::DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_local_gateway_route_table_virtual_interface_group_association] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -12948,7 +12948,7 @@ module AWS::SDK::EC2
         operation_name: :delete_local_gateway_route_table_vpc_association,
         tracer: tracer
       )
-      Telemetry::DeleteLocalGatewayRouteTableVpcAssociation.span(context) do
+      Telemetry::DeleteLocalGatewayRouteTableVpcAssociation.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_local_gateway_route_table_vpc_association] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -13002,7 +13002,7 @@ module AWS::SDK::EC2
         operation_name: :delete_managed_prefix_list,
         tracer: tracer
       )
-      Telemetry::DeleteManagedPrefixList.span(context) do
+      Telemetry::DeleteManagedPrefixList.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_managed_prefix_list] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -13055,7 +13055,7 @@ module AWS::SDK::EC2
         operation_name: :delete_nat_gateway,
         tracer: tracer
       )
-      Telemetry::DeleteNatGateway.span(context) do
+      Telemetry::DeleteNatGateway.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_nat_gateway] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -13103,7 +13103,7 @@ module AWS::SDK::EC2
         operation_name: :delete_network_acl,
         tracer: tracer
       )
-      Telemetry::DeleteNetworkAcl.span(context) do
+      Telemetry::DeleteNetworkAcl.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_network_acl] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -13155,7 +13155,7 @@ module AWS::SDK::EC2
         operation_name: :delete_network_acl_entry,
         tracer: tracer
       )
-      Telemetry::DeleteNetworkAclEntry.span(context) do
+      Telemetry::DeleteNetworkAclEntry.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_network_acl_entry] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -13196,7 +13196,7 @@ module AWS::SDK::EC2
         operation_name: :delete_network_insights_access_scope,
         tracer: tracer
       )
-      Telemetry::DeleteNetworkInsightsAccessScope.span(context) do
+      Telemetry::DeleteNetworkInsightsAccessScope.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_network_insights_access_scope] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -13237,7 +13237,7 @@ module AWS::SDK::EC2
         operation_name: :delete_network_insights_access_scope_analysis,
         tracer: tracer
       )
-      Telemetry::DeleteNetworkInsightsAccessScopeAnalysis.span(context) do
+      Telemetry::DeleteNetworkInsightsAccessScopeAnalysis.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_network_insights_access_scope_analysis] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -13278,7 +13278,7 @@ module AWS::SDK::EC2
         operation_name: :delete_network_insights_analysis,
         tracer: tracer
       )
-      Telemetry::DeleteNetworkInsightsAnalysis.span(context) do
+      Telemetry::DeleteNetworkInsightsAnalysis.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_network_insights_analysis] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -13319,7 +13319,7 @@ module AWS::SDK::EC2
         operation_name: :delete_network_insights_path,
         tracer: tracer
       )
-      Telemetry::DeleteNetworkInsightsPath.span(context) do
+      Telemetry::DeleteNetworkInsightsPath.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_network_insights_path] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -13367,7 +13367,7 @@ module AWS::SDK::EC2
         operation_name: :delete_network_interface,
         tracer: tracer
       )
-      Telemetry::DeleteNetworkInterface.span(context) do
+      Telemetry::DeleteNetworkInterface.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_network_interface] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -13412,7 +13412,7 @@ module AWS::SDK::EC2
         operation_name: :delete_network_interface_permission,
         tracer: tracer
       )
-      Telemetry::DeleteNetworkInterfacePermission.span(context) do
+      Telemetry::DeleteNetworkInterfacePermission.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_network_interface_permission] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -13463,7 +13463,7 @@ module AWS::SDK::EC2
         operation_name: :delete_placement_group,
         tracer: tracer
       )
-      Telemetry::DeletePlacementGroup.span(context) do
+      Telemetry::DeletePlacementGroup.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_placement_group] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -13504,7 +13504,7 @@ module AWS::SDK::EC2
         operation_name: :delete_public_ipv4_pool,
         tracer: tracer
       )
-      Telemetry::DeletePublicIpv4Pool.span(context) do
+      Telemetry::DeletePublicIpv4Pool.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_public_ipv4_pool] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -13555,7 +13555,7 @@ module AWS::SDK::EC2
         operation_name: :delete_queued_reserved_instances,
         tracer: tracer
       )
-      Telemetry::DeleteQueuedReservedInstances.span(context) do
+      Telemetry::DeleteQueuedReservedInstances.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_queued_reserved_instances] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -13607,7 +13607,7 @@ module AWS::SDK::EC2
         operation_name: :delete_route,
         tracer: tracer
       )
-      Telemetry::DeleteRoute.span(context) do
+      Telemetry::DeleteRoute.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_route] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -13655,7 +13655,7 @@ module AWS::SDK::EC2
         operation_name: :delete_route_table,
         tracer: tracer
       )
-      Telemetry::DeleteRouteTable.span(context) do
+      Telemetry::DeleteRouteTable.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_route_table] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -13707,7 +13707,7 @@ module AWS::SDK::EC2
         operation_name: :delete_security_group,
         tracer: tracer
       )
-      Telemetry::DeleteSecurityGroup.span(context) do
+      Telemetry::DeleteSecurityGroup.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_security_group] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -13764,7 +13764,7 @@ module AWS::SDK::EC2
         operation_name: :delete_snapshot,
         tracer: tracer
       )
-      Telemetry::DeleteSnapshot.span(context) do
+      Telemetry::DeleteSnapshot.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_snapshot] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -13808,7 +13808,7 @@ module AWS::SDK::EC2
         operation_name: :delete_spot_datafeed_subscription,
         tracer: tracer
       )
-      Telemetry::DeleteSpotDatafeedSubscription.span(context) do
+      Telemetry::DeleteSpotDatafeedSubscription.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_spot_datafeed_subscription] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -13856,7 +13856,7 @@ module AWS::SDK::EC2
         operation_name: :delete_subnet,
         tracer: tracer
       )
-      Telemetry::DeleteSubnet.span(context) do
+      Telemetry::DeleteSubnet.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_subnet] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -13907,7 +13907,7 @@ module AWS::SDK::EC2
         operation_name: :delete_subnet_cidr_reservation,
         tracer: tracer
       )
-      Telemetry::DeleteSubnetCidrReservation.span(context) do
+      Telemetry::DeleteSubnetCidrReservation.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_subnet_cidr_reservation] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -13975,7 +13975,7 @@ module AWS::SDK::EC2
         operation_name: :delete_tags,
         tracer: tracer
       )
-      Telemetry::DeleteTags.span(context) do
+      Telemetry::DeleteTags.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_tags] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -14017,7 +14017,7 @@ module AWS::SDK::EC2
         operation_name: :delete_traffic_mirror_filter,
         tracer: tracer
       )
-      Telemetry::DeleteTrafficMirrorFilter.span(context) do
+      Telemetry::DeleteTrafficMirrorFilter.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_traffic_mirror_filter] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -14058,7 +14058,7 @@ module AWS::SDK::EC2
         operation_name: :delete_traffic_mirror_filter_rule,
         tracer: tracer
       )
-      Telemetry::DeleteTrafficMirrorFilterRule.span(context) do
+      Telemetry::DeleteTrafficMirrorFilterRule.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_traffic_mirror_filter_rule] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -14099,7 +14099,7 @@ module AWS::SDK::EC2
         operation_name: :delete_traffic_mirror_session,
         tracer: tracer
       )
-      Telemetry::DeleteTrafficMirrorSession.span(context) do
+      Telemetry::DeleteTrafficMirrorSession.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_traffic_mirror_session] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -14141,7 +14141,7 @@ module AWS::SDK::EC2
         operation_name: :delete_traffic_mirror_target,
         tracer: tracer
       )
-      Telemetry::DeleteTrafficMirrorTarget.span(context) do
+      Telemetry::DeleteTrafficMirrorTarget.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_traffic_mirror_target] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -14205,7 +14205,7 @@ module AWS::SDK::EC2
         operation_name: :delete_transit_gateway,
         tracer: tracer
       )
-      Telemetry::DeleteTransitGateway.span(context) do
+      Telemetry::DeleteTransitGateway.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_transit_gateway] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -14258,7 +14258,7 @@ module AWS::SDK::EC2
         operation_name: :delete_transit_gateway_connect,
         tracer: tracer
       )
-      Telemetry::DeleteTransitGatewayConnect.span(context) do
+      Telemetry::DeleteTransitGatewayConnect.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_transit_gateway_connect] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -14320,7 +14320,7 @@ module AWS::SDK::EC2
         operation_name: :delete_transit_gateway_connect_peer,
         tracer: tracer
       )
-      Telemetry::DeleteTransitGatewayConnectPeer.span(context) do
+      Telemetry::DeleteTransitGatewayConnectPeer.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_transit_gateway_connect_peer] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -14375,7 +14375,7 @@ module AWS::SDK::EC2
         operation_name: :delete_transit_gateway_multicast_domain,
         tracer: tracer
       )
-      Telemetry::DeleteTransitGatewayMulticastDomain.span(context) do
+      Telemetry::DeleteTransitGatewayMulticastDomain.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_transit_gateway_multicast_domain] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -14435,7 +14435,7 @@ module AWS::SDK::EC2
         operation_name: :delete_transit_gateway_peering_attachment,
         tracer: tracer
       )
-      Telemetry::DeleteTransitGatewayPeeringAttachment.span(context) do
+      Telemetry::DeleteTransitGatewayPeeringAttachment.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_transit_gateway_peering_attachment] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -14484,7 +14484,7 @@ module AWS::SDK::EC2
         operation_name: :delete_transit_gateway_policy_table,
         tracer: tracer
       )
-      Telemetry::DeleteTransitGatewayPolicyTable.span(context) do
+      Telemetry::DeleteTransitGatewayPolicyTable.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_transit_gateway_policy_table] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -14535,7 +14535,7 @@ module AWS::SDK::EC2
         operation_name: :delete_transit_gateway_prefix_list_reference,
         tracer: tracer
       )
-      Telemetry::DeleteTransitGatewayPrefixListReference.span(context) do
+      Telemetry::DeleteTransitGatewayPrefixListReference.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_transit_gateway_prefix_list_reference] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -14587,7 +14587,7 @@ module AWS::SDK::EC2
         operation_name: :delete_transit_gateway_route,
         tracer: tracer
       )
-      Telemetry::DeleteTransitGatewayRoute.span(context) do
+      Telemetry::DeleteTransitGatewayRoute.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_transit_gateway_route] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -14639,7 +14639,7 @@ module AWS::SDK::EC2
         operation_name: :delete_transit_gateway_route_table,
         tracer: tracer
       )
-      Telemetry::DeleteTransitGatewayRouteTable.span(context) do
+      Telemetry::DeleteTransitGatewayRouteTable.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_transit_gateway_route_table] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -14694,7 +14694,7 @@ module AWS::SDK::EC2
         operation_name: :delete_transit_gateway_route_table_announcement,
         tracer: tracer
       )
-      Telemetry::DeleteTransitGatewayRouteTableAnnouncement.span(context) do
+      Telemetry::DeleteTransitGatewayRouteTableAnnouncement.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_transit_gateway_route_table_announcement] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -14752,7 +14752,7 @@ module AWS::SDK::EC2
         operation_name: :delete_transit_gateway_vpc_attachment,
         tracer: tracer
       )
-      Telemetry::DeleteTransitGatewayVpcAttachment.span(context) do
+      Telemetry::DeleteTransitGatewayVpcAttachment.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_transit_gateway_vpc_attachment] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -14829,7 +14829,7 @@ module AWS::SDK::EC2
         operation_name: :delete_verified_access_endpoint,
         tracer: tracer
       )
-      Telemetry::DeleteVerifiedAccessEndpoint.span(context) do
+      Telemetry::DeleteVerifiedAccessEndpoint.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_verified_access_endpoint] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -14886,7 +14886,7 @@ module AWS::SDK::EC2
         operation_name: :delete_verified_access_group,
         tracer: tracer
       )
-      Telemetry::DeleteVerifiedAccessGroup.span(context) do
+      Telemetry::DeleteVerifiedAccessGroup.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_verified_access_group] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -14944,7 +14944,7 @@ module AWS::SDK::EC2
         operation_name: :delete_verified_access_instance,
         tracer: tracer
       )
-      Telemetry::DeleteVerifiedAccessInstance.span(context) do
+      Telemetry::DeleteVerifiedAccessInstance.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_verified_access_instance] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -15012,7 +15012,7 @@ module AWS::SDK::EC2
         operation_name: :delete_verified_access_trust_provider,
         tracer: tracer
       )
-      Telemetry::DeleteVerifiedAccessTrustProvider.span(context) do
+      Telemetry::DeleteVerifiedAccessTrustProvider.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_verified_access_trust_provider] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -15064,7 +15064,7 @@ module AWS::SDK::EC2
         operation_name: :delete_volume,
         tracer: tracer
       )
-      Telemetry::DeleteVolume.span(context) do
+      Telemetry::DeleteVolume.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_volume] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -15112,7 +15112,7 @@ module AWS::SDK::EC2
         operation_name: :delete_vpc,
         tracer: tracer
       )
-      Telemetry::DeleteVpc.span(context) do
+      Telemetry::DeleteVpc.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_vpc] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -15160,7 +15160,7 @@ module AWS::SDK::EC2
         operation_name: :delete_vpc_endpoint_connection_notifications,
         tracer: tracer
       )
-      Telemetry::DeleteVpcEndpointConnectionNotifications.span(context) do
+      Telemetry::DeleteVpcEndpointConnectionNotifications.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_vpc_endpoint_connection_notifications] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -15211,7 +15211,7 @@ module AWS::SDK::EC2
         operation_name: :delete_vpc_endpoint_service_configurations,
         tracer: tracer
       )
-      Telemetry::DeleteVpcEndpointServiceConfigurations.span(context) do
+      Telemetry::DeleteVpcEndpointServiceConfigurations.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_vpc_endpoint_service_configurations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -15263,7 +15263,7 @@ module AWS::SDK::EC2
         operation_name: :delete_vpc_endpoints,
         tracer: tracer
       )
-      Telemetry::DeleteVpcEndpoints.span(context) do
+      Telemetry::DeleteVpcEndpoints.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_vpc_endpoints] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -15308,7 +15308,7 @@ module AWS::SDK::EC2
         operation_name: :delete_vpc_peering_connection,
         tracer: tracer
       )
-      Telemetry::DeleteVpcPeeringConnection.span(context) do
+      Telemetry::DeleteVpcPeeringConnection.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_vpc_peering_connection] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -15358,7 +15358,7 @@ module AWS::SDK::EC2
         operation_name: :delete_vpn_connection,
         tracer: tracer
       )
-      Telemetry::DeleteVpnConnection.span(context) do
+      Telemetry::DeleteVpnConnection.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_vpn_connection] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -15401,7 +15401,7 @@ module AWS::SDK::EC2
         operation_name: :delete_vpn_connection_route,
         tracer: tracer
       )
-      Telemetry::DeleteVpnConnectionRoute.span(context) do
+      Telemetry::DeleteVpnConnectionRoute.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_vpn_connection_route] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -15444,7 +15444,7 @@ module AWS::SDK::EC2
         operation_name: :delete_vpn_gateway,
         tracer: tracer
       )
-      Telemetry::DeleteVpnGateway.span(context) do
+      Telemetry::DeleteVpnGateway.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_vpn_gateway] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -15499,7 +15499,7 @@ module AWS::SDK::EC2
         operation_name: :deprovision_byoip_cidr,
         tracer: tracer
       )
-      Telemetry::DeprovisionByoipCidr.span(context) do
+      Telemetry::DeprovisionByoipCidr.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#deprovision_byoip_cidr] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -15546,7 +15546,7 @@ module AWS::SDK::EC2
         operation_name: :deprovision_ipam_byoasn,
         tracer: tracer
       )
-      Telemetry::DeprovisionIpamByoasn.span(context) do
+      Telemetry::DeprovisionIpamByoasn.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#deprovision_ipam_byoasn] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -15595,7 +15595,7 @@ module AWS::SDK::EC2
         operation_name: :deprovision_ipam_pool_cidr,
         tracer: tracer
       )
-      Telemetry::DeprovisionIpamPoolCidr.span(context) do
+      Telemetry::DeprovisionIpamPoolCidr.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#deprovision_ipam_pool_cidr] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -15639,7 +15639,7 @@ module AWS::SDK::EC2
         operation_name: :deprovision_public_ipv4_pool_cidr,
         tracer: tracer
       )
-      Telemetry::DeprovisionPublicIpv4PoolCidr.span(context) do
+      Telemetry::DeprovisionPublicIpv4PoolCidr.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#deprovision_public_ipv4_pool_cidr] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -15690,7 +15690,7 @@ module AWS::SDK::EC2
         operation_name: :deregister_image,
         tracer: tracer
       )
-      Telemetry::DeregisterImage.span(context) do
+      Telemetry::DeregisterImage.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#deregister_image] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -15740,7 +15740,7 @@ module AWS::SDK::EC2
         operation_name: :deregister_instance_event_notification_attributes,
         tracer: tracer
       )
-      Telemetry::DeregisterInstanceEventNotificationAttributes.span(context) do
+      Telemetry::DeregisterInstanceEventNotificationAttributes.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#deregister_instance_event_notification_attributes] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -15789,7 +15789,7 @@ module AWS::SDK::EC2
         operation_name: :deregister_transit_gateway_multicast_group_members,
         tracer: tracer
       )
-      Telemetry::DeregisterTransitGatewayMulticastGroupMembers.span(context) do
+      Telemetry::DeregisterTransitGatewayMulticastGroupMembers.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#deregister_transit_gateway_multicast_group_members] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -15838,7 +15838,7 @@ module AWS::SDK::EC2
         operation_name: :deregister_transit_gateway_multicast_group_sources,
         tracer: tracer
       )
-      Telemetry::DeregisterTransitGatewayMulticastGroupSources.span(context) do
+      Telemetry::DeregisterTransitGatewayMulticastGroupSources.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#deregister_transit_gateway_multicast_group_sources] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -15999,7 +15999,7 @@ module AWS::SDK::EC2
         operation_name: :describe_account_attributes,
         tracer: tracer
       )
-      Telemetry::DescribeAccountAttributes.span(context) do
+      Telemetry::DescribeAccountAttributes.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_account_attributes] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -16061,7 +16061,7 @@ module AWS::SDK::EC2
         operation_name: :describe_address_transfers,
         tracer: tracer
       )
-      Telemetry::DescribeAddressTransfers.span(context) do
+      Telemetry::DescribeAddressTransfers.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_address_transfers] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -16156,7 +16156,7 @@ module AWS::SDK::EC2
         operation_name: :describe_addresses,
         tracer: tracer
       )
-      Telemetry::DescribeAddresses.span(context) do
+      Telemetry::DescribeAddresses.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_addresses] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -16211,7 +16211,7 @@ module AWS::SDK::EC2
         operation_name: :describe_addresses_attribute,
         tracer: tracer
       )
-      Telemetry::DescribeAddressesAttribute.span(context) do
+      Telemetry::DescribeAddressesAttribute.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_addresses_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -16272,7 +16272,7 @@ module AWS::SDK::EC2
         operation_name: :describe_aggregate_id_format,
         tracer: tracer
       )
-      Telemetry::DescribeAggregateIdFormat.span(context) do
+      Telemetry::DescribeAggregateIdFormat.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_aggregate_id_format] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -16386,7 +16386,7 @@ module AWS::SDK::EC2
         operation_name: :describe_availability_zones,
         tracer: tracer
       )
-      Telemetry::DescribeAvailabilityZones.span(context) do
+      Telemetry::DescribeAvailabilityZones.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_availability_zones] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -16443,7 +16443,7 @@ module AWS::SDK::EC2
         operation_name: :describe_aws_network_performance_metric_subscriptions,
         tracer: tracer
       )
-      Telemetry::DescribeAwsNetworkPerformanceMetricSubscriptions.span(context) do
+      Telemetry::DescribeAwsNetworkPerformanceMetricSubscriptions.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_aws_network_performance_metric_subscriptions] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -16514,7 +16514,7 @@ module AWS::SDK::EC2
         operation_name: :describe_bundle_tasks,
         tracer: tracer
       )
-      Telemetry::DescribeBundleTasks.span(context) do
+      Telemetry::DescribeBundleTasks.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_bundle_tasks] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -16571,7 +16571,7 @@ module AWS::SDK::EC2
         operation_name: :describe_byoip_cidrs,
         tracer: tracer
       )
-      Telemetry::DescribeByoipCidrs.span(context) do
+      Telemetry::DescribeByoipCidrs.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_byoip_cidrs] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -16630,7 +16630,7 @@ module AWS::SDK::EC2
         operation_name: :describe_capacity_block_offerings,
         tracer: tracer
       )
-      Telemetry::DescribeCapacityBlockOfferings.span(context) do
+      Telemetry::DescribeCapacityBlockOfferings.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_capacity_block_offerings] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -16712,7 +16712,7 @@ module AWS::SDK::EC2
         operation_name: :describe_capacity_reservation_fleets,
         tracer: tracer
       )
-      Telemetry::DescribeCapacityReservationFleets.span(context) do
+      Telemetry::DescribeCapacityReservationFleets.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_capacity_reservation_fleets] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -16798,7 +16798,7 @@ module AWS::SDK::EC2
         operation_name: :describe_capacity_reservations,
         tracer: tracer
       )
-      Telemetry::DescribeCapacityReservations.span(context) do
+      Telemetry::DescribeCapacityReservations.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_capacity_reservations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -16861,7 +16861,7 @@ module AWS::SDK::EC2
         operation_name: :describe_carrier_gateways,
         tracer: tracer
       )
-      Telemetry::DescribeCarrierGateways.span(context) do
+      Telemetry::DescribeCarrierGateways.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_carrier_gateways] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -16931,7 +16931,7 @@ module AWS::SDK::EC2
         operation_name: :describe_classic_link_instances,
         tracer: tracer
       )
-      Telemetry::DescribeClassicLinkInstances.span(context) do
+      Telemetry::DescribeClassicLinkInstances.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_classic_link_instances] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -16992,7 +16992,7 @@ module AWS::SDK::EC2
         operation_name: :describe_client_vpn_authorization_rules,
         tracer: tracer
       )
-      Telemetry::DescribeClientVpnAuthorizationRules.span(context) do
+      Telemetry::DescribeClientVpnAuthorizationRules.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_client_vpn_authorization_rules] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -17063,7 +17063,7 @@ module AWS::SDK::EC2
         operation_name: :describe_client_vpn_connections,
         tracer: tracer
       )
-      Telemetry::DescribeClientVpnConnections.span(context) do
+      Telemetry::DescribeClientVpnConnections.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_client_vpn_connections] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -17170,7 +17170,7 @@ module AWS::SDK::EC2
         operation_name: :describe_client_vpn_endpoints,
         tracer: tracer
       )
-      Telemetry::DescribeClientVpnEndpoints.span(context) do
+      Telemetry::DescribeClientVpnEndpoints.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_client_vpn_endpoints] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -17232,7 +17232,7 @@ module AWS::SDK::EC2
         operation_name: :describe_client_vpn_routes,
         tracer: tracer
       )
-      Telemetry::DescribeClientVpnRoutes.span(context) do
+      Telemetry::DescribeClientVpnRoutes.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_client_vpn_routes] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -17294,7 +17294,7 @@ module AWS::SDK::EC2
         operation_name: :describe_client_vpn_target_networks,
         tracer: tracer
       )
-      Telemetry::DescribeClientVpnTargetNetworks.span(context) do
+      Telemetry::DescribeClientVpnTargetNetworks.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_client_vpn_target_networks] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -17358,7 +17358,7 @@ module AWS::SDK::EC2
         operation_name: :describe_coip_pools,
         tracer: tracer
       )
-      Telemetry::DescribeCoipPools.span(context) do
+      Telemetry::DescribeCoipPools.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_coip_pools] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -17437,7 +17437,7 @@ module AWS::SDK::EC2
         operation_name: :describe_conversion_tasks,
         tracer: tracer
       )
-      Telemetry::DescribeConversionTasks.span(context) do
+      Telemetry::DescribeConversionTasks.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_conversion_tasks] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -17522,7 +17522,7 @@ module AWS::SDK::EC2
         operation_name: :describe_customer_gateways,
         tracer: tracer
       )
-      Telemetry::DescribeCustomerGateways.span(context) do
+      Telemetry::DescribeCustomerGateways.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_customer_gateways] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -17620,7 +17620,7 @@ module AWS::SDK::EC2
         operation_name: :describe_dhcp_options,
         tracer: tracer
       )
-      Telemetry::DescribeDhcpOptions.span(context) do
+      Telemetry::DescribeDhcpOptions.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_dhcp_options] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -17684,7 +17684,7 @@ module AWS::SDK::EC2
         operation_name: :describe_egress_only_internet_gateways,
         tracer: tracer
       )
-      Telemetry::DescribeEgressOnlyInternetGateways.span(context) do
+      Telemetry::DescribeEgressOnlyInternetGateways.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_egress_only_internet_gateways] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -17757,7 +17757,7 @@ module AWS::SDK::EC2
         operation_name: :describe_elastic_gpus,
         tracer: tracer
       )
-      Telemetry::DescribeElasticGpus.span(context) do
+      Telemetry::DescribeElasticGpus.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_elastic_gpus] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -17825,7 +17825,7 @@ module AWS::SDK::EC2
         operation_name: :describe_export_image_tasks,
         tracer: tracer
       )
-      Telemetry::DescribeExportImageTasks.span(context) do
+      Telemetry::DescribeExportImageTasks.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_export_image_tasks] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -17892,7 +17892,7 @@ module AWS::SDK::EC2
         operation_name: :describe_export_tasks,
         tracer: tracer
       )
-      Telemetry::DescribeExportTasks.span(context) do
+      Telemetry::DescribeExportTasks.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_export_tasks] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -17960,7 +17960,7 @@ module AWS::SDK::EC2
         operation_name: :describe_fast_launch_images,
         tracer: tracer
       )
-      Telemetry::DescribeFastLaunchImages.span(context) do
+      Telemetry::DescribeFastLaunchImages.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_fast_launch_images] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -18023,7 +18023,7 @@ module AWS::SDK::EC2
         operation_name: :describe_fast_snapshot_restores,
         tracer: tracer
       )
-      Telemetry::DescribeFastSnapshotRestores.span(context) do
+      Telemetry::DescribeFastSnapshotRestores.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_fast_snapshot_restores] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -18084,7 +18084,7 @@ module AWS::SDK::EC2
         operation_name: :describe_fleet_history,
         tracer: tracer
       )
-      Telemetry::DescribeFleetHistory.span(context) do
+      Telemetry::DescribeFleetHistory.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_fleet_history] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -18143,7 +18143,7 @@ module AWS::SDK::EC2
         operation_name: :describe_fleet_instances,
         tracer: tracer
       )
-      Telemetry::DescribeFleetInstances.span(context) do
+      Telemetry::DescribeFleetInstances.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_fleet_instances] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -18327,7 +18327,7 @@ module AWS::SDK::EC2
         operation_name: :describe_fleets,
         tracer: tracer
       )
-      Telemetry::DescribeFleets.span(context) do
+      Telemetry::DescribeFleets.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_fleets] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -18406,7 +18406,7 @@ module AWS::SDK::EC2
         operation_name: :describe_flow_logs,
         tracer: tracer
       )
-      Telemetry::DescribeFlowLogs.span(context) do
+      Telemetry::DescribeFlowLogs.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_flow_logs] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -18459,7 +18459,7 @@ module AWS::SDK::EC2
         operation_name: :describe_fpga_image_attribute,
         tracer: tracer
       )
-      Telemetry::DescribeFpgaImageAttribute.span(context) do
+      Telemetry::DescribeFpgaImageAttribute.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_fpga_image_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -18548,7 +18548,7 @@ module AWS::SDK::EC2
         operation_name: :describe_fpga_images,
         tracer: tracer
       )
-      Telemetry::DescribeFpgaImages.span(context) do
+      Telemetry::DescribeFpgaImages.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_fpga_images] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -18615,7 +18615,7 @@ module AWS::SDK::EC2
         operation_name: :describe_host_reservation_offerings,
         tracer: tracer
       )
-      Telemetry::DescribeHostReservationOfferings.span(context) do
+      Telemetry::DescribeHostReservationOfferings.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_host_reservation_offerings] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -18688,7 +18688,7 @@ module AWS::SDK::EC2
         operation_name: :describe_host_reservations,
         tracer: tracer
       )
-      Telemetry::DescribeHostReservations.span(context) do
+      Telemetry::DescribeHostReservations.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_host_reservations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -18783,7 +18783,7 @@ module AWS::SDK::EC2
         operation_name: :describe_hosts,
         tracer: tracer
       )
-      Telemetry::DescribeHosts.span(context) do
+      Telemetry::DescribeHosts.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_hosts] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -18866,7 +18866,7 @@ module AWS::SDK::EC2
         operation_name: :describe_iam_instance_profile_associations,
         tracer: tracer
       )
-      Telemetry::DescribeIamInstanceProfileAssociations.span(context) do
+      Telemetry::DescribeIamInstanceProfileAssociations.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_iam_instance_profile_associations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -18929,7 +18929,7 @@ module AWS::SDK::EC2
         operation_name: :describe_id_format,
         tracer: tracer
       )
-      Telemetry::DescribeIdFormat.span(context) do
+      Telemetry::DescribeIdFormat.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_id_format] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -18992,7 +18992,7 @@ module AWS::SDK::EC2
         operation_name: :describe_identity_id_format,
         tracer: tracer
       )
-      Telemetry::DescribeIdentityIdFormat.span(context) do
+      Telemetry::DescribeIdentityIdFormat.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_identity_id_format] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -19085,7 +19085,7 @@ module AWS::SDK::EC2
         operation_name: :describe_image_attribute,
         tracer: tracer
       )
-      Telemetry::DescribeImageAttribute.span(context) do
+      Telemetry::DescribeImageAttribute.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_image_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -19247,7 +19247,7 @@ module AWS::SDK::EC2
         operation_name: :describe_images,
         tracer: tracer
       )
-      Telemetry::DescribeImages.span(context) do
+      Telemetry::DescribeImages.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_images] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -19337,7 +19337,7 @@ module AWS::SDK::EC2
         operation_name: :describe_import_image_tasks,
         tracer: tracer
       )
-      Telemetry::DescribeImportImageTasks.span(context) do
+      Telemetry::DescribeImportImageTasks.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_import_image_tasks] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -19412,7 +19412,7 @@ module AWS::SDK::EC2
         operation_name: :describe_import_snapshot_tasks,
         tracer: tracer
       )
-      Telemetry::DescribeImportSnapshotTasks.span(context) do
+      Telemetry::DescribeImportSnapshotTasks.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_import_snapshot_tasks] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -19542,7 +19542,7 @@ module AWS::SDK::EC2
         operation_name: :describe_instance_attribute,
         tracer: tracer
       )
-      Telemetry::DescribeInstanceAttribute.span(context) do
+      Telemetry::DescribeInstanceAttribute.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_instance_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -19614,7 +19614,7 @@ module AWS::SDK::EC2
         operation_name: :describe_instance_connect_endpoints,
         tracer: tracer
       )
-      Telemetry::DescribeInstanceConnectEndpoints.span(context) do
+      Telemetry::DescribeInstanceConnectEndpoints.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_instance_connect_endpoints] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -19690,7 +19690,7 @@ module AWS::SDK::EC2
         operation_name: :describe_instance_credit_specifications,
         tracer: tracer
       )
-      Telemetry::DescribeInstanceCreditSpecifications.span(context) do
+      Telemetry::DescribeInstanceCreditSpecifications.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_instance_credit_specifications] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -19734,7 +19734,7 @@ module AWS::SDK::EC2
         operation_name: :describe_instance_event_notification_attributes,
         tracer: tracer
       )
-      Telemetry::DescribeInstanceEventNotificationAttributes.span(context) do
+      Telemetry::DescribeInstanceEventNotificationAttributes.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_instance_event_notification_attributes] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -19817,7 +19817,7 @@ module AWS::SDK::EC2
         operation_name: :describe_instance_event_windows,
         tracer: tracer
       )
-      Telemetry::DescribeInstanceEventWindows.span(context) do
+      Telemetry::DescribeInstanceEventWindows.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_instance_event_windows] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -19962,7 +19962,7 @@ module AWS::SDK::EC2
         operation_name: :describe_instance_status,
         tracer: tracer
       )
-      Telemetry::DescribeInstanceStatus.span(context) do
+      Telemetry::DescribeInstanceStatus.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_instance_status] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -20074,7 +20074,7 @@ module AWS::SDK::EC2
         operation_name: :describe_instance_topology,
         tracer: tracer
       )
-      Telemetry::DescribeInstanceTopology.span(context) do
+      Telemetry::DescribeInstanceTopology.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_instance_topology] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -20131,7 +20131,7 @@ module AWS::SDK::EC2
         operation_name: :describe_instance_type_offerings,
         tracer: tracer
       )
-      Telemetry::DescribeInstanceTypeOfferings.span(context) do
+      Telemetry::DescribeInstanceTypeOfferings.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_instance_type_offerings] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -20298,7 +20298,7 @@ module AWS::SDK::EC2
         operation_name: :describe_instance_types,
         tracer: tracer
       )
-      Telemetry::DescribeInstanceTypes.span(context) do
+      Telemetry::DescribeInstanceTypes.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_instance_types] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -20586,7 +20586,7 @@ module AWS::SDK::EC2
         operation_name: :describe_instances,
         tracer: tracer
       )
-      Telemetry::DescribeInstances.span(context) do
+      Telemetry::DescribeInstances.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_instances] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -20681,7 +20681,7 @@ module AWS::SDK::EC2
         operation_name: :describe_internet_gateways,
         tracer: tracer
       )
-      Telemetry::DescribeInternetGateways.span(context) do
+      Telemetry::DescribeInternetGateways.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_internet_gateways] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -20729,7 +20729,7 @@ module AWS::SDK::EC2
         operation_name: :describe_ipam_byoasn,
         tracer: tracer
       )
-      Telemetry::DescribeIpamByoasn.span(context) do
+      Telemetry::DescribeIpamByoasn.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_ipam_byoasn] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -20815,7 +20815,7 @@ module AWS::SDK::EC2
         operation_name: :describe_ipam_pools,
         tracer: tracer
       )
-      Telemetry::DescribeIpamPools.span(context) do
+      Telemetry::DescribeIpamPools.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_ipam_pools] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -20881,7 +20881,7 @@ module AWS::SDK::EC2
         operation_name: :describe_ipam_resource_discoveries,
         tracer: tracer
       )
-      Telemetry::DescribeIpamResourceDiscoveries.span(context) do
+      Telemetry::DescribeIpamResourceDiscoveries.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_ipam_resource_discoveries] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -20947,7 +20947,7 @@ module AWS::SDK::EC2
         operation_name: :describe_ipam_resource_discovery_associations,
         tracer: tracer
       )
-      Telemetry::DescribeIpamResourceDiscoveryAssociations.span(context) do
+      Telemetry::DescribeIpamResourceDiscoveryAssociations.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_ipam_resource_discovery_associations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -21013,7 +21013,7 @@ module AWS::SDK::EC2
         operation_name: :describe_ipam_scopes,
         tracer: tracer
       )
-      Telemetry::DescribeIpamScopes.span(context) do
+      Telemetry::DescribeIpamScopes.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_ipam_scopes] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -21088,7 +21088,7 @@ module AWS::SDK::EC2
         operation_name: :describe_ipams,
         tracer: tracer
       )
-      Telemetry::DescribeIpams.span(context) do
+      Telemetry::DescribeIpams.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_ipams] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -21152,7 +21152,7 @@ module AWS::SDK::EC2
         operation_name: :describe_ipv6_pools,
         tracer: tracer
       )
-      Telemetry::DescribeIpv6Pools.span(context) do
+      Telemetry::DescribeIpv6Pools.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_ipv6_pools] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -21237,7 +21237,7 @@ module AWS::SDK::EC2
         operation_name: :describe_key_pairs,
         tracer: tracer
       )
-      Telemetry::DescribeKeyPairs.span(context) do
+      Telemetry::DescribeKeyPairs.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_key_pairs] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -21553,7 +21553,7 @@ module AWS::SDK::EC2
         operation_name: :describe_launch_template_versions,
         tracer: tracer
       )
-      Telemetry::DescribeLaunchTemplateVersions.span(context) do
+      Telemetry::DescribeLaunchTemplateVersions.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_launch_template_versions] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -21642,7 +21642,7 @@ module AWS::SDK::EC2
         operation_name: :describe_launch_templates,
         tracer: tracer
       )
-      Telemetry::DescribeLaunchTemplates.span(context) do
+      Telemetry::DescribeLaunchTemplates.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_launch_templates] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -21708,7 +21708,7 @@ module AWS::SDK::EC2
         operation_name: :describe_local_gateway_route_table_virtual_interface_group_associations,
         tracer: tracer
       )
-      Telemetry::DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations.span(context) do
+      Telemetry::DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_local_gateway_route_table_virtual_interface_group_associations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -21774,7 +21774,7 @@ module AWS::SDK::EC2
         operation_name: :describe_local_gateway_route_table_vpc_associations,
         tracer: tracer
       )
-      Telemetry::DescribeLocalGatewayRouteTableVpcAssociations.span(context) do
+      Telemetry::DescribeLocalGatewayRouteTableVpcAssociations.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_local_gateway_route_table_vpc_associations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -21844,7 +21844,7 @@ module AWS::SDK::EC2
         operation_name: :describe_local_gateway_route_tables,
         tracer: tracer
       )
-      Telemetry::DescribeLocalGatewayRouteTables.span(context) do
+      Telemetry::DescribeLocalGatewayRouteTables.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_local_gateway_route_tables] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -21908,7 +21908,7 @@ module AWS::SDK::EC2
         operation_name: :describe_local_gateway_virtual_interface_groups,
         tracer: tracer
       )
-      Telemetry::DescribeLocalGatewayVirtualInterfaceGroups.span(context) do
+      Telemetry::DescribeLocalGatewayVirtualInterfaceGroups.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_local_gateway_virtual_interface_groups] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -21975,7 +21975,7 @@ module AWS::SDK::EC2
         operation_name: :describe_local_gateway_virtual_interfaces,
         tracer: tracer
       )
-      Telemetry::DescribeLocalGatewayVirtualInterfaces.span(context) do
+      Telemetry::DescribeLocalGatewayVirtualInterfaces.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_local_gateway_virtual_interfaces] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -22039,7 +22039,7 @@ module AWS::SDK::EC2
         operation_name: :describe_local_gateways,
         tracer: tracer
       )
-      Telemetry::DescribeLocalGateways.span(context) do
+      Telemetry::DescribeLocalGateways.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_local_gateways] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -22103,7 +22103,7 @@ module AWS::SDK::EC2
         operation_name: :describe_locked_snapshots,
         tracer: tracer
       )
-      Telemetry::DescribeLockedSnapshots.span(context) do
+      Telemetry::DescribeLockedSnapshots.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_locked_snapshots] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -22169,7 +22169,7 @@ module AWS::SDK::EC2
         operation_name: :describe_managed_prefix_lists,
         tracer: tracer
       )
-      Telemetry::DescribeManagedPrefixLists.span(context) do
+      Telemetry::DescribeManagedPrefixLists.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_managed_prefix_lists] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -22239,7 +22239,7 @@ module AWS::SDK::EC2
         operation_name: :describe_moving_addresses,
         tracer: tracer
       )
-      Telemetry::DescribeMovingAddresses.span(context) do
+      Telemetry::DescribeMovingAddresses.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_moving_addresses] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -22356,7 +22356,7 @@ module AWS::SDK::EC2
         operation_name: :describe_nat_gateways,
         tracer: tracer
       )
-      Telemetry::DescribeNatGateways.span(context) do
+      Telemetry::DescribeNatGateways.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_nat_gateways] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -22484,7 +22484,7 @@ module AWS::SDK::EC2
         operation_name: :describe_network_acls,
         tracer: tracer
       )
-      Telemetry::DescribeNetworkAcls.span(context) do
+      Telemetry::DescribeNetworkAcls.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_network_acls] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -22556,7 +22556,7 @@ module AWS::SDK::EC2
         operation_name: :describe_network_insights_access_scope_analyses,
         tracer: tracer
       )
-      Telemetry::DescribeNetworkInsightsAccessScopeAnalyses.span(context) do
+      Telemetry::DescribeNetworkInsightsAccessScopeAnalyses.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_network_insights_access_scope_analyses] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -22619,7 +22619,7 @@ module AWS::SDK::EC2
         operation_name: :describe_network_insights_access_scopes,
         tracer: tracer
       )
-      Telemetry::DescribeNetworkInsightsAccessScopes.span(context) do
+      Telemetry::DescribeNetworkInsightsAccessScopes.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_network_insights_access_scopes] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -22862,7 +22862,7 @@ module AWS::SDK::EC2
         operation_name: :describe_network_insights_analyses,
         tracer: tracer
       )
-      Telemetry::DescribeNetworkInsightsAnalyses.span(context) do
+      Telemetry::DescribeNetworkInsightsAnalyses.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_network_insights_analyses] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -22940,7 +22940,7 @@ module AWS::SDK::EC2
         operation_name: :describe_network_insights_paths,
         tracer: tracer
       )
-      Telemetry::DescribeNetworkInsightsPaths.span(context) do
+      Telemetry::DescribeNetworkInsightsPaths.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_network_insights_paths] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -23068,7 +23068,7 @@ module AWS::SDK::EC2
         operation_name: :describe_network_interface_attribute,
         tracer: tracer
       )
-      Telemetry::DescribeNetworkInterfaceAttribute.span(context) do
+      Telemetry::DescribeNetworkInterfaceAttribute.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_network_interface_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -23130,7 +23130,7 @@ module AWS::SDK::EC2
         operation_name: :describe_network_interface_permissions,
         tracer: tracer
       )
-      Telemetry::DescribeNetworkInterfacePermissions.span(context) do
+      Telemetry::DescribeNetworkInterfacePermissions.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_network_interface_permissions] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -23320,7 +23320,7 @@ module AWS::SDK::EC2
         operation_name: :describe_network_interfaces,
         tracer: tracer
       )
-      Telemetry::DescribeNetworkInterfaces.span(context) do
+      Telemetry::DescribeNetworkInterfaces.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_network_interfaces] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -23388,7 +23388,7 @@ module AWS::SDK::EC2
         operation_name: :describe_placement_groups,
         tracer: tracer
       )
-      Telemetry::DescribePlacementGroups.span(context) do
+      Telemetry::DescribePlacementGroups.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_placement_groups] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -23449,7 +23449,7 @@ module AWS::SDK::EC2
         operation_name: :describe_prefix_lists,
         tracer: tracer
       )
-      Telemetry::DescribePrefixLists.span(context) do
+      Telemetry::DescribePrefixLists.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_prefix_lists] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -23519,7 +23519,7 @@ module AWS::SDK::EC2
         operation_name: :describe_principal_id_format,
         tracer: tracer
       )
-      Telemetry::DescribePrincipalIdFormat.span(context) do
+      Telemetry::DescribePrincipalIdFormat.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_principal_id_format] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -23588,7 +23588,7 @@ module AWS::SDK::EC2
         operation_name: :describe_public_ipv4_pools,
         tracer: tracer
       )
-      Telemetry::DescribePublicIpv4Pools.span(context) do
+      Telemetry::DescribePublicIpv4Pools.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_public_ipv4_pools] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -23699,7 +23699,7 @@ module AWS::SDK::EC2
         operation_name: :describe_regions,
         tracer: tracer
       )
-      Telemetry::DescribeRegions.span(context) do
+      Telemetry::DescribeRegions.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_regions] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -23767,7 +23767,7 @@ module AWS::SDK::EC2
         operation_name: :describe_replace_root_volume_tasks,
         tracer: tracer
       )
-      Telemetry::DescribeReplaceRootVolumeTasks.span(context) do
+      Telemetry::DescribeReplaceRootVolumeTasks.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_replace_root_volume_tasks] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -23847,7 +23847,7 @@ module AWS::SDK::EC2
         operation_name: :describe_reserved_instances,
         tracer: tracer
       )
-      Telemetry::DescribeReservedInstances.span(context) do
+      Telemetry::DescribeReservedInstances.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_reserved_instances] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -23923,7 +23923,7 @@ module AWS::SDK::EC2
         operation_name: :describe_reserved_instances_listings,
         tracer: tracer
       )
-      Telemetry::DescribeReservedInstancesListings.span(context) do
+      Telemetry::DescribeReservedInstancesListings.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_reserved_instances_listings] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -23996,7 +23996,7 @@ module AWS::SDK::EC2
         operation_name: :describe_reserved_instances_modifications,
         tracer: tracer
       )
-      Telemetry::DescribeReservedInstancesModifications.span(context) do
+      Telemetry::DescribeReservedInstancesModifications.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_reserved_instances_modifications] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -24085,7 +24085,7 @@ module AWS::SDK::EC2
         operation_name: :describe_reserved_instances_offerings,
         tracer: tracer
       )
-      Telemetry::DescribeReservedInstancesOfferings.span(context) do
+      Telemetry::DescribeReservedInstancesOfferings.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_reserved_instances_offerings] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -24218,7 +24218,7 @@ module AWS::SDK::EC2
         operation_name: :describe_route_tables,
         tracer: tracer
       )
-      Telemetry::DescribeRouteTables.span(context) do
+      Telemetry::DescribeRouteTables.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_route_tables] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -24307,7 +24307,7 @@ module AWS::SDK::EC2
         operation_name: :describe_scheduled_instance_availability,
         tracer: tracer
       )
-      Telemetry::DescribeScheduledInstanceAvailability.span(context) do
+      Telemetry::DescribeScheduledInstanceAvailability.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_scheduled_instance_availability] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -24387,7 +24387,7 @@ module AWS::SDK::EC2
         operation_name: :describe_scheduled_instances,
         tracer: tracer
       )
-      Telemetry::DescribeScheduledInstances.span(context) do
+      Telemetry::DescribeScheduledInstances.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_scheduled_instances] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -24453,7 +24453,7 @@ module AWS::SDK::EC2
         operation_name: :describe_security_group_references,
         tracer: tracer
       )
-      Telemetry::DescribeSecurityGroupReferences.span(context) do
+      Telemetry::DescribeSecurityGroupReferences.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_security_group_references] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -24529,7 +24529,7 @@ module AWS::SDK::EC2
         operation_name: :describe_security_group_rules,
         tracer: tracer
       )
-      Telemetry::DescribeSecurityGroupRules.span(context) do
+      Telemetry::DescribeSecurityGroupRules.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_security_group_rules] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -24648,7 +24648,7 @@ module AWS::SDK::EC2
         operation_name: :describe_security_groups,
         tracer: tracer
       )
-      Telemetry::DescribeSecurityGroups.span(context) do
+      Telemetry::DescribeSecurityGroups.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_security_groups] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -24714,7 +24714,7 @@ module AWS::SDK::EC2
         operation_name: :describe_snapshot_attribute,
         tracer: tracer
       )
-      Telemetry::DescribeSnapshotAttribute.span(context) do
+      Telemetry::DescribeSnapshotAttribute.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_snapshot_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -24781,7 +24781,7 @@ module AWS::SDK::EC2
         operation_name: :describe_snapshot_tier_status,
         tracer: tracer
       )
-      Telemetry::DescribeSnapshotTierStatus.span(context) do
+      Telemetry::DescribeSnapshotTierStatus.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_snapshot_tier_status] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -24961,7 +24961,7 @@ module AWS::SDK::EC2
         operation_name: :describe_snapshots,
         tracer: tracer
       )
-      Telemetry::DescribeSnapshots.span(context) do
+      Telemetry::DescribeSnapshots.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_snapshots] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -25021,7 +25021,7 @@ module AWS::SDK::EC2
         operation_name: :describe_spot_datafeed_subscription,
         tracer: tracer
       )
-      Telemetry::DescribeSpotDatafeedSubscription.span(context) do
+      Telemetry::DescribeSpotDatafeedSubscription.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_spot_datafeed_subscription] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -25088,7 +25088,7 @@ module AWS::SDK::EC2
         operation_name: :describe_spot_fleet_instances,
         tracer: tracer
       )
-      Telemetry::DescribeSpotFleetInstances.span(context) do
+      Telemetry::DescribeSpotFleetInstances.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_spot_fleet_instances] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -25195,7 +25195,7 @@ module AWS::SDK::EC2
         operation_name: :describe_spot_fleet_request_history,
         tracer: tracer
       )
-      Telemetry::DescribeSpotFleetRequestHistory.span(context) do
+      Telemetry::DescribeSpotFleetRequestHistory.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_spot_fleet_request_history] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -25495,7 +25495,7 @@ module AWS::SDK::EC2
         operation_name: :describe_spot_fleet_requests,
         tracer: tracer
       )
-      Telemetry::DescribeSpotFleetRequests.span(context) do
+      Telemetry::DescribeSpotFleetRequests.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_spot_fleet_requests] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -25720,7 +25720,7 @@ module AWS::SDK::EC2
         operation_name: :describe_spot_instance_requests,
         tracer: tracer
       )
-      Telemetry::DescribeSpotInstanceRequests.span(context) do
+      Telemetry::DescribeSpotInstanceRequests.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_spot_instance_requests] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -25822,7 +25822,7 @@ module AWS::SDK::EC2
         operation_name: :describe_spot_price_history,
         tracer: tracer
       )
-      Telemetry::DescribeSpotPriceHistory.span(context) do
+      Telemetry::DescribeSpotPriceHistory.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_spot_price_history] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -25892,7 +25892,7 @@ module AWS::SDK::EC2
         operation_name: :describe_stale_security_groups,
         tracer: tracer
       )
-      Telemetry::DescribeStaleSecurityGroups.span(context) do
+      Telemetry::DescribeStaleSecurityGroups.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_stale_security_groups] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -25965,7 +25965,7 @@ module AWS::SDK::EC2
         operation_name: :describe_store_image_tasks,
         tracer: tracer
       )
-      Telemetry::DescribeStoreImageTasks.span(context) do
+      Telemetry::DescribeStoreImageTasks.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_store_image_tasks] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -26083,7 +26083,7 @@ module AWS::SDK::EC2
         operation_name: :describe_subnets,
         tracer: tracer
       )
-      Telemetry::DescribeSubnets.span(context) do
+      Telemetry::DescribeSubnets.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_subnets] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -26171,7 +26171,7 @@ module AWS::SDK::EC2
         operation_name: :describe_tags,
         tracer: tracer
       )
-      Telemetry::DescribeTags.span(context) do
+      Telemetry::DescribeTags.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_tags] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -26250,7 +26250,7 @@ module AWS::SDK::EC2
         operation_name: :describe_traffic_mirror_filters,
         tracer: tracer
       )
-      Telemetry::DescribeTrafficMirrorFilters.span(context) do
+      Telemetry::DescribeTrafficMirrorFilters.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_traffic_mirror_filters] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -26318,7 +26318,7 @@ module AWS::SDK::EC2
         operation_name: :describe_traffic_mirror_sessions,
         tracer: tracer
       )
-      Telemetry::DescribeTrafficMirrorSessions.span(context) do
+      Telemetry::DescribeTrafficMirrorSessions.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_traffic_mirror_sessions] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -26384,7 +26384,7 @@ module AWS::SDK::EC2
         operation_name: :describe_traffic_mirror_targets,
         tracer: tracer
       )
-      Telemetry::DescribeTrafficMirrorTargets.span(context) do
+      Telemetry::DescribeTrafficMirrorTargets.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_traffic_mirror_targets] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -26455,7 +26455,7 @@ module AWS::SDK::EC2
         operation_name: :describe_transit_gateway_attachments,
         tracer: tracer
       )
-      Telemetry::DescribeTransitGatewayAttachments.span(context) do
+      Telemetry::DescribeTransitGatewayAttachments.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_transit_gateway_attachments] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -26531,7 +26531,7 @@ module AWS::SDK::EC2
         operation_name: :describe_transit_gateway_connect_peers,
         tracer: tracer
       )
-      Telemetry::DescribeTransitGatewayConnectPeers.span(context) do
+      Telemetry::DescribeTransitGatewayConnectPeers.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_transit_gateway_connect_peers] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -26597,7 +26597,7 @@ module AWS::SDK::EC2
         operation_name: :describe_transit_gateway_connects,
         tracer: tracer
       )
-      Telemetry::DescribeTransitGatewayConnects.span(context) do
+      Telemetry::DescribeTransitGatewayConnects.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_transit_gateway_connects] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -26666,7 +26666,7 @@ module AWS::SDK::EC2
         operation_name: :describe_transit_gateway_multicast_domains,
         tracer: tracer
       )
-      Telemetry::DescribeTransitGatewayMulticastDomains.span(context) do
+      Telemetry::DescribeTransitGatewayMulticastDomains.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_transit_gateway_multicast_domains] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -26740,7 +26740,7 @@ module AWS::SDK::EC2
         operation_name: :describe_transit_gateway_peering_attachments,
         tracer: tracer
       )
-      Telemetry::DescribeTransitGatewayPeeringAttachments.span(context) do
+      Telemetry::DescribeTransitGatewayPeeringAttachments.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_transit_gateway_peering_attachments] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -26803,7 +26803,7 @@ module AWS::SDK::EC2
         operation_name: :describe_transit_gateway_policy_tables,
         tracer: tracer
       )
-      Telemetry::DescribeTransitGatewayPolicyTables.span(context) do
+      Telemetry::DescribeTransitGatewayPolicyTables.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_transit_gateway_policy_tables] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -26872,7 +26872,7 @@ module AWS::SDK::EC2
         operation_name: :describe_transit_gateway_route_table_announcements,
         tracer: tracer
       )
-      Telemetry::DescribeTransitGatewayRouteTableAnnouncements.span(context) do
+      Telemetry::DescribeTransitGatewayRouteTableAnnouncements.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_transit_gateway_route_table_announcements] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -26938,7 +26938,7 @@ module AWS::SDK::EC2
         operation_name: :describe_transit_gateway_route_tables,
         tracer: tracer
       )
-      Telemetry::DescribeTransitGatewayRouteTables.span(context) do
+      Telemetry::DescribeTransitGatewayRouteTables.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_transit_gateway_route_tables] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -27011,7 +27011,7 @@ module AWS::SDK::EC2
         operation_name: :describe_transit_gateway_vpc_attachments,
         tracer: tracer
       )
-      Telemetry::DescribeTransitGatewayVpcAttachments.span(context) do
+      Telemetry::DescribeTransitGatewayVpcAttachments.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_transit_gateway_vpc_attachments] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -27090,7 +27090,7 @@ module AWS::SDK::EC2
         operation_name: :describe_transit_gateways,
         tracer: tracer
       )
-      Telemetry::DescribeTransitGateways.span(context) do
+      Telemetry::DescribeTransitGateways.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_transit_gateways] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -27155,7 +27155,7 @@ module AWS::SDK::EC2
         operation_name: :describe_trunk_interface_associations,
         tracer: tracer
       )
-      Telemetry::DescribeTrunkInterfaceAssociations.span(context) do
+      Telemetry::DescribeTrunkInterfaceAssociations.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_trunk_interface_associations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -27247,7 +27247,7 @@ module AWS::SDK::EC2
         operation_name: :describe_verified_access_endpoints,
         tracer: tracer
       )
-      Telemetry::DescribeVerifiedAccessEndpoints.span(context) do
+      Telemetry::DescribeVerifiedAccessEndpoints.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_verified_access_endpoints] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -27318,7 +27318,7 @@ module AWS::SDK::EC2
         operation_name: :describe_verified_access_groups,
         tracer: tracer
       )
-      Telemetry::DescribeVerifiedAccessGroups.span(context) do
+      Telemetry::DescribeVerifiedAccessGroups.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_verified_access_groups] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -27393,7 +27393,7 @@ module AWS::SDK::EC2
         operation_name: :describe_verified_access_instance_logging_configurations,
         tracer: tracer
       )
-      Telemetry::DescribeVerifiedAccessInstanceLoggingConfigurations.span(context) do
+      Telemetry::DescribeVerifiedAccessInstanceLoggingConfigurations.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_verified_access_instance_logging_configurations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -27464,7 +27464,7 @@ module AWS::SDK::EC2
         operation_name: :describe_verified_access_instances,
         tracer: tracer
       )
-      Telemetry::DescribeVerifiedAccessInstances.span(context) do
+      Telemetry::DescribeVerifiedAccessInstances.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_verified_access_instances] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -27545,7 +27545,7 @@ module AWS::SDK::EC2
         operation_name: :describe_verified_access_trust_providers,
         tracer: tracer
       )
-      Telemetry::DescribeVerifiedAccessTrustProviders.span(context) do
+      Telemetry::DescribeVerifiedAccessTrustProviders.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_verified_access_trust_providers] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -27609,7 +27609,7 @@ module AWS::SDK::EC2
         operation_name: :describe_volume_attribute,
         tracer: tracer
       )
-      Telemetry::DescribeVolumeAttribute.span(context) do
+      Telemetry::DescribeVolumeAttribute.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_volume_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -27779,7 +27779,7 @@ module AWS::SDK::EC2
         operation_name: :describe_volume_status,
         tracer: tracer
       )
-      Telemetry::DescribeVolumeStatus.span(context) do
+      Telemetry::DescribeVolumeStatus.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_volume_status] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -27937,7 +27937,7 @@ module AWS::SDK::EC2
         operation_name: :describe_volumes,
         tracer: tracer
       )
-      Telemetry::DescribeVolumes.span(context) do
+      Telemetry::DescribeVolumes.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_volumes] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -28014,7 +28014,7 @@ module AWS::SDK::EC2
         operation_name: :describe_volumes_modifications,
         tracer: tracer
       )
-      Telemetry::DescribeVolumesModifications.span(context) do
+      Telemetry::DescribeVolumesModifications.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_volumes_modifications] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -28088,7 +28088,7 @@ module AWS::SDK::EC2
         operation_name: :describe_vpc_attribute,
         tracer: tracer
       )
-      Telemetry::DescribeVpcAttribute.span(context) do
+      Telemetry::DescribeVpcAttribute.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_vpc_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -28149,7 +28149,7 @@ module AWS::SDK::EC2
         operation_name: :describe_vpc_classic_link,
         tracer: tracer
       )
-      Telemetry::DescribeVpcClassicLink.span(context) do
+      Telemetry::DescribeVpcClassicLink.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_vpc_classic_link] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -28204,7 +28204,7 @@ module AWS::SDK::EC2
         operation_name: :describe_vpc_classic_link_dns_support,
         tracer: tracer
       )
-      Telemetry::DescribeVpcClassicLinkDnsSupport.span(context) do
+      Telemetry::DescribeVpcClassicLinkDnsSupport.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_vpc_classic_link_dns_support] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -28266,7 +28266,7 @@ module AWS::SDK::EC2
         operation_name: :describe_vpc_endpoint_connection_notifications,
         tracer: tracer
       )
-      Telemetry::DescribeVpcEndpointConnectionNotifications.span(context) do
+      Telemetry::DescribeVpcEndpointConnectionNotifications.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_vpc_endpoint_connection_notifications] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -28337,7 +28337,7 @@ module AWS::SDK::EC2
         operation_name: :describe_vpc_endpoint_connections,
         tracer: tracer
       )
-      Telemetry::DescribeVpcEndpointConnections.span(context) do
+      Telemetry::DescribeVpcEndpointConnections.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_vpc_endpoint_connections] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -28418,7 +28418,7 @@ module AWS::SDK::EC2
         operation_name: :describe_vpc_endpoint_service_configurations,
         tracer: tracer
       )
-      Telemetry::DescribeVpcEndpointServiceConfigurations.span(context) do
+      Telemetry::DescribeVpcEndpointServiceConfigurations.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_vpc_endpoint_service_configurations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -28480,7 +28480,7 @@ module AWS::SDK::EC2
         operation_name: :describe_vpc_endpoint_service_permissions,
         tracer: tracer
       )
-      Telemetry::DescribeVpcEndpointServicePermissions.span(context) do
+      Telemetry::DescribeVpcEndpointServicePermissions.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_vpc_endpoint_service_permissions] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -28564,7 +28564,7 @@ module AWS::SDK::EC2
         operation_name: :describe_vpc_endpoint_services,
         tracer: tracer
       )
-      Telemetry::DescribeVpcEndpointServices.span(context) do
+      Telemetry::DescribeVpcEndpointServices.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_vpc_endpoint_services] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -28652,7 +28652,7 @@ module AWS::SDK::EC2
         operation_name: :describe_vpc_endpoints,
         tracer: tracer
       )
-      Telemetry::DescribeVpcEndpoints.span(context) do
+      Telemetry::DescribeVpcEndpoints.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_vpc_endpoints] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -28732,7 +28732,7 @@ module AWS::SDK::EC2
         operation_name: :describe_vpc_peering_connections,
         tracer: tracer
       )
-      Telemetry::DescribeVpcPeeringConnections.span(context) do
+      Telemetry::DescribeVpcPeeringConnections.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_vpc_peering_connections] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -28839,7 +28839,7 @@ module AWS::SDK::EC2
         operation_name: :describe_vpcs,
         tracer: tracer
       )
-      Telemetry::DescribeVpcs.span(context) do
+      Telemetry::DescribeVpcs.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_vpcs] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -28972,7 +28972,7 @@ module AWS::SDK::EC2
         operation_name: :describe_vpn_connections,
         tracer: tracer
       )
-      Telemetry::DescribeVpnConnections.span(context) do
+      Telemetry::DescribeVpnConnections.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_vpn_connections] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -29039,7 +29039,7 @@ module AWS::SDK::EC2
         operation_name: :describe_vpn_gateways,
         tracer: tracer
       )
-      Telemetry::DescribeVpnGateways.span(context) do
+      Telemetry::DescribeVpnGateways.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_vpn_gateways] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -29086,7 +29086,7 @@ module AWS::SDK::EC2
         operation_name: :detach_classic_link_vpc,
         tracer: tracer
       )
-      Telemetry::DetachClassicLinkVpc.span(context) do
+      Telemetry::DetachClassicLinkVpc.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#detach_classic_link_vpc] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -29138,7 +29138,7 @@ module AWS::SDK::EC2
         operation_name: :detach_internet_gateway,
         tracer: tracer
       )
-      Telemetry::DetachInternetGateway.span(context) do
+      Telemetry::DetachInternetGateway.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#detach_internet_gateway] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -29187,7 +29187,7 @@ module AWS::SDK::EC2
         operation_name: :detach_network_interface,
         tracer: tracer
       )
-      Telemetry::DetachNetworkInterface.span(context) do
+      Telemetry::DetachNetworkInterface.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#detach_network_interface] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -29270,7 +29270,7 @@ module AWS::SDK::EC2
         operation_name: :detach_verified_access_trust_provider,
         tracer: tracer
       )
-      Telemetry::DetachVerifiedAccessTrustProvider.span(context) do
+      Telemetry::DetachVerifiedAccessTrustProvider.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#detach_verified_access_trust_provider] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -29348,7 +29348,7 @@ module AWS::SDK::EC2
         operation_name: :detach_volume,
         tracer: tracer
       )
-      Telemetry::DetachVolume.span(context) do
+      Telemetry::DetachVolume.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#detach_volume] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -29394,7 +29394,7 @@ module AWS::SDK::EC2
         operation_name: :detach_vpn_gateway,
         tracer: tracer
       )
-      Telemetry::DetachVpnGateway.span(context) do
+      Telemetry::DetachVpnGateway.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#detach_vpn_gateway] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -29441,7 +29441,7 @@ module AWS::SDK::EC2
         operation_name: :disable_address_transfer,
         tracer: tracer
       )
-      Telemetry::DisableAddressTransfer.span(context) do
+      Telemetry::DisableAddressTransfer.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_address_transfer] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -29485,7 +29485,7 @@ module AWS::SDK::EC2
         operation_name: :disable_aws_network_performance_metric_subscription,
         tracer: tracer
       )
-      Telemetry::DisableAwsNetworkPerformanceMetricSubscription.span(context) do
+      Telemetry::DisableAwsNetworkPerformanceMetricSubscription.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_aws_network_performance_metric_subscription] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -29531,7 +29531,7 @@ module AWS::SDK::EC2
         operation_name: :disable_ebs_encryption_by_default,
         tracer: tracer
       )
-      Telemetry::DisableEbsEncryptionByDefault.span(context) do
+      Telemetry::DisableEbsEncryptionByDefault.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_ebs_encryption_by_default] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -29590,7 +29590,7 @@ module AWS::SDK::EC2
         operation_name: :disable_fast_launch,
         tracer: tracer
       )
-      Telemetry::DisableFastLaunch.span(context) do
+      Telemetry::DisableFastLaunch.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_fast_launch] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -29657,7 +29657,7 @@ module AWS::SDK::EC2
         operation_name: :disable_fast_snapshot_restores,
         tracer: tracer
       )
-      Telemetry::DisableFastSnapshotRestores.span(context) do
+      Telemetry::DisableFastSnapshotRestores.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_fast_snapshot_restores] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -29708,7 +29708,7 @@ module AWS::SDK::EC2
         operation_name: :disable_image,
         tracer: tracer
       )
-      Telemetry::DisableImage.span(context) do
+      Telemetry::DisableImage.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_image] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -29757,7 +29757,7 @@ module AWS::SDK::EC2
         operation_name: :disable_image_block_public_access,
         tracer: tracer
       )
-      Telemetry::DisableImageBlockPublicAccess.span(context) do
+      Telemetry::DisableImageBlockPublicAccess.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_image_block_public_access] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -29800,7 +29800,7 @@ module AWS::SDK::EC2
         operation_name: :disable_image_deprecation,
         tracer: tracer
       )
-      Telemetry::DisableImageDeprecation.span(context) do
+      Telemetry::DisableImageDeprecation.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_image_deprecation] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -29842,7 +29842,7 @@ module AWS::SDK::EC2
         operation_name: :disable_ipam_organization_admin_account,
         tracer: tracer
       )
-      Telemetry::DisableIpamOrganizationAdminAccount.span(context) do
+      Telemetry::DisableIpamOrganizationAdminAccount.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_ipam_organization_admin_account] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -29885,7 +29885,7 @@ module AWS::SDK::EC2
         operation_name: :disable_serial_console_access,
         tracer: tracer
       )
-      Telemetry::DisableSerialConsoleAccess.span(context) do
+      Telemetry::DisableSerialConsoleAccess.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_serial_console_access] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -29933,7 +29933,7 @@ module AWS::SDK::EC2
         operation_name: :disable_snapshot_block_public_access,
         tracer: tracer
       )
-      Telemetry::DisableSnapshotBlockPublicAccess.span(context) do
+      Telemetry::DisableSnapshotBlockPublicAccess.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_snapshot_block_public_access] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -29983,7 +29983,7 @@ module AWS::SDK::EC2
         operation_name: :disable_transit_gateway_route_table_propagation,
         tracer: tracer
       )
-      Telemetry::DisableTransitGatewayRouteTablePropagation.span(context) do
+      Telemetry::DisableTransitGatewayRouteTablePropagation.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_transit_gateway_route_table_propagation] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -30034,7 +30034,7 @@ module AWS::SDK::EC2
         operation_name: :disable_vgw_route_propagation,
         tracer: tracer
       )
-      Telemetry::DisableVgwRoutePropagation.span(context) do
+      Telemetry::DisableVgwRoutePropagation.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_vgw_route_propagation] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -30079,7 +30079,7 @@ module AWS::SDK::EC2
         operation_name: :disable_vpc_classic_link,
         tracer: tracer
       )
-      Telemetry::DisableVpcClassicLink.span(context) do
+      Telemetry::DisableVpcClassicLink.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_vpc_classic_link] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -30125,7 +30125,7 @@ module AWS::SDK::EC2
         operation_name: :disable_vpc_classic_link_dns_support,
         tracer: tracer
       )
-      Telemetry::DisableVpcClassicLinkDnsSupport.span(context) do
+      Telemetry::DisableVpcClassicLinkDnsSupport.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_vpc_classic_link_dns_support] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -30175,7 +30175,7 @@ module AWS::SDK::EC2
         operation_name: :disassociate_address,
         tracer: tracer
       )
-      Telemetry::DisassociateAddress.span(context) do
+      Telemetry::DisassociateAddress.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disassociate_address] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -30236,7 +30236,7 @@ module AWS::SDK::EC2
         operation_name: :disassociate_client_vpn_target_network,
         tracer: tracer
       )
-      Telemetry::DisassociateClientVpnTargetNetwork.span(context) do
+      Telemetry::DisassociateClientVpnTargetNetwork.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disassociate_client_vpn_target_network] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -30282,7 +30282,7 @@ module AWS::SDK::EC2
         operation_name: :disassociate_enclave_certificate_iam_role,
         tracer: tracer
       )
-      Telemetry::DisassociateEnclaveCertificateIamRole.span(context) do
+      Telemetry::DisassociateEnclaveCertificateIamRole.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disassociate_enclave_certificate_iam_role] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -30349,7 +30349,7 @@ module AWS::SDK::EC2
         operation_name: :disassociate_iam_instance_profile,
         tracer: tracer
       )
-      Telemetry::DisassociateIamInstanceProfile.span(context) do
+      Telemetry::DisassociateIamInstanceProfile.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disassociate_iam_instance_profile] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -30426,7 +30426,7 @@ module AWS::SDK::EC2
         operation_name: :disassociate_instance_event_window,
         tracer: tracer
       )
-      Telemetry::DisassociateInstanceEventWindow.span(context) do
+      Telemetry::DisassociateInstanceEventWindow.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disassociate_instance_event_window] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -30473,7 +30473,7 @@ module AWS::SDK::EC2
         operation_name: :disassociate_ipam_byoasn,
         tracer: tracer
       )
-      Telemetry::DisassociateIpamByoasn.span(context) do
+      Telemetry::DisassociateIpamByoasn.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disassociate_ipam_byoasn] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -30528,7 +30528,7 @@ module AWS::SDK::EC2
         operation_name: :disassociate_ipam_resource_discovery,
         tracer: tracer
       )
-      Telemetry::DisassociateIpamResourceDiscovery.span(context) do
+      Telemetry::DisassociateIpamResourceDiscovery.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disassociate_ipam_resource_discovery] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -30590,7 +30590,7 @@ module AWS::SDK::EC2
         operation_name: :disassociate_nat_gateway_address,
         tracer: tracer
       )
-      Telemetry::DisassociateNatGatewayAddress.span(context) do
+      Telemetry::DisassociateNatGatewayAddress.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disassociate_nat_gateway_address] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -30642,7 +30642,7 @@ module AWS::SDK::EC2
         operation_name: :disassociate_route_table,
         tracer: tracer
       )
-      Telemetry::DisassociateRouteTable.span(context) do
+      Telemetry::DisassociateRouteTable.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disassociate_route_table] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -30688,7 +30688,7 @@ module AWS::SDK::EC2
         operation_name: :disassociate_subnet_cidr_block,
         tracer: tracer
       )
-      Telemetry::DisassociateSubnetCidrBlock.span(context) do
+      Telemetry::DisassociateSubnetCidrBlock.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disassociate_subnet_cidr_block] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -30742,7 +30742,7 @@ module AWS::SDK::EC2
         operation_name: :disassociate_transit_gateway_multicast_domain,
         tracer: tracer
       )
-      Telemetry::DisassociateTransitGatewayMulticastDomain.span(context) do
+      Telemetry::DisassociateTransitGatewayMulticastDomain.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disassociate_transit_gateway_multicast_domain] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -30789,7 +30789,7 @@ module AWS::SDK::EC2
         operation_name: :disassociate_transit_gateway_policy_table,
         tracer: tracer
       )
-      Telemetry::DisassociateTransitGatewayPolicyTable.span(context) do
+      Telemetry::DisassociateTransitGatewayPolicyTable.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disassociate_transit_gateway_policy_table] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -30836,7 +30836,7 @@ module AWS::SDK::EC2
         operation_name: :disassociate_transit_gateway_route_table,
         tracer: tracer
       )
-      Telemetry::DisassociateTransitGatewayRouteTable.span(context) do
+      Telemetry::DisassociateTransitGatewayRouteTable.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disassociate_transit_gateway_route_table] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -30879,7 +30879,7 @@ module AWS::SDK::EC2
         operation_name: :disassociate_trunk_interface,
         tracer: tracer
       )
-      Telemetry::DisassociateTrunkInterface.span(context) do
+      Telemetry::DisassociateTrunkInterface.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disassociate_trunk_interface] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -30936,7 +30936,7 @@ module AWS::SDK::EC2
         operation_name: :disassociate_vpc_cidr_block,
         tracer: tracer
       )
-      Telemetry::DisassociateVpcCidrBlock.span(context) do
+      Telemetry::DisassociateVpcCidrBlock.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disassociate_vpc_cidr_block] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -30984,7 +30984,7 @@ module AWS::SDK::EC2
         operation_name: :enable_address_transfer,
         tracer: tracer
       )
-      Telemetry::EnableAddressTransfer.span(context) do
+      Telemetry::EnableAddressTransfer.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_address_transfer] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -31028,7 +31028,7 @@ module AWS::SDK::EC2
         operation_name: :enable_aws_network_performance_metric_subscription,
         tracer: tracer
       )
-      Telemetry::EnableAwsNetworkPerformanceMetricSubscription.span(context) do
+      Telemetry::EnableAwsNetworkPerformanceMetricSubscription.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_aws_network_performance_metric_subscription] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -31079,7 +31079,7 @@ module AWS::SDK::EC2
         operation_name: :enable_ebs_encryption_by_default,
         tracer: tracer
       )
-      Telemetry::EnableEbsEncryptionByDefault.span(context) do
+      Telemetry::EnableEbsEncryptionByDefault.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_ebs_encryption_by_default] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -31150,7 +31150,7 @@ module AWS::SDK::EC2
         operation_name: :enable_fast_launch,
         tracer: tracer
       )
-      Telemetry::EnableFastLaunch.span(context) do
+      Telemetry::EnableFastLaunch.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_fast_launch] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -31222,7 +31222,7 @@ module AWS::SDK::EC2
         operation_name: :enable_fast_snapshot_restores,
         tracer: tracer
       )
-      Telemetry::EnableFastSnapshotRestores.span(context) do
+      Telemetry::EnableFastSnapshotRestores.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_fast_snapshot_restores] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -31270,7 +31270,7 @@ module AWS::SDK::EC2
         operation_name: :enable_image,
         tracer: tracer
       )
-      Telemetry::EnableImage.span(context) do
+      Telemetry::EnableImage.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_image] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -31319,7 +31319,7 @@ module AWS::SDK::EC2
         operation_name: :enable_image_block_public_access,
         tracer: tracer
       )
-      Telemetry::EnableImageBlockPublicAccess.span(context) do
+      Telemetry::EnableImageBlockPublicAccess.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_image_block_public_access] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -31362,7 +31362,7 @@ module AWS::SDK::EC2
         operation_name: :enable_image_deprecation,
         tracer: tracer
       )
-      Telemetry::EnableImageDeprecation.span(context) do
+      Telemetry::EnableImageDeprecation.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_image_deprecation] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -31404,7 +31404,7 @@ module AWS::SDK::EC2
         operation_name: :enable_ipam_organization_admin_account,
         tracer: tracer
       )
-      Telemetry::EnableIpamOrganizationAdminAccount.span(context) do
+      Telemetry::EnableIpamOrganizationAdminAccount.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_ipam_organization_admin_account] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -31448,7 +31448,7 @@ module AWS::SDK::EC2
         operation_name: :enable_reachability_analyzer_organization_sharing,
         tracer: tracer
       )
-      Telemetry::EnableReachabilityAnalyzerOrganizationSharing.span(context) do
+      Telemetry::EnableReachabilityAnalyzerOrganizationSharing.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_reachability_analyzer_organization_sharing] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -31490,7 +31490,7 @@ module AWS::SDK::EC2
         operation_name: :enable_serial_console_access,
         tracer: tracer
       )
-      Telemetry::EnableSerialConsoleAccess.span(context) do
+      Telemetry::EnableSerialConsoleAccess.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_serial_console_access] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -31542,7 +31542,7 @@ module AWS::SDK::EC2
         operation_name: :enable_snapshot_block_public_access,
         tracer: tracer
       )
-      Telemetry::EnableSnapshotBlockPublicAccess.span(context) do
+      Telemetry::EnableSnapshotBlockPublicAccess.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_snapshot_block_public_access] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -31592,7 +31592,7 @@ module AWS::SDK::EC2
         operation_name: :enable_transit_gateway_route_table_propagation,
         tracer: tracer
       )
-      Telemetry::EnableTransitGatewayRouteTablePropagation.span(context) do
+      Telemetry::EnableTransitGatewayRouteTablePropagation.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_transit_gateway_route_table_propagation] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -31643,7 +31643,7 @@ module AWS::SDK::EC2
         operation_name: :enable_vgw_route_propagation,
         tracer: tracer
       )
-      Telemetry::EnableVgwRoutePropagation.span(context) do
+      Telemetry::EnableVgwRoutePropagation.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_vgw_route_propagation] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -31692,7 +31692,7 @@ module AWS::SDK::EC2
         operation_name: :enable_volume_io,
         tracer: tracer
       )
-      Telemetry::EnableVolumeIO.span(context) do
+      Telemetry::EnableVolumeIO.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_volume_io] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -31741,7 +31741,7 @@ module AWS::SDK::EC2
         operation_name: :enable_vpc_classic_link,
         tracer: tracer
       )
-      Telemetry::EnableVpcClassicLink.span(context) do
+      Telemetry::EnableVpcClassicLink.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_vpc_classic_link] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -31789,7 +31789,7 @@ module AWS::SDK::EC2
         operation_name: :enable_vpc_classic_link_dns_support,
         tracer: tracer
       )
-      Telemetry::EnableVpcClassicLinkDnsSupport.span(context) do
+      Telemetry::EnableVpcClassicLinkDnsSupport.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_vpc_classic_link_dns_support] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -31833,7 +31833,7 @@ module AWS::SDK::EC2
         operation_name: :export_client_vpn_client_certificate_revocation_list,
         tracer: tracer
       )
-      Telemetry::ExportClientVpnClientCertificateRevocationList.span(context) do
+      Telemetry::ExportClientVpnClientCertificateRevocationList.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#export_client_vpn_client_certificate_revocation_list] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -31876,7 +31876,7 @@ module AWS::SDK::EC2
         operation_name: :export_client_vpn_client_configuration,
         tracer: tracer
       )
-      Telemetry::ExportClientVpnClientConfiguration.span(context) do
+      Telemetry::ExportClientVpnClientConfiguration.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#export_client_vpn_client_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -31952,7 +31952,7 @@ module AWS::SDK::EC2
         operation_name: :export_image,
         tracer: tracer
       )
-      Telemetry::ExportImage.span(context) do
+      Telemetry::ExportImage.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#export_image] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -32006,7 +32006,7 @@ module AWS::SDK::EC2
         operation_name: :export_transit_gateway_routes,
         tracer: tracer
       )
-      Telemetry::ExportTransitGatewayRoutes.span(context) do
+      Telemetry::ExportTransitGatewayRoutes.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#export_transit_gateway_routes] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -32055,7 +32055,7 @@ module AWS::SDK::EC2
         operation_name: :get_associated_enclave_certificate_iam_roles,
         tracer: tracer
       )
-      Telemetry::GetAssociatedEnclaveCertificateIamRoles.span(context) do
+      Telemetry::GetAssociatedEnclaveCertificateIamRoles.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_associated_enclave_certificate_iam_roles] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -32102,7 +32102,7 @@ module AWS::SDK::EC2
         operation_name: :get_associated_ipv6_pool_cidrs,
         tracer: tracer
       )
-      Telemetry::GetAssociatedIpv6PoolCidrs.span(context) do
+      Telemetry::GetAssociatedIpv6PoolCidrs.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_associated_ipv6_pool_cidrs] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -32170,7 +32170,7 @@ module AWS::SDK::EC2
         operation_name: :get_aws_network_performance_data,
         tracer: tracer
       )
-      Telemetry::GetAwsNetworkPerformanceData.span(context) do
+      Telemetry::GetAwsNetworkPerformanceData.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_aws_network_performance_data] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -32224,7 +32224,7 @@ module AWS::SDK::EC2
         operation_name: :get_capacity_reservation_usage,
         tracer: tracer
       )
-      Telemetry::GetCapacityReservationUsage.span(context) do
+      Telemetry::GetCapacityReservationUsage.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_capacity_reservation_usage] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -32283,7 +32283,7 @@ module AWS::SDK::EC2
         operation_name: :get_coip_pool_usage,
         tracer: tracer
       )
-      Telemetry::GetCoipPoolUsage.span(context) do
+      Telemetry::GetCoipPoolUsage.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_coip_pool_usage] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -32351,7 +32351,7 @@ module AWS::SDK::EC2
         operation_name: :get_console_output,
         tracer: tracer
       )
-      Telemetry::GetConsoleOutput.span(context) do
+      Telemetry::GetConsoleOutput.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_console_output] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -32396,7 +32396,7 @@ module AWS::SDK::EC2
         operation_name: :get_console_screenshot,
         tracer: tracer
       )
-      Telemetry::GetConsoleScreenshot.span(context) do
+      Telemetry::GetConsoleScreenshot.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_console_screenshot] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -32442,7 +32442,7 @@ module AWS::SDK::EC2
         operation_name: :get_default_credit_specification,
         tracer: tracer
       )
-      Telemetry::GetDefaultCreditSpecification.span(context) do
+      Telemetry::GetDefaultCreditSpecification.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_default_credit_specification] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -32486,7 +32486,7 @@ module AWS::SDK::EC2
         operation_name: :get_ebs_default_kms_key_id,
         tracer: tracer
       )
-      Telemetry::GetEbsDefaultKmsKeyId.span(context) do
+      Telemetry::GetEbsDefaultKmsKeyId.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_ebs_default_kms_key_id] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -32530,7 +32530,7 @@ module AWS::SDK::EC2
         operation_name: :get_ebs_encryption_by_default,
         tracer: tracer
       )
-      Telemetry::GetEbsEncryptionByDefault.span(context) do
+      Telemetry::GetEbsEncryptionByDefault.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_ebs_encryption_by_default] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -32604,7 +32604,7 @@ module AWS::SDK::EC2
         operation_name: :get_flow_logs_integration_template,
         tracer: tracer
       )
-      Telemetry::GetFlowLogsIntegrationTemplate.span(context) do
+      Telemetry::GetFlowLogsIntegrationTemplate.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_flow_logs_integration_template] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -32651,7 +32651,7 @@ module AWS::SDK::EC2
         operation_name: :get_groups_for_capacity_reservation,
         tracer: tracer
       )
-      Telemetry::GetGroupsForCapacityReservation.span(context) do
+      Telemetry::GetGroupsForCapacityReservation.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_groups_for_capacity_reservation] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -32711,7 +32711,7 @@ module AWS::SDK::EC2
         operation_name: :get_host_reservation_purchase_preview,
         tracer: tracer
       )
-      Telemetry::GetHostReservationPurchasePreview.span(context) do
+      Telemetry::GetHostReservationPurchasePreview.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_host_reservation_purchase_preview] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -32754,7 +32754,7 @@ module AWS::SDK::EC2
         operation_name: :get_image_block_public_access_state,
         tracer: tracer
       )
-      Telemetry::GetImageBlockPublicAccessState.span(context) do
+      Telemetry::GetImageBlockPublicAccessState.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_image_block_public_access_state] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -32883,7 +32883,7 @@ module AWS::SDK::EC2
         operation_name: :get_instance_types_from_instance_requirements,
         tracer: tracer
       )
-      Telemetry::GetInstanceTypesFromInstanceRequirements.span(context) do
+      Telemetry::GetInstanceTypesFromInstanceRequirements.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_instance_types_from_instance_requirements] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -32935,7 +32935,7 @@ module AWS::SDK::EC2
         operation_name: :get_instance_uefi_data,
         tracer: tracer
       )
-      Telemetry::GetInstanceUefiData.span(context) do
+      Telemetry::GetInstanceUefiData.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_instance_uefi_data] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -32995,7 +32995,7 @@ module AWS::SDK::EC2
         operation_name: :get_ipam_address_history,
         tracer: tracer
       )
-      Telemetry::GetIpamAddressHistory.span(context) do
+      Telemetry::GetIpamAddressHistory.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_ipam_address_history] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -33056,7 +33056,7 @@ module AWS::SDK::EC2
         operation_name: :get_ipam_discovered_accounts,
         tracer: tracer
       )
-      Telemetry::GetIpamDiscoveredAccounts.span(context) do
+      Telemetry::GetIpamDiscoveredAccounts.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_ipam_discovered_accounts] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -33137,7 +33137,7 @@ module AWS::SDK::EC2
         operation_name: :get_ipam_discovered_public_addresses,
         tracer: tracer
       )
-      Telemetry::GetIpamDiscoveredPublicAddresses.span(context) do
+      Telemetry::GetIpamDiscoveredPublicAddresses.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_ipam_discovered_public_addresses] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -33204,7 +33204,7 @@ module AWS::SDK::EC2
         operation_name: :get_ipam_discovered_resource_cidrs,
         tracer: tracer
       )
-      Telemetry::GetIpamDiscoveredResourceCidrs.span(context) do
+      Telemetry::GetIpamDiscoveredResourceCidrs.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_ipam_discovered_resource_cidrs] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -33268,7 +33268,7 @@ module AWS::SDK::EC2
         operation_name: :get_ipam_pool_allocations,
         tracer: tracer
       )
-      Telemetry::GetIpamPoolAllocations.span(context) do
+      Telemetry::GetIpamPoolAllocations.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_ipam_pool_allocations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -33328,7 +33328,7 @@ module AWS::SDK::EC2
         operation_name: :get_ipam_pool_cidrs,
         tracer: tracer
       )
-      Telemetry::GetIpamPoolCidrs.span(context) do
+      Telemetry::GetIpamPoolCidrs.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_ipam_pool_cidrs] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -33407,7 +33407,7 @@ module AWS::SDK::EC2
         operation_name: :get_ipam_resource_cidrs,
         tracer: tracer
       )
-      Telemetry::GetIpamResourceCidrs.span(context) do
+      Telemetry::GetIpamResourceCidrs.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_ipam_resource_cidrs] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -33700,7 +33700,7 @@ module AWS::SDK::EC2
         operation_name: :get_launch_template_data,
         tracer: tracer
       )
-      Telemetry::GetLaunchTemplateData.span(context) do
+      Telemetry::GetLaunchTemplateData.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_launch_template_data] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -33747,7 +33747,7 @@ module AWS::SDK::EC2
         operation_name: :get_managed_prefix_list_associations,
         tracer: tracer
       )
-      Telemetry::GetManagedPrefixListAssociations.span(context) do
+      Telemetry::GetManagedPrefixListAssociations.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_managed_prefix_list_associations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -33795,7 +33795,7 @@ module AWS::SDK::EC2
         operation_name: :get_managed_prefix_list_entries,
         tracer: tracer
       )
-      Telemetry::GetManagedPrefixListEntries.span(context) do
+      Telemetry::GetManagedPrefixListEntries.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_managed_prefix_list_entries] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -34008,7 +34008,7 @@ module AWS::SDK::EC2
         operation_name: :get_network_insights_access_scope_analysis_findings,
         tracer: tracer
       )
-      Telemetry::GetNetworkInsightsAccessScopeAnalysisFindings.span(context) do
+      Telemetry::GetNetworkInsightsAccessScopeAnalysisFindings.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_network_insights_access_scope_analysis_findings] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -34071,7 +34071,7 @@ module AWS::SDK::EC2
         operation_name: :get_network_insights_access_scope_content,
         tracer: tracer
       )
-      Telemetry::GetNetworkInsightsAccessScopeContent.span(context) do
+      Telemetry::GetNetworkInsightsAccessScopeContent.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_network_insights_access_scope_content] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -34126,7 +34126,7 @@ module AWS::SDK::EC2
         operation_name: :get_password_data,
         tracer: tracer
       )
-      Telemetry::GetPasswordData.span(context) do
+      Telemetry::GetPasswordData.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_password_data] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -34196,7 +34196,7 @@ module AWS::SDK::EC2
         operation_name: :get_reserved_instances_exchange_quote,
         tracer: tracer
       )
-      Telemetry::GetReservedInstancesExchangeQuote.span(context) do
+      Telemetry::GetReservedInstancesExchangeQuote.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_reserved_instances_exchange_quote] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -34258,7 +34258,7 @@ module AWS::SDK::EC2
         operation_name: :get_security_groups_for_vpc,
         tracer: tracer
       )
-      Telemetry::GetSecurityGroupsForVpc.span(context) do
+      Telemetry::GetSecurityGroupsForVpc.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_security_groups_for_vpc] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -34301,7 +34301,7 @@ module AWS::SDK::EC2
         operation_name: :get_serial_console_access_status,
         tracer: tracer
       )
-      Telemetry::GetSerialConsoleAccessStatus.span(context) do
+      Telemetry::GetSerialConsoleAccessStatus.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_serial_console_access_status] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -34344,7 +34344,7 @@ module AWS::SDK::EC2
         operation_name: :get_snapshot_block_public_access_state,
         tracer: tracer
       )
-      Telemetry::GetSnapshotBlockPublicAccessState.span(context) do
+      Telemetry::GetSnapshotBlockPublicAccessState.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_snapshot_block_public_access_state] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -34484,7 +34484,7 @@ module AWS::SDK::EC2
         operation_name: :get_spot_placement_scores,
         tracer: tracer
       )
-      Telemetry::GetSpotPlacementScores.span(context) do
+      Telemetry::GetSpotPlacementScores.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_spot_placement_scores] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -34548,7 +34548,7 @@ module AWS::SDK::EC2
         operation_name: :get_subnet_cidr_reservations,
         tracer: tracer
       )
-      Telemetry::GetSubnetCidrReservations.span(context) do
+      Telemetry::GetSubnetCidrReservations.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_subnet_cidr_reservations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -34603,7 +34603,7 @@ module AWS::SDK::EC2
         operation_name: :get_transit_gateway_attachment_propagations,
         tracer: tracer
       )
-      Telemetry::GetTransitGatewayAttachmentPropagations.span(context) do
+      Telemetry::GetTransitGatewayAttachmentPropagations.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_transit_gateway_attachment_propagations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -34663,7 +34663,7 @@ module AWS::SDK::EC2
         operation_name: :get_transit_gateway_multicast_domain_associations,
         tracer: tracer
       )
-      Telemetry::GetTransitGatewayMulticastDomainAssociations.span(context) do
+      Telemetry::GetTransitGatewayMulticastDomainAssociations.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_transit_gateway_multicast_domain_associations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -34721,7 +34721,7 @@ module AWS::SDK::EC2
         operation_name: :get_transit_gateway_policy_table_associations,
         tracer: tracer
       )
-      Telemetry::GetTransitGatewayPolicyTableAssociations.span(context) do
+      Telemetry::GetTransitGatewayPolicyTableAssociations.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_transit_gateway_policy_table_associations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -34784,7 +34784,7 @@ module AWS::SDK::EC2
         operation_name: :get_transit_gateway_policy_table_entries,
         tracer: tracer
       )
-      Telemetry::GetTransitGatewayPolicyTableEntries.span(context) do
+      Telemetry::GetTransitGatewayPolicyTableEntries.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_transit_gateway_policy_table_entries] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -34846,7 +34846,7 @@ module AWS::SDK::EC2
         operation_name: :get_transit_gateway_prefix_list_references,
         tracer: tracer
       )
-      Telemetry::GetTransitGatewayPrefixListReferences.span(context) do
+      Telemetry::GetTransitGatewayPrefixListReferences.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_transit_gateway_prefix_list_references] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -34903,7 +34903,7 @@ module AWS::SDK::EC2
         operation_name: :get_transit_gateway_route_table_associations,
         tracer: tracer
       )
-      Telemetry::GetTransitGatewayRouteTableAssociations.span(context) do
+      Telemetry::GetTransitGatewayRouteTableAssociations.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_transit_gateway_route_table_associations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -34961,7 +34961,7 @@ module AWS::SDK::EC2
         operation_name: :get_transit_gateway_route_table_propagations,
         tracer: tracer
       )
-      Telemetry::GetTransitGatewayRouteTablePropagations.span(context) do
+      Telemetry::GetTransitGatewayRouteTablePropagations.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_transit_gateway_route_table_propagations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -35003,7 +35003,7 @@ module AWS::SDK::EC2
         operation_name: :get_verified_access_endpoint_policy,
         tracer: tracer
       )
-      Telemetry::GetVerifiedAccessEndpointPolicy.span(context) do
+      Telemetry::GetVerifiedAccessEndpointPolicy.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_verified_access_endpoint_policy] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -35045,7 +35045,7 @@ module AWS::SDK::EC2
         operation_name: :get_verified_access_group_policy,
         tracer: tracer
       )
-      Telemetry::GetVerifiedAccessGroupPolicy.span(context) do
+      Telemetry::GetVerifiedAccessGroupPolicy.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_verified_access_group_policy] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -35089,7 +35089,7 @@ module AWS::SDK::EC2
         operation_name: :get_vpn_connection_device_sample_configuration,
         tracer: tracer
       )
-      Telemetry::GetVpnConnectionDeviceSampleConfiguration.span(context) do
+      Telemetry::GetVpnConnectionDeviceSampleConfiguration.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_vpn_connection_device_sample_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -35140,7 +35140,7 @@ module AWS::SDK::EC2
         operation_name: :get_vpn_connection_device_types,
         tracer: tracer
       )
-      Telemetry::GetVpnConnectionDeviceTypes.span(context) do
+      Telemetry::GetVpnConnectionDeviceTypes.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_vpn_connection_device_types] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -35190,7 +35190,7 @@ module AWS::SDK::EC2
         operation_name: :get_vpn_tunnel_replacement_status,
         tracer: tracer
       )
-      Telemetry::GetVpnTunnelReplacementStatus.span(context) do
+      Telemetry::GetVpnTunnelReplacementStatus.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_vpn_tunnel_replacement_status] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -35233,7 +35233,7 @@ module AWS::SDK::EC2
         operation_name: :import_client_vpn_client_certificate_revocation_list,
         tracer: tracer
       )
-      Telemetry::ImportClientVpnClientCertificateRevocationList.span(context) do
+      Telemetry::ImportClientVpnClientCertificateRevocationList.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#import_client_vpn_client_certificate_revocation_list] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -35367,7 +35367,7 @@ module AWS::SDK::EC2
         operation_name: :import_image,
         tracer: tracer
       )
-      Telemetry::ImportImage.span(context) do
+      Telemetry::ImportImage.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#import_image] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -35497,7 +35497,7 @@ module AWS::SDK::EC2
         operation_name: :import_instance,
         tracer: tracer
       )
-      Telemetry::ImportInstance.span(context) do
+      Telemetry::ImportInstance.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#import_instance] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -35561,7 +35561,7 @@ module AWS::SDK::EC2
         operation_name: :import_key_pair,
         tracer: tracer
       )
-      Telemetry::ImportKeyPair.span(context) do
+      Telemetry::ImportKeyPair.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#import_key_pair] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -35653,7 +35653,7 @@ module AWS::SDK::EC2
         operation_name: :import_snapshot,
         tracer: tracer
       )
-      Telemetry::ImportSnapshot.span(context) do
+      Telemetry::ImportSnapshot.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#import_snapshot] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -35742,7 +35742,7 @@ module AWS::SDK::EC2
         operation_name: :import_volume,
         tracer: tracer
       )
-      Telemetry::ImportVolume.span(context) do
+      Telemetry::ImportVolume.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#import_volume] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -35796,7 +35796,7 @@ module AWS::SDK::EC2
         operation_name: :list_images_in_recycle_bin,
         tracer: tracer
       )
-      Telemetry::ListImagesInRecycleBin.span(context) do
+      Telemetry::ListImagesInRecycleBin.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_images_in_recycle_bin] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -35848,7 +35848,7 @@ module AWS::SDK::EC2
         operation_name: :list_snapshots_in_recycle_bin,
         tracer: tracer
       )
-      Telemetry::ListSnapshotsInRecycleBin.span(context) do
+      Telemetry::ListSnapshotsInRecycleBin.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_snapshots_in_recycle_bin] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -35918,7 +35918,7 @@ module AWS::SDK::EC2
         operation_name: :lock_snapshot,
         tracer: tracer
       )
-      Telemetry::LockSnapshot.span(context) do
+      Telemetry::LockSnapshot.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#lock_snapshot] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -35967,7 +35967,7 @@ module AWS::SDK::EC2
         operation_name: :modify_address_attribute,
         tracer: tracer
       )
-      Telemetry::ModifyAddressAttribute.span(context) do
+      Telemetry::ModifyAddressAttribute.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_address_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -36012,7 +36012,7 @@ module AWS::SDK::EC2
         operation_name: :modify_availability_zone_group,
         tracer: tracer
       )
-      Telemetry::ModifyAvailabilityZoneGroup.span(context) do
+      Telemetry::ModifyAvailabilityZoneGroup.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_availability_zone_group] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -36062,7 +36062,7 @@ module AWS::SDK::EC2
         operation_name: :modify_capacity_reservation,
         tracer: tracer
       )
-      Telemetry::ModifyCapacityReservation.span(context) do
+      Telemetry::ModifyCapacityReservation.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_capacity_reservation] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -36110,7 +36110,7 @@ module AWS::SDK::EC2
         operation_name: :modify_capacity_reservation_fleet,
         tracer: tracer
       )
-      Telemetry::ModifyCapacityReservationFleet.span(context) do
+      Telemetry::ModifyCapacityReservationFleet.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_capacity_reservation_fleet] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -36180,7 +36180,7 @@ module AWS::SDK::EC2
         operation_name: :modify_client_vpn_endpoint,
         tracer: tracer
       )
-      Telemetry::ModifyClientVpnEndpoint.span(context) do
+      Telemetry::ModifyClientVpnEndpoint.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_client_vpn_endpoint] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -36237,7 +36237,7 @@ module AWS::SDK::EC2
         operation_name: :modify_default_credit_specification,
         tracer: tracer
       )
-      Telemetry::ModifyDefaultCreditSpecification.span(context) do
+      Telemetry::ModifyDefaultCreditSpecification.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_default_credit_specification] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -36285,7 +36285,7 @@ module AWS::SDK::EC2
         operation_name: :modify_ebs_default_kms_key_id,
         tracer: tracer
       )
-      Telemetry::ModifyEbsDefaultKmsKeyId.span(context) do
+      Telemetry::ModifyEbsDefaultKmsKeyId.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_ebs_default_kms_key_id] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -36456,7 +36456,7 @@ module AWS::SDK::EC2
         operation_name: :modify_fleet,
         tracer: tracer
       )
-      Telemetry::ModifyFleet.span(context) do
+      Telemetry::ModifyFleet.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_fleet] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -36529,7 +36529,7 @@ module AWS::SDK::EC2
         operation_name: :modify_fpga_image_attribute,
         tracer: tracer
       )
-      Telemetry::ModifyFpgaImageAttribute.span(context) do
+      Telemetry::ModifyFpgaImageAttribute.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_fpga_image_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -36591,7 +36591,7 @@ module AWS::SDK::EC2
         operation_name: :modify_hosts,
         tracer: tracer
       )
-      Telemetry::ModifyHosts.span(context) do
+      Telemetry::ModifyHosts.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_hosts] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -36654,7 +36654,7 @@ module AWS::SDK::EC2
         operation_name: :modify_id_format,
         tracer: tracer
       )
-      Telemetry::ModifyIdFormat.span(context) do
+      Telemetry::ModifyIdFormat.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_id_format] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -36716,7 +36716,7 @@ module AWS::SDK::EC2
         operation_name: :modify_identity_id_format,
         tracer: tracer
       )
-      Telemetry::ModifyIdentityIdFormat.span(context) do
+      Telemetry::ModifyIdentityIdFormat.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_identity_id_format] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -36822,7 +36822,7 @@ module AWS::SDK::EC2
         operation_name: :modify_image_attribute,
         tracer: tracer
       )
-      Telemetry::ModifyImageAttribute.span(context) do
+      Telemetry::ModifyImageAttribute.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_image_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -36919,7 +36919,7 @@ module AWS::SDK::EC2
         operation_name: :modify_instance_attribute,
         tracer: tracer
       )
-      Telemetry::ModifyInstanceAttribute.span(context) do
+      Telemetry::ModifyInstanceAttribute.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_instance_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -36969,7 +36969,7 @@ module AWS::SDK::EC2
         operation_name: :modify_instance_capacity_reservation_attributes,
         tracer: tracer
       )
-      Telemetry::ModifyInstanceCapacityReservationAttributes.span(context) do
+      Telemetry::ModifyInstanceCapacityReservationAttributes.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_instance_capacity_reservation_attributes] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -37028,7 +37028,7 @@ module AWS::SDK::EC2
         operation_name: :modify_instance_credit_specification,
         tracer: tracer
       )
-      Telemetry::ModifyInstanceCreditSpecification.span(context) do
+      Telemetry::ModifyInstanceCreditSpecification.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_instance_credit_specification] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -37077,7 +37077,7 @@ module AWS::SDK::EC2
         operation_name: :modify_instance_event_start_time,
         tracer: tracer
       )
-      Telemetry::ModifyInstanceEventStartTime.span(context) do
+      Telemetry::ModifyInstanceEventStartTime.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_instance_event_start_time] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -37155,7 +37155,7 @@ module AWS::SDK::EC2
         operation_name: :modify_instance_event_window,
         tracer: tracer
       )
-      Telemetry::ModifyInstanceEventWindow.span(context) do
+      Telemetry::ModifyInstanceEventWindow.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_instance_event_window] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -37201,7 +37201,7 @@ module AWS::SDK::EC2
         operation_name: :modify_instance_maintenance_options,
         tracer: tracer
       )
-      Telemetry::ModifyInstanceMaintenanceOptions.span(context) do
+      Telemetry::ModifyInstanceMaintenanceOptions.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_instance_maintenance_options] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -37260,7 +37260,7 @@ module AWS::SDK::EC2
         operation_name: :modify_instance_metadata_options,
         tracer: tracer
       )
-      Telemetry::ModifyInstanceMetadataOptions.span(context) do
+      Telemetry::ModifyInstanceMetadataOptions.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_instance_metadata_options] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -37332,7 +37332,7 @@ module AWS::SDK::EC2
         operation_name: :modify_instance_placement,
         tracer: tracer
       )
-      Telemetry::ModifyInstancePlacement.span(context) do
+      Telemetry::ModifyInstancePlacement.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_instance_placement] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -37407,7 +37407,7 @@ module AWS::SDK::EC2
         operation_name: :modify_ipam,
         tracer: tracer
       )
-      Telemetry::ModifyIpam.span(context) do
+      Telemetry::ModifyIpam.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_ipam] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -37496,7 +37496,7 @@ module AWS::SDK::EC2
         operation_name: :modify_ipam_pool,
         tracer: tracer
       )
-      Telemetry::ModifyIpamPool.span(context) do
+      Telemetry::ModifyIpamPool.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_ipam_pool] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -37561,7 +37561,7 @@ module AWS::SDK::EC2
         operation_name: :modify_ipam_resource_cidr,
         tracer: tracer
       )
-      Telemetry::ModifyIpamResourceCidr.span(context) do
+      Telemetry::ModifyIpamResourceCidr.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_ipam_resource_cidr] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -37627,7 +37627,7 @@ module AWS::SDK::EC2
         operation_name: :modify_ipam_resource_discovery,
         tracer: tracer
       )
-      Telemetry::ModifyIpamResourceDiscovery.span(context) do
+      Telemetry::ModifyIpamResourceDiscovery.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_ipam_resource_discovery] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -37683,7 +37683,7 @@ module AWS::SDK::EC2
         operation_name: :modify_ipam_scope,
         tracer: tracer
       )
-      Telemetry::ModifyIpamScope.span(context) do
+      Telemetry::ModifyIpamScope.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_ipam_scope] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -37757,7 +37757,7 @@ module AWS::SDK::EC2
         operation_name: :modify_launch_template,
         tracer: tracer
       )
-      Telemetry::ModifyLaunchTemplate.span(context) do
+      Telemetry::ModifyLaunchTemplate.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_launch_template] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -37813,7 +37813,7 @@ module AWS::SDK::EC2
         operation_name: :modify_local_gateway_route,
         tracer: tracer
       )
-      Telemetry::ModifyLocalGatewayRoute.span(context) do
+      Telemetry::ModifyLocalGatewayRoute.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_local_gateway_route] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -37885,7 +37885,7 @@ module AWS::SDK::EC2
         operation_name: :modify_managed_prefix_list,
         tracer: tracer
       )
-      Telemetry::ModifyManagedPrefixList.span(context) do
+      Telemetry::ModifyManagedPrefixList.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_managed_prefix_list] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -37998,7 +37998,7 @@ module AWS::SDK::EC2
         operation_name: :modify_network_interface_attribute,
         tracer: tracer
       )
-      Telemetry::ModifyNetworkInterfaceAttribute.span(context) do
+      Telemetry::ModifyNetworkInterfaceAttribute.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_network_interface_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -38042,7 +38042,7 @@ module AWS::SDK::EC2
         operation_name: :modify_private_dns_name_options,
         tracer: tracer
       )
-      Telemetry::ModifyPrivateDnsNameOptions.span(context) do
+      Telemetry::ModifyPrivateDnsNameOptions.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_private_dns_name_options] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -38098,7 +38098,7 @@ module AWS::SDK::EC2
         operation_name: :modify_reserved_instances,
         tracer: tracer
       )
-      Telemetry::ModifyReservedInstances.span(context) do
+      Telemetry::ModifyReservedInstances.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_reserved_instances] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -38154,7 +38154,7 @@ module AWS::SDK::EC2
         operation_name: :modify_security_group_rules,
         tracer: tracer
       )
-      Telemetry::ModifySecurityGroupRules.span(context) do
+      Telemetry::ModifySecurityGroupRules.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_security_group_rules] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -38243,7 +38243,7 @@ module AWS::SDK::EC2
         operation_name: :modify_snapshot_attribute,
         tracer: tracer
       )
-      Telemetry::ModifySnapshotAttribute.span(context) do
+      Telemetry::ModifySnapshotAttribute.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_snapshot_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -38290,7 +38290,7 @@ module AWS::SDK::EC2
         operation_name: :modify_snapshot_tier,
         tracer: tracer
       )
-      Telemetry::ModifySnapshotTier.span(context) do
+      Telemetry::ModifySnapshotTier.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_snapshot_tier] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -38457,7 +38457,7 @@ module AWS::SDK::EC2
         operation_name: :modify_spot_fleet_request,
         tracer: tracer
       )
-      Telemetry::ModifySpotFleetRequest.span(context) do
+      Telemetry::ModifySpotFleetRequest.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_spot_fleet_request] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -38540,7 +38540,7 @@ module AWS::SDK::EC2
         operation_name: :modify_subnet_attribute,
         tracer: tracer
       )
-      Telemetry::ModifySubnetAttribute.span(context) do
+      Telemetry::ModifySubnetAttribute.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_subnet_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -38611,7 +38611,7 @@ module AWS::SDK::EC2
         operation_name: :modify_traffic_mirror_filter_network_services,
         tracer: tracer
       )
-      Telemetry::ModifyTrafficMirrorFilterNetworkServices.span(context) do
+      Telemetry::ModifyTrafficMirrorFilterNetworkServices.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_traffic_mirror_filter_network_services] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -38682,7 +38682,7 @@ module AWS::SDK::EC2
         operation_name: :modify_traffic_mirror_filter_rule,
         tracer: tracer
       )
-      Telemetry::ModifyTrafficMirrorFilterRule.span(context) do
+      Telemetry::ModifyTrafficMirrorFilterRule.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_traffic_mirror_filter_rule] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -38745,7 +38745,7 @@ module AWS::SDK::EC2
         operation_name: :modify_traffic_mirror_session,
         tracer: tracer
       )
-      Telemetry::ModifyTrafficMirrorSession.span(context) do
+      Telemetry::ModifyTrafficMirrorSession.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_traffic_mirror_session] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -38824,7 +38824,7 @@ module AWS::SDK::EC2
         operation_name: :modify_transit_gateway,
         tracer: tracer
       )
-      Telemetry::ModifyTransitGateway.span(context) do
+      Telemetry::ModifyTransitGateway.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_transit_gateway] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -38877,7 +38877,7 @@ module AWS::SDK::EC2
         operation_name: :modify_transit_gateway_prefix_list_reference,
         tracer: tracer
       )
-      Telemetry::ModifyTransitGatewayPrefixListReference.span(context) do
+      Telemetry::ModifyTransitGatewayPrefixListReference.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_transit_gateway_prefix_list_reference] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -38944,7 +38944,7 @@ module AWS::SDK::EC2
         operation_name: :modify_transit_gateway_vpc_attachment,
         tracer: tracer
       )
-      Telemetry::ModifyTransitGatewayVpcAttachment.span(context) do
+      Telemetry::ModifyTransitGatewayVpcAttachment.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_transit_gateway_vpc_attachment] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -39034,7 +39034,7 @@ module AWS::SDK::EC2
         operation_name: :modify_verified_access_endpoint,
         tracer: tracer
       )
-      Telemetry::ModifyVerifiedAccessEndpoint.span(context) do
+      Telemetry::ModifyVerifiedAccessEndpoint.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_verified_access_endpoint] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -39086,7 +39086,7 @@ module AWS::SDK::EC2
         operation_name: :modify_verified_access_endpoint_policy,
         tracer: tracer
       )
-      Telemetry::ModifyVerifiedAccessEndpointPolicy.span(context) do
+      Telemetry::ModifyVerifiedAccessEndpointPolicy.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_verified_access_endpoint_policy] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -39145,7 +39145,7 @@ module AWS::SDK::EC2
         operation_name: :modify_verified_access_group,
         tracer: tracer
       )
-      Telemetry::ModifyVerifiedAccessGroup.span(context) do
+      Telemetry::ModifyVerifiedAccessGroup.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_verified_access_group] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -39197,7 +39197,7 @@ module AWS::SDK::EC2
         operation_name: :modify_verified_access_group_policy,
         tracer: tracer
       )
-      Telemetry::ModifyVerifiedAccessGroupPolicy.span(context) do
+      Telemetry::ModifyVerifiedAccessGroupPolicy.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_verified_access_group_policy] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -39256,7 +39256,7 @@ module AWS::SDK::EC2
         operation_name: :modify_verified_access_instance,
         tracer: tracer
       )
-      Telemetry::ModifyVerifiedAccessInstance.span(context) do
+      Telemetry::ModifyVerifiedAccessInstance.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_verified_access_instance] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -39336,7 +39336,7 @@ module AWS::SDK::EC2
         operation_name: :modify_verified_access_instance_logging_configuration,
         tracer: tracer
       )
-      Telemetry::ModifyVerifiedAccessInstanceLoggingConfiguration.span(context) do
+      Telemetry::ModifyVerifiedAccessInstanceLoggingConfiguration.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_verified_access_instance_logging_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -39421,7 +39421,7 @@ module AWS::SDK::EC2
         operation_name: :modify_verified_access_trust_provider,
         tracer: tracer
       )
-      Telemetry::ModifyVerifiedAccessTrustProvider.span(context) do
+      Telemetry::ModifyVerifiedAccessTrustProvider.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_verified_access_trust_provider] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -39499,7 +39499,7 @@ module AWS::SDK::EC2
         operation_name: :modify_volume,
         tracer: tracer
       )
-      Telemetry::ModifyVolume.span(context) do
+      Telemetry::ModifyVolume.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_volume] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -39560,7 +39560,7 @@ module AWS::SDK::EC2
         operation_name: :modify_volume_attribute,
         tracer: tracer
       )
-      Telemetry::ModifyVolumeAttribute.span(context) do
+      Telemetry::ModifyVolumeAttribute.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_volume_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -39624,7 +39624,7 @@ module AWS::SDK::EC2
         operation_name: :modify_vpc_attribute,
         tracer: tracer
       )
-      Telemetry::ModifyVpcAttribute.span(context) do
+      Telemetry::ModifyVpcAttribute.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_vpc_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -39692,7 +39692,7 @@ module AWS::SDK::EC2
         operation_name: :modify_vpc_endpoint,
         tracer: tracer
       )
-      Telemetry::ModifyVpcEndpoint.span(context) do
+      Telemetry::ModifyVpcEndpoint.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_vpc_endpoint] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -39738,7 +39738,7 @@ module AWS::SDK::EC2
         operation_name: :modify_vpc_endpoint_connection_notification,
         tracer: tracer
       )
-      Telemetry::ModifyVpcEndpointConnectionNotification.span(context) do
+      Telemetry::ModifyVpcEndpointConnectionNotification.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_vpc_endpoint_connection_notification] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -39790,7 +39790,7 @@ module AWS::SDK::EC2
         operation_name: :modify_vpc_endpoint_service_configuration,
         tracer: tracer
       )
-      Telemetry::ModifyVpcEndpointServiceConfiguration.span(context) do
+      Telemetry::ModifyVpcEndpointServiceConfiguration.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_vpc_endpoint_service_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -39832,7 +39832,7 @@ module AWS::SDK::EC2
         operation_name: :modify_vpc_endpoint_service_payer_responsibility,
         tracer: tracer
       )
-      Telemetry::ModifyVpcEndpointServicePayerResponsibility.span(context) do
+      Telemetry::ModifyVpcEndpointServicePayerResponsibility.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_vpc_endpoint_service_payer_responsibility] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -39887,7 +39887,7 @@ module AWS::SDK::EC2
         operation_name: :modify_vpc_endpoint_service_permissions,
         tracer: tracer
       )
-      Telemetry::ModifyVpcEndpointServicePermissions.span(context) do
+      Telemetry::ModifyVpcEndpointServicePermissions.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_vpc_endpoint_service_permissions] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -39947,7 +39947,7 @@ module AWS::SDK::EC2
         operation_name: :modify_vpc_peering_connection_options,
         tracer: tracer
       )
-      Telemetry::ModifyVpcPeeringConnectionOptions.span(context) do
+      Telemetry::ModifyVpcPeeringConnectionOptions.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_vpc_peering_connection_options] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -39996,7 +39996,7 @@ module AWS::SDK::EC2
         operation_name: :modify_vpc_tenancy,
         tracer: tracer
       )
-      Telemetry::ModifyVpcTenancy.span(context) do
+      Telemetry::ModifyVpcTenancy.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_vpc_tenancy] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -40154,7 +40154,7 @@ module AWS::SDK::EC2
         operation_name: :modify_vpn_connection,
         tracer: tracer
       )
-      Telemetry::ModifyVpnConnection.span(context) do
+      Telemetry::ModifyVpnConnection.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_vpn_connection] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -40282,7 +40282,7 @@ module AWS::SDK::EC2
         operation_name: :modify_vpn_connection_options,
         tracer: tracer
       )
-      Telemetry::ModifyVpnConnectionOptions.span(context) do
+      Telemetry::ModifyVpnConnectionOptions.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_vpn_connection_options] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -40403,7 +40403,7 @@ module AWS::SDK::EC2
         operation_name: :modify_vpn_tunnel_certificate,
         tracer: tracer
       )
-      Telemetry::ModifyVpnTunnelCertificate.span(context) do
+      Telemetry::ModifyVpnTunnelCertificate.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_vpn_tunnel_certificate] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -40584,7 +40584,7 @@ module AWS::SDK::EC2
         operation_name: :modify_vpn_tunnel_options,
         tracer: tracer
       )
-      Telemetry::ModifyVpnTunnelOptions.span(context) do
+      Telemetry::ModifyVpnTunnelOptions.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#modify_vpn_tunnel_options] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -40634,7 +40634,7 @@ module AWS::SDK::EC2
         operation_name: :monitor_instances,
         tracer: tracer
       )
-      Telemetry::MonitorInstances.span(context) do
+      Telemetry::MonitorInstances.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#monitor_instances] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -40694,7 +40694,7 @@ module AWS::SDK::EC2
         operation_name: :move_address_to_vpc,
         tracer: tracer
       )
-      Telemetry::MoveAddressToVpc.span(context) do
+      Telemetry::MoveAddressToVpc.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#move_address_to_vpc] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -40749,7 +40749,7 @@ module AWS::SDK::EC2
         operation_name: :move_byoip_cidr_to_ipam,
         tracer: tracer
       )
-      Telemetry::MoveByoipCidrToIpam.span(context) do
+      Telemetry::MoveByoipCidrToIpam.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#move_byoip_cidr_to_ipam] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -40831,7 +40831,7 @@ module AWS::SDK::EC2
         operation_name: :provision_byoip_cidr,
         tracer: tracer
       )
-      Telemetry::ProvisionByoipCidr.span(context) do
+      Telemetry::ProvisionByoipCidr.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#provision_byoip_cidr] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -40881,7 +40881,7 @@ module AWS::SDK::EC2
         operation_name: :provision_ipam_byoasn,
         tracer: tracer
       )
-      Telemetry::ProvisionIpamByoasn.span(context) do
+      Telemetry::ProvisionIpamByoasn.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#provision_ipam_byoasn] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -40938,7 +40938,7 @@ module AWS::SDK::EC2
         operation_name: :provision_ipam_pool_cidr,
         tracer: tracer
       )
-      Telemetry::ProvisionIpamPoolCidr.span(context) do
+      Telemetry::ProvisionIpamPoolCidr.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#provision_ipam_pool_cidr] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -40987,7 +40987,7 @@ module AWS::SDK::EC2
         operation_name: :provision_public_ipv4_pool_cidr,
         tracer: tracer
       )
-      Telemetry::ProvisionPublicIpv4PoolCidr.span(context) do
+      Telemetry::ProvisionPublicIpv4PoolCidr.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#provision_public_ipv4_pool_cidr] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -41071,7 +41071,7 @@ module AWS::SDK::EC2
         operation_name: :purchase_capacity_block,
         tracer: tracer
       )
-      Telemetry::PurchaseCapacityBlock.span(context) do
+      Telemetry::PurchaseCapacityBlock.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#purchase_capacity_block] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -41145,7 +41145,7 @@ module AWS::SDK::EC2
         operation_name: :purchase_host_reservation,
         tracer: tracer
       )
-      Telemetry::PurchaseHostReservation.span(context) do
+      Telemetry::PurchaseHostReservation.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#purchase_host_reservation] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -41201,7 +41201,7 @@ module AWS::SDK::EC2
         operation_name: :purchase_reserved_instances_offering,
         tracer: tracer
       )
-      Telemetry::PurchaseReservedInstancesOffering.span(context) do
+      Telemetry::PurchaseReservedInstancesOffering.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#purchase_reserved_instances_offering] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -41278,7 +41278,7 @@ module AWS::SDK::EC2
         operation_name: :purchase_scheduled_instances,
         tracer: tracer
       )
-      Telemetry::PurchaseScheduledInstances.span(context) do
+      Telemetry::PurchaseScheduledInstances.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#purchase_scheduled_instances] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -41337,7 +41337,7 @@ module AWS::SDK::EC2
         operation_name: :reboot_instances,
         tracer: tracer
       )
-      Telemetry::RebootInstances.span(context) do
+      Telemetry::RebootInstances.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#reboot_instances] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -41460,7 +41460,7 @@ module AWS::SDK::EC2
         operation_name: :register_image,
         tracer: tracer
       )
-      Telemetry::RegisterImage.span(context) do
+      Telemetry::RegisterImage.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#register_image] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -41511,7 +41511,7 @@ module AWS::SDK::EC2
         operation_name: :register_instance_event_notification_attributes,
         tracer: tracer
       )
-      Telemetry::RegisterInstanceEventNotificationAttributes.span(context) do
+      Telemetry::RegisterInstanceEventNotificationAttributes.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#register_instance_event_notification_attributes] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -41565,7 +41565,7 @@ module AWS::SDK::EC2
         operation_name: :register_transit_gateway_multicast_group_members,
         tracer: tracer
       )
-      Telemetry::RegisterTransitGatewayMulticastGroupMembers.span(context) do
+      Telemetry::RegisterTransitGatewayMulticastGroupMembers.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#register_transit_gateway_multicast_group_members] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -41619,7 +41619,7 @@ module AWS::SDK::EC2
         operation_name: :register_transit_gateway_multicast_group_sources,
         tracer: tracer
       )
-      Telemetry::RegisterTransitGatewayMulticastGroupSources.span(context) do
+      Telemetry::RegisterTransitGatewayMulticastGroupSources.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#register_transit_gateway_multicast_group_sources] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -41673,7 +41673,7 @@ module AWS::SDK::EC2
         operation_name: :reject_transit_gateway_multicast_domain_associations,
         tracer: tracer
       )
-      Telemetry::RejectTransitGatewayMulticastDomainAssociations.span(context) do
+      Telemetry::RejectTransitGatewayMulticastDomainAssociations.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#reject_transit_gateway_multicast_domain_associations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -41733,7 +41733,7 @@ module AWS::SDK::EC2
         operation_name: :reject_transit_gateway_peering_attachment,
         tracer: tracer
       )
-      Telemetry::RejectTransitGatewayPeeringAttachment.span(context) do
+      Telemetry::RejectTransitGatewayPeeringAttachment.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#reject_transit_gateway_peering_attachment] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -41794,7 +41794,7 @@ module AWS::SDK::EC2
         operation_name: :reject_transit_gateway_vpc_attachment,
         tracer: tracer
       )
-      Telemetry::RejectTransitGatewayVpcAttachment.span(context) do
+      Telemetry::RejectTransitGatewayVpcAttachment.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#reject_transit_gateway_vpc_attachment] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -41843,7 +41843,7 @@ module AWS::SDK::EC2
         operation_name: :reject_vpc_endpoint_connections,
         tracer: tracer
       )
-      Telemetry::RejectVpcEndpointConnections.span(context) do
+      Telemetry::RejectVpcEndpointConnections.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#reject_vpc_endpoint_connections] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -41887,7 +41887,7 @@ module AWS::SDK::EC2
         operation_name: :reject_vpc_peering_connection,
         tracer: tracer
       )
-      Telemetry::RejectVpcPeeringConnection.span(context) do
+      Telemetry::RejectVpcPeeringConnection.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#reject_vpc_peering_connection] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -41948,7 +41948,7 @@ module AWS::SDK::EC2
         operation_name: :release_address,
         tracer: tracer
       )
-      Telemetry::ReleaseAddress.span(context) do
+      Telemetry::ReleaseAddress.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#release_address] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -42005,7 +42005,7 @@ module AWS::SDK::EC2
         operation_name: :release_hosts,
         tracer: tracer
       )
-      Telemetry::ReleaseHosts.span(context) do
+      Telemetry::ReleaseHosts.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#release_hosts] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -42052,7 +42052,7 @@ module AWS::SDK::EC2
         operation_name: :release_ipam_pool_allocation,
         tracer: tracer
       )
-      Telemetry::ReleaseIpamPoolAllocation.span(context) do
+      Telemetry::ReleaseIpamPoolAllocation.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#release_ipam_pool_allocation] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -42107,7 +42107,7 @@ module AWS::SDK::EC2
         operation_name: :replace_iam_instance_profile_association,
         tracer: tracer
       )
-      Telemetry::ReplaceIamInstanceProfileAssociation.span(context) do
+      Telemetry::ReplaceIamInstanceProfileAssociation.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#replace_iam_instance_profile_association] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -42163,7 +42163,7 @@ module AWS::SDK::EC2
         operation_name: :replace_network_acl_association,
         tracer: tracer
       )
-      Telemetry::ReplaceNetworkAclAssociation.span(context) do
+      Telemetry::ReplaceNetworkAclAssociation.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#replace_network_acl_association] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -42235,7 +42235,7 @@ module AWS::SDK::EC2
         operation_name: :replace_network_acl_entry,
         tracer: tracer
       )
-      Telemetry::ReplaceNetworkAclEntry.span(context) do
+      Telemetry::ReplaceNetworkAclEntry.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#replace_network_acl_entry] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -42305,7 +42305,7 @@ module AWS::SDK::EC2
         operation_name: :replace_route,
         tracer: tracer
       )
-      Telemetry::ReplaceRoute.span(context) do
+      Telemetry::ReplaceRoute.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#replace_route] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -42365,7 +42365,7 @@ module AWS::SDK::EC2
         operation_name: :replace_route_table_association,
         tracer: tracer
       )
-      Telemetry::ReplaceRouteTableAssociation.span(context) do
+      Telemetry::ReplaceRouteTableAssociation.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#replace_route_table_association] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -42419,7 +42419,7 @@ module AWS::SDK::EC2
         operation_name: :replace_transit_gateway_route,
         tracer: tracer
       )
-      Telemetry::ReplaceTransitGatewayRoute.span(context) do
+      Telemetry::ReplaceTransitGatewayRoute.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#replace_transit_gateway_route] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -42462,7 +42462,7 @@ module AWS::SDK::EC2
         operation_name: :replace_vpn_tunnel,
         tracer: tracer
       )
-      Telemetry::ReplaceVpnTunnel.span(context) do
+      Telemetry::ReplaceVpnTunnel.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#replace_vpn_tunnel] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -42515,7 +42515,7 @@ module AWS::SDK::EC2
         operation_name: :report_instance_status,
         tracer: tracer
       )
-      Telemetry::ReportInstanceStatus.span(context) do
+      Telemetry::ReportInstanceStatus.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#report_instance_status] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -42964,7 +42964,7 @@ module AWS::SDK::EC2
         operation_name: :request_spot_fleet,
         tracer: tracer
       )
-      Telemetry::RequestSpotFleet.span(context) do
+      Telemetry::RequestSpotFleet.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#request_spot_fleet] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -43287,7 +43287,7 @@ module AWS::SDK::EC2
         operation_name: :request_spot_instances,
         tracer: tracer
       )
-      Telemetry::RequestSpotInstances.span(context) do
+      Telemetry::RequestSpotInstances.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#request_spot_instances] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -43336,7 +43336,7 @@ module AWS::SDK::EC2
         operation_name: :reset_address_attribute,
         tracer: tracer
       )
-      Telemetry::ResetAddressAttribute.span(context) do
+      Telemetry::ResetAddressAttribute.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#reset_address_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -43381,7 +43381,7 @@ module AWS::SDK::EC2
         operation_name: :reset_ebs_default_kms_key_id,
         tracer: tracer
       )
-      Telemetry::ResetEbsDefaultKmsKeyId.span(context) do
+      Telemetry::ResetEbsDefaultKmsKeyId.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#reset_ebs_default_kms_key_id] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -43424,7 +43424,7 @@ module AWS::SDK::EC2
         operation_name: :reset_fpga_image_attribute,
         tracer: tracer
       )
-      Telemetry::ResetFpgaImageAttribute.span(context) do
+      Telemetry::ResetFpgaImageAttribute.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#reset_fpga_image_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -43474,7 +43474,7 @@ module AWS::SDK::EC2
         operation_name: :reset_image_attribute,
         tracer: tracer
       )
-      Telemetry::ResetImageAttribute.span(context) do
+      Telemetry::ResetImageAttribute.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#reset_image_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -43532,7 +43532,7 @@ module AWS::SDK::EC2
         operation_name: :reset_instance_attribute,
         tracer: tracer
       )
-      Telemetry::ResetInstanceAttribute.span(context) do
+      Telemetry::ResetInstanceAttribute.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#reset_instance_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -43573,7 +43573,7 @@ module AWS::SDK::EC2
         operation_name: :reset_network_interface_attribute,
         tracer: tracer
       )
-      Telemetry::ResetNetworkInterfaceAttribute.span(context) do
+      Telemetry::ResetNetworkInterfaceAttribute.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#reset_network_interface_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -43625,7 +43625,7 @@ module AWS::SDK::EC2
         operation_name: :reset_snapshot_attribute,
         tracer: tracer
       )
-      Telemetry::ResetSnapshotAttribute.span(context) do
+      Telemetry::ResetSnapshotAttribute.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#reset_snapshot_attribute] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -43670,7 +43670,7 @@ module AWS::SDK::EC2
         operation_name: :restore_address_to_classic,
         tracer: tracer
       )
-      Telemetry::RestoreAddressToClassic.span(context) do
+      Telemetry::RestoreAddressToClassic.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#restore_address_to_classic] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -43711,7 +43711,7 @@ module AWS::SDK::EC2
         operation_name: :restore_image_from_recycle_bin,
         tracer: tracer
       )
-      Telemetry::RestoreImageFromRecycleBin.span(context) do
+      Telemetry::RestoreImageFromRecycleBin.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#restore_image_from_recycle_bin] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -43767,7 +43767,7 @@ module AWS::SDK::EC2
         operation_name: :restore_managed_prefix_list_version,
         tracer: tracer
       )
-      Telemetry::RestoreManagedPrefixListVersion.span(context) do
+      Telemetry::RestoreManagedPrefixListVersion.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#restore_managed_prefix_list_version] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -43819,7 +43819,7 @@ module AWS::SDK::EC2
         operation_name: :restore_snapshot_from_recycle_bin,
         tracer: tracer
       )
-      Telemetry::RestoreSnapshotFromRecycleBin.span(context) do
+      Telemetry::RestoreSnapshotFromRecycleBin.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#restore_snapshot_from_recycle_bin] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -43869,7 +43869,7 @@ module AWS::SDK::EC2
         operation_name: :restore_snapshot_tier,
         tracer: tracer
       )
-      Telemetry::RestoreSnapshotTier.span(context) do
+      Telemetry::RestoreSnapshotTier.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#restore_snapshot_tier] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -43915,7 +43915,7 @@ module AWS::SDK::EC2
         operation_name: :revoke_client_vpn_ingress,
         tracer: tracer
       )
-      Telemetry::RevokeClientVpnIngress.span(context) do
+      Telemetry::RevokeClientVpnIngress.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#revoke_client_vpn_ingress] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -44039,7 +44039,7 @@ module AWS::SDK::EC2
         operation_name: :revoke_security_group_egress,
         tracer: tracer
       )
-      Telemetry::RevokeSecurityGroupEgress.span(context) do
+      Telemetry::RevokeSecurityGroupEgress.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#revoke_security_group_egress] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -44168,7 +44168,7 @@ module AWS::SDK::EC2
         operation_name: :revoke_security_group_ingress,
         tracer: tracer
       )
-      Telemetry::RevokeSecurityGroupIngress.span(context) do
+      Telemetry::RevokeSecurityGroupIngress.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#revoke_security_group_ingress] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -44657,7 +44657,7 @@ module AWS::SDK::EC2
         operation_name: :run_instances,
         tracer: tracer
       )
-      Telemetry::RunInstances.span(context) do
+      Telemetry::RunInstances.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#run_instances] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -44769,7 +44769,7 @@ module AWS::SDK::EC2
         operation_name: :run_scheduled_instances,
         tracer: tracer
       )
-      Telemetry::RunScheduledInstances.span(context) do
+      Telemetry::RunScheduledInstances.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#run_scheduled_instances] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -44833,7 +44833,7 @@ module AWS::SDK::EC2
         operation_name: :search_local_gateway_routes,
         tracer: tracer
       )
-      Telemetry::SearchLocalGatewayRoutes.span(context) do
+      Telemetry::SearchLocalGatewayRoutes.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#search_local_gateway_routes] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -44897,7 +44897,7 @@ module AWS::SDK::EC2
         operation_name: :search_transit_gateway_multicast_groups,
         tracer: tracer
       )
-      Telemetry::SearchTransitGatewayMulticastGroups.span(context) do
+      Telemetry::SearchTransitGatewayMulticastGroups.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#search_transit_gateway_multicast_groups] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -44959,7 +44959,7 @@ module AWS::SDK::EC2
         operation_name: :search_transit_gateway_routes,
         tracer: tracer
       )
-      Telemetry::SearchTransitGatewayRoutes.span(context) do
+      Telemetry::SearchTransitGatewayRoutes.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#search_transit_gateway_routes] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -45013,7 +45013,7 @@ module AWS::SDK::EC2
         operation_name: :send_diagnostic_interrupt,
         tracer: tracer
       )
-      Telemetry::SendDiagnosticInterrupt.span(context) do
+      Telemetry::SendDiagnosticInterrupt.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#send_diagnostic_interrupt] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -45105,7 +45105,7 @@ module AWS::SDK::EC2
         operation_name: :start_instances,
         tracer: tracer
       )
-      Telemetry::StartInstances.span(context) do
+      Telemetry::StartInstances.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_instances] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -45172,7 +45172,7 @@ module AWS::SDK::EC2
         operation_name: :start_network_insights_access_scope_analysis,
         tracer: tracer
       )
-      Telemetry::StartNetworkInsightsAccessScopeAnalysis.span(context) do
+      Telemetry::StartNetworkInsightsAccessScopeAnalysis.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_network_insights_access_scope_analysis] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -45417,7 +45417,7 @@ module AWS::SDK::EC2
         operation_name: :start_network_insights_analysis,
         tracer: tracer
       )
-      Telemetry::StartNetworkInsightsAnalysis.span(context) do
+      Telemetry::StartNetworkInsightsAnalysis.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_network_insights_analysis] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -45461,7 +45461,7 @@ module AWS::SDK::EC2
         operation_name: :start_vpc_endpoint_service_private_dns_verification,
         tracer: tracer
       )
-      Telemetry::StartVpcEndpointServicePrivateDnsVerification.span(context) do
+      Telemetry::StartVpcEndpointServicePrivateDnsVerification.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_vpc_endpoint_service_private_dns_verification] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -45566,7 +45566,7 @@ module AWS::SDK::EC2
         operation_name: :stop_instances,
         tracer: tracer
       )
-      Telemetry::StopInstances.span(context) do
+      Telemetry::StopInstances.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#stop_instances] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -45617,7 +45617,7 @@ module AWS::SDK::EC2
         operation_name: :terminate_client_vpn_connections,
         tracer: tracer
       )
-      Telemetry::TerminateClientVpnConnections.span(context) do
+      Telemetry::TerminateClientVpnConnections.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#terminate_client_vpn_connections] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -45749,7 +45749,7 @@ module AWS::SDK::EC2
         operation_name: :terminate_instances,
         tracer: tracer
       )
-      Telemetry::TerminateInstances.span(context) do
+      Telemetry::TerminateInstances.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#terminate_instances] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -45799,7 +45799,7 @@ module AWS::SDK::EC2
         operation_name: :unassign_ipv6_addresses,
         tracer: tracer
       )
-      Telemetry::UnassignIpv6Addresses.span(context) do
+      Telemetry::UnassignIpv6Addresses.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#unassign_ipv6_addresses] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -45856,7 +45856,7 @@ module AWS::SDK::EC2
         operation_name: :unassign_private_ip_addresses,
         tracer: tracer
       )
-      Telemetry::UnassignPrivateIpAddresses.span(context) do
+      Telemetry::UnassignPrivateIpAddresses.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#unassign_private_ip_addresses] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -45919,7 +45919,7 @@ module AWS::SDK::EC2
         operation_name: :unassign_private_nat_gateway_address,
         tracer: tracer
       )
-      Telemetry::UnassignPrivateNatGatewayAddress.span(context) do
+      Telemetry::UnassignPrivateNatGatewayAddress.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#unassign_private_nat_gateway_address] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -45962,7 +45962,7 @@ module AWS::SDK::EC2
         operation_name: :unlock_snapshot,
         tracer: tracer
       )
-      Telemetry::UnlockSnapshot.span(context) do
+      Telemetry::UnlockSnapshot.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#unlock_snapshot] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -46011,7 +46011,7 @@ module AWS::SDK::EC2
         operation_name: :unmonitor_instances,
         tracer: tracer
       )
-      Telemetry::UnmonitorInstances.span(context) do
+      Telemetry::UnmonitorInstances.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#unmonitor_instances] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -46119,7 +46119,7 @@ module AWS::SDK::EC2
         operation_name: :update_security_group_rule_descriptions_egress,
         tracer: tracer
       )
-      Telemetry::UpdateSecurityGroupRuleDescriptionsEgress.span(context) do
+      Telemetry::UpdateSecurityGroupRuleDescriptionsEgress.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_security_group_rule_descriptions_egress] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -46227,7 +46227,7 @@ module AWS::SDK::EC2
         operation_name: :update_security_group_rule_descriptions_ingress,
         tracer: tracer
       )
-      Telemetry::UpdateSecurityGroupRuleDescriptionsIngress.span(context) do
+      Telemetry::UpdateSecurityGroupRuleDescriptionsIngress.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_security_group_rule_descriptions_ingress] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -46283,7 +46283,7 @@ module AWS::SDK::EC2
         operation_name: :withdraw_byoip_cidr,
         tracer: tracer
       )
-      Telemetry::WithdrawByoipCidr.span(context) do
+      Telemetry::WithdrawByoipCidr.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#withdraw_byoip_cidr] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error

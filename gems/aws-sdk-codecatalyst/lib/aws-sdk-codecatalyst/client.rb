@@ -239,7 +239,7 @@ module AWS::SDK::CodeCatalyst
         operation_name: :create_access_token,
         tracer: tracer
       )
-      Telemetry::CreateAccessToken.span(context) do
+      Telemetry::CreateAccessToken.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_access_token] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -308,7 +308,7 @@ module AWS::SDK::CodeCatalyst
         operation_name: :create_dev_environment,
         tracer: tracer
       )
-      Telemetry::CreateDevEnvironment.span(context) do
+      Telemetry::CreateDevEnvironment.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_dev_environment] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -353,7 +353,7 @@ module AWS::SDK::CodeCatalyst
         operation_name: :create_project,
         tracer: tracer
       )
-      Telemetry::CreateProject.span(context) do
+      Telemetry::CreateProject.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_project] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -400,7 +400,7 @@ module AWS::SDK::CodeCatalyst
         operation_name: :create_source_repository,
         tracer: tracer
       )
-      Telemetry::CreateSourceRepository.span(context) do
+      Telemetry::CreateSourceRepository.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_source_repository] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -450,7 +450,7 @@ module AWS::SDK::CodeCatalyst
         operation_name: :create_source_repository_branch,
         tracer: tracer
       )
-      Telemetry::CreateSourceRepositoryBranch.span(context) do
+      Telemetry::CreateSourceRepositoryBranch.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_source_repository_branch] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -489,7 +489,7 @@ module AWS::SDK::CodeCatalyst
         operation_name: :delete_access_token,
         tracer: tracer
       )
-      Telemetry::DeleteAccessToken.span(context) do
+      Telemetry::DeleteAccessToken.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_access_token] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -533,7 +533,7 @@ module AWS::SDK::CodeCatalyst
         operation_name: :delete_dev_environment,
         tracer: tracer
       )
-      Telemetry::DeleteDevEnvironment.span(context) do
+      Telemetry::DeleteDevEnvironment.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_dev_environment] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -576,7 +576,7 @@ module AWS::SDK::CodeCatalyst
         operation_name: :delete_project,
         tracer: tracer
       )
-      Telemetry::DeleteProject.span(context) do
+      Telemetry::DeleteProject.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_project] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -620,7 +620,7 @@ module AWS::SDK::CodeCatalyst
         operation_name: :delete_source_repository,
         tracer: tracer
       )
-      Telemetry::DeleteSourceRepository.span(context) do
+      Telemetry::DeleteSourceRepository.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_source_repository] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -664,7 +664,7 @@ module AWS::SDK::CodeCatalyst
         operation_name: :delete_space,
         tracer: tracer
       )
-      Telemetry::DeleteSpace.span(context) do
+      Telemetry::DeleteSpace.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_space] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -726,7 +726,7 @@ module AWS::SDK::CodeCatalyst
         operation_name: :get_dev_environment,
         tracer: tracer
       )
-      Telemetry::GetDevEnvironment.span(context) do
+      Telemetry::GetDevEnvironment.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_dev_environment] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -770,7 +770,7 @@ module AWS::SDK::CodeCatalyst
         operation_name: :get_project,
         tracer: tracer
       )
-      Telemetry::GetProject.span(context) do
+      Telemetry::GetProject.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_project] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -817,7 +817,7 @@ module AWS::SDK::CodeCatalyst
         operation_name: :get_source_repository,
         tracer: tracer
       )
-      Telemetry::GetSourceRepository.span(context) do
+      Telemetry::GetSourceRepository.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_source_repository] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -860,7 +860,7 @@ module AWS::SDK::CodeCatalyst
         operation_name: :get_source_repository_clone_urls,
         tracer: tracer
       )
-      Telemetry::GetSourceRepositoryCloneUrls.span(context) do
+      Telemetry::GetSourceRepositoryCloneUrls.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_source_repository_clone_urls] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -903,7 +903,7 @@ module AWS::SDK::CodeCatalyst
         operation_name: :get_space,
         tracer: tracer
       )
-      Telemetry::GetSpace.span(context) do
+      Telemetry::GetSpace.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_space] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -947,7 +947,7 @@ module AWS::SDK::CodeCatalyst
         operation_name: :get_subscription,
         tracer: tracer
       )
-      Telemetry::GetSubscription.span(context) do
+      Telemetry::GetSubscription.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_subscription] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -994,7 +994,7 @@ module AWS::SDK::CodeCatalyst
         operation_name: :get_user_details,
         tracer: tracer
       )
-      Telemetry::GetUserDetails.span(context) do
+      Telemetry::GetUserDetails.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_user_details] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1047,7 +1047,7 @@ module AWS::SDK::CodeCatalyst
         operation_name: :get_workflow,
         tracer: tracer
       )
-      Telemetry::GetWorkflow.span(context) do
+      Telemetry::GetWorkflow.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_workflow] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1098,7 +1098,7 @@ module AWS::SDK::CodeCatalyst
         operation_name: :get_workflow_run,
         tracer: tracer
       )
-      Telemetry::GetWorkflowRun.span(context) do
+      Telemetry::GetWorkflowRun.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_workflow_run] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1144,7 +1144,7 @@ module AWS::SDK::CodeCatalyst
         operation_name: :list_access_tokens,
         tracer: tracer
       )
-      Telemetry::ListAccessTokens.span(context) do
+      Telemetry::ListAccessTokens.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_access_tokens] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1195,7 +1195,7 @@ module AWS::SDK::CodeCatalyst
         operation_name: :list_dev_environment_sessions,
         tracer: tracer
       )
-      Telemetry::ListDevEnvironmentSessions.span(context) do
+      Telemetry::ListDevEnvironmentSessions.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_dev_environment_sessions] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1270,7 +1270,7 @@ module AWS::SDK::CodeCatalyst
         operation_name: :list_dev_environments,
         tracer: tracer
       )
-      Telemetry::ListDevEnvironments.span(context) do
+      Telemetry::ListDevEnvironments.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_dev_environments] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1349,7 +1349,7 @@ module AWS::SDK::CodeCatalyst
         operation_name: :list_event_logs,
         tracer: tracer
       )
-      Telemetry::ListEventLogs.span(context) do
+      Telemetry::ListEventLogs.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_event_logs] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1405,7 +1405,7 @@ module AWS::SDK::CodeCatalyst
         operation_name: :list_projects,
         tracer: tracer
       )
-      Telemetry::ListProjects.span(context) do
+      Telemetry::ListProjects.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_projects] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1455,7 +1455,7 @@ module AWS::SDK::CodeCatalyst
         operation_name: :list_source_repositories,
         tracer: tracer
       )
-      Telemetry::ListSourceRepositories.span(context) do
+      Telemetry::ListSourceRepositories.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_source_repositories] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1505,7 +1505,7 @@ module AWS::SDK::CodeCatalyst
         operation_name: :list_source_repository_branches,
         tracer: tracer
       )
-      Telemetry::ListSourceRepositoryBranches.span(context) do
+      Telemetry::ListSourceRepositoryBranches.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_source_repository_branches] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1551,7 +1551,7 @@ module AWS::SDK::CodeCatalyst
         operation_name: :list_spaces,
         tracer: tracer
       )
-      Telemetry::ListSpaces.span(context) do
+      Telemetry::ListSpaces.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_spaces] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1609,7 +1609,7 @@ module AWS::SDK::CodeCatalyst
         operation_name: :list_workflow_runs,
         tracer: tracer
       )
-      Telemetry::ListWorkflowRuns.span(context) do
+      Telemetry::ListWorkflowRuns.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_workflow_runs] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1667,7 +1667,7 @@ module AWS::SDK::CodeCatalyst
         operation_name: :list_workflows,
         tracer: tracer
       )
-      Telemetry::ListWorkflows.span(context) do
+      Telemetry::ListWorkflows.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_workflows] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1720,7 +1720,7 @@ module AWS::SDK::CodeCatalyst
         operation_name: :start_dev_environment,
         tracer: tracer
       )
-      Telemetry::StartDevEnvironment.span(context) do
+      Telemetry::StartDevEnvironment.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_dev_environment] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1777,7 +1777,7 @@ module AWS::SDK::CodeCatalyst
         operation_name: :start_dev_environment_session,
         tracer: tracer
       )
-      Telemetry::StartDevEnvironmentSession.span(context) do
+      Telemetry::StartDevEnvironmentSession.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_dev_environment_session] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1823,7 +1823,7 @@ module AWS::SDK::CodeCatalyst
         operation_name: :start_workflow_run,
         tracer: tracer
       )
-      Telemetry::StartWorkflowRun.span(context) do
+      Telemetry::StartWorkflowRun.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_workflow_run] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1868,7 +1868,7 @@ module AWS::SDK::CodeCatalyst
         operation_name: :stop_dev_environment,
         tracer: tracer
       )
-      Telemetry::StopDevEnvironment.span(context) do
+      Telemetry::StopDevEnvironment.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#stop_dev_environment] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1914,7 +1914,7 @@ module AWS::SDK::CodeCatalyst
         operation_name: :stop_dev_environment_session,
         tracer: tracer
       )
-      Telemetry::StopDevEnvironmentSession.span(context) do
+      Telemetry::StopDevEnvironmentSession.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#stop_dev_environment_session] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1976,7 +1976,7 @@ module AWS::SDK::CodeCatalyst
         operation_name: :update_dev_environment,
         tracer: tracer
       )
-      Telemetry::UpdateDevEnvironment.span(context) do
+      Telemetry::UpdateDevEnvironment.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_dev_environment] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2021,7 +2021,7 @@ module AWS::SDK::CodeCatalyst
         operation_name: :update_project,
         tracer: tracer
       )
-      Telemetry::UpdateProject.span(context) do
+      Telemetry::UpdateProject.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_project] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2064,7 +2064,7 @@ module AWS::SDK::CodeCatalyst
         operation_name: :update_space,
         tracer: tracer
       )
-      Telemetry::UpdateSpace.span(context) do
+      Telemetry::UpdateSpace.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_space] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2102,7 +2102,7 @@ module AWS::SDK::CodeCatalyst
         operation_name: :verify_session,
         tracer: tracer
       )
-      Telemetry::VerifySession.span(context) do
+      Telemetry::VerifySession.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#verify_session] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error

@@ -79,7 +79,7 @@ module AWS::SDK::SSO
         operation_name: :get_role_credentials,
         tracer: tracer
       )
-      Telemetry::GetRoleCredentials.span(context) do
+      Telemetry::GetRoleCredentials.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_role_credentials] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -126,7 +126,7 @@ module AWS::SDK::SSO
         operation_name: :list_account_roles,
         tracer: tracer
       )
-      Telemetry::ListAccountRoles.span(context) do
+      Telemetry::ListAccountRoles.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_account_roles] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -175,7 +175,7 @@ module AWS::SDK::SSO
         operation_name: :list_accounts,
         tracer: tracer
       )
-      Telemetry::ListAccounts.span(context) do
+      Telemetry::ListAccounts.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_accounts] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -227,7 +227,7 @@ module AWS::SDK::SSO
         operation_name: :logout,
         tracer: tracer
       )
-      Telemetry::Logout.span(context) do
+      Telemetry::Logout.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#logout] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error

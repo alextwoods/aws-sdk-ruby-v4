@@ -141,7 +141,7 @@ module AWS::SDK::S3
         operation_name: :abort_multipart_upload,
         tracer: tracer
       )
-      Telemetry::AbortMultipartUpload.span(context) do
+      Telemetry::AbortMultipartUpload.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#abort_multipart_upload] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -371,7 +371,7 @@ module AWS::SDK::S3
         operation_name: :complete_multipart_upload,
         tracer: tracer
       )
-      Telemetry::CompleteMultipartUpload.span(context) do
+      Telemetry::CompleteMultipartUpload.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#complete_multipart_upload] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -641,7 +641,7 @@ module AWS::SDK::S3
         operation_name: :copy_object,
         tracer: tracer
       )
-      Telemetry::CopyObject.span(context) do
+      Telemetry::CopyObject.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#copy_object] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -846,7 +846,7 @@ module AWS::SDK::S3
         operation_name: :create_bucket,
         tracer: tracer
       )
-      Telemetry::CreateBucket.span(context) do
+      Telemetry::CreateBucket.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_bucket] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1158,7 +1158,7 @@ module AWS::SDK::S3
         operation_name: :create_multipart_upload,
         tracer: tracer
       )
-      Telemetry::CreateMultipartUpload.span(context) do
+      Telemetry::CreateMultipartUpload.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_multipart_upload] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1266,7 +1266,7 @@ module AWS::SDK::S3
         operation_name: :create_session,
         tracer: tracer
       )
-      Telemetry::CreateSession.span(context) do
+      Telemetry::CreateSession.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_session] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1363,7 +1363,7 @@ module AWS::SDK::S3
         operation_name: :delete_bucket,
         tracer: tracer
       )
-      Telemetry::DeleteBucket.span(context) do
+      Telemetry::DeleteBucket.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1434,7 +1434,7 @@ module AWS::SDK::S3
         operation_name: :delete_bucket_analytics_configuration,
         tracer: tracer
       )
-      Telemetry::DeleteBucketAnalyticsConfiguration.span(context) do
+      Telemetry::DeleteBucketAnalyticsConfiguration.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_analytics_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1505,7 +1505,7 @@ module AWS::SDK::S3
         operation_name: :delete_bucket_cors,
         tracer: tracer
       )
-      Telemetry::DeleteBucketCors.span(context) do
+      Telemetry::DeleteBucketCors.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_cors] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1570,7 +1570,7 @@ module AWS::SDK::S3
         operation_name: :delete_bucket_encryption,
         tracer: tracer
       )
-      Telemetry::DeleteBucketEncryption.span(context) do
+      Telemetry::DeleteBucketEncryption.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_encryption] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1634,7 +1634,7 @@ module AWS::SDK::S3
         operation_name: :delete_bucket_intelligent_tiering_configuration,
         tracer: tracer
       )
-      Telemetry::DeleteBucketIntelligentTieringConfiguration.span(context) do
+      Telemetry::DeleteBucketIntelligentTieringConfiguration.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_intelligent_tiering_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1703,7 +1703,7 @@ module AWS::SDK::S3
         operation_name: :delete_bucket_inventory_configuration,
         tracer: tracer
       )
-      Telemetry::DeleteBucketInventoryConfiguration.span(context) do
+      Telemetry::DeleteBucketInventoryConfiguration.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_inventory_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1776,7 +1776,7 @@ module AWS::SDK::S3
         operation_name: :delete_bucket_lifecycle,
         tracer: tracer
       )
-      Telemetry::DeleteBucketLifecycle.span(context) do
+      Telemetry::DeleteBucketLifecycle.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_lifecycle] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1853,7 +1853,7 @@ module AWS::SDK::S3
         operation_name: :delete_bucket_metrics_configuration,
         tracer: tracer
       )
-      Telemetry::DeleteBucketMetricsConfiguration.span(context) do
+      Telemetry::DeleteBucketMetricsConfiguration.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_metrics_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1914,7 +1914,7 @@ module AWS::SDK::S3
         operation_name: :delete_bucket_ownership_controls,
         tracer: tracer
       )
-      Telemetry::DeleteBucketOwnershipControls.span(context) do
+      Telemetry::DeleteBucketOwnershipControls.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_ownership_controls] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2023,7 +2023,7 @@ module AWS::SDK::S3
         operation_name: :delete_bucket_policy,
         tracer: tracer
       )
-      Telemetry::DeleteBucketPolicy.span(context) do
+      Telemetry::DeleteBucketPolicy.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_policy] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2098,7 +2098,7 @@ module AWS::SDK::S3
         operation_name: :delete_bucket_replication,
         tracer: tracer
       )
-      Telemetry::DeleteBucketReplication.span(context) do
+      Telemetry::DeleteBucketReplication.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_replication] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2165,7 +2165,7 @@ module AWS::SDK::S3
         operation_name: :delete_bucket_tagging,
         tracer: tracer
       )
-      Telemetry::DeleteBucketTagging.span(context) do
+      Telemetry::DeleteBucketTagging.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_tagging] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2239,7 +2239,7 @@ module AWS::SDK::S3
         operation_name: :delete_bucket_website,
         tracer: tracer
       )
-      Telemetry::DeleteBucketWebsite.span(context) do
+      Telemetry::DeleteBucketWebsite.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_website] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2402,7 +2402,7 @@ module AWS::SDK::S3
         operation_name: :delete_object,
         tracer: tracer
       )
-      Telemetry::DeleteObject.span(context) do
+      Telemetry::DeleteObject.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_object] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2490,7 +2490,7 @@ module AWS::SDK::S3
         operation_name: :delete_object_tagging,
         tracer: tracer
       )
-      Telemetry::DeleteObjectTagging.span(context) do
+      Telemetry::DeleteObjectTagging.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_object_tagging] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2713,7 +2713,7 @@ module AWS::SDK::S3
         operation_name: :delete_objects,
         tracer: tracer
       )
-      Telemetry::DeleteObjects.span(context) do
+      Telemetry::DeleteObjects.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_objects] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2783,7 +2783,7 @@ module AWS::SDK::S3
         operation_name: :delete_public_access_block,
         tracer: tracer
       )
-      Telemetry::DeletePublicAccessBlock.span(context) do
+      Telemetry::DeletePublicAccessBlock.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_public_access_block] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2854,7 +2854,7 @@ module AWS::SDK::S3
         operation_name: :get_bucket_accelerate_configuration,
         tracer: tracer
       )
-      Telemetry::GetBucketAccelerateConfiguration.span(context) do
+      Telemetry::GetBucketAccelerateConfiguration.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_accelerate_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2934,7 +2934,7 @@ module AWS::SDK::S3
         operation_name: :get_bucket_acl,
         tracer: tracer
       )
-      Telemetry::GetBucketAcl.span(context) do
+      Telemetry::GetBucketAcl.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_acl] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3025,7 +3025,7 @@ module AWS::SDK::S3
         operation_name: :get_bucket_analytics_configuration,
         tracer: tracer
       )
-      Telemetry::GetBucketAnalyticsConfiguration.span(context) do
+      Telemetry::GetBucketAnalyticsConfiguration.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_analytics_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3127,7 +3127,7 @@ module AWS::SDK::S3
         operation_name: :get_bucket_cors,
         tracer: tracer
       )
-      Telemetry::GetBucketCors.span(context) do
+      Telemetry::GetBucketCors.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_cors] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3198,7 +3198,7 @@ module AWS::SDK::S3
         operation_name: :get_bucket_encryption,
         tracer: tracer
       )
-      Telemetry::GetBucketEncryption.span(context) do
+      Telemetry::GetBucketEncryption.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_encryption] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3277,7 +3277,7 @@ module AWS::SDK::S3
         operation_name: :get_bucket_intelligent_tiering_configuration,
         tracer: tracer
       )
-      Telemetry::GetBucketIntelligentTieringConfiguration.span(context) do
+      Telemetry::GetBucketIntelligentTieringConfiguration.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_intelligent_tiering_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3367,7 +3367,7 @@ module AWS::SDK::S3
         operation_name: :get_bucket_inventory_configuration,
         tracer: tracer
       )
-      Telemetry::GetBucketInventoryConfiguration.span(context) do
+      Telemetry::GetBucketInventoryConfiguration.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_inventory_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3521,7 +3521,7 @@ module AWS::SDK::S3
         operation_name: :get_bucket_lifecycle_configuration,
         tracer: tracer
       )
-      Telemetry::GetBucketLifecycleConfiguration.span(context) do
+      Telemetry::GetBucketLifecycleConfiguration.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_lifecycle_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3600,7 +3600,7 @@ module AWS::SDK::S3
         operation_name: :get_bucket_location,
         tracer: tracer
       )
-      Telemetry::GetBucketLocation.span(context) do
+      Telemetry::GetBucketLocation.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_location] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3673,7 +3673,7 @@ module AWS::SDK::S3
         operation_name: :get_bucket_logging,
         tracer: tracer
       )
-      Telemetry::GetBucketLogging.span(context) do
+      Telemetry::GetBucketLogging.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_logging] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3761,7 +3761,7 @@ module AWS::SDK::S3
         operation_name: :get_bucket_metrics_configuration,
         tracer: tracer
       )
-      Telemetry::GetBucketMetricsConfiguration.span(context) do
+      Telemetry::GetBucketMetricsConfiguration.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_metrics_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3851,7 +3851,7 @@ module AWS::SDK::S3
         operation_name: :get_bucket_notification_configuration,
         tracer: tracer
       )
-      Telemetry::GetBucketNotificationConfiguration.span(context) do
+      Telemetry::GetBucketNotificationConfiguration.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_notification_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3916,7 +3916,7 @@ module AWS::SDK::S3
         operation_name: :get_bucket_ownership_controls,
         tracer: tracer
       )
-      Telemetry::GetBucketOwnershipControls.span(context) do
+      Telemetry::GetBucketOwnershipControls.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_ownership_controls] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4028,7 +4028,7 @@ module AWS::SDK::S3
         operation_name: :get_bucket_policy,
         tracer: tracer
       )
-      Telemetry::GetBucketPolicy.span(context) do
+      Telemetry::GetBucketPolicy.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_policy] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4101,7 +4101,7 @@ module AWS::SDK::S3
         operation_name: :get_bucket_policy_status,
         tracer: tracer
       )
-      Telemetry::GetBucketPolicyStatus.span(context) do
+      Telemetry::GetBucketPolicyStatus.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_policy_status] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4235,7 +4235,7 @@ module AWS::SDK::S3
         operation_name: :get_bucket_replication,
         tracer: tracer
       )
-      Telemetry::GetBucketReplication.span(context) do
+      Telemetry::GetBucketReplication.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_replication] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4299,7 +4299,7 @@ module AWS::SDK::S3
         operation_name: :get_bucket_request_payment,
         tracer: tracer
       )
-      Telemetry::GetBucketRequestPayment.span(context) do
+      Telemetry::GetBucketRequestPayment.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_request_payment] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4394,7 +4394,7 @@ module AWS::SDK::S3
         operation_name: :get_bucket_tagging,
         tracer: tracer
       )
-      Telemetry::GetBucketTagging.span(context) do
+      Telemetry::GetBucketTagging.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_tagging] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4472,7 +4472,7 @@ module AWS::SDK::S3
         operation_name: :get_bucket_versioning,
         tracer: tracer
       )
-      Telemetry::GetBucketVersioning.span(context) do
+      Telemetry::GetBucketVersioning.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_versioning] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4567,7 +4567,7 @@ module AWS::SDK::S3
         operation_name: :get_bucket_website,
         tracer: tracer
       )
-      Telemetry::GetBucketWebsite.span(context) do
+      Telemetry::GetBucketWebsite.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_website] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4812,7 +4812,7 @@ module AWS::SDK::S3
         operation_name: :get_object,
         tracer: tracer
       )
-      Telemetry::GetObject.span(context) do
+      Telemetry::GetObject.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4957,7 +4957,7 @@ module AWS::SDK::S3
         operation_name: :get_object_acl,
         tracer: tracer
       )
-      Telemetry::GetObjectAcl.span(context) do
+      Telemetry::GetObjectAcl.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_acl] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5220,7 +5220,7 @@ module AWS::SDK::S3
         operation_name: :get_object_attributes,
         tracer: tracer
       )
-      Telemetry::GetObjectAttributes.span(context) do
+      Telemetry::GetObjectAttributes.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_attributes] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5278,7 +5278,7 @@ module AWS::SDK::S3
         operation_name: :get_object_legal_hold,
         tracer: tracer
       )
-      Telemetry::GetObjectLegalHold.span(context) do
+      Telemetry::GetObjectLegalHold.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_legal_hold] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5338,7 +5338,7 @@ module AWS::SDK::S3
         operation_name: :get_object_lock_configuration,
         tracer: tracer
       )
-      Telemetry::GetObjectLockConfiguration.span(context) do
+      Telemetry::GetObjectLockConfiguration.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_lock_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5397,7 +5397,7 @@ module AWS::SDK::S3
         operation_name: :get_object_retention,
         tracer: tracer
       )
-      Telemetry::GetObjectRetention.span(context) do
+      Telemetry::GetObjectRetention.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_retention] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5515,7 +5515,7 @@ module AWS::SDK::S3
         operation_name: :get_object_tagging,
         tracer: tracer
       )
-      Telemetry::GetObjectTagging.span(context) do
+      Telemetry::GetObjectTagging.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_tagging] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5587,7 +5587,7 @@ module AWS::SDK::S3
         operation_name: :get_object_torrent,
         tracer: tracer
       )
-      Telemetry::GetObjectTorrent.span(context) do
+      Telemetry::GetObjectTorrent.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_torrent] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5671,7 +5671,7 @@ module AWS::SDK::S3
         operation_name: :get_public_access_block,
         tracer: tracer
       )
-      Telemetry::GetPublicAccessBlock.span(context) do
+      Telemetry::GetPublicAccessBlock.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_public_access_block] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5772,7 +5772,7 @@ module AWS::SDK::S3
         operation_name: :head_bucket,
         tracer: tracer
       )
-      Telemetry::HeadBucket.span(context) do
+      Telemetry::HeadBucket.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#head_bucket] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5994,7 +5994,7 @@ module AWS::SDK::S3
         operation_name: :head_object,
         tracer: tracer
       )
-      Telemetry::HeadObject.span(context) do
+      Telemetry::HeadObject.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#head_object] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -6096,7 +6096,7 @@ module AWS::SDK::S3
         operation_name: :list_bucket_analytics_configurations,
         tracer: tracer
       )
-      Telemetry::ListBucketAnalyticsConfigurations.span(context) do
+      Telemetry::ListBucketAnalyticsConfigurations.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_bucket_analytics_configurations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -6179,7 +6179,7 @@ module AWS::SDK::S3
         operation_name: :list_bucket_intelligent_tiering_configurations,
         tracer: tracer
       )
-      Telemetry::ListBucketIntelligentTieringConfigurations.span(context) do
+      Telemetry::ListBucketIntelligentTieringConfigurations.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_bucket_intelligent_tiering_configurations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -6281,7 +6281,7 @@ module AWS::SDK::S3
         operation_name: :list_bucket_inventory_configurations,
         tracer: tracer
       )
-      Telemetry::ListBucketInventoryConfigurations.span(context) do
+      Telemetry::ListBucketInventoryConfigurations.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_bucket_inventory_configurations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -6376,7 +6376,7 @@ module AWS::SDK::S3
         operation_name: :list_bucket_metrics_configurations,
         tracer: tracer
       )
-      Telemetry::ListBucketMetricsConfigurations.span(context) do
+      Telemetry::ListBucketMetricsConfigurations.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_bucket_metrics_configurations] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -6450,7 +6450,7 @@ module AWS::SDK::S3
         operation_name: :list_buckets,
         tracer: tracer
       )
-      Telemetry::ListBuckets.span(context) do
+      Telemetry::ListBuckets.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_buckets] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -6513,7 +6513,7 @@ module AWS::SDK::S3
         operation_name: :list_directory_buckets,
         tracer: tracer
       )
-      Telemetry::ListDirectoryBuckets.span(context) do
+      Telemetry::ListDirectoryBuckets.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_directory_buckets] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -6739,7 +6739,7 @@ module AWS::SDK::S3
         operation_name: :list_multipart_uploads,
         tracer: tracer
       )
-      Telemetry::ListMultipartUploads.span(context) do
+      Telemetry::ListMultipartUploads.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_multipart_uploads] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -6903,7 +6903,7 @@ module AWS::SDK::S3
         operation_name: :list_object_versions,
         tracer: tracer
       )
-      Telemetry::ListObjectVersions.span(context) do
+      Telemetry::ListObjectVersions.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_object_versions] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -7017,7 +7017,7 @@ module AWS::SDK::S3
         operation_name: :list_objects,
         tracer: tracer
       )
-      Telemetry::ListObjects.span(context) do
+      Telemetry::ListObjects.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_objects] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -7175,7 +7175,7 @@ module AWS::SDK::S3
         operation_name: :list_objects_v2,
         tracer: tracer
       )
-      Telemetry::ListObjectsV2.span(context) do
+      Telemetry::ListObjectsV2.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_objects_v2] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -7332,7 +7332,7 @@ module AWS::SDK::S3
         operation_name: :list_parts,
         tracer: tracer
       )
-      Telemetry::ListParts.span(context) do
+      Telemetry::ListParts.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_parts] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -7417,7 +7417,7 @@ module AWS::SDK::S3
         operation_name: :put_bucket_accelerate_configuration,
         tracer: tracer
       )
-      Telemetry::PutBucketAccelerateConfiguration.span(context) do
+      Telemetry::PutBucketAccelerateConfiguration.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_accelerate_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -7693,7 +7693,7 @@ module AWS::SDK::S3
         operation_name: :put_bucket_acl,
         tracer: tracer
       )
-      Telemetry::PutBucketAcl.span(context) do
+      Telemetry::PutBucketAcl.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_acl] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -7866,7 +7866,7 @@ module AWS::SDK::S3
         operation_name: :put_bucket_analytics_configuration,
         tracer: tracer
       )
-      Telemetry::PutBucketAnalyticsConfiguration.span(context) do
+      Telemetry::PutBucketAnalyticsConfiguration.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_analytics_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -8026,7 +8026,7 @@ module AWS::SDK::S3
         operation_name: :put_bucket_cors,
         tracer: tracer
       )
-      Telemetry::PutBucketCors.span(context) do
+      Telemetry::PutBucketCors.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_cors] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -8112,7 +8112,7 @@ module AWS::SDK::S3
         operation_name: :put_bucket_encryption,
         tracer: tracer
       )
-      Telemetry::PutBucketEncryption.span(context) do
+      Telemetry::PutBucketEncryption.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_encryption] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -8229,7 +8229,7 @@ module AWS::SDK::S3
         operation_name: :put_bucket_intelligent_tiering_configuration,
         tracer: tracer
       )
-      Telemetry::PutBucketIntelligentTieringConfiguration.span(context) do
+      Telemetry::PutBucketIntelligentTieringConfiguration.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_intelligent_tiering_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -8384,7 +8384,7 @@ module AWS::SDK::S3
         operation_name: :put_bucket_inventory_configuration,
         tracer: tracer
       )
-      Telemetry::PutBucketInventoryConfiguration.span(context) do
+      Telemetry::PutBucketInventoryConfiguration.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_inventory_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -8599,7 +8599,7 @@ module AWS::SDK::S3
         operation_name: :put_bucket_lifecycle_configuration,
         tracer: tracer
       )
-      Telemetry::PutBucketLifecycleConfiguration.span(context) do
+      Telemetry::PutBucketLifecycleConfiguration.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_lifecycle_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -8775,7 +8775,7 @@ module AWS::SDK::S3
         operation_name: :put_bucket_logging,
         tracer: tracer
       )
-      Telemetry::PutBucketLogging.span(context) do
+      Telemetry::PutBucketLogging.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_logging] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -8881,7 +8881,7 @@ module AWS::SDK::S3
         operation_name: :put_bucket_metrics_configuration,
         tracer: tracer
       )
-      Telemetry::PutBucketMetricsConfiguration.span(context) do
+      Telemetry::PutBucketMetricsConfiguration.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_metrics_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -9028,7 +9028,7 @@ module AWS::SDK::S3
         operation_name: :put_bucket_notification_configuration,
         tracer: tracer
       )
-      Telemetry::PutBucketNotificationConfiguration.span(context) do
+      Telemetry::PutBucketNotificationConfiguration.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_notification_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -9097,7 +9097,7 @@ module AWS::SDK::S3
         operation_name: :put_bucket_ownership_controls,
         tracer: tracer
       )
-      Telemetry::PutBucketOwnershipControls.span(context) do
+      Telemetry::PutBucketOwnershipControls.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_ownership_controls] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -9216,7 +9216,7 @@ module AWS::SDK::S3
         operation_name: :put_bucket_policy,
         tracer: tracer
       )
-      Telemetry::PutBucketPolicy.span(context) do
+      Telemetry::PutBucketPolicy.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_policy] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -9409,7 +9409,7 @@ module AWS::SDK::S3
         operation_name: :put_bucket_replication,
         tracer: tracer
       )
-      Telemetry::PutBucketReplication.span(context) do
+      Telemetry::PutBucketReplication.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_replication] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -9485,7 +9485,7 @@ module AWS::SDK::S3
         operation_name: :put_bucket_request_payment,
         tracer: tracer
       )
-      Telemetry::PutBucketRequestPayment.span(context) do
+      Telemetry::PutBucketRequestPayment.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_request_payment] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -9615,7 +9615,7 @@ module AWS::SDK::S3
         operation_name: :put_bucket_tagging,
         tracer: tracer
       )
-      Telemetry::PutBucketTagging.span(context) do
+      Telemetry::PutBucketTagging.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_tagging] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -9717,7 +9717,7 @@ module AWS::SDK::S3
         operation_name: :put_bucket_versioning,
         tracer: tracer
       )
-      Telemetry::PutBucketVersioning.span(context) do
+      Telemetry::PutBucketVersioning.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_versioning] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -9928,7 +9928,7 @@ module AWS::SDK::S3
         operation_name: :put_bucket_website,
         tracer: tracer
       )
-      Telemetry::PutBucketWebsite.span(context) do
+      Telemetry::PutBucketWebsite.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_website] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -10249,7 +10249,7 @@ module AWS::SDK::S3
         operation_name: :put_object,
         tracer: tracer
       )
-      Telemetry::PutObject.span(context) do
+      Telemetry::PutObject.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -10519,7 +10519,7 @@ module AWS::SDK::S3
         operation_name: :put_object_acl,
         tracer: tracer
       )
-      Telemetry::PutObjectAcl.span(context) do
+      Telemetry::PutObjectAcl.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_acl] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -10574,7 +10574,7 @@ module AWS::SDK::S3
         operation_name: :put_object_legal_hold,
         tracer: tracer
       )
-      Telemetry::PutObjectLegalHold.span(context) do
+      Telemetry::PutObjectLegalHold.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_legal_hold] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -10652,7 +10652,7 @@ module AWS::SDK::S3
         operation_name: :put_object_lock_configuration,
         tracer: tracer
       )
-      Telemetry::PutObjectLockConfiguration.span(context) do
+      Telemetry::PutObjectLockConfiguration.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_lock_configuration] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -10710,7 +10710,7 @@ module AWS::SDK::S3
         operation_name: :put_object_retention,
         tracer: tracer
       )
-      Telemetry::PutObjectRetention.span(context) do
+      Telemetry::PutObjectRetention.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_retention] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -10842,7 +10842,7 @@ module AWS::SDK::S3
         operation_name: :put_object_tagging,
         tracer: tracer
       )
-      Telemetry::PutObjectTagging.span(context) do
+      Telemetry::PutObjectTagging.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_tagging] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -10929,7 +10929,7 @@ module AWS::SDK::S3
         operation_name: :put_public_access_block,
         tracer: tracer
       )
-      Telemetry::PutPublicAccessBlock.span(context) do
+      Telemetry::PutPublicAccessBlock.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_public_access_block] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -11334,7 +11334,7 @@ module AWS::SDK::S3
         operation_name: :restore_object,
         tracer: tracer
       )
-      Telemetry::RestoreObject.span(context) do
+      Telemetry::RestoreObject.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#restore_object] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -11562,7 +11562,7 @@ module AWS::SDK::S3
         operation_name: :upload_part,
         tracer: tracer
       )
-      Telemetry::UploadPart.span(context) do
+      Telemetry::UploadPart.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#upload_part] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -11810,7 +11810,7 @@ module AWS::SDK::S3
         operation_name: :upload_part_copy,
         tracer: tracer
       )
-      Telemetry::UploadPartCopy.span(context) do
+      Telemetry::UploadPartCopy.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#upload_part_copy] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -11926,7 +11926,7 @@ module AWS::SDK::S3
         operation_name: :write_get_object_response,
         tracer: tracer
       )
-      Telemetry::WriteGetObjectResponse.span(context) do
+      Telemetry::WriteGetObjectResponse.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#write_get_object_response] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error

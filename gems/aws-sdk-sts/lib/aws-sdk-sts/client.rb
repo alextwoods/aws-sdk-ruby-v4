@@ -224,7 +224,7 @@ module AWS::SDK::STS
         operation_name: :assume_role,
         tracer: tracer
       )
-      Telemetry::AssumeRole.span(context) do
+      Telemetry::AssumeRole.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#assume_role] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -443,7 +443,7 @@ module AWS::SDK::STS
         operation_name: :assume_role_with_saml,
         tracer: tracer
       )
-      Telemetry::AssumeRoleWithSAML.span(context) do
+      Telemetry::AssumeRoleWithSAML.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#assume_role_with_saml] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -664,7 +664,7 @@ module AWS::SDK::STS
         operation_name: :assume_role_with_web_identity,
         tracer: tracer
       )
-      Telemetry::AssumeRoleWithWebIdentity.span(context) do
+      Telemetry::AssumeRoleWithWebIdentity.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#assume_role_with_web_identity] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -749,7 +749,7 @@ module AWS::SDK::STS
         operation_name: :decode_authorization_message,
         tracer: tracer
       )
-      Telemetry::DecodeAuthorizationMessage.span(context) do
+      Telemetry::DecodeAuthorizationMessage.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#decode_authorization_message] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -805,7 +805,7 @@ module AWS::SDK::STS
         operation_name: :get_access_key_info,
         tracer: tracer
       )
-      Telemetry::GetAccessKeyInfo.span(context) do
+      Telemetry::GetAccessKeyInfo.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_access_key_info] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -881,7 +881,7 @@ module AWS::SDK::STS
         operation_name: :get_caller_identity,
         tracer: tracer
       )
-      Telemetry::GetCallerIdentity.span(context) do
+      Telemetry::GetCallerIdentity.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_caller_identity] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1062,7 +1062,7 @@ module AWS::SDK::STS
         operation_name: :get_federation_token,
         tracer: tracer
       )
-      Telemetry::GetFederationToken.span(context) do
+      Telemetry::GetFederationToken.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_federation_token] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1183,7 +1183,7 @@ module AWS::SDK::STS
         operation_name: :get_session_token,
         tracer: tracer
       )
-      Telemetry::GetSessionToken.span(context) do
+      Telemetry::GetSessionToken.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_session_token] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error

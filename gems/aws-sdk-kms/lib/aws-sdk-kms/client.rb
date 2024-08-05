@@ -176,7 +176,7 @@ module AWS::SDK::KMS
         operation_name: :cancel_key_deletion,
         tracer: tracer
       )
-      Telemetry::CancelKeyDeletion.span(context) do
+      Telemetry::CancelKeyDeletion.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#cancel_key_deletion] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -312,7 +312,7 @@ module AWS::SDK::KMS
         operation_name: :connect_custom_key_store,
         tracer: tracer
       )
-      Telemetry::ConnectCustomKeyStore.span(context) do
+      Telemetry::ConnectCustomKeyStore.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#connect_custom_key_store] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -420,7 +420,7 @@ module AWS::SDK::KMS
         operation_name: :create_alias,
         tracer: tracer
       )
-      Telemetry::CreateAlias.span(context) do
+      Telemetry::CreateAlias.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_alias] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -576,7 +576,7 @@ module AWS::SDK::KMS
         operation_name: :create_custom_key_store,
         tracer: tracer
       )
-      Telemetry::CreateCustomKeyStore.span(context) do
+      Telemetry::CreateCustomKeyStore.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_custom_key_store] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -712,7 +712,7 @@ module AWS::SDK::KMS
         operation_name: :create_grant,
         tracer: tracer
       )
-      Telemetry::CreateGrant.span(context) do
+      Telemetry::CreateGrant.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_grant] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -966,7 +966,7 @@ module AWS::SDK::KMS
         operation_name: :create_key,
         tracer: tracer
       )
-      Telemetry::CreateKey.span(context) do
+      Telemetry::CreateKey.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_key] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1145,7 +1145,7 @@ module AWS::SDK::KMS
         operation_name: :decrypt,
         tracer: tracer
       )
-      Telemetry::Decrypt.span(context) do
+      Telemetry::Decrypt.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#decrypt] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1242,7 +1242,7 @@ module AWS::SDK::KMS
         operation_name: :delete_alias,
         tracer: tracer
       )
-      Telemetry::DeleteAlias.span(context) do
+      Telemetry::DeleteAlias.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_alias] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1350,7 +1350,7 @@ module AWS::SDK::KMS
         operation_name: :delete_custom_key_store,
         tracer: tracer
       )
-      Telemetry::DeleteCustomKeyStore.span(context) do
+      Telemetry::DeleteCustomKeyStore.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_custom_key_store] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1427,7 +1427,7 @@ module AWS::SDK::KMS
         operation_name: :delete_imported_key_material,
         tracer: tracer
       )
-      Telemetry::DeleteImportedKeyMaterial.span(context) do
+      Telemetry::DeleteImportedKeyMaterial.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_imported_key_material] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1557,7 +1557,7 @@ module AWS::SDK::KMS
         operation_name: :describe_custom_key_stores,
         tracer: tracer
       )
-      Telemetry::DescribeCustomKeyStores.span(context) do
+      Telemetry::DescribeCustomKeyStores.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_custom_key_stores] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1881,7 +1881,7 @@ module AWS::SDK::KMS
         operation_name: :describe_key,
         tracer: tracer
       )
-      Telemetry::DescribeKey.span(context) do
+      Telemetry::DescribeKey.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_key] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1945,7 +1945,7 @@ module AWS::SDK::KMS
         operation_name: :disable_key,
         tracer: tracer
       )
-      Telemetry::DisableKey.span(context) do
+      Telemetry::DisableKey.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_key] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2027,7 +2027,7 @@ module AWS::SDK::KMS
         operation_name: :disable_key_rotation,
         tracer: tracer
       )
-      Telemetry::DisableKeyRotation.span(context) do
+      Telemetry::DisableKeyRotation.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_key_rotation] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2128,7 +2128,7 @@ module AWS::SDK::KMS
         operation_name: :disconnect_custom_key_store,
         tracer: tracer
       )
-      Telemetry::DisconnectCustomKeyStore.span(context) do
+      Telemetry::DisconnectCustomKeyStore.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disconnect_custom_key_store] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2188,7 +2188,7 @@ module AWS::SDK::KMS
         operation_name: :enable_key,
         tracer: tracer
       )
-      Telemetry::EnableKey.span(context) do
+      Telemetry::EnableKey.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_key] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2278,7 +2278,7 @@ module AWS::SDK::KMS
         operation_name: :enable_key_rotation,
         tracer: tracer
       )
-      Telemetry::EnableKeyRotation.span(context) do
+      Telemetry::EnableKeyRotation.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_key_rotation] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2467,7 +2467,7 @@ module AWS::SDK::KMS
         operation_name: :encrypt,
         tracer: tracer
       )
-      Telemetry::Encrypt.span(context) do
+      Telemetry::Encrypt.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#encrypt] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2641,7 +2641,7 @@ module AWS::SDK::KMS
         operation_name: :generate_data_key,
         tracer: tracer
       )
-      Telemetry::GenerateDataKey.span(context) do
+      Telemetry::GenerateDataKey.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#generate_data_key] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2797,7 +2797,7 @@ module AWS::SDK::KMS
         operation_name: :generate_data_key_pair,
         tracer: tracer
       )
-      Telemetry::GenerateDataKeyPair.span(context) do
+      Telemetry::GenerateDataKeyPair.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#generate_data_key_pair] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2928,7 +2928,7 @@ module AWS::SDK::KMS
         operation_name: :generate_data_key_pair_without_plaintext,
         tracer: tracer
       )
-      Telemetry::GenerateDataKeyPairWithoutPlaintext.span(context) do
+      Telemetry::GenerateDataKeyPairWithoutPlaintext.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#generate_data_key_pair_without_plaintext] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3065,7 +3065,7 @@ module AWS::SDK::KMS
         operation_name: :generate_data_key_without_plaintext,
         tracer: tracer
       )
-      Telemetry::GenerateDataKeyWithoutPlaintext.span(context) do
+      Telemetry::GenerateDataKeyWithoutPlaintext.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#generate_data_key_without_plaintext] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3158,7 +3158,7 @@ module AWS::SDK::KMS
         operation_name: :generate_mac,
         tracer: tracer
       )
-      Telemetry::GenerateMac.span(context) do
+      Telemetry::GenerateMac.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#generate_mac] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3237,7 +3237,7 @@ module AWS::SDK::KMS
         operation_name: :generate_random,
         tracer: tracer
       )
-      Telemetry::GenerateRandom.span(context) do
+      Telemetry::GenerateRandom.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#generate_random] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3299,7 +3299,7 @@ module AWS::SDK::KMS
         operation_name: :get_key_policy,
         tracer: tracer
       )
-      Telemetry::GetKeyPolicy.span(context) do
+      Telemetry::GetKeyPolicy.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_key_policy] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3404,7 +3404,7 @@ module AWS::SDK::KMS
         operation_name: :get_key_rotation_status,
         tracer: tracer
       )
-      Telemetry::GetKeyRotationStatus.span(context) do
+      Telemetry::GetKeyRotationStatus.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_key_rotation_status] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3525,7 +3525,7 @@ module AWS::SDK::KMS
         operation_name: :get_parameters_for_import,
         tracer: tracer
       )
-      Telemetry::GetParametersForImport.span(context) do
+      Telemetry::GetParametersForImport.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_parameters_for_import] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3643,7 +3643,7 @@ module AWS::SDK::KMS
         operation_name: :get_public_key,
         tracer: tracer
       )
-      Telemetry::GetPublicKey.span(context) do
+      Telemetry::GetPublicKey.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_public_key] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3801,7 +3801,7 @@ module AWS::SDK::KMS
         operation_name: :import_key_material,
         tracer: tracer
       )
-      Telemetry::ImportKeyMaterial.span(context) do
+      Telemetry::ImportKeyMaterial.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#import_key_material] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3943,7 +3943,7 @@ module AWS::SDK::KMS
         operation_name: :list_aliases,
         tracer: tracer
       )
-      Telemetry::ListAliases.span(context) do
+      Telemetry::ListAliases.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_aliases] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4050,7 +4050,7 @@ module AWS::SDK::KMS
         operation_name: :list_grants,
         tracer: tracer
       )
-      Telemetry::ListGrants.span(context) do
+      Telemetry::ListGrants.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_grants] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4132,7 +4132,7 @@ module AWS::SDK::KMS
         operation_name: :list_key_policies,
         tracer: tracer
       )
-      Telemetry::ListKeyPolicies.span(context) do
+      Telemetry::ListKeyPolicies.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_key_policies] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4247,7 +4247,7 @@ module AWS::SDK::KMS
         operation_name: :list_keys,
         tracer: tracer
       )
-      Telemetry::ListKeys.span(context) do
+      Telemetry::ListKeys.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_keys] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4354,7 +4354,7 @@ module AWS::SDK::KMS
         operation_name: :list_resource_tags,
         tracer: tracer
       )
-      Telemetry::ListResourceTags.span(context) do
+      Telemetry::ListResourceTags.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_resource_tags] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4466,7 +4466,7 @@ module AWS::SDK::KMS
         operation_name: :list_retirable_grants,
         tracer: tracer
       )
-      Telemetry::ListRetirableGrants.span(context) do
+      Telemetry::ListRetirableGrants.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_retirable_grants] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4533,7 +4533,7 @@ module AWS::SDK::KMS
         operation_name: :put_key_policy,
         tracer: tracer
       )
-      Telemetry::PutKeyPolicy.span(context) do
+      Telemetry::PutKeyPolicy.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_key_policy] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4698,7 +4698,7 @@ module AWS::SDK::KMS
         operation_name: :re_encrypt,
         tracer: tracer
       )
-      Telemetry::ReEncrypt.span(context) do
+      Telemetry::ReEncrypt.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#re_encrypt] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4916,7 +4916,7 @@ module AWS::SDK::KMS
         operation_name: :replicate_key,
         tracer: tracer
       )
-      Telemetry::ReplicateKey.span(context) do
+      Telemetry::ReplicateKey.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#replicate_key] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5015,7 +5015,7 @@ module AWS::SDK::KMS
         operation_name: :retire_grant,
         tracer: tracer
       )
-      Telemetry::RetireGrant.span(context) do
+      Telemetry::RetireGrant.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#retire_grant] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5111,7 +5111,7 @@ module AWS::SDK::KMS
         operation_name: :revoke_grant,
         tracer: tracer
       )
-      Telemetry::RevokeGrant.span(context) do
+      Telemetry::RevokeGrant.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#revoke_grant] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5214,7 +5214,7 @@ module AWS::SDK::KMS
         operation_name: :schedule_key_deletion,
         tracer: tracer
       )
-      Telemetry::ScheduleKeyDeletion.span(context) do
+      Telemetry::ScheduleKeyDeletion.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#schedule_key_deletion] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5347,7 +5347,7 @@ module AWS::SDK::KMS
         operation_name: :sign,
         tracer: tracer
       )
-      Telemetry::Sign.span(context) do
+      Telemetry::Sign.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#sign] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5455,7 +5455,7 @@ module AWS::SDK::KMS
         operation_name: :tag_resource,
         tracer: tracer
       )
-      Telemetry::TagResource.span(context) do
+      Telemetry::TagResource.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#tag_resource] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5553,7 +5553,7 @@ module AWS::SDK::KMS
         operation_name: :untag_resource,
         tracer: tracer
       )
-      Telemetry::UntagResource.span(context) do
+      Telemetry::UntagResource.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#untag_resource] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5667,7 +5667,7 @@ module AWS::SDK::KMS
         operation_name: :update_alias,
         tracer: tracer
       )
-      Telemetry::UpdateAlias.span(context) do
+      Telemetry::UpdateAlias.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_alias] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5859,7 +5859,7 @@ module AWS::SDK::KMS
         operation_name: :update_custom_key_store,
         tracer: tracer
       )
-      Telemetry::UpdateCustomKeyStore.span(context) do
+      Telemetry::UpdateCustomKeyStore.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_custom_key_store] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5932,7 +5932,7 @@ module AWS::SDK::KMS
         operation_name: :update_key_description,
         tracer: tracer
       )
-      Telemetry::UpdateKeyDescription.span(context) do
+      Telemetry::UpdateKeyDescription.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_key_description] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -6052,7 +6052,7 @@ module AWS::SDK::KMS
         operation_name: :update_primary_region,
         tracer: tracer
       )
-      Telemetry::UpdatePrimaryRegion.span(context) do
+      Telemetry::UpdatePrimaryRegion.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_primary_region] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -6171,7 +6171,7 @@ module AWS::SDK::KMS
         operation_name: :verify,
         tracer: tracer
       )
-      Telemetry::Verify.span(context) do
+      Telemetry::Verify.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#verify] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -6258,7 +6258,7 @@ module AWS::SDK::KMS
         operation_name: :verify_mac,
         tracer: tracer
       )
-      Telemetry::VerifyMac.span(context) do
+      Telemetry::VerifyMac.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#verify_mac] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error

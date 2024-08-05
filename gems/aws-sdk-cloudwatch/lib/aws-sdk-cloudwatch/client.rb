@@ -87,7 +87,7 @@ module AWS::SDK::CloudWatch
         operation_name: :delete_alarms,
         tracer: tracer
       )
-      Telemetry::DeleteAlarms.span(context) do
+      Telemetry::DeleteAlarms.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_alarms] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -168,7 +168,7 @@ module AWS::SDK::CloudWatch
         operation_name: :delete_anomaly_detector,
         tracer: tracer
       )
-      Telemetry::DeleteAnomalyDetector.span(context) do
+      Telemetry::DeleteAnomalyDetector.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_anomaly_detector] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -211,7 +211,7 @@ module AWS::SDK::CloudWatch
         operation_name: :delete_dashboards,
         tracer: tracer
       )
-      Telemetry::DeleteDashboards.span(context) do
+      Telemetry::DeleteDashboards.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_dashboards] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -261,7 +261,7 @@ module AWS::SDK::CloudWatch
         operation_name: :delete_insight_rules,
         tracer: tracer
       )
-      Telemetry::DeleteInsightRules.span(context) do
+      Telemetry::DeleteInsightRules.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_insight_rules] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -300,7 +300,7 @@ module AWS::SDK::CloudWatch
         operation_name: :delete_metric_stream,
         tracer: tracer
       )
-      Telemetry::DeleteMetricStream.span(context) do
+      Telemetry::DeleteMetricStream.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_metric_stream] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -362,7 +362,7 @@ module AWS::SDK::CloudWatch
         operation_name: :describe_alarm_history,
         tracer: tracer
       )
-      Telemetry::DescribeAlarmHistory.span(context) do
+      Telemetry::DescribeAlarmHistory.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_alarm_history] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -489,7 +489,7 @@ module AWS::SDK::CloudWatch
         operation_name: :describe_alarms,
         tracer: tracer
       )
-      Telemetry::DescribeAlarms.span(context) do
+      Telemetry::DescribeAlarms.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_alarms] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -593,7 +593,7 @@ module AWS::SDK::CloudWatch
         operation_name: :describe_alarms_for_metric,
         tracer: tracer
       )
-      Telemetry::DescribeAlarmsForMetric.span(context) do
+      Telemetry::DescribeAlarmsForMetric.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_alarms_for_metric] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -689,7 +689,7 @@ module AWS::SDK::CloudWatch
         operation_name: :describe_anomaly_detectors,
         tracer: tracer
       )
-      Telemetry::DescribeAnomalyDetectors.span(context) do
+      Telemetry::DescribeAnomalyDetectors.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_anomaly_detectors] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -739,7 +739,7 @@ module AWS::SDK::CloudWatch
         operation_name: :describe_insight_rules,
         tracer: tracer
       )
-      Telemetry::DescribeInsightRules.span(context) do
+      Telemetry::DescribeInsightRules.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_insight_rules] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -781,7 +781,7 @@ module AWS::SDK::CloudWatch
         operation_name: :disable_alarm_actions,
         tracer: tracer
       )
-      Telemetry::DisableAlarmActions.span(context) do
+      Telemetry::DisableAlarmActions.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_alarm_actions] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -829,7 +829,7 @@ module AWS::SDK::CloudWatch
         operation_name: :disable_insight_rules,
         tracer: tracer
       )
-      Telemetry::DisableInsightRules.span(context) do
+      Telemetry::DisableInsightRules.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_insight_rules] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -870,7 +870,7 @@ module AWS::SDK::CloudWatch
         operation_name: :enable_alarm_actions,
         tracer: tracer
       )
-      Telemetry::EnableAlarmActions.span(context) do
+      Telemetry::EnableAlarmActions.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_alarm_actions] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -917,7 +917,7 @@ module AWS::SDK::CloudWatch
         operation_name: :enable_insight_rules,
         tracer: tracer
       )
-      Telemetry::EnableInsightRules.span(context) do
+      Telemetry::EnableInsightRules.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_insight_rules] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -962,7 +962,7 @@ module AWS::SDK::CloudWatch
         operation_name: :get_dashboard,
         tracer: tracer
       )
-      Telemetry::GetDashboard.span(context) do
+      Telemetry::GetDashboard.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_dashboard] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1069,7 +1069,7 @@ module AWS::SDK::CloudWatch
         operation_name: :get_insight_rule_report,
         tracer: tracer
       )
-      Telemetry::GetInsightRuleReport.span(context) do
+      Telemetry::GetInsightRuleReport.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_insight_rule_report] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1202,7 +1202,7 @@ module AWS::SDK::CloudWatch
         operation_name: :get_metric_data,
         tracer: tracer
       )
-      Telemetry::GetMetricData.span(context) do
+      Telemetry::GetMetricData.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_data] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1316,7 +1316,7 @@ module AWS::SDK::CloudWatch
         operation_name: :get_metric_statistics,
         tracer: tracer
       )
-      Telemetry::GetMetricStatistics.span(context) do
+      Telemetry::GetMetricStatistics.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_statistics] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1378,7 +1378,7 @@ module AWS::SDK::CloudWatch
         operation_name: :get_metric_stream,
         tracer: tracer
       )
-      Telemetry::GetMetricStream.span(context) do
+      Telemetry::GetMetricStream.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_stream] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1434,7 +1434,7 @@ module AWS::SDK::CloudWatch
         operation_name: :get_metric_widget_image,
         tracer: tracer
       )
-      Telemetry::GetMetricWidgetImage.span(context) do
+      Telemetry::GetMetricWidgetImage.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_widget_image] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1489,7 +1489,7 @@ module AWS::SDK::CloudWatch
         operation_name: :list_dashboards,
         tracer: tracer
       )
-      Telemetry::ListDashboards.span(context) do
+      Telemetry::ListDashboards.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_dashboards] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1544,7 +1544,7 @@ module AWS::SDK::CloudWatch
         operation_name: :list_managed_insight_rules,
         tracer: tracer
       )
-      Telemetry::ListManagedInsightRules.span(context) do
+      Telemetry::ListManagedInsightRules.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_managed_insight_rules] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1594,7 +1594,7 @@ module AWS::SDK::CloudWatch
         operation_name: :list_metric_streams,
         tracer: tracer
       )
-      Telemetry::ListMetricStreams.span(context) do
+      Telemetry::ListMetricStreams.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_metric_streams] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1667,7 +1667,7 @@ module AWS::SDK::CloudWatch
         operation_name: :list_metrics,
         tracer: tracer
       )
-      Telemetry::ListMetrics.span(context) do
+      Telemetry::ListMetrics.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_metrics] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1711,7 +1711,7 @@ module AWS::SDK::CloudWatch
         operation_name: :list_tags_for_resource,
         tracer: tracer
       )
-      Telemetry::ListTagsForResource.span(context) do
+      Telemetry::ListTagsForResource.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_tags_for_resource] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1795,7 +1795,7 @@ module AWS::SDK::CloudWatch
         operation_name: :put_anomaly_detector,
         tracer: tracer
       )
-      Telemetry::PutAnomalyDetector.span(context) do
+      Telemetry::PutAnomalyDetector.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_anomaly_detector] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1887,7 +1887,7 @@ module AWS::SDK::CloudWatch
         operation_name: :put_composite_alarm,
         tracer: tracer
       )
-      Telemetry::PutCompositeAlarm.span(context) do
+      Telemetry::PutCompositeAlarm.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_composite_alarm] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1944,7 +1944,7 @@ module AWS::SDK::CloudWatch
         operation_name: :put_dashboard,
         tracer: tracer
       )
-      Telemetry::PutDashboard.span(context) do
+      Telemetry::PutDashboard.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_dashboard] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1995,7 +1995,7 @@ module AWS::SDK::CloudWatch
         operation_name: :put_insight_rule,
         tracer: tracer
       )
-      Telemetry::PutInsightRule.span(context) do
+      Telemetry::PutInsightRule.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_insight_rule] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2067,7 +2067,7 @@ module AWS::SDK::CloudWatch
         operation_name: :put_managed_insight_rules,
         tracer: tracer
       )
-      Telemetry::PutManagedInsightRules.span(context) do
+      Telemetry::PutManagedInsightRules.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_managed_insight_rules] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2207,7 +2207,7 @@ module AWS::SDK::CloudWatch
         operation_name: :put_metric_alarm,
         tracer: tracer
       )
-      Telemetry::PutMetricAlarm.span(context) do
+      Telemetry::PutMetricAlarm.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_metric_alarm] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2315,7 +2315,7 @@ module AWS::SDK::CloudWatch
         operation_name: :put_metric_data,
         tracer: tracer
       )
-      Telemetry::PutMetricData.span(context) do
+      Telemetry::PutMetricData.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_metric_data] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2419,7 +2419,7 @@ module AWS::SDK::CloudWatch
         operation_name: :put_metric_stream,
         tracer: tracer
       )
-      Telemetry::PutMetricStream.span(context) do
+      Telemetry::PutMetricStream.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_metric_stream] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2476,7 +2476,7 @@ module AWS::SDK::CloudWatch
         operation_name: :set_alarm_state,
         tracer: tracer
       )
-      Telemetry::SetAlarmState.span(context) do
+      Telemetry::SetAlarmState.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#set_alarm_state] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2517,7 +2517,7 @@ module AWS::SDK::CloudWatch
         operation_name: :start_metric_streams,
         tracer: tracer
       )
-      Telemetry::StartMetricStreams.span(context) do
+      Telemetry::StartMetricStreams.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_metric_streams] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2558,7 +2558,7 @@ module AWS::SDK::CloudWatch
         operation_name: :stop_metric_streams,
         tracer: tracer
       )
-      Telemetry::StopMetricStreams.span(context) do
+      Telemetry::StopMetricStreams.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#stop_metric_streams] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2613,7 +2613,7 @@ module AWS::SDK::CloudWatch
         operation_name: :tag_resource,
         tracer: tracer
       )
-      Telemetry::TagResource.span(context) do
+      Telemetry::TagResource.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#tag_resource] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2655,7 +2655,7 @@ module AWS::SDK::CloudWatch
         operation_name: :untag_resource,
         tracer: tracer
       )
-      Telemetry::UntagResource.span(context) do
+      Telemetry::UntagResource.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#untag_resource] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error

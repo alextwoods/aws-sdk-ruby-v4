@@ -144,7 +144,7 @@ module AWS::SDK::DynamoDB
         operation_name: :batch_execute_statement,
         tracer: tracer
       )
-      Telemetry::BatchExecuteStatement.span(context) do
+      Telemetry::BatchExecuteStatement.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#batch_execute_statement] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -359,7 +359,7 @@ module AWS::SDK::DynamoDB
         operation_name: :batch_get_item,
         tracer: tracer
       )
-      Telemetry::BatchGetItem.span(context) do
+      Telemetry::BatchGetItem.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#batch_get_item] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -604,7 +604,7 @@ module AWS::SDK::DynamoDB
         operation_name: :batch_write_item,
         tracer: tracer
       )
-      Telemetry::BatchWriteItem.span(context) do
+      Telemetry::BatchWriteItem.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#batch_write_item] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -681,7 +681,7 @@ module AWS::SDK::DynamoDB
         operation_name: :create_backup,
         tracer: tracer
       )
-      Telemetry::CreateBackup.span(context) do
+      Telemetry::CreateBackup.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_backup] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -809,7 +809,7 @@ module AWS::SDK::DynamoDB
         operation_name: :create_global_table,
         tracer: tracer
       )
-      Telemetry::CreateGlobalTable.span(context) do
+      Telemetry::CreateGlobalTable.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_global_table] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -996,7 +996,7 @@ module AWS::SDK::DynamoDB
         operation_name: :create_table,
         tracer: tracer
       )
-      Telemetry::CreateTable.span(context) do
+      Telemetry::CreateTable.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_table] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1087,7 +1087,7 @@ module AWS::SDK::DynamoDB
         operation_name: :delete_backup,
         tracer: tracer
       )
-      Telemetry::DeleteBackup.span(context) do
+      Telemetry::DeleteBackup.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_backup] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1221,7 +1221,7 @@ module AWS::SDK::DynamoDB
         operation_name: :delete_item,
         tracer: tracer
       )
-      Telemetry::DeleteItem.span(context) do
+      Telemetry::DeleteItem.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_item] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1388,7 +1388,7 @@ module AWS::SDK::DynamoDB
         operation_name: :delete_table,
         tracer: tracer
       )
-      Telemetry::DeleteTable.span(context) do
+      Telemetry::DeleteTable.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_table] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1479,7 +1479,7 @@ module AWS::SDK::DynamoDB
         operation_name: :describe_backup,
         tracer: tracer
       )
-      Telemetry::DescribeBackup.span(context) do
+      Telemetry::DescribeBackup.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_backup] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1535,7 +1535,7 @@ module AWS::SDK::DynamoDB
         operation_name: :describe_continuous_backups,
         tracer: tracer
       )
-      Telemetry::DescribeContinuousBackups.span(context) do
+      Telemetry::DescribeContinuousBackups.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_continuous_backups] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1585,7 +1585,7 @@ module AWS::SDK::DynamoDB
         operation_name: :describe_contributor_insights,
         tracer: tracer
       )
-      Telemetry::DescribeContributorInsights.span(context) do
+      Telemetry::DescribeContributorInsights.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_contributor_insights] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1627,7 +1627,7 @@ module AWS::SDK::DynamoDB
         operation_name: :describe_endpoints,
         tracer: tracer
       )
-      Telemetry::DescribeEndpoints.span(context) do
+      Telemetry::DescribeEndpoints.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_endpoints] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1691,7 +1691,7 @@ module AWS::SDK::DynamoDB
         operation_name: :describe_export,
         tracer: tracer
       )
-      Telemetry::DescribeExport.span(context) do
+      Telemetry::DescribeExport.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_export] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1764,7 +1764,7 @@ module AWS::SDK::DynamoDB
         operation_name: :describe_global_table,
         tracer: tracer
       )
-      Telemetry::DescribeGlobalTable.span(context) do
+      Telemetry::DescribeGlobalTable.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_global_table] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1850,7 +1850,7 @@ module AWS::SDK::DynamoDB
         operation_name: :describe_global_table_settings,
         tracer: tracer
       )
-      Telemetry::DescribeGlobalTableSettings.span(context) do
+      Telemetry::DescribeGlobalTableSettings.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_global_table_settings] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1942,7 +1942,7 @@ module AWS::SDK::DynamoDB
         operation_name: :describe_import,
         tracer: tracer
       )
-      Telemetry::DescribeImport.span(context) do
+      Telemetry::DescribeImport.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_import] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -1988,7 +1988,7 @@ module AWS::SDK::DynamoDB
         operation_name: :describe_kinesis_streaming_destination,
         tracer: tracer
       )
-      Telemetry::DescribeKinesisStreamingDestination.span(context) do
+      Telemetry::DescribeKinesisStreamingDestination.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_kinesis_streaming_destination] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2108,7 +2108,7 @@ module AWS::SDK::DynamoDB
         operation_name: :describe_limits,
         tracer: tracer
       )
-      Telemetry::DescribeLimits.span(context) do
+      Telemetry::DescribeLimits.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_limits] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2247,7 +2247,7 @@ module AWS::SDK::DynamoDB
         operation_name: :describe_table,
         tracer: tracer
       )
-      Telemetry::DescribeTable.span(context) do
+      Telemetry::DescribeTable.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_table] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2317,7 +2317,7 @@ module AWS::SDK::DynamoDB
         operation_name: :describe_table_replica_auto_scaling,
         tracer: tracer
       )
-      Telemetry::DescribeTableReplicaAutoScaling.span(context) do
+      Telemetry::DescribeTableReplicaAutoScaling.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_table_replica_auto_scaling] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2359,7 +2359,7 @@ module AWS::SDK::DynamoDB
         operation_name: :describe_time_to_live,
         tracer: tracer
       )
-      Telemetry::DescribeTimeToLive.span(context) do
+      Telemetry::DescribeTimeToLive.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_time_to_live] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2408,7 +2408,7 @@ module AWS::SDK::DynamoDB
         operation_name: :disable_kinesis_streaming_destination,
         tracer: tracer
       )
-      Telemetry::DisableKinesisStreamingDestination.span(context) do
+      Telemetry::DisableKinesisStreamingDestination.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_kinesis_streaming_destination] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2459,7 +2459,7 @@ module AWS::SDK::DynamoDB
         operation_name: :enable_kinesis_streaming_destination,
         tracer: tracer
       )
-      Telemetry::EnableKinesisStreamingDestination.span(context) do
+      Telemetry::EnableKinesisStreamingDestination.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_kinesis_streaming_destination] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2563,7 +2563,7 @@ module AWS::SDK::DynamoDB
         operation_name: :execute_statement,
         tracer: tracer
       )
-      Telemetry::ExecuteStatement.span(context) do
+      Telemetry::ExecuteStatement.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#execute_statement] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2664,7 +2664,7 @@ module AWS::SDK::DynamoDB
         operation_name: :execute_transaction,
         tracer: tracer
       )
-      Telemetry::ExecuteTransaction.span(context) do
+      Telemetry::ExecuteTransaction.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#execute_transaction] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2744,7 +2744,7 @@ module AWS::SDK::DynamoDB
         operation_name: :export_table_to_point_in_time,
         tracer: tracer
       )
-      Telemetry::ExportTableToPointInTime.span(context) do
+      Telemetry::ExportTableToPointInTime.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#export_table_to_point_in_time] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -2872,7 +2872,7 @@ module AWS::SDK::DynamoDB
         operation_name: :get_item,
         tracer: tracer
       )
-      Telemetry::GetItem.span(context) do
+      Telemetry::GetItem.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_item] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3015,7 +3015,7 @@ module AWS::SDK::DynamoDB
         operation_name: :import_table,
         tracer: tracer
       )
-      Telemetry::ImportTable.span(context) do
+      Telemetry::ImportTable.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#import_table] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3081,7 +3081,7 @@ module AWS::SDK::DynamoDB
         operation_name: :list_backups,
         tracer: tracer
       )
-      Telemetry::ListBackups.span(context) do
+      Telemetry::ListBackups.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_backups] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3129,7 +3129,7 @@ module AWS::SDK::DynamoDB
         operation_name: :list_contributor_insights,
         tracer: tracer
       )
-      Telemetry::ListContributorInsights.span(context) do
+      Telemetry::ListContributorInsights.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_contributor_insights] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3176,7 +3176,7 @@ module AWS::SDK::DynamoDB
         operation_name: :list_exports,
         tracer: tracer
       )
-      Telemetry::ListExports.span(context) do
+      Telemetry::ListExports.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_exports] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3236,7 +3236,7 @@ module AWS::SDK::DynamoDB
         operation_name: :list_global_tables,
         tracer: tracer
       )
-      Telemetry::ListGlobalTables.span(context) do
+      Telemetry::ListGlobalTables.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_global_tables] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3291,7 +3291,7 @@ module AWS::SDK::DynamoDB
         operation_name: :list_imports,
         tracer: tracer
       )
-      Telemetry::ListImports.span(context) do
+      Telemetry::ListImports.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_imports] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3348,7 +3348,7 @@ module AWS::SDK::DynamoDB
         operation_name: :list_tables,
         tracer: tracer
       )
-      Telemetry::ListTables.span(context) do
+      Telemetry::ListTables.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_tables] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3396,7 +3396,7 @@ module AWS::SDK::DynamoDB
         operation_name: :list_tags_of_resource,
         tracer: tracer
       )
-      Telemetry::ListTagsOfResource.span(context) do
+      Telemetry::ListTagsOfResource.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_tags_of_resource] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3545,7 +3545,7 @@ module AWS::SDK::DynamoDB
         operation_name: :put_item,
         tracer: tracer
       )
-      Telemetry::PutItem.span(context) do
+      Telemetry::PutItem.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_item] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3730,7 +3730,7 @@ module AWS::SDK::DynamoDB
         operation_name: :query,
         tracer: tracer
       )
-      Telemetry::Query.span(context) do
+      Telemetry::Query.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#query] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -3912,7 +3912,7 @@ module AWS::SDK::DynamoDB
         operation_name: :restore_table_from_backup,
         tracer: tracer
       )
-      Telemetry::RestoreTableFromBackup.span(context) do
+      Telemetry::RestoreTableFromBackup.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#restore_table_from_backup] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4122,7 +4122,7 @@ module AWS::SDK::DynamoDB
         operation_name: :restore_table_to_point_in_time,
         tracer: tracer
       )
-      Telemetry::RestoreTableToPointInTime.span(context) do
+      Telemetry::RestoreTableToPointInTime.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#restore_table_to_point_in_time] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4313,7 +4313,7 @@ module AWS::SDK::DynamoDB
         operation_name: :scan,
         tracer: tracer
       )
-      Telemetry::Scan.span(context) do
+      Telemetry::Scan.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#scan] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4363,7 +4363,7 @@ module AWS::SDK::DynamoDB
         operation_name: :tag_resource,
         tracer: tracer
       )
-      Telemetry::TagResource.span(context) do
+      Telemetry::TagResource.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#tag_resource] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4487,7 +4487,7 @@ module AWS::SDK::DynamoDB
         operation_name: :transact_get_items,
         tracer: tracer
       )
-      Telemetry::TransactGetItems.span(context) do
+      Telemetry::TransactGetItems.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#transact_get_items] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4679,7 +4679,7 @@ module AWS::SDK::DynamoDB
         operation_name: :transact_write_items,
         tracer: tracer
       )
-      Telemetry::TransactWriteItems.span(context) do
+      Telemetry::TransactWriteItems.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#transact_write_items] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4724,7 +4724,7 @@ module AWS::SDK::DynamoDB
         operation_name: :untag_resource,
         tracer: tracer
       )
-      Telemetry::UntagResource.span(context) do
+      Telemetry::UntagResource.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#untag_resource] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4783,7 +4783,7 @@ module AWS::SDK::DynamoDB
         operation_name: :update_continuous_backups,
         tracer: tracer
       )
-      Telemetry::UpdateContinuousBackups.span(context) do
+      Telemetry::UpdateContinuousBackups.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_continuous_backups] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4833,7 +4833,7 @@ module AWS::SDK::DynamoDB
         operation_name: :update_contributor_insights,
         tracer: tracer
       )
-      Telemetry::UpdateContributorInsights.span(context) do
+      Telemetry::UpdateContributorInsights.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_contributor_insights] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -4946,7 +4946,7 @@ module AWS::SDK::DynamoDB
         operation_name: :update_global_table,
         tracer: tracer
       )
-      Telemetry::UpdateGlobalTable.span(context) do
+      Telemetry::UpdateGlobalTable.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_global_table] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5068,7 +5068,7 @@ module AWS::SDK::DynamoDB
         operation_name: :update_global_table_settings,
         tracer: tracer
       )
-      Telemetry::UpdateGlobalTableSettings.span(context) do
+      Telemetry::UpdateGlobalTableSettings.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_global_table_settings] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5228,7 +5228,7 @@ module AWS::SDK::DynamoDB
         operation_name: :update_item,
         tracer: tracer
       )
-      Telemetry::UpdateItem.span(context) do
+      Telemetry::UpdateItem.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_item] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5276,7 +5276,7 @@ module AWS::SDK::DynamoDB
         operation_name: :update_kinesis_streaming_destination,
         tracer: tracer
       )
-      Telemetry::UpdateKinesisStreamingDestination.span(context) do
+      Telemetry::UpdateKinesisStreamingDestination.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_kinesis_streaming_destination] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5502,7 +5502,7 @@ module AWS::SDK::DynamoDB
         operation_name: :update_table,
         tracer: tracer
       )
-      Telemetry::UpdateTable.span(context) do
+      Telemetry::UpdateTable.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_table] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5603,7 +5603,7 @@ module AWS::SDK::DynamoDB
         operation_name: :update_table_replica_auto_scaling,
         tracer: tracer
       )
-      Telemetry::UpdateTableReplicaAutoScaling.span(context) do
+      Telemetry::UpdateTableReplicaAutoScaling.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_table_replica_auto_scaling] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -5673,7 +5673,7 @@ module AWS::SDK::DynamoDB
         operation_name: :update_time_to_live,
         tracer: tracer
       )
-      Telemetry::UpdateTimeToLive.span(context) do
+      Telemetry::UpdateTimeToLive.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_time_to_live] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error

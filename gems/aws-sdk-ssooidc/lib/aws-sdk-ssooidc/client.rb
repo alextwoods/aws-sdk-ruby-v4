@@ -145,7 +145,7 @@ module AWS::SDK::SSOOIDC
         operation_name: :create_token,
         tracer: tracer
       )
-      Telemetry::CreateToken.span(context) do
+      Telemetry::CreateToken.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_token] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -301,7 +301,7 @@ module AWS::SDK::SSOOIDC
         operation_name: :create_token_with_iam,
         tracer: tracer
       )
-      Telemetry::CreateTokenWithIAM.span(context) do
+      Telemetry::CreateTokenWithIAM.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_token_with_iam] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -386,7 +386,7 @@ module AWS::SDK::SSOOIDC
         operation_name: :register_client,
         tracer: tracer
       )
-      Telemetry::RegisterClient.span(context) do
+      Telemetry::RegisterClient.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#register_client] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
@@ -451,7 +451,7 @@ module AWS::SDK::SSOOIDC
         operation_name: :start_device_authorization,
         tracer: tracer
       )
-      Telemetry::StartDeviceAuthorization.span(context) do
+      Telemetry::StartDeviceAuthorization.in_span(context) do
         context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_device_authorization] params: #{params}, options: #{options}")
         output = stack.run(input, context)
         if output.error
