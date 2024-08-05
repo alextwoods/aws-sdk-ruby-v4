@@ -130,6 +130,7 @@ module AWS::SDK::TranscribeStreaming
       middleware_opts[:event_stream_handler] = options.delete(:event_stream_handler)
       raise ArgumentError, 'Missing `event_stream_handler`' unless middleware_opts[:event_stream_handler]
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.transcribestreaming.client')
       input = Params::StartCallAnalyticsStreamTranscriptionInput.build(params, context: 'params')
       stack = AWS::SDK::TranscribeStreaming::Middleware::StartCallAnalyticsStreamTranscription.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -137,15 +138,18 @@ module AWS::SDK::TranscribeStreaming
         response: Hearth::HTTP2::Response.new(body: response_body),
         config: config,
         operation_name: :start_call_analytics_stream_transcription,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_call_analytics_stream_transcription] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#start_call_analytics_stream_transcription] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::StartCallAnalyticsStreamTranscription.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_call_analytics_stream_transcription] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#start_call_analytics_stream_transcription] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_call_analytics_stream_transcription] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_call_analytics_stream_transcription] #{output.data}")
-      output
     end
 
     # <p>Starts a bidirectional HTTP/2 or WebSocket stream where audio is streamed to
@@ -227,6 +231,7 @@ module AWS::SDK::TranscribeStreaming
       middleware_opts[:event_stream_handler] = options.delete(:event_stream_handler)
       raise ArgumentError, 'Missing `event_stream_handler`' unless middleware_opts[:event_stream_handler]
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.transcribestreaming.client')
       input = Params::StartMedicalStreamTranscriptionInput.build(params, context: 'params')
       stack = AWS::SDK::TranscribeStreaming::Middleware::StartMedicalStreamTranscription.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -234,15 +239,18 @@ module AWS::SDK::TranscribeStreaming
         response: Hearth::HTTP2::Response.new(body: response_body),
         config: config,
         operation_name: :start_medical_stream_transcription,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_medical_stream_transcription] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#start_medical_stream_transcription] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::StartMedicalStreamTranscription.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_medical_stream_transcription] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#start_medical_stream_transcription] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_medical_stream_transcription] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_medical_stream_transcription] #{output.data}")
-      output
     end
 
     # <p>Starts a bidirectional HTTP/2 or WebSocket stream where audio is streamed to
@@ -332,6 +340,7 @@ module AWS::SDK::TranscribeStreaming
       middleware_opts[:event_stream_handler] = options.delete(:event_stream_handler)
       raise ArgumentError, 'Missing `event_stream_handler`' unless middleware_opts[:event_stream_handler]
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.transcribestreaming.client')
       input = Params::StartStreamTranscriptionInput.build(params, context: 'params')
       stack = AWS::SDK::TranscribeStreaming::Middleware::StartStreamTranscription.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -339,15 +348,18 @@ module AWS::SDK::TranscribeStreaming
         response: Hearth::HTTP2::Response.new(body: response_body),
         config: config,
         operation_name: :start_stream_transcription,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_stream_transcription] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#start_stream_transcription] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::StartStreamTranscription.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_stream_transcription] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#start_stream_transcription] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_stream_transcription] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_stream_transcription] #{output.data}")
-      output
     end
   end
 end

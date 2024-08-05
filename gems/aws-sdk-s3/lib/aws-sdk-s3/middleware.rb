@@ -5313,7 +5313,7 @@ module AWS::SDK::S3
           AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
-        stack.use(Hearth::Middleware::EventStreamHandlers,
+        stack.use(Hearth::Middleware::EventStreams,
           async_output_class: nil,
           event_handler: options[:event_stream_handler],
           message_encoding_module: Hearth::EventStream::Binary,

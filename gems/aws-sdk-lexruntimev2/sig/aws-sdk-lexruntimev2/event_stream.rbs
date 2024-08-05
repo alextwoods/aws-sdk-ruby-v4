@@ -1,0 +1,60 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/smithy-lang/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::LexRuntimeV2
+  module EventStream
+
+    class StartConversationHandler < Hearth::EventStream::HandlerBase
+      def on_initial_response: () { (AWS::SDK::LexRuntimeV2::Types::StartConversationOutput) -> void } -> void
+
+      def on_playback_interruption_event: () { (AWS::SDK::LexRuntimeV2::Types::PlaybackInterruptionEvent) -> void } -> void
+
+      def on_transcript_event: () { (AWS::SDK::LexRuntimeV2::Types::TranscriptEvent) -> void } -> void
+
+      def on_intent_result_event: () { (AWS::SDK::LexRuntimeV2::Types::IntentResultEvent) -> void } -> void
+
+      def on_text_response_event: () { (AWS::SDK::LexRuntimeV2::Types::TextResponseEvent) -> void } -> void
+
+      def on_audio_response_event: () { (AWS::SDK::LexRuntimeV2::Types::AudioResponseEvent) -> void } -> void
+
+      def on_heartbeat_event: () { (AWS::SDK::LexRuntimeV2::Types::HeartbeatEvent) -> void } -> void
+
+      def on_access_denied_exception: () { (AWS::SDK::LexRuntimeV2::Types::AccessDeniedException) -> void } -> void
+
+      def on_resource_not_found_exception: () { (AWS::SDK::LexRuntimeV2::Types::ResourceNotFoundException) -> void } -> void
+
+      def on_validation_exception: () { (AWS::SDK::LexRuntimeV2::Types::ValidationException) -> void } -> void
+
+      def on_throttling_exception: () { (AWS::SDK::LexRuntimeV2::Types::ThrottlingException) -> void } -> void
+
+      def on_internal_server_exception: () { (AWS::SDK::LexRuntimeV2::Types::InternalServerException) -> void } -> void
+
+      def on_conflict_exception: () { (AWS::SDK::LexRuntimeV2::Types::ConflictException) -> void } -> void
+
+      def on_dependency_failed_exception: () { (AWS::SDK::LexRuntimeV2::Types::DependencyFailedException) -> void } -> void
+
+      def on_bad_gateway_exception: () { (AWS::SDK::LexRuntimeV2::Types::BadGatewayException) -> void } -> void
+    end
+
+    class StartConversationOutput < Hearth::EventStream::AsyncOutput[untyped]
+
+      def signal_configuration_event: (?::Hash[::Symbol, untyped] params) -> void
+
+      def signal_audio_input_event: (?::Hash[::Symbol, untyped] params) -> void
+
+      def signal_dtmf_input_event: (?::Hash[::Symbol, untyped] params) -> void
+
+      def signal_text_input_event: (?::Hash[::Symbol, untyped] params) -> void
+
+      def signal_playback_completion_event: (?::Hash[::Symbol, untyped] params) -> void
+
+      def signal_disconnection_event: (?::Hash[::Symbol, untyped] params) -> void
+    end
+  end
+end

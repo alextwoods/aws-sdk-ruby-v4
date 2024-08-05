@@ -64,6 +64,7 @@ module AWS::SDK::Kinesis
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kinesis.client')
       input = Params::AddTagsToStreamInput.build(params, context: 'params')
       stack = AWS::SDK::Kinesis::Middleware::AddTagsToStream.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -71,15 +72,18 @@ module AWS::SDK::Kinesis
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :add_tags_to_stream,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#add_tags_to_stream] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#add_tags_to_stream] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::AddTagsToStream.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#add_tags_to_stream] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#add_tags_to_stream] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#add_tags_to_stream] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#add_tags_to_stream] #{output.data}")
-      output
     end
 
     # <p>Creates a Kinesis data stream. A stream captures and transports data records that are
@@ -147,6 +151,7 @@ module AWS::SDK::Kinesis
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kinesis.client')
       input = Params::CreateStreamInput.build(params, context: 'params')
       stack = AWS::SDK::Kinesis::Middleware::CreateStream.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -154,15 +159,18 @@ module AWS::SDK::Kinesis
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :create_stream,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_stream] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#create_stream] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::CreateStream.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_stream] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#create_stream] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_stream] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_stream] #{output.data}")
-      output
     end
 
     # <p>Decreases the Kinesis data stream's retention period, which is the length of time data
@@ -195,6 +203,7 @@ module AWS::SDK::Kinesis
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kinesis.client')
       input = Params::DecreaseStreamRetentionPeriodInput.build(params, context: 'params')
       stack = AWS::SDK::Kinesis::Middleware::DecreaseStreamRetentionPeriod.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -202,15 +211,18 @@ module AWS::SDK::Kinesis
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :decrease_stream_retention_period,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#decrease_stream_retention_period] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#decrease_stream_retention_period] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DecreaseStreamRetentionPeriod.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#decrease_stream_retention_period] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#decrease_stream_retention_period] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#decrease_stream_retention_period] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#decrease_stream_retention_period] #{output.data}")
-      output
     end
 
     # <p>Delete a policy for the specified data stream or consumer. Request patterns can be one of the following:</p>
@@ -241,6 +253,7 @@ module AWS::SDK::Kinesis
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kinesis.client')
       input = Params::DeleteResourcePolicyInput.build(params, context: 'params')
       stack = AWS::SDK::Kinesis::Middleware::DeleteResourcePolicy.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -248,15 +261,18 @@ module AWS::SDK::Kinesis
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :delete_resource_policy,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_resource_policy] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_resource_policy] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DeleteResourcePolicy.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_resource_policy] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_resource_policy] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_resource_policy] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_resource_policy] #{output.data}")
-      output
     end
 
     # <p>Deletes a Kinesis data stream and all its shards and data. You must shut down any
@@ -302,6 +318,7 @@ module AWS::SDK::Kinesis
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kinesis.client')
       input = Params::DeleteStreamInput.build(params, context: 'params')
       stack = AWS::SDK::Kinesis::Middleware::DeleteStream.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -309,15 +326,18 @@ module AWS::SDK::Kinesis
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :delete_stream,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_stream] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_stream] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DeleteStream.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_stream] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_stream] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_stream] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_stream] #{output.data}")
-      output
     end
 
     # <p>To deregister a consumer, provide its ARN. Alternatively, you can provide the ARN of
@@ -347,6 +367,7 @@ module AWS::SDK::Kinesis
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kinesis.client')
       input = Params::DeregisterStreamConsumerInput.build(params, context: 'params')
       stack = AWS::SDK::Kinesis::Middleware::DeregisterStreamConsumer.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -354,15 +375,18 @@ module AWS::SDK::Kinesis
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :deregister_stream_consumer,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#deregister_stream_consumer] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#deregister_stream_consumer] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DeregisterStreamConsumer.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#deregister_stream_consumer] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#deregister_stream_consumer] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#deregister_stream_consumer] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#deregister_stream_consumer] #{output.data}")
-      output
     end
 
     # <p>Describes the shard limits and usage for the account.</p>
@@ -388,6 +412,7 @@ module AWS::SDK::Kinesis
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kinesis.client')
       input = Params::DescribeLimitsInput.build(params, context: 'params')
       stack = AWS::SDK::Kinesis::Middleware::DescribeLimits.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -395,15 +420,18 @@ module AWS::SDK::Kinesis
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :describe_limits,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_limits] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#describe_limits] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DescribeLimits.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_limits] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#describe_limits] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_limits] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_limits] #{output.data}")
-      output
     end
 
     # <p>Describes the specified Kinesis data stream.</p>
@@ -477,6 +505,7 @@ module AWS::SDK::Kinesis
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kinesis.client')
       input = Params::DescribeStreamInput.build(params, context: 'params')
       stack = AWS::SDK::Kinesis::Middleware::DescribeStream.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -484,15 +513,18 @@ module AWS::SDK::Kinesis
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :describe_stream,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_stream] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#describe_stream] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DescribeStream.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_stream] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#describe_stream] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_stream] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_stream] #{output.data}")
-      output
     end
 
     # <p>To get the description of a registered consumer, provide the ARN of the consumer.
@@ -531,6 +563,7 @@ module AWS::SDK::Kinesis
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kinesis.client')
       input = Params::DescribeStreamConsumerInput.build(params, context: 'params')
       stack = AWS::SDK::Kinesis::Middleware::DescribeStreamConsumer.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -538,15 +571,18 @@ module AWS::SDK::Kinesis
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :describe_stream_consumer,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_stream_consumer] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#describe_stream_consumer] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DescribeStreamConsumer.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_stream_consumer] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#describe_stream_consumer] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_stream_consumer] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_stream_consumer] #{output.data}")
-      output
     end
 
     # <p>Provides a summarized description of the specified Kinesis data stream without the
@@ -596,6 +632,7 @@ module AWS::SDK::Kinesis
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kinesis.client')
       input = Params::DescribeStreamSummaryInput.build(params, context: 'params')
       stack = AWS::SDK::Kinesis::Middleware::DescribeStreamSummary.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -603,15 +640,18 @@ module AWS::SDK::Kinesis
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :describe_stream_summary,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_stream_summary] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#describe_stream_summary] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DescribeStreamSummary.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_stream_summary] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#describe_stream_summary] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_stream_summary] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_stream_summary] #{output.data}")
-      output
     end
 
     # <p>Disables enhanced monitoring.</p>
@@ -646,6 +686,7 @@ module AWS::SDK::Kinesis
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kinesis.client')
       input = Params::DisableEnhancedMonitoringInput.build(params, context: 'params')
       stack = AWS::SDK::Kinesis::Middleware::DisableEnhancedMonitoring.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -653,15 +694,18 @@ module AWS::SDK::Kinesis
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :disable_enhanced_monitoring,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_enhanced_monitoring] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#disable_enhanced_monitoring] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DisableEnhancedMonitoring.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_enhanced_monitoring] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#disable_enhanced_monitoring] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_enhanced_monitoring] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_enhanced_monitoring] #{output.data}")
-      output
     end
 
     # <p>Enables enhanced Kinesis data stream monitoring for shard-level metrics.</p>
@@ -696,6 +740,7 @@ module AWS::SDK::Kinesis
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kinesis.client')
       input = Params::EnableEnhancedMonitoringInput.build(params, context: 'params')
       stack = AWS::SDK::Kinesis::Middleware::EnableEnhancedMonitoring.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -703,15 +748,18 @@ module AWS::SDK::Kinesis
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :enable_enhanced_monitoring,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_enhanced_monitoring] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#enable_enhanced_monitoring] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::EnableEnhancedMonitoring.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_enhanced_monitoring] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#enable_enhanced_monitoring] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_enhanced_monitoring] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_enhanced_monitoring] #{output.data}")
-      output
     end
 
     # <p>Gets data records from a Kinesis data stream's shard.</p>
@@ -803,6 +851,7 @@ module AWS::SDK::Kinesis
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kinesis.client')
       input = Params::GetRecordsInput.build(params, context: 'params')
       stack = AWS::SDK::Kinesis::Middleware::GetRecords.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -810,15 +859,18 @@ module AWS::SDK::Kinesis
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_records,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_records] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_records] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetRecords.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_records] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_records] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_records] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_records] #{output.data}")
-      output
     end
 
     # <p>Returns a policy attached to the specified data stream or consumer. Request patterns can be one of the following:</p>
@@ -850,6 +902,7 @@ module AWS::SDK::Kinesis
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kinesis.client')
       input = Params::GetResourcePolicyInput.build(params, context: 'params')
       stack = AWS::SDK::Kinesis::Middleware::GetResourcePolicy.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -857,15 +910,18 @@ module AWS::SDK::Kinesis
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_resource_policy,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_resource_policy] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_resource_policy] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetResourcePolicy.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_resource_policy] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_resource_policy] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_resource_policy] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_resource_policy] #{output.data}")
-      output
     end
 
     # <p>Gets an Amazon Kinesis shard iterator. A shard iterator expires 5 minutes after it is
@@ -930,6 +986,7 @@ module AWS::SDK::Kinesis
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kinesis.client')
       input = Params::GetShardIteratorInput.build(params, context: 'params')
       stack = AWS::SDK::Kinesis::Middleware::GetShardIterator.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -937,15 +994,18 @@ module AWS::SDK::Kinesis
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_shard_iterator,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_shard_iterator] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_shard_iterator] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetShardIterator.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_shard_iterator] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_shard_iterator] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_shard_iterator] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_shard_iterator] #{output.data}")
-      output
     end
 
     # <p>Increases the Kinesis data stream's retention period, which is the length of time data
@@ -981,6 +1041,7 @@ module AWS::SDK::Kinesis
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kinesis.client')
       input = Params::IncreaseStreamRetentionPeriodInput.build(params, context: 'params')
       stack = AWS::SDK::Kinesis::Middleware::IncreaseStreamRetentionPeriod.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -988,15 +1049,18 @@ module AWS::SDK::Kinesis
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :increase_stream_retention_period,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#increase_stream_retention_period] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#increase_stream_retention_period] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::IncreaseStreamRetentionPeriod.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#increase_stream_retention_period] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#increase_stream_retention_period] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#increase_stream_retention_period] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#increase_stream_retention_period] #{output.data}")
-      output
     end
 
     # <p>Lists the shards in a stream and provides information about each shard. This operation
@@ -1054,6 +1118,7 @@ module AWS::SDK::Kinesis
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kinesis.client')
       input = Params::ListShardsInput.build(params, context: 'params')
       stack = AWS::SDK::Kinesis::Middleware::ListShards.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -1061,15 +1126,18 @@ module AWS::SDK::Kinesis
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :list_shards,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_shards] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_shards] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::ListShards.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_shards] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_shards] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_shards] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_shards] #{output.data}")
-      output
     end
 
     # <p>Lists the consumers registered to receive data from a stream using enhanced fan-out,
@@ -1102,6 +1170,7 @@ module AWS::SDK::Kinesis
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kinesis.client')
       input = Params::ListStreamConsumersInput.build(params, context: 'params')
       stack = AWS::SDK::Kinesis::Middleware::ListStreamConsumers.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -1109,15 +1178,18 @@ module AWS::SDK::Kinesis
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :list_stream_consumers,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_stream_consumers] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_stream_consumers] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::ListStreamConsumers.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_stream_consumers] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_stream_consumers] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_stream_consumers] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_stream_consumers] #{output.data}")
-      output
     end
 
     # <p>Lists your Kinesis data streams.</p>
@@ -1167,6 +1239,7 @@ module AWS::SDK::Kinesis
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kinesis.client')
       input = Params::ListStreamsInput.build(params, context: 'params')
       stack = AWS::SDK::Kinesis::Middleware::ListStreams.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -1174,15 +1247,18 @@ module AWS::SDK::Kinesis
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :list_streams,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_streams] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_streams] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::ListStreams.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_streams] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_streams] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_streams] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_streams] #{output.data}")
-      output
     end
 
     # <p>Lists the tags for the specified Kinesis data stream. This operation has a limit of
@@ -1217,6 +1293,7 @@ module AWS::SDK::Kinesis
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kinesis.client')
       input = Params::ListTagsForStreamInput.build(params, context: 'params')
       stack = AWS::SDK::Kinesis::Middleware::ListTagsForStream.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -1224,15 +1301,18 @@ module AWS::SDK::Kinesis
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :list_tags_for_stream,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_tags_for_stream] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_tags_for_stream] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::ListTagsForStream.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_tags_for_stream] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_tags_for_stream] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_tags_for_stream] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_tags_for_stream] #{output.data}")
-      output
     end
 
     # <p>Merges two adjacent shards in a Kinesis data stream and combines them into a single
@@ -1297,6 +1377,7 @@ module AWS::SDK::Kinesis
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kinesis.client')
       input = Params::MergeShardsInput.build(params, context: 'params')
       stack = AWS::SDK::Kinesis::Middleware::MergeShards.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -1304,15 +1385,18 @@ module AWS::SDK::Kinesis
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :merge_shards,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#merge_shards] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#merge_shards] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::MergeShards.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#merge_shards] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#merge_shards] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#merge_shards] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#merge_shards] #{output.data}")
-      output
     end
 
     # <p>Writes a single data record into an Amazon Kinesis data stream. Call
@@ -1381,6 +1465,7 @@ module AWS::SDK::Kinesis
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kinesis.client')
       input = Params::PutRecordInput.build(params, context: 'params')
       stack = AWS::SDK::Kinesis::Middleware::PutRecord.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -1388,15 +1473,18 @@ module AWS::SDK::Kinesis
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_record,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_record] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_record] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::PutRecord.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_record] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_record] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_record] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_record] #{output.data}")
-      output
     end
 
     # <p>Writes multiple data records into a Kinesis data stream in a single call (also
@@ -1493,6 +1581,7 @@ module AWS::SDK::Kinesis
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kinesis.client')
       input = Params::PutRecordsInput.build(params, context: 'params')
       stack = AWS::SDK::Kinesis::Middleware::PutRecords.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -1500,15 +1589,18 @@ module AWS::SDK::Kinesis
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_records,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_records] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_records] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::PutRecords.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_records] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_records] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_records] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_records] #{output.data}")
-      output
     end
 
     # <p>Attaches a resource-based policy to a data stream or registered consumer. If you are using an identity other than the root user of
@@ -1547,6 +1639,7 @@ module AWS::SDK::Kinesis
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kinesis.client')
       input = Params::PutResourcePolicyInput.build(params, context: 'params')
       stack = AWS::SDK::Kinesis::Middleware::PutResourcePolicy.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -1554,15 +1647,18 @@ module AWS::SDK::Kinesis
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_resource_policy,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_resource_policy] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_resource_policy] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::PutResourcePolicy.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_resource_policy] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_resource_policy] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_resource_policy] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_resource_policy] #{output.data}")
-      output
     end
 
     # <p>Registers a consumer with a Kinesis data stream. When you use this operation, the
@@ -1602,6 +1698,7 @@ module AWS::SDK::Kinesis
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kinesis.client')
       input = Params::RegisterStreamConsumerInput.build(params, context: 'params')
       stack = AWS::SDK::Kinesis::Middleware::RegisterStreamConsumer.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -1609,15 +1706,18 @@ module AWS::SDK::Kinesis
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :register_stream_consumer,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#register_stream_consumer] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#register_stream_consumer] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::RegisterStreamConsumer.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#register_stream_consumer] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#register_stream_consumer] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#register_stream_consumer] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#register_stream_consumer] #{output.data}")
-      output
     end
 
     # <p>Removes tags from the specified Kinesis data stream. Removed tags are deleted and
@@ -1652,6 +1752,7 @@ module AWS::SDK::Kinesis
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kinesis.client')
       input = Params::RemoveTagsFromStreamInput.build(params, context: 'params')
       stack = AWS::SDK::Kinesis::Middleware::RemoveTagsFromStream.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -1659,15 +1760,18 @@ module AWS::SDK::Kinesis
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :remove_tags_from_stream,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#remove_tags_from_stream] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#remove_tags_from_stream] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::RemoveTagsFromStream.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#remove_tags_from_stream] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#remove_tags_from_stream] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#remove_tags_from_stream] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#remove_tags_from_stream] #{output.data}")
-      output
     end
 
     # <p>Splits a shard into two new shards in the Kinesis data stream, to increase the
@@ -1736,6 +1840,7 @@ module AWS::SDK::Kinesis
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kinesis.client')
       input = Params::SplitShardInput.build(params, context: 'params')
       stack = AWS::SDK::Kinesis::Middleware::SplitShard.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -1743,15 +1848,18 @@ module AWS::SDK::Kinesis
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :split_shard,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#split_shard] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#split_shard] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::SplitShard.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#split_shard] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#split_shard] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#split_shard] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#split_shard] #{output.data}")
-      output
     end
 
     # <p>Enables or updates server-side encryption using an Amazon Web Services KMS key for a
@@ -1795,6 +1903,7 @@ module AWS::SDK::Kinesis
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kinesis.client')
       input = Params::StartStreamEncryptionInput.build(params, context: 'params')
       stack = AWS::SDK::Kinesis::Middleware::StartStreamEncryption.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -1802,15 +1911,18 @@ module AWS::SDK::Kinesis
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :start_stream_encryption,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_stream_encryption] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#start_stream_encryption] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::StartStreamEncryption.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_stream_encryption] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#start_stream_encryption] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_stream_encryption] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_stream_encryption] #{output.data}")
-      output
     end
 
     # <p>Disables server-side encryption for a specified stream. </p>
@@ -1853,6 +1965,7 @@ module AWS::SDK::Kinesis
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kinesis.client')
       input = Params::StopStreamEncryptionInput.build(params, context: 'params')
       stack = AWS::SDK::Kinesis::Middleware::StopStreamEncryption.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -1860,15 +1973,18 @@ module AWS::SDK::Kinesis
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :stop_stream_encryption,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#stop_stream_encryption] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#stop_stream_encryption] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::StopStreamEncryption.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#stop_stream_encryption] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#stop_stream_encryption] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#stop_stream_encryption] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#stop_stream_encryption] #{output.data}")
-      output
     end
 
     # <p>This operation establishes an HTTP/2 connection between the consumer you specify in
@@ -1925,6 +2041,7 @@ module AWS::SDK::Kinesis
       middleware_opts[:event_stream_handler] = options.delete(:event_stream_handler)
       raise ArgumentError, 'Missing `event_stream_handler`' unless middleware_opts[:event_stream_handler]
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kinesis.client')
       input = Params::SubscribeToShardInput.build(params, context: 'params')
       stack = AWS::SDK::Kinesis::Middleware::SubscribeToShard.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -1932,15 +2049,18 @@ module AWS::SDK::Kinesis
         response: Hearth::HTTP2::Response.new(body: response_body),
         config: config,
         operation_name: :subscribe_to_shard,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#subscribe_to_shard] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#subscribe_to_shard] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::SubscribeToShard.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#subscribe_to_shard] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#subscribe_to_shard] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#subscribe_to_shard] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#subscribe_to_shard] #{output.data}")
-      output
     end
 
     # <p>Updates the shard count of the specified stream to the specified number of shards.
@@ -2019,6 +2139,7 @@ module AWS::SDK::Kinesis
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kinesis.client')
       input = Params::UpdateShardCountInput.build(params, context: 'params')
       stack = AWS::SDK::Kinesis::Middleware::UpdateShardCount.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -2026,15 +2147,18 @@ module AWS::SDK::Kinesis
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :update_shard_count,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_shard_count] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#update_shard_count] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::UpdateShardCount.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_shard_count] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#update_shard_count] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_shard_count] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_shard_count] #{output.data}")
-      output
     end
 
     # <p> Updates the capacity mode of the data stream. Currently, in Kinesis Data Streams, you
@@ -2061,6 +2185,7 @@ module AWS::SDK::Kinesis
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kinesis.client')
       input = Params::UpdateStreamModeInput.build(params, context: 'params')
       stack = AWS::SDK::Kinesis::Middleware::UpdateStreamMode.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -2068,15 +2193,18 @@ module AWS::SDK::Kinesis
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :update_stream_mode,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_stream_mode] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#update_stream_mode] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::UpdateStreamMode.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_stream_mode] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#update_stream_mode] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_stream_mode] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_stream_mode] #{output.data}")
-      output
     end
   end
 end

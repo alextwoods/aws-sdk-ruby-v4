@@ -11626,6 +11626,7 @@ module AWS::SDK::S3
       middleware_opts[:event_stream_handler] = options.delete(:event_stream_handler)
       raise ArgumentError, 'Missing `event_stream_handler`' unless middleware_opts[:event_stream_handler]
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::SelectObjectContentInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::SelectObjectContent.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -11633,15 +11634,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :select_object_content,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#select_object_content] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#select_object_content] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::SelectObjectContent.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#select_object_content] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#select_object_content] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#select_object_content] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#select_object_content] #{output.data}")
-      output
     end
 
     # <p>Uploads a part in a multipart upload.</p>

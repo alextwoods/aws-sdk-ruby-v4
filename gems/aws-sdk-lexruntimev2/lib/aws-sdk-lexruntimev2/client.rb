@@ -67,6 +67,7 @@ module AWS::SDK::LexRuntimeV2
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.lexruntimev2.client')
       input = Params::DeleteSessionInput.build(params, context: 'params')
       stack = AWS::SDK::LexRuntimeV2::Middleware::DeleteSession.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -74,15 +75,18 @@ module AWS::SDK::LexRuntimeV2
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :delete_session,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_session] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_session] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DeleteSession.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_session] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_session] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_session] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_session] #{output.data}")
-      output
     end
 
     # <p>Returns session information for a specified bot, alias, and
@@ -181,6 +185,7 @@ module AWS::SDK::LexRuntimeV2
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.lexruntimev2.client')
       input = Params::GetSessionInput.build(params, context: 'params')
       stack = AWS::SDK::LexRuntimeV2::Middleware::GetSession.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -188,15 +193,18 @@ module AWS::SDK::LexRuntimeV2
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_session,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_session] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_session] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetSession.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_session] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_session] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_session] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_session] #{output.data}")
-      output
     end
 
     # <p>Creates a new session or modifies an existing session with an Amazon Lex V2
@@ -302,6 +310,7 @@ module AWS::SDK::LexRuntimeV2
       response_body = output_stream(options, &block)
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.lexruntimev2.client')
       input = Params::PutSessionInput.build(params, context: 'params')
       stack = AWS::SDK::LexRuntimeV2::Middleware::PutSession.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -309,15 +318,18 @@ module AWS::SDK::LexRuntimeV2
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_session,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_session] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_session] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::PutSession.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_session] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_session] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_session] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_session] #{output.data}")
-      output
     end
 
     # <p>Sends user input to Amazon Lex V2. Client applications use this API to send
@@ -499,6 +511,7 @@ module AWS::SDK::LexRuntimeV2
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.lexruntimev2.client')
       input = Params::RecognizeTextInput.build(params, context: 'params')
       stack = AWS::SDK::LexRuntimeV2::Middleware::RecognizeText.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -506,15 +519,18 @@ module AWS::SDK::LexRuntimeV2
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :recognize_text,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#recognize_text] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#recognize_text] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::RecognizeText.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#recognize_text] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#recognize_text] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#recognize_text] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#recognize_text] #{output.data}")
-      output
     end
 
     # <p>Sends user input to Amazon Lex V2. You can send text or speech. Clients use
@@ -615,6 +631,7 @@ module AWS::SDK::LexRuntimeV2
       response_body = output_stream(options, &block)
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.lexruntimev2.client')
       input = Params::RecognizeUtteranceInput.build(params, context: 'params')
       stack = AWS::SDK::LexRuntimeV2::Middleware::RecognizeUtterance.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -622,15 +639,18 @@ module AWS::SDK::LexRuntimeV2
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :recognize_utterance,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#recognize_utterance] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#recognize_utterance] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::RecognizeUtterance.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#recognize_utterance] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#recognize_utterance] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#recognize_utterance] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#recognize_utterance] #{output.data}")
-      output
     end
 
     # <p>Starts an HTTP/2 bidirectional event stream that enables you to send
@@ -832,6 +852,7 @@ module AWS::SDK::LexRuntimeV2
       middleware_opts[:event_stream_handler] = options.delete(:event_stream_handler)
       raise ArgumentError, 'Missing `event_stream_handler`' unless middleware_opts[:event_stream_handler]
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.lexruntimev2.client')
       input = Params::StartConversationInput.build(params, context: 'params')
       stack = AWS::SDK::LexRuntimeV2::Middleware::StartConversation.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -839,15 +860,18 @@ module AWS::SDK::LexRuntimeV2
         response: Hearth::HTTP2::Response.new(body: response_body),
         config: config,
         operation_name: :start_conversation,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_conversation] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#start_conversation] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::StartConversation.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_conversation] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#start_conversation] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_conversation] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_conversation] #{output.data}")
-      output
     end
   end
 end

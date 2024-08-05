@@ -1,0 +1,27 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/smithy-lang/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::S3
+  module EventStream
+
+    class SelectObjectContentHandler < Hearth::EventStream::HandlerBase
+      def on_initial_response: () { (AWS::SDK::S3::Types::SelectObjectContentOutput) -> void } -> void
+
+      def on_records: () { (AWS::SDK::S3::Types::RecordsEvent) -> void } -> void
+
+      def on_stats: () { (AWS::SDK::S3::Types::StatsEvent) -> void } -> void
+
+      def on_progress: () { (AWS::SDK::S3::Types::ProgressEvent) -> void } -> void
+
+      def on_cont: () { (AWS::SDK::S3::Types::ContinuationEvent) -> void } -> void
+
+      def on_end: () { (AWS::SDK::S3::Types::EndEvent) -> void } -> void
+    end
+  end
+end

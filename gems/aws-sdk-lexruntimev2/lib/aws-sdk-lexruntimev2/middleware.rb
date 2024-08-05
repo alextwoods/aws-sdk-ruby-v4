@@ -297,7 +297,7 @@ module AWS::SDK::LexRuntimeV2
           auth_schemes: config.auth_schemes,
           AWS::SDK::Core::Identities::Credentials => config.credentials_provider
         )
-        stack.use(Hearth::Middleware::EventStreamHandlers,
+        stack.use(Hearth::Middleware::EventStreams,
           async_output_class: EventStream::StartConversationOutput,
           event_handler: options[:event_stream_handler],
           message_encoding_module: Hearth::EventStream::Binary,
