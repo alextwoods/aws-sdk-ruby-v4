@@ -16,8 +16,8 @@ module AWS::SDK::SSOOIDC
       def self.parse(http_resp)
         data = Types::AccessDeniedException.new
         map = Hearth::JSON.parse(http_resp.body.read)
-        data.error = map['error']
-        data.error_description = map['error_description']
+        data.error = map['error'] unless map['error'].nil?
+        data.error_description = map['error_description'] unless map['error_description'].nil?
         data
       end
     end
@@ -27,8 +27,8 @@ module AWS::SDK::SSOOIDC
       def self.parse(http_resp)
         data = Types::AuthorizationPendingException.new
         map = Hearth::JSON.parse(http_resp.body.read)
-        data.error = map['error']
-        data.error_description = map['error_description']
+        data.error = map['error'] unless map['error'].nil?
+        data.error_description = map['error_description'] unless map['error_description'].nil?
         data
       end
     end
@@ -37,11 +37,11 @@ module AWS::SDK::SSOOIDC
       def self.parse(http_resp)
         data = Types::CreateTokenOutput.new
         map = Hearth::JSON.parse(http_resp.body.read)
-        data.access_token = map['accessToken']
-        data.token_type = map['tokenType']
-        data.expires_in = map['expiresIn']
-        data.refresh_token = map['refreshToken']
-        data.id_token = map['idToken']
+        data.access_token = map['accessToken'] unless map['accessToken'].nil?
+        data.token_type = map['tokenType'] unless map['tokenType'].nil?
+        data.expires_in = map['expiresIn'] unless map['expiresIn'].nil?
+        data.refresh_token = map['refreshToken'] unless map['refreshToken'].nil?
+        data.id_token = map['idToken'] unless map['idToken'].nil?
         data
       end
     end
@@ -50,13 +50,13 @@ module AWS::SDK::SSOOIDC
       def self.parse(http_resp)
         data = Types::CreateTokenWithIAMOutput.new
         map = Hearth::JSON.parse(http_resp.body.read)
-        data.access_token = map['accessToken']
-        data.token_type = map['tokenType']
-        data.expires_in = map['expiresIn']
-        data.refresh_token = map['refreshToken']
-        data.id_token = map['idToken']
-        data.issued_token_type = map['issuedTokenType']
-        data.scope = (Scopes.parse(map['scope']) unless map['scope'].nil?)
+        data.access_token = map['accessToken'] unless map['accessToken'].nil?
+        data.token_type = map['tokenType'] unless map['tokenType'].nil?
+        data.expires_in = map['expiresIn'] unless map['expiresIn'].nil?
+        data.refresh_token = map['refreshToken'] unless map['refreshToken'].nil?
+        data.id_token = map['idToken'] unless map['idToken'].nil?
+        data.issued_token_type = map['issuedTokenType'] unless map['issuedTokenType'].nil?
+        data.scope = Scopes.parse(map['scope']) unless map['scope'].nil?
         data
       end
     end
@@ -66,8 +66,8 @@ module AWS::SDK::SSOOIDC
       def self.parse(http_resp)
         data = Types::ExpiredTokenException.new
         map = Hearth::JSON.parse(http_resp.body.read)
-        data.error = map['error']
-        data.error_description = map['error_description']
+        data.error = map['error'] unless map['error'].nil?
+        data.error_description = map['error_description'] unless map['error_description'].nil?
         data
       end
     end
@@ -77,8 +77,8 @@ module AWS::SDK::SSOOIDC
       def self.parse(http_resp)
         data = Types::InternalServerException.new
         map = Hearth::JSON.parse(http_resp.body.read)
-        data.error = map['error']
-        data.error_description = map['error_description']
+        data.error = map['error'] unless map['error'].nil?
+        data.error_description = map['error_description'] unless map['error_description'].nil?
         data
       end
     end
@@ -88,8 +88,8 @@ module AWS::SDK::SSOOIDC
       def self.parse(http_resp)
         data = Types::InvalidClientException.new
         map = Hearth::JSON.parse(http_resp.body.read)
-        data.error = map['error']
-        data.error_description = map['error_description']
+        data.error = map['error'] unless map['error'].nil?
+        data.error_description = map['error_description'] unless map['error_description'].nil?
         data
       end
     end
@@ -99,8 +99,8 @@ module AWS::SDK::SSOOIDC
       def self.parse(http_resp)
         data = Types::InvalidClientMetadataException.new
         map = Hearth::JSON.parse(http_resp.body.read)
-        data.error = map['error']
-        data.error_description = map['error_description']
+        data.error = map['error'] unless map['error'].nil?
+        data.error_description = map['error_description'] unless map['error_description'].nil?
         data
       end
     end
@@ -110,8 +110,8 @@ module AWS::SDK::SSOOIDC
       def self.parse(http_resp)
         data = Types::InvalidGrantException.new
         map = Hearth::JSON.parse(http_resp.body.read)
-        data.error = map['error']
-        data.error_description = map['error_description']
+        data.error = map['error'] unless map['error'].nil?
+        data.error_description = map['error_description'] unless map['error_description'].nil?
         data
       end
     end
@@ -121,8 +121,8 @@ module AWS::SDK::SSOOIDC
       def self.parse(http_resp)
         data = Types::InvalidRedirectUriException.new
         map = Hearth::JSON.parse(http_resp.body.read)
-        data.error = map['error']
-        data.error_description = map['error_description']
+        data.error = map['error'] unless map['error'].nil?
+        data.error_description = map['error_description'] unless map['error_description'].nil?
         data
       end
     end
@@ -132,8 +132,8 @@ module AWS::SDK::SSOOIDC
       def self.parse(http_resp)
         data = Types::InvalidRequestException.new
         map = Hearth::JSON.parse(http_resp.body.read)
-        data.error = map['error']
-        data.error_description = map['error_description']
+        data.error = map['error'] unless map['error'].nil?
+        data.error_description = map['error_description'] unless map['error_description'].nil?
         data
       end
     end
@@ -143,10 +143,10 @@ module AWS::SDK::SSOOIDC
       def self.parse(http_resp)
         data = Types::InvalidRequestRegionException.new
         map = Hearth::JSON.parse(http_resp.body.read)
-        data.error = map['error']
-        data.error_description = map['error_description']
-        data.endpoint = map['endpoint']
-        data.region = map['region']
+        data.error = map['error'] unless map['error'].nil?
+        data.error_description = map['error_description'] unless map['error_description'].nil?
+        data.endpoint = map['endpoint'] unless map['endpoint'].nil?
+        data.region = map['region'] unless map['region'].nil?
         data
       end
     end
@@ -156,8 +156,8 @@ module AWS::SDK::SSOOIDC
       def self.parse(http_resp)
         data = Types::InvalidScopeException.new
         map = Hearth::JSON.parse(http_resp.body.read)
-        data.error = map['error']
-        data.error_description = map['error_description']
+        data.error = map['error'] unless map['error'].nil?
+        data.error_description = map['error_description'] unless map['error_description'].nil?
         data
       end
     end
@@ -166,12 +166,12 @@ module AWS::SDK::SSOOIDC
       def self.parse(http_resp)
         data = Types::RegisterClientOutput.new
         map = Hearth::JSON.parse(http_resp.body.read)
-        data.client_id = map['clientId']
-        data.client_secret = map['clientSecret']
-        data.client_id_issued_at = map['clientIdIssuedAt']
-        data.client_secret_expires_at = map['clientSecretExpiresAt']
-        data.authorization_endpoint = map['authorizationEndpoint']
-        data.token_endpoint = map['tokenEndpoint']
+        data.client_id = map['clientId'] unless map['clientId'].nil?
+        data.client_secret = map['clientSecret'] unless map['clientSecret'].nil?
+        data.client_id_issued_at = map['clientIdIssuedAt'] unless map['clientIdIssuedAt'].nil?
+        data.client_secret_expires_at = map['clientSecretExpiresAt'] unless map['clientSecretExpiresAt'].nil?
+        data.authorization_endpoint = map['authorizationEndpoint'] unless map['authorizationEndpoint'].nil?
+        data.token_endpoint = map['tokenEndpoint'] unless map['tokenEndpoint'].nil?
         data
       end
     end
@@ -191,8 +191,8 @@ module AWS::SDK::SSOOIDC
       def self.parse(http_resp)
         data = Types::SlowDownException.new
         map = Hearth::JSON.parse(http_resp.body.read)
-        data.error = map['error']
-        data.error_description = map['error_description']
+        data.error = map['error'] unless map['error'].nil?
+        data.error_description = map['error_description'] unless map['error_description'].nil?
         data
       end
     end
@@ -201,12 +201,12 @@ module AWS::SDK::SSOOIDC
       def self.parse(http_resp)
         data = Types::StartDeviceAuthorizationOutput.new
         map = Hearth::JSON.parse(http_resp.body.read)
-        data.device_code = map['deviceCode']
-        data.user_code = map['userCode']
-        data.verification_uri = map['verificationUri']
-        data.verification_uri_complete = map['verificationUriComplete']
-        data.expires_in = map['expiresIn']
-        data.interval = map['interval']
+        data.device_code = map['deviceCode'] unless map['deviceCode'].nil?
+        data.user_code = map['userCode'] unless map['userCode'].nil?
+        data.verification_uri = map['verificationUri'] unless map['verificationUri'].nil?
+        data.verification_uri_complete = map['verificationUriComplete'] unless map['verificationUriComplete'].nil?
+        data.expires_in = map['expiresIn'] unless map['expiresIn'].nil?
+        data.interval = map['interval'] unless map['interval'].nil?
         data
       end
     end
@@ -216,8 +216,8 @@ module AWS::SDK::SSOOIDC
       def self.parse(http_resp)
         data = Types::UnauthorizedClientException.new
         map = Hearth::JSON.parse(http_resp.body.read)
-        data.error = map['error']
-        data.error_description = map['error_description']
+        data.error = map['error'] unless map['error'].nil?
+        data.error_description = map['error_description'] unless map['error_description'].nil?
         data
       end
     end
@@ -227,8 +227,8 @@ module AWS::SDK::SSOOIDC
       def self.parse(http_resp)
         data = Types::UnsupportedGrantTypeException.new
         map = Hearth::JSON.parse(http_resp.body.read)
-        data.error = map['error']
-        data.error_description = map['error_description']
+        data.error = map['error'] unless map['error'].nil?
+        data.error_description = map['error_description'] unless map['error_description'].nil?
         data
       end
     end

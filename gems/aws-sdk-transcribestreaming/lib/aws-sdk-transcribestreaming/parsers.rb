@@ -14,9 +14,9 @@ module AWS::SDK::TranscribeStreaming
     class Alternative
       def self.parse(map)
         data = Types::Alternative.new
-        data.transcript = map['Transcript']
-        data.items = (ItemList.parse(map['Items']) unless map['Items'].nil?)
-        data.entities = (EntityList.parse(map['Entities']) unless map['Entities'].nil?)
+        data.transcript = map['Transcript'] unless map['Transcript'].nil?
+        data.items = ItemList.parse(map['Items']) unless map['Items'].nil?
+        data.entities = EntityList.parse(map['Entities']) unless map['Entities'].nil?
         return data
       end
     end
@@ -36,7 +36,7 @@ module AWS::SDK::TranscribeStreaming
       def self.parse(http_resp)
         data = Types::BadRequestException.new
         map = Hearth::JSON.parse(http_resp.body.read)
-        data.message = map['Message']
+        data.message = map['Message'] unless map['Message'].nil?
         data
       end
     end
@@ -44,12 +44,12 @@ module AWS::SDK::TranscribeStreaming
     class CallAnalyticsEntity
       def self.parse(map)
         data = Types::CallAnalyticsEntity.new
-        data.begin_offset_millis = map['BeginOffsetMillis']
-        data.end_offset_millis = map['EndOffsetMillis']
-        data.category = map['Category']
-        data.type = map['Type']
-        data.content = map['Content']
-        data.confidence = Hearth::NumberHelper.deserialize(map['Confidence'])
+        data.begin_offset_millis = map['BeginOffsetMillis'] unless map['BeginOffsetMillis'].nil?
+        data.end_offset_millis = map['EndOffsetMillis'] unless map['EndOffsetMillis'].nil?
+        data.category = map['Category'] unless map['Category'].nil?
+        data.type = map['Type'] unless map['Type'].nil?
+        data.content = map['Content'] unless map['Content'].nil?
+        data.confidence = Hearth::NumberHelper.deserialize(map['Confidence']) unless map['Confidence'].nil?
         return data
       end
     end
@@ -67,13 +67,13 @@ module AWS::SDK::TranscribeStreaming
     class CallAnalyticsItem
       def self.parse(map)
         data = Types::CallAnalyticsItem.new
-        data.begin_offset_millis = map['BeginOffsetMillis']
-        data.end_offset_millis = map['EndOffsetMillis']
-        data.type = map['Type']
-        data.content = map['Content']
-        data.confidence = Hearth::NumberHelper.deserialize(map['Confidence'])
-        data.vocabulary_filter_match = map['VocabularyFilterMatch']
-        data.stable = map['Stable']
+        data.begin_offset_millis = map['BeginOffsetMillis'] unless map['BeginOffsetMillis'].nil?
+        data.end_offset_millis = map['EndOffsetMillis'] unless map['EndOffsetMillis'].nil?
+        data.type = map['Type'] unless map['Type'].nil?
+        data.content = map['Content'] unless map['Content'].nil?
+        data.confidence = Hearth::NumberHelper.deserialize(map['Confidence']) unless map['Confidence'].nil?
+        data.vocabulary_filter_match = map['VocabularyFilterMatch'] unless map['VocabularyFilterMatch'].nil?
+        data.stable = map['Stable'] unless map['Stable'].nil?
         return data
       end
     end
@@ -91,8 +91,8 @@ module AWS::SDK::TranscribeStreaming
     class CategoryEvent
       def self.parse(map)
         data = Types::CategoryEvent.new
-        data.matched_categories = (StringList.parse(map['MatchedCategories']) unless map['MatchedCategories'].nil?)
-        data.matched_details = (MatchedCategoryDetails.parse(map['MatchedDetails']) unless map['MatchedDetails'].nil?)
+        data.matched_categories = StringList.parse(map['MatchedCategories']) unless map['MatchedCategories'].nil?
+        data.matched_details = MatchedCategoryDetails.parse(map['MatchedDetails']) unless map['MatchedDetails'].nil?
         return data
       end
     end
@@ -100,8 +100,8 @@ module AWS::SDK::TranscribeStreaming
     class CharacterOffsets
       def self.parse(map)
         data = Types::CharacterOffsets.new
-        data.begin = map['Begin']
-        data.end = map['End']
+        data.begin = map['Begin'] unless map['Begin'].nil?
+        data.end = map['End'] unless map['End'].nil?
         return data
       end
     end
@@ -111,7 +111,7 @@ module AWS::SDK::TranscribeStreaming
       def self.parse(http_resp)
         data = Types::ConflictException.new
         map = Hearth::JSON.parse(http_resp.body.read)
-        data.message = map['Message']
+        data.message = map['Message'] unless map['Message'].nil?
         data
       end
     end
@@ -119,12 +119,12 @@ module AWS::SDK::TranscribeStreaming
     class Entity
       def self.parse(map)
         data = Types::Entity.new
-        data.start_time = Hearth::NumberHelper.deserialize(map['StartTime'])
-        data.end_time = Hearth::NumberHelper.deserialize(map['EndTime'])
-        data.category = map['Category']
-        data.type = map['Type']
-        data.content = map['Content']
-        data.confidence = Hearth::NumberHelper.deserialize(map['Confidence'])
+        data.start_time = Hearth::NumberHelper.deserialize(map['StartTime']) unless map['StartTime'].nil?
+        data.end_time = Hearth::NumberHelper.deserialize(map['EndTime']) unless map['EndTime'].nil?
+        data.category = map['Category'] unless map['Category'].nil?
+        data.type = map['Type'] unless map['Type'].nil?
+        data.content = map['Content'] unless map['Content'].nil?
+        data.confidence = Hearth::NumberHelper.deserialize(map['Confidence']) unless map['Confidence'].nil?
         return data
       end
     end
@@ -144,7 +144,7 @@ module AWS::SDK::TranscribeStreaming
       def self.parse(http_resp)
         data = Types::InternalFailureException.new
         map = Hearth::JSON.parse(http_resp.body.read)
-        data.message = map['Message']
+        data.message = map['Message'] unless map['Message'].nil?
         data
       end
     end
@@ -152,7 +152,7 @@ module AWS::SDK::TranscribeStreaming
     class IssueDetected
       def self.parse(map)
         data = Types::IssueDetected.new
-        data.character_offsets = (CharacterOffsets.parse(map['CharacterOffsets']) unless map['CharacterOffsets'].nil?)
+        data.character_offsets = CharacterOffsets.parse(map['CharacterOffsets']) unless map['CharacterOffsets'].nil?
         return data
       end
     end
@@ -170,14 +170,14 @@ module AWS::SDK::TranscribeStreaming
     class Item
       def self.parse(map)
         data = Types::Item.new
-        data.start_time = Hearth::NumberHelper.deserialize(map['StartTime'])
-        data.end_time = Hearth::NumberHelper.deserialize(map['EndTime'])
-        data.type = map['Type']
-        data.content = map['Content']
-        data.vocabulary_filter_match = map['VocabularyFilterMatch']
-        data.speaker = map['Speaker']
-        data.confidence = Hearth::NumberHelper.deserialize(map['Confidence'])
-        data.stable = map['Stable']
+        data.start_time = Hearth::NumberHelper.deserialize(map['StartTime']) unless map['StartTime'].nil?
+        data.end_time = Hearth::NumberHelper.deserialize(map['EndTime']) unless map['EndTime'].nil?
+        data.type = map['Type'] unless map['Type'].nil?
+        data.content = map['Content'] unless map['Content'].nil?
+        data.vocabulary_filter_match = map['VocabularyFilterMatch'] unless map['VocabularyFilterMatch'].nil?
+        data.speaker = map['Speaker'] unless map['Speaker'].nil?
+        data.confidence = Hearth::NumberHelper.deserialize(map['Confidence']) unless map['Confidence'].nil?
+        data.stable = map['Stable'] unless map['Stable'].nil?
         return data
       end
     end
@@ -205,8 +205,8 @@ module AWS::SDK::TranscribeStreaming
     class LanguageWithScore
       def self.parse(map)
         data = Types::LanguageWithScore.new
-        data.language_code = map['LanguageCode']
-        data.score = Hearth::NumberHelper.deserialize(map['Score'])
+        data.language_code = map['LanguageCode'] unless map['LanguageCode'].nil?
+        data.score = Hearth::NumberHelper.deserialize(map['Score']) unless map['Score'].nil?
         return data
       end
     end
@@ -216,7 +216,7 @@ module AWS::SDK::TranscribeStreaming
       def self.parse(http_resp)
         data = Types::LimitExceededException.new
         map = Hearth::JSON.parse(http_resp.body.read)
-        data.message = map['Message']
+        data.message = map['Message'] unless map['Message'].nil?
         data
       end
     end
@@ -234,9 +234,9 @@ module AWS::SDK::TranscribeStreaming
     class MedicalAlternative
       def self.parse(map)
         data = Types::MedicalAlternative.new
-        data.transcript = map['Transcript']
-        data.items = (MedicalItemList.parse(map['Items']) unless map['Items'].nil?)
-        data.entities = (MedicalEntityList.parse(map['Entities']) unless map['Entities'].nil?)
+        data.transcript = map['Transcript'] unless map['Transcript'].nil?
+        data.items = MedicalItemList.parse(map['Items']) unless map['Items'].nil?
+        data.entities = MedicalEntityList.parse(map['Entities']) unless map['Entities'].nil?
         return data
       end
     end
@@ -254,11 +254,11 @@ module AWS::SDK::TranscribeStreaming
     class MedicalEntity
       def self.parse(map)
         data = Types::MedicalEntity.new
-        data.start_time = Hearth::NumberHelper.deserialize(map['StartTime'])
-        data.end_time = Hearth::NumberHelper.deserialize(map['EndTime'])
-        data.category = map['Category']
-        data.content = map['Content']
-        data.confidence = Hearth::NumberHelper.deserialize(map['Confidence'])
+        data.start_time = Hearth::NumberHelper.deserialize(map['StartTime']) unless map['StartTime'].nil?
+        data.end_time = Hearth::NumberHelper.deserialize(map['EndTime']) unless map['EndTime'].nil?
+        data.category = map['Category'] unless map['Category'].nil?
+        data.content = map['Content'] unless map['Content'].nil?
+        data.confidence = Hearth::NumberHelper.deserialize(map['Confidence']) unless map['Confidence'].nil?
         return data
       end
     end
@@ -276,12 +276,12 @@ module AWS::SDK::TranscribeStreaming
     class MedicalItem
       def self.parse(map)
         data = Types::MedicalItem.new
-        data.start_time = Hearth::NumberHelper.deserialize(map['StartTime'])
-        data.end_time = Hearth::NumberHelper.deserialize(map['EndTime'])
-        data.type = map['Type']
-        data.content = map['Content']
-        data.confidence = Hearth::NumberHelper.deserialize(map['Confidence'])
-        data.speaker = map['Speaker']
+        data.start_time = Hearth::NumberHelper.deserialize(map['StartTime']) unless map['StartTime'].nil?
+        data.end_time = Hearth::NumberHelper.deserialize(map['EndTime']) unless map['EndTime'].nil?
+        data.type = map['Type'] unless map['Type'].nil?
+        data.content = map['Content'] unless map['Content'].nil?
+        data.confidence = Hearth::NumberHelper.deserialize(map['Confidence']) unless map['Confidence'].nil?
+        data.speaker = map['Speaker'] unless map['Speaker'].nil?
         return data
       end
     end
@@ -299,12 +299,12 @@ module AWS::SDK::TranscribeStreaming
     class MedicalResult
       def self.parse(map)
         data = Types::MedicalResult.new
-        data.result_id = map['ResultId']
-        data.start_time = Hearth::NumberHelper.deserialize(map['StartTime'])
-        data.end_time = Hearth::NumberHelper.deserialize(map['EndTime'])
-        data.is_partial = map['IsPartial']
-        data.alternatives = (MedicalAlternativeList.parse(map['Alternatives']) unless map['Alternatives'].nil?)
-        data.channel_id = map['ChannelId']
+        data.result_id = map['ResultId'] unless map['ResultId'].nil?
+        data.start_time = Hearth::NumberHelper.deserialize(map['StartTime']) unless map['StartTime'].nil?
+        data.end_time = Hearth::NumberHelper.deserialize(map['EndTime']) unless map['EndTime'].nil?
+        data.is_partial = map['IsPartial'] unless map['IsPartial'].nil?
+        data.alternatives = MedicalAlternativeList.parse(map['Alternatives']) unless map['Alternatives'].nil?
+        data.channel_id = map['ChannelId'] unless map['ChannelId'].nil?
         return data
       end
     end
@@ -322,7 +322,7 @@ module AWS::SDK::TranscribeStreaming
     class MedicalTranscript
       def self.parse(map)
         data = Types::MedicalTranscript.new
-        data.results = (MedicalResultList.parse(map['Results']) unless map['Results'].nil?)
+        data.results = MedicalResultList.parse(map['Results']) unless map['Results'].nil?
         return data
       end
     end
@@ -330,7 +330,7 @@ module AWS::SDK::TranscribeStreaming
     class MedicalTranscriptEvent
       def self.parse(map)
         data = Types::MedicalTranscriptEvent.new
-        data.transcript = (MedicalTranscript.parse(map['Transcript']) unless map['Transcript'].nil?)
+        data.transcript = MedicalTranscript.parse(map['Transcript']) unless map['Transcript'].nil?
         return data
       end
     end
@@ -338,7 +338,7 @@ module AWS::SDK::TranscribeStreaming
     class PointsOfInterest
       def self.parse(map)
         data = Types::PointsOfInterest.new
-        data.timestamp_ranges = (TimestampRanges.parse(map['TimestampRanges']) unless map['TimestampRanges'].nil?)
+        data.timestamp_ranges = TimestampRanges.parse(map['TimestampRanges']) unless map['TimestampRanges'].nil?
         return data
       end
     end
@@ -346,14 +346,14 @@ module AWS::SDK::TranscribeStreaming
     class Result
       def self.parse(map)
         data = Types::Result.new
-        data.result_id = map['ResultId']
-        data.start_time = Hearth::NumberHelper.deserialize(map['StartTime'])
-        data.end_time = Hearth::NumberHelper.deserialize(map['EndTime'])
-        data.is_partial = map['IsPartial']
-        data.alternatives = (AlternativeList.parse(map['Alternatives']) unless map['Alternatives'].nil?)
-        data.channel_id = map['ChannelId']
-        data.language_code = map['LanguageCode']
-        data.language_identification = (LanguageIdentification.parse(map['LanguageIdentification']) unless map['LanguageIdentification'].nil?)
+        data.result_id = map['ResultId'] unless map['ResultId'].nil?
+        data.start_time = Hearth::NumberHelper.deserialize(map['StartTime']) unless map['StartTime'].nil?
+        data.end_time = Hearth::NumberHelper.deserialize(map['EndTime']) unless map['EndTime'].nil?
+        data.is_partial = map['IsPartial'] unless map['IsPartial'].nil?
+        data.alternatives = AlternativeList.parse(map['Alternatives']) unless map['Alternatives'].nil?
+        data.channel_id = map['ChannelId'] unless map['ChannelId'].nil?
+        data.language_code = map['LanguageCode'] unless map['LanguageCode'].nil?
+        data.language_identification = LanguageIdentification.parse(map['LanguageIdentification']) unless map['LanguageIdentification'].nil?
         return data
       end
     end
@@ -373,7 +373,7 @@ module AWS::SDK::TranscribeStreaming
       def self.parse(http_resp)
         data = Types::ServiceUnavailableException.new
         map = Hearth::JSON.parse(http_resp.body.read)
-        data.message = map['Message']
+        data.message = map['Message'] unless map['Message'].nil?
         data
       end
     end
@@ -464,8 +464,8 @@ module AWS::SDK::TranscribeStreaming
     class TimestampRange
       def self.parse(map)
         data = Types::TimestampRange.new
-        data.begin_offset_millis = map['BeginOffsetMillis']
-        data.end_offset_millis = map['EndOffsetMillis']
+        data.begin_offset_millis = map['BeginOffsetMillis'] unless map['BeginOffsetMillis'].nil?
+        data.end_offset_millis = map['EndOffsetMillis'] unless map['EndOffsetMillis'].nil?
         return data
       end
     end
@@ -483,7 +483,7 @@ module AWS::SDK::TranscribeStreaming
     class Transcript
       def self.parse(map)
         data = Types::Transcript.new
-        data.results = (ResultList.parse(map['Results']) unless map['Results'].nil?)
+        data.results = ResultList.parse(map['Results']) unless map['Results'].nil?
         return data
       end
     end
@@ -491,7 +491,7 @@ module AWS::SDK::TranscribeStreaming
     class TranscriptEvent
       def self.parse(map)
         data = Types::TranscriptEvent.new
-        data.transcript = (Transcript.parse(map['Transcript']) unless map['Transcript'].nil?)
+        data.transcript = Transcript.parse(map['Transcript']) unless map['Transcript'].nil?
         return data
       end
     end
@@ -499,16 +499,16 @@ module AWS::SDK::TranscribeStreaming
     class UtteranceEvent
       def self.parse(map)
         data = Types::UtteranceEvent.new
-        data.utterance_id = map['UtteranceId']
-        data.is_partial = map['IsPartial']
-        data.participant_role = map['ParticipantRole']
-        data.begin_offset_millis = map['BeginOffsetMillis']
-        data.end_offset_millis = map['EndOffsetMillis']
-        data.transcript = map['Transcript']
-        data.items = (CallAnalyticsItemList.parse(map['Items']) unless map['Items'].nil?)
-        data.entities = (CallAnalyticsEntityList.parse(map['Entities']) unless map['Entities'].nil?)
-        data.sentiment = map['Sentiment']
-        data.issues_detected = (IssuesDetected.parse(map['IssuesDetected']) unless map['IssuesDetected'].nil?)
+        data.utterance_id = map['UtteranceId'] unless map['UtteranceId'].nil?
+        data.is_partial = map['IsPartial'] unless map['IsPartial'].nil?
+        data.participant_role = map['ParticipantRole'] unless map['ParticipantRole'].nil?
+        data.begin_offset_millis = map['BeginOffsetMillis'] unless map['BeginOffsetMillis'].nil?
+        data.end_offset_millis = map['EndOffsetMillis'] unless map['EndOffsetMillis'].nil?
+        data.transcript = map['Transcript'] unless map['Transcript'].nil?
+        data.items = CallAnalyticsItemList.parse(map['Items']) unless map['Items'].nil?
+        data.entities = CallAnalyticsEntityList.parse(map['Entities']) unless map['Entities'].nil?
+        data.sentiment = map['Sentiment'] unless map['Sentiment'].nil?
+        data.issues_detected = IssuesDetected.parse(map['IssuesDetected']) unless map['IssuesDetected'].nil?
         return data
       end
     end
@@ -521,7 +521,7 @@ module AWS::SDK::TranscribeStreaming
           payload = message.payload.read
           return data if payload.empty?
           map = Hearth::JSON.parse(payload)
-          data.message = map['Message']
+          data.message = map['Message'] unless map['Message'].nil?
           data
         end
       end
@@ -532,8 +532,8 @@ module AWS::SDK::TranscribeStreaming
           payload = message.payload.read
           return data if payload.empty?
           map = Hearth::JSON.parse(payload)
-          data.matched_categories = (StringList.parse(map['MatchedCategories']) unless map['MatchedCategories'].nil?)
-          data.matched_details = (MatchedCategoryDetails.parse(map['MatchedDetails']) unless map['MatchedDetails'].nil?)
+          data.matched_categories = StringList.parse(map['MatchedCategories']) unless map['MatchedCategories'].nil?
+          data.matched_details = MatchedCategoryDetails.parse(map['MatchedDetails']) unless map['MatchedDetails'].nil?
           data
         end
       end
@@ -544,7 +544,7 @@ module AWS::SDK::TranscribeStreaming
           payload = message.payload.read
           return data if payload.empty?
           map = Hearth::JSON.parse(payload)
-          data.message = map['Message']
+          data.message = map['Message'] unless map['Message'].nil?
           data
         end
       end
@@ -555,7 +555,7 @@ module AWS::SDK::TranscribeStreaming
           payload = message.payload.read
           return data if payload.empty?
           map = Hearth::JSON.parse(payload)
-          data.message = map['Message']
+          data.message = map['Message'] unless map['Message'].nil?
           data
         end
       end
@@ -566,7 +566,7 @@ module AWS::SDK::TranscribeStreaming
           payload = message.payload.read
           return data if payload.empty?
           map = Hearth::JSON.parse(payload)
-          data.message = map['Message']
+          data.message = map['Message'] unless map['Message'].nil?
           data
         end
       end
@@ -577,7 +577,7 @@ module AWS::SDK::TranscribeStreaming
           payload = message.payload.read
           return data if payload.empty?
           map = Hearth::JSON.parse(payload)
-          data.transcript = (MedicalTranscript.parse(map['Transcript']) unless map['Transcript'].nil?)
+          data.transcript = MedicalTranscript.parse(map['Transcript']) unless map['Transcript'].nil?
           data
         end
       end
@@ -588,7 +588,7 @@ module AWS::SDK::TranscribeStreaming
           payload = message.payload.read
           return data if payload.empty?
           map = Hearth::JSON.parse(payload)
-          data.message = map['Message']
+          data.message = map['Message'] unless map['Message'].nil?
           data
         end
       end
@@ -599,7 +599,7 @@ module AWS::SDK::TranscribeStreaming
           payload = message.payload.read
           return data if payload.empty?
           map = Hearth::JSON.parse(payload)
-          data.call_analytics_transcript_result_stream = (CallAnalyticsTranscriptResultStream.parse(map['CallAnalyticsTranscriptResultStream']) unless map['CallAnalyticsTranscriptResultStream'].nil?)
+          data.call_analytics_transcript_result_stream = CallAnalyticsTranscriptResultStream.parse(map['CallAnalyticsTranscriptResultStream']) unless map['CallAnalyticsTranscriptResultStream'].nil?
           data
         end
       end
@@ -610,7 +610,7 @@ module AWS::SDK::TranscribeStreaming
           payload = message.payload.read
           return data if payload.empty?
           map = Hearth::JSON.parse(payload)
-          data.transcript_result_stream = (MedicalTranscriptResultStream.parse(map['TranscriptResultStream']) unless map['TranscriptResultStream'].nil?)
+          data.transcript_result_stream = MedicalTranscriptResultStream.parse(map['TranscriptResultStream']) unless map['TranscriptResultStream'].nil?
           data
         end
       end
@@ -621,7 +621,7 @@ module AWS::SDK::TranscribeStreaming
           payload = message.payload.read
           return data if payload.empty?
           map = Hearth::JSON.parse(payload)
-          data.transcript_result_stream = (TranscriptResultStream.parse(map['TranscriptResultStream']) unless map['TranscriptResultStream'].nil?)
+          data.transcript_result_stream = TranscriptResultStream.parse(map['TranscriptResultStream']) unless map['TranscriptResultStream'].nil?
           data
         end
       end
@@ -632,7 +632,7 @@ module AWS::SDK::TranscribeStreaming
           payload = message.payload.read
           return data if payload.empty?
           map = Hearth::JSON.parse(payload)
-          data.transcript = (Transcript.parse(map['Transcript']) unless map['Transcript'].nil?)
+          data.transcript = Transcript.parse(map['Transcript']) unless map['Transcript'].nil?
           data
         end
       end
@@ -643,16 +643,16 @@ module AWS::SDK::TranscribeStreaming
           payload = message.payload.read
           return data if payload.empty?
           map = Hearth::JSON.parse(payload)
-          data.utterance_id = map['UtteranceId']
-          data.is_partial = map['IsPartial']
-          data.participant_role = map['ParticipantRole']
-          data.begin_offset_millis = map['BeginOffsetMillis']
-          data.end_offset_millis = map['EndOffsetMillis']
-          data.transcript = map['Transcript']
-          data.items = (CallAnalyticsItemList.parse(map['Items']) unless map['Items'].nil?)
-          data.entities = (CallAnalyticsEntityList.parse(map['Entities']) unless map['Entities'].nil?)
-          data.sentiment = map['Sentiment']
-          data.issues_detected = (IssuesDetected.parse(map['IssuesDetected']) unless map['IssuesDetected'].nil?)
+          data.utterance_id = map['UtteranceId'] unless map['UtteranceId'].nil?
+          data.is_partial = map['IsPartial'] unless map['IsPartial'].nil?
+          data.participant_role = map['ParticipantRole'] unless map['ParticipantRole'].nil?
+          data.begin_offset_millis = map['BeginOffsetMillis'] unless map['BeginOffsetMillis'].nil?
+          data.end_offset_millis = map['EndOffsetMillis'] unless map['EndOffsetMillis'].nil?
+          data.transcript = map['Transcript'] unless map['Transcript'].nil?
+          data.items = CallAnalyticsItemList.parse(map['Items']) unless map['Items'].nil?
+          data.entities = CallAnalyticsEntityList.parse(map['Entities']) unless map['Entities'].nil?
+          data.sentiment = map['Sentiment'] unless map['Sentiment'].nil?
+          data.issues_detected = IssuesDetected.parse(map['IssuesDetected']) unless map['IssuesDetected'].nil?
           data
         end
       end

@@ -56,7 +56,7 @@ public class ParserGenerator extends ParserGeneratorBase {
             String jsonName = member.getMemberName();
 
             String valueGetter = "map['" + jsonName + "']";
-            target.accept(new MemberDeserializer(member, dataSetter, valueGetter, false));
+            target.accept(new MemberDeserializer(member, dataSetter, valueGetter, true));
         });
     }
 

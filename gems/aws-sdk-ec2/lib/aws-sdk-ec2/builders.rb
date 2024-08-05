@@ -30,24 +30,20 @@ module AWS::SDK::EC2
 
     class AcceleratorManufacturerSet
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class AcceleratorNameSet
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -68,12 +64,10 @@ module AWS::SDK::EC2
 
     class AcceleratorTypeSet
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -190,12 +184,10 @@ module AWS::SDK::EC2
 
     class AccessScopePathListRequest
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           AccessScopePathRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -210,12 +202,10 @@ module AWS::SDK::EC2
 
     class AccountAttributeNameStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -228,24 +218,20 @@ module AWS::SDK::EC2
 
     class AddIpamOperatingRegionSet
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           AddIpamOperatingRegion.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class AddPrefixListEntries
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           AddPrefixListEntry.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -342,36 +328,30 @@ module AWS::SDK::EC2
 
     class AllocationIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class AllocationIds
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class AllowedInstanceTypeSet
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -395,24 +375,20 @@ module AWS::SDK::EC2
 
     class ArchitectureTypeSet
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class ArnList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -426,12 +402,10 @@ module AWS::SDK::EC2
 
     class AssetIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -768,12 +742,10 @@ module AWS::SDK::EC2
 
     class AssociationIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -789,12 +761,10 @@ module AWS::SDK::EC2
 
     class AthenaIntegrationsSet
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           AthenaIntegration.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -982,12 +952,10 @@ module AWS::SDK::EC2
 
     class AvailabilityZoneStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -1008,12 +976,10 @@ module AWS::SDK::EC2
 
     class BillingProductList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -1035,36 +1001,30 @@ module AWS::SDK::EC2
 
     class BlockDeviceMappingList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           BlockDeviceMapping.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class BlockDeviceMappingRequestList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           BlockDeviceMapping.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class BundleIdStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -1238,24 +1198,20 @@ module AWS::SDK::EC2
 
     class CapacityReservationFleetIdSet
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class CapacityReservationIdSet
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -1282,12 +1238,10 @@ module AWS::SDK::EC2
 
     class CarrierGatewayIdSet
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -1313,12 +1267,10 @@ module AWS::SDK::EC2
 
     class ClassicLoadBalancers
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           ClassicLoadBalancer.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -1363,36 +1315,30 @@ module AWS::SDK::EC2
 
     class ClientVpnAuthenticationRequestList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           ClientVpnAuthenticationRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class ClientVpnEndpointIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class ClientVpnSecurityGroupIdSet
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -1407,12 +1353,10 @@ module AWS::SDK::EC2
 
     class CoipPoolIdSet
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -1443,12 +1387,10 @@ module AWS::SDK::EC2
 
     class ConnectionNotificationIdsList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -1463,12 +1405,10 @@ module AWS::SDK::EC2
 
     class ConversionIdStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -1540,12 +1480,10 @@ module AWS::SDK::EC2
 
     class CpuManufacturerSet
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -2983,12 +2921,10 @@ module AWS::SDK::EC2
 
     class CreateVerifiedAccessEndpointSubnetIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -3109,12 +3045,10 @@ module AWS::SDK::EC2
 
     class CreateVolumePermissionList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           CreateVolumePermission.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -3298,24 +3232,20 @@ module AWS::SDK::EC2
 
     class CustomerGatewayIdStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class DataQueries
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           DataQuery.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -3333,12 +3263,10 @@ module AWS::SDK::EC2
 
     class DedicatedHostIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -3931,12 +3859,10 @@ module AWS::SDK::EC2
 
     class DeleteQueuedReservedInstancesIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -5533,24 +5459,20 @@ module AWS::SDK::EC2
 
     class DescribeInstanceTopologyGroupNameSet
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class DescribeInstanceTopologyInstanceIdSet
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -7407,12 +7329,10 @@ module AWS::SDK::EC2
 
     class DhcpOptionsIdStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -7903,12 +7823,10 @@ module AWS::SDK::EC2
 
     class DiskImageList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           DiskImage.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -7950,36 +7868,30 @@ module AWS::SDK::EC2
 
     class EgressOnlyInternetGatewayIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class EipAssociationIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class ElasticGpuIdSet
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -7992,24 +7904,20 @@ module AWS::SDK::EC2
 
     class ElasticGpuSpecificationList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           ElasticGpuSpecification.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class ElasticGpuSpecifications
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           ElasticGpuSpecification.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -8023,12 +7931,10 @@ module AWS::SDK::EC2
 
     class ElasticInferenceAccelerators
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           ElasticInferenceAccelerator.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -8331,24 +8237,20 @@ module AWS::SDK::EC2
 
     class ExcludedInstanceTypeSet
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class ExecutableByStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -8406,24 +8308,20 @@ module AWS::SDK::EC2
 
     class ExportImageTaskIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class ExportTaskIdStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -8463,12 +8361,10 @@ module AWS::SDK::EC2
 
     class FastLaunchImageIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -8503,36 +8399,30 @@ module AWS::SDK::EC2
 
     class FilterList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           Filter.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class FleetIdSet
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class FleetLaunchTemplateConfigListRequest
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           FleetLaunchTemplateConfigRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -8546,12 +8436,10 @@ module AWS::SDK::EC2
 
     class FleetLaunchTemplateOverridesListRequest
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           FleetLaunchTemplateOverridesRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -8601,36 +8489,30 @@ module AWS::SDK::EC2
 
     class FlowLogIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class FlowLogResourceIds
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class FpgaImageIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -9437,12 +9319,10 @@ module AWS::SDK::EC2
 
     class GroupIdStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -9456,36 +9336,30 @@ module AWS::SDK::EC2
 
     class GroupIdentifierList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           GroupIdentifier.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class GroupIds
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class GroupNameStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -9498,24 +9372,20 @@ module AWS::SDK::EC2
 
     class HostReservationIdSet
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class IKEVersionsRequestList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           IKEVersionsRequestListValue.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -9553,36 +9423,30 @@ module AWS::SDK::EC2
 
     class ImageDiskContainerList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           ImageDiskContainer.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class ImageIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class ImageIdStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -9640,12 +9504,10 @@ module AWS::SDK::EC2
 
     class ImportImageLicenseSpecificationListRequest
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           ImportImageLicenseConfigurationRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -9725,24 +9587,20 @@ module AWS::SDK::EC2
 
     class ImportSnapshotTaskIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class ImportTaskIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -9767,12 +9625,10 @@ module AWS::SDK::EC2
 
     class InsideCidrBlocksStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -9788,24 +9644,20 @@ module AWS::SDK::EC2
 
     class InstanceBlockDeviceMappingSpecificationList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           InstanceBlockDeviceMappingSpecification.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class InstanceCreditSpecificationListRequest
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           InstanceCreditSpecificationRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -9835,12 +9687,10 @@ module AWS::SDK::EC2
 
     class InstanceEventWindowIdSet
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -9856,48 +9706,40 @@ module AWS::SDK::EC2
 
     class InstanceEventWindowTimeRangeRequestSet
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           InstanceEventWindowTimeRangeRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class InstanceGenerationSet
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class InstanceIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class InstanceIdStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -9911,24 +9753,20 @@ module AWS::SDK::EC2
 
     class InstanceIpv6AddressList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           InstanceIpv6Address.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class InstanceIpv6AddressListRequest
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           InstanceIpv6AddressRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -9991,12 +9829,10 @@ module AWS::SDK::EC2
 
     class InstanceNetworkInterfaceSpecificationList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           InstanceNetworkInterfaceSpecification.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -10077,36 +9913,30 @@ module AWS::SDK::EC2
 
     class InstanceTagKeySet
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class InstanceTypeList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class InstanceTypes
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -10119,24 +9949,20 @@ module AWS::SDK::EC2
 
     class InternetGatewayIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class IpList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -10155,24 +9981,20 @@ module AWS::SDK::EC2
 
     class IpPermissionList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           IpPermission.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class IpPrefixList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -10186,12 +10008,10 @@ module AWS::SDK::EC2
 
     class IpRangeList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           IpRange.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -10205,24 +10025,20 @@ module AWS::SDK::EC2
 
     class IpamPoolAllocationAllowedCidrs
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class IpamPoolAllocationDisallowedCidrs
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -10238,12 +10054,10 @@ module AWS::SDK::EC2
 
     class Ipv4PrefixList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           Ipv4PrefixSpecificationRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -10256,36 +10070,30 @@ module AWS::SDK::EC2
 
     class Ipv6AddressList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class Ipv6PoolIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class Ipv6PrefixList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           Ipv6PrefixSpecificationRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -10305,36 +10113,30 @@ module AWS::SDK::EC2
 
     class Ipv6RangeList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           Ipv6Range.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class KeyNameStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class KeyPairIdStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -10350,12 +10152,10 @@ module AWS::SDK::EC2
 
     class LaunchPermissionList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           LaunchPermission.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -10369,12 +10169,10 @@ module AWS::SDK::EC2
 
     class LaunchSpecsList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           SpotFleetLaunchSpecification.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -10390,12 +10188,10 @@ module AWS::SDK::EC2
 
     class LaunchTemplateBlockDeviceMappingRequestList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           LaunchTemplateBlockDeviceMappingRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -10416,12 +10212,10 @@ module AWS::SDK::EC2
 
     class LaunchTemplateConfigList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           LaunchTemplateConfig.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -10456,12 +10250,10 @@ module AWS::SDK::EC2
 
     class LaunchTemplateElasticInferenceAcceleratorList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           LaunchTemplateElasticInferenceAccelerator.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -10487,12 +10279,10 @@ module AWS::SDK::EC2
 
     class LaunchTemplateIdStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -10549,12 +10339,10 @@ module AWS::SDK::EC2
 
     class LaunchTemplateInstanceNetworkInterfaceSpecificationRequestList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           LaunchTemplateInstanceNetworkInterfaceSpecificationRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -10567,24 +10355,20 @@ module AWS::SDK::EC2
 
     class LaunchTemplateLicenseSpecificationListRequest
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           LaunchTemplateLicenseConfigurationRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class LaunchTemplateNameStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -10603,12 +10387,10 @@ module AWS::SDK::EC2
 
     class LaunchTemplateOverridesList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           LaunchTemplateOverrides.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -10662,12 +10444,10 @@ module AWS::SDK::EC2
 
     class LaunchTemplateTagSpecificationRequestList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           LaunchTemplateTagSpecificationRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -10686,12 +10466,10 @@ module AWS::SDK::EC2
 
     class LicenseSpecificationListRequest
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           LicenseConfigurationRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -10739,12 +10517,10 @@ module AWS::SDK::EC2
 
     class LoadPermissionListRequest
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           LoadPermissionRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -10765,84 +10541,70 @@ module AWS::SDK::EC2
 
     class LocalGatewayIdSet
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class LocalGatewayRouteTableIdSet
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class LocalGatewayRouteTableVirtualInterfaceGroupAssociationIdSet
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class LocalGatewayRouteTableVpcAssociationIdSet
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class LocalGatewayVirtualInterfaceGroupIdSet
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class LocalGatewayVirtualInterfaceIdSet
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class LocalStorageTypeSet
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -11796,12 +11558,10 @@ module AWS::SDK::EC2
 
     class ModifyVerifiedAccessEndpointSubnetIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -12247,24 +12007,20 @@ module AWS::SDK::EC2
 
     class NatGatewayIdStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class NetworkAclIdStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -12285,48 +12041,40 @@ module AWS::SDK::EC2
 
     class NetworkInsightsAccessScopeAnalysisIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class NetworkInsightsAccessScopeIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class NetworkInsightsAnalysisIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class NetworkInsightsPathIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -12354,24 +12102,20 @@ module AWS::SDK::EC2
 
     class NetworkInterfaceIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class NetworkInterfacePermissionIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -12385,24 +12129,20 @@ module AWS::SDK::EC2
 
     class NewDhcpConfigurationList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           NewDhcpConfiguration.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class OccurrenceDayRequestSet
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -12420,36 +12160,30 @@ module AWS::SDK::EC2
 
     class OrganizationArnStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class OrganizationalUnitArnStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class OwnerStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -12492,12 +12226,10 @@ module AWS::SDK::EC2
 
     class Phase1DHGroupNumbersRequestList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           Phase1DHGroupNumbersRequestListValue.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -12510,12 +12242,10 @@ module AWS::SDK::EC2
 
     class Phase1EncryptionAlgorithmsRequestList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           Phase1EncryptionAlgorithmsRequestListValue.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -12528,12 +12258,10 @@ module AWS::SDK::EC2
 
     class Phase1IntegrityAlgorithmsRequestList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           Phase1IntegrityAlgorithmsRequestListValue.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -12546,12 +12274,10 @@ module AWS::SDK::EC2
 
     class Phase2DHGroupNumbersRequestList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           Phase2DHGroupNumbersRequestListValue.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -12564,12 +12290,10 @@ module AWS::SDK::EC2
 
     class Phase2EncryptionAlgorithmsRequestList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           Phase2EncryptionAlgorithmsRequestListValue.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -12582,12 +12306,10 @@ module AWS::SDK::EC2
 
     class Phase2IntegrityAlgorithmsRequestList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           Phase2IntegrityAlgorithmsRequestListValue.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -12614,24 +12336,20 @@ module AWS::SDK::EC2
 
     class PlacementGroupIdStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class PlacementGroupStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -12652,24 +12370,20 @@ module AWS::SDK::EC2
 
     class PrefixListIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           PrefixListId.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class PrefixListResourceIdStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -12684,12 +12398,10 @@ module AWS::SDK::EC2
 
     class PriceScheduleSpecificationList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           PriceScheduleSpecification.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -12704,12 +12416,10 @@ module AWS::SDK::EC2
 
     class PrivateIpAddressConfigSet
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           ScheduledInstancesPrivateIpAddressConfig.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -12723,60 +12433,50 @@ module AWS::SDK::EC2
 
     class PrivateIpAddressSpecificationList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           PrivateIpAddressSpecification.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class PrivateIpAddressStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class ProductCodeStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class ProductDescriptionList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class ProtocolList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -12857,24 +12557,20 @@ module AWS::SDK::EC2
 
     class PublicIpStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class PublicIpv4PoolIdStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -12924,12 +12620,10 @@ module AWS::SDK::EC2
 
     class PurchaseRequestSet
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           PurchaseRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -12970,12 +12664,10 @@ module AWS::SDK::EC2
 
     class ReasonCodesList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -12997,24 +12689,20 @@ module AWS::SDK::EC2
 
     class RegionNameStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class RegionNames
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -13239,24 +12927,20 @@ module AWS::SDK::EC2
 
     class RemoveIpamOperatingRegionSet
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           RemoveIpamOperatingRegion.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class RemovePrefixListEntries
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           RemovePrefixListEntry.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -13323,12 +13007,10 @@ module AWS::SDK::EC2
 
     class ReplaceRootVolumeTaskIds
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -13443,36 +13125,30 @@ module AWS::SDK::EC2
 
     class RequestHostIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class RequestHostIdSet
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class RequestInstanceTypeList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -13486,12 +13162,10 @@ module AWS::SDK::EC2
 
     class RequestIpamResourceTagList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           RequestIpamResourceTag.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -13596,24 +13270,20 @@ module AWS::SDK::EC2
 
     class RequestSpotLaunchSpecificationSecurityGroupIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class RequestSpotLaunchSpecificationSecurityGroupList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -13632,24 +13302,20 @@ module AWS::SDK::EC2
 
     class ReservationFleetInstanceSpecificationList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           ReservationFleetInstanceSpecification.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class ReservedInstanceIdSet
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -13673,48 +13339,40 @@ module AWS::SDK::EC2
 
     class ReservedInstancesConfigurationList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           ReservedInstancesConfiguration.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class ReservedInstancesIdStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class ReservedInstancesModificationIdStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class ReservedInstancesOfferingIdStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -13831,24 +13489,20 @@ module AWS::SDK::EC2
 
     class ResourceIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class ResourceList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -13862,12 +13516,10 @@ module AWS::SDK::EC2
 
     class RestorableByStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -14018,12 +13670,10 @@ module AWS::SDK::EC2
 
     class RouteTableIdStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -14115,12 +13765,10 @@ module AWS::SDK::EC2
 
     class S3ObjectTagList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           S3ObjectTag.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -14137,12 +13785,10 @@ module AWS::SDK::EC2
 
     class ScheduledInstanceIdRequestSet
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -14168,12 +13814,10 @@ module AWS::SDK::EC2
 
     class ScheduledInstancesBlockDeviceMappingSet
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           ScheduledInstancesBlockDeviceMapping.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -14204,12 +13848,10 @@ module AWS::SDK::EC2
 
     class ScheduledInstancesIpv6AddressList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           ScheduledInstancesIpv6Address.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -14258,12 +13900,10 @@ module AWS::SDK::EC2
 
     class ScheduledInstancesNetworkInterfaceSet
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           ScheduledInstancesNetworkInterface.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -14284,12 +13924,10 @@ module AWS::SDK::EC2
 
     class ScheduledInstancesSecurityGroupIdSet
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -14349,36 +13987,30 @@ module AWS::SDK::EC2
 
     class SecurityGroupIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class SecurityGroupIdStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class SecurityGroupIdStringListRequest
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -14392,24 +14024,20 @@ module AWS::SDK::EC2
 
     class SecurityGroupRuleDescriptionList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           SecurityGroupRuleDescription.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class SecurityGroupRuleIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -14436,24 +14064,20 @@ module AWS::SDK::EC2
 
     class SecurityGroupRuleUpdateList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           SecurityGroupRuleUpdate.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class SecurityGroupStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -14498,12 +14122,10 @@ module AWS::SDK::EC2
 
     class SnapshotIdStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -14578,12 +14200,10 @@ module AWS::SDK::EC2
 
     class SpotFleetRequestIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -14597,24 +14217,20 @@ module AWS::SDK::EC2
 
     class SpotFleetTagSpecificationList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           SpotFleetTagSpecification.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class SpotInstanceRequestIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -14763,24 +14379,20 @@ module AWS::SDK::EC2
 
     class SubnetConfigurationsList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           SubnetConfiguration.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class SubnetIdStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -14794,12 +14406,10 @@ module AWS::SDK::EC2
 
     class TagList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           Tag.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -14813,12 +14423,10 @@ module AWS::SDK::EC2
 
     class TagSpecificationList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           TagSpecification.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -14842,12 +14450,10 @@ module AWS::SDK::EC2
 
     class TargetConfigurationRequestSet
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           TargetConfigurationRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -14860,12 +14466,10 @@ module AWS::SDK::EC2
 
     class TargetGroups
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           TargetGroup.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -14916,12 +14520,10 @@ module AWS::SDK::EC2
 
     class ThroughResourcesStatementRequestList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           ThroughResourcesStatementRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -14942,36 +14544,30 @@ module AWS::SDK::EC2
 
     class TrafficMirrorFilterIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class TrafficMirrorFilterRuleFieldList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class TrafficMirrorNetworkServiceList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -14985,72 +14581,60 @@ module AWS::SDK::EC2
 
     class TrafficMirrorSessionFieldList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class TrafficMirrorSessionIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class TrafficMirrorTargetIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class TransitGatewayAttachmentIdStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class TransitGatewayCidrBlockStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class TransitGatewayConnectPeerIdStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -15063,48 +14647,40 @@ module AWS::SDK::EC2
 
     class TransitGatewayIdStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class TransitGatewayMulticastDomainIdStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class TransitGatewayNetworkInterfaceIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class TransitGatewayPolicyTableIdStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -15125,48 +14701,40 @@ module AWS::SDK::EC2
 
     class TransitGatewayRouteTableAnnouncementIdStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class TransitGatewayRouteTableIdStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class TransitGatewaySubnetIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class TrunkInterfaceAssociationIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -15301,12 +14869,10 @@ module AWS::SDK::EC2
 
     class UserGroupStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -15325,24 +14891,20 @@ module AWS::SDK::EC2
 
     class UserIdGroupPairList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           UserIdGroupPair.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class UserIdStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -15363,48 +14925,40 @@ module AWS::SDK::EC2
 
     class ValueStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class VerifiedAccessEndpointIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class VerifiedAccessGroupIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class VerifiedAccessInstanceIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -15451,36 +15005,30 @@ module AWS::SDK::EC2
 
     class VerifiedAccessTrustProviderIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class VersionStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class VirtualizationTypeSet
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -15493,120 +15041,100 @@ module AWS::SDK::EC2
 
     class VolumeIdStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class VpcClassicLinkIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class VpcEndpointIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class VpcEndpointRouteTableIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class VpcEndpointSecurityGroupIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class VpcEndpointServiceIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class VpcEndpointSubnetIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class VpcIdStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class VpcPeeringConnectionIdList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class VpnConnectionIdStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -15628,12 +15156,10 @@ module AWS::SDK::EC2
 
     class VpnGatewayIdStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -15671,12 +15197,10 @@ module AWS::SDK::EC2
 
     class VpnTunnelOptionsSpecificationsList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           VpnTunnelOptionsSpecification.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -15698,24 +15222,20 @@ module AWS::SDK::EC2
 
     class ZoneIdStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
 
     class ZoneNameStringList
       def self.build(input, params, context: '')
+        return if input.empty?
+
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
-        end
-
-        if input.empty?
-          params[context[0...context.rindex('.')]] = ''
         end
       end
     end

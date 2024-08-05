@@ -153,6 +153,8 @@ public class BuilderGenerator extends BuilderGeneratorBase {
     protected void renderListBuildMethod(ListShape shape) {
         writer
                 .openBlock("def self.build(input, params, context: '')")
+                .write("return if input.empty?")
+                .write("")
                 .openBlock("input.each_with_index do |element, index|")
                 .call(() -> {
                     String dataName = "\".#{index+1}\"";
@@ -161,9 +163,6 @@ public class BuilderGenerator extends BuilderGeneratorBase {
                             new MemberSerializer(shape.getMember(),
                                     dataName, "element", !shape.hasTrait(SparseTrait.class)));
                 })
-                .closeBlock("end")
-                .openBlock("\nif input.empty?")
-                .write("params[context[0...context.rindex('.')]] = ''")
                 .closeBlock("end")
                 .closeBlock("end");
 

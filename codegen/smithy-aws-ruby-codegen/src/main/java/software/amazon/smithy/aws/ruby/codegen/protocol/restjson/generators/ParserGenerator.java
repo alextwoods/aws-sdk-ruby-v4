@@ -192,7 +192,7 @@ public class ParserGenerator extends RestParserGeneratorBase {
             if (jsonName.equals("message")) {
                 valueGetter = "map['message'] || map['Message']";
             }
-            target.accept(new MemberDeserializer(member, dataSetter, valueGetter, false));
+            target.accept(new MemberDeserializer(member, dataSetter, valueGetter, true));
         });
     }
 

@@ -16,7 +16,7 @@ module AWS::SDK::LexRuntimeV2
       def self.parse(http_resp)
         data = Types::AccessDeniedException.new
         map = Hearth::JSON.parse(http_resp.body.read)
-        data.message = map['message'] || map['Message']
+        data.message = map['message'] || map['Message'] unless map['message'] || map['Message'].nil?
         data
       end
     end
@@ -24,9 +24,9 @@ module AWS::SDK::LexRuntimeV2
     class ActiveContext
       def self.parse(map)
         data = Types::ActiveContext.new
-        data.name = map['name']
-        data.time_to_live = (ActiveContextTimeToLive.parse(map['timeToLive']) unless map['timeToLive'].nil?)
-        data.context_attributes = (ActiveContextParametersMap.parse(map['contextAttributes']) unless map['contextAttributes'].nil?)
+        data.name = map['name'] unless map['name'].nil?
+        data.time_to_live = ActiveContextTimeToLive.parse(map['timeToLive']) unless map['timeToLive'].nil?
+        data.context_attributes = ActiveContextParametersMap.parse(map['contextAttributes']) unless map['contextAttributes'].nil?
         return data
       end
     end
@@ -44,8 +44,8 @@ module AWS::SDK::LexRuntimeV2
     class ActiveContextTimeToLive
       def self.parse(map)
         data = Types::ActiveContextTimeToLive.new
-        data.time_to_live_in_seconds = map['timeToLiveInSeconds']
-        data.turns_to_live = map['turnsToLive']
+        data.time_to_live_in_seconds = map['timeToLiveInSeconds'] unless map['timeToLiveInSeconds'].nil?
+        data.turns_to_live = map['turnsToLive'] unless map['turnsToLive'].nil?
         return data
       end
     end
@@ -64,8 +64,8 @@ module AWS::SDK::LexRuntimeV2
       def self.parse(map)
         data = Types::AudioResponseEvent.new
         data.audio_chunk = Base64::decode64(map['audioChunk']) unless map['audioChunk'].nil?
-        data.content_type = map['contentType']
-        data.event_id = map['eventId']
+        data.content_type = map['contentType'] unless map['contentType'].nil?
+        data.event_id = map['eventId'] unless map['eventId'].nil?
         return data
       end
     end
@@ -75,7 +75,7 @@ module AWS::SDK::LexRuntimeV2
       def self.parse(http_resp)
         data = Types::BadGatewayException.new
         map = Hearth::JSON.parse(http_resp.body.read)
-        data.message = map['message'] || map['Message']
+        data.message = map['message'] || map['Message'] unless map['message'] || map['Message'].nil?
         data
       end
     end
@@ -83,8 +83,8 @@ module AWS::SDK::LexRuntimeV2
     class Button
       def self.parse(map)
         data = Types::Button.new
-        data.text = map['text']
-        data.value = map['value']
+        data.text = map['text'] unless map['text'].nil?
+        data.value = map['value'] unless map['value'].nil?
         return data
       end
     end
@@ -102,7 +102,7 @@ module AWS::SDK::LexRuntimeV2
     class ConfidenceScore
       def self.parse(map)
         data = Types::ConfidenceScore.new
-        data.score = Hearth::NumberHelper.deserialize(map['score'])
+        data.score = Hearth::NumberHelper.deserialize(map['score']) unless map['score'].nil?
         return data
       end
     end
@@ -112,7 +112,7 @@ module AWS::SDK::LexRuntimeV2
       def self.parse(http_resp)
         data = Types::ConflictException.new
         map = Hearth::JSON.parse(http_resp.body.read)
-        data.message = map['message'] || map['Message']
+        data.message = map['message'] || map['Message'] unless map['message'] || map['Message'].nil?
         data
       end
     end
@@ -121,10 +121,10 @@ module AWS::SDK::LexRuntimeV2
       def self.parse(http_resp)
         data = Types::DeleteSessionOutput.new
         map = Hearth::JSON.parse(http_resp.body.read)
-        data.bot_id = map['botId']
-        data.bot_alias_id = map['botAliasId']
-        data.locale_id = map['localeId']
-        data.session_id = map['sessionId']
+        data.bot_id = map['botId'] unless map['botId'].nil?
+        data.bot_alias_id = map['botAliasId'] unless map['botAliasId'].nil?
+        data.locale_id = map['localeId'] unless map['localeId'].nil?
+        data.session_id = map['sessionId'] unless map['sessionId'].nil?
         data
       end
     end
@@ -134,7 +134,7 @@ module AWS::SDK::LexRuntimeV2
       def self.parse(http_resp)
         data = Types::DependencyFailedException.new
         map = Hearth::JSON.parse(http_resp.body.read)
-        data.message = map['message'] || map['Message']
+        data.message = map['message'] || map['Message'] unless map['message'] || map['Message'].nil?
         data
       end
     end
@@ -142,10 +142,10 @@ module AWS::SDK::LexRuntimeV2
     class DialogAction
       def self.parse(map)
         data = Types::DialogAction.new
-        data.type = map['type']
-        data.slot_to_elicit = map['slotToElicit']
-        data.slot_elicitation_style = map['slotElicitationStyle']
-        data.sub_slot_to_elicit = (ElicitSubSlot.parse(map['subSlotToElicit']) unless map['subSlotToElicit'].nil?)
+        data.type = map['type'] unless map['type'].nil?
+        data.slot_to_elicit = map['slotToElicit'] unless map['slotToElicit'].nil?
+        data.slot_elicitation_style = map['slotElicitationStyle'] unless map['slotElicitationStyle'].nil?
+        data.sub_slot_to_elicit = ElicitSubSlot.parse(map['subSlotToElicit']) unless map['subSlotToElicit'].nil?
         return data
       end
     end
@@ -153,8 +153,8 @@ module AWS::SDK::LexRuntimeV2
     class ElicitSubSlot
       def self.parse(map)
         data = Types::ElicitSubSlot.new
-        data.name = map['name']
-        data.sub_slot_to_elicit = (ElicitSubSlot.parse(map['subSlotToElicit']) unless map['subSlotToElicit'].nil?)
+        data.name = map['name'] unless map['name'].nil?
+        data.sub_slot_to_elicit = ElicitSubSlot.parse(map['subSlotToElicit']) unless map['subSlotToElicit'].nil?
         return data
       end
     end
@@ -163,10 +163,10 @@ module AWS::SDK::LexRuntimeV2
       def self.parse(http_resp)
         data = Types::GetSessionOutput.new
         map = Hearth::JSON.parse(http_resp.body.read)
-        data.session_id = map['sessionId']
-        data.messages = (Messages.parse(map['messages']) unless map['messages'].nil?)
-        data.interpretations = (Interpretations.parse(map['interpretations']) unless map['interpretations'].nil?)
-        data.session_state = (SessionState.parse(map['sessionState']) unless map['sessionState'].nil?)
+        data.session_id = map['sessionId'] unless map['sessionId'].nil?
+        data.messages = Messages.parse(map['messages']) unless map['messages'].nil?
+        data.interpretations = Interpretations.parse(map['interpretations']) unless map['interpretations'].nil?
+        data.session_state = SessionState.parse(map['sessionState']) unless map['sessionState'].nil?
         data
       end
     end
@@ -174,7 +174,7 @@ module AWS::SDK::LexRuntimeV2
     class HeartbeatEvent
       def self.parse(map)
         data = Types::HeartbeatEvent.new
-        data.event_id = map['eventId']
+        data.event_id = map['eventId'] unless map['eventId'].nil?
         return data
       end
     end
@@ -182,10 +182,10 @@ module AWS::SDK::LexRuntimeV2
     class ImageResponseCard
       def self.parse(map)
         data = Types::ImageResponseCard.new
-        data.title = map['title']
-        data.subtitle = map['subtitle']
-        data.image_url = map['imageUrl']
-        data.buttons = (ButtonsList.parse(map['buttons']) unless map['buttons'].nil?)
+        data.title = map['title'] unless map['title'].nil?
+        data.subtitle = map['subtitle'] unless map['subtitle'].nil?
+        data.image_url = map['imageUrl'] unless map['imageUrl'].nil?
+        data.buttons = ButtonsList.parse(map['buttons']) unless map['buttons'].nil?
         return data
       end
     end
@@ -193,10 +193,10 @@ module AWS::SDK::LexRuntimeV2
     class Intent
       def self.parse(map)
         data = Types::Intent.new
-        data.name = map['name']
-        data.slots = (Slots.parse(map['slots']) unless map['slots'].nil?)
-        data.state = map['state']
-        data.confirmation_state = map['confirmationState']
+        data.name = map['name'] unless map['name'].nil?
+        data.slots = Slots.parse(map['slots']) unless map['slots'].nil?
+        data.state = map['state'] unless map['state'].nil?
+        data.confirmation_state = map['confirmationState'] unless map['confirmationState'].nil?
         return data
       end
     end
@@ -204,13 +204,13 @@ module AWS::SDK::LexRuntimeV2
     class IntentResultEvent
       def self.parse(map)
         data = Types::IntentResultEvent.new
-        data.input_mode = map['inputMode']
-        data.interpretations = (Interpretations.parse(map['interpretations']) unless map['interpretations'].nil?)
-        data.session_state = (SessionState.parse(map['sessionState']) unless map['sessionState'].nil?)
-        data.request_attributes = (StringMap.parse(map['requestAttributes']) unless map['requestAttributes'].nil?)
-        data.session_id = map['sessionId']
-        data.event_id = map['eventId']
-        data.recognized_bot_member = (RecognizedBotMember.parse(map['recognizedBotMember']) unless map['recognizedBotMember'].nil?)
+        data.input_mode = map['inputMode'] unless map['inputMode'].nil?
+        data.interpretations = Interpretations.parse(map['interpretations']) unless map['interpretations'].nil?
+        data.session_state = SessionState.parse(map['sessionState']) unless map['sessionState'].nil?
+        data.request_attributes = StringMap.parse(map['requestAttributes']) unless map['requestAttributes'].nil?
+        data.session_id = map['sessionId'] unless map['sessionId'].nil?
+        data.event_id = map['eventId'] unless map['eventId'].nil?
+        data.recognized_bot_member = RecognizedBotMember.parse(map['recognizedBotMember']) unless map['recognizedBotMember'].nil?
         return data
       end
     end
@@ -220,7 +220,7 @@ module AWS::SDK::LexRuntimeV2
       def self.parse(http_resp)
         data = Types::InternalServerException.new
         map = Hearth::JSON.parse(http_resp.body.read)
-        data.message = map['message'] || map['Message']
+        data.message = map['message'] || map['Message'] unless map['message'] || map['Message'].nil?
         data
       end
     end
@@ -228,10 +228,10 @@ module AWS::SDK::LexRuntimeV2
     class Interpretation
       def self.parse(map)
         data = Types::Interpretation.new
-        data.nlu_confidence = (ConfidenceScore.parse(map['nluConfidence']) unless map['nluConfidence'].nil?)
-        data.sentiment_response = (SentimentResponse.parse(map['sentimentResponse']) unless map['sentimentResponse'].nil?)
-        data.intent = (Intent.parse(map['intent']) unless map['intent'].nil?)
-        data.interpretation_source = map['interpretationSource']
+        data.nlu_confidence = ConfidenceScore.parse(map['nluConfidence']) unless map['nluConfidence'].nil?
+        data.sentiment_response = SentimentResponse.parse(map['sentimentResponse']) unless map['sentimentResponse'].nil?
+        data.intent = Intent.parse(map['intent']) unless map['intent'].nil?
+        data.interpretation_source = map['interpretationSource'] unless map['interpretationSource'].nil?
         return data
       end
     end
@@ -249,9 +249,9 @@ module AWS::SDK::LexRuntimeV2
     class Message
       def self.parse(map)
         data = Types::Message.new
-        data.content = map['content']
-        data.content_type = map['contentType']
-        data.image_response_card = (ImageResponseCard.parse(map['imageResponseCard']) unless map['imageResponseCard'].nil?)
+        data.content = map['content'] unless map['content'].nil?
+        data.content_type = map['contentType'] unless map['contentType'].nil?
+        data.image_response_card = ImageResponseCard.parse(map['imageResponseCard']) unless map['imageResponseCard'].nil?
         return data
       end
     end
@@ -269,9 +269,9 @@ module AWS::SDK::LexRuntimeV2
     class PlaybackInterruptionEvent
       def self.parse(map)
         data = Types::PlaybackInterruptionEvent.new
-        data.event_reason = map['eventReason']
-        data.caused_by_event_id = map['causedByEventId']
-        data.event_id = map['eventId']
+        data.event_reason = map['eventReason'] unless map['eventReason'].nil?
+        data.caused_by_event_id = map['causedByEventId'] unless map['causedByEventId'].nil?
+        data.event_id = map['eventId'] unless map['eventId'].nil?
         return data
       end
     end
@@ -293,12 +293,12 @@ module AWS::SDK::LexRuntimeV2
       def self.parse(http_resp)
         data = Types::RecognizeTextOutput.new
         map = Hearth::JSON.parse(http_resp.body.read)
-        data.messages = (Messages.parse(map['messages']) unless map['messages'].nil?)
-        data.session_state = (SessionState.parse(map['sessionState']) unless map['sessionState'].nil?)
-        data.interpretations = (Interpretations.parse(map['interpretations']) unless map['interpretations'].nil?)
-        data.request_attributes = (StringMap.parse(map['requestAttributes']) unless map['requestAttributes'].nil?)
-        data.session_id = map['sessionId']
-        data.recognized_bot_member = (RecognizedBotMember.parse(map['recognizedBotMember']) unless map['recognizedBotMember'].nil?)
+        data.messages = Messages.parse(map['messages']) unless map['messages'].nil?
+        data.session_state = SessionState.parse(map['sessionState']) unless map['sessionState'].nil?
+        data.interpretations = Interpretations.parse(map['interpretations']) unless map['interpretations'].nil?
+        data.request_attributes = StringMap.parse(map['requestAttributes']) unless map['requestAttributes'].nil?
+        data.session_id = map['sessionId'] unless map['sessionId'].nil?
+        data.recognized_bot_member = RecognizedBotMember.parse(map['recognizedBotMember']) unless map['recognizedBotMember'].nil?
         data
       end
     end
@@ -323,8 +323,8 @@ module AWS::SDK::LexRuntimeV2
     class RecognizedBotMember
       def self.parse(map)
         data = Types::RecognizedBotMember.new
-        data.bot_id = map['botId']
-        data.bot_name = map['botName']
+        data.bot_id = map['botId'] unless map['botId'].nil?
+        data.bot_name = map['botName'] unless map['botName'].nil?
         return data
       end
     end
@@ -334,7 +334,7 @@ module AWS::SDK::LexRuntimeV2
       def self.parse(http_resp)
         data = Types::ResourceNotFoundException.new
         map = Hearth::JSON.parse(http_resp.body.read)
-        data.message = map['message'] || map['Message']
+        data.message = map['message'] || map['Message'] unless map['message'] || map['Message'].nil?
         data
       end
     end
@@ -342,8 +342,8 @@ module AWS::SDK::LexRuntimeV2
     class RuntimeHintDetails
       def self.parse(map)
         data = Types::RuntimeHintDetails.new
-        data.runtime_hint_values = (RuntimeHintValuesList.parse(map['runtimeHintValues']) unless map['runtimeHintValues'].nil?)
-        data.sub_slot_hints = (SlotHintsSlotMap.parse(map['subSlotHints']) unless map['subSlotHints'].nil?)
+        data.runtime_hint_values = RuntimeHintValuesList.parse(map['runtimeHintValues']) unless map['runtimeHintValues'].nil?
+        data.sub_slot_hints = SlotHintsSlotMap.parse(map['subSlotHints']) unless map['subSlotHints'].nil?
         return data
       end
     end
@@ -351,7 +351,7 @@ module AWS::SDK::LexRuntimeV2
     class RuntimeHintValue
       def self.parse(map)
         data = Types::RuntimeHintValue.new
-        data.phrase = map['phrase']
+        data.phrase = map['phrase'] unless map['phrase'].nil?
         return data
       end
     end
@@ -369,7 +369,7 @@ module AWS::SDK::LexRuntimeV2
     class RuntimeHints
       def self.parse(map)
         data = Types::RuntimeHints.new
-        data.slot_hints = (SlotHintsIntentMap.parse(map['slotHints']) unless map['slotHints'].nil?)
+        data.slot_hints = SlotHintsIntentMap.parse(map['slotHints']) unless map['slotHints'].nil?
         return data
       end
     end
@@ -377,8 +377,8 @@ module AWS::SDK::LexRuntimeV2
     class SentimentResponse
       def self.parse(map)
         data = Types::SentimentResponse.new
-        data.sentiment = map['sentiment']
-        data.sentiment_score = (SentimentScore.parse(map['sentimentScore']) unless map['sentimentScore'].nil?)
+        data.sentiment = map['sentiment'] unless map['sentiment'].nil?
+        data.sentiment_score = SentimentScore.parse(map['sentimentScore']) unless map['sentimentScore'].nil?
         return data
       end
     end
@@ -386,10 +386,10 @@ module AWS::SDK::LexRuntimeV2
     class SentimentScore
       def self.parse(map)
         data = Types::SentimentScore.new
-        data.positive = Hearth::NumberHelper.deserialize(map['positive'])
-        data.negative = Hearth::NumberHelper.deserialize(map['negative'])
-        data.neutral = Hearth::NumberHelper.deserialize(map['neutral'])
-        data.mixed = Hearth::NumberHelper.deserialize(map['mixed'])
+        data.positive = Hearth::NumberHelper.deserialize(map['positive']) unless map['positive'].nil?
+        data.negative = Hearth::NumberHelper.deserialize(map['negative']) unless map['negative'].nil?
+        data.neutral = Hearth::NumberHelper.deserialize(map['neutral']) unless map['neutral'].nil?
+        data.mixed = Hearth::NumberHelper.deserialize(map['mixed']) unless map['mixed'].nil?
         return data
       end
     end
@@ -397,12 +397,12 @@ module AWS::SDK::LexRuntimeV2
     class SessionState
       def self.parse(map)
         data = Types::SessionState.new
-        data.dialog_action = (DialogAction.parse(map['dialogAction']) unless map['dialogAction'].nil?)
-        data.intent = (Intent.parse(map['intent']) unless map['intent'].nil?)
-        data.active_contexts = (ActiveContextsList.parse(map['activeContexts']) unless map['activeContexts'].nil?)
-        data.session_attributes = (StringMap.parse(map['sessionAttributes']) unless map['sessionAttributes'].nil?)
-        data.originating_request_id = map['originatingRequestId']
-        data.runtime_hints = (RuntimeHints.parse(map['runtimeHints']) unless map['runtimeHints'].nil?)
+        data.dialog_action = DialogAction.parse(map['dialogAction']) unless map['dialogAction'].nil?
+        data.intent = Intent.parse(map['intent']) unless map['intent'].nil?
+        data.active_contexts = ActiveContextsList.parse(map['activeContexts']) unless map['activeContexts'].nil?
+        data.session_attributes = StringMap.parse(map['sessionAttributes']) unless map['sessionAttributes'].nil?
+        data.originating_request_id = map['originatingRequestId'] unless map['originatingRequestId'].nil?
+        data.runtime_hints = RuntimeHints.parse(map['runtimeHints']) unless map['runtimeHints'].nil?
         return data
       end
     end
@@ -410,10 +410,10 @@ module AWS::SDK::LexRuntimeV2
     class Slot
       def self.parse(map)
         data = Types::Slot.new
-        data.value = (Value.parse(map['value']) unless map['value'].nil?)
-        data.shape = map['shape']
-        data.values = (Values.parse(map['values']) unless map['values'].nil?)
-        data.sub_slots = (Slots.parse(map['subSlots']) unless map['subSlots'].nil?)
+        data.value = Value.parse(map['value']) unless map['value'].nil?
+        data.shape = map['shape'] unless map['shape'].nil?
+        data.values = Values.parse(map['values']) unless map['values'].nil?
+        data.sub_slots = Slots.parse(map['subSlots']) unless map['subSlots'].nil?
         return data
       end
     end
@@ -479,8 +479,8 @@ module AWS::SDK::LexRuntimeV2
     class TextResponseEvent
       def self.parse(map)
         data = Types::TextResponseEvent.new
-        data.messages = (Messages.parse(map['messages']) unless map['messages'].nil?)
-        data.event_id = map['eventId']
+        data.messages = Messages.parse(map['messages']) unless map['messages'].nil?
+        data.event_id = map['eventId'] unless map['eventId'].nil?
         return data
       end
     end
@@ -490,7 +490,7 @@ module AWS::SDK::LexRuntimeV2
       def self.parse(http_resp)
         data = Types::ThrottlingException.new
         map = Hearth::JSON.parse(http_resp.body.read)
-        data.message = map['message'] || map['Message']
+        data.message = map['message'] || map['Message'] unless map['message'] || map['Message'].nil?
         data
       end
     end
@@ -498,8 +498,8 @@ module AWS::SDK::LexRuntimeV2
     class TranscriptEvent
       def self.parse(map)
         data = Types::TranscriptEvent.new
-        data.transcript = map['transcript']
-        data.event_id = map['eventId']
+        data.transcript = map['transcript'] unless map['transcript'].nil?
+        data.event_id = map['eventId'] unless map['eventId'].nil?
         return data
       end
     end
@@ -509,7 +509,7 @@ module AWS::SDK::LexRuntimeV2
       def self.parse(http_resp)
         data = Types::ValidationException.new
         map = Hearth::JSON.parse(http_resp.body.read)
-        data.message = map['message'] || map['Message']
+        data.message = map['message'] || map['Message'] unless map['message'] || map['Message'].nil?
         data
       end
     end
@@ -517,9 +517,9 @@ module AWS::SDK::LexRuntimeV2
     class Value
       def self.parse(map)
         data = Types::Value.new
-        data.original_value = map['originalValue']
-        data.interpreted_value = map['interpretedValue']
-        data.resolved_values = (StringList.parse(map['resolvedValues']) unless map['resolvedValues'].nil?)
+        data.original_value = map['originalValue'] unless map['originalValue'].nil?
+        data.interpreted_value = map['interpretedValue'] unless map['interpretedValue'].nil?
+        data.resolved_values = StringList.parse(map['resolvedValues']) unless map['resolvedValues'].nil?
         return data
       end
     end
@@ -542,7 +542,7 @@ module AWS::SDK::LexRuntimeV2
           payload = message.payload.read
           return data if payload.empty?
           map = Hearth::JSON.parse(payload)
-          data.message = map['message'] || map['Message']
+          data.message = map['message'] || map['Message'] unless map['message'] || map['Message'].nil?
           data
         end
       end
@@ -554,8 +554,8 @@ module AWS::SDK::LexRuntimeV2
           return data if payload.empty?
           map = Hearth::JSON.parse(payload)
           data.audio_chunk = Base64::decode64(map['audioChunk']) unless map['audioChunk'].nil?
-          data.content_type = map['contentType']
-          data.event_id = map['eventId']
+          data.content_type = map['contentType'] unless map['contentType'].nil?
+          data.event_id = map['eventId'] unless map['eventId'].nil?
           data
         end
       end
@@ -566,7 +566,7 @@ module AWS::SDK::LexRuntimeV2
           payload = message.payload.read
           return data if payload.empty?
           map = Hearth::JSON.parse(payload)
-          data.message = map['message'] || map['Message']
+          data.message = map['message'] || map['Message'] unless map['message'] || map['Message'].nil?
           data
         end
       end
@@ -577,7 +577,7 @@ module AWS::SDK::LexRuntimeV2
           payload = message.payload.read
           return data if payload.empty?
           map = Hearth::JSON.parse(payload)
-          data.message = map['message'] || map['Message']
+          data.message = map['message'] || map['Message'] unless map['message'] || map['Message'].nil?
           data
         end
       end
@@ -588,7 +588,7 @@ module AWS::SDK::LexRuntimeV2
           payload = message.payload.read
           return data if payload.empty?
           map = Hearth::JSON.parse(payload)
-          data.message = map['message'] || map['Message']
+          data.message = map['message'] || map['Message'] unless map['message'] || map['Message'].nil?
           data
         end
       end
@@ -599,7 +599,7 @@ module AWS::SDK::LexRuntimeV2
           payload = message.payload.read
           return data if payload.empty?
           map = Hearth::JSON.parse(payload)
-          data.event_id = map['eventId']
+          data.event_id = map['eventId'] unless map['eventId'].nil?
           data
         end
       end
@@ -610,13 +610,13 @@ module AWS::SDK::LexRuntimeV2
           payload = message.payload.read
           return data if payload.empty?
           map = Hearth::JSON.parse(payload)
-          data.input_mode = map['inputMode']
-          data.interpretations = (Interpretations.parse(map['interpretations']) unless map['interpretations'].nil?)
-          data.session_state = (SessionState.parse(map['sessionState']) unless map['sessionState'].nil?)
-          data.request_attributes = (StringMap.parse(map['requestAttributes']) unless map['requestAttributes'].nil?)
-          data.session_id = map['sessionId']
-          data.event_id = map['eventId']
-          data.recognized_bot_member = (RecognizedBotMember.parse(map['recognizedBotMember']) unless map['recognizedBotMember'].nil?)
+          data.input_mode = map['inputMode'] unless map['inputMode'].nil?
+          data.interpretations = Interpretations.parse(map['interpretations']) unless map['interpretations'].nil?
+          data.session_state = SessionState.parse(map['sessionState']) unless map['sessionState'].nil?
+          data.request_attributes = StringMap.parse(map['requestAttributes']) unless map['requestAttributes'].nil?
+          data.session_id = map['sessionId'] unless map['sessionId'].nil?
+          data.event_id = map['eventId'] unless map['eventId'].nil?
+          data.recognized_bot_member = RecognizedBotMember.parse(map['recognizedBotMember']) unless map['recognizedBotMember'].nil?
           data
         end
       end
@@ -627,7 +627,7 @@ module AWS::SDK::LexRuntimeV2
           payload = message.payload.read
           return data if payload.empty?
           map = Hearth::JSON.parse(payload)
-          data.message = map['message'] || map['Message']
+          data.message = map['message'] || map['Message'] unless map['message'] || map['Message'].nil?
           data
         end
       end
@@ -638,9 +638,9 @@ module AWS::SDK::LexRuntimeV2
           payload = message.payload.read
           return data if payload.empty?
           map = Hearth::JSON.parse(payload)
-          data.event_reason = map['eventReason']
-          data.caused_by_event_id = map['causedByEventId']
-          data.event_id = map['eventId']
+          data.event_reason = map['eventReason'] unless map['eventReason'].nil?
+          data.caused_by_event_id = map['causedByEventId'] unless map['causedByEventId'].nil?
+          data.event_id = map['eventId'] unless map['eventId'].nil?
           data
         end
       end
@@ -651,7 +651,7 @@ module AWS::SDK::LexRuntimeV2
           payload = message.payload.read
           return data if payload.empty?
           map = Hearth::JSON.parse(payload)
-          data.message = map['message'] || map['Message']
+          data.message = map['message'] || map['Message'] unless map['message'] || map['Message'].nil?
           data
         end
       end
@@ -662,7 +662,7 @@ module AWS::SDK::LexRuntimeV2
           payload = message.payload.read
           return data if payload.empty?
           map = Hearth::JSON.parse(payload)
-          data.response_event_stream = (StartConversationResponseEventStream.parse(map['responseEventStream']) unless map['responseEventStream'].nil?)
+          data.response_event_stream = StartConversationResponseEventStream.parse(map['responseEventStream']) unless map['responseEventStream'].nil?
           data
         end
       end
@@ -673,8 +673,8 @@ module AWS::SDK::LexRuntimeV2
           payload = message.payload.read
           return data if payload.empty?
           map = Hearth::JSON.parse(payload)
-          data.messages = (Messages.parse(map['messages']) unless map['messages'].nil?)
-          data.event_id = map['eventId']
+          data.messages = Messages.parse(map['messages']) unless map['messages'].nil?
+          data.event_id = map['eventId'] unless map['eventId'].nil?
           data
         end
       end
@@ -685,7 +685,7 @@ module AWS::SDK::LexRuntimeV2
           payload = message.payload.read
           return data if payload.empty?
           map = Hearth::JSON.parse(payload)
-          data.message = map['message'] || map['Message']
+          data.message = map['message'] || map['Message'] unless map['message'] || map['Message'].nil?
           data
         end
       end
@@ -696,8 +696,8 @@ module AWS::SDK::LexRuntimeV2
           payload = message.payload.read
           return data if payload.empty?
           map = Hearth::JSON.parse(payload)
-          data.transcript = map['transcript']
-          data.event_id = map['eventId']
+          data.transcript = map['transcript'] unless map['transcript'].nil?
+          data.event_id = map['eventId'] unless map['eventId'].nil?
           data
         end
       end
@@ -708,7 +708,7 @@ module AWS::SDK::LexRuntimeV2
           payload = message.payload.read
           return data if payload.empty?
           map = Hearth::JSON.parse(payload)
-          data.message = map['message'] || map['Message']
+          data.message = map['message'] || map['Message'] unless map['message'] || map['Message'].nil?
           data
         end
       end
