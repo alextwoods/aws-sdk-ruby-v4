@@ -48,8 +48,10 @@ module AWS::SDK::Core
         signature.metadata[:signature]
       end
 
-      def sign_event(message:, prior_signature:,
-        identity:, properties:, event_type:, encoder:)
+      def sign_event(
+        message:, prior_signature:,
+        identity:, properties:, event_type:, encoder:
+      )
 
         encoded_payload = if event_type == :end_stream
                             '' # payload must be empty on end_stream
