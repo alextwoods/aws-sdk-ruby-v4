@@ -69,6 +69,7 @@ module AWS::SDK::SSO
     def get_role_credentials(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.sso.client')
       input = Params::GetRoleCredentialsInput.build(params, context: 'params')
       stack = AWS::SDK::SSO::Middleware::GetRoleCredentials.build(config)
       context = Hearth::Context.new(
@@ -76,15 +77,18 @@ module AWS::SDK::SSO
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_role_credentials,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_role_credentials] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_role_credentials] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetRoleCredentials.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_role_credentials] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_role_credentials] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_role_credentials] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_role_credentials] #{output.data}")
-      output
     end
 
     # <p>Lists all roles that are assigned to the user for a given AWS account.</p>
@@ -112,6 +116,7 @@ module AWS::SDK::SSO
     def list_account_roles(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.sso.client')
       input = Params::ListAccountRolesInput.build(params, context: 'params')
       stack = AWS::SDK::SSO::Middleware::ListAccountRoles.build(config)
       context = Hearth::Context.new(
@@ -119,15 +124,18 @@ module AWS::SDK::SSO
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :list_account_roles,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_account_roles] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_account_roles] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::ListAccountRoles.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_account_roles] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_account_roles] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_account_roles] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_account_roles] #{output.data}")
-      output
     end
 
     # <p>Lists all AWS accounts assigned to the user. These AWS accounts are assigned by the
@@ -157,6 +165,7 @@ module AWS::SDK::SSO
     def list_accounts(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.sso.client')
       input = Params::ListAccountsInput.build(params, context: 'params')
       stack = AWS::SDK::SSO::Middleware::ListAccounts.build(config)
       context = Hearth::Context.new(
@@ -164,15 +173,18 @@ module AWS::SDK::SSO
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :list_accounts,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_accounts] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_accounts] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::ListAccounts.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_accounts] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_accounts] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_accounts] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_accounts] #{output.data}")
-      output
     end
 
     # <p>Removes the locally stored SSO tokens from the client-side cache and sends an API call to
@@ -205,6 +217,7 @@ module AWS::SDK::SSO
     def logout(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.sso.client')
       input = Params::LogoutInput.build(params, context: 'params')
       stack = AWS::SDK::SSO::Middleware::Logout.build(config)
       context = Hearth::Context.new(
@@ -212,15 +225,18 @@ module AWS::SDK::SSO
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :logout,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#logout] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#logout] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::Logout.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#logout] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#logout] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#logout] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#logout] #{output.data}")
-      output
     end
   end
 end

@@ -214,6 +214,7 @@ module AWS::SDK::STS
     def assume_role(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.sts.client')
       input = Params::AssumeRoleInput.build(params, context: 'params')
       stack = AWS::SDK::STS::Middleware::AssumeRole.build(config)
       context = Hearth::Context.new(
@@ -221,15 +222,18 @@ module AWS::SDK::STS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :assume_role,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#assume_role] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#assume_role] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::AssumeRole.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#assume_role] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#assume_role] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#assume_role] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#assume_role] #{output.data}")
-      output
     end
 
     # <p>Returns a set of temporary security credentials for users who have been authenticated
@@ -429,6 +433,7 @@ module AWS::SDK::STS
     def assume_role_with_saml(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.sts.client')
       input = Params::AssumeRoleWithSAMLInput.build(params, context: 'params')
       stack = AWS::SDK::STS::Middleware::AssumeRoleWithSAML.build(config)
       context = Hearth::Context.new(
@@ -436,15 +441,18 @@ module AWS::SDK::STS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :assume_role_with_saml,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#assume_role_with_saml] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#assume_role_with_saml] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::AssumeRoleWithSAML.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#assume_role_with_saml] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#assume_role_with_saml] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#assume_role_with_saml] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#assume_role_with_saml] #{output.data}")
-      output
     end
 
     # <p>Returns a set of temporary security credentials for users who have been authenticated in
@@ -646,6 +654,7 @@ module AWS::SDK::STS
     def assume_role_with_web_identity(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.sts.client')
       input = Params::AssumeRoleWithWebIdentityInput.build(params, context: 'params')
       stack = AWS::SDK::STS::Middleware::AssumeRoleWithWebIdentity.build(config)
       context = Hearth::Context.new(
@@ -653,15 +662,18 @@ module AWS::SDK::STS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :assume_role_with_web_identity,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#assume_role_with_web_identity] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#assume_role_with_web_identity] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::AssumeRoleWithWebIdentity.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#assume_role_with_web_identity] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#assume_role_with_web_identity] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#assume_role_with_web_identity] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#assume_role_with_web_identity] #{output.data}")
-      output
     end
 
     # <p>Decodes additional information about the authorization status of a request from an
@@ -727,6 +739,7 @@ module AWS::SDK::STS
     def decode_authorization_message(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.sts.client')
       input = Params::DecodeAuthorizationMessageInput.build(params, context: 'params')
       stack = AWS::SDK::STS::Middleware::DecodeAuthorizationMessage.build(config)
       context = Hearth::Context.new(
@@ -734,15 +747,18 @@ module AWS::SDK::STS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :decode_authorization_message,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#decode_authorization_message] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#decode_authorization_message] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DecodeAuthorizationMessage.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#decode_authorization_message] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#decode_authorization_message] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#decode_authorization_message] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#decode_authorization_message] #{output.data}")
-      output
     end
 
     # <p>Returns the account identifier for the specified access key ID.</p>
@@ -779,6 +795,7 @@ module AWS::SDK::STS
     def get_access_key_info(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.sts.client')
       input = Params::GetAccessKeyInfoInput.build(params, context: 'params')
       stack = AWS::SDK::STS::Middleware::GetAccessKeyInfo.build(config)
       context = Hearth::Context.new(
@@ -786,15 +803,18 @@ module AWS::SDK::STS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_access_key_info,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_access_key_info] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_access_key_info] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetAccessKeyInfo.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_access_key_info] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_access_key_info] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_access_key_info] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_access_key_info] #{output.data}")
-      output
     end
 
     # <p>Returns details about the IAM user or role whose credentials are used to
@@ -851,6 +871,7 @@ module AWS::SDK::STS
     def get_caller_identity(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.sts.client')
       input = Params::GetCallerIdentityInput.build(params, context: 'params')
       stack = AWS::SDK::STS::Middleware::GetCallerIdentity.build(config)
       context = Hearth::Context.new(
@@ -858,15 +879,18 @@ module AWS::SDK::STS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_caller_identity,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_caller_identity] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_caller_identity] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetCallerIdentity.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_caller_identity] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_caller_identity] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_caller_identity] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_caller_identity] #{output.data}")
-      output
     end
 
     # <p>Returns a set of temporary security credentials (consisting of an access key ID, a
@@ -1028,6 +1052,7 @@ module AWS::SDK::STS
     def get_federation_token(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.sts.client')
       input = Params::GetFederationTokenInput.build(params, context: 'params')
       stack = AWS::SDK::STS::Middleware::GetFederationToken.build(config)
       context = Hearth::Context.new(
@@ -1035,15 +1060,18 @@ module AWS::SDK::STS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_federation_token,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_federation_token] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_federation_token] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetFederationToken.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_federation_token] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_federation_token] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_federation_token] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_federation_token] #{output.data}")
-      output
     end
 
     # <p>Returns a set of temporary credentials for an Amazon Web Services account or IAM user.
@@ -1145,6 +1173,7 @@ module AWS::SDK::STS
     def get_session_token(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.sts.client')
       input = Params::GetSessionTokenInput.build(params, context: 'params')
       stack = AWS::SDK::STS::Middleware::GetSessionToken.build(config)
       context = Hearth::Context.new(
@@ -1152,15 +1181,18 @@ module AWS::SDK::STS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_session_token,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_session_token] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_session_token] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetSessionToken.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_session_token] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_session_token] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_session_token] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_session_token] #{output.data}")
-      output
     end
   end
 end

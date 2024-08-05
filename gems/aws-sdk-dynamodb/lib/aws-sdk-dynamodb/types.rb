@@ -222,10 +222,6 @@ module AWS::SDK::DynamoDB
         def to_h
           { unknown: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::DynamoDB::Types::Unknown #{__getobj__ || 'nil'}>"
-        end
       end
     end
 

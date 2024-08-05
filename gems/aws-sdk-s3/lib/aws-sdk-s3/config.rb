@@ -109,6 +109,12 @@ module AWS::SDK::S3
   #     Enable response stubbing for testing. See {Hearth::ClientStubs#stub_responses}.
   #   @option args [Hearth::Stubs] :stubs (Hearth::Stubs.new)
   #     Enable response stubbing for testing. See {Hearth::ClientStubs#stub_responses}.
+  #   @option args [Hearth::Telemetry::TelemetryProviderBase] :telemetry_provider (Hearth::Telemetry::NoOpTelemetryProvider.new)
+  #     A telemetry provider is used to emit telemetry data. By default, the
+  #     +NoOpTelemetryProvider+ will not record or emit any telemetry data.
+  #     The SDK currently supports OpenTelemetry (OTel) as a provider. To use
+  #     the OTel provider, require the +opentelemetry-sdk+ gem and then, pass
+  #     in an instance of a +Hearth::Telemetry::OTelProvider+ for telemetry provider.
   #   @option args [Boolean] :use_accelerate_endpoint (false)
   #     When set to `true`, accelerated bucket endpoints will be used
   #     for all object operations. You must first enable accelerate for
@@ -160,6 +166,8 @@ module AWS::SDK::S3
   #   @return [Boolean]
   # @!attribute stubs
   #   @return [Hearth::Stubs]
+  # @!attribute telemetry_provider
+  #   @return [Hearth::Telemetry::TelemetryProviderBase]
   # @!attribute use_accelerate_endpoint
   #   @return [Boolean]
   # @!attribute use_arn_region
@@ -192,6 +200,7 @@ module AWS::SDK::S3
       retry_strategy
       stub_responses
       stubs
+      telemetry_provider
       use_accelerate_endpoint
       use_arn_region
       use_dualstack_endpoint
@@ -221,6 +230,7 @@ module AWS::SDK::S3
       Hearth::Validator.validate_responds_to!(retry_strategy, :acquire_initial_retry_token, :refresh_retry_token, :record_success, context: 'config[:retry_strategy]')
       Hearth::Validator.validate_types!(stub_responses, TrueClass, FalseClass, context: 'config[:stub_responses]')
       Hearth::Validator.validate_types!(stubs, Hearth::Stubs, context: 'config[:stubs]')
+      Hearth::Validator.validate_types!(telemetry_provider, Hearth::Telemetry::TelemetryProviderBase, context: 'config[:telemetry_provider]')
       Hearth::Validator.validate_types!(use_accelerate_endpoint, TrueClass, FalseClass, context: 'config[:use_accelerate_endpoint]')
       Hearth::Validator.validate_types!(use_arn_region, TrueClass, FalseClass, context: 'config[:use_arn_region]')
       Hearth::Validator.validate_types!(use_dualstack_endpoint, TrueClass, FalseClass, context: 'config[:use_dualstack_endpoint]')
@@ -250,6 +260,7 @@ module AWS::SDK::S3
         retry_strategy: [Hearth::Retry::Standard.new],
         stub_responses: [false],
         stubs: [Hearth::Stubs.new],
+        telemetry_provider: [Hearth::Telemetry::NoOpTelemetryProvider.new],
         use_accelerate_endpoint: [false],
         use_arn_region: [Hearth::Config::EnvProvider.new('AWS_S3_USE_ARN_REGION', type: 'Boolean'),AWS::SDK::Core::SharedConfigProvider.new('s3_use_arn_region', type: 'Boolean'),true],
         use_dualstack_endpoint: [Hearth::Config::EnvProvider.new('AWS_USE_DUALSTACK_ENDPOINT', type: 'Boolean'),AWS::SDK::Core::SharedConfigProvider.new('use_dualstack_endpoint', type: 'Boolean')],

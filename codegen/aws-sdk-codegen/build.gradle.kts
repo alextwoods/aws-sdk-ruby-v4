@@ -121,6 +121,7 @@ tasks.register("generate-smithy-build") {
                             Node.objectNodeBuilder()
                                 .withMember("service", service.service.id.toString())
                                 .withMember("module", "AWS::SDK::" + service.moduleName)
+                                .withMember("sdkId", service.sdkId)
                                 .withMember(
                                     "gemspec",
                                     Node.objectNodeBuilder()

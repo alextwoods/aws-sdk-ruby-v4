@@ -16,6 +16,7 @@ module AWS::SDK::STS
     attr_accessor retry_strategy (): Hearth::_RetryStrategy?
     attr_accessor stub_responses (): bool?
     attr_accessor stubs (): Hearth::Stubs?
+    attr_accessor telemetry_provider (): Hearth::Telemetry::TelemetryProviderBase?
     attr_accessor use_dualstack_endpoint (): bool?
     attr_accessor use_fips_endpoint (): bool?
     attr_accessor validate_input (): bool?

@@ -77,6 +77,7 @@ module AWS::SDK::CloudWatch
     def delete_alarms(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.cloudwatch.client')
       input = Params::DeleteAlarmsInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::DeleteAlarms.build(config)
       context = Hearth::Context.new(
@@ -84,15 +85,18 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :delete_alarms,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_alarms] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_alarms] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DeleteAlarms.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_alarms] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_alarms] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_alarms] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_alarms] #{output.data}")
-      output
     end
 
     # <p>
@@ -154,6 +158,7 @@ module AWS::SDK::CloudWatch
     def delete_anomaly_detector(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.cloudwatch.client')
       input = Params::DeleteAnomalyDetectorInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::DeleteAnomalyDetector.build(config)
       context = Hearth::Context.new(
@@ -161,15 +166,18 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :delete_anomaly_detector,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_anomaly_detector] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_anomaly_detector] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DeleteAnomalyDetector.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_anomaly_detector] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_anomaly_detector] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_anomaly_detector] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_anomaly_detector] #{output.data}")
-      output
     end
 
     # <p>Deletes all dashboards that you specify. You
@@ -193,6 +201,7 @@ module AWS::SDK::CloudWatch
     def delete_dashboards(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.cloudwatch.client')
       input = Params::DeleteDashboardsInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::DeleteDashboards.build(config)
       context = Hearth::Context.new(
@@ -200,15 +209,18 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :delete_dashboards,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_dashboards] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_dashboards] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DeleteDashboards.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_dashboards] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_dashboards] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_dashboards] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_dashboards] #{output.data}")
-      output
     end
 
     # <p>Permanently deletes the specified Contributor Insights rules.</p>
@@ -239,6 +251,7 @@ module AWS::SDK::CloudWatch
     def delete_insight_rules(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.cloudwatch.client')
       input = Params::DeleteInsightRulesInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::DeleteInsightRules.build(config)
       context = Hearth::Context.new(
@@ -246,15 +259,18 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :delete_insight_rules,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_insight_rules] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_insight_rules] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DeleteInsightRules.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_insight_rules] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_insight_rules] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_insight_rules] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_insight_rules] #{output.data}")
-      output
     end
 
     # <p>Permanently deletes the metric stream that you specify.</p>
@@ -274,6 +290,7 @@ module AWS::SDK::CloudWatch
     def delete_metric_stream(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.cloudwatch.client')
       input = Params::DeleteMetricStreamInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::DeleteMetricStream.build(config)
       context = Hearth::Context.new(
@@ -281,15 +298,18 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :delete_metric_stream,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_metric_stream] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_metric_stream] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DeleteMetricStream.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_metric_stream] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_metric_stream] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_metric_stream] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_metric_stream] #{output.data}")
-      output
     end
 
     # <p>Retrieves the history for the specified alarm. You can filter the results by date range or item type.
@@ -332,6 +352,7 @@ module AWS::SDK::CloudWatch
     def describe_alarm_history(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.cloudwatch.client')
       input = Params::DescribeAlarmHistoryInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::DescribeAlarmHistory.build(config)
       context = Hearth::Context.new(
@@ -339,15 +360,18 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :describe_alarm_history,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_alarm_history] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#describe_alarm_history] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DescribeAlarmHistory.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_alarm_history] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#describe_alarm_history] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_alarm_history] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_alarm_history] #{output.data}")
-      output
     end
 
     # <p>Retrieves the specified alarms. You can filter the results by specifying a prefix for the alarm
@@ -455,6 +479,7 @@ module AWS::SDK::CloudWatch
     def describe_alarms(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.cloudwatch.client')
       input = Params::DescribeAlarmsInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::DescribeAlarms.build(config)
       context = Hearth::Context.new(
@@ -462,15 +487,18 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :describe_alarms,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_alarms] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#describe_alarms] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DescribeAlarms.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_alarms] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#describe_alarms] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_alarms] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_alarms] #{output.data}")
-      output
     end
 
     # <p>Retrieves the alarms for the specified metric. To
@@ -555,6 +583,7 @@ module AWS::SDK::CloudWatch
     def describe_alarms_for_metric(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.cloudwatch.client')
       input = Params::DescribeAlarmsForMetricInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::DescribeAlarmsForMetric.build(config)
       context = Hearth::Context.new(
@@ -562,15 +591,18 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :describe_alarms_for_metric,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_alarms_for_metric] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#describe_alarms_for_metric] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DescribeAlarmsForMetric.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_alarms_for_metric] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#describe_alarms_for_metric] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_alarms_for_metric] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_alarms_for_metric] #{output.data}")
-      output
     end
 
     # <p>Lists the anomaly detection models that you have created in your account.
@@ -647,6 +679,7 @@ module AWS::SDK::CloudWatch
     def describe_anomaly_detectors(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.cloudwatch.client')
       input = Params::DescribeAnomalyDetectorsInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::DescribeAnomalyDetectors.build(config)
       context = Hearth::Context.new(
@@ -654,15 +687,18 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :describe_anomaly_detectors,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_anomaly_detectors] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#describe_anomaly_detectors] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DescribeAnomalyDetectors.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_anomaly_detectors] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#describe_anomaly_detectors] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_anomaly_detectors] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_anomaly_detectors] #{output.data}")
-      output
     end
 
     # <p>Returns a list of all the Contributor Insights rules in your account.</p>
@@ -693,6 +729,7 @@ module AWS::SDK::CloudWatch
     def describe_insight_rules(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.cloudwatch.client')
       input = Params::DescribeInsightRulesInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::DescribeInsightRules.build(config)
       context = Hearth::Context.new(
@@ -700,15 +737,18 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :describe_insight_rules,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_insight_rules] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#describe_insight_rules] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DescribeInsightRules.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_insight_rules] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#describe_insight_rules] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_insight_rules] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_insight_rules] #{output.data}")
-      output
     end
 
     # <p>Disables the actions for the specified alarms. When an alarm's actions are disabled, the
@@ -731,6 +771,7 @@ module AWS::SDK::CloudWatch
     def disable_alarm_actions(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.cloudwatch.client')
       input = Params::DisableAlarmActionsInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::DisableAlarmActions.build(config)
       context = Hearth::Context.new(
@@ -738,15 +779,18 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :disable_alarm_actions,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_alarm_actions] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#disable_alarm_actions] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DisableAlarmActions.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_alarm_actions] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#disable_alarm_actions] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_alarm_actions] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_alarm_actions] #{output.data}")
-      output
     end
 
     # <p>Disables the specified Contributor Insights rules. When rules are disabled, they do not analyze log groups and do
@@ -775,6 +819,7 @@ module AWS::SDK::CloudWatch
     def disable_insight_rules(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.cloudwatch.client')
       input = Params::DisableInsightRulesInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::DisableInsightRules.build(config)
       context = Hearth::Context.new(
@@ -782,15 +827,18 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :disable_insight_rules,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_insight_rules] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#disable_insight_rules] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DisableInsightRules.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_insight_rules] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#disable_insight_rules] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_insight_rules] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_insight_rules] #{output.data}")
-      output
     end
 
     # <p>Enables the actions for the specified alarms.</p>
@@ -812,6 +860,7 @@ module AWS::SDK::CloudWatch
     def enable_alarm_actions(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.cloudwatch.client')
       input = Params::EnableAlarmActionsInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::EnableAlarmActions.build(config)
       context = Hearth::Context.new(
@@ -819,15 +868,18 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :enable_alarm_actions,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_alarm_actions] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#enable_alarm_actions] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::EnableAlarmActions.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_alarm_actions] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#enable_alarm_actions] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_alarm_actions] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_alarm_actions] #{output.data}")
-      output
     end
 
     # <p>Enables the specified Contributor Insights rules. When rules are enabled, they immediately begin analyzing log data.</p>
@@ -855,6 +907,7 @@ module AWS::SDK::CloudWatch
     def enable_insight_rules(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.cloudwatch.client')
       input = Params::EnableInsightRulesInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::EnableInsightRules.build(config)
       context = Hearth::Context.new(
@@ -862,15 +915,18 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :enable_insight_rules,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_insight_rules] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#enable_insight_rules] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::EnableInsightRules.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_insight_rules] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#enable_insight_rules] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_insight_rules] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_insight_rules] #{output.data}")
-      output
     end
 
     # <p>Displays the details of the dashboard that you specify.</p>
@@ -896,6 +952,7 @@ module AWS::SDK::CloudWatch
     def get_dashboard(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.cloudwatch.client')
       input = Params::GetDashboardInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::GetDashboard.build(config)
       context = Hearth::Context.new(
@@ -903,15 +960,18 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_dashboard,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_dashboard] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_dashboard] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetDashboard.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_dashboard] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_dashboard] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_dashboard] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_dashboard] #{output.data}")
-      output
     end
 
     # <p>This operation returns the time series data collected by a Contributor Insights rule. The data includes the identity and number of
@@ -999,6 +1059,7 @@ module AWS::SDK::CloudWatch
     def get_insight_rule_report(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.cloudwatch.client')
       input = Params::GetInsightRuleReportInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::GetInsightRuleReport.build(config)
       context = Hearth::Context.new(
@@ -1006,15 +1067,18 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_insight_rule_report,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_insight_rule_report] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_insight_rule_report] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetInsightRuleReport.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_insight_rule_report] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_insight_rule_report] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_insight_rule_report] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_insight_rule_report] #{output.data}")
-      output
     end
 
     # <p>You can use the <code>GetMetricData</code> API to retrieve CloudWatch metric values. The operation
@@ -1128,6 +1192,7 @@ module AWS::SDK::CloudWatch
     def get_metric_data(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.cloudwatch.client')
       input = Params::GetMetricDataInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::GetMetricData.build(config)
       context = Hearth::Context.new(
@@ -1135,15 +1200,18 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_metric_data,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_data] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_metric_data] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetMetricData.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_data] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_metric_data] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_data] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_data] #{output.data}")
-      output
     end
 
     # <p>Gets statistics for the specified metric.</p>
@@ -1238,6 +1306,7 @@ module AWS::SDK::CloudWatch
     def get_metric_statistics(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.cloudwatch.client')
       input = Params::GetMetricStatisticsInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::GetMetricStatistics.build(config)
       context = Hearth::Context.new(
@@ -1245,15 +1314,18 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_metric_statistics,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_statistics] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_metric_statistics] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetMetricStatistics.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_statistics] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_metric_statistics] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_statistics] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_statistics] #{output.data}")
-      output
     end
 
     # <p>Returns information about the metric stream that you specify.</p>
@@ -1296,6 +1368,7 @@ module AWS::SDK::CloudWatch
     def get_metric_stream(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.cloudwatch.client')
       input = Params::GetMetricStreamInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::GetMetricStream.build(config)
       context = Hearth::Context.new(
@@ -1303,15 +1376,18 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_metric_stream,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_stream] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_metric_stream] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetMetricStream.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_stream] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_metric_stream] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_stream] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_stream] #{output.data}")
-      output
     end
 
     # <p>You can use the <code>GetMetricWidgetImage</code> API to retrieve a snapshot graph of
@@ -1348,6 +1424,7 @@ module AWS::SDK::CloudWatch
     def get_metric_widget_image(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.cloudwatch.client')
       input = Params::GetMetricWidgetImageInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::GetMetricWidgetImage.build(config)
       context = Hearth::Context.new(
@@ -1355,15 +1432,18 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_metric_widget_image,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_widget_image] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_metric_widget_image] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetMetricWidgetImage.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_widget_image] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_metric_widget_image] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_widget_image] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_metric_widget_image] #{output.data}")
-      output
     end
 
     # <p>Returns a list of the dashboards for your account. If you include <code>DashboardNamePrefix</code>, only
@@ -1399,6 +1479,7 @@ module AWS::SDK::CloudWatch
     def list_dashboards(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.cloudwatch.client')
       input = Params::ListDashboardsInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::ListDashboards.build(config)
       context = Hearth::Context.new(
@@ -1406,15 +1487,18 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :list_dashboards,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_dashboards] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_dashboards] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::ListDashboards.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_dashboards] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_dashboards] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_dashboards] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_dashboards] #{output.data}")
-      output
     end
 
     # <p>
@@ -1450,6 +1534,7 @@ module AWS::SDK::CloudWatch
     def list_managed_insight_rules(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.cloudwatch.client')
       input = Params::ListManagedInsightRulesInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::ListManagedInsightRules.build(config)
       context = Hearth::Context.new(
@@ -1457,15 +1542,18 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :list_managed_insight_rules,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_managed_insight_rules] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_managed_insight_rules] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::ListManagedInsightRules.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_managed_insight_rules] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_managed_insight_rules] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_managed_insight_rules] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_managed_insight_rules] #{output.data}")
-      output
     end
 
     # <p>Returns a list of metric streams in this account.</p>
@@ -1496,6 +1584,7 @@ module AWS::SDK::CloudWatch
     def list_metric_streams(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.cloudwatch.client')
       input = Params::ListMetricStreamsInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::ListMetricStreams.build(config)
       context = Hearth::Context.new(
@@ -1503,15 +1592,18 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :list_metric_streams,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_metric_streams] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_metric_streams] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::ListMetricStreams.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_metric_streams] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_metric_streams] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_metric_streams] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_metric_streams] #{output.data}")
-      output
     end
 
     # <p>List the specified metrics. You can use the returned metrics with <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html">GetMetricData</a> or <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html">GetMetricStatistics</a> to get statistical data.</p>
@@ -1565,6 +1657,7 @@ module AWS::SDK::CloudWatch
     def list_metrics(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.cloudwatch.client')
       input = Params::ListMetricsInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::ListMetrics.build(config)
       context = Hearth::Context.new(
@@ -1572,15 +1665,18 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :list_metrics,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_metrics] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_metrics] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::ListMetrics.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_metrics] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_metrics] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_metrics] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_metrics] #{output.data}")
-      output
     end
 
     # <p>Displays the tags associated with a CloudWatch resource. Currently, alarms
@@ -1605,6 +1701,7 @@ module AWS::SDK::CloudWatch
     def list_tags_for_resource(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.cloudwatch.client')
       input = Params::ListTagsForResourceInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::ListTagsForResource.build(config)
       context = Hearth::Context.new(
@@ -1612,15 +1709,18 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :list_tags_for_resource,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_tags_for_resource] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_tags_for_resource] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::ListTagsForResource.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_tags_for_resource] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_tags_for_resource] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_tags_for_resource] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_tags_for_resource] #{output.data}")
-      output
     end
 
     # <p>Creates an anomaly detection model for a CloudWatch metric. You can use the model
@@ -1685,6 +1785,7 @@ module AWS::SDK::CloudWatch
     def put_anomaly_detector(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.cloudwatch.client')
       input = Params::PutAnomalyDetectorInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::PutAnomalyDetector.build(config)
       context = Hearth::Context.new(
@@ -1692,15 +1793,18 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_anomaly_detector,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_anomaly_detector] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_anomaly_detector] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::PutAnomalyDetector.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_anomaly_detector] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_anomaly_detector] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_anomaly_detector] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_anomaly_detector] #{output.data}")
-      output
     end
 
     # <p>Creates or updates a <i>composite alarm</i>. When you create a composite
@@ -1773,6 +1877,7 @@ module AWS::SDK::CloudWatch
     def put_composite_alarm(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.cloudwatch.client')
       input = Params::PutCompositeAlarmInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::PutCompositeAlarm.build(config)
       context = Hearth::Context.new(
@@ -1780,15 +1885,18 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_composite_alarm,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_composite_alarm] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_composite_alarm] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::PutCompositeAlarm.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_composite_alarm] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_composite_alarm] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_composite_alarm] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_composite_alarm] #{output.data}")
-      output
     end
 
     # <p>Creates a dashboard if it does not already exist, or updates an existing dashboard. If you update a dashboard,
@@ -1826,6 +1934,7 @@ module AWS::SDK::CloudWatch
     def put_dashboard(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.cloudwatch.client')
       input = Params::PutDashboardInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::PutDashboard.build(config)
       context = Hearth::Context.new(
@@ -1833,15 +1942,18 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_dashboard,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_dashboard] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_dashboard] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::PutDashboard.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_dashboard] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_dashboard] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_dashboard] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_dashboard] #{output.data}")
-      output
     end
 
     # <p>Creates a Contributor Insights rule. Rules evaluate log events in a
@@ -1873,6 +1985,7 @@ module AWS::SDK::CloudWatch
     def put_insight_rule(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.cloudwatch.client')
       input = Params::PutInsightRuleInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::PutInsightRule.build(config)
       context = Hearth::Context.new(
@@ -1880,15 +1993,18 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_insight_rule,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_insight_rule] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_insight_rule] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::PutInsightRule.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_insight_rule] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_insight_rule] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_insight_rule] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_insight_rule] #{output.data}")
-      output
     end
 
     # <p>
@@ -1941,6 +2057,7 @@ module AWS::SDK::CloudWatch
     def put_managed_insight_rules(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.cloudwatch.client')
       input = Params::PutManagedInsightRulesInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::PutManagedInsightRules.build(config)
       context = Hearth::Context.new(
@@ -1948,15 +2065,18 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_managed_insight_rules,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_managed_insight_rules] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_managed_insight_rules] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::PutManagedInsightRules.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_managed_insight_rules] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_managed_insight_rules] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_managed_insight_rules] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_managed_insight_rules] #{output.data}")
-      output
     end
 
     # <p>Creates or updates an alarm and associates it with the specified metric, metric math expression,
@@ -2077,6 +2197,7 @@ module AWS::SDK::CloudWatch
     def put_metric_alarm(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.cloudwatch.client')
       input = Params::PutMetricAlarmInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::PutMetricAlarm.build(config)
       context = Hearth::Context.new(
@@ -2084,15 +2205,18 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_metric_alarm,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_metric_alarm] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_metric_alarm] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::PutMetricAlarm.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_metric_alarm] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_metric_alarm] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_metric_alarm] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_metric_alarm] #{output.data}")
-      output
     end
 
     # <p>Publishes metric data points to Amazon CloudWatch. CloudWatch associates
@@ -2181,6 +2305,7 @@ module AWS::SDK::CloudWatch
     def put_metric_data(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.cloudwatch.client')
       input = Params::PutMetricDataInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::PutMetricData.build(config)
       context = Hearth::Context.new(
@@ -2188,15 +2313,18 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_metric_data,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_metric_data] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_metric_data] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::PutMetricData.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_metric_data] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_metric_data] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_metric_data] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_metric_data] #{output.data}")
-      output
     end
 
     # <p>Creates or updates a metric stream. Metric streams can automatically stream CloudWatch
@@ -2281,6 +2409,7 @@ module AWS::SDK::CloudWatch
     def put_metric_stream(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.cloudwatch.client')
       input = Params::PutMetricStreamInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::PutMetricStream.build(config)
       context = Hearth::Context.new(
@@ -2288,15 +2417,18 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_metric_stream,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_metric_stream] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_metric_stream] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::PutMetricStream.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_metric_stream] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_metric_stream] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_metric_stream] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_metric_stream] #{output.data}")
-      output
     end
 
     # <p>Temporarily sets the state of an alarm for testing purposes. When the updated
@@ -2334,6 +2466,7 @@ module AWS::SDK::CloudWatch
     def set_alarm_state(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.cloudwatch.client')
       input = Params::SetAlarmStateInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::SetAlarmState.build(config)
       context = Hearth::Context.new(
@@ -2341,15 +2474,18 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :set_alarm_state,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#set_alarm_state] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#set_alarm_state] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::SetAlarmState.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#set_alarm_state] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#set_alarm_state] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#set_alarm_state] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#set_alarm_state] #{output.data}")
-      output
     end
 
     # <p>Starts the streaming of metrics for one or more of your metric streams.</p>
@@ -2371,6 +2507,7 @@ module AWS::SDK::CloudWatch
     def start_metric_streams(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.cloudwatch.client')
       input = Params::StartMetricStreamsInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::StartMetricStreams.build(config)
       context = Hearth::Context.new(
@@ -2378,15 +2515,18 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :start_metric_streams,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_metric_streams] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#start_metric_streams] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::StartMetricStreams.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_metric_streams] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#start_metric_streams] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_metric_streams] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_metric_streams] #{output.data}")
-      output
     end
 
     # <p>Stops the streaming of metrics for one or more of your metric streams.</p>
@@ -2408,6 +2548,7 @@ module AWS::SDK::CloudWatch
     def stop_metric_streams(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.cloudwatch.client')
       input = Params::StopMetricStreamsInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::StopMetricStreams.build(config)
       context = Hearth::Context.new(
@@ -2415,15 +2556,18 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :stop_metric_streams,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#stop_metric_streams] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#stop_metric_streams] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::StopMetricStreams.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#stop_metric_streams] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#stop_metric_streams] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#stop_metric_streams] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#stop_metric_streams] #{output.data}")
-      output
     end
 
     # <p>Assigns one or more tags (key-value pairs) to the specified CloudWatch resource. Currently, the only CloudWatch resources that
@@ -2459,6 +2603,7 @@ module AWS::SDK::CloudWatch
     def tag_resource(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.cloudwatch.client')
       input = Params::TagResourceInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::TagResource.build(config)
       context = Hearth::Context.new(
@@ -2466,15 +2611,18 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :tag_resource,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#tag_resource] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#tag_resource] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::TagResource.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#tag_resource] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#tag_resource] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#tag_resource] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#tag_resource] #{output.data}")
-      output
     end
 
     # <p>Removes one or more tags from the specified resource.</p>
@@ -2497,6 +2645,7 @@ module AWS::SDK::CloudWatch
     def untag_resource(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.cloudwatch.client')
       input = Params::UntagResourceInput.build(params, context: 'params')
       stack = AWS::SDK::CloudWatch::Middleware::UntagResource.build(config)
       context = Hearth::Context.new(
@@ -2504,15 +2653,18 @@ module AWS::SDK::CloudWatch
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :untag_resource,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#untag_resource] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#untag_resource] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::UntagResource.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#untag_resource] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#untag_resource] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#untag_resource] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#untag_resource] #{output.data}")
-      output
     end
   end
 end

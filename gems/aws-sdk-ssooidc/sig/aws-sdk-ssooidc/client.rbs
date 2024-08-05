@@ -29,6 +29,7 @@ module AWS::SDK::SSOOIDC
         ?retry_strategy: Hearth::_RetryStrategy,
         ?stub_responses: bool,
         ?stubs: Hearth::Stubs,
+        ?telemetry_provider: Hearth::Telemetry::TelemetryProviderBase,
         ?use_dualstack_endpoint: bool,
         ?use_fips_endpoint: bool,
         ?validate_input: bool

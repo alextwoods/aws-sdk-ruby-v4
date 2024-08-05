@@ -280,10 +280,6 @@ module AWS::SDK::S3
         def to_h
           { unknown: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::S3::Types::Unknown #{__getobj__ || 'nil'}>"
-        end
       end
     end
 
@@ -10174,10 +10170,6 @@ module AWS::SDK::S3
         def to_h
           { unknown: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::S3::Types::Unknown #{__getobj__ || 'nil'}>"
-        end
       end
     end
 
@@ -11904,10 +11896,6 @@ module AWS::SDK::S3
 
         def to_h
           { unknown: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::S3::Types::Unknown #{__getobj__ || 'nil'}>"
         end
       end
     end
@@ -15651,10 +15639,6 @@ module AWS::SDK::S3
         def to_h
           { unknown: super(__getobj__) }
         end
-
-        def to_s
-          "#<AWS::SDK::S3::Types::Unknown #{__getobj__ || 'nil'}>"
-        end
       end
     end
 
@@ -16200,10 +16184,6 @@ module AWS::SDK::S3
 
         def to_h
           { unknown: super(__getobj__) }
-        end
-
-        def to_s
-          "#<AWS::SDK::S3::Types::Unknown #{__getobj__ || 'nil'}>"
         end
       end
     end
