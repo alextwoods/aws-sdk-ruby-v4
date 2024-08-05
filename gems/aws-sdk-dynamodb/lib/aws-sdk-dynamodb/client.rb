@@ -133,10 +133,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.consumed_capacity[0].global_secondary_indexes #=> Hash<String, Capacity>
     def batch_execute_statement(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::BatchExecuteStatementInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::BatchExecuteStatement.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::BatchExecuteStatement.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -348,10 +349,11 @@ module AWS::SDK::DynamoDB
     #   }
     def batch_get_item(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::BatchGetItemInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::BatchGetItem.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::BatchGetItem.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -593,10 +595,11 @@ module AWS::SDK::DynamoDB
     #   {}
     def batch_write_item(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::BatchWriteItemInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::BatchWriteItem.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::BatchWriteItem.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -670,10 +673,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.backup_details.backup_expiry_date_time #=> Time
     def create_backup(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::CreateBackupInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::CreateBackup.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::CreateBackup.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -798,10 +802,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.global_table_description.global_table_name #=> String
     def create_global_table(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::CreateGlobalTableInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::CreateGlobalTable.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::CreateGlobalTable.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -985,10 +990,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.table_description.deletion_protection_enabled #=> Boolean
     def create_table(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::CreateTableInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::CreateTable.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::CreateTable.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1076,10 +1082,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.backup_description.source_table_feature_details.sse_description.inaccessible_encryption_date_time #=> Time
     def delete_backup(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::DeleteBackupInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::DeleteBackup.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::DeleteBackup.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1210,10 +1217,11 @@ module AWS::SDK::DynamoDB
     #   }
     def delete_item(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::DeleteItemInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::DeleteItem.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::DeleteItem.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1377,10 +1385,11 @@ module AWS::SDK::DynamoDB
     #   }
     def delete_table(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::DeleteTableInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::DeleteTable.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::DeleteTable.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1468,10 +1477,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.backup_description.source_table_feature_details.sse_description.inaccessible_encryption_date_time #=> Time
     def describe_backup(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::DescribeBackupInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::DescribeBackup.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::DescribeBackup.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1524,10 +1534,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.continuous_backups_description.point_in_time_recovery_description.latest_restorable_date_time #=> Time
     def describe_continuous_backups(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::DescribeContinuousBackupsInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::DescribeContinuousBackups.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::DescribeContinuousBackups.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1574,10 +1585,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.failure_exception.exception_description #=> String
     def describe_contributor_insights(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::DescribeContributorInsightsInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::DescribeContributorInsights.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::DescribeContributorInsights.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1616,10 +1628,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.endpoints[0].cache_period_in_minutes #=> Integer
     def describe_endpoints(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::DescribeEndpointsInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::DescribeEndpoints.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::DescribeEndpoints.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1680,10 +1693,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.export_description.incremental_export_specification.export_view_type #=> String, one of ["NEW_IMAGE", "NEW_AND_OLD_IMAGES"]
     def describe_export(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::DescribeExportInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::DescribeExport.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::DescribeExport.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1753,10 +1767,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.global_table_description.global_table_name #=> String
     def describe_global_table(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::DescribeGlobalTableInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::DescribeGlobalTable.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::DescribeGlobalTable.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1839,10 +1854,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.replica_settings[0].replica_table_class_summary.last_update_date_time #=> Time
     def describe_global_table_settings(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::DescribeGlobalTableSettingsInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::DescribeGlobalTableSettings.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::DescribeGlobalTableSettings.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1931,10 +1947,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.import_table_description.failure_message #=> String
     def describe_import(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::DescribeImportInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::DescribeImport.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::DescribeImport.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1977,10 +1994,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.kinesis_data_stream_destinations[0].approximate_creation_date_time_precision #=> String, one of ["MILLISECOND", "MICROSECOND"]
     def describe_kinesis_streaming_destination(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::DescribeKinesisStreamingDestinationInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::DescribeKinesisStreamingDestination.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::DescribeKinesisStreamingDestination.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2097,10 +2115,11 @@ module AWS::SDK::DynamoDB
     #   }
     def describe_limits(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::DescribeLimitsInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::DescribeLimits.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::DescribeLimits.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2236,10 +2255,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.table.deletion_protection_enabled #=> Boolean
     def describe_table(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::DescribeTableInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::DescribeTable.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::DescribeTable.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2306,10 +2326,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.table_auto_scaling_description.replicas[0].replica_status #=> String, one of ["CREATING", "CREATION_FAILED", "UPDATING", "DELETING", "ACTIVE", "REGION_DISABLED", "INACCESSIBLE_ENCRYPTION_CREDENTIALS"]
     def describe_table_replica_auto_scaling(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::DescribeTableReplicaAutoScalingInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::DescribeTableReplicaAutoScaling.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::DescribeTableReplicaAutoScaling.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2348,10 +2369,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.time_to_live_description.attribute_name #=> String
     def describe_time_to_live(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::DescribeTimeToLiveInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::DescribeTimeToLive.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::DescribeTimeToLive.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2397,10 +2419,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.enable_kinesis_streaming_configuration.approximate_creation_date_time_precision #=> String, one of ["MILLISECOND", "MICROSECOND"]
     def disable_kinesis_streaming_destination(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::DisableKinesisStreamingDestinationInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::DisableKinesisStreamingDestination.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::DisableKinesisStreamingDestination.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2448,10 +2471,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.enable_kinesis_streaming_configuration.approximate_creation_date_time_precision #=> String, one of ["MILLISECOND", "MICROSECOND"]
     def enable_kinesis_streaming_destination(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::EnableKinesisStreamingDestinationInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::EnableKinesisStreamingDestination.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::EnableKinesisStreamingDestination.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2552,10 +2576,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.last_evaluated_key #=> Hash<String, AttributeValue>
     def execute_statement(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::ExecuteStatementInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::ExecuteStatement.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::ExecuteStatement.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2653,10 +2678,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.consumed_capacity[0].global_secondary_indexes #=> Hash<String, Capacity>
     def execute_transaction(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::ExecuteTransactionInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::ExecuteTransaction.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::ExecuteTransaction.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2733,10 +2759,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.export_description.incremental_export_specification.export_view_type #=> String, one of ["NEW_IMAGE", "NEW_AND_OLD_IMAGES"]
     def export_table_to_point_in_time(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::ExportTableToPointInTimeInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::ExportTableToPointInTime.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::ExportTableToPointInTime.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2861,10 +2888,11 @@ module AWS::SDK::DynamoDB
     #   }
     def get_item(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::GetItemInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::GetItem.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::GetItem.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3004,10 +3032,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.import_table_description.failure_message #=> String
     def import_table(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::ImportTableInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::ImportTable.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::ImportTable.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3070,10 +3099,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.last_evaluated_backup_arn #=> String
     def list_backups(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::ListBackupsInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::ListBackups.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::ListBackups.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3118,10 +3148,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.next_token #=> String
     def list_contributor_insights(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::ListContributorInsightsInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::ListContributorInsights.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::ListContributorInsights.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3165,10 +3196,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.next_token #=> String
     def list_exports(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::ListExportsInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::ListExports.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::ListExports.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3225,10 +3257,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.last_evaluated_global_table_name #=> String
     def list_global_tables(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::ListGlobalTablesInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::ListGlobalTables.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::ListGlobalTables.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3280,10 +3313,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.next_token #=> String
     def list_imports(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::ListImportsInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::ListImports.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::ListImports.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3337,10 +3371,11 @@ module AWS::SDK::DynamoDB
     #   }
     def list_tables(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::ListTablesInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::ListTables.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::ListTables.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3385,10 +3420,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.next_token #=> String
     def list_tags_of_resource(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::ListTagsOfResourceInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::ListTagsOfResource.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::ListTagsOfResource.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3534,10 +3570,11 @@ module AWS::SDK::DynamoDB
     #   }
     def put_item(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::PutItemInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::PutItem.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::PutItem.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3719,10 +3756,11 @@ module AWS::SDK::DynamoDB
     #   }
     def query(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::QueryInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::Query.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::Query.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3901,10 +3939,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.table_description.deletion_protection_enabled #=> Boolean
     def restore_table_from_backup(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::RestoreTableFromBackupInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::RestoreTableFromBackup.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::RestoreTableFromBackup.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4111,10 +4150,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.table_description.deletion_protection_enabled #=> Boolean
     def restore_table_to_point_in_time(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::RestoreTableToPointInTimeInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::RestoreTableToPointInTime.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::RestoreTableToPointInTime.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4302,10 +4342,11 @@ module AWS::SDK::DynamoDB
     #   }
     def scan(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::ScanInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::Scan.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::Scan.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4352,10 +4393,11 @@ module AWS::SDK::DynamoDB
     #   resp.data #=> Types::TagResourceOutput
     def tag_resource(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::TagResourceInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::TagResource.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::TagResource.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4476,10 +4518,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.responses[0].item['key'].bool #=> Boolean
     def transact_get_items(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::TransactGetItemsInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::TransactGetItems.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::TransactGetItems.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4668,10 +4711,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.item_collection_metrics['key'][0].size_estimate_range_gb[0] #=> Float
     def transact_write_items(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::TransactWriteItemsInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::TransactWriteItems.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::TransactWriteItems.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4713,10 +4757,11 @@ module AWS::SDK::DynamoDB
     #   resp.data #=> Types::UntagResourceOutput
     def untag_resource(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::UntagResourceInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::UntagResource.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::UntagResource.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4772,10 +4817,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.continuous_backups_description.point_in_time_recovery_description.latest_restorable_date_time #=> Time
     def update_continuous_backups(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::UpdateContinuousBackupsInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::UpdateContinuousBackups.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::UpdateContinuousBackups.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4822,10 +4868,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.contributor_insights_status #=> String, one of ["ENABLING", "ENABLED", "DISABLING", "DISABLED", "FAILED"]
     def update_contributor_insights(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::UpdateContributorInsightsInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::UpdateContributorInsights.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::UpdateContributorInsights.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4935,10 +4982,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.global_table_description.global_table_name #=> String
     def update_global_table(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::UpdateGlobalTableInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::UpdateGlobalTable.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::UpdateGlobalTable.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5057,10 +5105,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.replica_settings[0].replica_table_class_summary.last_update_date_time #=> Time
     def update_global_table_settings(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::UpdateGlobalTableSettingsInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::UpdateGlobalTableSettings.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::UpdateGlobalTableSettings.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5217,10 +5266,11 @@ module AWS::SDK::DynamoDB
     #   }
     def update_item(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::UpdateItemInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::UpdateItem.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::UpdateItem.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5265,10 +5315,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.update_kinesis_streaming_configuration.approximate_creation_date_time_precision #=> String, one of ["MILLISECOND", "MICROSECOND"]
     def update_kinesis_streaming_destination(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::UpdateKinesisStreamingDestinationInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::UpdateKinesisStreamingDestination.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::UpdateKinesisStreamingDestination.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5491,10 +5542,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.table_description.deletion_protection_enabled #=> Boolean
     def update_table(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::UpdateTableInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::UpdateTable.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::UpdateTable.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5592,10 +5644,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.table_auto_scaling_description.replicas[0].replica_status #=> String, one of ["CREATING", "CREATION_FAILED", "UPDATING", "DELETING", "ACTIVE", "REGION_DISABLED", "INACCESSIBLE_ENCRYPTION_CREDENTIALS"]
     def update_table_replica_auto_scaling(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::UpdateTableReplicaAutoScalingInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::UpdateTableReplicaAutoScaling.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::UpdateTableReplicaAutoScaling.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5662,10 +5715,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.time_to_live_specification.attribute_name #=> String
     def update_time_to_live(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.dynamodb.client')
       input = Params::UpdateTimeToLiveInput.build(params, context: 'params')
-      stack = AWS::SDK::DynamoDB::Middleware::UpdateTimeToLive.build(config)
+      stack = AWS::SDK::DynamoDB::Middleware::UpdateTimeToLive.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),

@@ -36,6 +36,7 @@ val smithyRubyVersion: String by project
 dependencies {
     api("software.amazon.smithy.ruby:smithy-ruby-codegen:$smithyRubyVersion")
     api("software.amazon.smithy:smithy-aws-traits:$smithyVersion")
+    api("software.amazon.smithy:smithy-rules-engine:$smithyVersion")
     api("software.amazon.smithy:smithy-aws-endpoints:$smithyVersion")
     // services
     api("software.amazon.smithy:smithy-aws-iam-traits:$smithyVersion")

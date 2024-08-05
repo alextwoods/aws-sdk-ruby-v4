@@ -34,6 +34,7 @@ import software.amazon.smithy.model.shapes.StringShape;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.TimestampShape;
 import software.amazon.smithy.model.shapes.UnionShape;
+import software.amazon.smithy.model.traits.EventHeaderTrait;
 import software.amazon.smithy.model.traits.HttpHeaderTrait;
 import software.amazon.smithy.model.traits.HttpPrefixHeadersTrait;
 import software.amazon.smithy.model.traits.HttpResponseCodeTrait;
@@ -61,9 +62,8 @@ public class ParserGenerator extends ParserGeneratorBase {
                 .write("data = $T.new", context.symbolProvider().toSymbol(shape))
                 .write("body = http_resp.body.read")
                 .write("return data if body.empty?")
-                .write("xml = $T.parse(body)", Hearth.XML);
-        renderMemberParsers(shape);
-        writer
+                .write("xml = $T.parse(body)", Hearth.XML)
+                .call(() -> renderMemberParsers(shape))
                 .write("data")
                 .closeBlock("end");
     }
@@ -82,10 +82,25 @@ public class ParserGenerator extends ParserGeneratorBase {
                 .closeBlock("end");
     }
 
+    @Override
+    protected void renderEventImplicitStructurePayloadParser(StructureShape event) {
+        writer.write("xml = $T.parse(payload)", Hearth.XML);
+        renderMemberParsers(event);
+    }
+
+    @Override
+    protected void renderEventExplicitStructurePayloadParser(MemberShape payloadMember, StructureShape shape) {
+        String dataName = symbolProvider.toMemberName(payloadMember);
+        String dataSetter = "data." + dataName + " = ";
+
+        writer.write("node = xml = $T.parse(payload)", Hearth.XML);
+        shape.accept(new MemberDeserializer(payloadMember, dataSetter));
+    }
+
     private void renderMemberParsers(Shape s) {
         Stream<MemberShape> parseMembers = s.members().stream()
                 .filter((m) -> !m.hasTrait(HttpHeaderTrait.class) && !m.hasTrait(HttpPrefixHeadersTrait.class)
-                        && !m.hasTrait(HttpResponseCodeTrait.class));
+                        && !m.hasTrait(HttpResponseCodeTrait.class) && !m.hasTrait(EventHeaderTrait.class));
         parseMembers = parseMembers.filter(NoSerializeTrait.excludeNoSerializeMembers());
 
         parseMembers.forEach((member) -> {

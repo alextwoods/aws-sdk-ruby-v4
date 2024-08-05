@@ -14,7 +14,7 @@ module AWS::SDK::EC2
   module Middleware
 
     class AcceptAddressTransfer
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -43,7 +43,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::AcceptAddressTransfer,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -65,7 +67,7 @@ module AWS::SDK::EC2
     end
 
     class AcceptReservedInstancesExchangeQuote
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -94,7 +96,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::AcceptReservedInstancesExchangeQuote,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -116,7 +120,7 @@ module AWS::SDK::EC2
     end
 
     class AcceptTransitGatewayMulticastDomainAssociations
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -145,7 +149,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::AcceptTransitGatewayMulticastDomainAssociations,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -167,7 +173,7 @@ module AWS::SDK::EC2
     end
 
     class AcceptTransitGatewayPeeringAttachment
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -196,7 +202,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::AcceptTransitGatewayPeeringAttachment,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -218,7 +226,7 @@ module AWS::SDK::EC2
     end
 
     class AcceptTransitGatewayVpcAttachment
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -247,7 +255,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::AcceptTransitGatewayVpcAttachment,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -269,7 +279,7 @@ module AWS::SDK::EC2
     end
 
     class AcceptVpcEndpointConnections
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -298,7 +308,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::AcceptVpcEndpointConnections,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -320,7 +332,7 @@ module AWS::SDK::EC2
     end
 
     class AcceptVpcPeeringConnection
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -349,7 +361,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::AcceptVpcPeeringConnection,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -371,7 +385,7 @@ module AWS::SDK::EC2
     end
 
     class AdvertiseByoipCidr
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -400,7 +414,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::AdvertiseByoipCidr,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -422,7 +438,7 @@ module AWS::SDK::EC2
     end
 
     class AllocateAddress
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -451,7 +467,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::AllocateAddress,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -473,7 +491,7 @@ module AWS::SDK::EC2
     end
 
     class AllocateHosts
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -502,7 +520,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::AllocateHosts,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -524,7 +544,7 @@ module AWS::SDK::EC2
     end
 
     class AllocateIpamPoolCidr
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -553,7 +573,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::AllocateIpamPoolCidr,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -575,7 +597,7 @@ module AWS::SDK::EC2
     end
 
     class ApplySecurityGroupsToClientVpnTargetNetwork
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -604,7 +626,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ApplySecurityGroupsToClientVpnTargetNetwork,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -626,7 +650,7 @@ module AWS::SDK::EC2
     end
 
     class AssignIpv6Addresses
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -655,7 +679,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::AssignIpv6Addresses,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -677,7 +703,7 @@ module AWS::SDK::EC2
     end
 
     class AssignPrivateIpAddresses
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -706,7 +732,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::AssignPrivateIpAddresses,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -728,7 +756,7 @@ module AWS::SDK::EC2
     end
 
     class AssignPrivateNatGatewayAddress
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -757,7 +785,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::AssignPrivateNatGatewayAddress,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -779,7 +809,7 @@ module AWS::SDK::EC2
     end
 
     class AssociateAddress
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -808,7 +838,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::AssociateAddress,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -830,7 +862,7 @@ module AWS::SDK::EC2
     end
 
     class AssociateClientVpnTargetNetwork
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -859,7 +891,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::AssociateClientVpnTargetNetwork,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -881,7 +915,7 @@ module AWS::SDK::EC2
     end
 
     class AssociateDhcpOptions
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -910,7 +944,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::AssociateDhcpOptions,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -932,7 +968,7 @@ module AWS::SDK::EC2
     end
 
     class AssociateEnclaveCertificateIamRole
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -961,7 +997,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::AssociateEnclaveCertificateIamRole,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -983,7 +1021,7 @@ module AWS::SDK::EC2
     end
 
     class AssociateIamInstanceProfile
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1012,7 +1050,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::AssociateIamInstanceProfile,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1034,7 +1074,7 @@ module AWS::SDK::EC2
     end
 
     class AssociateInstanceEventWindow
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1063,7 +1103,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::AssociateInstanceEventWindow,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1085,7 +1127,7 @@ module AWS::SDK::EC2
     end
 
     class AssociateIpamByoasn
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1114,7 +1156,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::AssociateIpamByoasn,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1136,7 +1180,7 @@ module AWS::SDK::EC2
     end
 
     class AssociateIpamResourceDiscovery
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1165,7 +1209,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::AssociateIpamResourceDiscovery,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1187,7 +1233,7 @@ module AWS::SDK::EC2
     end
 
     class AssociateNatGatewayAddress
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1216,7 +1262,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::AssociateNatGatewayAddress,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1238,7 +1286,7 @@ module AWS::SDK::EC2
     end
 
     class AssociateRouteTable
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1267,7 +1315,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::AssociateRouteTable,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1289,7 +1339,7 @@ module AWS::SDK::EC2
     end
 
     class AssociateSubnetCidrBlock
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1318,7 +1368,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::AssociateSubnetCidrBlock,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1340,7 +1392,7 @@ module AWS::SDK::EC2
     end
 
     class AssociateTransitGatewayMulticastDomain
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1369,7 +1421,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::AssociateTransitGatewayMulticastDomain,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1391,7 +1445,7 @@ module AWS::SDK::EC2
     end
 
     class AssociateTransitGatewayPolicyTable
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1420,7 +1474,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::AssociateTransitGatewayPolicyTable,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1442,7 +1498,7 @@ module AWS::SDK::EC2
     end
 
     class AssociateTransitGatewayRouteTable
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1471,7 +1527,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::AssociateTransitGatewayRouteTable,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1493,7 +1551,7 @@ module AWS::SDK::EC2
     end
 
     class AssociateTrunkInterface
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1522,7 +1580,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::AssociateTrunkInterface,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1544,7 +1604,7 @@ module AWS::SDK::EC2
     end
 
     class AssociateVpcCidrBlock
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1573,7 +1633,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::AssociateVpcCidrBlock,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1595,7 +1657,7 @@ module AWS::SDK::EC2
     end
 
     class AttachClassicLinkVpc
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1624,7 +1686,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::AttachClassicLinkVpc,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1646,7 +1710,7 @@ module AWS::SDK::EC2
     end
 
     class AttachInternetGateway
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1675,7 +1739,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::AttachInternetGateway,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1697,7 +1763,7 @@ module AWS::SDK::EC2
     end
 
     class AttachNetworkInterface
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1726,7 +1792,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::AttachNetworkInterface,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1748,7 +1816,7 @@ module AWS::SDK::EC2
     end
 
     class AttachVerifiedAccessTrustProvider
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1777,7 +1845,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::AttachVerifiedAccessTrustProvider,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1799,7 +1869,7 @@ module AWS::SDK::EC2
     end
 
     class AttachVolume
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1828,7 +1898,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::AttachVolume,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1850,7 +1922,7 @@ module AWS::SDK::EC2
     end
 
     class AttachVpnGateway
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1879,7 +1951,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::AttachVpnGateway,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1901,7 +1975,7 @@ module AWS::SDK::EC2
     end
 
     class AuthorizeClientVpnIngress
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1930,7 +2004,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::AuthorizeClientVpnIngress,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1952,7 +2028,7 @@ module AWS::SDK::EC2
     end
 
     class AuthorizeSecurityGroupEgress
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1981,7 +2057,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::AuthorizeSecurityGroupEgress,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2003,7 +2081,7 @@ module AWS::SDK::EC2
     end
 
     class AuthorizeSecurityGroupIngress
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2032,7 +2110,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::AuthorizeSecurityGroupIngress,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2054,7 +2134,7 @@ module AWS::SDK::EC2
     end
 
     class BundleInstance
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2083,7 +2163,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::BundleInstance,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2105,7 +2187,7 @@ module AWS::SDK::EC2
     end
 
     class CancelBundleTask
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2134,7 +2216,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CancelBundleTask,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2156,7 +2240,7 @@ module AWS::SDK::EC2
     end
 
     class CancelCapacityReservation
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2185,7 +2269,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CancelCapacityReservation,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2207,7 +2293,7 @@ module AWS::SDK::EC2
     end
 
     class CancelCapacityReservationFleets
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2236,7 +2322,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CancelCapacityReservationFleets,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2258,7 +2346,7 @@ module AWS::SDK::EC2
     end
 
     class CancelConversionTask
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2287,7 +2375,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CancelConversionTask,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2309,7 +2399,7 @@ module AWS::SDK::EC2
     end
 
     class CancelExportTask
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2338,7 +2428,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CancelExportTask,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2360,7 +2452,7 @@ module AWS::SDK::EC2
     end
 
     class CancelImageLaunchPermission
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2389,7 +2481,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CancelImageLaunchPermission,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2411,7 +2505,7 @@ module AWS::SDK::EC2
     end
 
     class CancelImportTask
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2440,7 +2534,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CancelImportTask,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2462,7 +2558,7 @@ module AWS::SDK::EC2
     end
 
     class CancelReservedInstancesListing
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2491,7 +2587,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CancelReservedInstancesListing,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2513,7 +2611,7 @@ module AWS::SDK::EC2
     end
 
     class CancelSpotFleetRequests
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2542,7 +2640,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CancelSpotFleetRequests,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2564,7 +2664,7 @@ module AWS::SDK::EC2
     end
 
     class CancelSpotInstanceRequests
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2593,7 +2693,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CancelSpotInstanceRequests,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2615,7 +2717,7 @@ module AWS::SDK::EC2
     end
 
     class ConfirmProductInstance
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2644,7 +2746,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ConfirmProductInstance,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2666,7 +2770,7 @@ module AWS::SDK::EC2
     end
 
     class CopyFpgaImage
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2695,7 +2799,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CopyFpgaImage,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2717,7 +2823,7 @@ module AWS::SDK::EC2
     end
 
     class CopyImage
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2746,7 +2852,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CopyImage,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2768,7 +2876,7 @@ module AWS::SDK::EC2
     end
 
     class CopySnapshot
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2797,7 +2905,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CopySnapshot,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2819,7 +2929,7 @@ module AWS::SDK::EC2
     end
 
     class CreateCapacityReservation
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2848,7 +2958,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateCapacityReservation,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2870,7 +2982,7 @@ module AWS::SDK::EC2
     end
 
     class CreateCapacityReservationFleet
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2899,7 +3011,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateCapacityReservationFleet,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2921,7 +3035,7 @@ module AWS::SDK::EC2
     end
 
     class CreateCarrierGateway
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2950,7 +3064,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateCarrierGateway,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2972,7 +3088,7 @@ module AWS::SDK::EC2
     end
 
     class CreateClientVpnEndpoint
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3001,7 +3117,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateClientVpnEndpoint,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -3023,7 +3141,7 @@ module AWS::SDK::EC2
     end
 
     class CreateClientVpnRoute
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3052,7 +3170,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateClientVpnRoute,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -3074,7 +3194,7 @@ module AWS::SDK::EC2
     end
 
     class CreateCoipCidr
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3103,7 +3223,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateCoipCidr,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -3125,7 +3247,7 @@ module AWS::SDK::EC2
     end
 
     class CreateCoipPool
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3154,7 +3276,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateCoipPool,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -3176,7 +3300,7 @@ module AWS::SDK::EC2
     end
 
     class CreateCustomerGateway
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3205,7 +3329,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateCustomerGateway,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -3227,7 +3353,7 @@ module AWS::SDK::EC2
     end
 
     class CreateDefaultSubnet
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3256,7 +3382,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateDefaultSubnet,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -3278,7 +3406,7 @@ module AWS::SDK::EC2
     end
 
     class CreateDefaultVpc
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3307,7 +3435,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateDefaultVpc,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -3329,7 +3459,7 @@ module AWS::SDK::EC2
     end
 
     class CreateDhcpOptions
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3358,7 +3488,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateDhcpOptions,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -3380,7 +3512,7 @@ module AWS::SDK::EC2
     end
 
     class CreateEgressOnlyInternetGateway
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3409,7 +3541,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateEgressOnlyInternetGateway,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -3431,7 +3565,7 @@ module AWS::SDK::EC2
     end
 
     class CreateFleet
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3460,7 +3594,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateFleet,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -3482,7 +3618,7 @@ module AWS::SDK::EC2
     end
 
     class CreateFlowLogs
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3511,7 +3647,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateFlowLogs,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -3533,7 +3671,7 @@ module AWS::SDK::EC2
     end
 
     class CreateFpgaImage
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3562,7 +3700,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateFpgaImage,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -3584,7 +3724,7 @@ module AWS::SDK::EC2
     end
 
     class CreateImage
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3613,7 +3753,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateImage,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -3635,7 +3777,7 @@ module AWS::SDK::EC2
     end
 
     class CreateInstanceConnectEndpoint
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3664,7 +3806,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateInstanceConnectEndpoint,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -3686,7 +3830,7 @@ module AWS::SDK::EC2
     end
 
     class CreateInstanceEventWindow
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3715,7 +3859,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateInstanceEventWindow,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -3737,7 +3883,7 @@ module AWS::SDK::EC2
     end
 
     class CreateInstanceExportTask
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3766,7 +3912,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateInstanceExportTask,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -3788,7 +3936,7 @@ module AWS::SDK::EC2
     end
 
     class CreateInternetGateway
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3817,7 +3965,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateInternetGateway,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -3839,7 +3989,7 @@ module AWS::SDK::EC2
     end
 
     class CreateIpam
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3868,7 +4018,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateIpam,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -3890,7 +4042,7 @@ module AWS::SDK::EC2
     end
 
     class CreateIpamPool
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3919,7 +4071,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateIpamPool,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -3941,7 +4095,7 @@ module AWS::SDK::EC2
     end
 
     class CreateIpamResourceDiscovery
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -3970,7 +4124,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateIpamResourceDiscovery,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -3992,7 +4148,7 @@ module AWS::SDK::EC2
     end
 
     class CreateIpamScope
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4021,7 +4177,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateIpamScope,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -4043,7 +4201,7 @@ module AWS::SDK::EC2
     end
 
     class CreateKeyPair
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4072,7 +4230,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateKeyPair,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -4094,7 +4254,7 @@ module AWS::SDK::EC2
     end
 
     class CreateLaunchTemplate
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4123,7 +4283,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateLaunchTemplate,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -4145,7 +4307,7 @@ module AWS::SDK::EC2
     end
 
     class CreateLaunchTemplateVersion
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4174,7 +4336,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateLaunchTemplateVersion,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -4196,7 +4360,7 @@ module AWS::SDK::EC2
     end
 
     class CreateLocalGatewayRoute
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4225,7 +4389,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateLocalGatewayRoute,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -4247,7 +4413,7 @@ module AWS::SDK::EC2
     end
 
     class CreateLocalGatewayRouteTable
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4276,7 +4442,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateLocalGatewayRouteTable,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -4298,7 +4466,7 @@ module AWS::SDK::EC2
     end
 
     class CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4327,7 +4495,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -4349,7 +4519,7 @@ module AWS::SDK::EC2
     end
 
     class CreateLocalGatewayRouteTableVpcAssociation
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4378,7 +4548,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateLocalGatewayRouteTableVpcAssociation,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -4400,7 +4572,7 @@ module AWS::SDK::EC2
     end
 
     class CreateManagedPrefixList
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4429,7 +4601,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateManagedPrefixList,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -4451,7 +4625,7 @@ module AWS::SDK::EC2
     end
 
     class CreateNatGateway
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4480,7 +4654,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateNatGateway,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -4502,7 +4678,7 @@ module AWS::SDK::EC2
     end
 
     class CreateNetworkAcl
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4531,7 +4707,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateNetworkAcl,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -4553,7 +4731,7 @@ module AWS::SDK::EC2
     end
 
     class CreateNetworkAclEntry
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4582,7 +4760,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateNetworkAclEntry,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -4604,7 +4784,7 @@ module AWS::SDK::EC2
     end
 
     class CreateNetworkInsightsAccessScope
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4633,7 +4813,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateNetworkInsightsAccessScope,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -4655,7 +4837,7 @@ module AWS::SDK::EC2
     end
 
     class CreateNetworkInsightsPath
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4684,7 +4866,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateNetworkInsightsPath,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -4706,7 +4890,7 @@ module AWS::SDK::EC2
     end
 
     class CreateNetworkInterface
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4735,7 +4919,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateNetworkInterface,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -4757,7 +4943,7 @@ module AWS::SDK::EC2
     end
 
     class CreateNetworkInterfacePermission
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4786,7 +4972,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateNetworkInterfacePermission,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -4808,7 +4996,7 @@ module AWS::SDK::EC2
     end
 
     class CreatePlacementGroup
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4837,7 +5025,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreatePlacementGroup,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -4859,7 +5049,7 @@ module AWS::SDK::EC2
     end
 
     class CreatePublicIpv4Pool
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4888,7 +5078,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreatePublicIpv4Pool,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -4910,7 +5102,7 @@ module AWS::SDK::EC2
     end
 
     class CreateReplaceRootVolumeTask
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4939,7 +5131,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateReplaceRootVolumeTask,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -4961,7 +5155,7 @@ module AWS::SDK::EC2
     end
 
     class CreateReservedInstancesListing
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -4990,7 +5184,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateReservedInstancesListing,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -5012,7 +5208,7 @@ module AWS::SDK::EC2
     end
 
     class CreateRestoreImageTask
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5041,7 +5237,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateRestoreImageTask,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -5063,7 +5261,7 @@ module AWS::SDK::EC2
     end
 
     class CreateRoute
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5092,7 +5290,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateRoute,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -5114,7 +5314,7 @@ module AWS::SDK::EC2
     end
 
     class CreateRouteTable
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5143,7 +5343,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateRouteTable,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -5165,7 +5367,7 @@ module AWS::SDK::EC2
     end
 
     class CreateSecurityGroup
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5194,7 +5396,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateSecurityGroup,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -5216,7 +5420,7 @@ module AWS::SDK::EC2
     end
 
     class CreateSnapshot
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5245,7 +5449,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateSnapshot,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -5267,7 +5473,7 @@ module AWS::SDK::EC2
     end
 
     class CreateSnapshots
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5296,7 +5502,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateSnapshots,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -5318,7 +5526,7 @@ module AWS::SDK::EC2
     end
 
     class CreateSpotDatafeedSubscription
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5347,7 +5555,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateSpotDatafeedSubscription,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -5369,7 +5579,7 @@ module AWS::SDK::EC2
     end
 
     class CreateStoreImageTask
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5398,7 +5608,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateStoreImageTask,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -5420,7 +5632,7 @@ module AWS::SDK::EC2
     end
 
     class CreateSubnet
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5449,7 +5661,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateSubnet,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -5471,7 +5685,7 @@ module AWS::SDK::EC2
     end
 
     class CreateSubnetCidrReservation
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5500,7 +5714,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateSubnetCidrReservation,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -5522,7 +5738,7 @@ module AWS::SDK::EC2
     end
 
     class CreateTags
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5551,7 +5767,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateTags,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -5573,7 +5791,7 @@ module AWS::SDK::EC2
     end
 
     class CreateTrafficMirrorFilter
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5602,7 +5820,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateTrafficMirrorFilter,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -5624,7 +5844,7 @@ module AWS::SDK::EC2
     end
 
     class CreateTrafficMirrorFilterRule
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5653,7 +5873,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateTrafficMirrorFilterRule,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -5675,7 +5897,7 @@ module AWS::SDK::EC2
     end
 
     class CreateTrafficMirrorSession
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5704,7 +5926,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateTrafficMirrorSession,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -5726,7 +5950,7 @@ module AWS::SDK::EC2
     end
 
     class CreateTrafficMirrorTarget
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5755,7 +5979,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateTrafficMirrorTarget,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -5777,7 +6003,7 @@ module AWS::SDK::EC2
     end
 
     class CreateTransitGateway
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5806,7 +6032,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateTransitGateway,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -5828,7 +6056,7 @@ module AWS::SDK::EC2
     end
 
     class CreateTransitGatewayConnect
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5857,7 +6085,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateTransitGatewayConnect,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -5879,7 +6109,7 @@ module AWS::SDK::EC2
     end
 
     class CreateTransitGatewayConnectPeer
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5908,7 +6138,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateTransitGatewayConnectPeer,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -5930,7 +6162,7 @@ module AWS::SDK::EC2
     end
 
     class CreateTransitGatewayMulticastDomain
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -5959,7 +6191,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateTransitGatewayMulticastDomain,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -5981,7 +6215,7 @@ module AWS::SDK::EC2
     end
 
     class CreateTransitGatewayPeeringAttachment
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6010,7 +6244,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateTransitGatewayPeeringAttachment,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -6032,7 +6268,7 @@ module AWS::SDK::EC2
     end
 
     class CreateTransitGatewayPolicyTable
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6061,7 +6297,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateTransitGatewayPolicyTable,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -6083,7 +6321,7 @@ module AWS::SDK::EC2
     end
 
     class CreateTransitGatewayPrefixListReference
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6112,7 +6350,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateTransitGatewayPrefixListReference,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -6134,7 +6374,7 @@ module AWS::SDK::EC2
     end
 
     class CreateTransitGatewayRoute
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6163,7 +6403,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateTransitGatewayRoute,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -6185,7 +6427,7 @@ module AWS::SDK::EC2
     end
 
     class CreateTransitGatewayRouteTable
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6214,7 +6456,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateTransitGatewayRouteTable,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -6236,7 +6480,7 @@ module AWS::SDK::EC2
     end
 
     class CreateTransitGatewayRouteTableAnnouncement
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6265,7 +6509,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateTransitGatewayRouteTableAnnouncement,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -6287,7 +6533,7 @@ module AWS::SDK::EC2
     end
 
     class CreateTransitGatewayVpcAttachment
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6316,7 +6562,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateTransitGatewayVpcAttachment,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -6338,7 +6586,7 @@ module AWS::SDK::EC2
     end
 
     class CreateVerifiedAccessEndpoint
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6367,7 +6615,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateVerifiedAccessEndpoint,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -6389,7 +6639,7 @@ module AWS::SDK::EC2
     end
 
     class CreateVerifiedAccessGroup
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6418,7 +6668,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateVerifiedAccessGroup,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -6440,7 +6692,7 @@ module AWS::SDK::EC2
     end
 
     class CreateVerifiedAccessInstance
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6469,7 +6721,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateVerifiedAccessInstance,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -6491,7 +6745,7 @@ module AWS::SDK::EC2
     end
 
     class CreateVerifiedAccessTrustProvider
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6520,7 +6774,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateVerifiedAccessTrustProvider,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -6542,7 +6798,7 @@ module AWS::SDK::EC2
     end
 
     class CreateVolume
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6571,7 +6827,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateVolume,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -6593,7 +6851,7 @@ module AWS::SDK::EC2
     end
 
     class CreateVpc
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6622,7 +6880,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateVpc,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -6644,7 +6904,7 @@ module AWS::SDK::EC2
     end
 
     class CreateVpcEndpoint
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6673,7 +6933,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateVpcEndpoint,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -6695,7 +6957,7 @@ module AWS::SDK::EC2
     end
 
     class CreateVpcEndpointConnectionNotification
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6724,7 +6986,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateVpcEndpointConnectionNotification,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -6746,7 +7010,7 @@ module AWS::SDK::EC2
     end
 
     class CreateVpcEndpointServiceConfiguration
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6775,7 +7039,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateVpcEndpointServiceConfiguration,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -6797,7 +7063,7 @@ module AWS::SDK::EC2
     end
 
     class CreateVpcPeeringConnection
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6826,7 +7092,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateVpcPeeringConnection,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -6848,7 +7116,7 @@ module AWS::SDK::EC2
     end
 
     class CreateVpnConnection
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6877,7 +7145,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateVpnConnection,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -6899,7 +7169,7 @@ module AWS::SDK::EC2
     end
 
     class CreateVpnConnectionRoute
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6928,7 +7198,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateVpnConnectionRoute,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -6950,7 +7222,7 @@ module AWS::SDK::EC2
     end
 
     class CreateVpnGateway
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -6979,7 +7251,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateVpnGateway,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -7001,7 +7275,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteCarrierGateway
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7030,7 +7304,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteCarrierGateway,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -7052,7 +7328,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteClientVpnEndpoint
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7081,7 +7357,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteClientVpnEndpoint,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -7103,7 +7381,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteClientVpnRoute
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7132,7 +7410,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteClientVpnRoute,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -7154,7 +7434,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteCoipCidr
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7183,7 +7463,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteCoipCidr,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -7205,7 +7487,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteCoipPool
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7234,7 +7516,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteCoipPool,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -7256,7 +7540,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteCustomerGateway
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7285,7 +7569,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteCustomerGateway,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -7307,7 +7593,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteDhcpOptions
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7336,7 +7622,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteDhcpOptions,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -7358,7 +7646,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteEgressOnlyInternetGateway
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7387,7 +7675,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteEgressOnlyInternetGateway,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -7409,7 +7699,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteFleets
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7438,7 +7728,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteFleets,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -7460,7 +7752,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteFlowLogs
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7489,7 +7781,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteFlowLogs,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -7511,7 +7805,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteFpgaImage
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7540,7 +7834,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteFpgaImage,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -7562,7 +7858,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteInstanceConnectEndpoint
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7591,7 +7887,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteInstanceConnectEndpoint,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -7613,7 +7911,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteInstanceEventWindow
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7642,7 +7940,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteInstanceEventWindow,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -7664,7 +7964,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteInternetGateway
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7693,7 +7993,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteInternetGateway,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -7715,7 +8017,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteIpam
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7744,7 +8046,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteIpam,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -7766,7 +8070,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteIpamPool
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7795,7 +8099,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteIpamPool,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -7817,7 +8123,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteIpamResourceDiscovery
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7846,7 +8152,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteIpamResourceDiscovery,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -7868,7 +8176,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteIpamScope
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7897,7 +8205,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteIpamScope,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -7919,7 +8229,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteKeyPair
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7948,7 +8258,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteKeyPair,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -7970,7 +8282,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteLaunchTemplate
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -7999,7 +8311,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteLaunchTemplate,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -8021,7 +8335,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteLaunchTemplateVersions
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8050,7 +8364,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteLaunchTemplateVersions,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -8072,7 +8388,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteLocalGatewayRoute
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8101,7 +8417,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteLocalGatewayRoute,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -8123,7 +8441,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteLocalGatewayRouteTable
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8152,7 +8470,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteLocalGatewayRouteTable,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -8174,7 +8494,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8203,7 +8523,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -8225,7 +8547,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteLocalGatewayRouteTableVpcAssociation
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8254,7 +8576,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteLocalGatewayRouteTableVpcAssociation,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -8276,7 +8600,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteManagedPrefixList
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8305,7 +8629,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteManagedPrefixList,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -8327,7 +8653,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteNatGateway
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8356,7 +8682,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteNatGateway,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -8378,7 +8706,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteNetworkAcl
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8407,7 +8735,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteNetworkAcl,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -8429,7 +8759,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteNetworkAclEntry
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8458,7 +8788,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteNetworkAclEntry,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -8480,7 +8812,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteNetworkInsightsAccessScope
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8509,7 +8841,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteNetworkInsightsAccessScope,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -8531,7 +8865,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteNetworkInsightsAccessScopeAnalysis
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8560,7 +8894,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteNetworkInsightsAccessScopeAnalysis,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -8582,7 +8918,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteNetworkInsightsAnalysis
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8611,7 +8947,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteNetworkInsightsAnalysis,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -8633,7 +8971,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteNetworkInsightsPath
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8662,7 +9000,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteNetworkInsightsPath,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -8684,7 +9024,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteNetworkInterface
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8713,7 +9053,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteNetworkInterface,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -8735,7 +9077,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteNetworkInterfacePermission
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8764,7 +9106,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteNetworkInterfacePermission,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -8786,7 +9130,7 @@ module AWS::SDK::EC2
     end
 
     class DeletePlacementGroup
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8815,7 +9159,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeletePlacementGroup,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -8837,7 +9183,7 @@ module AWS::SDK::EC2
     end
 
     class DeletePublicIpv4Pool
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8866,7 +9212,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeletePublicIpv4Pool,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -8888,7 +9236,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteQueuedReservedInstances
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8917,7 +9265,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteQueuedReservedInstances,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -8939,7 +9289,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteRoute
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -8968,7 +9318,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteRoute,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -8990,7 +9342,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteRouteTable
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9019,7 +9371,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteRouteTable,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -9041,7 +9395,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteSecurityGroup
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9070,7 +9424,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteSecurityGroup,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -9092,7 +9448,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteSnapshot
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9121,7 +9477,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteSnapshot,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -9143,7 +9501,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteSpotDatafeedSubscription
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9172,7 +9530,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteSpotDatafeedSubscription,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -9194,7 +9554,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteSubnet
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9223,7 +9583,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteSubnet,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -9245,7 +9607,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteSubnetCidrReservation
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9274,7 +9636,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteSubnetCidrReservation,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -9296,7 +9660,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteTags
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9325,7 +9689,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteTags,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -9347,7 +9713,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteTrafficMirrorFilter
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9376,7 +9742,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteTrafficMirrorFilter,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -9398,7 +9766,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteTrafficMirrorFilterRule
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9427,7 +9795,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteTrafficMirrorFilterRule,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -9449,7 +9819,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteTrafficMirrorSession
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9478,7 +9848,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteTrafficMirrorSession,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -9500,7 +9872,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteTrafficMirrorTarget
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9529,7 +9901,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteTrafficMirrorTarget,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -9551,7 +9925,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteTransitGateway
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9580,7 +9954,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteTransitGateway,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -9602,7 +9978,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteTransitGatewayConnect
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9631,7 +10007,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteTransitGatewayConnect,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -9653,7 +10031,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteTransitGatewayConnectPeer
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9682,7 +10060,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteTransitGatewayConnectPeer,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -9704,7 +10084,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteTransitGatewayMulticastDomain
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9733,7 +10113,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteTransitGatewayMulticastDomain,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -9755,7 +10137,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteTransitGatewayPeeringAttachment
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9784,7 +10166,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteTransitGatewayPeeringAttachment,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -9806,7 +10190,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteTransitGatewayPolicyTable
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9835,7 +10219,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteTransitGatewayPolicyTable,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -9857,7 +10243,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteTransitGatewayPrefixListReference
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9886,7 +10272,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteTransitGatewayPrefixListReference,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -9908,7 +10296,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteTransitGatewayRoute
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9937,7 +10325,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteTransitGatewayRoute,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -9959,7 +10349,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteTransitGatewayRouteTable
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -9988,7 +10378,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteTransitGatewayRouteTable,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -10010,7 +10402,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteTransitGatewayRouteTableAnnouncement
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10039,7 +10431,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteTransitGatewayRouteTableAnnouncement,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -10061,7 +10455,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteTransitGatewayVpcAttachment
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10090,7 +10484,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteTransitGatewayVpcAttachment,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -10112,7 +10508,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteVerifiedAccessEndpoint
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10141,7 +10537,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteVerifiedAccessEndpoint,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -10163,7 +10561,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteVerifiedAccessGroup
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10192,7 +10590,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteVerifiedAccessGroup,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -10214,7 +10614,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteVerifiedAccessInstance
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10243,7 +10643,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteVerifiedAccessInstance,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -10265,7 +10667,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteVerifiedAccessTrustProvider
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10294,7 +10696,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteVerifiedAccessTrustProvider,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -10316,7 +10720,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteVolume
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10345,7 +10749,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteVolume,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -10367,7 +10773,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteVpc
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10396,7 +10802,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteVpc,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -10418,7 +10826,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteVpcEndpointConnectionNotifications
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10447,7 +10855,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteVpcEndpointConnectionNotifications,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -10469,7 +10879,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteVpcEndpointServiceConfigurations
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10498,7 +10908,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteVpcEndpointServiceConfigurations,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -10520,7 +10932,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteVpcEndpoints
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10549,7 +10961,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteVpcEndpoints,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -10571,7 +10985,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteVpcPeeringConnection
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10600,7 +11014,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteVpcPeeringConnection,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -10622,7 +11038,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteVpnConnection
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10651,7 +11067,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteVpnConnection,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -10673,7 +11091,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteVpnConnectionRoute
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10702,7 +11120,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteVpnConnectionRoute,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -10724,7 +11144,7 @@ module AWS::SDK::EC2
     end
 
     class DeleteVpnGateway
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10753,7 +11173,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteVpnGateway,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -10775,7 +11197,7 @@ module AWS::SDK::EC2
     end
 
     class DeprovisionByoipCidr
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10804,7 +11226,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeprovisionByoipCidr,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -10826,7 +11250,7 @@ module AWS::SDK::EC2
     end
 
     class DeprovisionIpamByoasn
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10855,7 +11279,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeprovisionIpamByoasn,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -10877,7 +11303,7 @@ module AWS::SDK::EC2
     end
 
     class DeprovisionIpamPoolCidr
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10906,7 +11332,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeprovisionIpamPoolCidr,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -10928,7 +11356,7 @@ module AWS::SDK::EC2
     end
 
     class DeprovisionPublicIpv4PoolCidr
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -10957,7 +11385,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeprovisionPublicIpv4PoolCidr,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -10979,7 +11409,7 @@ module AWS::SDK::EC2
     end
 
     class DeregisterImage
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11008,7 +11438,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeregisterImage,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -11030,7 +11462,7 @@ module AWS::SDK::EC2
     end
 
     class DeregisterInstanceEventNotificationAttributes
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11059,7 +11491,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeregisterInstanceEventNotificationAttributes,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -11081,7 +11515,7 @@ module AWS::SDK::EC2
     end
 
     class DeregisterTransitGatewayMulticastGroupMembers
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11110,7 +11544,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeregisterTransitGatewayMulticastGroupMembers,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -11132,7 +11568,7 @@ module AWS::SDK::EC2
     end
 
     class DeregisterTransitGatewayMulticastGroupSources
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11161,7 +11597,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeregisterTransitGatewayMulticastGroupSources,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -11183,7 +11621,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeAccountAttributes
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11212,7 +11650,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeAccountAttributes,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -11234,7 +11674,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeAddressTransfers
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11263,7 +11703,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeAddressTransfers,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -11285,7 +11727,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeAddresses
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11314,7 +11756,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeAddresses,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -11336,7 +11780,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeAddressesAttribute
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11365,7 +11809,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeAddressesAttribute,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -11387,7 +11833,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeAggregateIdFormat
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11416,7 +11862,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeAggregateIdFormat,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -11438,7 +11886,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeAvailabilityZones
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11467,7 +11915,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeAvailabilityZones,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -11489,7 +11939,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeAwsNetworkPerformanceMetricSubscriptions
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11518,7 +11968,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeAwsNetworkPerformanceMetricSubscriptions,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -11540,7 +11992,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeBundleTasks
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11569,7 +12021,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeBundleTasks,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -11591,7 +12045,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeByoipCidrs
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11620,7 +12074,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeByoipCidrs,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -11642,7 +12098,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeCapacityBlockOfferings
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11671,7 +12127,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeCapacityBlockOfferings,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -11693,7 +12151,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeCapacityReservationFleets
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11722,7 +12180,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeCapacityReservationFleets,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -11744,7 +12204,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeCapacityReservations
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11773,7 +12233,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeCapacityReservations,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -11795,7 +12257,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeCarrierGateways
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11824,7 +12286,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeCarrierGateways,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -11846,7 +12310,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeClassicLinkInstances
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11875,7 +12339,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeClassicLinkInstances,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -11897,7 +12363,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeClientVpnAuthorizationRules
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11926,7 +12392,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeClientVpnAuthorizationRules,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -11948,7 +12416,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeClientVpnConnections
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -11977,7 +12445,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeClientVpnConnections,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -11999,7 +12469,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeClientVpnEndpoints
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12028,7 +12498,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeClientVpnEndpoints,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -12050,7 +12522,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeClientVpnRoutes
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12079,7 +12551,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeClientVpnRoutes,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -12101,7 +12575,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeClientVpnTargetNetworks
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12130,7 +12604,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeClientVpnTargetNetworks,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -12152,7 +12628,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeCoipPools
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12181,7 +12657,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeCoipPools,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -12203,7 +12681,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeConversionTasks
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12232,7 +12710,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeConversionTasks,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -12254,7 +12734,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeCustomerGateways
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12283,7 +12763,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeCustomerGateways,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -12305,7 +12787,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeDhcpOptions
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12334,7 +12816,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeDhcpOptions,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -12356,7 +12840,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeEgressOnlyInternetGateways
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12385,7 +12869,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeEgressOnlyInternetGateways,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -12407,7 +12893,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeElasticGpus
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12436,7 +12922,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeElasticGpus,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -12458,7 +12946,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeExportImageTasks
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12487,7 +12975,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeExportImageTasks,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -12509,7 +12999,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeExportTasks
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12538,7 +13028,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeExportTasks,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -12560,7 +13052,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeFastLaunchImages
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12589,7 +13081,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeFastLaunchImages,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -12611,7 +13105,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeFastSnapshotRestores
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12640,7 +13134,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeFastSnapshotRestores,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -12662,7 +13158,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeFleetHistory
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12691,7 +13187,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeFleetHistory,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -12713,7 +13211,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeFleetInstances
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12742,7 +13240,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeFleetInstances,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -12764,7 +13264,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeFleets
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12793,7 +13293,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeFleets,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -12815,7 +13317,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeFlowLogs
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12844,7 +13346,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeFlowLogs,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -12866,7 +13370,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeFpgaImageAttribute
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12895,7 +13399,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeFpgaImageAttribute,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -12917,7 +13423,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeFpgaImages
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12946,7 +13452,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeFpgaImages,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -12968,7 +13476,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeHostReservationOfferings
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -12997,7 +13505,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeHostReservationOfferings,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -13019,7 +13529,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeHostReservations
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13048,7 +13558,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeHostReservations,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -13070,7 +13582,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeHosts
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13099,7 +13611,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeHosts,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -13121,7 +13635,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeIamInstanceProfileAssociations
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13150,7 +13664,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeIamInstanceProfileAssociations,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -13172,7 +13688,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeIdFormat
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13201,7 +13717,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeIdFormat,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -13223,7 +13741,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeIdentityIdFormat
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13252,7 +13770,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeIdentityIdFormat,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -13274,7 +13794,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeImageAttribute
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13303,7 +13823,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeImageAttribute,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -13325,7 +13847,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeImages
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13354,7 +13876,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeImages,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -13376,7 +13900,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeImportImageTasks
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13405,7 +13929,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeImportImageTasks,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -13427,7 +13953,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeImportSnapshotTasks
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13456,7 +13982,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeImportSnapshotTasks,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -13478,7 +14006,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeInstanceAttribute
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13507,7 +14035,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeInstanceAttribute,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -13529,7 +14059,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeInstanceConnectEndpoints
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13558,7 +14088,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeInstanceConnectEndpoints,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -13580,7 +14112,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeInstanceCreditSpecifications
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13609,7 +14141,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeInstanceCreditSpecifications,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -13631,7 +14165,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeInstanceEventNotificationAttributes
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13660,7 +14194,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeInstanceEventNotificationAttributes,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -13682,7 +14218,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeInstanceEventWindows
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13711,7 +14247,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeInstanceEventWindows,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -13733,7 +14271,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeInstanceStatus
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13762,7 +14300,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeInstanceStatus,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -13784,7 +14324,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeInstanceTopology
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13813,7 +14353,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeInstanceTopology,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -13835,7 +14377,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeInstanceTypeOfferings
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13864,7 +14406,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeInstanceTypeOfferings,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -13886,7 +14430,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeInstanceTypes
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13915,7 +14459,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeInstanceTypes,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -13937,7 +14483,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeInstances
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -13966,7 +14512,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeInstances,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -13988,7 +14536,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeInternetGateways
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14017,7 +14565,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeInternetGateways,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -14039,7 +14589,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeIpamByoasn
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14068,7 +14618,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeIpamByoasn,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -14090,7 +14642,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeIpamPools
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14119,7 +14671,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeIpamPools,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -14141,7 +14695,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeIpamResourceDiscoveries
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14170,7 +14724,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeIpamResourceDiscoveries,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -14192,7 +14748,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeIpamResourceDiscoveryAssociations
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14221,7 +14777,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeIpamResourceDiscoveryAssociations,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -14243,7 +14801,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeIpamScopes
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14272,7 +14830,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeIpamScopes,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -14294,7 +14854,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeIpams
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14323,7 +14883,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeIpams,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -14345,7 +14907,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeIpv6Pools
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14374,7 +14936,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeIpv6Pools,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -14396,7 +14960,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeKeyPairs
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14425,7 +14989,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeKeyPairs,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -14447,7 +15013,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeLaunchTemplateVersions
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14476,7 +15042,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeLaunchTemplateVersions,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -14498,7 +15066,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeLaunchTemplates
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14527,7 +15095,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeLaunchTemplates,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -14549,7 +15119,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14578,7 +15148,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -14600,7 +15172,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeLocalGatewayRouteTableVpcAssociations
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14629,7 +15201,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeLocalGatewayRouteTableVpcAssociations,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -14651,7 +15225,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeLocalGatewayRouteTables
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14680,7 +15254,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeLocalGatewayRouteTables,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -14702,7 +15278,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeLocalGatewayVirtualInterfaceGroups
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14731,7 +15307,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeLocalGatewayVirtualInterfaceGroups,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -14753,7 +15331,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeLocalGatewayVirtualInterfaces
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14782,7 +15360,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeLocalGatewayVirtualInterfaces,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -14804,7 +15384,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeLocalGateways
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14833,7 +15413,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeLocalGateways,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -14855,7 +15437,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeLockedSnapshots
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14884,7 +15466,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeLockedSnapshots,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -14906,7 +15490,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeManagedPrefixLists
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14935,7 +15519,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeManagedPrefixLists,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -14957,7 +15543,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeMovingAddresses
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -14986,7 +15572,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeMovingAddresses,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -15008,7 +15596,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeNatGateways
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15037,7 +15625,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeNatGateways,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -15059,7 +15649,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeNetworkAcls
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15088,7 +15678,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeNetworkAcls,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -15110,7 +15702,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeNetworkInsightsAccessScopeAnalyses
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15139,7 +15731,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeNetworkInsightsAccessScopeAnalyses,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -15161,7 +15755,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeNetworkInsightsAccessScopes
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15190,7 +15784,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeNetworkInsightsAccessScopes,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -15212,7 +15808,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeNetworkInsightsAnalyses
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15241,7 +15837,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeNetworkInsightsAnalyses,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -15263,7 +15861,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeNetworkInsightsPaths
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15292,7 +15890,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeNetworkInsightsPaths,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -15314,7 +15914,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeNetworkInterfaceAttribute
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15343,7 +15943,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeNetworkInterfaceAttribute,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -15365,7 +15967,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeNetworkInterfacePermissions
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15394,7 +15996,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeNetworkInterfacePermissions,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -15416,7 +16020,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeNetworkInterfaces
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15445,7 +16049,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeNetworkInterfaces,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -15467,7 +16073,7 @@ module AWS::SDK::EC2
     end
 
     class DescribePlacementGroups
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15496,7 +16102,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribePlacementGroups,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -15518,7 +16126,7 @@ module AWS::SDK::EC2
     end
 
     class DescribePrefixLists
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15547,7 +16155,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribePrefixLists,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -15569,7 +16179,7 @@ module AWS::SDK::EC2
     end
 
     class DescribePrincipalIdFormat
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15598,7 +16208,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribePrincipalIdFormat,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -15620,7 +16232,7 @@ module AWS::SDK::EC2
     end
 
     class DescribePublicIpv4Pools
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15649,7 +16261,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribePublicIpv4Pools,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -15671,7 +16285,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeRegions
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15700,7 +16314,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeRegions,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -15722,7 +16338,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeReplaceRootVolumeTasks
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15751,7 +16367,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeReplaceRootVolumeTasks,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -15773,7 +16391,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeReservedInstances
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15802,7 +16420,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeReservedInstances,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -15824,7 +16444,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeReservedInstancesListings
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15853,7 +16473,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeReservedInstancesListings,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -15875,7 +16497,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeReservedInstancesModifications
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15904,7 +16526,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeReservedInstancesModifications,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -15926,7 +16550,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeReservedInstancesOfferings
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -15955,7 +16579,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeReservedInstancesOfferings,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -15977,7 +16603,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeRouteTables
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16006,7 +16632,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeRouteTables,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -16028,7 +16656,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeScheduledInstanceAvailability
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16057,7 +16685,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeScheduledInstanceAvailability,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -16079,7 +16709,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeScheduledInstances
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16108,7 +16738,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeScheduledInstances,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -16130,7 +16762,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeSecurityGroupReferences
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16159,7 +16791,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeSecurityGroupReferences,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -16181,7 +16815,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeSecurityGroupRules
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16210,7 +16844,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeSecurityGroupRules,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -16232,7 +16868,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeSecurityGroups
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16261,7 +16897,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeSecurityGroups,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -16283,7 +16921,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeSnapshotAttribute
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16312,7 +16950,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeSnapshotAttribute,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -16334,7 +16974,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeSnapshotTierStatus
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16363,7 +17003,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeSnapshotTierStatus,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -16385,7 +17027,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeSnapshots
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16414,7 +17056,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeSnapshots,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -16436,7 +17080,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeSpotDatafeedSubscription
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16465,7 +17109,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeSpotDatafeedSubscription,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -16487,7 +17133,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeSpotFleetInstances
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16516,7 +17162,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeSpotFleetInstances,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -16538,7 +17186,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeSpotFleetRequestHistory
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16567,7 +17215,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeSpotFleetRequestHistory,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -16589,7 +17239,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeSpotFleetRequests
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16618,7 +17268,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeSpotFleetRequests,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -16640,7 +17292,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeSpotInstanceRequests
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16669,7 +17321,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeSpotInstanceRequests,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -16691,7 +17345,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeSpotPriceHistory
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16720,7 +17374,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeSpotPriceHistory,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -16742,7 +17398,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeStaleSecurityGroups
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16771,7 +17427,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeStaleSecurityGroups,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -16793,7 +17451,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeStoreImageTasks
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16822,7 +17480,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeStoreImageTasks,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -16844,7 +17504,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeSubnets
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16873,7 +17533,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeSubnets,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -16895,7 +17557,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeTags
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16924,7 +17586,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeTags,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -16946,7 +17610,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeTrafficMirrorFilters
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -16975,7 +17639,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeTrafficMirrorFilters,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -16997,7 +17663,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeTrafficMirrorSessions
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17026,7 +17692,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeTrafficMirrorSessions,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -17048,7 +17716,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeTrafficMirrorTargets
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17077,7 +17745,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeTrafficMirrorTargets,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -17099,7 +17769,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeTransitGatewayAttachments
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17128,7 +17798,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeTransitGatewayAttachments,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -17150,7 +17822,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeTransitGatewayConnectPeers
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17179,7 +17851,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeTransitGatewayConnectPeers,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -17201,7 +17875,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeTransitGatewayConnects
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17230,7 +17904,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeTransitGatewayConnects,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -17252,7 +17928,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeTransitGatewayMulticastDomains
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17281,7 +17957,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeTransitGatewayMulticastDomains,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -17303,7 +17981,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeTransitGatewayPeeringAttachments
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17332,7 +18010,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeTransitGatewayPeeringAttachments,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -17354,7 +18034,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeTransitGatewayPolicyTables
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17383,7 +18063,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeTransitGatewayPolicyTables,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -17405,7 +18087,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeTransitGatewayRouteTableAnnouncements
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17434,7 +18116,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeTransitGatewayRouteTableAnnouncements,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -17456,7 +18140,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeTransitGatewayRouteTables
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17485,7 +18169,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeTransitGatewayRouteTables,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -17507,7 +18193,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeTransitGatewayVpcAttachments
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17536,7 +18222,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeTransitGatewayVpcAttachments,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -17558,7 +18246,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeTransitGateways
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17587,7 +18275,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeTransitGateways,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -17609,7 +18299,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeTrunkInterfaceAssociations
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17638,7 +18328,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeTrunkInterfaceAssociations,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -17660,7 +18352,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeVerifiedAccessEndpoints
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17689,7 +18381,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeVerifiedAccessEndpoints,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -17711,7 +18405,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeVerifiedAccessGroups
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17740,7 +18434,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeVerifiedAccessGroups,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -17762,7 +18458,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeVerifiedAccessInstanceLoggingConfigurations
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17791,7 +18487,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeVerifiedAccessInstanceLoggingConfigurations,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -17813,7 +18511,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeVerifiedAccessInstances
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17842,7 +18540,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeVerifiedAccessInstances,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -17864,7 +18564,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeVerifiedAccessTrustProviders
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17893,7 +18593,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeVerifiedAccessTrustProviders,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -17915,7 +18617,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeVolumeAttribute
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17944,7 +18646,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeVolumeAttribute,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -17966,7 +18670,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeVolumeStatus
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -17995,7 +18699,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeVolumeStatus,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -18017,7 +18723,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeVolumes
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18046,7 +18752,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeVolumes,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -18068,7 +18776,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeVolumesModifications
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18097,7 +18805,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeVolumesModifications,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -18119,7 +18829,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeVpcAttribute
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18148,7 +18858,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeVpcAttribute,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -18170,7 +18882,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeVpcClassicLink
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18199,7 +18911,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeVpcClassicLink,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -18221,7 +18935,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeVpcClassicLinkDnsSupport
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18250,7 +18964,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeVpcClassicLinkDnsSupport,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -18272,7 +18988,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeVpcEndpointConnectionNotifications
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18301,7 +19017,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeVpcEndpointConnectionNotifications,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -18323,7 +19041,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeVpcEndpointConnections
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18352,7 +19070,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeVpcEndpointConnections,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -18374,7 +19094,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeVpcEndpointServiceConfigurations
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18403,7 +19123,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeVpcEndpointServiceConfigurations,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -18425,7 +19147,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeVpcEndpointServicePermissions
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18454,7 +19176,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeVpcEndpointServicePermissions,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -18476,7 +19200,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeVpcEndpointServices
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18505,7 +19229,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeVpcEndpointServices,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -18527,7 +19253,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeVpcEndpoints
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18556,7 +19282,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeVpcEndpoints,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -18578,7 +19306,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeVpcPeeringConnections
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18607,7 +19335,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeVpcPeeringConnections,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -18629,7 +19359,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeVpcs
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18658,7 +19388,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeVpcs,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -18680,7 +19412,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeVpnConnections
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18709,7 +19441,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeVpnConnections,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -18731,7 +19465,7 @@ module AWS::SDK::EC2
     end
 
     class DescribeVpnGateways
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18760,7 +19494,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeVpnGateways,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -18782,7 +19518,7 @@ module AWS::SDK::EC2
     end
 
     class DetachClassicLinkVpc
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18811,7 +19547,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DetachClassicLinkVpc,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -18833,7 +19571,7 @@ module AWS::SDK::EC2
     end
 
     class DetachInternetGateway
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18862,7 +19600,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DetachInternetGateway,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -18884,7 +19624,7 @@ module AWS::SDK::EC2
     end
 
     class DetachNetworkInterface
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18913,7 +19653,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DetachNetworkInterface,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -18935,7 +19677,7 @@ module AWS::SDK::EC2
     end
 
     class DetachVerifiedAccessTrustProvider
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -18964,7 +19706,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DetachVerifiedAccessTrustProvider,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -18986,7 +19730,7 @@ module AWS::SDK::EC2
     end
 
     class DetachVolume
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19015,7 +19759,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DetachVolume,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -19037,7 +19783,7 @@ module AWS::SDK::EC2
     end
 
     class DetachVpnGateway
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19066,7 +19812,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DetachVpnGateway,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -19088,7 +19836,7 @@ module AWS::SDK::EC2
     end
 
     class DisableAddressTransfer
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19117,7 +19865,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DisableAddressTransfer,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -19139,7 +19889,7 @@ module AWS::SDK::EC2
     end
 
     class DisableAwsNetworkPerformanceMetricSubscription
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19168,7 +19918,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DisableAwsNetworkPerformanceMetricSubscription,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -19190,7 +19942,7 @@ module AWS::SDK::EC2
     end
 
     class DisableEbsEncryptionByDefault
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19219,7 +19971,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DisableEbsEncryptionByDefault,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -19241,7 +19995,7 @@ module AWS::SDK::EC2
     end
 
     class DisableFastLaunch
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19270,7 +20024,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DisableFastLaunch,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -19292,7 +20048,7 @@ module AWS::SDK::EC2
     end
 
     class DisableFastSnapshotRestores
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19321,7 +20077,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DisableFastSnapshotRestores,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -19343,7 +20101,7 @@ module AWS::SDK::EC2
     end
 
     class DisableImage
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19372,7 +20130,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DisableImage,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -19394,7 +20154,7 @@ module AWS::SDK::EC2
     end
 
     class DisableImageBlockPublicAccess
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19423,7 +20183,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DisableImageBlockPublicAccess,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -19445,7 +20207,7 @@ module AWS::SDK::EC2
     end
 
     class DisableImageDeprecation
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19474,7 +20236,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DisableImageDeprecation,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -19496,7 +20260,7 @@ module AWS::SDK::EC2
     end
 
     class DisableIpamOrganizationAdminAccount
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19525,7 +20289,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DisableIpamOrganizationAdminAccount,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -19547,7 +20313,7 @@ module AWS::SDK::EC2
     end
 
     class DisableSerialConsoleAccess
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19576,7 +20342,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DisableSerialConsoleAccess,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -19598,7 +20366,7 @@ module AWS::SDK::EC2
     end
 
     class DisableSnapshotBlockPublicAccess
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19627,7 +20395,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DisableSnapshotBlockPublicAccess,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -19649,7 +20419,7 @@ module AWS::SDK::EC2
     end
 
     class DisableTransitGatewayRouteTablePropagation
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19678,7 +20448,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DisableTransitGatewayRouteTablePropagation,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -19700,7 +20472,7 @@ module AWS::SDK::EC2
     end
 
     class DisableVgwRoutePropagation
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19729,7 +20501,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DisableVgwRoutePropagation,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -19751,7 +20525,7 @@ module AWS::SDK::EC2
     end
 
     class DisableVpcClassicLink
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19780,7 +20554,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DisableVpcClassicLink,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -19802,7 +20578,7 @@ module AWS::SDK::EC2
     end
 
     class DisableVpcClassicLinkDnsSupport
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19831,7 +20607,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DisableVpcClassicLinkDnsSupport,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -19853,7 +20631,7 @@ module AWS::SDK::EC2
     end
 
     class DisassociateAddress
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19882,7 +20660,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DisassociateAddress,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -19904,7 +20684,7 @@ module AWS::SDK::EC2
     end
 
     class DisassociateClientVpnTargetNetwork
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19933,7 +20713,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DisassociateClientVpnTargetNetwork,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -19955,7 +20737,7 @@ module AWS::SDK::EC2
     end
 
     class DisassociateEnclaveCertificateIamRole
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -19984,7 +20766,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DisassociateEnclaveCertificateIamRole,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -20006,7 +20790,7 @@ module AWS::SDK::EC2
     end
 
     class DisassociateIamInstanceProfile
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20035,7 +20819,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DisassociateIamInstanceProfile,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -20057,7 +20843,7 @@ module AWS::SDK::EC2
     end
 
     class DisassociateInstanceEventWindow
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20086,7 +20872,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DisassociateInstanceEventWindow,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -20108,7 +20896,7 @@ module AWS::SDK::EC2
     end
 
     class DisassociateIpamByoasn
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20137,7 +20925,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DisassociateIpamByoasn,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -20159,7 +20949,7 @@ module AWS::SDK::EC2
     end
 
     class DisassociateIpamResourceDiscovery
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20188,7 +20978,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DisassociateIpamResourceDiscovery,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -20210,7 +21002,7 @@ module AWS::SDK::EC2
     end
 
     class DisassociateNatGatewayAddress
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20239,7 +21031,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DisassociateNatGatewayAddress,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -20261,7 +21055,7 @@ module AWS::SDK::EC2
     end
 
     class DisassociateRouteTable
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20290,7 +21084,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DisassociateRouteTable,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -20312,7 +21108,7 @@ module AWS::SDK::EC2
     end
 
     class DisassociateSubnetCidrBlock
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20341,7 +21137,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DisassociateSubnetCidrBlock,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -20363,7 +21161,7 @@ module AWS::SDK::EC2
     end
 
     class DisassociateTransitGatewayMulticastDomain
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20392,7 +21190,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DisassociateTransitGatewayMulticastDomain,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -20414,7 +21214,7 @@ module AWS::SDK::EC2
     end
 
     class DisassociateTransitGatewayPolicyTable
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20443,7 +21243,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DisassociateTransitGatewayPolicyTable,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -20465,7 +21267,7 @@ module AWS::SDK::EC2
     end
 
     class DisassociateTransitGatewayRouteTable
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20494,7 +21296,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DisassociateTransitGatewayRouteTable,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -20516,7 +21320,7 @@ module AWS::SDK::EC2
     end
 
     class DisassociateTrunkInterface
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20545,7 +21349,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DisassociateTrunkInterface,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -20567,7 +21373,7 @@ module AWS::SDK::EC2
     end
 
     class DisassociateVpcCidrBlock
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20596,7 +21402,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DisassociateVpcCidrBlock,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -20618,7 +21426,7 @@ module AWS::SDK::EC2
     end
 
     class EnableAddressTransfer
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20647,7 +21455,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::EnableAddressTransfer,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -20669,7 +21479,7 @@ module AWS::SDK::EC2
     end
 
     class EnableAwsNetworkPerformanceMetricSubscription
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20698,7 +21508,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::EnableAwsNetworkPerformanceMetricSubscription,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -20720,7 +21532,7 @@ module AWS::SDK::EC2
     end
 
     class EnableEbsEncryptionByDefault
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20749,7 +21561,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::EnableEbsEncryptionByDefault,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -20771,7 +21585,7 @@ module AWS::SDK::EC2
     end
 
     class EnableFastLaunch
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20800,7 +21614,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::EnableFastLaunch,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -20822,7 +21638,7 @@ module AWS::SDK::EC2
     end
 
     class EnableFastSnapshotRestores
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20851,7 +21667,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::EnableFastSnapshotRestores,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -20873,7 +21691,7 @@ module AWS::SDK::EC2
     end
 
     class EnableImage
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20902,7 +21720,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::EnableImage,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -20924,7 +21744,7 @@ module AWS::SDK::EC2
     end
 
     class EnableImageBlockPublicAccess
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -20953,7 +21773,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::EnableImageBlockPublicAccess,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -20975,7 +21797,7 @@ module AWS::SDK::EC2
     end
 
     class EnableImageDeprecation
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21004,7 +21826,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::EnableImageDeprecation,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -21026,7 +21850,7 @@ module AWS::SDK::EC2
     end
 
     class EnableIpamOrganizationAdminAccount
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21055,7 +21879,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::EnableIpamOrganizationAdminAccount,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -21077,7 +21903,7 @@ module AWS::SDK::EC2
     end
 
     class EnableReachabilityAnalyzerOrganizationSharing
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21106,7 +21932,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::EnableReachabilityAnalyzerOrganizationSharing,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -21128,7 +21956,7 @@ module AWS::SDK::EC2
     end
 
     class EnableSerialConsoleAccess
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21157,7 +21985,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::EnableSerialConsoleAccess,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -21179,7 +22009,7 @@ module AWS::SDK::EC2
     end
 
     class EnableSnapshotBlockPublicAccess
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21208,7 +22038,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::EnableSnapshotBlockPublicAccess,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -21230,7 +22062,7 @@ module AWS::SDK::EC2
     end
 
     class EnableTransitGatewayRouteTablePropagation
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21259,7 +22091,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::EnableTransitGatewayRouteTablePropagation,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -21281,7 +22115,7 @@ module AWS::SDK::EC2
     end
 
     class EnableVgwRoutePropagation
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21310,7 +22144,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::EnableVgwRoutePropagation,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -21332,7 +22168,7 @@ module AWS::SDK::EC2
     end
 
     class EnableVolumeIO
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21361,7 +22197,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::EnableVolumeIO,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -21383,7 +22221,7 @@ module AWS::SDK::EC2
     end
 
     class EnableVpcClassicLink
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21412,7 +22250,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::EnableVpcClassicLink,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -21434,7 +22274,7 @@ module AWS::SDK::EC2
     end
 
     class EnableVpcClassicLinkDnsSupport
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21463,7 +22303,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::EnableVpcClassicLinkDnsSupport,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -21485,7 +22327,7 @@ module AWS::SDK::EC2
     end
 
     class ExportClientVpnClientCertificateRevocationList
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21514,7 +22356,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ExportClientVpnClientCertificateRevocationList,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -21536,7 +22380,7 @@ module AWS::SDK::EC2
     end
 
     class ExportClientVpnClientConfiguration
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21565,7 +22409,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ExportClientVpnClientConfiguration,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -21587,7 +22433,7 @@ module AWS::SDK::EC2
     end
 
     class ExportImage
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21616,7 +22462,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ExportImage,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -21638,7 +22486,7 @@ module AWS::SDK::EC2
     end
 
     class ExportTransitGatewayRoutes
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21667,7 +22515,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ExportTransitGatewayRoutes,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -21689,7 +22539,7 @@ module AWS::SDK::EC2
     end
 
     class GetAssociatedEnclaveCertificateIamRoles
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21718,7 +22568,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetAssociatedEnclaveCertificateIamRoles,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -21740,7 +22592,7 @@ module AWS::SDK::EC2
     end
 
     class GetAssociatedIpv6PoolCidrs
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21769,7 +22621,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetAssociatedIpv6PoolCidrs,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -21791,7 +22645,7 @@ module AWS::SDK::EC2
     end
 
     class GetAwsNetworkPerformanceData
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21820,7 +22674,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetAwsNetworkPerformanceData,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -21842,7 +22698,7 @@ module AWS::SDK::EC2
     end
 
     class GetCapacityReservationUsage
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21871,7 +22727,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetCapacityReservationUsage,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -21893,7 +22751,7 @@ module AWS::SDK::EC2
     end
 
     class GetCoipPoolUsage
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21922,7 +22780,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetCoipPoolUsage,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -21944,7 +22804,7 @@ module AWS::SDK::EC2
     end
 
     class GetConsoleOutput
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -21973,7 +22833,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetConsoleOutput,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -21995,7 +22857,7 @@ module AWS::SDK::EC2
     end
 
     class GetConsoleScreenshot
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22024,7 +22886,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetConsoleScreenshot,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -22046,7 +22910,7 @@ module AWS::SDK::EC2
     end
 
     class GetDefaultCreditSpecification
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22075,7 +22939,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetDefaultCreditSpecification,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -22097,7 +22963,7 @@ module AWS::SDK::EC2
     end
 
     class GetEbsDefaultKmsKeyId
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22126,7 +22992,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetEbsDefaultKmsKeyId,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -22148,7 +23016,7 @@ module AWS::SDK::EC2
     end
 
     class GetEbsEncryptionByDefault
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22177,7 +23045,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetEbsEncryptionByDefault,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -22199,7 +23069,7 @@ module AWS::SDK::EC2
     end
 
     class GetFlowLogsIntegrationTemplate
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22228,7 +23098,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetFlowLogsIntegrationTemplate,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -22250,7 +23122,7 @@ module AWS::SDK::EC2
     end
 
     class GetGroupsForCapacityReservation
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22279,7 +23151,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetGroupsForCapacityReservation,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -22301,7 +23175,7 @@ module AWS::SDK::EC2
     end
 
     class GetHostReservationPurchasePreview
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22330,7 +23204,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetHostReservationPurchasePreview,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -22352,7 +23228,7 @@ module AWS::SDK::EC2
     end
 
     class GetImageBlockPublicAccessState
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22381,7 +23257,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetImageBlockPublicAccessState,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -22403,7 +23281,7 @@ module AWS::SDK::EC2
     end
 
     class GetInstanceTypesFromInstanceRequirements
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22432,7 +23310,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetInstanceTypesFromInstanceRequirements,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -22454,7 +23334,7 @@ module AWS::SDK::EC2
     end
 
     class GetInstanceUefiData
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22483,7 +23363,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetInstanceUefiData,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -22505,7 +23387,7 @@ module AWS::SDK::EC2
     end
 
     class GetIpamAddressHistory
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22534,7 +23416,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetIpamAddressHistory,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -22556,7 +23440,7 @@ module AWS::SDK::EC2
     end
 
     class GetIpamDiscoveredAccounts
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22585,7 +23469,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetIpamDiscoveredAccounts,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -22607,7 +23493,7 @@ module AWS::SDK::EC2
     end
 
     class GetIpamDiscoveredPublicAddresses
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22636,7 +23522,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetIpamDiscoveredPublicAddresses,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -22658,7 +23546,7 @@ module AWS::SDK::EC2
     end
 
     class GetIpamDiscoveredResourceCidrs
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22687,7 +23575,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetIpamDiscoveredResourceCidrs,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -22709,7 +23599,7 @@ module AWS::SDK::EC2
     end
 
     class GetIpamPoolAllocations
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22738,7 +23628,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetIpamPoolAllocations,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -22760,7 +23652,7 @@ module AWS::SDK::EC2
     end
 
     class GetIpamPoolCidrs
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22789,7 +23681,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetIpamPoolCidrs,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -22811,7 +23705,7 @@ module AWS::SDK::EC2
     end
 
     class GetIpamResourceCidrs
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22840,7 +23734,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetIpamResourceCidrs,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -22862,7 +23758,7 @@ module AWS::SDK::EC2
     end
 
     class GetLaunchTemplateData
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22891,7 +23787,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetLaunchTemplateData,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -22913,7 +23811,7 @@ module AWS::SDK::EC2
     end
 
     class GetManagedPrefixListAssociations
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22942,7 +23840,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetManagedPrefixListAssociations,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -22964,7 +23864,7 @@ module AWS::SDK::EC2
     end
 
     class GetManagedPrefixListEntries
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -22993,7 +23893,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetManagedPrefixListEntries,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -23015,7 +23917,7 @@ module AWS::SDK::EC2
     end
 
     class GetNetworkInsightsAccessScopeAnalysisFindings
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23044,7 +23946,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetNetworkInsightsAccessScopeAnalysisFindings,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -23066,7 +23970,7 @@ module AWS::SDK::EC2
     end
 
     class GetNetworkInsightsAccessScopeContent
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23095,7 +23999,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetNetworkInsightsAccessScopeContent,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -23117,7 +24023,7 @@ module AWS::SDK::EC2
     end
 
     class GetPasswordData
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23146,7 +24052,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetPasswordData,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -23168,7 +24076,7 @@ module AWS::SDK::EC2
     end
 
     class GetReservedInstancesExchangeQuote
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23197,7 +24105,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetReservedInstancesExchangeQuote,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -23219,7 +24129,7 @@ module AWS::SDK::EC2
     end
 
     class GetSecurityGroupsForVpc
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23248,7 +24158,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetSecurityGroupsForVpc,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -23270,7 +24182,7 @@ module AWS::SDK::EC2
     end
 
     class GetSerialConsoleAccessStatus
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23299,7 +24211,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetSerialConsoleAccessStatus,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -23321,7 +24235,7 @@ module AWS::SDK::EC2
     end
 
     class GetSnapshotBlockPublicAccessState
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23350,7 +24264,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetSnapshotBlockPublicAccessState,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -23372,7 +24288,7 @@ module AWS::SDK::EC2
     end
 
     class GetSpotPlacementScores
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23401,7 +24317,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetSpotPlacementScores,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -23423,7 +24341,7 @@ module AWS::SDK::EC2
     end
 
     class GetSubnetCidrReservations
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23452,7 +24370,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetSubnetCidrReservations,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -23474,7 +24394,7 @@ module AWS::SDK::EC2
     end
 
     class GetTransitGatewayAttachmentPropagations
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23503,7 +24423,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetTransitGatewayAttachmentPropagations,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -23525,7 +24447,7 @@ module AWS::SDK::EC2
     end
 
     class GetTransitGatewayMulticastDomainAssociations
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23554,7 +24476,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetTransitGatewayMulticastDomainAssociations,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -23576,7 +24500,7 @@ module AWS::SDK::EC2
     end
 
     class GetTransitGatewayPolicyTableAssociations
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23605,7 +24529,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetTransitGatewayPolicyTableAssociations,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -23627,7 +24553,7 @@ module AWS::SDK::EC2
     end
 
     class GetTransitGatewayPolicyTableEntries
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23656,7 +24582,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetTransitGatewayPolicyTableEntries,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -23678,7 +24606,7 @@ module AWS::SDK::EC2
     end
 
     class GetTransitGatewayPrefixListReferences
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23707,7 +24635,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetTransitGatewayPrefixListReferences,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -23729,7 +24659,7 @@ module AWS::SDK::EC2
     end
 
     class GetTransitGatewayRouteTableAssociations
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23758,7 +24688,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetTransitGatewayRouteTableAssociations,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -23780,7 +24712,7 @@ module AWS::SDK::EC2
     end
 
     class GetTransitGatewayRouteTablePropagations
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23809,7 +24741,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetTransitGatewayRouteTablePropagations,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -23831,7 +24765,7 @@ module AWS::SDK::EC2
     end
 
     class GetVerifiedAccessEndpointPolicy
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23860,7 +24794,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetVerifiedAccessEndpointPolicy,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -23882,7 +24818,7 @@ module AWS::SDK::EC2
     end
 
     class GetVerifiedAccessGroupPolicy
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23911,7 +24847,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetVerifiedAccessGroupPolicy,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -23933,7 +24871,7 @@ module AWS::SDK::EC2
     end
 
     class GetVpnConnectionDeviceSampleConfiguration
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -23962,7 +24900,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetVpnConnectionDeviceSampleConfiguration,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -23984,7 +24924,7 @@ module AWS::SDK::EC2
     end
 
     class GetVpnConnectionDeviceTypes
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24013,7 +24953,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetVpnConnectionDeviceTypes,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -24035,7 +24977,7 @@ module AWS::SDK::EC2
     end
 
     class GetVpnTunnelReplacementStatus
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24064,7 +25006,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetVpnTunnelReplacementStatus,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -24086,7 +25030,7 @@ module AWS::SDK::EC2
     end
 
     class ImportClientVpnClientCertificateRevocationList
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24115,7 +25059,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ImportClientVpnClientCertificateRevocationList,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -24137,7 +25083,7 @@ module AWS::SDK::EC2
     end
 
     class ImportImage
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24166,7 +25112,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ImportImage,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -24188,7 +25136,7 @@ module AWS::SDK::EC2
     end
 
     class ImportInstance
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24217,7 +25165,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ImportInstance,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -24239,7 +25189,7 @@ module AWS::SDK::EC2
     end
 
     class ImportKeyPair
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24268,7 +25218,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ImportKeyPair,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -24290,7 +25242,7 @@ module AWS::SDK::EC2
     end
 
     class ImportSnapshot
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24319,7 +25271,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ImportSnapshot,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -24341,7 +25295,7 @@ module AWS::SDK::EC2
     end
 
     class ImportVolume
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24370,7 +25324,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ImportVolume,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -24392,7 +25348,7 @@ module AWS::SDK::EC2
     end
 
     class ListImagesInRecycleBin
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24421,7 +25377,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ListImagesInRecycleBin,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -24443,7 +25401,7 @@ module AWS::SDK::EC2
     end
 
     class ListSnapshotsInRecycleBin
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24472,7 +25430,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ListSnapshotsInRecycleBin,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -24494,7 +25454,7 @@ module AWS::SDK::EC2
     end
 
     class LockSnapshot
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24523,7 +25483,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::LockSnapshot,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -24545,7 +25507,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyAddressAttribute
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24574,7 +25536,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyAddressAttribute,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -24596,7 +25560,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyAvailabilityZoneGroup
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24625,7 +25589,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyAvailabilityZoneGroup,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -24647,7 +25613,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyCapacityReservation
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24676,7 +25642,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyCapacityReservation,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -24698,7 +25666,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyCapacityReservationFleet
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24727,7 +25695,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyCapacityReservationFleet,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -24749,7 +25719,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyClientVpnEndpoint
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24778,7 +25748,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyClientVpnEndpoint,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -24800,7 +25772,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyDefaultCreditSpecification
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24829,7 +25801,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyDefaultCreditSpecification,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -24851,7 +25825,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyEbsDefaultKmsKeyId
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24880,7 +25854,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyEbsDefaultKmsKeyId,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -24902,7 +25878,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyFleet
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24931,7 +25907,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyFleet,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -24953,7 +25931,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyFpgaImageAttribute
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -24982,7 +25960,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyFpgaImageAttribute,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -25004,7 +25984,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyHosts
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25033,7 +26013,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyHosts,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -25055,7 +26037,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyIdFormat
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25084,7 +26066,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyIdFormat,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -25106,7 +26090,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyIdentityIdFormat
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25135,7 +26119,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyIdentityIdFormat,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -25157,7 +26143,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyImageAttribute
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25186,7 +26172,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyImageAttribute,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -25208,7 +26196,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyInstanceAttribute
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25237,7 +26225,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyInstanceAttribute,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -25259,7 +26249,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyInstanceCapacityReservationAttributes
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25288,7 +26278,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyInstanceCapacityReservationAttributes,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -25310,7 +26302,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyInstanceCreditSpecification
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25339,7 +26331,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyInstanceCreditSpecification,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -25361,7 +26355,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyInstanceEventStartTime
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25390,7 +26384,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyInstanceEventStartTime,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -25412,7 +26408,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyInstanceEventWindow
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25441,7 +26437,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyInstanceEventWindow,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -25463,7 +26461,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyInstanceMaintenanceOptions
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25492,7 +26490,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyInstanceMaintenanceOptions,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -25514,7 +26514,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyInstanceMetadataOptions
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25543,7 +26543,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyInstanceMetadataOptions,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -25565,7 +26567,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyInstancePlacement
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25594,7 +26596,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyInstancePlacement,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -25616,7 +26620,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyIpam
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25645,7 +26649,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyIpam,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -25667,7 +26673,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyIpamPool
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25696,7 +26702,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyIpamPool,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -25718,7 +26726,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyIpamResourceCidr
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25747,7 +26755,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyIpamResourceCidr,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -25769,7 +26779,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyIpamResourceDiscovery
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25798,7 +26808,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyIpamResourceDiscovery,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -25820,7 +26832,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyIpamScope
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25849,7 +26861,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyIpamScope,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -25871,7 +26885,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyLaunchTemplate
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25900,7 +26914,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyLaunchTemplate,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -25922,7 +26938,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyLocalGatewayRoute
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -25951,7 +26967,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyLocalGatewayRoute,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -25973,7 +26991,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyManagedPrefixList
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26002,7 +27020,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyManagedPrefixList,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -26024,7 +27044,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyNetworkInterfaceAttribute
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26053,7 +27073,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyNetworkInterfaceAttribute,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -26075,7 +27097,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyPrivateDnsNameOptions
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26104,7 +27126,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyPrivateDnsNameOptions,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -26126,7 +27150,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyReservedInstances
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26155,7 +27179,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyReservedInstances,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -26177,7 +27203,7 @@ module AWS::SDK::EC2
     end
 
     class ModifySecurityGroupRules
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26206,7 +27232,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifySecurityGroupRules,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -26228,7 +27256,7 @@ module AWS::SDK::EC2
     end
 
     class ModifySnapshotAttribute
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26257,7 +27285,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifySnapshotAttribute,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -26279,7 +27309,7 @@ module AWS::SDK::EC2
     end
 
     class ModifySnapshotTier
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26308,7 +27338,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifySnapshotTier,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -26330,7 +27362,7 @@ module AWS::SDK::EC2
     end
 
     class ModifySpotFleetRequest
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26359,7 +27391,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifySpotFleetRequest,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -26381,7 +27415,7 @@ module AWS::SDK::EC2
     end
 
     class ModifySubnetAttribute
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26410,7 +27444,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifySubnetAttribute,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -26432,7 +27468,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyTrafficMirrorFilterNetworkServices
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26461,7 +27497,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyTrafficMirrorFilterNetworkServices,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -26483,7 +27521,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyTrafficMirrorFilterRule
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26512,7 +27550,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyTrafficMirrorFilterRule,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -26534,7 +27574,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyTrafficMirrorSession
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26563,7 +27603,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyTrafficMirrorSession,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -26585,7 +27627,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyTransitGateway
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26614,7 +27656,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyTransitGateway,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -26636,7 +27680,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyTransitGatewayPrefixListReference
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26665,7 +27709,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyTransitGatewayPrefixListReference,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -26687,7 +27733,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyTransitGatewayVpcAttachment
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26716,7 +27762,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyTransitGatewayVpcAttachment,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -26738,7 +27786,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyVerifiedAccessEndpoint
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26767,7 +27815,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyVerifiedAccessEndpoint,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -26789,7 +27839,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyVerifiedAccessEndpointPolicy
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26818,7 +27868,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyVerifiedAccessEndpointPolicy,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -26840,7 +27892,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyVerifiedAccessGroup
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26869,7 +27921,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyVerifiedAccessGroup,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -26891,7 +27945,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyVerifiedAccessGroupPolicy
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26920,7 +27974,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyVerifiedAccessGroupPolicy,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -26942,7 +27998,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyVerifiedAccessInstance
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -26971,7 +28027,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyVerifiedAccessInstance,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -26993,7 +28051,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyVerifiedAccessInstanceLoggingConfiguration
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27022,7 +28080,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyVerifiedAccessInstanceLoggingConfiguration,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -27044,7 +28104,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyVerifiedAccessTrustProvider
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27073,7 +28133,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyVerifiedAccessTrustProvider,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -27095,7 +28157,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyVolume
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27124,7 +28186,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyVolume,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -27146,7 +28210,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyVolumeAttribute
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27175,7 +28239,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyVolumeAttribute,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -27197,7 +28263,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyVpcAttribute
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27226,7 +28292,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyVpcAttribute,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -27248,7 +28316,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyVpcEndpoint
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27277,7 +28345,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyVpcEndpoint,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -27299,7 +28369,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyVpcEndpointConnectionNotification
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27328,7 +28398,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyVpcEndpointConnectionNotification,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -27350,7 +28422,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyVpcEndpointServiceConfiguration
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27379,7 +28451,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyVpcEndpointServiceConfiguration,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -27401,7 +28475,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyVpcEndpointServicePayerResponsibility
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27430,7 +28504,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyVpcEndpointServicePayerResponsibility,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -27452,7 +28528,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyVpcEndpointServicePermissions
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27481,7 +28557,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyVpcEndpointServicePermissions,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -27503,7 +28581,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyVpcPeeringConnectionOptions
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27532,7 +28610,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyVpcPeeringConnectionOptions,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -27554,7 +28634,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyVpcTenancy
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27583,7 +28663,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyVpcTenancy,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -27605,7 +28687,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyVpnConnection
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27634,7 +28716,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyVpnConnection,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -27656,7 +28740,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyVpnConnectionOptions
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27685,7 +28769,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyVpnConnectionOptions,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -27707,7 +28793,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyVpnTunnelCertificate
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27736,7 +28822,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyVpnTunnelCertificate,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -27758,7 +28846,7 @@ module AWS::SDK::EC2
     end
 
     class ModifyVpnTunnelOptions
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27787,7 +28875,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ModifyVpnTunnelOptions,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -27809,7 +28899,7 @@ module AWS::SDK::EC2
     end
 
     class MonitorInstances
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27838,7 +28928,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::MonitorInstances,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -27860,7 +28952,7 @@ module AWS::SDK::EC2
     end
 
     class MoveAddressToVpc
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27889,7 +28981,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::MoveAddressToVpc,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -27911,7 +29005,7 @@ module AWS::SDK::EC2
     end
 
     class MoveByoipCidrToIpam
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27940,7 +29034,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::MoveByoipCidrToIpam,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -27962,7 +29058,7 @@ module AWS::SDK::EC2
     end
 
     class ProvisionByoipCidr
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -27991,7 +29087,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ProvisionByoipCidr,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -28013,7 +29111,7 @@ module AWS::SDK::EC2
     end
 
     class ProvisionIpamByoasn
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28042,7 +29140,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ProvisionIpamByoasn,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -28064,7 +29164,7 @@ module AWS::SDK::EC2
     end
 
     class ProvisionIpamPoolCidr
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28093,7 +29193,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ProvisionIpamPoolCidr,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -28115,7 +29217,7 @@ module AWS::SDK::EC2
     end
 
     class ProvisionPublicIpv4PoolCidr
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28144,7 +29246,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ProvisionPublicIpv4PoolCidr,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -28166,7 +29270,7 @@ module AWS::SDK::EC2
     end
 
     class PurchaseCapacityBlock
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28195,7 +29299,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::PurchaseCapacityBlock,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -28217,7 +29323,7 @@ module AWS::SDK::EC2
     end
 
     class PurchaseHostReservation
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28246,7 +29352,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::PurchaseHostReservation,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -28268,7 +29376,7 @@ module AWS::SDK::EC2
     end
 
     class PurchaseReservedInstancesOffering
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28297,7 +29405,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::PurchaseReservedInstancesOffering,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -28319,7 +29429,7 @@ module AWS::SDK::EC2
     end
 
     class PurchaseScheduledInstances
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28348,7 +29458,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::PurchaseScheduledInstances,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -28370,7 +29482,7 @@ module AWS::SDK::EC2
     end
 
     class RebootInstances
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28399,7 +29511,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::RebootInstances,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -28421,7 +29535,7 @@ module AWS::SDK::EC2
     end
 
     class RegisterImage
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28450,7 +29564,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::RegisterImage,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -28472,7 +29588,7 @@ module AWS::SDK::EC2
     end
 
     class RegisterInstanceEventNotificationAttributes
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28501,7 +29617,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::RegisterInstanceEventNotificationAttributes,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -28523,7 +29641,7 @@ module AWS::SDK::EC2
     end
 
     class RegisterTransitGatewayMulticastGroupMembers
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28552,7 +29670,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::RegisterTransitGatewayMulticastGroupMembers,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -28574,7 +29694,7 @@ module AWS::SDK::EC2
     end
 
     class RegisterTransitGatewayMulticastGroupSources
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28603,7 +29723,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::RegisterTransitGatewayMulticastGroupSources,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -28625,7 +29747,7 @@ module AWS::SDK::EC2
     end
 
     class RejectTransitGatewayMulticastDomainAssociations
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28654,7 +29776,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::RejectTransitGatewayMulticastDomainAssociations,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -28676,7 +29800,7 @@ module AWS::SDK::EC2
     end
 
     class RejectTransitGatewayPeeringAttachment
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28705,7 +29829,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::RejectTransitGatewayPeeringAttachment,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -28727,7 +29853,7 @@ module AWS::SDK::EC2
     end
 
     class RejectTransitGatewayVpcAttachment
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28756,7 +29882,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::RejectTransitGatewayVpcAttachment,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -28778,7 +29906,7 @@ module AWS::SDK::EC2
     end
 
     class RejectVpcEndpointConnections
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28807,7 +29935,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::RejectVpcEndpointConnections,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -28829,7 +29959,7 @@ module AWS::SDK::EC2
     end
 
     class RejectVpcPeeringConnection
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28858,7 +29988,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::RejectVpcPeeringConnection,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -28880,7 +30012,7 @@ module AWS::SDK::EC2
     end
 
     class ReleaseAddress
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28909,7 +30041,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ReleaseAddress,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -28931,7 +30065,7 @@ module AWS::SDK::EC2
     end
 
     class ReleaseHosts
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -28960,7 +30094,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ReleaseHosts,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -28982,7 +30118,7 @@ module AWS::SDK::EC2
     end
 
     class ReleaseIpamPoolAllocation
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29011,7 +30147,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ReleaseIpamPoolAllocation,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -29033,7 +30171,7 @@ module AWS::SDK::EC2
     end
 
     class ReplaceIamInstanceProfileAssociation
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29062,7 +30200,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ReplaceIamInstanceProfileAssociation,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -29084,7 +30224,7 @@ module AWS::SDK::EC2
     end
 
     class ReplaceNetworkAclAssociation
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29113,7 +30253,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ReplaceNetworkAclAssociation,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -29135,7 +30277,7 @@ module AWS::SDK::EC2
     end
 
     class ReplaceNetworkAclEntry
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29164,7 +30306,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ReplaceNetworkAclEntry,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -29186,7 +30330,7 @@ module AWS::SDK::EC2
     end
 
     class ReplaceRoute
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29215,7 +30359,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ReplaceRoute,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -29237,7 +30383,7 @@ module AWS::SDK::EC2
     end
 
     class ReplaceRouteTableAssociation
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29266,7 +30412,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ReplaceRouteTableAssociation,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -29288,7 +30436,7 @@ module AWS::SDK::EC2
     end
 
     class ReplaceTransitGatewayRoute
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29317,7 +30465,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ReplaceTransitGatewayRoute,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -29339,7 +30489,7 @@ module AWS::SDK::EC2
     end
 
     class ReplaceVpnTunnel
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29368,7 +30518,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ReplaceVpnTunnel,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -29390,7 +30542,7 @@ module AWS::SDK::EC2
     end
 
     class ReportInstanceStatus
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29419,7 +30571,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ReportInstanceStatus,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -29441,7 +30595,7 @@ module AWS::SDK::EC2
     end
 
     class RequestSpotFleet
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29470,7 +30624,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::RequestSpotFleet,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -29492,7 +30648,7 @@ module AWS::SDK::EC2
     end
 
     class RequestSpotInstances
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29521,7 +30677,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::RequestSpotInstances,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -29543,7 +30701,7 @@ module AWS::SDK::EC2
     end
 
     class ResetAddressAttribute
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29572,7 +30730,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ResetAddressAttribute,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -29594,7 +30754,7 @@ module AWS::SDK::EC2
     end
 
     class ResetEbsDefaultKmsKeyId
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29623,7 +30783,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ResetEbsDefaultKmsKeyId,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -29645,7 +30807,7 @@ module AWS::SDK::EC2
     end
 
     class ResetFpgaImageAttribute
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29674,7 +30836,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ResetFpgaImageAttribute,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -29696,7 +30860,7 @@ module AWS::SDK::EC2
     end
 
     class ResetImageAttribute
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29725,7 +30889,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ResetImageAttribute,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -29747,7 +30913,7 @@ module AWS::SDK::EC2
     end
 
     class ResetInstanceAttribute
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29776,7 +30942,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ResetInstanceAttribute,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -29798,7 +30966,7 @@ module AWS::SDK::EC2
     end
 
     class ResetNetworkInterfaceAttribute
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29827,7 +30995,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ResetNetworkInterfaceAttribute,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -29849,7 +31019,7 @@ module AWS::SDK::EC2
     end
 
     class ResetSnapshotAttribute
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29878,7 +31048,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ResetSnapshotAttribute,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -29900,7 +31072,7 @@ module AWS::SDK::EC2
     end
 
     class RestoreAddressToClassic
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29929,7 +31101,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::RestoreAddressToClassic,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -29951,7 +31125,7 @@ module AWS::SDK::EC2
     end
 
     class RestoreImageFromRecycleBin
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -29980,7 +31154,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::RestoreImageFromRecycleBin,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -30002,7 +31178,7 @@ module AWS::SDK::EC2
     end
 
     class RestoreManagedPrefixListVersion
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30031,7 +31207,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::RestoreManagedPrefixListVersion,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -30053,7 +31231,7 @@ module AWS::SDK::EC2
     end
 
     class RestoreSnapshotFromRecycleBin
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30082,7 +31260,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::RestoreSnapshotFromRecycleBin,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -30104,7 +31284,7 @@ module AWS::SDK::EC2
     end
 
     class RestoreSnapshotTier
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30133,7 +31313,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::RestoreSnapshotTier,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -30155,7 +31337,7 @@ module AWS::SDK::EC2
     end
 
     class RevokeClientVpnIngress
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30184,7 +31366,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::RevokeClientVpnIngress,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -30206,7 +31390,7 @@ module AWS::SDK::EC2
     end
 
     class RevokeSecurityGroupEgress
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30235,7 +31419,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::RevokeSecurityGroupEgress,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -30257,7 +31443,7 @@ module AWS::SDK::EC2
     end
 
     class RevokeSecurityGroupIngress
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30286,7 +31472,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::RevokeSecurityGroupIngress,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -30308,7 +31496,7 @@ module AWS::SDK::EC2
     end
 
     class RunInstances
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30337,7 +31525,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::RunInstances,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -30359,7 +31549,7 @@ module AWS::SDK::EC2
     end
 
     class RunScheduledInstances
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30388,7 +31578,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::RunScheduledInstances,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -30410,7 +31602,7 @@ module AWS::SDK::EC2
     end
 
     class SearchLocalGatewayRoutes
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30439,7 +31631,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::SearchLocalGatewayRoutes,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -30461,7 +31655,7 @@ module AWS::SDK::EC2
     end
 
     class SearchTransitGatewayMulticastGroups
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30490,7 +31684,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::SearchTransitGatewayMulticastGroups,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -30512,7 +31708,7 @@ module AWS::SDK::EC2
     end
 
     class SearchTransitGatewayRoutes
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30541,7 +31737,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::SearchTransitGatewayRoutes,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -30563,7 +31761,7 @@ module AWS::SDK::EC2
     end
 
     class SendDiagnosticInterrupt
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30592,7 +31790,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::SendDiagnosticInterrupt,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -30614,7 +31814,7 @@ module AWS::SDK::EC2
     end
 
     class StartInstances
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30643,7 +31843,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::StartInstances,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -30665,7 +31867,7 @@ module AWS::SDK::EC2
     end
 
     class StartNetworkInsightsAccessScopeAnalysis
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30694,7 +31896,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::StartNetworkInsightsAccessScopeAnalysis,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -30716,7 +31920,7 @@ module AWS::SDK::EC2
     end
 
     class StartNetworkInsightsAnalysis
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30745,7 +31949,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::StartNetworkInsightsAnalysis,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -30767,7 +31973,7 @@ module AWS::SDK::EC2
     end
 
     class StartVpcEndpointServicePrivateDnsVerification
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30796,7 +32002,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::StartVpcEndpointServicePrivateDnsVerification,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -30818,7 +32026,7 @@ module AWS::SDK::EC2
     end
 
     class StopInstances
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30847,7 +32055,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::StopInstances,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -30869,7 +32079,7 @@ module AWS::SDK::EC2
     end
 
     class TerminateClientVpnConnections
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30898,7 +32108,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::TerminateClientVpnConnections,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -30920,7 +32132,7 @@ module AWS::SDK::EC2
     end
 
     class TerminateInstances
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -30949,7 +32161,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::TerminateInstances,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -30971,7 +32185,7 @@ module AWS::SDK::EC2
     end
 
     class UnassignIpv6Addresses
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -31000,7 +32214,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::UnassignIpv6Addresses,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -31022,7 +32238,7 @@ module AWS::SDK::EC2
     end
 
     class UnassignPrivateIpAddresses
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -31051,7 +32267,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::UnassignPrivateIpAddresses,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -31073,7 +32291,7 @@ module AWS::SDK::EC2
     end
 
     class UnassignPrivateNatGatewayAddress
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -31102,7 +32320,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::UnassignPrivateNatGatewayAddress,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -31124,7 +32344,7 @@ module AWS::SDK::EC2
     end
 
     class UnlockSnapshot
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -31153,7 +32373,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::UnlockSnapshot,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -31175,7 +32397,7 @@ module AWS::SDK::EC2
     end
 
     class UnmonitorInstances
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -31204,7 +32426,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::UnmonitorInstances,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -31226,7 +32450,7 @@ module AWS::SDK::EC2
     end
 
     class UpdateSecurityGroupRuleDescriptionsEgress
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -31255,7 +32479,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::UpdateSecurityGroupRuleDescriptionsEgress,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -31277,7 +32503,7 @@ module AWS::SDK::EC2
     end
 
     class UpdateSecurityGroupRuleDescriptionsIngress
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -31306,7 +32532,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::UpdateSecurityGroupRuleDescriptionsIngress,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -31328,7 +32556,7 @@ module AWS::SDK::EC2
     end
 
     class WithdrawByoipCidr
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -31357,7 +32585,9 @@ module AWS::SDK::EC2
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::WithdrawByoipCidr,
           error_parser: Hearth::HTTP::ErrorParser.new(

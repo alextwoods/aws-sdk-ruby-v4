@@ -1558,6 +1558,23 @@ module AWS::SDK::S3
       end
     end
 
+    class SelectObjectContent
+      def self.in_span(context, &block)
+        attributes = {
+          'rpc.service' => 'S3',
+          'rpc.method' => 'SelectObjectContent',
+          'code.function' => 'select_object_content',
+          'code.namespace' => 'AWS::SDK::S3::Telemetry'
+        }
+        context.tracer.in_span(
+          'S3.SelectObjectContent',
+          attributes: attributes,
+          kind: Hearth::Telemetry::SpanKind::CLIENT,
+          &block
+        )
+      end
+    end
+
     class UploadPart
       def self.in_span(context, &block)
         attributes = {

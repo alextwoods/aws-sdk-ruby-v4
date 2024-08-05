@@ -1,0 +1,37 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/smithy-lang/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::Kinesis
+  module EventStream
+
+    class SubscribeToShardHandler < Hearth::EventStream::HandlerBase
+      def on_initial_response: () { (AWS::SDK::Kinesis::Types::SubscribeToShardOutput) -> void } -> void
+
+      def on_subscribe_to_shard_event: () { (AWS::SDK::Kinesis::Types::SubscribeToShardEvent) -> void } -> void
+
+      def on_resource_not_found_exception: () { (AWS::SDK::Kinesis::Types::ResourceNotFoundException) -> void } -> void
+
+      def on_resource_in_use_exception: () { (AWS::SDK::Kinesis::Types::ResourceInUseException) -> void } -> void
+
+      def on_kms_disabled_exception: () { (AWS::SDK::Kinesis::Types::KMSDisabledException) -> void } -> void
+
+      def on_kms_invalid_state_exception: () { (AWS::SDK::Kinesis::Types::KMSInvalidStateException) -> void } -> void
+
+      def on_kms_access_denied_exception: () { (AWS::SDK::Kinesis::Types::KMSAccessDeniedException) -> void } -> void
+
+      def on_kms_not_found_exception: () { (AWS::SDK::Kinesis::Types::KMSNotFoundException) -> void } -> void
+
+      def on_kms_opt_in_required: () { (AWS::SDK::Kinesis::Types::KMSOptInRequired) -> void } -> void
+
+      def on_kms_throttling_exception: () { (AWS::SDK::Kinesis::Types::KMSThrottlingException) -> void } -> void
+
+      def on_internal_failure_exception: () { (AWS::SDK::Kinesis::Types::InternalFailureException) -> void } -> void
+    end
+  end
+end

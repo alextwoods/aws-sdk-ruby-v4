@@ -1,0 +1,106 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/smithy-lang/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::TranscribeStreaming
+  class Client < Hearth::Client
+
+    def self.plugins: () -> Hearth::PluginList[Config]
+
+    def initialize: (?::Hash[::Symbol, untyped] options) -> void |
+      (
+        ?auth_resolver: Hearth::_AuthResolver[Auth::Params],
+        ?auth_schemes: Array[Hearth::AuthSchemes::Base],
+        ?credentials_provider: Hearth::IdentityProvider,
+        ?disable_host_prefix: bool,
+        ?endpoint: String,
+        ?endpoint_resolver: Hearth::_EndpointResolver[Endpoint::Params],
+        ?http2_client: Hearth::HTTP2::Client,
+        ?http_client: Hearth::HTTP::Client,
+        ?interceptors: Hearth::InterceptorList[Config],
+        ?logger: Logger,
+        ?plugins: Hearth::PluginList[Config],
+        ?profile: String,
+        ?region: String,
+        ?retry_strategy: Hearth::_RetryStrategy,
+        ?stub_responses: bool,
+        ?stubs: Hearth::Stubs,
+        ?telemetry_provider: Hearth::Telemetry::TelemetryProviderBase,
+        ?use_dualstack_endpoint: bool,
+        ?use_fips_endpoint: bool,
+        ?validate_input: bool
+      ) -> void
+
+    attr_reader config: Config
+
+    def start_call_analytics_stream_transcription: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> EventStream::StartCallAnalyticsStreamTranscriptionOutput |
+      (?::Hash[::Symbol, untyped] params, event_stream_handler: EventStream::StartCallAnalyticsStreamTranscriptionHandler) -> EventStream::StartCallAnalyticsStreamTranscriptionOutput |
+      (?Types::StartCallAnalyticsStreamTranscriptionInput params, ?::Hash[::Symbol, untyped] options) -> EventStream::StartCallAnalyticsStreamTranscriptionOutput |
+      (
+        language_code: ("en-US" | "en-GB" | "es-US" | "fr-CA" | "fr-FR" | "en-AU" | "it-IT" | "de-DE" | "pt-BR"),
+        media_sample_rate_hertz: ::Integer,
+        media_encoding: ("pcm" | "ogg-opus" | "flac"),
+        ?vocabulary_name: ::String,
+        ?session_id: ::String,
+        ?vocabulary_filter_name: ::String,
+        ?vocabulary_filter_method: ("remove" | "mask" | "tag"),
+        ?language_model_name: ::String,
+        ?enable_partial_results_stabilization: bool,
+        ?partial_results_stability: ("high" | "medium" | "low"),
+        ?content_identification_type: ("PII"),
+        ?content_redaction_type: ("PII"),
+        ?pii_entity_types: ::String
+      ) -> EventStream::StartCallAnalyticsStreamTranscriptionOutput
+
+    def start_medical_stream_transcription: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> EventStream::StartMedicalStreamTranscriptionOutput |
+      (?::Hash[::Symbol, untyped] params, event_stream_handler: EventStream::StartMedicalStreamTranscriptionHandler) -> EventStream::StartMedicalStreamTranscriptionOutput |
+      (?Types::StartMedicalStreamTranscriptionInput params, ?::Hash[::Symbol, untyped] options) -> EventStream::StartMedicalStreamTranscriptionOutput |
+      (
+        language_code: ("en-US" | "en-GB" | "es-US" | "fr-CA" | "fr-FR" | "en-AU" | "it-IT" | "de-DE" | "pt-BR" | "ja-JP" | "ko-KR" | "zh-CN" | "hi-IN" | "th-TH"),
+        media_sample_rate_hertz: ::Integer,
+        media_encoding: ("pcm" | "ogg-opus" | "flac"),
+        ?vocabulary_name: ::String,
+        specialty: ("PRIMARYCARE" | "CARDIOLOGY" | "NEUROLOGY" | "ONCOLOGY" | "RADIOLOGY" | "UROLOGY"),
+        type: ("CONVERSATION" | "DICTATION"),
+        ?show_speaker_label: bool,
+        ?session_id: ::String,
+        ?enable_channel_identification: bool,
+        ?number_of_channels: ::Integer,
+        ?content_identification_type: ("PHI")
+      ) -> EventStream::StartMedicalStreamTranscriptionOutput
+
+    def start_stream_transcription: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> EventStream::StartStreamTranscriptionOutput |
+      (?::Hash[::Symbol, untyped] params, event_stream_handler: EventStream::StartStreamTranscriptionHandler) -> EventStream::StartStreamTranscriptionOutput |
+      (?Types::StartStreamTranscriptionInput params, ?::Hash[::Symbol, untyped] options) -> EventStream::StartStreamTranscriptionOutput |
+      (
+        ?language_code: ("en-US" | "en-GB" | "es-US" | "fr-CA" | "fr-FR" | "en-AU" | "it-IT" | "de-DE" | "pt-BR" | "ja-JP" | "ko-KR" | "zh-CN" | "hi-IN" | "th-TH"),
+        media_sample_rate_hertz: ::Integer,
+        media_encoding: ("pcm" | "ogg-opus" | "flac"),
+        ?vocabulary_name: ::String,
+        ?session_id: ::String,
+        ?vocabulary_filter_name: ::String,
+        ?vocabulary_filter_method: ("remove" | "mask" | "tag"),
+        ?show_speaker_label: bool,
+        ?enable_channel_identification: bool,
+        ?number_of_channels: ::Integer,
+        ?enable_partial_results_stabilization: bool,
+        ?partial_results_stability: ("high" | "medium" | "low"),
+        ?content_identification_type: ("PII"),
+        ?content_redaction_type: ("PII"),
+        ?pii_entity_types: ::String,
+        ?language_model_name: ::String,
+        ?identify_language: bool,
+        ?language_options: ::String,
+        ?preferred_language: ("en-US" | "en-GB" | "es-US" | "fr-CA" | "fr-FR" | "en-AU" | "it-IT" | "de-DE" | "pt-BR" | "ja-JP" | "ko-KR" | "zh-CN" | "hi-IN" | "th-TH"),
+        ?identify_multiple_languages: bool,
+        ?vocabulary_names: ::String,
+        ?vocabulary_filter_names: ::String
+      ) -> EventStream::StartStreamTranscriptionOutput
+
+  end
+end

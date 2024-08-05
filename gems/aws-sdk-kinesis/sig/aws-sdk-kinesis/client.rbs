@@ -1,0 +1,319 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/smithy-lang/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::Kinesis
+  class Client < Hearth::Client
+
+    def self.plugins: () -> Hearth::PluginList[Config]
+
+    def initialize: (?::Hash[::Symbol, untyped] options) -> void |
+      (
+        ?auth_resolver: Hearth::_AuthResolver[Auth::Params],
+        ?auth_schemes: Array[Hearth::AuthSchemes::Base],
+        ?credentials_provider: Hearth::IdentityProvider,
+        ?disable_host_prefix: bool,
+        ?endpoint: String,
+        ?endpoint_resolver: Hearth::_EndpointResolver[Endpoint::Params],
+        ?http2_client: Hearth::HTTP2::Client,
+        ?http_client: Hearth::HTTP::Client,
+        ?interceptors: Hearth::InterceptorList[Config],
+        ?logger: Logger,
+        ?plugins: Hearth::PluginList[Config],
+        ?profile: String,
+        ?region: String,
+        ?retry_strategy: Hearth::_RetryStrategy,
+        ?stub_responses: bool,
+        ?stubs: Hearth::Stubs,
+        ?telemetry_provider: Hearth::Telemetry::TelemetryProviderBase,
+        ?use_dualstack_endpoint: bool,
+        ?use_fips_endpoint: bool,
+        ?validate_input: bool
+      ) -> void
+
+    attr_reader config: Config
+
+    def add_tags_to_stream: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::AddTagsToStreamOutput] |
+      (?Types::AddTagsToStreamInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::AddTagsToStreamOutput] |
+      (
+        ?stream_name: ::String,
+        tags: ::Hash[::String, ::String],
+        ?stream_arn: ::String
+      ) -> Hearth::Output[Types::AddTagsToStreamOutput]
+
+    def create_stream: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::CreateStreamOutput] |
+      (?Types::CreateStreamInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::CreateStreamOutput] |
+      (
+        stream_name: ::String,
+        ?shard_count: ::Integer,
+        ?stream_mode_details: {
+          stream_mode: ("PROVISIONED" | "ON_DEMAND")
+        }
+      ) -> Hearth::Output[Types::CreateStreamOutput]
+
+    def decrease_stream_retention_period: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DecreaseStreamRetentionPeriodOutput] |
+      (?Types::DecreaseStreamRetentionPeriodInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DecreaseStreamRetentionPeriodOutput] |
+      (
+        ?stream_name: ::String,
+        retention_period_hours: ::Integer,
+        ?stream_arn: ::String
+      ) -> Hearth::Output[Types::DecreaseStreamRetentionPeriodOutput]
+
+    def delete_resource_policy: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteResourcePolicyOutput] |
+      (?Types::DeleteResourcePolicyInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteResourcePolicyOutput] |
+      (
+        resource_arn: ::String
+      ) -> Hearth::Output[Types::DeleteResourcePolicyOutput]
+
+    def delete_stream: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteStreamOutput] |
+      (?Types::DeleteStreamInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteStreamOutput] |
+      (
+        ?stream_name: ::String,
+        ?enforce_consumer_deletion: bool,
+        ?stream_arn: ::String
+      ) -> Hearth::Output[Types::DeleteStreamOutput]
+
+    def deregister_stream_consumer: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeregisterStreamConsumerOutput] |
+      (?Types::DeregisterStreamConsumerInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeregisterStreamConsumerOutput] |
+      (
+        ?stream_arn: ::String,
+        ?consumer_name: ::String,
+        ?consumer_arn: ::String
+      ) -> Hearth::Output[Types::DeregisterStreamConsumerOutput]
+
+    def describe_limits: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DescribeLimitsOutput] |
+      (?Types::DescribeLimitsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DescribeLimitsOutput]
+    def describe_stream: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DescribeStreamOutput] |
+      (?Types::DescribeStreamInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DescribeStreamOutput] |
+      (
+        ?stream_name: ::String,
+        ?limit: ::Integer,
+        ?exclusive_start_shard_id: ::String,
+        ?stream_arn: ::String
+      ) -> Hearth::Output[Types::DescribeStreamOutput]
+
+    def describe_stream_consumer: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DescribeStreamConsumerOutput] |
+      (?Types::DescribeStreamConsumerInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DescribeStreamConsumerOutput] |
+      (
+        ?stream_arn: ::String,
+        ?consumer_name: ::String,
+        ?consumer_arn: ::String
+      ) -> Hearth::Output[Types::DescribeStreamConsumerOutput]
+
+    def describe_stream_summary: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DescribeStreamSummaryOutput] |
+      (?Types::DescribeStreamSummaryInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DescribeStreamSummaryOutput] |
+      (
+        ?stream_name: ::String,
+        ?stream_arn: ::String
+      ) -> Hearth::Output[Types::DescribeStreamSummaryOutput]
+
+    def disable_enhanced_monitoring: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DisableEnhancedMonitoringOutput] |
+      (?Types::DisableEnhancedMonitoringInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DisableEnhancedMonitoringOutput] |
+      (
+        ?stream_name: ::String,
+        shard_level_metrics: ::Array[("IncomingBytes" | "IncomingRecords" | "OutgoingBytes" | "OutgoingRecords" | "WriteProvisionedThroughputExceeded" | "ReadProvisionedThroughputExceeded" | "IteratorAgeMilliseconds" | "ALL")],
+        ?stream_arn: ::String
+      ) -> Hearth::Output[Types::DisableEnhancedMonitoringOutput]
+
+    def enable_enhanced_monitoring: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::EnableEnhancedMonitoringOutput] |
+      (?Types::EnableEnhancedMonitoringInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::EnableEnhancedMonitoringOutput] |
+      (
+        ?stream_name: ::String,
+        shard_level_metrics: ::Array[("IncomingBytes" | "IncomingRecords" | "OutgoingBytes" | "OutgoingRecords" | "WriteProvisionedThroughputExceeded" | "ReadProvisionedThroughputExceeded" | "IteratorAgeMilliseconds" | "ALL")],
+        ?stream_arn: ::String
+      ) -> Hearth::Output[Types::EnableEnhancedMonitoringOutput]
+
+    def get_records: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetRecordsOutput] |
+      (?Types::GetRecordsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetRecordsOutput] |
+      (
+        shard_iterator: ::String,
+        ?limit: ::Integer,
+        ?stream_arn: ::String
+      ) -> Hearth::Output[Types::GetRecordsOutput]
+
+    def get_resource_policy: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetResourcePolicyOutput] |
+      (?Types::GetResourcePolicyInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetResourcePolicyOutput] |
+      (
+        resource_arn: ::String
+      ) -> Hearth::Output[Types::GetResourcePolicyOutput]
+
+    def get_shard_iterator: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetShardIteratorOutput] |
+      (?Types::GetShardIteratorInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetShardIteratorOutput] |
+      (
+        ?stream_name: ::String,
+        shard_id: ::String,
+        shard_iterator_type: ("AT_SEQUENCE_NUMBER" | "AFTER_SEQUENCE_NUMBER" | "TRIM_HORIZON" | "LATEST" | "AT_TIMESTAMP"),
+        ?starting_sequence_number: ::String,
+        ?timestamp: ::Time,
+        ?stream_arn: ::String
+      ) -> Hearth::Output[Types::GetShardIteratorOutput]
+
+    def increase_stream_retention_period: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::IncreaseStreamRetentionPeriodOutput] |
+      (?Types::IncreaseStreamRetentionPeriodInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::IncreaseStreamRetentionPeriodOutput] |
+      (
+        ?stream_name: ::String,
+        retention_period_hours: ::Integer,
+        ?stream_arn: ::String
+      ) -> Hearth::Output[Types::IncreaseStreamRetentionPeriodOutput]
+
+    def list_shards: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListShardsOutput] |
+      (?Types::ListShardsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListShardsOutput] |
+      (
+        ?stream_name: ::String,
+        ?next_token: ::String,
+        ?exclusive_start_shard_id: ::String,
+        ?max_results: ::Integer,
+        ?stream_creation_timestamp: ::Time,
+        ?shard_filter: {
+          type: ("AFTER_SHARD_ID" | "AT_TRIM_HORIZON" | "FROM_TRIM_HORIZON" | "AT_LATEST" | "AT_TIMESTAMP" | "FROM_TIMESTAMP"),
+          shard_id: ::String,
+          timestamp: ::Time
+        },
+        ?stream_arn: ::String
+      ) -> Hearth::Output[Types::ListShardsOutput]
+
+    def list_stream_consumers: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListStreamConsumersOutput] |
+      (?Types::ListStreamConsumersInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListStreamConsumersOutput] |
+      (
+        stream_arn: ::String,
+        ?next_token: ::String,
+        ?max_results: ::Integer,
+        ?stream_creation_timestamp: ::Time
+      ) -> Hearth::Output[Types::ListStreamConsumersOutput]
+
+    def list_streams: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListStreamsOutput] |
+      (?Types::ListStreamsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListStreamsOutput] |
+      (
+        ?limit: ::Integer,
+        ?exclusive_start_stream_name: ::String,
+        ?next_token: ::String
+      ) -> Hearth::Output[Types::ListStreamsOutput]
+
+    def list_tags_for_stream: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListTagsForStreamOutput] |
+      (?Types::ListTagsForStreamInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListTagsForStreamOutput] |
+      (
+        ?stream_name: ::String,
+        ?exclusive_start_tag_key: ::String,
+        ?limit: ::Integer,
+        ?stream_arn: ::String
+      ) -> Hearth::Output[Types::ListTagsForStreamOutput]
+
+    def merge_shards: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::MergeShardsOutput] |
+      (?Types::MergeShardsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::MergeShardsOutput] |
+      (
+        ?stream_name: ::String,
+        shard_to_merge: ::String,
+        adjacent_shard_to_merge: ::String,
+        ?stream_arn: ::String
+      ) -> Hearth::Output[Types::MergeShardsOutput]
+
+    def put_record: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutRecordOutput] |
+      (?Types::PutRecordInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutRecordOutput] |
+      (
+        ?stream_name: ::String,
+        data: ::String,
+        partition_key: ::String,
+        ?explicit_hash_key: ::String,
+        ?sequence_number_for_ordering: ::String,
+        ?stream_arn: ::String
+      ) -> Hearth::Output[Types::PutRecordOutput]
+
+    def put_records: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutRecordsOutput] |
+      (?Types::PutRecordsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutRecordsOutput] |
+      (
+        records: ::Array[{
+          data: ::String,
+          explicit_hash_key: ::String,
+          partition_key: ::String
+        }],
+        ?stream_name: ::String,
+        ?stream_arn: ::String
+      ) -> Hearth::Output[Types::PutRecordsOutput]
+
+    def put_resource_policy: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutResourcePolicyOutput] |
+      (?Types::PutResourcePolicyInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutResourcePolicyOutput] |
+      (
+        resource_arn: ::String,
+        policy: ::String
+      ) -> Hearth::Output[Types::PutResourcePolicyOutput]
+
+    def register_stream_consumer: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::RegisterStreamConsumerOutput] |
+      (?Types::RegisterStreamConsumerInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::RegisterStreamConsumerOutput] |
+      (
+        stream_arn: ::String,
+        consumer_name: ::String
+      ) -> Hearth::Output[Types::RegisterStreamConsumerOutput]
+
+    def remove_tags_from_stream: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::RemoveTagsFromStreamOutput] |
+      (?Types::RemoveTagsFromStreamInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::RemoveTagsFromStreamOutput] |
+      (
+        ?stream_name: ::String,
+        tag_keys: ::Array[::String],
+        ?stream_arn: ::String
+      ) -> Hearth::Output[Types::RemoveTagsFromStreamOutput]
+
+    def split_shard: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::SplitShardOutput] |
+      (?Types::SplitShardInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::SplitShardOutput] |
+      (
+        ?stream_name: ::String,
+        shard_to_split: ::String,
+        new_starting_hash_key: ::String,
+        ?stream_arn: ::String
+      ) -> Hearth::Output[Types::SplitShardOutput]
+
+    def start_stream_encryption: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::StartStreamEncryptionOutput] |
+      (?Types::StartStreamEncryptionInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::StartStreamEncryptionOutput] |
+      (
+        ?stream_name: ::String,
+        encryption_type: ("NONE" | "KMS"),
+        key_id: ::String,
+        ?stream_arn: ::String
+      ) -> Hearth::Output[Types::StartStreamEncryptionOutput]
+
+    def stop_stream_encryption: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::StopStreamEncryptionOutput] |
+      (?Types::StopStreamEncryptionInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::StopStreamEncryptionOutput] |
+      (
+        ?stream_name: ::String,
+        encryption_type: ("NONE" | "KMS"),
+        key_id: ::String,
+        ?stream_arn: ::String
+      ) -> Hearth::Output[Types::StopStreamEncryptionOutput]
+
+    def update_shard_count: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UpdateShardCountOutput] |
+      (?Types::UpdateShardCountInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UpdateShardCountOutput] |
+      (
+        ?stream_name: ::String,
+        target_shard_count: ::Integer,
+        scaling_type: ("UNIFORM_SCALING"),
+        ?stream_arn: ::String
+      ) -> Hearth::Output[Types::UpdateShardCountOutput]
+
+    def update_stream_mode: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UpdateStreamModeOutput] |
+      (?Types::UpdateStreamModeInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UpdateStreamModeOutput] |
+      (
+        stream_arn: ::String,
+        stream_mode_details: {
+          stream_mode: ("PROVISIONED" | "ON_DEMAND")
+        }
+      ) -> Hearth::Output[Types::UpdateStreamModeOutput]
+
+    def subscribe_to_shard: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> Hearth::Output[Types::SubscribeToShardOutput] |
+      (?::Hash[::Symbol, untyped] params, event_stream_handler: EventStream::SubscribeToShardHandler) -> Hearth::Output[Types::SubscribeToShardOutput] |
+      (?Types::SubscribeToShardInput params, ?::Hash[::Symbol, untyped] options) -> Hearth::Output[Types::SubscribeToShardOutput] |
+      (
+        consumer_arn: ::String,
+        shard_id: ::String,
+        starting_position: {
+          type: ("AT_SEQUENCE_NUMBER" | "AFTER_SEQUENCE_NUMBER" | "TRIM_HORIZON" | "LATEST" | "AT_TIMESTAMP"),
+          sequence_number: ::String,
+          timestamp: ::Time
+        }
+      ) -> Hearth::Output[Types::SubscribeToShardOutput]
+
+  end
+end

@@ -156,6 +156,21 @@ public class ParserGenerator extends RestParserGeneratorBase {
         }
     }
 
+    @Override
+    protected void renderEventImplicitStructurePayloadParser(StructureShape event) {
+        writer.write("map = $T.parse(payload)", Hearth.JSON);
+        renderMemberParsers(event);
+    }
+
+    @Override
+    protected void renderEventExplicitStructurePayloadParser(MemberShape payloadMember, StructureShape shape) {
+        String dataName = symbolProvider.toMemberName(payloadMember);
+        String dataSetter = "data." + dataName + " = ";
+        String valueGetter = "map";
+
+        writer.write("map = $T.parse(payload)", Hearth.JSON);
+        shape.accept(new MemberDeserializer(payloadMember, dataSetter, valueGetter, false));
+    }
 
     private void renderMemberParsers(Shape s) {
         Stream<MemberShape> parseMembers = s.members().stream()

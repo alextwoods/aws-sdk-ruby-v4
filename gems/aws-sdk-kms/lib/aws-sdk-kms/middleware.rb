@@ -14,7 +14,7 @@ module AWS::SDK::KMS
   module Middleware
 
     class CancelKeyDeletion
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -43,7 +43,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CancelKeyDeletion,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -65,7 +67,7 @@ module AWS::SDK::KMS
     end
 
     class ConnectCustomKeyStore
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -94,7 +96,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ConnectCustomKeyStore,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -116,7 +120,7 @@ module AWS::SDK::KMS
     end
 
     class CreateAlias
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -145,7 +149,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateAlias,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -167,7 +173,7 @@ module AWS::SDK::KMS
     end
 
     class CreateCustomKeyStore
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -196,7 +202,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateCustomKeyStore,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -218,7 +226,7 @@ module AWS::SDK::KMS
     end
 
     class CreateGrant
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -247,7 +255,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateGrant,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -269,7 +279,7 @@ module AWS::SDK::KMS
     end
 
     class CreateKey
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -298,7 +308,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateKey,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -320,7 +332,7 @@ module AWS::SDK::KMS
     end
 
     class Decrypt
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -349,7 +361,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::Decrypt,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -371,7 +385,7 @@ module AWS::SDK::KMS
     end
 
     class DeleteAlias
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -400,7 +414,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteAlias,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -422,7 +438,7 @@ module AWS::SDK::KMS
     end
 
     class DeleteCustomKeyStore
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -451,7 +467,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteCustomKeyStore,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -473,7 +491,7 @@ module AWS::SDK::KMS
     end
 
     class DeleteImportedKeyMaterial
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -502,7 +520,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteImportedKeyMaterial,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -524,7 +544,7 @@ module AWS::SDK::KMS
     end
 
     class DescribeCustomKeyStores
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -553,7 +573,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeCustomKeyStores,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -575,7 +597,7 @@ module AWS::SDK::KMS
     end
 
     class DescribeKey
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -604,7 +626,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeKey,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -626,7 +650,7 @@ module AWS::SDK::KMS
     end
 
     class DisableKey
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -655,7 +679,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DisableKey,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -677,7 +703,7 @@ module AWS::SDK::KMS
     end
 
     class DisableKeyRotation
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -706,7 +732,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DisableKeyRotation,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -728,7 +756,7 @@ module AWS::SDK::KMS
     end
 
     class DisconnectCustomKeyStore
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -757,7 +785,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DisconnectCustomKeyStore,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -779,7 +809,7 @@ module AWS::SDK::KMS
     end
 
     class EnableKey
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -808,7 +838,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::EnableKey,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -830,7 +862,7 @@ module AWS::SDK::KMS
     end
 
     class EnableKeyRotation
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -859,7 +891,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::EnableKeyRotation,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -881,7 +915,7 @@ module AWS::SDK::KMS
     end
 
     class Encrypt
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -910,7 +944,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::Encrypt,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -932,7 +968,7 @@ module AWS::SDK::KMS
     end
 
     class GenerateDataKey
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -961,7 +997,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GenerateDataKey,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -983,7 +1021,7 @@ module AWS::SDK::KMS
     end
 
     class GenerateDataKeyPair
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1012,7 +1050,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GenerateDataKeyPair,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1034,7 +1074,7 @@ module AWS::SDK::KMS
     end
 
     class GenerateDataKeyPairWithoutPlaintext
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1063,7 +1103,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GenerateDataKeyPairWithoutPlaintext,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1085,7 +1127,7 @@ module AWS::SDK::KMS
     end
 
     class GenerateDataKeyWithoutPlaintext
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1114,7 +1156,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GenerateDataKeyWithoutPlaintext,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1136,7 +1180,7 @@ module AWS::SDK::KMS
     end
 
     class GenerateMac
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1165,7 +1209,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GenerateMac,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1187,7 +1233,7 @@ module AWS::SDK::KMS
     end
 
     class GenerateRandom
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1216,7 +1262,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GenerateRandom,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1238,7 +1286,7 @@ module AWS::SDK::KMS
     end
 
     class GetKeyPolicy
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1267,7 +1315,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetKeyPolicy,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1289,7 +1339,7 @@ module AWS::SDK::KMS
     end
 
     class GetKeyRotationStatus
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1318,7 +1368,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetKeyRotationStatus,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1340,7 +1392,7 @@ module AWS::SDK::KMS
     end
 
     class GetParametersForImport
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1369,7 +1421,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetParametersForImport,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1391,7 +1445,7 @@ module AWS::SDK::KMS
     end
 
     class GetPublicKey
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1420,7 +1474,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetPublicKey,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1442,7 +1498,7 @@ module AWS::SDK::KMS
     end
 
     class ImportKeyMaterial
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1471,7 +1527,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ImportKeyMaterial,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1493,7 +1551,7 @@ module AWS::SDK::KMS
     end
 
     class ListAliases
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1522,7 +1580,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ListAliases,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1544,7 +1604,7 @@ module AWS::SDK::KMS
     end
 
     class ListGrants
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1573,7 +1633,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ListGrants,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1595,7 +1657,7 @@ module AWS::SDK::KMS
     end
 
     class ListKeyPolicies
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1624,7 +1686,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ListKeyPolicies,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1646,7 +1710,7 @@ module AWS::SDK::KMS
     end
 
     class ListKeys
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1675,7 +1739,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ListKeys,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1697,7 +1763,7 @@ module AWS::SDK::KMS
     end
 
     class ListResourceTags
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1726,7 +1792,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ListResourceTags,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1748,7 +1816,7 @@ module AWS::SDK::KMS
     end
 
     class ListRetirableGrants
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1777,7 +1845,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ListRetirableGrants,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1799,7 +1869,7 @@ module AWS::SDK::KMS
     end
 
     class PutKeyPolicy
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1828,7 +1898,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::PutKeyPolicy,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1850,7 +1922,7 @@ module AWS::SDK::KMS
     end
 
     class ReEncrypt
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1879,7 +1951,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ReEncrypt,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1901,7 +1975,7 @@ module AWS::SDK::KMS
     end
 
     class ReplicateKey
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1930,7 +2004,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ReplicateKey,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1952,7 +2028,7 @@ module AWS::SDK::KMS
     end
 
     class RetireGrant
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1981,7 +2057,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::RetireGrant,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2003,7 +2081,7 @@ module AWS::SDK::KMS
     end
 
     class RevokeGrant
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2032,7 +2110,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::RevokeGrant,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2054,7 +2134,7 @@ module AWS::SDK::KMS
     end
 
     class ScheduleKeyDeletion
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2083,7 +2163,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ScheduleKeyDeletion,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2105,7 +2187,7 @@ module AWS::SDK::KMS
     end
 
     class Sign
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2134,7 +2216,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::Sign,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2156,7 +2240,7 @@ module AWS::SDK::KMS
     end
 
     class TagResource
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2185,7 +2269,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::TagResource,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2207,7 +2293,7 @@ module AWS::SDK::KMS
     end
 
     class UntagResource
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2236,7 +2322,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::UntagResource,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2258,7 +2346,7 @@ module AWS::SDK::KMS
     end
 
     class UpdateAlias
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2287,7 +2375,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::UpdateAlias,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2309,7 +2399,7 @@ module AWS::SDK::KMS
     end
 
     class UpdateCustomKeyStore
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2338,7 +2428,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::UpdateCustomKeyStore,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2360,7 +2452,7 @@ module AWS::SDK::KMS
     end
 
     class UpdateKeyDescription
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2389,7 +2481,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::UpdateKeyDescription,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2411,7 +2505,7 @@ module AWS::SDK::KMS
     end
 
     class UpdatePrimaryRegion
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2440,7 +2534,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::UpdatePrimaryRegion,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2462,7 +2558,7 @@ module AWS::SDK::KMS
     end
 
     class Verify
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2491,7 +2587,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::Verify,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2513,7 +2611,7 @@ module AWS::SDK::KMS
     end
 
     class VerifyMac
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2542,7 +2640,9 @@ module AWS::SDK::KMS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::VerifyMac,
           error_parser: Hearth::HTTP::ErrorParser.new(

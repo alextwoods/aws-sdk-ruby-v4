@@ -14,7 +14,7 @@ module AWS::SDK::DynamoDB
   module Middleware
 
     class BatchExecuteStatement
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -43,7 +43,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::BatchExecuteStatement,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -65,7 +67,7 @@ module AWS::SDK::DynamoDB
     end
 
     class BatchGetItem
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -94,7 +96,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::BatchGetItem,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -116,7 +120,7 @@ module AWS::SDK::DynamoDB
     end
 
     class BatchWriteItem
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -145,7 +149,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::BatchWriteItem,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -167,7 +173,7 @@ module AWS::SDK::DynamoDB
     end
 
     class CreateBackup
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -196,7 +202,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateBackup,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -218,7 +226,7 @@ module AWS::SDK::DynamoDB
     end
 
     class CreateGlobalTable
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -247,7 +255,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateGlobalTable,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -269,7 +279,7 @@ module AWS::SDK::DynamoDB
     end
 
     class CreateTable
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -298,7 +308,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateTable,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -320,7 +332,7 @@ module AWS::SDK::DynamoDB
     end
 
     class DeleteBackup
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -349,7 +361,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteBackup,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -371,7 +385,7 @@ module AWS::SDK::DynamoDB
     end
 
     class DeleteItem
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -400,7 +414,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteItem,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -422,7 +438,7 @@ module AWS::SDK::DynamoDB
     end
 
     class DeleteTable
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -451,7 +467,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DeleteTable,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -473,7 +491,7 @@ module AWS::SDK::DynamoDB
     end
 
     class DescribeBackup
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -502,7 +520,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeBackup,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -524,7 +544,7 @@ module AWS::SDK::DynamoDB
     end
 
     class DescribeContinuousBackups
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -553,7 +573,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeContinuousBackups,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -575,7 +597,7 @@ module AWS::SDK::DynamoDB
     end
 
     class DescribeContributorInsights
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -604,7 +626,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeContributorInsights,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -626,7 +650,7 @@ module AWS::SDK::DynamoDB
     end
 
     class DescribeEndpoints
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -655,7 +679,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeEndpoints,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -677,7 +703,7 @@ module AWS::SDK::DynamoDB
     end
 
     class DescribeExport
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -706,7 +732,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeExport,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -728,7 +756,7 @@ module AWS::SDK::DynamoDB
     end
 
     class DescribeGlobalTable
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -757,7 +785,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeGlobalTable,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -779,7 +809,7 @@ module AWS::SDK::DynamoDB
     end
 
     class DescribeGlobalTableSettings
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -808,7 +838,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeGlobalTableSettings,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -830,7 +862,7 @@ module AWS::SDK::DynamoDB
     end
 
     class DescribeImport
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -859,7 +891,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeImport,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -881,7 +915,7 @@ module AWS::SDK::DynamoDB
     end
 
     class DescribeKinesisStreamingDestination
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -910,7 +944,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeKinesisStreamingDestination,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -932,7 +968,7 @@ module AWS::SDK::DynamoDB
     end
 
     class DescribeLimits
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -961,7 +997,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeLimits,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -983,7 +1021,7 @@ module AWS::SDK::DynamoDB
     end
 
     class DescribeTable
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1012,7 +1050,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeTable,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1034,7 +1074,7 @@ module AWS::SDK::DynamoDB
     end
 
     class DescribeTableReplicaAutoScaling
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1063,7 +1103,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeTableReplicaAutoScaling,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1085,7 +1127,7 @@ module AWS::SDK::DynamoDB
     end
 
     class DescribeTimeToLive
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1114,7 +1156,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DescribeTimeToLive,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1136,7 +1180,7 @@ module AWS::SDK::DynamoDB
     end
 
     class DisableKinesisStreamingDestination
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1165,7 +1209,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DisableKinesisStreamingDestination,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1187,7 +1233,7 @@ module AWS::SDK::DynamoDB
     end
 
     class EnableKinesisStreamingDestination
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1216,7 +1262,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::EnableKinesisStreamingDestination,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1238,7 +1286,7 @@ module AWS::SDK::DynamoDB
     end
 
     class ExecuteStatement
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1267,7 +1315,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ExecuteStatement,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1289,7 +1339,7 @@ module AWS::SDK::DynamoDB
     end
 
     class ExecuteTransaction
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1318,7 +1368,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ExecuteTransaction,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1340,7 +1392,7 @@ module AWS::SDK::DynamoDB
     end
 
     class ExportTableToPointInTime
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1369,7 +1421,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ExportTableToPointInTime,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1391,7 +1445,7 @@ module AWS::SDK::DynamoDB
     end
 
     class GetItem
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1420,7 +1474,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetItem,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1442,7 +1498,7 @@ module AWS::SDK::DynamoDB
     end
 
     class ImportTable
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1471,7 +1527,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ImportTable,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1493,7 +1551,7 @@ module AWS::SDK::DynamoDB
     end
 
     class ListBackups
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1522,7 +1580,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ListBackups,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1544,7 +1604,7 @@ module AWS::SDK::DynamoDB
     end
 
     class ListContributorInsights
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1573,7 +1633,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ListContributorInsights,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1595,7 +1657,7 @@ module AWS::SDK::DynamoDB
     end
 
     class ListExports
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1624,7 +1686,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ListExports,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1646,7 +1710,7 @@ module AWS::SDK::DynamoDB
     end
 
     class ListGlobalTables
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1675,7 +1739,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ListGlobalTables,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1697,7 +1763,7 @@ module AWS::SDK::DynamoDB
     end
 
     class ListImports
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1726,7 +1792,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ListImports,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1748,7 +1816,7 @@ module AWS::SDK::DynamoDB
     end
 
     class ListTables
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1777,7 +1845,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ListTables,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1799,7 +1869,7 @@ module AWS::SDK::DynamoDB
     end
 
     class ListTagsOfResource
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1828,7 +1898,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ListTagsOfResource,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1850,7 +1922,7 @@ module AWS::SDK::DynamoDB
     end
 
     class PutItem
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1879,7 +1951,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::PutItem,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1901,7 +1975,7 @@ module AWS::SDK::DynamoDB
     end
 
     class Query
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1930,7 +2004,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::Query,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -1952,7 +2028,7 @@ module AWS::SDK::DynamoDB
     end
 
     class RestoreTableFromBackup
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -1981,7 +2057,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::RestoreTableFromBackup,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2003,7 +2081,7 @@ module AWS::SDK::DynamoDB
     end
 
     class RestoreTableToPointInTime
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2032,7 +2110,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::RestoreTableToPointInTime,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2054,7 +2134,7 @@ module AWS::SDK::DynamoDB
     end
 
     class Scan
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2083,7 +2163,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::Scan,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2105,7 +2187,7 @@ module AWS::SDK::DynamoDB
     end
 
     class TagResource
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2134,7 +2216,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::TagResource,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2156,7 +2240,7 @@ module AWS::SDK::DynamoDB
     end
 
     class TransactGetItems
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2185,7 +2269,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::TransactGetItems,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2207,7 +2293,7 @@ module AWS::SDK::DynamoDB
     end
 
     class TransactWriteItems
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2236,7 +2322,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::TransactWriteItems,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2258,7 +2346,7 @@ module AWS::SDK::DynamoDB
     end
 
     class UntagResource
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2287,7 +2375,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::UntagResource,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2309,7 +2399,7 @@ module AWS::SDK::DynamoDB
     end
 
     class UpdateContinuousBackups
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2338,7 +2428,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::UpdateContinuousBackups,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2360,7 +2452,7 @@ module AWS::SDK::DynamoDB
     end
 
     class UpdateContributorInsights
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2389,7 +2481,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::UpdateContributorInsights,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2411,7 +2505,7 @@ module AWS::SDK::DynamoDB
     end
 
     class UpdateGlobalTable
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2440,7 +2534,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::UpdateGlobalTable,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2462,7 +2558,7 @@ module AWS::SDK::DynamoDB
     end
 
     class UpdateGlobalTableSettings
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2491,7 +2587,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::UpdateGlobalTableSettings,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2513,7 +2611,7 @@ module AWS::SDK::DynamoDB
     end
 
     class UpdateItem
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2542,7 +2640,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::UpdateItem,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2564,7 +2664,7 @@ module AWS::SDK::DynamoDB
     end
 
     class UpdateKinesisStreamingDestination
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2593,7 +2693,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::UpdateKinesisStreamingDestination,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2615,7 +2717,7 @@ module AWS::SDK::DynamoDB
     end
 
     class UpdateTable
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2644,7 +2746,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::UpdateTable,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2666,7 +2770,7 @@ module AWS::SDK::DynamoDB
     end
 
     class UpdateTableReplicaAutoScaling
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2695,7 +2799,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::UpdateTableReplicaAutoScaling,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -2717,7 +2823,7 @@ module AWS::SDK::DynamoDB
     end
 
     class UpdateTimeToLive
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -2746,7 +2852,9 @@ module AWS::SDK::DynamoDB
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::UpdateTimeToLive,
           error_parser: Hearth::HTTP::ErrorParser.new(

@@ -14,7 +14,7 @@ module AWS::SDK::SSO
   module Middleware
 
     class GetRoleCredentials
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -42,7 +42,9 @@ module AWS::SDK::SSO
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetRoleCredentials,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -64,7 +66,7 @@ module AWS::SDK::SSO
     end
 
     class ListAccountRoles
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -92,7 +94,9 @@ module AWS::SDK::SSO
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ListAccountRoles,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -114,7 +118,7 @@ module AWS::SDK::SSO
     end
 
     class ListAccounts
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -142,7 +146,9 @@ module AWS::SDK::SSO
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::ListAccounts,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -164,7 +170,7 @@ module AWS::SDK::SSO
     end
 
     class Logout
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -192,7 +198,9 @@ module AWS::SDK::SSO
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::Logout,
           error_parser: Hearth::HTTP::ErrorParser.new(

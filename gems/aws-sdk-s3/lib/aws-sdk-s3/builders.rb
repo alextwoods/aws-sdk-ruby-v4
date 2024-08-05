@@ -3208,6 +3208,14 @@ module AWS::SDK::S3
       end
     end
 
+    class RequestProgress
+      def self.build(node_name, input)
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Enabled', input.enabled.to_s) unless input.enabled.nil?
+        xml
+      end
+    end
+
     class RestoreObject
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -3306,6 +3314,51 @@ module AWS::SDK::S3
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml
+      end
+    end
+
+    class ScanRange
+      def self.build(node_name, input)
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Start', input.start.to_s) unless input.start.nil?
+        xml << Hearth::XML::Node.new('End', input.end.to_s) unless input.end.nil?
+        xml
+      end
+    end
+
+    class SelectObjectContent
+      def self.build(http_req, input:)
+        http_req.http_method = 'POST'
+        CGI.parse('select&select-type=2&x-id=SelectObjectContent').each do |k,v|
+          http_req.append_query_param(k, v)
+        end
+        if input.bucket.to_s.empty?
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
+        end
+        if input.key.to_s.empty?
+          raise ArgumentError, "HTTP label :key cannot be empty."
+        end
+        http_req.append_path(format(
+            '/%<Bucket>s/%<Key>s',
+            Bucket: Hearth::HTTP.uri_escape(input.bucket.to_s),
+            Key: (input.key.to_s).split('/').map { |s| Hearth::HTTP.uri_escape(s) }.join('/')
+          )
+        )
+
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Hearth::XML::Node.new('SelectObjectContentRequest')
+        xml.attributes['xmlns'] = 'http://s3.amazonaws.com/doc/2006-03-01/'
+        xml << Hearth::XML::Node.new('Expression', input.expression.to_s) unless input.expression.nil?
+        xml << Hearth::XML::Node.new('ExpressionType', input.expression_type.to_s) unless input.expression_type.nil?
+        xml << RequestProgress.build('RequestProgress', input.request_progress) unless input.request_progress.nil?
+        xml << InputSerialization.build('InputSerialization', input.input_serialization) unless input.input_serialization.nil?
+        xml << OutputSerialization.build('OutputSerialization', input.output_serialization) unless input.output_serialization.nil?
+        xml << ScanRange.build('ScanRange', input.scan_range) unless input.scan_range.nil?
+        http_req.body = ::StringIO.new(xml.to_str) if xml
+        http_req.headers['x-amz-server-side-encryption-customer-algorithm'] = input.sse_customer_algorithm unless input.sse_customer_algorithm.nil? || input.sse_customer_algorithm.empty?
+        http_req.headers['x-amz-server-side-encryption-customer-key'] = input.sse_customer_key unless input.sse_customer_key.nil? || input.sse_customer_key.empty?
+        http_req.headers['x-amz-server-side-encryption-customer-key-MD5'] = input.sse_customer_key_md5 unless input.sse_customer_key_md5.nil? || input.sse_customer_key_md5.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
       end
     end
 

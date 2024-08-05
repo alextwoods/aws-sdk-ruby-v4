@@ -16,6 +16,7 @@
 package software.amazon.smithy.aws.ruby.codegen.protocol.restjson;
 
 import java.util.logging.Logger;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import software.amazon.smithy.aws.ruby.codegen.protocol.restjson.generators.BuilderGenerator;
@@ -23,7 +24,9 @@ import software.amazon.smithy.aws.ruby.codegen.protocol.restjson.generators.Erro
 import software.amazon.smithy.aws.ruby.codegen.protocol.restjson.generators.ParserGenerator;
 import software.amazon.smithy.aws.ruby.codegen.protocol.restjson.generators.StubsGenerator;
 import software.amazon.smithy.aws.traits.protocols.RestJson1Trait;
+import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.MemberShape;
+import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.ShapeId;
 import software.amazon.smithy.model.traits.HttpHeaderTrait;
@@ -48,8 +51,14 @@ public class RestJson1 implements ProtocolGenerator {
     }
 
     @Override
-    public ApplicationTransport getApplicationTransport() {
-        return ApplicationTransport.createDefaultHttpApplicationTransport();
+    public ApplicationTransport getEventStreamTransport(ServiceShape service, Model model) {
+        RestJson1Trait protocolTrait = service.expectTrait(RestJson1Trait.class);
+        List<String> eventStreamHttp = protocolTrait.getEventStreamHttp();
+        if (!eventStreamHttp.isEmpty() && eventStreamHttp.get(0).equals("h2")) {
+            return ApplicationTransport.createDefaultHttp2ApplicationTransport();
+        } else {
+            return ApplicationTransport.createDefaultHttpApplicationTransport();
+        }
     }
 
     @Override

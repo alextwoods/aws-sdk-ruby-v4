@@ -228,10 +228,11 @@ module AWS::SDK::CodeCatalyst
     #   resp.data.access_token_id #=> String
     def create_access_token(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.codecatalyst.client')
       input = Params::CreateAccessTokenInput.build(params, context: 'params')
-      stack = AWS::SDK::CodeCatalyst::Middleware::CreateAccessToken.build(config)
+      stack = AWS::SDK::CodeCatalyst::Middleware::CreateAccessToken.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -297,10 +298,11 @@ module AWS::SDK::CodeCatalyst
     #   resp.data.vpc_connection_name #=> String
     def create_dev_environment(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.codecatalyst.client')
       input = Params::CreateDevEnvironmentInput.build(params, context: 'params')
-      stack = AWS::SDK::CodeCatalyst::Middleware::CreateDevEnvironment.build(config)
+      stack = AWS::SDK::CodeCatalyst::Middleware::CreateDevEnvironment.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -342,10 +344,11 @@ module AWS::SDK::CodeCatalyst
     #   resp.data.description #=> String
     def create_project(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.codecatalyst.client')
       input = Params::CreateProjectInput.build(params, context: 'params')
-      stack = AWS::SDK::CodeCatalyst::Middleware::CreateProject.build(config)
+      stack = AWS::SDK::CodeCatalyst::Middleware::CreateProject.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -389,10 +392,11 @@ module AWS::SDK::CodeCatalyst
     #   resp.data.description #=> String
     def create_source_repository(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.codecatalyst.client')
       input = Params::CreateSourceRepositoryInput.build(params, context: 'params')
-      stack = AWS::SDK::CodeCatalyst::Middleware::CreateSourceRepository.build(config)
+      stack = AWS::SDK::CodeCatalyst::Middleware::CreateSourceRepository.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -439,10 +443,11 @@ module AWS::SDK::CodeCatalyst
     #   resp.data.head_commit_id #=> String
     def create_source_repository_branch(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.codecatalyst.client')
       input = Params::CreateSourceRepositoryBranchInput.build(params, context: 'params')
-      stack = AWS::SDK::CodeCatalyst::Middleware::CreateSourceRepositoryBranch.build(config)
+      stack = AWS::SDK::CodeCatalyst::Middleware::CreateSourceRepositoryBranch.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -478,10 +483,11 @@ module AWS::SDK::CodeCatalyst
     #   resp.data #=> Types::DeleteAccessTokenOutput
     def delete_access_token(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.codecatalyst.client')
       input = Params::DeleteAccessTokenInput.build(params, context: 'params')
-      stack = AWS::SDK::CodeCatalyst::Middleware::DeleteAccessToken.build(config)
+      stack = AWS::SDK::CodeCatalyst::Middleware::DeleteAccessToken.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -522,10 +528,11 @@ module AWS::SDK::CodeCatalyst
     #   resp.data.id #=> String
     def delete_dev_environment(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.codecatalyst.client')
       input = Params::DeleteDevEnvironmentInput.build(params, context: 'params')
-      stack = AWS::SDK::CodeCatalyst::Middleware::DeleteDevEnvironment.build(config)
+      stack = AWS::SDK::CodeCatalyst::Middleware::DeleteDevEnvironment.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -565,10 +572,11 @@ module AWS::SDK::CodeCatalyst
     #   resp.data.display_name #=> String
     def delete_project(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.codecatalyst.client')
       input = Params::DeleteProjectInput.build(params, context: 'params')
-      stack = AWS::SDK::CodeCatalyst::Middleware::DeleteProject.build(config)
+      stack = AWS::SDK::CodeCatalyst::Middleware::DeleteProject.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -609,10 +617,11 @@ module AWS::SDK::CodeCatalyst
     #   resp.data.name #=> String
     def delete_source_repository(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.codecatalyst.client')
       input = Params::DeleteSourceRepositoryInput.build(params, context: 'params')
-      stack = AWS::SDK::CodeCatalyst::Middleware::DeleteSourceRepository.build(config)
+      stack = AWS::SDK::CodeCatalyst::Middleware::DeleteSourceRepository.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -653,10 +662,11 @@ module AWS::SDK::CodeCatalyst
     #   resp.data.display_name #=> String
     def delete_space(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.codecatalyst.client')
       input = Params::DeleteSpaceInput.build(params, context: 'params')
-      stack = AWS::SDK::CodeCatalyst::Middleware::DeleteSpace.build(config)
+      stack = AWS::SDK::CodeCatalyst::Middleware::DeleteSpace.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -715,10 +725,11 @@ module AWS::SDK::CodeCatalyst
     #   resp.data.vpc_connection_name #=> String
     def get_dev_environment(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.codecatalyst.client')
       input = Params::GetDevEnvironmentInput.build(params, context: 'params')
-      stack = AWS::SDK::CodeCatalyst::Middleware::GetDevEnvironment.build(config)
+      stack = AWS::SDK::CodeCatalyst::Middleware::GetDevEnvironment.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -759,10 +770,11 @@ module AWS::SDK::CodeCatalyst
     #   resp.data.description #=> String
     def get_project(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.codecatalyst.client')
       input = Params::GetProjectInput.build(params, context: 'params')
-      stack = AWS::SDK::CodeCatalyst::Middleware::GetProject.build(config)
+      stack = AWS::SDK::CodeCatalyst::Middleware::GetProject.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -806,10 +818,11 @@ module AWS::SDK::CodeCatalyst
     #   resp.data.created_time #=> Time
     def get_source_repository(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.codecatalyst.client')
       input = Params::GetSourceRepositoryInput.build(params, context: 'params')
-      stack = AWS::SDK::CodeCatalyst::Middleware::GetSourceRepository.build(config)
+      stack = AWS::SDK::CodeCatalyst::Middleware::GetSourceRepository.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -849,10 +862,11 @@ module AWS::SDK::CodeCatalyst
     #   resp.data.https #=> String
     def get_source_repository_clone_urls(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.codecatalyst.client')
       input = Params::GetSourceRepositoryCloneUrlsInput.build(params, context: 'params')
-      stack = AWS::SDK::CodeCatalyst::Middleware::GetSourceRepositoryCloneUrls.build(config)
+      stack = AWS::SDK::CodeCatalyst::Middleware::GetSourceRepositoryCloneUrls.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -892,10 +906,11 @@ module AWS::SDK::CodeCatalyst
     #   resp.data.description #=> String
     def get_space(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.codecatalyst.client')
       input = Params::GetSpaceInput.build(params, context: 'params')
-      stack = AWS::SDK::CodeCatalyst::Middleware::GetSpace.build(config)
+      stack = AWS::SDK::CodeCatalyst::Middleware::GetSpace.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -936,10 +951,11 @@ module AWS::SDK::CodeCatalyst
     #   resp.data.pending_subscription_start_time #=> Time
     def get_subscription(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.codecatalyst.client')
       input = Params::GetSubscriptionInput.build(params, context: 'params')
-      stack = AWS::SDK::CodeCatalyst::Middleware::GetSubscription.build(config)
+      stack = AWS::SDK::CodeCatalyst::Middleware::GetSubscription.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -983,10 +999,11 @@ module AWS::SDK::CodeCatalyst
     #   resp.data.version #=> String
     def get_user_details(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.codecatalyst.client')
       input = Params::GetUserDetailsInput.build(params, context: 'params')
-      stack = AWS::SDK::CodeCatalyst::Middleware::GetUserDetails.build(config)
+      stack = AWS::SDK::CodeCatalyst::Middleware::GetUserDetails.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1036,10 +1053,11 @@ module AWS::SDK::CodeCatalyst
     #   resp.data.status #=> String, one of ["INVALID", "ACTIVE"]
     def get_workflow(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.codecatalyst.client')
       input = Params::GetWorkflowInput.build(params, context: 'params')
-      stack = AWS::SDK::CodeCatalyst::Middleware::GetWorkflow.build(config)
+      stack = AWS::SDK::CodeCatalyst::Middleware::GetWorkflow.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1087,10 +1105,11 @@ module AWS::SDK::CodeCatalyst
     #   resp.data.last_updated_time #=> Time
     def get_workflow_run(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.codecatalyst.client')
       input = Params::GetWorkflowRunInput.build(params, context: 'params')
-      stack = AWS::SDK::CodeCatalyst::Middleware::GetWorkflowRun.build(config)
+      stack = AWS::SDK::CodeCatalyst::Middleware::GetWorkflowRun.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1133,10 +1152,11 @@ module AWS::SDK::CodeCatalyst
     #   resp.data.next_token #=> String
     def list_access_tokens(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.codecatalyst.client')
       input = Params::ListAccessTokensInput.build(params, context: 'params')
-      stack = AWS::SDK::CodeCatalyst::Middleware::ListAccessTokens.build(config)
+      stack = AWS::SDK::CodeCatalyst::Middleware::ListAccessTokens.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1184,10 +1204,11 @@ module AWS::SDK::CodeCatalyst
     #   resp.data.next_token #=> String
     def list_dev_environment_sessions(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.codecatalyst.client')
       input = Params::ListDevEnvironmentSessionsInput.build(params, context: 'params')
-      stack = AWS::SDK::CodeCatalyst::Middleware::ListDevEnvironmentSessions.build(config)
+      stack = AWS::SDK::CodeCatalyst::Middleware::ListDevEnvironmentSessions.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1259,10 +1280,11 @@ module AWS::SDK::CodeCatalyst
     #   resp.data.next_token #=> String
     def list_dev_environments(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.codecatalyst.client')
       input = Params::ListDevEnvironmentsInput.build(params, context: 'params')
-      stack = AWS::SDK::CodeCatalyst::Middleware::ListDevEnvironments.build(config)
+      stack = AWS::SDK::CodeCatalyst::Middleware::ListDevEnvironments.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1338,10 +1360,11 @@ module AWS::SDK::CodeCatalyst
     #   resp.data.items[0].user_agent #=> String
     def list_event_logs(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.codecatalyst.client')
       input = Params::ListEventLogsInput.build(params, context: 'params')
-      stack = AWS::SDK::CodeCatalyst::Middleware::ListEventLogs.build(config)
+      stack = AWS::SDK::CodeCatalyst::Middleware::ListEventLogs.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1394,10 +1417,11 @@ module AWS::SDK::CodeCatalyst
     #   resp.data.items[0].description #=> String
     def list_projects(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.codecatalyst.client')
       input = Params::ListProjectsInput.build(params, context: 'params')
-      stack = AWS::SDK::CodeCatalyst::Middleware::ListProjects.build(config)
+      stack = AWS::SDK::CodeCatalyst::Middleware::ListProjects.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1444,10 +1468,11 @@ module AWS::SDK::CodeCatalyst
     #   resp.data.next_token #=> String
     def list_source_repositories(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.codecatalyst.client')
       input = Params::ListSourceRepositoriesInput.build(params, context: 'params')
-      stack = AWS::SDK::CodeCatalyst::Middleware::ListSourceRepositories.build(config)
+      stack = AWS::SDK::CodeCatalyst::Middleware::ListSourceRepositories.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1494,10 +1519,11 @@ module AWS::SDK::CodeCatalyst
     #   resp.data.items[0].head_commit_id #=> String
     def list_source_repository_branches(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.codecatalyst.client')
       input = Params::ListSourceRepositoryBranchesInput.build(params, context: 'params')
-      stack = AWS::SDK::CodeCatalyst::Middleware::ListSourceRepositoryBranches.build(config)
+      stack = AWS::SDK::CodeCatalyst::Middleware::ListSourceRepositoryBranches.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1540,10 +1566,11 @@ module AWS::SDK::CodeCatalyst
     #   resp.data.items[0].description #=> String
     def list_spaces(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.codecatalyst.client')
       input = Params::ListSpacesInput.build(params, context: 'params')
-      stack = AWS::SDK::CodeCatalyst::Middleware::ListSpaces.build(config)
+      stack = AWS::SDK::CodeCatalyst::Middleware::ListSpaces.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1598,10 +1625,11 @@ module AWS::SDK::CodeCatalyst
     #   resp.data.items[0].last_updated_time #=> Time
     def list_workflow_runs(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.codecatalyst.client')
       input = Params::ListWorkflowRunsInput.build(params, context: 'params')
-      stack = AWS::SDK::CodeCatalyst::Middleware::ListWorkflowRuns.build(config)
+      stack = AWS::SDK::CodeCatalyst::Middleware::ListWorkflowRuns.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1656,10 +1684,11 @@ module AWS::SDK::CodeCatalyst
     #   resp.data.items[0].status #=> String, one of ["INVALID", "ACTIVE"]
     def list_workflows(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.codecatalyst.client')
       input = Params::ListWorkflowsInput.build(params, context: 'params')
-      stack = AWS::SDK::CodeCatalyst::Middleware::ListWorkflows.build(config)
+      stack = AWS::SDK::CodeCatalyst::Middleware::ListWorkflows.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1709,10 +1738,11 @@ module AWS::SDK::CodeCatalyst
     #   resp.data.status #=> String, one of ["PENDING", "RUNNING", "STARTING", "STOPPING", "STOPPED", "FAILED", "DELETING", "DELETED"]
     def start_dev_environment(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.codecatalyst.client')
       input = Params::StartDevEnvironmentInput.build(params, context: 'params')
-      stack = AWS::SDK::CodeCatalyst::Middleware::StartDevEnvironment.build(config)
+      stack = AWS::SDK::CodeCatalyst::Middleware::StartDevEnvironment.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1766,10 +1796,11 @@ module AWS::SDK::CodeCatalyst
     #   resp.data.id #=> String
     def start_dev_environment_session(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.codecatalyst.client')
       input = Params::StartDevEnvironmentSessionInput.build(params, context: 'params')
-      stack = AWS::SDK::CodeCatalyst::Middleware::StartDevEnvironmentSession.build(config)
+      stack = AWS::SDK::CodeCatalyst::Middleware::StartDevEnvironmentSession.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1812,10 +1843,11 @@ module AWS::SDK::CodeCatalyst
     #   resp.data.workflow_id #=> String
     def start_workflow_run(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.codecatalyst.client')
       input = Params::StartWorkflowRunInput.build(params, context: 'params')
-      stack = AWS::SDK::CodeCatalyst::Middleware::StartWorkflowRun.build(config)
+      stack = AWS::SDK::CodeCatalyst::Middleware::StartWorkflowRun.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1857,10 +1889,11 @@ module AWS::SDK::CodeCatalyst
     #   resp.data.status #=> String, one of ["PENDING", "RUNNING", "STARTING", "STOPPING", "STOPPED", "FAILED", "DELETING", "DELETED"]
     def stop_dev_environment(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.codecatalyst.client')
       input = Params::StopDevEnvironmentInput.build(params, context: 'params')
-      stack = AWS::SDK::CodeCatalyst::Middleware::StopDevEnvironment.build(config)
+      stack = AWS::SDK::CodeCatalyst::Middleware::StopDevEnvironment.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1903,10 +1936,11 @@ module AWS::SDK::CodeCatalyst
     #   resp.data.session_id #=> String
     def stop_dev_environment_session(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.codecatalyst.client')
       input = Params::StopDevEnvironmentSessionInput.build(params, context: 'params')
-      stack = AWS::SDK::CodeCatalyst::Middleware::StopDevEnvironmentSession.build(config)
+      stack = AWS::SDK::CodeCatalyst::Middleware::StopDevEnvironmentSession.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1965,10 +1999,11 @@ module AWS::SDK::CodeCatalyst
     #   resp.data.client_token #=> String
     def update_dev_environment(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.codecatalyst.client')
       input = Params::UpdateDevEnvironmentInput.build(params, context: 'params')
-      stack = AWS::SDK::CodeCatalyst::Middleware::UpdateDevEnvironment.build(config)
+      stack = AWS::SDK::CodeCatalyst::Middleware::UpdateDevEnvironment.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2010,10 +2045,11 @@ module AWS::SDK::CodeCatalyst
     #   resp.data.description #=> String
     def update_project(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.codecatalyst.client')
       input = Params::UpdateProjectInput.build(params, context: 'params')
-      stack = AWS::SDK::CodeCatalyst::Middleware::UpdateProject.build(config)
+      stack = AWS::SDK::CodeCatalyst::Middleware::UpdateProject.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2053,10 +2089,11 @@ module AWS::SDK::CodeCatalyst
     #   resp.data.description #=> String
     def update_space(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.codecatalyst.client')
       input = Params::UpdateSpaceInput.build(params, context: 'params')
-      stack = AWS::SDK::CodeCatalyst::Middleware::UpdateSpace.build(config)
+      stack = AWS::SDK::CodeCatalyst::Middleware::UpdateSpace.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2091,10 +2128,11 @@ module AWS::SDK::CodeCatalyst
     #   resp.data.identity #=> String
     def verify_session(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.codecatalyst.client')
       input = Params::VerifySessionInput.build(params, context: 'params')
-      stack = AWS::SDK::CodeCatalyst::Middleware::VerifySession.build(config)
+      stack = AWS::SDK::CodeCatalyst::Middleware::VerifySession.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),

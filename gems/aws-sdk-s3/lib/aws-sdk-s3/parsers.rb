@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+
 module AWS::SDK::S3
   # @api private
   module Parsers
@@ -341,6 +343,13 @@ module AWS::SDK::S3
         xml.at('KeyPrefixEquals') do |node|
           data.key_prefix_equals = (node.text || '')
         end
+        return data
+      end
+    end
+
+    class ContinuationEvent
+      def self.parse(xml)
+        data = Types::ContinuationEvent.new
         return data
       end
     end
@@ -771,6 +780,13 @@ module AWS::SDK::S3
         xml.at('ReplicaKmsKeyID') do |node|
           data.replica_kms_key_id = (node.text || '')
         end
+        return data
+      end
+    end
+
+    class EndEvent
+      def self.parse(xml)
+        data = Types::EndEvent.new
         return data
       end
     end
@@ -2680,6 +2696,32 @@ module AWS::SDK::S3
       end
     end
 
+    class Progress
+      def self.parse(xml)
+        data = Types::Progress.new
+        xml.at('BytesScanned') do |node|
+          data.bytes_scanned = node.text&.to_i
+        end
+        xml.at('BytesProcessed') do |node|
+          data.bytes_processed = node.text&.to_i
+        end
+        xml.at('BytesReturned') do |node|
+          data.bytes_returned = node.text&.to_i
+        end
+        return data
+      end
+    end
+
+    class ProgressEvent
+      def self.parse(xml)
+        data = Types::ProgressEvent.new
+        xml.at('Details') do |node|
+          data.details = Progress.parse(node)
+        end
+        return data
+      end
+    end
+
     class PublicAccessBlockConfiguration
       def self.parse(xml)
         data = Types::PublicAccessBlockConfiguration.new
@@ -2997,6 +3039,16 @@ module AWS::SDK::S3
       end
     end
 
+    class RecordsEvent
+      def self.parse(xml)
+        data = Types::RecordsEvent.new
+        xml.at('Payload') do |node|
+          data.payload = ((::Base64::decode64(node.text) unless node.text.nil?) || '')
+        end
+        return data
+      end
+    end
+
     class Redirect
       def self.parse(xml)
         data = Types::Redirect.new
@@ -3233,6 +3285,14 @@ module AWS::SDK::S3
       end
     end
 
+    class SelectObjectContent
+      def self.parse(http_resp)
+        data = Types::SelectObjectContentOutput.new
+        data.payload = http_resp.body
+        data
+      end
+    end
+
     class ServerSideEncryptionByDefault
       def self.parse(xml)
         data = Types::ServerSideEncryptionByDefault.new
@@ -3323,6 +3383,32 @@ module AWS::SDK::S3
         data = Types::SseKmsEncryptedObjects.new
         xml.at('Status') do |node|
           data.status = (node.text || '')
+        end
+        return data
+      end
+    end
+
+    class Stats
+      def self.parse(xml)
+        data = Types::Stats.new
+        xml.at('BytesScanned') do |node|
+          data.bytes_scanned = node.text&.to_i
+        end
+        xml.at('BytesProcessed') do |node|
+          data.bytes_processed = node.text&.to_i
+        end
+        xml.at('BytesReturned') do |node|
+          data.bytes_returned = node.text&.to_i
+        end
+        return data
+      end
+    end
+
+    class StatsEvent
+      def self.parse(xml)
+        data = Types::StatsEvent.new
+        xml.at('Details') do |node|
+          data.details = Stats.parse(node)
         end
         return data
       end
@@ -3534,6 +3620,74 @@ module AWS::SDK::S3
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         data
+      end
+    end
+
+    module EventStream
+
+      class ContinuationEvent
+        def self.parse(message)
+          data = Types::ContinuationEvent.new
+          payload = message.payload.read
+          return data if payload.empty?
+          xml = Hearth::XML.parse(payload)
+          data
+        end
+      end
+
+      class EndEvent
+        def self.parse(message)
+          data = Types::EndEvent.new
+          payload = message.payload.read
+          return data if payload.empty?
+          xml = Hearth::XML.parse(payload)
+          data
+        end
+      end
+
+      class ProgressEvent
+        def self.parse(message)
+          data = Types::ProgressEvent.new
+          payload = message.payload.read
+          return data if payload.empty?
+          node = xml = Hearth::XML.parse(payload)
+          data.details = Progress.parse(node)
+          data
+        end
+      end
+
+      class RecordsEvent
+        def self.parse(message)
+          data = Types::RecordsEvent.new
+          payload = message.payload.read
+          return data if payload.empty?
+          data.payload =  payload
+          data
+        end
+      end
+
+      class SelectObjectContentInitialResponse
+        def self.parse(message)
+          data = Types::SelectObjectContentOutput.new
+          payload = message.payload.read
+          return data if payload.empty?
+          xml = Hearth::XML.parse(payload)
+          xml.at('Payload') do |node|
+            data.payload = SelectObjectContentEventStream.parse(node)
+          end
+          data
+        end
+      end
+
+      class StatsEvent
+        def self.parse(message)
+          data = Types::StatsEvent.new
+          payload = message.payload.read
+          return data if payload.empty?
+          node = xml = Hearth::XML.parse(payload)
+          data.details = Stats.parse(node)
+          data
+        end
       end
     end
   end

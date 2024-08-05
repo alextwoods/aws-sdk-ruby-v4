@@ -62,9 +62,8 @@ public class ParserGenerator extends ParserGeneratorBase {
                 .write("body = http_resp.body.read")
                 .write("return data if body.empty?")
                 .write("xml = $T.parse(body).at('$LResult')",
-                        Hearth.XML, symbolProvider.toSymbol(operationShape).getName());
-        renderMemberParsers(shape);
-        writer
+                        Hearth.XML, symbolProvider.toSymbol(operationShape).getName())
+                .call(() -> renderMemberParsers(shape))
                 .write("data")
                 .closeBlock("end");
     }
@@ -81,6 +80,21 @@ public class ParserGenerator extends ParserGeneratorBase {
         writer
                 .write("data")
                 .closeBlock("end");
+    }
+
+    @Override
+    protected void renderEventImplicitStructurePayloadParser(StructureShape event) {
+        writer.write("xml = $T.parse(payload)", Hearth.XML);
+        renderMemberParsers(event);
+    }
+
+    @Override
+    protected void renderEventExplicitStructurePayloadParser(MemberShape payloadMember, StructureShape shape) {
+        String dataName = symbolProvider.toMemberName(payloadMember);
+        String dataSetter = "data." + dataName + " = ";
+
+        writer.write("node = xml = $T.parse(payload)", Hearth.XML);
+        shape.accept(new MemberDeserializer(payloadMember, dataSetter));
     }
 
     private void renderMemberParsers(Shape s) {

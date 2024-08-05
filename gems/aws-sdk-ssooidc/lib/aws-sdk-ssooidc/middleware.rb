@@ -14,7 +14,7 @@ module AWS::SDK::SSOOIDC
   module Middleware
 
     class CreateToken
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -44,7 +44,9 @@ module AWS::SDK::SSOOIDC
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateToken,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -66,7 +68,7 @@ module AWS::SDK::SSOOIDC
     end
 
     class CreateTokenWithIAM
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -96,7 +98,9 @@ module AWS::SDK::SSOOIDC
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::CreateTokenWithIAM,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -118,7 +122,7 @@ module AWS::SDK::SSOOIDC
     end
 
     class RegisterClient
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -148,7 +152,9 @@ module AWS::SDK::SSOOIDC
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::RegisterClient,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -170,7 +176,7 @@ module AWS::SDK::SSOOIDC
     end
 
     class StartDeviceAuthorization
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -200,7 +206,9 @@ module AWS::SDK::SSOOIDC
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::StartDeviceAuthorization,
           error_parser: Hearth::HTTP::ErrorParser.new(

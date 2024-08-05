@@ -1,0 +1,84 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/smithy-lang/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::TranscribeStreaming
+  module EventStream
+
+    class StartCallAnalyticsStreamTranscriptionHandler < Hearth::EventStream::HandlerBase
+      def on_initial_response: () { (AWS::SDK::TranscribeStreaming::Types::StartCallAnalyticsStreamTranscriptionOutput) -> void } -> void
+
+      def on_utterance_event: () { (AWS::SDK::TranscribeStreaming::Types::UtteranceEvent) -> void } -> void
+
+      def on_category_event: () { (AWS::SDK::TranscribeStreaming::Types::CategoryEvent) -> void } -> void
+
+      def on_bad_request_exception: () { (AWS::SDK::TranscribeStreaming::Types::BadRequestException) -> void } -> void
+
+      def on_limit_exceeded_exception: () { (AWS::SDK::TranscribeStreaming::Types::LimitExceededException) -> void } -> void
+
+      def on_internal_failure_exception: () { (AWS::SDK::TranscribeStreaming::Types::InternalFailureException) -> void } -> void
+
+      def on_conflict_exception: () { (AWS::SDK::TranscribeStreaming::Types::ConflictException) -> void } -> void
+
+      def on_service_unavailable_exception: () { (AWS::SDK::TranscribeStreaming::Types::ServiceUnavailableException) -> void } -> void
+    end
+
+    class StartMedicalStreamTranscriptionHandler < Hearth::EventStream::HandlerBase
+      def on_initial_response: () { (AWS::SDK::TranscribeStreaming::Types::StartMedicalStreamTranscriptionOutput) -> void } -> void
+
+      def on_transcript_event: () { (AWS::SDK::TranscribeStreaming::Types::MedicalTranscriptEvent) -> void } -> void
+
+      def on_bad_request_exception: () { (AWS::SDK::TranscribeStreaming::Types::BadRequestException) -> void } -> void
+
+      def on_limit_exceeded_exception: () { (AWS::SDK::TranscribeStreaming::Types::LimitExceededException) -> void } -> void
+
+      def on_internal_failure_exception: () { (AWS::SDK::TranscribeStreaming::Types::InternalFailureException) -> void } -> void
+
+      def on_conflict_exception: () { (AWS::SDK::TranscribeStreaming::Types::ConflictException) -> void } -> void
+
+      def on_service_unavailable_exception: () { (AWS::SDK::TranscribeStreaming::Types::ServiceUnavailableException) -> void } -> void
+    end
+
+    class StartStreamTranscriptionHandler < Hearth::EventStream::HandlerBase
+      def on_initial_response: () { (AWS::SDK::TranscribeStreaming::Types::StartStreamTranscriptionOutput) -> void } -> void
+
+      def on_transcript_event: () { (AWS::SDK::TranscribeStreaming::Types::TranscriptEvent) -> void } -> void
+
+      def on_bad_request_exception: () { (AWS::SDK::TranscribeStreaming::Types::BadRequestException) -> void } -> void
+
+      def on_limit_exceeded_exception: () { (AWS::SDK::TranscribeStreaming::Types::LimitExceededException) -> void } -> void
+
+      def on_internal_failure_exception: () { (AWS::SDK::TranscribeStreaming::Types::InternalFailureException) -> void } -> void
+
+      def on_conflict_exception: () { (AWS::SDK::TranscribeStreaming::Types::ConflictException) -> void } -> void
+
+      def on_service_unavailable_exception: () { (AWS::SDK::TranscribeStreaming::Types::ServiceUnavailableException) -> void } -> void
+    end
+
+    class StartCallAnalyticsStreamTranscriptionOutput < Hearth::EventStream::AsyncOutput[untyped]
+
+      def signal_audio_event: (?::Hash[::Symbol, untyped] params) -> void
+
+      def signal_configuration_event: (?::Hash[::Symbol, untyped] params) -> void
+    end
+
+    class StartMedicalStreamTranscriptionOutput < Hearth::EventStream::AsyncOutput[untyped]
+
+      def signal_audio_event: (?::Hash[::Symbol, untyped] params) -> void
+
+      def signal_configuration_event: (?::Hash[::Symbol, untyped] params) -> void
+    end
+
+    class StartStreamTranscriptionOutput < Hearth::EventStream::AsyncOutput[untyped]
+
+      def signal_audio_event: (?::Hash[::Symbol, untyped] params) -> void
+
+      def signal_configuration_event: (?::Hash[::Symbol, untyped] params) -> void
+    end
+  end
+end

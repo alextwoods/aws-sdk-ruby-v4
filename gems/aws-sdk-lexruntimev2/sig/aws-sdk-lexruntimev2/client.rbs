@@ -1,0 +1,152 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/smithy-lang/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::LexRuntimeV2
+  class Client < Hearth::Client
+
+    def self.plugins: () -> Hearth::PluginList[Config]
+
+    def initialize: (?::Hash[::Symbol, untyped] options) -> void |
+      (
+        ?auth_resolver: Hearth::_AuthResolver[Auth::Params],
+        ?auth_schemes: Array[Hearth::AuthSchemes::Base],
+        ?credentials_provider: Hearth::IdentityProvider,
+        ?disable_host_prefix: bool,
+        ?endpoint: String,
+        ?endpoint_resolver: Hearth::_EndpointResolver[Endpoint::Params],
+        ?http2_client: Hearth::HTTP2::Client,
+        ?http_client: Hearth::HTTP::Client,
+        ?interceptors: Hearth::InterceptorList[Config],
+        ?logger: Logger,
+        ?plugins: Hearth::PluginList[Config],
+        ?profile: String,
+        ?region: String,
+        ?retry_strategy: Hearth::_RetryStrategy,
+        ?stub_responses: bool,
+        ?stubs: Hearth::Stubs,
+        ?telemetry_provider: Hearth::Telemetry::TelemetryProviderBase,
+        ?use_dualstack_endpoint: bool,
+        ?use_fips_endpoint: bool,
+        ?validate_input: bool
+      ) -> void
+
+    attr_reader config: Config
+
+    def delete_session: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteSessionOutput] |
+      (?Types::DeleteSessionInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteSessionOutput] |
+      (
+        bot_id: ::String,
+        bot_alias_id: ::String,
+        locale_id: ::String,
+        session_id: ::String
+      ) -> Hearth::Output[Types::DeleteSessionOutput]
+
+    def get_session: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetSessionOutput] |
+      (?Types::GetSessionInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetSessionOutput] |
+      (
+        bot_id: ::String,
+        bot_alias_id: ::String,
+        locale_id: ::String,
+        session_id: ::String
+      ) -> Hearth::Output[Types::GetSessionOutput]
+
+    def put_session: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  ?{ (::String) -> Hearth::BlockIO } -> Hearth::Output[Types::PutSessionOutput] |
+      (?Types::PutSessionInput params, ?::Hash[::Symbol, untyped] options)  ?{ (::String) -> Hearth::BlockIO } -> Hearth::Output[Types::PutSessionOutput] |
+      (
+        bot_id: ::String,
+        bot_alias_id: ::String,
+        locale_id: ::String,
+        session_id: ::String,
+        ?messages: ::Array[{
+          content: ::String,
+          content_type: ::String,
+          image_response_card: Types::ImageResponseCard
+        }],
+        session_state: {
+          dialog_action: {
+            type: ::String,
+            slot_to_elicit: ::String,
+            slot_elicitation_style: ::String,
+            sub_slot_to_elicit: Types::ElicitSubSlot
+          },
+          intent: {
+            name: ::String,
+            slots: ::Hash[::String, Types::Slot],
+            state: ::String,
+            confirmation_state: ::String
+          },
+          active_contexts: ::Array[Types::ActiveContext],
+          session_attributes: ::Hash[::String, ::String],
+          originating_request_id: ::String,
+          runtime_hints: {
+            slot_hints: ::Hash[::String, ::Hash[::String, Types::RuntimeHintDetails]]
+          }
+        },
+        ?request_attributes: ::Hash[::String, ::String],
+        ?response_content_type: ::String
+      ) ?{ (::String) -> Hearth::BlockIO } -> Hearth::Output[Types::PutSessionOutput]
+
+    def recognize_text: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::RecognizeTextOutput] |
+      (?Types::RecognizeTextInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::RecognizeTextOutput] |
+      (
+        bot_id: ::String,
+        bot_alias_id: ::String,
+        locale_id: ::String,
+        session_id: ::String,
+        text: ::String,
+        ?session_state: {
+          dialog_action: {
+            type: ::String,
+            slot_to_elicit: ::String,
+            slot_elicitation_style: ::String,
+            sub_slot_to_elicit: Types::ElicitSubSlot
+          },
+          intent: {
+            name: ::String,
+            slots: ::Hash[::String, Types::Slot],
+            state: ::String,
+            confirmation_state: ::String
+          },
+          active_contexts: ::Array[Types::ActiveContext],
+          session_attributes: ::Hash[::String, ::String],
+          originating_request_id: ::String,
+          runtime_hints: {
+            slot_hints: ::Hash[::String, ::Hash[::String, Types::RuntimeHintDetails]]
+          }
+        },
+        ?request_attributes: ::Hash[::String, ::String]
+      ) -> Hearth::Output[Types::RecognizeTextOutput]
+
+    def recognize_utterance: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  ?{ (::String) -> Hearth::BlockIO } -> Hearth::Output[Types::RecognizeUtteranceOutput] |
+      (?Types::RecognizeUtteranceInput params, ?::Hash[::Symbol, untyped] options)  ?{ (::String) -> Hearth::BlockIO } -> Hearth::Output[Types::RecognizeUtteranceOutput] |
+      (
+        bot_id: ::String,
+        bot_alias_id: ::String,
+        locale_id: ::String,
+        session_id: ::String,
+        ?session_state: ::String,
+        ?request_attributes: ::String,
+        request_content_type: ::String,
+        ?response_content_type: ::String,
+        ?input_stream: (Hearth::_ReadableIO | Hearth::_WritableIO)
+      ) ?{ (::String) -> Hearth::BlockIO } -> Hearth::Output[Types::RecognizeUtteranceOutput]
+
+    def start_conversation: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> EventStream::StartConversationOutput |
+      (?::Hash[::Symbol, untyped] params, event_stream_handler: EventStream::StartConversationHandler) -> EventStream::StartConversationOutput |
+      (?Types::StartConversationInput params, ?::Hash[::Symbol, untyped] options) -> EventStream::StartConversationOutput |
+      (
+        bot_id: ::String,
+        bot_alias_id: ::String,
+        locale_id: ::String,
+        session_id: ::String,
+        ?conversation_mode: ("AUDIO" | "TEXT")
+      ) -> EventStream::StartConversationOutput
+
+  end
+end

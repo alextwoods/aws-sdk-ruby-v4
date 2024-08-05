@@ -14,7 +14,7 @@ module AWS::SDK::STS
   module Middleware
 
     class AssumeRole
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -43,7 +43,9 @@ module AWS::SDK::STS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::AssumeRole,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -65,7 +67,7 @@ module AWS::SDK::STS
     end
 
     class AssumeRoleWithSAML
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -94,7 +96,9 @@ module AWS::SDK::STS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::AssumeRoleWithSAML,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -116,7 +120,7 @@ module AWS::SDK::STS
     end
 
     class AssumeRoleWithWebIdentity
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -145,7 +149,9 @@ module AWS::SDK::STS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::AssumeRoleWithWebIdentity,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -167,7 +173,7 @@ module AWS::SDK::STS
     end
 
     class DecodeAuthorizationMessage
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -196,7 +202,9 @@ module AWS::SDK::STS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::DecodeAuthorizationMessage,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -218,7 +226,7 @@ module AWS::SDK::STS
     end
 
     class GetAccessKeyInfo
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -247,7 +255,9 @@ module AWS::SDK::STS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetAccessKeyInfo,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -269,7 +279,7 @@ module AWS::SDK::STS
     end
 
     class GetCallerIdentity
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -298,7 +308,9 @@ module AWS::SDK::STS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetCallerIdentity,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -320,7 +332,7 @@ module AWS::SDK::STS
     end
 
     class GetFederationToken
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -349,7 +361,9 @@ module AWS::SDK::STS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetFederationToken,
           error_parser: Hearth::HTTP::ErrorParser.new(
@@ -371,7 +385,7 @@ module AWS::SDK::STS
     end
 
     class GetSessionToken
-      def self.build(config)
+      def self.build(config, options = {})
         stack = Hearth::MiddlewareStack.new
         stack.use(Hearth::Middleware::Initialize)
         stack.use(Hearth::Middleware::Validate,
@@ -400,7 +414,9 @@ module AWS::SDK::STS
           error_inspector_class: Hearth::HTTP::ErrorInspector,
           retry_strategy: config.retry_strategy
         )
-        stack.use(Hearth::Middleware::Sign)
+        stack.use(Hearth::Middleware::Sign,
+          event_stream: false
+        )
         stack.use(Hearth::Middleware::Parse,
           data_parser: Parsers::GetSessionToken,
           error_parser: Hearth::HTTP::ErrorParser.new(

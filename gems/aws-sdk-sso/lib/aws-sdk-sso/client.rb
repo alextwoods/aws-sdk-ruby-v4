@@ -68,10 +68,11 @@ module AWS::SDK::SSO
     #   resp.data.role_credentials.expiration #=> Integer
     def get_role_credentials(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.sso.client')
       input = Params::GetRoleCredentialsInput.build(params, context: 'params')
-      stack = AWS::SDK::SSO::Middleware::GetRoleCredentials.build(config)
+      stack = AWS::SDK::SSO::Middleware::GetRoleCredentials.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -115,10 +116,11 @@ module AWS::SDK::SSO
     #   resp.data.role_list[0].account_id #=> String
     def list_account_roles(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.sso.client')
       input = Params::ListAccountRolesInput.build(params, context: 'params')
-      stack = AWS::SDK::SSO::Middleware::ListAccountRoles.build(config)
+      stack = AWS::SDK::SSO::Middleware::ListAccountRoles.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -164,10 +166,11 @@ module AWS::SDK::SSO
     #   resp.data.account_list[0].email_address #=> String
     def list_accounts(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.sso.client')
       input = Params::ListAccountsInput.build(params, context: 'params')
-      stack = AWS::SDK::SSO::Middleware::ListAccounts.build(config)
+      stack = AWS::SDK::SSO::Middleware::ListAccounts.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -216,10 +219,11 @@ module AWS::SDK::SSO
     #   resp.data #=> Types::LogoutOutput
     def logout(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.sso.client')
       input = Params::LogoutInput.build(params, context: 'params')
-      stack = AWS::SDK::SSO::Middleware::Logout.build(config)
+      stack = AWS::SDK::SSO::Middleware::Logout.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),

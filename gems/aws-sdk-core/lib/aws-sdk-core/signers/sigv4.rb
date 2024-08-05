@@ -34,12 +34,43 @@ module AWS::SDK::Core
       def sign(request:, identity:, properties:)
         apply_unsigned_body(request, properties)
 
+        if properties[:event_stream]
+          request.headers['X-Amz-Content-Sha256'] =
+            'STREAMING-AWS4-HMAC-SHA256-EVENTS'
+        end
+
         signature = @signer.sign_request(
           request: request,
           credentials: identity,
           **properties
         )
         apply_signature(request, signature)
+        signature.metadata[:signature]
+      end
+
+      def sign_event(message:, prior_signature:,
+        identity:, properties:, event_type:, encoder:)
+
+        encoded_payload = if event_type == :end_stream
+                            '' # payload must be empty on end_stream
+                          else
+                            encoder.encode(message)
+                          end
+
+        headers, signature = @signer.sign_event(
+          prior_signature: prior_signature,
+          payload: encoded_payload,
+          encoder: encoder,
+          credentials: identity,
+          **properties
+        )
+
+        signed_message = Hearth::EventStream::Message.new(
+          headers: headers,
+          payload: StringIO.new(encoded_payload)
+        )
+
+        [signed_message, signature]
       end
 
       # rubocop:disable Lint/UnusedMethodArgument

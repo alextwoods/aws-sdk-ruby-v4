@@ -1,0 +1,24 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/smithy-lang/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::TranscribeStreaming
+  module Auth
+    class Params
+      def initialize: (?operation_name: ::Symbol?, ?region: ::String?) -> void
+      attr_accessor operation_name (): ::Symbol
+      attr_accessor region (): ::String
+    end
+
+    SCHEMES: ::Array[Hearth::AuthSchemes::Base]
+
+    class Resolver
+      def resolve: (Params) -> ::Array[Hearth::AuthOption]
+    end
+  end
+end

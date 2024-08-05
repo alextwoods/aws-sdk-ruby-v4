@@ -15,12 +15,16 @@
 
 package software.amazon.smithy.aws.ruby.codegen.protocol.query;
 
+import java.util.List;
 import java.util.logging.Logger;
 import software.amazon.smithy.aws.ruby.codegen.protocol.query.generators.ErrorsGenerator;
 import software.amazon.smithy.aws.ruby.codegen.protocol.query.generators.BuilderGenerator;
 import software.amazon.smithy.aws.ruby.codegen.protocol.query.generators.ParserGenerator;
 import software.amazon.smithy.aws.ruby.codegen.protocol.query.generators.StubsGenerator;
 import software.amazon.smithy.aws.traits.protocols.AwsQueryTrait;
+import software.amazon.smithy.aws.traits.protocols.RestJson1Trait;
+import software.amazon.smithy.model.Model;
+import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.ShapeId;
 import software.amazon.smithy.ruby.codegen.ApplicationTransport;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
@@ -32,11 +36,6 @@ public class AwsQuery implements ProtocolGenerator {
     @Override
     public ShapeId getProtocol() {
         return AwsQueryTrait.ID;
-    }
-
-    @Override
-    public ApplicationTransport getApplicationTransport() {
-        return ApplicationTransport.createDefaultHttpApplicationTransport();
     }
 
     @Override

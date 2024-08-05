@@ -115,6 +115,21 @@ public class ParserGenerator extends RestParserGeneratorBase {
         renderMemberParsers(outputShape);
     }
 
+    @Override
+    protected void renderEventImplicitStructurePayloadParser(StructureShape event) {
+        writer.write("xml = $T.parse(payload)", Hearth.XML);
+        renderMemberParsers(event);
+    }
+
+    @Override
+    protected void renderEventExplicitStructurePayloadParser(MemberShape payloadMember, StructureShape shape) {
+        String dataName = symbolProvider.toMemberName(payloadMember);
+        String dataSetter = "data." + dataName + " = ";
+
+        writer.write("node = xml = $T.parse(payload)", Hearth.XML);
+        shape.accept(new MemberDeserializer(payloadMember, dataSetter));
+    }
+
     private String unionMemberDataName(UnionShape s, MemberShape member) {
         String dataName = member.getMemberName();
         String xmlName = dataName;

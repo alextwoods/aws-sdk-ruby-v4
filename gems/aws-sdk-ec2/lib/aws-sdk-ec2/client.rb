@@ -89,10 +89,11 @@ module AWS::SDK::EC2
     #   resp.data.address_transfer.address_transfer_status #=> String, one of ["pending", "disabled", "accepted"]
     def accept_address_transfer(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::AcceptAddressTransferInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AcceptAddressTransfer.build(config)
+      stack = AWS::SDK::EC2::Middleware::AcceptAddressTransfer.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -138,10 +139,11 @@ module AWS::SDK::EC2
     #   resp.data.exchange_id #=> String
     def accept_reserved_instances_exchange_quote(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::AcceptReservedInstancesExchangeQuoteInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AcceptReservedInstancesExchangeQuote.build(config)
+      stack = AWS::SDK::EC2::Middleware::AcceptReservedInstancesExchangeQuote.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -192,10 +194,11 @@ module AWS::SDK::EC2
     #   resp.data.associations.subnets[0].state #=> String, one of ["pendingAcceptance", "associating", "associated", "disassociating", "disassociated", "rejected", "failed"]
     def accept_transit_gateway_multicast_domain_associations(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::AcceptTransitGatewayMulticastDomainAssociationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AcceptTransitGatewayMulticastDomainAssociations.build(config)
+      stack = AWS::SDK::EC2::Middleware::AcceptTransitGatewayMulticastDomainAssociations.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -253,10 +256,11 @@ module AWS::SDK::EC2
     #   resp.data.transit_gateway_peering_attachment.tags[0].value #=> String
     def accept_transit_gateway_peering_attachment(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::AcceptTransitGatewayPeeringAttachmentInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AcceptTransitGatewayPeeringAttachment.build(config)
+      stack = AWS::SDK::EC2::Middleware::AcceptTransitGatewayPeeringAttachment.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -314,10 +318,11 @@ module AWS::SDK::EC2
     #   resp.data.transit_gateway_vpc_attachment.tags[0].value #=> String
     def accept_transit_gateway_vpc_attachment(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::AcceptTransitGatewayVpcAttachmentInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AcceptTransitGatewayVpcAttachment.build(config)
+      stack = AWS::SDK::EC2::Middleware::AcceptTransitGatewayVpcAttachment.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -363,10 +368,11 @@ module AWS::SDK::EC2
     #   resp.data.unsuccessful[0].resource_id #=> String
     def accept_vpc_endpoint_connections(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::AcceptVpcEndpointConnectionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AcceptVpcEndpointConnections.build(config)
+      stack = AWS::SDK::EC2::Middleware::AcceptVpcEndpointConnections.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -434,10 +440,11 @@ module AWS::SDK::EC2
     #   resp.data.vpc_peering_connection.vpc_peering_connection_id #=> String
     def accept_vpc_peering_connection(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::AcceptVpcPeeringConnectionInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AcceptVpcPeeringConnection.build(config)
+      stack = AWS::SDK::EC2::Middleware::AcceptVpcPeeringConnection.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -498,10 +505,11 @@ module AWS::SDK::EC2
     #   resp.data.byoip_cidr.network_border_group #=> String
     def advertise_byoip_cidr(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::AdvertiseByoipCidrInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AdvertiseByoipCidr.build(config)
+      stack = AWS::SDK::EC2::Middleware::AdvertiseByoipCidr.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -583,10 +591,11 @@ module AWS::SDK::EC2
     #   }
     def allocate_address(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::AllocateAddressInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AllocateAddress.build(config)
+      stack = AWS::SDK::EC2::Middleware::AllocateAddress.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -648,10 +657,11 @@ module AWS::SDK::EC2
     #   resp.data.host_ids[0] #=> String
     def allocate_hosts(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::AllocateHostsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AllocateHosts.build(config)
+      stack = AWS::SDK::EC2::Middleware::AllocateHosts.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -711,10 +721,11 @@ module AWS::SDK::EC2
     #   resp.data.ipam_pool_allocation.resource_owner #=> String
     def allocate_ipam_pool_cidr(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::AllocateIpamPoolCidrInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AllocateIpamPoolCidr.build(config)
+      stack = AWS::SDK::EC2::Middleware::AllocateIpamPoolCidr.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -758,10 +769,11 @@ module AWS::SDK::EC2
     #   resp.data.security_group_ids[0] #=> String
     def apply_security_groups_to_client_vpn_target_network(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ApplySecurityGroupsToClientVpnTargetNetworkInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ApplySecurityGroupsToClientVpnTargetNetwork.build(config)
+      stack = AWS::SDK::EC2::Middleware::ApplySecurityGroupsToClientVpnTargetNetwork.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -820,10 +832,11 @@ module AWS::SDK::EC2
     #   resp.data.network_interface_id #=> String
     def assign_ipv6_addresses(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::AssignIpv6AddressesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AssignIpv6Addresses.build(config)
+      stack = AWS::SDK::EC2::Middleware::AssignIpv6Addresses.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -910,10 +923,11 @@ module AWS::SDK::EC2
     #   nil
     def assign_private_ip_addresses(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::AssignPrivateIpAddressesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AssignPrivateIpAddresses.build(config)
+      stack = AWS::SDK::EC2::Middleware::AssignPrivateIpAddresses.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -966,10 +980,11 @@ module AWS::SDK::EC2
     #   resp.data.nat_gateway_addresses[0].status #=> String, one of ["assigning", "unassigning", "associating", "disassociating", "succeeded", "failed"]
     def assign_private_nat_gateway_address(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::AssignPrivateNatGatewayAddressInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AssignPrivateNatGatewayAddress.build(config)
+      stack = AWS::SDK::EC2::Middleware::AssignPrivateNatGatewayAddress.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1051,10 +1066,11 @@ module AWS::SDK::EC2
     #   }
     def associate_address(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::AssociateAddressInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AssociateAddress.build(config)
+      stack = AWS::SDK::EC2::Middleware::AssociateAddress.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1098,10 +1114,11 @@ module AWS::SDK::EC2
     #   resp.data.status.message #=> String
     def associate_client_vpn_target_network(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::AssociateClientVpnTargetNetworkInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AssociateClientVpnTargetNetwork.build(config)
+      stack = AWS::SDK::EC2::Middleware::AssociateClientVpnTargetNetwork.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1160,10 +1177,11 @@ module AWS::SDK::EC2
     #   nil
     def associate_dhcp_options(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::AssociateDhcpOptionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AssociateDhcpOptions.build(config)
+      stack = AWS::SDK::EC2::Middleware::AssociateDhcpOptions.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1216,10 +1234,11 @@ module AWS::SDK::EC2
     #   resp.data.encryption_kms_key_id #=> String
     def associate_enclave_certificate_iam_role(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::AssociateEnclaveCertificateIamRoleInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AssociateEnclaveCertificateIamRole.build(config)
+      stack = AWS::SDK::EC2::Middleware::AssociateEnclaveCertificateIamRole.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1289,10 +1308,11 @@ module AWS::SDK::EC2
     #   }
     def associate_iam_instance_profile(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::AssociateIamInstanceProfileInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AssociateIamInstanceProfile.build(config)
+      stack = AWS::SDK::EC2::Middleware::AssociateIamInstanceProfile.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1367,10 +1387,11 @@ module AWS::SDK::EC2
     #   resp.data.instance_event_window.tags #=> Array<Tag>
     def associate_instance_event_window(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::AssociateInstanceEventWindowInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AssociateInstanceEventWindow.build(config)
+      stack = AWS::SDK::EC2::Middleware::AssociateInstanceEventWindow.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1416,10 +1437,11 @@ module AWS::SDK::EC2
     #   resp.data.asn_association.state #=> String, one of ["disassociated", "failed-disassociation", "failed-association", "pending-disassociation", "pending-association", "associated"]
     def associate_ipam_byoasn(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::AssociateIpamByoasnInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AssociateIpamByoasn.build(config)
+      stack = AWS::SDK::EC2::Middleware::AssociateIpamByoasn.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1484,10 +1506,11 @@ module AWS::SDK::EC2
     #   resp.data.ipam_resource_discovery_association.tags[0].value #=> String
     def associate_ipam_resource_discovery(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::AssociateIpamResourceDiscoveryInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AssociateIpamResourceDiscovery.build(config)
+      stack = AWS::SDK::EC2::Middleware::AssociateIpamResourceDiscovery.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1547,10 +1570,11 @@ module AWS::SDK::EC2
     #   resp.data.nat_gateway_addresses[0].status #=> String, one of ["assigning", "unassigning", "associating", "disassociating", "succeeded", "failed"]
     def associate_nat_gateway_address(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::AssociateNatGatewayAddressInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AssociateNatGatewayAddress.build(config)
+      stack = AWS::SDK::EC2::Middleware::AssociateNatGatewayAddress.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1610,10 +1634,11 @@ module AWS::SDK::EC2
     #   }
     def associate_route_table(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::AssociateRouteTableInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AssociateRouteTable.build(config)
+      stack = AWS::SDK::EC2::Middleware::AssociateRouteTable.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1660,10 +1685,11 @@ module AWS::SDK::EC2
     #   resp.data.subnet_id #=> String
     def associate_subnet_cidr_block(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::AssociateSubnetCidrBlockInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AssociateSubnetCidrBlock.build(config)
+      stack = AWS::SDK::EC2::Middleware::AssociateSubnetCidrBlock.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1716,10 +1742,11 @@ module AWS::SDK::EC2
     #   resp.data.associations.subnets[0].state #=> String, one of ["pendingAcceptance", "associating", "associated", "disassociating", "disassociated", "rejected", "failed"]
     def associate_transit_gateway_multicast_domain(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::AssociateTransitGatewayMulticastDomainInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AssociateTransitGatewayMulticastDomain.build(config)
+      stack = AWS::SDK::EC2::Middleware::AssociateTransitGatewayMulticastDomain.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1763,10 +1790,11 @@ module AWS::SDK::EC2
     #   resp.data.association.state #=> String, one of ["associating", "associated", "disassociating", "disassociated"]
     def associate_transit_gateway_policy_table(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::AssociateTransitGatewayPolicyTableInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AssociateTransitGatewayPolicyTable.build(config)
+      stack = AWS::SDK::EC2::Middleware::AssociateTransitGatewayPolicyTable.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1811,10 +1839,11 @@ module AWS::SDK::EC2
     #   resp.data.association.state #=> String, one of ["associating", "associated", "disassociating", "disassociated"]
     def associate_transit_gateway_route_table(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::AssociateTransitGatewayRouteTableInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AssociateTransitGatewayRouteTable.build(config)
+      stack = AWS::SDK::EC2::Middleware::AssociateTransitGatewayRouteTable.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1869,10 +1898,11 @@ module AWS::SDK::EC2
     #   resp.data.client_token #=> String
     def associate_trunk_interface(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::AssociateTrunkInterfaceInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AssociateTrunkInterface.build(config)
+      stack = AWS::SDK::EC2::Middleware::AssociateTrunkInterface.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1937,10 +1967,11 @@ module AWS::SDK::EC2
     #   resp.data.vpc_id #=> String
     def associate_vpc_cidr_block(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::AssociateVpcCidrBlockInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AssociateVpcCidrBlock.build(config)
+      stack = AWS::SDK::EC2::Middleware::AssociateVpcCidrBlock.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1991,10 +2022,11 @@ module AWS::SDK::EC2
     #   resp.data.return #=> Boolean
     def attach_classic_link_vpc(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::AttachClassicLinkVpcInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AttachClassicLinkVpc.build(config)
+      stack = AWS::SDK::EC2::Middleware::AttachClassicLinkVpc.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2043,10 +2075,11 @@ module AWS::SDK::EC2
     #   nil
     def attach_internet_gateway(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::AttachInternetGatewayInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AttachInternetGateway.build(config)
+      stack = AWS::SDK::EC2::Middleware::AttachInternetGateway.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2106,10 +2139,11 @@ module AWS::SDK::EC2
     #   }
     def attach_network_interface(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::AttachNetworkInterfaceInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AttachNetworkInterface.build(config)
+      stack = AWS::SDK::EC2::Middleware::AttachNetworkInterface.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2189,10 +2223,11 @@ module AWS::SDK::EC2
     #   resp.data.verified_access_instance.fips_enabled #=> Boolean
     def attach_verified_access_trust_provider(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::AttachVerifiedAccessTrustProviderInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AttachVerifiedAccessTrustProvider.build(config)
+      stack = AWS::SDK::EC2::Middleware::AttachVerifiedAccessTrustProvider.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2279,10 +2314,11 @@ module AWS::SDK::EC2
     #   }
     def attach_volume(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::AttachVolumeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AttachVolume.build(config)
+      stack = AWS::SDK::EC2::Middleware::AttachVolume.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2326,10 +2362,11 @@ module AWS::SDK::EC2
     #   resp.data.vpc_attachment.vpc_id #=> String
     def attach_vpn_gateway(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::AttachVpnGatewayInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AttachVpnGateway.build(config)
+      stack = AWS::SDK::EC2::Middleware::AttachVpnGateway.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2376,10 +2413,11 @@ module AWS::SDK::EC2
     #   resp.data.status.message #=> String
     def authorize_client_vpn_ingress(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::AuthorizeClientVpnIngressInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AuthorizeClientVpnIngress.build(config)
+      stack = AWS::SDK::EC2::Middleware::AuthorizeClientVpnIngress.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2549,10 +2587,11 @@ module AWS::SDK::EC2
     #   {}
     def authorize_security_group_egress(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::AuthorizeSecurityGroupEgressInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AuthorizeSecurityGroupEgress.build(config)
+      stack = AWS::SDK::EC2::Middleware::AuthorizeSecurityGroupEgress.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2741,10 +2780,11 @@ module AWS::SDK::EC2
     #   {}
     def authorize_security_group_ingress(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::AuthorizeSecurityGroupIngressInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::AuthorizeSecurityGroupIngress.build(config)
+      stack = AWS::SDK::EC2::Middleware::AuthorizeSecurityGroupIngress.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2811,10 +2851,11 @@ module AWS::SDK::EC2
     #   resp.data.bundle_task.update_time #=> Time
     def bundle_instance(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::BundleInstanceInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::BundleInstance.build(config)
+      stack = AWS::SDK::EC2::Middleware::BundleInstance.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2868,10 +2909,11 @@ module AWS::SDK::EC2
     #   resp.data.bundle_task.update_time #=> Time
     def cancel_bundle_task(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CancelBundleTaskInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CancelBundleTask.build(config)
+      stack = AWS::SDK::EC2::Middleware::CancelBundleTask.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2914,10 +2956,11 @@ module AWS::SDK::EC2
     #   resp.data.return #=> Boolean
     def cancel_capacity_reservation(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CancelCapacityReservationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CancelCapacityReservation.build(config)
+      stack = AWS::SDK::EC2::Middleware::CancelCapacityReservation.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2981,10 +3024,11 @@ module AWS::SDK::EC2
     #   resp.data.failed_fleet_cancellations[0].cancel_capacity_reservation_fleet_error.message #=> String
     def cancel_capacity_reservation_fleets(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CancelCapacityReservationFleetsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CancelCapacityReservationFleets.build(config)
+      stack = AWS::SDK::EC2::Middleware::CancelCapacityReservationFleets.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3026,10 +3070,11 @@ module AWS::SDK::EC2
     #   resp.data #=> Types::CancelConversionTaskOutput
     def cancel_conversion_task(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CancelConversionTaskInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CancelConversionTask.build(config)
+      stack = AWS::SDK::EC2::Middleware::CancelConversionTask.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3067,10 +3112,11 @@ module AWS::SDK::EC2
     #   resp.data #=> Types::CancelExportTaskOutput
     def cancel_export_task(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CancelExportTaskInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CancelExportTask.build(config)
+      stack = AWS::SDK::EC2::Middleware::CancelExportTask.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3111,10 +3157,11 @@ module AWS::SDK::EC2
     #   resp.data.return #=> Boolean
     def cancel_image_launch_permission(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CancelImageLaunchPermissionInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CancelImageLaunchPermission.build(config)
+      stack = AWS::SDK::EC2::Middleware::CancelImageLaunchPermission.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3155,10 +3202,11 @@ module AWS::SDK::EC2
     #   resp.data.state #=> String
     def cancel_import_task(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CancelImportTaskInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CancelImportTask.build(config)
+      stack = AWS::SDK::EC2::Middleware::CancelImportTask.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3220,10 +3268,11 @@ module AWS::SDK::EC2
     #   resp.data.reserved_instances_listings[0].update_date #=> Time
     def cancel_reserved_instances_listing(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CancelReservedInstancesListingInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CancelReservedInstancesListing.build(config)
+      stack = AWS::SDK::EC2::Middleware::CancelReservedInstancesListing.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3318,10 +3367,11 @@ module AWS::SDK::EC2
     #   }
     def cancel_spot_fleet_requests(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CancelSpotFleetRequestsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CancelSpotFleetRequests.build(config)
+      stack = AWS::SDK::EC2::Middleware::CancelSpotFleetRequests.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3385,10 +3435,11 @@ module AWS::SDK::EC2
     #   }
     def cancel_spot_instance_requests(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CancelSpotInstanceRequestsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CancelSpotInstanceRequests.build(config)
+      stack = AWS::SDK::EC2::Middleware::CancelSpotInstanceRequests.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3441,10 +3492,11 @@ module AWS::SDK::EC2
     #   }
     def confirm_product_instance(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ConfirmProductInstanceInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ConfirmProductInstance.build(config)
+      stack = AWS::SDK::EC2::Middleware::ConfirmProductInstance.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3486,10 +3538,11 @@ module AWS::SDK::EC2
     #   resp.data.fpga_image_id #=> String
     def copy_fpga_image(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CopyFpgaImageInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CopyFpgaImage.build(config)
+      stack = AWS::SDK::EC2::Middleware::CopyFpgaImage.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3566,10 +3619,11 @@ module AWS::SDK::EC2
     #   }
     def copy_image(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CopyImageInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CopyImage.build(config)
+      stack = AWS::SDK::EC2::Middleware::CopyImage.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3661,10 +3715,11 @@ module AWS::SDK::EC2
     #   }
     def copy_snapshot(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CopySnapshotInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CopySnapshot.build(config)
+      stack = AWS::SDK::EC2::Middleware::CopySnapshot.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3770,10 +3825,11 @@ module AWS::SDK::EC2
     #   resp.data.capacity_reservation.reservation_type #=> String, one of ["default", "capacity-block"]
     def create_capacity_reservation(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateCapacityReservationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateCapacityReservation.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateCapacityReservation.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3864,10 +3920,11 @@ module AWS::SDK::EC2
     #   resp.data.tags[0].value #=> String
     def create_capacity_reservation_fleet(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateCapacityReservationFleetInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateCapacityReservationFleet.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateCapacityReservationFleet.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3925,10 +3982,11 @@ module AWS::SDK::EC2
     #   resp.data.carrier_gateway.tags[0].value #=> String
     def create_carrier_gateway(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateCarrierGatewayInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateCarrierGateway.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateCarrierGateway.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4026,10 +4084,11 @@ module AWS::SDK::EC2
     #   resp.data.dns_name #=> String
     def create_client_vpn_endpoint(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateClientVpnEndpointInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateClientVpnEndpoint.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateClientVpnEndpoint.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4074,10 +4133,11 @@ module AWS::SDK::EC2
     #   resp.data.status.message #=> String
     def create_client_vpn_route(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateClientVpnRouteInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateClientVpnRoute.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateClientVpnRoute.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4121,10 +4181,11 @@ module AWS::SDK::EC2
     #   resp.data.coip_cidr.local_gateway_route_table_id #=> String
     def create_coip_cidr(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateCoipCidrInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateCoipCidr.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateCoipCidr.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4182,10 +4243,11 @@ module AWS::SDK::EC2
     #   resp.data.coip_pool.pool_arn #=> String
     def create_coip_pool(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateCoipPoolInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateCoipPool.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateCoipPool.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4281,10 +4343,11 @@ module AWS::SDK::EC2
     #   }
     def create_customer_gateway(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateCustomerGatewayInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateCustomerGateway.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateCustomerGateway.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4359,10 +4422,11 @@ module AWS::SDK::EC2
     #   resp.data.subnet.private_dns_name_options_on_launch.enable_resource_name_dns_aaaa_record #=> Boolean
     def create_default_subnet(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateDefaultSubnetInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateDefaultSubnet.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateDefaultSubnet.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4430,10 +4494,11 @@ module AWS::SDK::EC2
     #   resp.data.vpc.tags[0].value #=> String
     def create_default_vpc(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateDefaultVpcInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateDefaultVpc.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateDefaultVpc.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4585,10 +4650,11 @@ module AWS::SDK::EC2
     #   }
     def create_dhcp_options(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateDhcpOptionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateDhcpOptions.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateDhcpOptions.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4651,10 +4717,11 @@ module AWS::SDK::EC2
     #   resp.data.egress_only_internet_gateway.tags[0].value #=> String
     def create_egress_only_internet_gateway(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateEgressOnlyInternetGatewayInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateEgressOnlyInternetGateway.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateEgressOnlyInternetGateway.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4925,10 +4992,11 @@ module AWS::SDK::EC2
     #   resp.data.instances[0].platform #=> String, one of ["Windows"]
     def create_fleet(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateFleetInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateFleet.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateFleet.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5012,10 +5080,11 @@ module AWS::SDK::EC2
     #   resp.data.unsuccessful[0].resource_id #=> String
     def create_flow_logs(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateFlowLogsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateFlowLogs.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateFlowLogs.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5076,10 +5145,11 @@ module AWS::SDK::EC2
     #   resp.data.fpga_image_global_id #=> String
     def create_fpga_image(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateFpgaImageInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateFpgaImage.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateFpgaImage.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5155,10 +5225,11 @@ module AWS::SDK::EC2
     #   resp.data.image_id #=> String
     def create_image(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateImageInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateImage.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateImage.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5237,10 +5308,11 @@ module AWS::SDK::EC2
     #   resp.data.client_token #=> String
     def create_instance_connect_endpoint(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateInstanceConnectEndpointInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateInstanceConnectEndpoint.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateInstanceConnectEndpoint.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5340,10 +5412,11 @@ module AWS::SDK::EC2
     #   resp.data.instance_event_window.tags #=> Array<Tag>
     def create_instance_event_window(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateInstanceEventWindowInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateInstanceEventWindow.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateInstanceEventWindow.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5418,10 +5491,11 @@ module AWS::SDK::EC2
     #   resp.data.export_task.tags[0].value #=> String
     def create_instance_export_task(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateInstanceExportTaskInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateInstanceExportTask.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateInstanceExportTask.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5497,10 +5571,11 @@ module AWS::SDK::EC2
     #   }
     def create_internet_gateway(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateInternetGatewayInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateInternetGateway.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateInternetGateway.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5582,10 +5657,11 @@ module AWS::SDK::EC2
     #   resp.data.ipam.tier #=> String, one of ["free", "advanced"]
     def create_ipam(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateIpamInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateIpam.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateIpam.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5694,10 +5770,11 @@ module AWS::SDK::EC2
     #   resp.data.ipam_pool.source_resource.resource_owner #=> String
     def create_ipam_pool(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateIpamPoolInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateIpamPool.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateIpamPool.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5766,10 +5843,11 @@ module AWS::SDK::EC2
     #   resp.data.ipam_resource_discovery.tags[0].value #=> String
     def create_ipam_resource_discovery(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateIpamResourceDiscoveryInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateIpamResourceDiscovery.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateIpamResourceDiscovery.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5835,10 +5913,11 @@ module AWS::SDK::EC2
     #   resp.data.ipam_scope.tags[0].value #=> String
     def create_ipam_scope(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateIpamScopeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateIpamScope.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateIpamScope.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5914,10 +5993,11 @@ module AWS::SDK::EC2
     #   nil
     def create_key_pair(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateKeyPairInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateKeyPair.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateKeyPair.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -6273,10 +6353,11 @@ module AWS::SDK::EC2
     #   }
     def create_launch_template(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateLaunchTemplateInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateLaunchTemplate.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateLaunchTemplate.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -6812,10 +6893,11 @@ module AWS::SDK::EC2
     #   }
     def create_launch_template_version(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateLaunchTemplateVersionInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateLaunchTemplateVersion.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateLaunchTemplateVersion.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -6881,10 +6963,11 @@ module AWS::SDK::EC2
     #   resp.data.route.destination_prefix_list_id #=> String
     def create_local_gateway_route(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateLocalGatewayRouteInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateLocalGatewayRoute.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateLocalGatewayRoute.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -6950,10 +7033,11 @@ module AWS::SDK::EC2
     #   resp.data.local_gateway_route_table.state_reason.message #=> String
     def create_local_gateway_route_table(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateLocalGatewayRouteTableInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateLocalGatewayRouteTable.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateLocalGatewayRouteTable.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7016,10 +7100,11 @@ module AWS::SDK::EC2
     #   resp.data.local_gateway_route_table_virtual_interface_group_association.tags[0].value #=> String
     def create_local_gateway_route_table_virtual_interface_group_association(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7080,10 +7165,11 @@ module AWS::SDK::EC2
     #   resp.data.local_gateway_route_table_vpc_association.tags[0].value #=> String
     def create_local_gateway_route_table_vpc_association(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateLocalGatewayRouteTableVpcAssociationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateLocalGatewayRouteTableVpcAssociation.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateLocalGatewayRouteTableVpcAssociation.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7155,10 +7241,11 @@ module AWS::SDK::EC2
     #   resp.data.prefix_list.owner_id #=> String
     def create_managed_prefix_list(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateManagedPrefixListInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateManagedPrefixList.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateManagedPrefixList.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7283,10 +7370,11 @@ module AWS::SDK::EC2
     #   }
     def create_nat_gateway(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateNatGatewayInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateNatGateway.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateNatGateway.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7402,10 +7490,11 @@ module AWS::SDK::EC2
     #   }
     def create_network_acl(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateNetworkAclInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateNetworkAcl.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateNetworkAcl.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7481,10 +7570,11 @@ module AWS::SDK::EC2
     #   nil
     def create_network_acl_entry(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateNetworkAclEntryInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateNetworkAclEntry.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateNetworkAclEntry.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7587,10 +7677,11 @@ module AWS::SDK::EC2
     #   resp.data.network_insights_access_scope_content.exclude_paths #=> Array<AccessScopePath>
     def create_network_insights_access_scope(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateNetworkInsightsAccessScopeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateNetworkInsightsAccessScope.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateNetworkInsightsAccessScope.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7679,10 +7770,11 @@ module AWS::SDK::EC2
     #   resp.data.network_insights_path.filter_at_destination #=> Types::PathFilter
     def create_network_insights_path(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateNetworkInsightsPathInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateNetworkInsightsPath.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateNetworkInsightsPath.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7843,10 +7935,11 @@ module AWS::SDK::EC2
     #   resp.data.client_token #=> String
     def create_network_interface(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateNetworkInterfaceInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateNetworkInterface.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateNetworkInterface.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7897,10 +7990,11 @@ module AWS::SDK::EC2
     #   resp.data.interface_permission.permission_state.status_message #=> String
     def create_network_interface_permission(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateNetworkInterfacePermissionInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateNetworkInterfacePermission.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateNetworkInterfacePermission.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7981,10 +8075,11 @@ module AWS::SDK::EC2
     #   {}
     def create_placement_group(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreatePlacementGroupInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreatePlacementGroup.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreatePlacementGroup.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -8032,10 +8127,11 @@ module AWS::SDK::EC2
     #   resp.data.pool_id #=> String
     def create_public_ipv4_pool(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreatePublicIpv4PoolInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreatePublicIpv4Pool.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreatePublicIpv4Pool.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -8104,10 +8200,11 @@ module AWS::SDK::EC2
     #   resp.data.replace_root_volume_task.delete_replaced_root_volume #=> Boolean
     def create_replace_root_volume_task(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateReplaceRootVolumeTaskInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateReplaceRootVolumeTask.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateReplaceRootVolumeTask.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -8190,10 +8287,11 @@ module AWS::SDK::EC2
     #   resp.data.reserved_instances_listings[0].update_date #=> Time
     def create_reserved_instances_listing(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateReservedInstancesListingInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateReservedInstancesListing.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateReservedInstancesListing.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -8249,10 +8347,11 @@ module AWS::SDK::EC2
     #   resp.data.image_id #=> String
     def create_restore_image_task(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateRestoreImageTaskInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateRestoreImageTask.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateRestoreImageTask.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -8334,10 +8433,11 @@ module AWS::SDK::EC2
     #   nil
     def create_route(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateRouteInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateRoute.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateRoute.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -8457,10 +8557,11 @@ module AWS::SDK::EC2
     #   }
     def create_route_table(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateRouteTableInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateRouteTable.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateRouteTable.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -8545,10 +8646,11 @@ module AWS::SDK::EC2
     #   }
     def create_security_group(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateSecurityGroupInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateSecurityGroup.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateSecurityGroup.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -8663,10 +8765,11 @@ module AWS::SDK::EC2
     #   }
     def create_snapshot(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateSnapshotInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateSnapshot.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateSnapshot.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -8749,10 +8852,11 @@ module AWS::SDK::EC2
     #   resp.data.snapshots[0].sse_type #=> String, one of ["sse-ebs", "sse-kms", "none"]
     def create_snapshots(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateSnapshotsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateSnapshots.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateSnapshots.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -8817,10 +8921,11 @@ module AWS::SDK::EC2
     #   }
     def create_spot_datafeed_subscription(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateSpotDatafeedSubscriptionInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateSpotDatafeedSubscription.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateSpotDatafeedSubscription.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -8869,10 +8974,11 @@ module AWS::SDK::EC2
     #   resp.data.object_key #=> String
     def create_store_image_task(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateStoreImageTaskInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateStoreImageTask.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateStoreImageTask.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -8998,10 +9104,11 @@ module AWS::SDK::EC2
     #   }
     def create_subnet(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateSubnetInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateSubnet.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateSubnet.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -9065,10 +9172,11 @@ module AWS::SDK::EC2
     #   resp.data.subnet_cidr_reservation.tags[0].value #=> String
     def create_subnet_cidr_reservation(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateSubnetCidrReservationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateSubnetCidrReservation.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateSubnetCidrReservation.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -9137,10 +9245,11 @@ module AWS::SDK::EC2
     #   nil
     def create_tags(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateTagsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateTags.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateTags.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -9218,10 +9327,11 @@ module AWS::SDK::EC2
     #   resp.data.client_token #=> String
     def create_traffic_mirror_filter(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateTrafficMirrorFilterInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateTrafficMirrorFilter.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateTrafficMirrorFilter.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -9287,10 +9397,11 @@ module AWS::SDK::EC2
     #   resp.data.client_token #=> String
     def create_traffic_mirror_filter_rule(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateTrafficMirrorFilterRuleInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateTrafficMirrorFilterRule.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateTrafficMirrorFilterRule.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -9366,10 +9477,11 @@ module AWS::SDK::EC2
     #   resp.data.client_token #=> String
     def create_traffic_mirror_session(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateTrafficMirrorSessionInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateTrafficMirrorSession.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateTrafficMirrorSession.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -9439,10 +9551,11 @@ module AWS::SDK::EC2
     #   resp.data.client_token #=> String
     def create_traffic_mirror_target(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateTrafficMirrorTargetInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateTrafficMirrorTarget.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateTrafficMirrorTarget.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -9539,10 +9652,11 @@ module AWS::SDK::EC2
     #   resp.data.transit_gateway.tags[0].value #=> String
     def create_transit_gateway(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateTransitGatewayInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateTransitGateway.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateTransitGateway.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -9606,10 +9720,11 @@ module AWS::SDK::EC2
     #   resp.data.transit_gateway_connect.tags[0].value #=> String
     def create_transit_gateway_connect(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateTransitGatewayConnectInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateTransitGatewayConnect.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateTransitGatewayConnect.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -9690,10 +9805,11 @@ module AWS::SDK::EC2
     #   resp.data.transit_gateway_connect_peer.tags[0].value #=> String
     def create_transit_gateway_connect_peer(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateTransitGatewayConnectPeerInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateTransitGatewayConnectPeer.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateTransitGatewayConnectPeer.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -9762,10 +9878,11 @@ module AWS::SDK::EC2
     #   resp.data.transit_gateway_multicast_domain.tags[0].value #=> String
     def create_transit_gateway_multicast_domain(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateTransitGatewayMulticastDomainInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateTransitGatewayMulticastDomain.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateTransitGatewayMulticastDomain.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -9843,10 +9960,11 @@ module AWS::SDK::EC2
     #   resp.data.transit_gateway_peering_attachment.tags[0].value #=> String
     def create_transit_gateway_peering_attachment(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateTransitGatewayPeeringAttachmentInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateTransitGatewayPeeringAttachment.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateTransitGatewayPeeringAttachment.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -9903,10 +10021,11 @@ module AWS::SDK::EC2
     #   resp.data.transit_gateway_policy_table.tags[0].value #=> String
     def create_transit_gateway_policy_table(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateTransitGatewayPolicyTableInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateTransitGatewayPolicyTable.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateTransitGatewayPolicyTable.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -9956,10 +10075,11 @@ module AWS::SDK::EC2
     #   resp.data.transit_gateway_prefix_list_reference.transit_gateway_attachment.resource_id #=> String
     def create_transit_gateway_prefix_list_reference(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateTransitGatewayPrefixListReferenceInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateTransitGatewayPrefixListReference.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateTransitGatewayPrefixListReference.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -10010,10 +10130,11 @@ module AWS::SDK::EC2
     #   resp.data.route.state #=> String, one of ["pending", "active", "blackhole", "deleting", "deleted"]
     def create_transit_gateway_route(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateTransitGatewayRouteInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateTransitGatewayRoute.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateTransitGatewayRoute.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -10072,10 +10193,11 @@ module AWS::SDK::EC2
     #   resp.data.transit_gateway_route_table.tags[0].value #=> String
     def create_transit_gateway_route_table(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateTransitGatewayRouteTableInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateTransitGatewayRouteTable.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateTransitGatewayRouteTable.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -10139,10 +10261,11 @@ module AWS::SDK::EC2
     #   resp.data.transit_gateway_route_table_announcement.tags[0].value #=> String
     def create_transit_gateway_route_table_announcement(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateTransitGatewayRouteTableAnnouncementInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateTransitGatewayRouteTableAnnouncement.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateTransitGatewayRouteTableAnnouncement.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -10221,10 +10344,11 @@ module AWS::SDK::EC2
     #   resp.data.transit_gateway_vpc_attachment.tags[0].value #=> String
     def create_transit_gateway_vpc_attachment(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateTransitGatewayVpcAttachmentInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateTransitGatewayVpcAttachment.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateTransitGatewayVpcAttachment.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -10336,10 +10460,11 @@ module AWS::SDK::EC2
     #   resp.data.verified_access_endpoint.sse_specification.kms_key_arn #=> String
     def create_verified_access_endpoint(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateVerifiedAccessEndpointInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateVerifiedAccessEndpoint.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateVerifiedAccessEndpoint.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -10413,10 +10538,11 @@ module AWS::SDK::EC2
     #   resp.data.verified_access_group.sse_specification.kms_key_arn #=> String
     def create_verified_access_group(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateVerifiedAccessGroupInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateVerifiedAccessGroup.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateVerifiedAccessGroup.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -10484,10 +10610,11 @@ module AWS::SDK::EC2
     #   resp.data.verified_access_instance.fips_enabled #=> Boolean
     def create_verified_access_instance(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateVerifiedAccessInstanceInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateVerifiedAccessInstance.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateVerifiedAccessInstance.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -10587,10 +10714,11 @@ module AWS::SDK::EC2
     #   resp.data.verified_access_trust_provider.sse_specification.kms_key_arn #=> String
     def create_verified_access_trust_provider(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateVerifiedAccessTrustProviderInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateVerifiedAccessTrustProvider.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateVerifiedAccessTrustProvider.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -10733,10 +10861,11 @@ module AWS::SDK::EC2
     #   }
     def create_volume(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateVolumeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateVolume.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateVolume.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -10846,10 +10975,11 @@ module AWS::SDK::EC2
     #   }
     def create_vpc(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateVpcInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateVpc.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateVpc.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -10961,10 +11091,11 @@ module AWS::SDK::EC2
     #   resp.data.client_token #=> String
     def create_vpc_endpoint(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateVpcEndpointInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateVpcEndpoint.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateVpcEndpoint.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11021,10 +11152,11 @@ module AWS::SDK::EC2
     #   resp.data.client_token #=> String
     def create_vpc_endpoint_connection_notification(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateVpcEndpointConnectionNotificationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateVpcEndpointConnectionNotification.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateVpcEndpointConnectionNotification.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11121,10 +11253,11 @@ module AWS::SDK::EC2
     #   resp.data.client_token #=> String
     def create_vpc_endpoint_service_configuration(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateVpcEndpointServiceConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateVpcEndpointServiceConfiguration.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateVpcEndpointServiceConfiguration.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11213,10 +11346,11 @@ module AWS::SDK::EC2
     #   resp.data.vpc_peering_connection.vpc_peering_connection_id #=> String
     def create_vpc_peering_connection(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateVpcPeeringConnectionInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateVpcPeeringConnection.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateVpcPeeringConnection.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11432,10 +11566,11 @@ module AWS::SDK::EC2
     #   resp.data.vpn_connection.vgw_telemetry[0].certificate_arn #=> String
     def create_vpn_connection(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateVpnConnectionInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateVpnConnection.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateVpnConnection.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11476,10 +11611,11 @@ module AWS::SDK::EC2
     #   resp.data #=> Types::CreateVpnConnectionRouteOutput
     def create_vpn_connection_route(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateVpnConnectionRouteInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateVpnConnectionRoute.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateVpnConnectionRoute.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11547,10 +11683,11 @@ module AWS::SDK::EC2
     #   resp.data.vpn_gateway.tags[0].value #=> String
     def create_vpn_gateway(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::CreateVpnGatewayInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::CreateVpnGateway.build(config)
+      stack = AWS::SDK::EC2::Middleware::CreateVpnGateway.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11601,10 +11738,11 @@ module AWS::SDK::EC2
     #   resp.data.carrier_gateway.tags[0].value #=> String
     def delete_carrier_gateway(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteCarrierGatewayInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteCarrierGateway.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteCarrierGateway.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11645,10 +11783,11 @@ module AWS::SDK::EC2
     #   resp.data.status.message #=> String
     def delete_client_vpn_endpoint(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteClientVpnEndpointInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteClientVpnEndpoint.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteClientVpnEndpoint.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11693,10 +11832,11 @@ module AWS::SDK::EC2
     #   resp.data.status.message #=> String
     def delete_client_vpn_route(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteClientVpnRouteInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteClientVpnRoute.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteClientVpnRoute.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11740,10 +11880,11 @@ module AWS::SDK::EC2
     #   resp.data.coip_cidr.local_gateway_route_table_id #=> String
     def delete_coip_cidr(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteCoipCidrInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteCoipCidr.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteCoipCidr.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11790,10 +11931,11 @@ module AWS::SDK::EC2
     #   resp.data.coip_pool.pool_arn #=> String
     def delete_coip_pool(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteCoipPoolInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteCoipPool.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteCoipPool.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11839,10 +11981,11 @@ module AWS::SDK::EC2
     #   nil
     def delete_customer_gateway(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteCustomerGatewayInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteCustomerGateway.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteCustomerGateway.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11887,10 +12030,11 @@ module AWS::SDK::EC2
     #   nil
     def delete_dhcp_options(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteDhcpOptionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteDhcpOptions.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteDhcpOptions.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11928,10 +12072,11 @@ module AWS::SDK::EC2
     #   resp.data.return_code #=> Boolean
     def delete_egress_only_internet_gateway(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteEgressOnlyInternetGatewayInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteEgressOnlyInternetGateway.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteEgressOnlyInternetGateway.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -12007,10 +12152,11 @@ module AWS::SDK::EC2
     #   resp.data.unsuccessful_fleet_deletions[0].fleet_id #=> String
     def delete_fleets(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteFleetsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteFleets.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteFleets.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -12055,10 +12201,11 @@ module AWS::SDK::EC2
     #   resp.data.unsuccessful[0].resource_id #=> String
     def delete_flow_logs(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteFlowLogsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteFlowLogs.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteFlowLogs.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -12096,10 +12243,11 @@ module AWS::SDK::EC2
     #   resp.data.return #=> Boolean
     def delete_fpga_image(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteFpgaImageInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteFpgaImage.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteFpgaImage.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -12157,10 +12305,11 @@ module AWS::SDK::EC2
     #   resp.data.instance_connect_endpoint.tags[0].value #=> String
     def delete_instance_connect_endpoint(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteInstanceConnectEndpointInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteInstanceConnectEndpoint.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteInstanceConnectEndpoint.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -12203,10 +12352,11 @@ module AWS::SDK::EC2
     #   resp.data.instance_event_window_state.state #=> String, one of ["creating", "deleting", "active", "deleted"]
     def delete_instance_event_window(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteInstanceEventWindowInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteInstanceEventWindow.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteInstanceEventWindow.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -12252,10 +12402,11 @@ module AWS::SDK::EC2
     #   nil
     def delete_internet_gateway(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteInternetGatewayInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteInternetGateway.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteInternetGateway.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -12317,10 +12468,11 @@ module AWS::SDK::EC2
     #   resp.data.ipam.tier #=> String, one of ["free", "advanced"]
     def delete_ipam(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteIpamInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteIpam.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteIpam.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -12400,10 +12552,11 @@ module AWS::SDK::EC2
     #   resp.data.ipam_pool.source_resource.resource_owner #=> String
     def delete_ipam_pool(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteIpamPoolInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteIpamPool.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteIpamPool.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -12455,10 +12608,11 @@ module AWS::SDK::EC2
     #   resp.data.ipam_resource_discovery.tags[0].value #=> String
     def delete_ipam_resource_discovery(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteIpamResourceDiscoveryInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteIpamResourceDiscovery.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteIpamResourceDiscovery.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -12512,10 +12666,11 @@ module AWS::SDK::EC2
     #   resp.data.ipam_scope.tags[0].value #=> String
     def delete_ipam_scope(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteIpamScopeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteIpamScope.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteIpamScope.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -12563,10 +12718,11 @@ module AWS::SDK::EC2
     #   nil
     def delete_key_pair(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteKeyPairInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteKeyPair.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteKeyPair.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -12633,10 +12789,11 @@ module AWS::SDK::EC2
     #   }
     def delete_launch_template(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteLaunchTemplateInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteLaunchTemplate.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteLaunchTemplate.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -12720,10 +12877,11 @@ module AWS::SDK::EC2
     #   }
     def delete_launch_template_versions(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteLaunchTemplateVersionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteLaunchTemplateVersions.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteLaunchTemplateVersions.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -12774,10 +12932,11 @@ module AWS::SDK::EC2
     #   resp.data.route.destination_prefix_list_id #=> String
     def delete_local_gateway_route(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteLocalGatewayRouteInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteLocalGatewayRoute.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteLocalGatewayRoute.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -12831,10 +12990,11 @@ module AWS::SDK::EC2
     #   resp.data.local_gateway_route_table.state_reason.message #=> String
     def delete_local_gateway_route_table(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteLocalGatewayRouteTableInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteLocalGatewayRouteTable.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteLocalGatewayRouteTable.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -12885,10 +13045,11 @@ module AWS::SDK::EC2
     #   resp.data.local_gateway_route_table_virtual_interface_group_association.tags[0].value #=> String
     def delete_local_gateway_route_table_virtual_interface_group_association(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -12937,10 +13098,11 @@ module AWS::SDK::EC2
     #   resp.data.local_gateway_route_table_vpc_association.tags[0].value #=> String
     def delete_local_gateway_route_table_vpc_association(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteLocalGatewayRouteTableVpcAssociationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteLocalGatewayRouteTableVpcAssociation.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteLocalGatewayRouteTableVpcAssociation.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -12991,10 +13153,11 @@ module AWS::SDK::EC2
     #   resp.data.prefix_list.owner_id #=> String
     def delete_managed_prefix_list(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteManagedPrefixListInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteManagedPrefixList.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteManagedPrefixList.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -13044,10 +13207,11 @@ module AWS::SDK::EC2
     #   }
     def delete_nat_gateway(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteNatGatewayInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteNatGateway.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteNatGateway.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -13092,10 +13256,11 @@ module AWS::SDK::EC2
     #   nil
     def delete_network_acl(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteNetworkAclInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteNetworkAcl.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteNetworkAcl.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -13144,10 +13309,11 @@ module AWS::SDK::EC2
     #   nil
     def delete_network_acl_entry(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteNetworkAclEntryInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteNetworkAclEntry.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteNetworkAclEntry.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -13185,10 +13351,11 @@ module AWS::SDK::EC2
     #   resp.data.network_insights_access_scope_id #=> String
     def delete_network_insights_access_scope(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteNetworkInsightsAccessScopeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteNetworkInsightsAccessScope.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteNetworkInsightsAccessScope.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -13226,10 +13393,11 @@ module AWS::SDK::EC2
     #   resp.data.network_insights_access_scope_analysis_id #=> String
     def delete_network_insights_access_scope_analysis(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteNetworkInsightsAccessScopeAnalysisInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteNetworkInsightsAccessScopeAnalysis.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteNetworkInsightsAccessScopeAnalysis.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -13267,10 +13435,11 @@ module AWS::SDK::EC2
     #   resp.data.network_insights_analysis_id #=> String
     def delete_network_insights_analysis(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteNetworkInsightsAnalysisInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteNetworkInsightsAnalysis.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteNetworkInsightsAnalysis.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -13308,10 +13477,11 @@ module AWS::SDK::EC2
     #   resp.data.network_insights_path_id #=> String
     def delete_network_insights_path(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteNetworkInsightsPathInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteNetworkInsightsPath.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteNetworkInsightsPath.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -13356,10 +13526,11 @@ module AWS::SDK::EC2
     #   nil
     def delete_network_interface(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteNetworkInterfaceInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteNetworkInterface.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteNetworkInterface.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -13401,10 +13572,11 @@ module AWS::SDK::EC2
     #   resp.data.return #=> Boolean
     def delete_network_interface_permission(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteNetworkInterfacePermissionInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteNetworkInterfacePermission.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteNetworkInterfacePermission.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -13452,10 +13624,11 @@ module AWS::SDK::EC2
     #   {}
     def delete_placement_group(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeletePlacementGroupInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeletePlacementGroup.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeletePlacementGroup.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -13493,10 +13666,11 @@ module AWS::SDK::EC2
     #   resp.data.return_value #=> Boolean
     def delete_public_ipv4_pool(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeletePublicIpv4PoolInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeletePublicIpv4Pool.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeletePublicIpv4Pool.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -13544,10 +13718,11 @@ module AWS::SDK::EC2
     #   resp.data.failed_queued_purchase_deletions[0].reserved_instances_id #=> String
     def delete_queued_reserved_instances(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteQueuedReservedInstancesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteQueuedReservedInstances.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteQueuedReservedInstances.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -13596,10 +13771,11 @@ module AWS::SDK::EC2
     #   nil
     def delete_route(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteRouteInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteRoute.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteRoute.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -13644,10 +13820,11 @@ module AWS::SDK::EC2
     #   nil
     def delete_route_table(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteRouteTableInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteRouteTable.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteRouteTable.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -13696,10 +13873,11 @@ module AWS::SDK::EC2
     #   {}
     def delete_security_group(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteSecurityGroupInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteSecurityGroup.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteSecurityGroup.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -13753,10 +13931,11 @@ module AWS::SDK::EC2
     #   {}
     def delete_snapshot(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteSnapshotInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteSnapshot.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteSnapshot.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -13797,10 +13976,11 @@ module AWS::SDK::EC2
     #   nil
     def delete_spot_datafeed_subscription(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteSpotDatafeedSubscriptionInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteSpotDatafeedSubscription.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteSpotDatafeedSubscription.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -13845,10 +14025,11 @@ module AWS::SDK::EC2
     #   nil
     def delete_subnet(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteSubnetInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteSubnet.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteSubnet.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -13896,10 +14077,11 @@ module AWS::SDK::EC2
     #   resp.data.deleted_subnet_cidr_reservation.tags[0].value #=> String
     def delete_subnet_cidr_reservation(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteSubnetCidrReservationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteSubnetCidrReservation.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteSubnetCidrReservation.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -13964,10 +14146,11 @@ module AWS::SDK::EC2
     #   nil
     def delete_tags(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteTagsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteTags.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteTags.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -14006,10 +14189,11 @@ module AWS::SDK::EC2
     #   resp.data.traffic_mirror_filter_id #=> String
     def delete_traffic_mirror_filter(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteTrafficMirrorFilterInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteTrafficMirrorFilter.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteTrafficMirrorFilter.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -14047,10 +14231,11 @@ module AWS::SDK::EC2
     #   resp.data.traffic_mirror_filter_rule_id #=> String
     def delete_traffic_mirror_filter_rule(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteTrafficMirrorFilterRuleInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteTrafficMirrorFilterRule.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteTrafficMirrorFilterRule.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -14088,10 +14273,11 @@ module AWS::SDK::EC2
     #   resp.data.traffic_mirror_session_id #=> String
     def delete_traffic_mirror_session(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteTrafficMirrorSessionInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteTrafficMirrorSession.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteTrafficMirrorSession.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -14130,10 +14316,11 @@ module AWS::SDK::EC2
     #   resp.data.traffic_mirror_target_id #=> String
     def delete_traffic_mirror_target(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteTrafficMirrorTargetInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteTrafficMirrorTarget.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteTrafficMirrorTarget.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -14194,10 +14381,11 @@ module AWS::SDK::EC2
     #   resp.data.transit_gateway.tags[0].value #=> String
     def delete_transit_gateway(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteTransitGatewayInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteTransitGateway.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteTransitGateway.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -14247,10 +14435,11 @@ module AWS::SDK::EC2
     #   resp.data.transit_gateway_connect.tags[0].value #=> String
     def delete_transit_gateway_connect(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteTransitGatewayConnectInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteTransitGatewayConnect.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteTransitGatewayConnect.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -14309,10 +14498,11 @@ module AWS::SDK::EC2
     #   resp.data.transit_gateway_connect_peer.tags[0].value #=> String
     def delete_transit_gateway_connect_peer(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteTransitGatewayConnectPeerInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteTransitGatewayConnectPeer.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteTransitGatewayConnectPeer.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -14364,10 +14554,11 @@ module AWS::SDK::EC2
     #   resp.data.transit_gateway_multicast_domain.tags[0].value #=> String
     def delete_transit_gateway_multicast_domain(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteTransitGatewayMulticastDomainInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteTransitGatewayMulticastDomain.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteTransitGatewayMulticastDomain.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -14424,10 +14615,11 @@ module AWS::SDK::EC2
     #   resp.data.transit_gateway_peering_attachment.tags[0].value #=> String
     def delete_transit_gateway_peering_attachment(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteTransitGatewayPeeringAttachmentInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteTransitGatewayPeeringAttachment.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteTransitGatewayPeeringAttachment.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -14473,10 +14665,11 @@ module AWS::SDK::EC2
     #   resp.data.transit_gateway_policy_table.tags[0].value #=> String
     def delete_transit_gateway_policy_table(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteTransitGatewayPolicyTableInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteTransitGatewayPolicyTable.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteTransitGatewayPolicyTable.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -14524,10 +14717,11 @@ module AWS::SDK::EC2
     #   resp.data.transit_gateway_prefix_list_reference.transit_gateway_attachment.resource_id #=> String
     def delete_transit_gateway_prefix_list_reference(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteTransitGatewayPrefixListReferenceInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteTransitGatewayPrefixListReference.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteTransitGatewayPrefixListReference.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -14576,10 +14770,11 @@ module AWS::SDK::EC2
     #   resp.data.route.state #=> String, one of ["pending", "active", "blackhole", "deleting", "deleted"]
     def delete_transit_gateway_route(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteTransitGatewayRouteInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteTransitGatewayRoute.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteTransitGatewayRoute.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -14628,10 +14823,11 @@ module AWS::SDK::EC2
     #   resp.data.transit_gateway_route_table.tags[0].value #=> String
     def delete_transit_gateway_route_table(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteTransitGatewayRouteTableInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteTransitGatewayRouteTable.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteTransitGatewayRouteTable.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -14683,10 +14879,11 @@ module AWS::SDK::EC2
     #   resp.data.transit_gateway_route_table_announcement.tags[0].value #=> String
     def delete_transit_gateway_route_table_announcement(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteTransitGatewayRouteTableAnnouncementInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteTransitGatewayRouteTableAnnouncement.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteTransitGatewayRouteTableAnnouncement.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -14741,10 +14938,11 @@ module AWS::SDK::EC2
     #   resp.data.transit_gateway_vpc_attachment.tags[0].value #=> String
     def delete_transit_gateway_vpc_attachment(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteTransitGatewayVpcAttachmentInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteTransitGatewayVpcAttachment.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteTransitGatewayVpcAttachment.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -14818,10 +15016,11 @@ module AWS::SDK::EC2
     #   resp.data.verified_access_endpoint.sse_specification.kms_key_arn #=> String
     def delete_verified_access_endpoint(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteVerifiedAccessEndpointInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteVerifiedAccessEndpoint.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteVerifiedAccessEndpoint.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -14875,10 +15074,11 @@ module AWS::SDK::EC2
     #   resp.data.verified_access_group.sse_specification.kms_key_arn #=> String
     def delete_verified_access_group(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteVerifiedAccessGroupInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteVerifiedAccessGroup.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteVerifiedAccessGroup.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -14933,10 +15133,11 @@ module AWS::SDK::EC2
     #   resp.data.verified_access_instance.fips_enabled #=> Boolean
     def delete_verified_access_instance(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteVerifiedAccessInstanceInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteVerifiedAccessInstance.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteVerifiedAccessInstance.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -15001,10 +15202,11 @@ module AWS::SDK::EC2
     #   resp.data.verified_access_trust_provider.sse_specification.kms_key_arn #=> String
     def delete_verified_access_trust_provider(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteVerifiedAccessTrustProviderInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteVerifiedAccessTrustProvider.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteVerifiedAccessTrustProvider.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -15053,10 +15255,11 @@ module AWS::SDK::EC2
     #   {}
     def delete_volume(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteVolumeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteVolume.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteVolume.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -15101,10 +15304,11 @@ module AWS::SDK::EC2
     #   nil
     def delete_vpc(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteVpcInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteVpc.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteVpc.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -15149,10 +15353,11 @@ module AWS::SDK::EC2
     #   resp.data.unsuccessful[0].resource_id #=> String
     def delete_vpc_endpoint_connection_notifications(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteVpcEndpointConnectionNotificationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteVpcEndpointConnectionNotifications.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteVpcEndpointConnectionNotifications.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -15200,10 +15405,11 @@ module AWS::SDK::EC2
     #   resp.data.unsuccessful[0].resource_id #=> String
     def delete_vpc_endpoint_service_configurations(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteVpcEndpointServiceConfigurationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteVpcEndpointServiceConfigurations.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteVpcEndpointServiceConfigurations.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -15252,10 +15458,11 @@ module AWS::SDK::EC2
     #   resp.data.unsuccessful[0].resource_id #=> String
     def delete_vpc_endpoints(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteVpcEndpointsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteVpcEndpoints.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteVpcEndpoints.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -15297,10 +15504,11 @@ module AWS::SDK::EC2
     #   resp.data.return #=> Boolean
     def delete_vpc_peering_connection(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteVpcPeeringConnectionInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteVpcPeeringConnection.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteVpcPeeringConnection.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -15347,10 +15555,11 @@ module AWS::SDK::EC2
     #   resp.data #=> Types::DeleteVpnConnectionOutput
     def delete_vpn_connection(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteVpnConnectionInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteVpnConnection.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteVpnConnection.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -15390,10 +15599,11 @@ module AWS::SDK::EC2
     #   resp.data #=> Types::DeleteVpnConnectionRouteOutput
     def delete_vpn_connection_route(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteVpnConnectionRouteInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteVpnConnectionRoute.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteVpnConnectionRoute.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -15433,10 +15643,11 @@ module AWS::SDK::EC2
     #   resp.data #=> Types::DeleteVpnGatewayOutput
     def delete_vpn_gateway(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeleteVpnGatewayInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeleteVpnGateway.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeleteVpnGateway.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -15488,10 +15699,11 @@ module AWS::SDK::EC2
     #   resp.data.byoip_cidr.network_border_group #=> String
     def deprovision_byoip_cidr(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeprovisionByoipCidrInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeprovisionByoipCidr.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeprovisionByoipCidr.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -15535,10 +15747,11 @@ module AWS::SDK::EC2
     #   resp.data.byoasn.state #=> String, one of ["deprovisioned", "failed-deprovision", "failed-provision", "pending-deprovision", "pending-provision", "provisioned"]
     def deprovision_ipam_byoasn(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeprovisionIpamByoasnInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeprovisionIpamByoasn.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeprovisionIpamByoasn.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -15584,10 +15797,11 @@ module AWS::SDK::EC2
     #   resp.data.ipam_pool_cidr.netmask_length #=> Integer
     def deprovision_ipam_pool_cidr(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeprovisionIpamPoolCidrInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeprovisionIpamPoolCidr.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeprovisionIpamPoolCidr.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -15628,10 +15842,11 @@ module AWS::SDK::EC2
     #   resp.data.deprovisioned_addresses[0] #=> String
     def deprovision_public_ipv4_pool_cidr(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeprovisionPublicIpv4PoolCidrInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeprovisionPublicIpv4PoolCidr.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeprovisionPublicIpv4PoolCidr.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -15679,10 +15894,11 @@ module AWS::SDK::EC2
     #   resp.data #=> Types::DeregisterImageOutput
     def deregister_image(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeregisterImageInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeregisterImage.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeregisterImage.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -15729,10 +15945,11 @@ module AWS::SDK::EC2
     #   resp.data.instance_tag_attribute.include_all_tags_of_instance #=> Boolean
     def deregister_instance_event_notification_attributes(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeregisterInstanceEventNotificationAttributesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeregisterInstanceEventNotificationAttributes.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeregisterInstanceEventNotificationAttributes.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -15778,10 +15995,11 @@ module AWS::SDK::EC2
     #   resp.data.deregistered_multicast_group_members.group_ip_address #=> String
     def deregister_transit_gateway_multicast_group_members(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeregisterTransitGatewayMulticastGroupMembersInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeregisterTransitGatewayMulticastGroupMembers.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeregisterTransitGatewayMulticastGroupMembers.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -15827,10 +16045,11 @@ module AWS::SDK::EC2
     #   resp.data.deregistered_multicast_group_sources.group_ip_address #=> String
     def deregister_transit_gateway_multicast_group_sources(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DeregisterTransitGatewayMulticastGroupSourcesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DeregisterTransitGatewayMulticastGroupSources.build(config)
+      stack = AWS::SDK::EC2::Middleware::DeregisterTransitGatewayMulticastGroupSources.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -15988,10 +16207,11 @@ module AWS::SDK::EC2
     #   }
     def describe_account_attributes(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeAccountAttributesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeAccountAttributes.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeAccountAttributes.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -16050,10 +16270,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_address_transfers(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeAddressTransfersInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeAddressTransfers.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeAddressTransfers.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -16145,10 +16366,11 @@ module AWS::SDK::EC2
     #   }
     def describe_addresses(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeAddressesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeAddresses.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeAddresses.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -16200,10 +16422,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_addresses_attribute(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeAddressesAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeAddressesAttribute.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeAddressesAttribute.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -16261,10 +16484,11 @@ module AWS::SDK::EC2
     #   resp.data.statuses[0].use_long_ids #=> Boolean
     def describe_aggregate_id_format(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeAggregateIdFormatInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeAggregateIdFormat.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeAggregateIdFormat.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -16375,10 +16599,11 @@ module AWS::SDK::EC2
     #   }
     def describe_availability_zones(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeAvailabilityZonesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeAvailabilityZones.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeAvailabilityZones.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -16432,10 +16657,11 @@ module AWS::SDK::EC2
     #   resp.data.subscriptions[0].period #=> String, one of ["five-minutes", "fifteen-minutes", "one-hour", "three-hours", "one-day", "one-week"]
     def describe_aws_network_performance_metric_subscriptions(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeAwsNetworkPerformanceMetricSubscriptionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeAwsNetworkPerformanceMetricSubscriptions.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeAwsNetworkPerformanceMetricSubscriptions.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -16503,10 +16729,11 @@ module AWS::SDK::EC2
     #   resp.data.bundle_tasks[0].update_time #=> Time
     def describe_bundle_tasks(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeBundleTasksInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeBundleTasks.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeBundleTasks.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -16560,10 +16787,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_byoip_cidrs(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeByoipCidrsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeByoipCidrs.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeByoipCidrs.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -16619,10 +16847,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_capacity_block_offerings(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeCapacityBlockOfferingsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeCapacityBlockOfferings.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeCapacityBlockOfferings.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -16701,10 +16930,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_capacity_reservation_fleets(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeCapacityReservationFleetsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeCapacityReservationFleets.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeCapacityReservationFleets.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -16787,10 +17017,11 @@ module AWS::SDK::EC2
     #   resp.data.capacity_reservations[0].reservation_type #=> String, one of ["default", "capacity-block"]
     def describe_capacity_reservations(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeCapacityReservationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeCapacityReservations.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeCapacityReservations.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -16850,10 +17081,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_carrier_gateways(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeCarrierGatewaysInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeCarrierGateways.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeCarrierGateways.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -16920,10 +17152,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_classic_link_instances(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeClassicLinkInstancesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeClassicLinkInstances.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeClassicLinkInstances.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -16981,10 +17214,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_client_vpn_authorization_rules(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeClientVpnAuthorizationRulesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeClientVpnAuthorizationRules.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeClientVpnAuthorizationRules.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -17052,10 +17286,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_client_vpn_connections(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeClientVpnConnectionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeClientVpnConnections.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeClientVpnConnections.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -17159,10 +17394,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_client_vpn_endpoints(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeClientVpnEndpointsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeClientVpnEndpoints.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeClientVpnEndpoints.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -17221,10 +17457,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_client_vpn_routes(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeClientVpnRoutesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeClientVpnRoutes.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeClientVpnRoutes.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -17283,10 +17520,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_client_vpn_target_networks(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeClientVpnTargetNetworksInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeClientVpnTargetNetworks.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeClientVpnTargetNetworks.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -17347,10 +17585,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_coip_pools(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeCoipPoolsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeCoipPools.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeCoipPools.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -17426,10 +17665,11 @@ module AWS::SDK::EC2
     #   resp.data.conversion_tasks[0].tags[0].value #=> String
     def describe_conversion_tasks(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeConversionTasksInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeConversionTasks.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeConversionTasks.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -17511,10 +17751,11 @@ module AWS::SDK::EC2
     #   }
     def describe_customer_gateways(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeCustomerGatewaysInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeCustomerGateways.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeCustomerGateways.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -17609,10 +17850,11 @@ module AWS::SDK::EC2
     #   }
     def describe_dhcp_options(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeDhcpOptionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeDhcpOptions.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeDhcpOptions.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -17673,10 +17915,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_egress_only_internet_gateways(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeEgressOnlyInternetGatewaysInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeEgressOnlyInternetGateways.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeEgressOnlyInternetGateways.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -17746,10 +17989,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_elastic_gpus(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeElasticGpusInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeElasticGpus.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeElasticGpus.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -17814,10 +18058,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_export_image_tasks(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeExportImageTasksInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeExportImageTasks.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeExportImageTasks.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -17881,10 +18126,11 @@ module AWS::SDK::EC2
     #   resp.data.export_tasks[0].tags[0].value #=> String
     def describe_export_tasks(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeExportTasksInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeExportTasks.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeExportTasks.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -17949,10 +18195,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_fast_launch_images(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeFastLaunchImagesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeFastLaunchImages.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeFastLaunchImages.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -18012,10 +18259,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_fast_snapshot_restores(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeFastSnapshotRestoresInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeFastSnapshotRestores.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeFastSnapshotRestores.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -18073,10 +18321,11 @@ module AWS::SDK::EC2
     #   resp.data.start_time #=> Time
     def describe_fleet_history(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeFleetHistoryInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeFleetHistory.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeFleetHistory.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -18132,10 +18381,11 @@ module AWS::SDK::EC2
     #   resp.data.fleet_id #=> String
     def describe_fleet_instances(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeFleetInstancesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeFleetInstances.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeFleetInstances.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -18316,10 +18566,11 @@ module AWS::SDK::EC2
     #   resp.data.fleets[0].context #=> String
     def describe_fleets(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeFleetsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeFleets.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeFleets.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -18395,10 +18646,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_flow_logs(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeFlowLogsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeFlowLogs.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeFlowLogs.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -18448,10 +18700,11 @@ module AWS::SDK::EC2
     #   resp.data.fpga_image_attribute.product_codes[0].product_code_type #=> String, one of ["devpay", "marketplace"]
     def describe_fpga_image_attribute(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeFpgaImageAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeFpgaImageAttribute.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeFpgaImageAttribute.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -18537,10 +18790,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_fpga_images(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeFpgaImagesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeFpgaImages.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeFpgaImages.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -18604,10 +18858,11 @@ module AWS::SDK::EC2
     #   resp.data.offering_set[0].upfront_price #=> String
     def describe_host_reservation_offerings(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeHostReservationOfferingsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeHostReservationOfferings.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeHostReservationOfferings.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -18677,10 +18932,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_host_reservations(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeHostReservationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeHostReservations.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeHostReservations.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -18772,10 +19028,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_hosts(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeHostsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeHosts.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeHosts.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -18855,10 +19112,11 @@ module AWS::SDK::EC2
     #   }
     def describe_iam_instance_profile_associations(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeIamInstanceProfileAssociationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeIamInstanceProfileAssociations.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeIamInstanceProfileAssociations.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -18918,10 +19176,11 @@ module AWS::SDK::EC2
     #   resp.data.statuses[0].use_long_ids #=> Boolean
     def describe_id_format(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeIdFormatInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeIdFormat.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeIdFormat.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -18981,10 +19240,11 @@ module AWS::SDK::EC2
     #   resp.data.statuses[0].use_long_ids #=> Boolean
     def describe_identity_id_format(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeIdentityIdFormatInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeIdentityIdFormat.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeIdentityIdFormat.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -19074,10 +19334,11 @@ module AWS::SDK::EC2
     #   }
     def describe_image_attribute(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeImageAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeImageAttribute.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeImageAttribute.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -19236,10 +19497,11 @@ module AWS::SDK::EC2
     #   }
     def describe_images(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeImagesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeImages.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeImages.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -19326,10 +19588,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_import_image_tasks(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeImportImageTasksInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeImportImageTasks.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeImportImageTasks.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -19401,10 +19664,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_import_snapshot_tasks(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeImportSnapshotTasksInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeImportSnapshotTasks.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeImportSnapshotTasks.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -19531,10 +19795,11 @@ module AWS::SDK::EC2
     #   }
     def describe_instance_attribute(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeInstanceAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeInstanceAttribute.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeInstanceAttribute.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -19603,10 +19868,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_instance_connect_endpoints(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeInstanceConnectEndpointsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeInstanceConnectEndpoints.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeInstanceConnectEndpoints.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -19679,10 +19945,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_instance_credit_specifications(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeInstanceCreditSpecificationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeInstanceCreditSpecifications.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeInstanceCreditSpecifications.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -19723,10 +19990,11 @@ module AWS::SDK::EC2
     #   resp.data.instance_tag_attribute.include_all_tags_of_instance #=> Boolean
     def describe_instance_event_notification_attributes(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeInstanceEventNotificationAttributesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeInstanceEventNotificationAttributes.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeInstanceEventNotificationAttributes.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -19806,10 +20074,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_instance_event_windows(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeInstanceEventWindowsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeInstanceEventWindows.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeInstanceEventWindows.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -19951,10 +20220,11 @@ module AWS::SDK::EC2
     #   }
     def describe_instance_status(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeInstanceStatusInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeInstanceStatus.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeInstanceStatus.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -20063,10 +20333,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_instance_topology(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeInstanceTopologyInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeInstanceTopology.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeInstanceTopology.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -20120,10 +20391,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_instance_type_offerings(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeInstanceTypeOfferingsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeInstanceTypeOfferings.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeInstanceTypeOfferings.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -20287,10 +20559,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_instance_types(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeInstanceTypesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeInstanceTypes.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeInstanceTypes.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -20575,10 +20848,11 @@ module AWS::SDK::EC2
     #   {}
     def describe_instances(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeInstancesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeInstances.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeInstances.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -20670,10 +20944,11 @@ module AWS::SDK::EC2
     #   }
     def describe_internet_gateways(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeInternetGatewaysInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeInternetGateways.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeInternetGateways.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -20718,10 +20993,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_ipam_byoasn(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeIpamByoasnInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeIpamByoasn.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeIpamByoasn.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -20804,10 +21080,11 @@ module AWS::SDK::EC2
     #   resp.data.ipam_pools[0].source_resource.resource_owner #=> String
     def describe_ipam_pools(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeIpamPoolsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeIpamPools.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeIpamPools.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -20870,10 +21147,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_ipam_resource_discoveries(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeIpamResourceDiscoveriesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeIpamResourceDiscoveries.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeIpamResourceDiscoveries.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -20936,10 +21214,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_ipam_resource_discovery_associations(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeIpamResourceDiscoveryAssociationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeIpamResourceDiscoveryAssociations.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeIpamResourceDiscoveryAssociations.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -21002,10 +21281,11 @@ module AWS::SDK::EC2
     #   resp.data.ipam_scopes[0].tags[0].value #=> String
     def describe_ipam_scopes(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeIpamScopesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeIpamScopes.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeIpamScopes.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -21077,10 +21357,11 @@ module AWS::SDK::EC2
     #   resp.data.ipams[0].tier #=> String, one of ["free", "advanced"]
     def describe_ipams(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeIpamsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeIpams.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeIpams.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -21141,10 +21422,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_ipv6_pools(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeIpv6PoolsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeIpv6Pools.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeIpv6Pools.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -21226,10 +21508,11 @@ module AWS::SDK::EC2
     #   }
     def describe_key_pairs(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeKeyPairsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeKeyPairs.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeKeyPairs.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -21542,10 +21825,11 @@ module AWS::SDK::EC2
     #   }
     def describe_launch_template_versions(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeLaunchTemplateVersionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeLaunchTemplateVersions.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeLaunchTemplateVersions.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -21631,10 +21915,11 @@ module AWS::SDK::EC2
     #   }
     def describe_launch_templates(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeLaunchTemplatesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeLaunchTemplates.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeLaunchTemplates.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -21697,10 +21982,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_local_gateway_route_table_virtual_interface_group_associations(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -21763,10 +22049,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_local_gateway_route_table_vpc_associations(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeLocalGatewayRouteTableVpcAssociationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeLocalGatewayRouteTableVpcAssociations.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeLocalGatewayRouteTableVpcAssociations.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -21833,10 +22120,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_local_gateway_route_tables(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeLocalGatewayRouteTablesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeLocalGatewayRouteTables.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeLocalGatewayRouteTables.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -21897,10 +22185,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_local_gateway_virtual_interface_groups(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeLocalGatewayVirtualInterfaceGroupsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeLocalGatewayVirtualInterfaceGroups.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeLocalGatewayVirtualInterfaceGroups.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -21964,10 +22253,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_local_gateway_virtual_interfaces(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeLocalGatewayVirtualInterfacesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeLocalGatewayVirtualInterfaces.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeLocalGatewayVirtualInterfaces.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -22028,10 +22318,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_local_gateways(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeLocalGatewaysInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeLocalGateways.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeLocalGateways.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -22092,10 +22383,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_locked_snapshots(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeLockedSnapshotsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeLockedSnapshots.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeLockedSnapshots.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -22158,10 +22450,11 @@ module AWS::SDK::EC2
     #   resp.data.prefix_lists[0].owner_id #=> String
     def describe_managed_prefix_lists(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeManagedPrefixListsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeManagedPrefixLists.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeManagedPrefixLists.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -22228,10 +22521,11 @@ module AWS::SDK::EC2
     #   }
     def describe_moving_addresses(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeMovingAddressesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeMovingAddresses.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeMovingAddresses.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -22345,10 +22639,11 @@ module AWS::SDK::EC2
     #   }
     def describe_nat_gateways(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeNatGatewaysInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeNatGateways.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeNatGateways.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -22473,10 +22768,11 @@ module AWS::SDK::EC2
     #   }
     def describe_network_acls(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeNetworkAclsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeNetworkAcls.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeNetworkAcls.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -22545,10 +22841,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_network_insights_access_scope_analyses(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeNetworkInsightsAccessScopeAnalysesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeNetworkInsightsAccessScopeAnalyses.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeNetworkInsightsAccessScopeAnalyses.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -22608,10 +22905,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_network_insights_access_scopes(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeNetworkInsightsAccessScopesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeNetworkInsightsAccessScopes.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeNetworkInsightsAccessScopes.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -22851,10 +23149,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_network_insights_analyses(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeNetworkInsightsAnalysesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeNetworkInsightsAnalyses.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeNetworkInsightsAnalyses.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -22929,10 +23228,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_network_insights_paths(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeNetworkInsightsPathsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeNetworkInsightsPaths.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeNetworkInsightsPaths.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -23057,10 +23357,11 @@ module AWS::SDK::EC2
     #   }
     def describe_network_interface_attribute(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeNetworkInterfaceAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeNetworkInterfaceAttribute.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeNetworkInterfaceAttribute.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -23119,10 +23420,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_network_interface_permissions(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeNetworkInterfacePermissionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeNetworkInterfacePermissions.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeNetworkInterfacePermissions.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -23309,10 +23611,11 @@ module AWS::SDK::EC2
     #   }
     def describe_network_interfaces(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeNetworkInterfacesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeNetworkInterfaces.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeNetworkInterfaces.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -23377,10 +23680,11 @@ module AWS::SDK::EC2
     #   resp.data.placement_groups[0].spread_level #=> String, one of ["host", "rack"]
     def describe_placement_groups(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribePlacementGroupsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribePlacementGroups.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribePlacementGroups.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -23438,10 +23742,11 @@ module AWS::SDK::EC2
     #   resp.data.prefix_lists[0].prefix_list_name #=> String
     def describe_prefix_lists(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribePrefixListsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribePrefixLists.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribePrefixLists.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -23508,10 +23813,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_principal_id_format(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribePrincipalIdFormatInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribePrincipalIdFormat.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribePrincipalIdFormat.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -23577,10 +23883,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_public_ipv4_pools(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribePublicIpv4PoolsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribePublicIpv4Pools.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribePublicIpv4Pools.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -23688,10 +23995,11 @@ module AWS::SDK::EC2
     #   }
     def describe_regions(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeRegionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeRegions.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeRegions.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -23756,10 +24064,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_replace_root_volume_tasks(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeReplaceRootVolumeTasksInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeReplaceRootVolumeTasks.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeReplaceRootVolumeTasks.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -23836,10 +24145,11 @@ module AWS::SDK::EC2
     #   resp.data.reserved_instances[0].tags[0].value #=> String
     def describe_reserved_instances(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeReservedInstancesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeReservedInstances.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeReservedInstances.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -23912,10 +24222,11 @@ module AWS::SDK::EC2
     #   resp.data.reserved_instances_listings[0].update_date #=> Time
     def describe_reserved_instances_listings(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeReservedInstancesListingsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeReservedInstancesListings.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeReservedInstancesListings.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -23985,10 +24296,11 @@ module AWS::SDK::EC2
     #   resp.data.reserved_instances_modifications[0].update_date #=> Time
     def describe_reserved_instances_modifications(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeReservedInstancesModificationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeReservedInstancesModifications.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeReservedInstancesModifications.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -24074,10 +24386,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_reserved_instances_offerings(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeReservedInstancesOfferingsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeReservedInstancesOfferings.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeReservedInstancesOfferings.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -24207,10 +24520,11 @@ module AWS::SDK::EC2
     #   }
     def describe_route_tables(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeRouteTablesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeRouteTables.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeRouteTables.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -24296,10 +24610,11 @@ module AWS::SDK::EC2
     #   resp.data.scheduled_instance_availability_set[0].total_scheduled_instance_hours #=> Integer
     def describe_scheduled_instance_availability(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeScheduledInstanceAvailabilityInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeScheduledInstanceAvailability.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeScheduledInstanceAvailability.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -24376,10 +24691,11 @@ module AWS::SDK::EC2
     #   resp.data.scheduled_instance_set[0].total_scheduled_instance_hours #=> Integer
     def describe_scheduled_instances(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeScheduledInstancesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeScheduledInstances.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeScheduledInstances.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -24442,10 +24758,11 @@ module AWS::SDK::EC2
     #   }
     def describe_security_group_references(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeSecurityGroupReferencesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeSecurityGroupReferences.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeSecurityGroupReferences.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -24518,10 +24835,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_security_group_rules(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeSecurityGroupRulesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeSecurityGroupRules.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeSecurityGroupRules.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -24637,10 +24955,11 @@ module AWS::SDK::EC2
     #   {}
     def describe_security_groups(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeSecurityGroupsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeSecurityGroups.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeSecurityGroups.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -24703,10 +25022,11 @@ module AWS::SDK::EC2
     #   }
     def describe_snapshot_attribute(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeSnapshotAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeSnapshotAttribute.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeSnapshotAttribute.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -24770,10 +25090,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_snapshot_tier_status(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeSnapshotTierStatusInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeSnapshotTierStatus.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeSnapshotTierStatus.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -24950,10 +25271,11 @@ module AWS::SDK::EC2
     #   }
     def describe_snapshots(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeSnapshotsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeSnapshots.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeSnapshots.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -25010,10 +25332,11 @@ module AWS::SDK::EC2
     #   }
     def describe_spot_datafeed_subscription(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeSpotDatafeedSubscriptionInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeSpotDatafeedSubscription.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeSpotDatafeedSubscription.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -25077,10 +25400,11 @@ module AWS::SDK::EC2
     #   }
     def describe_spot_fleet_instances(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeSpotFleetInstancesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeSpotFleetInstances.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeSpotFleetInstances.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -25184,10 +25508,11 @@ module AWS::SDK::EC2
     #   }
     def describe_spot_fleet_request_history(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeSpotFleetRequestHistoryInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeSpotFleetRequestHistory.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeSpotFleetRequestHistory.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -25484,10 +25809,11 @@ module AWS::SDK::EC2
     #   }
     def describe_spot_fleet_requests(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeSpotFleetRequestsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeSpotFleetRequests.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeSpotFleetRequests.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -25709,10 +26035,11 @@ module AWS::SDK::EC2
     #   }
     def describe_spot_instance_requests(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeSpotInstanceRequestsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeSpotInstanceRequests.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeSpotInstanceRequests.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -25811,10 +26138,11 @@ module AWS::SDK::EC2
     #   }
     def describe_spot_price_history(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeSpotPriceHistoryInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeSpotPriceHistory.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeSpotPriceHistory.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -25881,10 +26209,11 @@ module AWS::SDK::EC2
     #   resp.data.stale_security_group_set[0].vpc_id #=> String
     def describe_stale_security_groups(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeStaleSecurityGroupsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeStaleSecurityGroups.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeStaleSecurityGroups.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -25954,10 +26283,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_store_image_tasks(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeStoreImageTasksInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeStoreImageTasks.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeStoreImageTasks.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -26072,10 +26402,11 @@ module AWS::SDK::EC2
     #   }
     def describe_subnets(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeSubnetsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeSubnets.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeSubnets.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -26160,10 +26491,11 @@ module AWS::SDK::EC2
     #   }
     def describe_tags(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeTagsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeTags.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeTags.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -26239,10 +26571,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_traffic_mirror_filters(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeTrafficMirrorFiltersInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeTrafficMirrorFilters.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeTrafficMirrorFilters.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -26307,10 +26640,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_traffic_mirror_sessions(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeTrafficMirrorSessionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeTrafficMirrorSessions.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeTrafficMirrorSessions.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -26373,10 +26707,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_traffic_mirror_targets(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeTrafficMirrorTargetsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeTrafficMirrorTargets.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeTrafficMirrorTargets.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -26444,10 +26779,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_transit_gateway_attachments(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeTransitGatewayAttachmentsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeTransitGatewayAttachments.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeTransitGatewayAttachments.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -26520,10 +26856,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_transit_gateway_connect_peers(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeTransitGatewayConnectPeersInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeTransitGatewayConnectPeers.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeTransitGatewayConnectPeers.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -26586,10 +26923,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_transit_gateway_connects(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeTransitGatewayConnectsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeTransitGatewayConnects.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeTransitGatewayConnects.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -26655,10 +26993,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_transit_gateway_multicast_domains(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeTransitGatewayMulticastDomainsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeTransitGatewayMulticastDomains.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeTransitGatewayMulticastDomains.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -26729,10 +27068,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_transit_gateway_peering_attachments(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeTransitGatewayPeeringAttachmentsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeTransitGatewayPeeringAttachments.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeTransitGatewayPeeringAttachments.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -26792,10 +27132,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_transit_gateway_policy_tables(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeTransitGatewayPolicyTablesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeTransitGatewayPolicyTables.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeTransitGatewayPolicyTables.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -26861,10 +27202,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_transit_gateway_route_table_announcements(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeTransitGatewayRouteTableAnnouncementsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeTransitGatewayRouteTableAnnouncements.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeTransitGatewayRouteTableAnnouncements.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -26927,10 +27269,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_transit_gateway_route_tables(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeTransitGatewayRouteTablesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeTransitGatewayRouteTables.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeTransitGatewayRouteTables.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -27000,10 +27343,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_transit_gateway_vpc_attachments(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeTransitGatewayVpcAttachmentsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeTransitGatewayVpcAttachments.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeTransitGatewayVpcAttachments.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -27079,10 +27423,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_transit_gateways(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeTransitGatewaysInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeTransitGateways.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeTransitGateways.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -27144,10 +27489,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_trunk_interface_associations(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeTrunkInterfaceAssociationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeTrunkInterfaceAssociations.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeTrunkInterfaceAssociations.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -27236,10 +27582,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_verified_access_endpoints(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeVerifiedAccessEndpointsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeVerifiedAccessEndpoints.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeVerifiedAccessEndpoints.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -27307,10 +27654,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_verified_access_groups(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeVerifiedAccessGroupsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeVerifiedAccessGroups.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeVerifiedAccessGroups.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -27382,10 +27730,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_verified_access_instance_logging_configurations(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeVerifiedAccessInstanceLoggingConfigurationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeVerifiedAccessInstanceLoggingConfigurations.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeVerifiedAccessInstanceLoggingConfigurations.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -27453,10 +27802,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_verified_access_instances(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeVerifiedAccessInstancesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeVerifiedAccessInstances.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeVerifiedAccessInstances.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -27534,10 +27884,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_verified_access_trust_providers(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeVerifiedAccessTrustProvidersInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeVerifiedAccessTrustProviders.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeVerifiedAccessTrustProviders.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -27598,10 +27949,11 @@ module AWS::SDK::EC2
     #   }
     def describe_volume_attribute(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeVolumeAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeVolumeAttribute.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeVolumeAttribute.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -27768,10 +28120,11 @@ module AWS::SDK::EC2
     #   }
     def describe_volume_status(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeVolumeStatusInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeVolumeStatus.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeVolumeStatus.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -27926,10 +28279,11 @@ module AWS::SDK::EC2
     #   }
     def describe_volumes(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeVolumesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeVolumes.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeVolumes.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -28003,10 +28357,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_volumes_modifications(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeVolumesModificationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeVolumesModifications.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeVolumesModifications.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -28077,10 +28432,11 @@ module AWS::SDK::EC2
     #   }
     def describe_vpc_attribute(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeVpcAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeVpcAttribute.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeVpcAttribute.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -28138,10 +28494,11 @@ module AWS::SDK::EC2
     #   resp.data.vpcs[0].vpc_id #=> String
     def describe_vpc_classic_link(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeVpcClassicLinkInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeVpcClassicLink.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeVpcClassicLink.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -28193,10 +28550,11 @@ module AWS::SDK::EC2
     #   resp.data.vpcs[0].vpc_id #=> String
     def describe_vpc_classic_link_dns_support(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeVpcClassicLinkDnsSupportInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeVpcClassicLinkDnsSupport.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeVpcClassicLinkDnsSupport.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -28255,10 +28613,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_vpc_endpoint_connection_notifications(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeVpcEndpointConnectionNotificationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeVpcEndpointConnectionNotifications.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeVpcEndpointConnectionNotifications.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -28326,10 +28685,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_vpc_endpoint_connections(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeVpcEndpointConnectionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeVpcEndpointConnections.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeVpcEndpointConnections.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -28407,10 +28767,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_vpc_endpoint_service_configurations(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeVpcEndpointServiceConfigurationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeVpcEndpointServiceConfigurations.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeVpcEndpointServiceConfigurations.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -28469,10 +28830,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_vpc_endpoint_service_permissions(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeVpcEndpointServicePermissionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeVpcEndpointServicePermissions.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeVpcEndpointServicePermissions.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -28553,10 +28915,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_vpc_endpoint_services(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeVpcEndpointServicesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeVpcEndpointServices.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeVpcEndpointServices.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -28641,10 +29004,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_vpc_endpoints(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeVpcEndpointsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeVpcEndpoints.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeVpcEndpoints.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -28721,10 +29085,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def describe_vpc_peering_connections(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeVpcPeeringConnectionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeVpcPeeringConnections.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeVpcPeeringConnections.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -28828,10 +29193,11 @@ module AWS::SDK::EC2
     #   }
     def describe_vpcs(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeVpcsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeVpcs.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeVpcs.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -28961,10 +29327,11 @@ module AWS::SDK::EC2
     #   resp.data.vpn_connections[0].vgw_telemetry[0].certificate_arn #=> String
     def describe_vpn_connections(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeVpnConnectionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeVpnConnections.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeVpnConnections.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -29028,10 +29395,11 @@ module AWS::SDK::EC2
     #   resp.data.vpn_gateways[0].tags[0].value #=> String
     def describe_vpn_gateways(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DescribeVpnGatewaysInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DescribeVpnGateways.build(config)
+      stack = AWS::SDK::EC2::Middleware::DescribeVpnGateways.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -29075,10 +29443,11 @@ module AWS::SDK::EC2
     #   resp.data.return #=> Boolean
     def detach_classic_link_vpc(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DetachClassicLinkVpcInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DetachClassicLinkVpc.build(config)
+      stack = AWS::SDK::EC2::Middleware::DetachClassicLinkVpc.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -29127,10 +29496,11 @@ module AWS::SDK::EC2
     #   nil
     def detach_internet_gateway(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DetachInternetGatewayInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DetachInternetGateway.build(config)
+      stack = AWS::SDK::EC2::Middleware::DetachInternetGateway.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -29176,10 +29546,11 @@ module AWS::SDK::EC2
     #   nil
     def detach_network_interface(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DetachNetworkInterfaceInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DetachNetworkInterface.build(config)
+      stack = AWS::SDK::EC2::Middleware::DetachNetworkInterface.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -29259,10 +29630,11 @@ module AWS::SDK::EC2
     #   resp.data.verified_access_instance.fips_enabled #=> Boolean
     def detach_verified_access_trust_provider(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DetachVerifiedAccessTrustProviderInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DetachVerifiedAccessTrustProvider.build(config)
+      stack = AWS::SDK::EC2::Middleware::DetachVerifiedAccessTrustProvider.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -29337,10 +29709,11 @@ module AWS::SDK::EC2
     #   }
     def detach_volume(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DetachVolumeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DetachVolume.build(config)
+      stack = AWS::SDK::EC2::Middleware::DetachVolume.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -29383,10 +29756,11 @@ module AWS::SDK::EC2
     #   resp.data #=> Types::DetachVpnGatewayOutput
     def detach_vpn_gateway(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DetachVpnGatewayInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DetachVpnGateway.build(config)
+      stack = AWS::SDK::EC2::Middleware::DetachVpnGateway.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -29430,10 +29804,11 @@ module AWS::SDK::EC2
     #   resp.data.address_transfer.address_transfer_status #=> String, one of ["pending", "disabled", "accepted"]
     def disable_address_transfer(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DisableAddressTransferInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisableAddressTransfer.build(config)
+      stack = AWS::SDK::EC2::Middleware::DisableAddressTransfer.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -29474,10 +29849,11 @@ module AWS::SDK::EC2
     #   resp.data.output #=> Boolean
     def disable_aws_network_performance_metric_subscription(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DisableAwsNetworkPerformanceMetricSubscriptionInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisableAwsNetworkPerformanceMetricSubscription.build(config)
+      stack = AWS::SDK::EC2::Middleware::DisableAwsNetworkPerformanceMetricSubscription.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -29520,10 +29896,11 @@ module AWS::SDK::EC2
     #   resp.data.ebs_encryption_by_default #=> Boolean
     def disable_ebs_encryption_by_default(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DisableEbsEncryptionByDefaultInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisableEbsEncryptionByDefault.build(config)
+      stack = AWS::SDK::EC2::Middleware::DisableEbsEncryptionByDefault.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -29579,10 +29956,11 @@ module AWS::SDK::EC2
     #   resp.data.state_transition_time #=> Time
     def disable_fast_launch(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DisableFastLaunchInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisableFastLaunch.build(config)
+      stack = AWS::SDK::EC2::Middleware::DisableFastLaunch.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -29646,10 +30024,11 @@ module AWS::SDK::EC2
     #   resp.data.unsuccessful[0].fast_snapshot_restore_state_errors[0].error.message #=> String
     def disable_fast_snapshot_restores(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DisableFastSnapshotRestoresInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisableFastSnapshotRestores.build(config)
+      stack = AWS::SDK::EC2::Middleware::DisableFastSnapshotRestores.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -29697,10 +30076,11 @@ module AWS::SDK::EC2
     #   resp.data.return #=> Boolean
     def disable_image(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DisableImageInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisableImage.build(config)
+      stack = AWS::SDK::EC2::Middleware::DisableImage.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -29746,10 +30126,11 @@ module AWS::SDK::EC2
     #   resp.data.image_block_public_access_state #=> String, one of ["unblocked"]
     def disable_image_block_public_access(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DisableImageBlockPublicAccessInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisableImageBlockPublicAccess.build(config)
+      stack = AWS::SDK::EC2::Middleware::DisableImageBlockPublicAccess.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -29789,10 +30170,11 @@ module AWS::SDK::EC2
     #   resp.data.return #=> Boolean
     def disable_image_deprecation(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DisableImageDeprecationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisableImageDeprecation.build(config)
+      stack = AWS::SDK::EC2::Middleware::DisableImageDeprecation.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -29831,10 +30213,11 @@ module AWS::SDK::EC2
     #   resp.data.success #=> Boolean
     def disable_ipam_organization_admin_account(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DisableIpamOrganizationAdminAccountInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisableIpamOrganizationAdminAccount.build(config)
+      stack = AWS::SDK::EC2::Middleware::DisableIpamOrganizationAdminAccount.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -29874,10 +30257,11 @@ module AWS::SDK::EC2
     #   resp.data.serial_console_access_enabled #=> Boolean
     def disable_serial_console_access(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DisableSerialConsoleAccessInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisableSerialConsoleAccess.build(config)
+      stack = AWS::SDK::EC2::Middleware::DisableSerialConsoleAccess.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -29922,10 +30306,11 @@ module AWS::SDK::EC2
     #   resp.data.state #=> String, one of ["block-all-sharing", "block-new-sharing", "unblocked"]
     def disable_snapshot_block_public_access(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DisableSnapshotBlockPublicAccessInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisableSnapshotBlockPublicAccess.build(config)
+      stack = AWS::SDK::EC2::Middleware::DisableSnapshotBlockPublicAccess.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -29972,10 +30357,11 @@ module AWS::SDK::EC2
     #   resp.data.propagation.transit_gateway_route_table_announcement_id #=> String
     def disable_transit_gateway_route_table_propagation(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DisableTransitGatewayRouteTablePropagationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisableTransitGatewayRouteTablePropagation.build(config)
+      stack = AWS::SDK::EC2::Middleware::DisableTransitGatewayRouteTablePropagation.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -30023,10 +30409,11 @@ module AWS::SDK::EC2
     #   nil
     def disable_vgw_route_propagation(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DisableVgwRoutePropagationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisableVgwRoutePropagation.build(config)
+      stack = AWS::SDK::EC2::Middleware::DisableVgwRoutePropagation.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -30068,10 +30455,11 @@ module AWS::SDK::EC2
     #   resp.data.return #=> Boolean
     def disable_vpc_classic_link(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DisableVpcClassicLinkInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisableVpcClassicLink.build(config)
+      stack = AWS::SDK::EC2::Middleware::DisableVpcClassicLink.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -30114,10 +30502,11 @@ module AWS::SDK::EC2
     #   resp.data.return #=> Boolean
     def disable_vpc_classic_link_dns_support(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DisableVpcClassicLinkDnsSupportInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisableVpcClassicLinkDnsSupport.build(config)
+      stack = AWS::SDK::EC2::Middleware::DisableVpcClassicLinkDnsSupport.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -30164,10 +30553,11 @@ module AWS::SDK::EC2
     #   nil
     def disassociate_address(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DisassociateAddressInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisassociateAddress.build(config)
+      stack = AWS::SDK::EC2::Middleware::DisassociateAddress.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -30225,10 +30615,11 @@ module AWS::SDK::EC2
     #   resp.data.status.message #=> String
     def disassociate_client_vpn_target_network(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DisassociateClientVpnTargetNetworkInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisassociateClientVpnTargetNetwork.build(config)
+      stack = AWS::SDK::EC2::Middleware::DisassociateClientVpnTargetNetwork.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -30271,10 +30662,11 @@ module AWS::SDK::EC2
     #   resp.data.return #=> Boolean
     def disassociate_enclave_certificate_iam_role(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DisassociateEnclaveCertificateIamRoleInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisassociateEnclaveCertificateIamRole.build(config)
+      stack = AWS::SDK::EC2::Middleware::DisassociateEnclaveCertificateIamRole.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -30338,10 +30730,11 @@ module AWS::SDK::EC2
     #   }
     def disassociate_iam_instance_profile(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DisassociateIamInstanceProfileInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisassociateIamInstanceProfile.build(config)
+      stack = AWS::SDK::EC2::Middleware::DisassociateIamInstanceProfile.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -30415,10 +30808,11 @@ module AWS::SDK::EC2
     #   resp.data.instance_event_window.tags #=> Array<Tag>
     def disassociate_instance_event_window(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DisassociateInstanceEventWindowInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisassociateInstanceEventWindow.build(config)
+      stack = AWS::SDK::EC2::Middleware::DisassociateInstanceEventWindow.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -30462,10 +30856,11 @@ module AWS::SDK::EC2
     #   resp.data.asn_association.state #=> String, one of ["disassociated", "failed-disassociation", "failed-association", "pending-disassociation", "pending-association", "associated"]
     def disassociate_ipam_byoasn(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DisassociateIpamByoasnInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisassociateIpamByoasn.build(config)
+      stack = AWS::SDK::EC2::Middleware::DisassociateIpamByoasn.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -30517,10 +30912,11 @@ module AWS::SDK::EC2
     #   resp.data.ipam_resource_discovery_association.tags[0].value #=> String
     def disassociate_ipam_resource_discovery(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DisassociateIpamResourceDiscoveryInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisassociateIpamResourceDiscovery.build(config)
+      stack = AWS::SDK::EC2::Middleware::DisassociateIpamResourceDiscovery.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -30579,10 +30975,11 @@ module AWS::SDK::EC2
     #   resp.data.nat_gateway_addresses[0].status #=> String, one of ["assigning", "unassigning", "associating", "disassociating", "succeeded", "failed"]
     def disassociate_nat_gateway_address(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DisassociateNatGatewayAddressInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisassociateNatGatewayAddress.build(config)
+      stack = AWS::SDK::EC2::Middleware::DisassociateNatGatewayAddress.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -30631,10 +31028,11 @@ module AWS::SDK::EC2
     #   nil
     def disassociate_route_table(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DisassociateRouteTableInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisassociateRouteTable.build(config)
+      stack = AWS::SDK::EC2::Middleware::DisassociateRouteTable.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -30677,10 +31075,11 @@ module AWS::SDK::EC2
     #   resp.data.subnet_id #=> String
     def disassociate_subnet_cidr_block(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DisassociateSubnetCidrBlockInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisassociateSubnetCidrBlock.build(config)
+      stack = AWS::SDK::EC2::Middleware::DisassociateSubnetCidrBlock.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -30731,10 +31130,11 @@ module AWS::SDK::EC2
     #   resp.data.associations.subnets[0].state #=> String, one of ["pendingAcceptance", "associating", "associated", "disassociating", "disassociated", "rejected", "failed"]
     def disassociate_transit_gateway_multicast_domain(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DisassociateTransitGatewayMulticastDomainInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisassociateTransitGatewayMulticastDomain.build(config)
+      stack = AWS::SDK::EC2::Middleware::DisassociateTransitGatewayMulticastDomain.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -30778,10 +31178,11 @@ module AWS::SDK::EC2
     #   resp.data.association.state #=> String, one of ["associating", "associated", "disassociating", "disassociated"]
     def disassociate_transit_gateway_policy_table(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DisassociateTransitGatewayPolicyTableInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisassociateTransitGatewayPolicyTable.build(config)
+      stack = AWS::SDK::EC2::Middleware::DisassociateTransitGatewayPolicyTable.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -30825,10 +31226,11 @@ module AWS::SDK::EC2
     #   resp.data.association.state #=> String, one of ["associating", "associated", "disassociating", "disassociated"]
     def disassociate_transit_gateway_route_table(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DisassociateTransitGatewayRouteTableInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisassociateTransitGatewayRouteTable.build(config)
+      stack = AWS::SDK::EC2::Middleware::DisassociateTransitGatewayRouteTable.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -30868,10 +31270,11 @@ module AWS::SDK::EC2
     #   resp.data.client_token #=> String
     def disassociate_trunk_interface(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DisassociateTrunkInterfaceInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisassociateTrunkInterface.build(config)
+      stack = AWS::SDK::EC2::Middleware::DisassociateTrunkInterface.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -30925,10 +31328,11 @@ module AWS::SDK::EC2
     #   resp.data.vpc_id #=> String
     def disassociate_vpc_cidr_block(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::DisassociateVpcCidrBlockInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::DisassociateVpcCidrBlock.build(config)
+      stack = AWS::SDK::EC2::Middleware::DisassociateVpcCidrBlock.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -30973,10 +31377,11 @@ module AWS::SDK::EC2
     #   resp.data.address_transfer.address_transfer_status #=> String, one of ["pending", "disabled", "accepted"]
     def enable_address_transfer(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::EnableAddressTransferInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::EnableAddressTransfer.build(config)
+      stack = AWS::SDK::EC2::Middleware::EnableAddressTransfer.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -31017,10 +31422,11 @@ module AWS::SDK::EC2
     #   resp.data.output #=> Boolean
     def enable_aws_network_performance_metric_subscription(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::EnableAwsNetworkPerformanceMetricSubscriptionInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::EnableAwsNetworkPerformanceMetricSubscription.build(config)
+      stack = AWS::SDK::EC2::Middleware::EnableAwsNetworkPerformanceMetricSubscription.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -31068,10 +31474,11 @@ module AWS::SDK::EC2
     #   resp.data.ebs_encryption_by_default #=> Boolean
     def enable_ebs_encryption_by_default(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::EnableEbsEncryptionByDefaultInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::EnableEbsEncryptionByDefault.build(config)
+      stack = AWS::SDK::EC2::Middleware::EnableEbsEncryptionByDefault.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -31139,10 +31546,11 @@ module AWS::SDK::EC2
     #   resp.data.state_transition_time #=> Time
     def enable_fast_launch(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::EnableFastLaunchInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::EnableFastLaunch.build(config)
+      stack = AWS::SDK::EC2::Middleware::EnableFastLaunch.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -31211,10 +31619,11 @@ module AWS::SDK::EC2
     #   resp.data.unsuccessful[0].fast_snapshot_restore_state_errors[0].error.message #=> String
     def enable_fast_snapshot_restores(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::EnableFastSnapshotRestoresInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::EnableFastSnapshotRestores.build(config)
+      stack = AWS::SDK::EC2::Middleware::EnableFastSnapshotRestores.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -31259,10 +31668,11 @@ module AWS::SDK::EC2
     #   resp.data.return #=> Boolean
     def enable_image(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::EnableImageInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::EnableImage.build(config)
+      stack = AWS::SDK::EC2::Middleware::EnableImage.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -31308,10 +31718,11 @@ module AWS::SDK::EC2
     #   resp.data.image_block_public_access_state #=> String, one of ["block-new-sharing"]
     def enable_image_block_public_access(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::EnableImageBlockPublicAccessInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::EnableImageBlockPublicAccess.build(config)
+      stack = AWS::SDK::EC2::Middleware::EnableImageBlockPublicAccess.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -31351,10 +31762,11 @@ module AWS::SDK::EC2
     #   resp.data.return #=> Boolean
     def enable_image_deprecation(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::EnableImageDeprecationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::EnableImageDeprecation.build(config)
+      stack = AWS::SDK::EC2::Middleware::EnableImageDeprecation.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -31393,10 +31805,11 @@ module AWS::SDK::EC2
     #   resp.data.success #=> Boolean
     def enable_ipam_organization_admin_account(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::EnableIpamOrganizationAdminAccountInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::EnableIpamOrganizationAdminAccount.build(config)
+      stack = AWS::SDK::EC2::Middleware::EnableIpamOrganizationAdminAccount.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -31437,10 +31850,11 @@ module AWS::SDK::EC2
     #   resp.data.return_value #=> Boolean
     def enable_reachability_analyzer_organization_sharing(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::EnableReachabilityAnalyzerOrganizationSharingInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::EnableReachabilityAnalyzerOrganizationSharing.build(config)
+      stack = AWS::SDK::EC2::Middleware::EnableReachabilityAnalyzerOrganizationSharing.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -31479,10 +31893,11 @@ module AWS::SDK::EC2
     #   resp.data.serial_console_access_enabled #=> Boolean
     def enable_serial_console_access(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::EnableSerialConsoleAccessInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::EnableSerialConsoleAccess.build(config)
+      stack = AWS::SDK::EC2::Middleware::EnableSerialConsoleAccess.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -31531,10 +31946,11 @@ module AWS::SDK::EC2
     #   resp.data.state #=> String, one of ["block-all-sharing", "block-new-sharing", "unblocked"]
     def enable_snapshot_block_public_access(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::EnableSnapshotBlockPublicAccessInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::EnableSnapshotBlockPublicAccess.build(config)
+      stack = AWS::SDK::EC2::Middleware::EnableSnapshotBlockPublicAccess.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -31581,10 +31997,11 @@ module AWS::SDK::EC2
     #   resp.data.propagation.transit_gateway_route_table_announcement_id #=> String
     def enable_transit_gateway_route_table_propagation(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::EnableTransitGatewayRouteTablePropagationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::EnableTransitGatewayRouteTablePropagation.build(config)
+      stack = AWS::SDK::EC2::Middleware::EnableTransitGatewayRouteTablePropagation.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -31632,10 +32049,11 @@ module AWS::SDK::EC2
     #   nil
     def enable_vgw_route_propagation(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::EnableVgwRoutePropagationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::EnableVgwRoutePropagation.build(config)
+      stack = AWS::SDK::EC2::Middleware::EnableVgwRoutePropagation.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -31681,10 +32099,11 @@ module AWS::SDK::EC2
     #   nil
     def enable_volume_io(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::EnableVolumeIOInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::EnableVolumeIO.build(config)
+      stack = AWS::SDK::EC2::Middleware::EnableVolumeIO.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -31730,10 +32149,11 @@ module AWS::SDK::EC2
     #   resp.data.return #=> Boolean
     def enable_vpc_classic_link(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::EnableVpcClassicLinkInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::EnableVpcClassicLink.build(config)
+      stack = AWS::SDK::EC2::Middleware::EnableVpcClassicLink.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -31778,10 +32198,11 @@ module AWS::SDK::EC2
     #   resp.data.return #=> Boolean
     def enable_vpc_classic_link_dns_support(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::EnableVpcClassicLinkDnsSupportInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::EnableVpcClassicLinkDnsSupport.build(config)
+      stack = AWS::SDK::EC2::Middleware::EnableVpcClassicLinkDnsSupport.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -31822,10 +32243,11 @@ module AWS::SDK::EC2
     #   resp.data.status.message #=> String
     def export_client_vpn_client_certificate_revocation_list(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ExportClientVpnClientCertificateRevocationListInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ExportClientVpnClientCertificateRevocationList.build(config)
+      stack = AWS::SDK::EC2::Middleware::ExportClientVpnClientCertificateRevocationList.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -31865,10 +32287,11 @@ module AWS::SDK::EC2
     #   resp.data.client_configuration #=> String
     def export_client_vpn_client_configuration(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ExportClientVpnClientConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ExportClientVpnClientConfiguration.build(config)
+      stack = AWS::SDK::EC2::Middleware::ExportClientVpnClientConfiguration.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -31941,10 +32364,11 @@ module AWS::SDK::EC2
     #   resp.data.tags[0].value #=> String
     def export_image(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ExportImageInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ExportImage.build(config)
+      stack = AWS::SDK::EC2::Middleware::ExportImage.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -31995,10 +32419,11 @@ module AWS::SDK::EC2
     #   resp.data.s3_location #=> String
     def export_transit_gateway_routes(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ExportTransitGatewayRoutesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ExportTransitGatewayRoutes.build(config)
+      stack = AWS::SDK::EC2::Middleware::ExportTransitGatewayRoutes.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -32044,10 +32469,11 @@ module AWS::SDK::EC2
     #   resp.data.associated_roles[0].encryption_kms_key_id #=> String
     def get_associated_enclave_certificate_iam_roles(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetAssociatedEnclaveCertificateIamRolesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetAssociatedEnclaveCertificateIamRoles.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetAssociatedEnclaveCertificateIamRoles.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -32091,10 +32517,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def get_associated_ipv6_pool_cidrs(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetAssociatedIpv6PoolCidrsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetAssociatedIpv6PoolCidrs.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetAssociatedIpv6PoolCidrs.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -32159,10 +32586,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def get_aws_network_performance_data(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetAwsNetworkPerformanceDataInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetAwsNetworkPerformanceData.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetAwsNetworkPerformanceData.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -32213,10 +32641,11 @@ module AWS::SDK::EC2
     #   resp.data.instance_usages[0].used_instance_count #=> Integer
     def get_capacity_reservation_usage(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetCapacityReservationUsageInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetCapacityReservationUsage.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetCapacityReservationUsage.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -32272,10 +32701,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def get_coip_pool_usage(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetCoipPoolUsageInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetCoipPoolUsage.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetCoipPoolUsage.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -32340,10 +32770,11 @@ module AWS::SDK::EC2
     #   }
     def get_console_output(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetConsoleOutputInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetConsoleOutput.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetConsoleOutput.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -32385,10 +32816,11 @@ module AWS::SDK::EC2
     #   resp.data.instance_id #=> String
     def get_console_screenshot(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetConsoleScreenshotInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetConsoleScreenshot.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetConsoleScreenshot.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -32431,10 +32863,11 @@ module AWS::SDK::EC2
     #   resp.data.instance_family_credit_specification.cpu_credits #=> String
     def get_default_credit_specification(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetDefaultCreditSpecificationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetDefaultCreditSpecification.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetDefaultCreditSpecification.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -32475,10 +32908,11 @@ module AWS::SDK::EC2
     #   resp.data.kms_key_id #=> String
     def get_ebs_default_kms_key_id(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetEbsDefaultKmsKeyIdInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetEbsDefaultKmsKeyId.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetEbsDefaultKmsKeyId.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -32519,10 +32953,11 @@ module AWS::SDK::EC2
     #   resp.data.sse_type #=> String, one of ["sse-ebs", "sse-kms", "none"]
     def get_ebs_encryption_by_default(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetEbsEncryptionByDefaultInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetEbsEncryptionByDefault.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetEbsEncryptionByDefault.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -32593,10 +33028,11 @@ module AWS::SDK::EC2
     #   resp.data.result #=> String
     def get_flow_logs_integration_template(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetFlowLogsIntegrationTemplateInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetFlowLogsIntegrationTemplate.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetFlowLogsIntegrationTemplate.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -32640,10 +33076,11 @@ module AWS::SDK::EC2
     #   resp.data.capacity_reservation_groups[0].owner_id #=> String
     def get_groups_for_capacity_reservation(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetGroupsForCapacityReservationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetGroupsForCapacityReservation.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetGroupsForCapacityReservation.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -32700,10 +33137,11 @@ module AWS::SDK::EC2
     #   resp.data.total_upfront_price #=> String
     def get_host_reservation_purchase_preview(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetHostReservationPurchasePreviewInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetHostReservationPurchasePreview.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetHostReservationPurchasePreview.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -32743,10 +33181,11 @@ module AWS::SDK::EC2
     #   resp.data.image_block_public_access_state #=> String
     def get_image_block_public_access_state(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetImageBlockPublicAccessStateInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetImageBlockPublicAccessState.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetImageBlockPublicAccessState.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -32872,10 +33311,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def get_instance_types_from_instance_requirements(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetInstanceTypesFromInstanceRequirementsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetInstanceTypesFromInstanceRequirements.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetInstanceTypesFromInstanceRequirements.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -32924,10 +33364,11 @@ module AWS::SDK::EC2
     #   resp.data.uefi_data #=> String
     def get_instance_uefi_data(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetInstanceUefiDataInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetInstanceUefiData.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetInstanceUefiData.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -32984,10 +33425,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def get_ipam_address_history(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetIpamAddressHistoryInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetIpamAddressHistory.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetIpamAddressHistory.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -33045,10 +33487,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def get_ipam_discovered_accounts(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetIpamDiscoveredAccountsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetIpamDiscoveredAccounts.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetIpamDiscoveredAccounts.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -33126,10 +33569,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def get_ipam_discovered_public_addresses(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetIpamDiscoveredPublicAddressesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetIpamDiscoveredPublicAddresses.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetIpamDiscoveredPublicAddresses.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -33193,10 +33637,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def get_ipam_discovered_resource_cidrs(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetIpamDiscoveredResourceCidrsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetIpamDiscoveredResourceCidrs.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetIpamDiscoveredResourceCidrs.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -33257,10 +33702,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def get_ipam_pool_allocations(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetIpamPoolAllocationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetIpamPoolAllocations.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetIpamPoolAllocations.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -33317,10 +33763,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def get_ipam_pool_cidrs(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetIpamPoolCidrsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetIpamPoolCidrs.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetIpamPoolCidrs.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -33396,10 +33843,11 @@ module AWS::SDK::EC2
     #   resp.data.ipam_resource_cidrs[0].vpc_id #=> String
     def get_ipam_resource_cidrs(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetIpamResourceCidrsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetIpamResourceCidrs.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetIpamResourceCidrs.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -33689,10 +34137,11 @@ module AWS::SDK::EC2
     #   }
     def get_launch_template_data(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetLaunchTemplateDataInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetLaunchTemplateData.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetLaunchTemplateData.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -33736,10 +34185,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def get_managed_prefix_list_associations(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetManagedPrefixListAssociationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetManagedPrefixListAssociations.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetManagedPrefixListAssociations.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -33784,10 +34234,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def get_managed_prefix_list_entries(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetManagedPrefixListEntriesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetManagedPrefixListEntries.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetManagedPrefixListEntries.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -33997,10 +34448,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def get_network_insights_access_scope_analysis_findings(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetNetworkInsightsAccessScopeAnalysisFindingsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetNetworkInsightsAccessScopeAnalysisFindings.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetNetworkInsightsAccessScopeAnalysisFindings.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -34060,10 +34512,11 @@ module AWS::SDK::EC2
     #   resp.data.network_insights_access_scope_content.exclude_paths #=> Array<AccessScopePath>
     def get_network_insights_access_scope_content(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetNetworkInsightsAccessScopeContentInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetNetworkInsightsAccessScopeContent.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetNetworkInsightsAccessScopeContent.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -34115,10 +34568,11 @@ module AWS::SDK::EC2
     #   resp.data.timestamp #=> Time
     def get_password_data(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetPasswordDataInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetPasswordData.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetPasswordData.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -34185,10 +34639,11 @@ module AWS::SDK::EC2
     #   resp.data.validation_failure_reason #=> String
     def get_reserved_instances_exchange_quote(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetReservedInstancesExchangeQuoteInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetReservedInstancesExchangeQuote.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetReservedInstancesExchangeQuote.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -34247,10 +34702,11 @@ module AWS::SDK::EC2
     #   resp.data.security_group_for_vpcs[0].primary_vpc_id #=> String
     def get_security_groups_for_vpc(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetSecurityGroupsForVpcInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetSecurityGroupsForVpc.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetSecurityGroupsForVpc.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -34290,10 +34746,11 @@ module AWS::SDK::EC2
     #   resp.data.serial_console_access_enabled #=> Boolean
     def get_serial_console_access_status(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetSerialConsoleAccessStatusInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetSerialConsoleAccessStatus.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetSerialConsoleAccessStatus.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -34333,10 +34790,11 @@ module AWS::SDK::EC2
     #   resp.data.state #=> String, one of ["block-all-sharing", "block-new-sharing", "unblocked"]
     def get_snapshot_block_public_access_state(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetSnapshotBlockPublicAccessStateInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetSnapshotBlockPublicAccessState.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetSnapshotBlockPublicAccessState.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -34473,10 +34931,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def get_spot_placement_scores(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetSpotPlacementScoresInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetSpotPlacementScores.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetSpotPlacementScores.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -34537,10 +34996,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def get_subnet_cidr_reservations(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetSubnetCidrReservationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetSubnetCidrReservations.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetSubnetCidrReservations.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -34592,10 +35052,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def get_transit_gateway_attachment_propagations(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetTransitGatewayAttachmentPropagationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetTransitGatewayAttachmentPropagations.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetTransitGatewayAttachmentPropagations.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -34652,10 +35113,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def get_transit_gateway_multicast_domain_associations(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetTransitGatewayMulticastDomainAssociationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetTransitGatewayMulticastDomainAssociations.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetTransitGatewayMulticastDomainAssociations.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -34710,10 +35172,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def get_transit_gateway_policy_table_associations(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetTransitGatewayPolicyTableAssociationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetTransitGatewayPolicyTableAssociations.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetTransitGatewayPolicyTableAssociations.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -34773,10 +35236,11 @@ module AWS::SDK::EC2
     #   resp.data.transit_gateway_policy_table_entries[0].target_route_table_id #=> String
     def get_transit_gateway_policy_table_entries(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetTransitGatewayPolicyTableEntriesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetTransitGatewayPolicyTableEntries.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetTransitGatewayPolicyTableEntries.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -34835,10 +35299,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def get_transit_gateway_prefix_list_references(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetTransitGatewayPrefixListReferencesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetTransitGatewayPrefixListReferences.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetTransitGatewayPrefixListReferences.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -34892,10 +35357,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def get_transit_gateway_route_table_associations(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetTransitGatewayRouteTableAssociationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetTransitGatewayRouteTableAssociations.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetTransitGatewayRouteTableAssociations.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -34950,10 +35416,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def get_transit_gateway_route_table_propagations(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetTransitGatewayRouteTablePropagationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetTransitGatewayRouteTablePropagations.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetTransitGatewayRouteTablePropagations.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -34992,10 +35459,11 @@ module AWS::SDK::EC2
     #   resp.data.policy_document #=> String
     def get_verified_access_endpoint_policy(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetVerifiedAccessEndpointPolicyInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetVerifiedAccessEndpointPolicy.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetVerifiedAccessEndpointPolicy.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -35034,10 +35502,11 @@ module AWS::SDK::EC2
     #   resp.data.policy_document #=> String
     def get_verified_access_group_policy(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetVerifiedAccessGroupPolicyInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetVerifiedAccessGroupPolicy.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetVerifiedAccessGroupPolicy.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -35078,10 +35547,11 @@ module AWS::SDK::EC2
     #   resp.data.vpn_connection_device_sample_configuration #=> String
     def get_vpn_connection_device_sample_configuration(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetVpnConnectionDeviceSampleConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetVpnConnectionDeviceSampleConfiguration.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetVpnConnectionDeviceSampleConfiguration.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -35129,10 +35599,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def get_vpn_connection_device_types(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetVpnConnectionDeviceTypesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetVpnConnectionDeviceTypes.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetVpnConnectionDeviceTypes.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -35179,10 +35650,11 @@ module AWS::SDK::EC2
     #   resp.data.maintenance_details.last_maintenance_applied #=> Time
     def get_vpn_tunnel_replacement_status(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::GetVpnTunnelReplacementStatusInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::GetVpnTunnelReplacementStatus.build(config)
+      stack = AWS::SDK::EC2::Middleware::GetVpnTunnelReplacementStatus.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -35222,10 +35694,11 @@ module AWS::SDK::EC2
     #   resp.data.return #=> Boolean
     def import_client_vpn_client_certificate_revocation_list(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ImportClientVpnClientCertificateRevocationListInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ImportClientVpnClientCertificateRevocationList.build(config)
+      stack = AWS::SDK::EC2::Middleware::ImportClientVpnClientCertificateRevocationList.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -35356,10 +35829,11 @@ module AWS::SDK::EC2
     #   resp.data.usage_operation #=> String
     def import_image(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ImportImageInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ImportImage.build(config)
+      stack = AWS::SDK::EC2::Middleware::ImportImage.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -35486,10 +35960,11 @@ module AWS::SDK::EC2
     #   resp.data.conversion_task.tags[0].value #=> String
     def import_instance(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ImportInstanceInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ImportInstance.build(config)
+      stack = AWS::SDK::EC2::Middleware::ImportInstance.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -35550,10 +36025,11 @@ module AWS::SDK::EC2
     #   resp.data.tags[0].value #=> String
     def import_key_pair(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ImportKeyPairInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ImportKeyPair.build(config)
+      stack = AWS::SDK::EC2::Middleware::ImportKeyPair.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -35642,10 +36118,11 @@ module AWS::SDK::EC2
     #   resp.data.tags[0].value #=> String
     def import_snapshot(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ImportSnapshotInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ImportSnapshot.build(config)
+      stack = AWS::SDK::EC2::Middleware::ImportSnapshot.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -35731,10 +36208,11 @@ module AWS::SDK::EC2
     #   resp.data.conversion_task.tags[0].value #=> String
     def import_volume(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ImportVolumeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ImportVolume.build(config)
+      stack = AWS::SDK::EC2::Middleware::ImportVolume.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -35785,10 +36263,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def list_images_in_recycle_bin(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ListImagesInRecycleBinInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ListImagesInRecycleBin.build(config)
+      stack = AWS::SDK::EC2::Middleware::ListImagesInRecycleBin.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -35837,10 +36316,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def list_snapshots_in_recycle_bin(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ListSnapshotsInRecycleBinInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ListSnapshotsInRecycleBin.build(config)
+      stack = AWS::SDK::EC2::Middleware::ListSnapshotsInRecycleBin.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -35907,10 +36387,11 @@ module AWS::SDK::EC2
     #   resp.data.lock_duration_start_time #=> Time
     def lock_snapshot(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::LockSnapshotInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::LockSnapshot.build(config)
+      stack = AWS::SDK::EC2::Middleware::LockSnapshot.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -35956,10 +36437,11 @@ module AWS::SDK::EC2
     #   resp.data.address.ptr_record_update.reason #=> String
     def modify_address_attribute(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyAddressAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyAddressAttribute.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyAddressAttribute.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -36001,10 +36483,11 @@ module AWS::SDK::EC2
     #   resp.data.return #=> Boolean
     def modify_availability_zone_group(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyAvailabilityZoneGroupInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyAvailabilityZoneGroup.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyAvailabilityZoneGroup.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -36051,10 +36534,11 @@ module AWS::SDK::EC2
     #   resp.data.return #=> Boolean
     def modify_capacity_reservation(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyCapacityReservationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyCapacityReservation.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyCapacityReservation.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -36099,10 +36583,11 @@ module AWS::SDK::EC2
     #   resp.data.return #=> Boolean
     def modify_capacity_reservation_fleet(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyCapacityReservationFleetInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyCapacityReservationFleet.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyCapacityReservationFleet.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -36169,10 +36654,11 @@ module AWS::SDK::EC2
     #   resp.data.return #=> Boolean
     def modify_client_vpn_endpoint(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyClientVpnEndpointInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyClientVpnEndpoint.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyClientVpnEndpoint.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -36226,10 +36712,11 @@ module AWS::SDK::EC2
     #   resp.data.instance_family_credit_specification.cpu_credits #=> String
     def modify_default_credit_specification(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyDefaultCreditSpecificationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyDefaultCreditSpecification.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyDefaultCreditSpecification.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -36274,10 +36761,11 @@ module AWS::SDK::EC2
     #   resp.data.kms_key_id #=> String
     def modify_ebs_default_kms_key_id(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyEbsDefaultKmsKeyIdInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyEbsDefaultKmsKeyId.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyEbsDefaultKmsKeyId.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -36445,10 +36933,11 @@ module AWS::SDK::EC2
     #   resp.data.return #=> Boolean
     def modify_fleet(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyFleetInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyFleet.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyFleet.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -36518,10 +37007,11 @@ module AWS::SDK::EC2
     #   resp.data.fpga_image_attribute.product_codes[0].product_code_type #=> String, one of ["devpay", "marketplace"]
     def modify_fpga_image_attribute(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyFpgaImageAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyFpgaImageAttribute.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyFpgaImageAttribute.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -36580,10 +37070,11 @@ module AWS::SDK::EC2
     #   resp.data.unsuccessful[0].resource_id #=> String
     def modify_hosts(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyHostsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyHosts.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyHosts.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -36643,10 +37134,11 @@ module AWS::SDK::EC2
     #   resp.data #=> Types::ModifyIdFormatOutput
     def modify_id_format(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyIdFormatInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyIdFormat.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyIdFormat.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -36705,10 +37197,11 @@ module AWS::SDK::EC2
     #   resp.data #=> Types::ModifyIdentityIdFormatOutput
     def modify_identity_id_format(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyIdentityIdFormatInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyIdentityIdFormat.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyIdentityIdFormat.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -36811,10 +37304,11 @@ module AWS::SDK::EC2
     #   {}
     def modify_image_attribute(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyImageAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyImageAttribute.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyImageAttribute.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -36908,10 +37402,11 @@ module AWS::SDK::EC2
     #   {}
     def modify_instance_attribute(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyInstanceAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyInstanceAttribute.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyInstanceAttribute.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -36958,10 +37453,11 @@ module AWS::SDK::EC2
     #   resp.data.return #=> Boolean
     def modify_instance_capacity_reservation_attributes(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyInstanceCapacityReservationAttributesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyInstanceCapacityReservationAttributes.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyInstanceCapacityReservationAttributes.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -37017,10 +37513,11 @@ module AWS::SDK::EC2
     #   resp.data.unsuccessful_instance_credit_specifications[0].error.message #=> String
     def modify_instance_credit_specification(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyInstanceCreditSpecificationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyInstanceCreditSpecification.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyInstanceCreditSpecification.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -37066,10 +37563,11 @@ module AWS::SDK::EC2
     #   resp.data.event.not_before_deadline #=> Time
     def modify_instance_event_start_time(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyInstanceEventStartTimeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyInstanceEventStartTime.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyInstanceEventStartTime.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -37144,10 +37642,11 @@ module AWS::SDK::EC2
     #   resp.data.instance_event_window.tags #=> Array<Tag>
     def modify_instance_event_window(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyInstanceEventWindowInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyInstanceEventWindow.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyInstanceEventWindow.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -37190,10 +37689,11 @@ module AWS::SDK::EC2
     #   resp.data.auto_recovery #=> String, one of ["disabled", "default"]
     def modify_instance_maintenance_options(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyInstanceMaintenanceOptionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyInstanceMaintenanceOptions.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyInstanceMaintenanceOptions.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -37249,10 +37749,11 @@ module AWS::SDK::EC2
     #   resp.data.instance_metadata_options.instance_metadata_tags #=> String, one of ["disabled", "enabled"]
     def modify_instance_metadata_options(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyInstanceMetadataOptionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyInstanceMetadataOptions.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyInstanceMetadataOptions.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -37321,10 +37822,11 @@ module AWS::SDK::EC2
     #   resp.data.return #=> Boolean
     def modify_instance_placement(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyInstancePlacementInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyInstancePlacement.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyInstancePlacement.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -37396,10 +37898,11 @@ module AWS::SDK::EC2
     #   resp.data.ipam.tier #=> String, one of ["free", "advanced"]
     def modify_ipam(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyIpamInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyIpam.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyIpam.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -37485,10 +37988,11 @@ module AWS::SDK::EC2
     #   resp.data.ipam_pool.source_resource.resource_owner #=> String
     def modify_ipam_pool(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyIpamPoolInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyIpamPool.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyIpamPool.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -37550,10 +38054,11 @@ module AWS::SDK::EC2
     #   resp.data.ipam_resource_cidr.vpc_id #=> String
     def modify_ipam_resource_cidr(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyIpamResourceCidrInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyIpamResourceCidr.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyIpamResourceCidr.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -37616,10 +38121,11 @@ module AWS::SDK::EC2
     #   resp.data.ipam_resource_discovery.tags[0].value #=> String
     def modify_ipam_resource_discovery(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyIpamResourceDiscoveryInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyIpamResourceDiscovery.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyIpamResourceDiscovery.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -37672,10 +38178,11 @@ module AWS::SDK::EC2
     #   resp.data.ipam_scope.tags[0].value #=> String
     def modify_ipam_scope(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyIpamScopeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyIpamScope.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyIpamScope.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -37746,10 +38253,11 @@ module AWS::SDK::EC2
     #   }
     def modify_launch_template(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyLaunchTemplateInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyLaunchTemplate.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyLaunchTemplate.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -37802,10 +38310,11 @@ module AWS::SDK::EC2
     #   resp.data.route.destination_prefix_list_id #=> String
     def modify_local_gateway_route(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyLocalGatewayRouteInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyLocalGatewayRoute.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyLocalGatewayRoute.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -37874,10 +38383,11 @@ module AWS::SDK::EC2
     #   resp.data.prefix_list.owner_id #=> String
     def modify_managed_prefix_list(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyManagedPrefixListInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyManagedPrefixList.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyManagedPrefixList.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -37987,10 +38497,11 @@ module AWS::SDK::EC2
     #   nil
     def modify_network_interface_attribute(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyNetworkInterfaceAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyNetworkInterfaceAttribute.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyNetworkInterfaceAttribute.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -38031,10 +38542,11 @@ module AWS::SDK::EC2
     #   resp.data.return #=> Boolean
     def modify_private_dns_name_options(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyPrivateDnsNameOptionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyPrivateDnsNameOptions.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyPrivateDnsNameOptions.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -38087,10 +38599,11 @@ module AWS::SDK::EC2
     #   resp.data.reserved_instances_modification_id #=> String
     def modify_reserved_instances(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyReservedInstancesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyReservedInstances.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyReservedInstances.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -38143,10 +38656,11 @@ module AWS::SDK::EC2
     #   resp.data.return #=> Boolean
     def modify_security_group_rules(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifySecurityGroupRulesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifySecurityGroupRules.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifySecurityGroupRules.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -38232,10 +38746,11 @@ module AWS::SDK::EC2
     #   {}
     def modify_snapshot_attribute(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifySnapshotAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifySnapshotAttribute.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifySnapshotAttribute.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -38279,10 +38794,11 @@ module AWS::SDK::EC2
     #   resp.data.tiering_start_time #=> Time
     def modify_snapshot_tier(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifySnapshotTierInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifySnapshotTier.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifySnapshotTier.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -38446,10 +38962,11 @@ module AWS::SDK::EC2
     #   }
     def modify_spot_fleet_request(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifySpotFleetRequestInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifySpotFleetRequest.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifySpotFleetRequest.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -38529,10 +39046,11 @@ module AWS::SDK::EC2
     #   nil
     def modify_subnet_attribute(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifySubnetAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifySubnetAttribute.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifySubnetAttribute.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -38600,10 +39118,11 @@ module AWS::SDK::EC2
     #   resp.data.traffic_mirror_filter.tags[0].value #=> String
     def modify_traffic_mirror_filter_network_services(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyTrafficMirrorFilterNetworkServicesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyTrafficMirrorFilterNetworkServices.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyTrafficMirrorFilterNetworkServices.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -38671,10 +39190,11 @@ module AWS::SDK::EC2
     #   resp.data.traffic_mirror_filter_rule.description #=> String
     def modify_traffic_mirror_filter_rule(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyTrafficMirrorFilterRuleInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyTrafficMirrorFilterRule.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyTrafficMirrorFilterRule.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -38734,10 +39254,11 @@ module AWS::SDK::EC2
     #   resp.data.traffic_mirror_session.tags[0].value #=> String
     def modify_traffic_mirror_session(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyTrafficMirrorSessionInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyTrafficMirrorSession.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyTrafficMirrorSession.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -38813,10 +39334,11 @@ module AWS::SDK::EC2
     #   resp.data.transit_gateway.tags[0].value #=> String
     def modify_transit_gateway(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyTransitGatewayInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyTransitGateway.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyTransitGateway.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -38866,10 +39388,11 @@ module AWS::SDK::EC2
     #   resp.data.transit_gateway_prefix_list_reference.transit_gateway_attachment.resource_id #=> String
     def modify_transit_gateway_prefix_list_reference(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyTransitGatewayPrefixListReferenceInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyTransitGatewayPrefixListReference.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyTransitGatewayPrefixListReference.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -38933,10 +39456,11 @@ module AWS::SDK::EC2
     #   resp.data.transit_gateway_vpc_attachment.tags[0].value #=> String
     def modify_transit_gateway_vpc_attachment(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyTransitGatewayVpcAttachmentInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyTransitGatewayVpcAttachment.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyTransitGatewayVpcAttachment.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -39023,10 +39547,11 @@ module AWS::SDK::EC2
     #   resp.data.verified_access_endpoint.sse_specification.kms_key_arn #=> String
     def modify_verified_access_endpoint(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyVerifiedAccessEndpointInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyVerifiedAccessEndpoint.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyVerifiedAccessEndpoint.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -39075,10 +39600,11 @@ module AWS::SDK::EC2
     #   resp.data.sse_specification.kms_key_arn #=> String
     def modify_verified_access_endpoint_policy(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyVerifiedAccessEndpointPolicyInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyVerifiedAccessEndpointPolicy.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyVerifiedAccessEndpointPolicy.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -39134,10 +39660,11 @@ module AWS::SDK::EC2
     #   resp.data.verified_access_group.sse_specification.kms_key_arn #=> String
     def modify_verified_access_group(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyVerifiedAccessGroupInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyVerifiedAccessGroup.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyVerifiedAccessGroup.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -39186,10 +39713,11 @@ module AWS::SDK::EC2
     #   resp.data.sse_specification.kms_key_arn #=> String
     def modify_verified_access_group_policy(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyVerifiedAccessGroupPolicyInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyVerifiedAccessGroupPolicy.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyVerifiedAccessGroupPolicy.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -39245,10 +39773,11 @@ module AWS::SDK::EC2
     #   resp.data.verified_access_instance.fips_enabled #=> Boolean
     def modify_verified_access_instance(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyVerifiedAccessInstanceInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyVerifiedAccessInstance.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyVerifiedAccessInstance.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -39325,10 +39854,11 @@ module AWS::SDK::EC2
     #   resp.data.logging_configuration.access_logs.include_trust_context #=> Boolean
     def modify_verified_access_instance_logging_configuration(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyVerifiedAccessInstanceLoggingConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyVerifiedAccessInstanceLoggingConfiguration.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyVerifiedAccessInstanceLoggingConfiguration.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -39410,10 +39940,11 @@ module AWS::SDK::EC2
     #   resp.data.verified_access_trust_provider.sse_specification.kms_key_arn #=> String
     def modify_verified_access_trust_provider(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyVerifiedAccessTrustProviderInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyVerifiedAccessTrustProvider.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyVerifiedAccessTrustProvider.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -39488,10 +40019,11 @@ module AWS::SDK::EC2
     #   resp.data.volume_modification.end_time #=> Time
     def modify_volume(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyVolumeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyVolume.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyVolume.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -39549,10 +40081,11 @@ module AWS::SDK::EC2
     #   {}
     def modify_volume_attribute(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyVolumeAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyVolumeAttribute.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyVolumeAttribute.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -39613,10 +40146,11 @@ module AWS::SDK::EC2
     #   nil
     def modify_vpc_attribute(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyVpcAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyVpcAttribute.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyVpcAttribute.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -39681,10 +40215,11 @@ module AWS::SDK::EC2
     #   resp.data.return #=> Boolean
     def modify_vpc_endpoint(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyVpcEndpointInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyVpcEndpoint.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyVpcEndpoint.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -39727,10 +40262,11 @@ module AWS::SDK::EC2
     #   resp.data.return_value #=> Boolean
     def modify_vpc_endpoint_connection_notification(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyVpcEndpointConnectionNotificationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyVpcEndpointConnectionNotification.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyVpcEndpointConnectionNotification.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -39779,10 +40315,11 @@ module AWS::SDK::EC2
     #   resp.data.return #=> Boolean
     def modify_vpc_endpoint_service_configuration(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyVpcEndpointServiceConfigurationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyVpcEndpointServiceConfiguration.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyVpcEndpointServiceConfiguration.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -39821,10 +40358,11 @@ module AWS::SDK::EC2
     #   resp.data.return_value #=> Boolean
     def modify_vpc_endpoint_service_payer_responsibility(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyVpcEndpointServicePayerResponsibilityInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyVpcEndpointServicePayerResponsibility.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyVpcEndpointServicePayerResponsibility.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -39876,10 +40414,11 @@ module AWS::SDK::EC2
     #   resp.data.return_value #=> Boolean
     def modify_vpc_endpoint_service_permissions(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyVpcEndpointServicePermissionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyVpcEndpointServicePermissions.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyVpcEndpointServicePermissions.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -39936,10 +40475,11 @@ module AWS::SDK::EC2
     #   resp.data.requester_peering_connection_options #=> Types::PeeringConnectionOptions
     def modify_vpc_peering_connection_options(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyVpcPeeringConnectionOptionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyVpcPeeringConnectionOptions.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyVpcPeeringConnectionOptions.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -39985,10 +40525,11 @@ module AWS::SDK::EC2
     #   resp.data.return_value #=> Boolean
     def modify_vpc_tenancy(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyVpcTenancyInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyVpcTenancy.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyVpcTenancy.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -40143,10 +40684,11 @@ module AWS::SDK::EC2
     #   resp.data.vpn_connection.vgw_telemetry[0].certificate_arn #=> String
     def modify_vpn_connection(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyVpnConnectionInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyVpnConnection.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyVpnConnection.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -40271,10 +40813,11 @@ module AWS::SDK::EC2
     #   resp.data.vpn_connection.vgw_telemetry[0].certificate_arn #=> String
     def modify_vpn_connection_options(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyVpnConnectionOptionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyVpnConnectionOptions.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyVpnConnectionOptions.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -40392,10 +40935,11 @@ module AWS::SDK::EC2
     #   resp.data.vpn_connection.vgw_telemetry[0].certificate_arn #=> String
     def modify_vpn_tunnel_certificate(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyVpnTunnelCertificateInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyVpnTunnelCertificate.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyVpnTunnelCertificate.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -40573,10 +41117,11 @@ module AWS::SDK::EC2
     #   resp.data.vpn_connection.vgw_telemetry[0].certificate_arn #=> String
     def modify_vpn_tunnel_options(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ModifyVpnTunnelOptionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ModifyVpnTunnelOptions.build(config)
+      stack = AWS::SDK::EC2::Middleware::ModifyVpnTunnelOptions.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -40623,10 +41168,11 @@ module AWS::SDK::EC2
     #   resp.data.instance_monitorings[0].monitoring.state #=> String, one of ["disabled", "disabling", "enabled", "pending"]
     def monitor_instances(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::MonitorInstancesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::MonitorInstances.build(config)
+      stack = AWS::SDK::EC2::Middleware::MonitorInstances.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -40683,10 +41229,11 @@ module AWS::SDK::EC2
     #   }
     def move_address_to_vpc(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::MoveAddressToVpcInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::MoveAddressToVpc.build(config)
+      stack = AWS::SDK::EC2::Middleware::MoveAddressToVpc.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -40738,10 +41285,11 @@ module AWS::SDK::EC2
     #   resp.data.byoip_cidr.network_border_group #=> String
     def move_byoip_cidr_to_ipam(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::MoveByoipCidrToIpamInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::MoveByoipCidrToIpam.build(config)
+      stack = AWS::SDK::EC2::Middleware::MoveByoipCidrToIpam.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -40820,10 +41368,11 @@ module AWS::SDK::EC2
     #   resp.data.byoip_cidr.network_border_group #=> String
     def provision_byoip_cidr(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ProvisionByoipCidrInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ProvisionByoipCidr.build(config)
+      stack = AWS::SDK::EC2::Middleware::ProvisionByoipCidr.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -40870,10 +41419,11 @@ module AWS::SDK::EC2
     #   resp.data.byoasn.state #=> String, one of ["deprovisioned", "failed-deprovision", "failed-provision", "pending-deprovision", "pending-provision", "provisioned"]
     def provision_ipam_byoasn(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ProvisionIpamByoasnInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ProvisionIpamByoasn.build(config)
+      stack = AWS::SDK::EC2::Middleware::ProvisionIpamByoasn.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -40927,10 +41477,11 @@ module AWS::SDK::EC2
     #   resp.data.ipam_pool_cidr.netmask_length #=> Integer
     def provision_ipam_pool_cidr(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ProvisionIpamPoolCidrInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ProvisionIpamPoolCidr.build(config)
+      stack = AWS::SDK::EC2::Middleware::ProvisionIpamPoolCidr.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -40976,10 +41527,11 @@ module AWS::SDK::EC2
     #   resp.data.pool_address_range.available_address_count #=> Integer
     def provision_public_ipv4_pool_cidr(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ProvisionPublicIpv4PoolCidrInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ProvisionPublicIpv4PoolCidr.build(config)
+      stack = AWS::SDK::EC2::Middleware::ProvisionPublicIpv4PoolCidr.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -41060,10 +41612,11 @@ module AWS::SDK::EC2
     #   resp.data.capacity_reservation.reservation_type #=> String, one of ["default", "capacity-block"]
     def purchase_capacity_block(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::PurchaseCapacityBlockInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::PurchaseCapacityBlock.build(config)
+      stack = AWS::SDK::EC2::Middleware::PurchaseCapacityBlock.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -41134,10 +41687,11 @@ module AWS::SDK::EC2
     #   resp.data.total_upfront_price #=> String
     def purchase_host_reservation(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::PurchaseHostReservationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::PurchaseHostReservation.build(config)
+      stack = AWS::SDK::EC2::Middleware::PurchaseHostReservation.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -41190,10 +41744,11 @@ module AWS::SDK::EC2
     #   resp.data.reserved_instances_id #=> String
     def purchase_reserved_instances_offering(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::PurchaseReservedInstancesOfferingInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::PurchaseReservedInstancesOffering.build(config)
+      stack = AWS::SDK::EC2::Middleware::PurchaseReservedInstancesOffering.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -41267,10 +41822,11 @@ module AWS::SDK::EC2
     #   resp.data.scheduled_instance_set[0].total_scheduled_instance_hours #=> Integer
     def purchase_scheduled_instances(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::PurchaseScheduledInstancesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::PurchaseScheduledInstances.build(config)
+      stack = AWS::SDK::EC2::Middleware::PurchaseScheduledInstances.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -41326,10 +41882,11 @@ module AWS::SDK::EC2
     #   {}
     def reboot_instances(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::RebootInstancesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::RebootInstances.build(config)
+      stack = AWS::SDK::EC2::Middleware::RebootInstances.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -41449,10 +42006,11 @@ module AWS::SDK::EC2
     #   resp.data.image_id #=> String
     def register_image(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::RegisterImageInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::RegisterImage.build(config)
+      stack = AWS::SDK::EC2::Middleware::RegisterImage.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -41500,10 +42058,11 @@ module AWS::SDK::EC2
     #   resp.data.instance_tag_attribute.include_all_tags_of_instance #=> Boolean
     def register_instance_event_notification_attributes(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::RegisterInstanceEventNotificationAttributesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::RegisterInstanceEventNotificationAttributes.build(config)
+      stack = AWS::SDK::EC2::Middleware::RegisterInstanceEventNotificationAttributes.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -41554,10 +42113,11 @@ module AWS::SDK::EC2
     #   resp.data.registered_multicast_group_members.group_ip_address #=> String
     def register_transit_gateway_multicast_group_members(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::RegisterTransitGatewayMulticastGroupMembersInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::RegisterTransitGatewayMulticastGroupMembers.build(config)
+      stack = AWS::SDK::EC2::Middleware::RegisterTransitGatewayMulticastGroupMembers.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -41608,10 +42168,11 @@ module AWS::SDK::EC2
     #   resp.data.registered_multicast_group_sources.group_ip_address #=> String
     def register_transit_gateway_multicast_group_sources(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::RegisterTransitGatewayMulticastGroupSourcesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::RegisterTransitGatewayMulticastGroupSources.build(config)
+      stack = AWS::SDK::EC2::Middleware::RegisterTransitGatewayMulticastGroupSources.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -41662,10 +42223,11 @@ module AWS::SDK::EC2
     #   resp.data.associations.subnets[0].state #=> String, one of ["pendingAcceptance", "associating", "associated", "disassociating", "disassociated", "rejected", "failed"]
     def reject_transit_gateway_multicast_domain_associations(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::RejectTransitGatewayMulticastDomainAssociationsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::RejectTransitGatewayMulticastDomainAssociations.build(config)
+      stack = AWS::SDK::EC2::Middleware::RejectTransitGatewayMulticastDomainAssociations.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -41722,10 +42284,11 @@ module AWS::SDK::EC2
     #   resp.data.transit_gateway_peering_attachment.tags[0].value #=> String
     def reject_transit_gateway_peering_attachment(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::RejectTransitGatewayPeeringAttachmentInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::RejectTransitGatewayPeeringAttachment.build(config)
+      stack = AWS::SDK::EC2::Middleware::RejectTransitGatewayPeeringAttachment.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -41783,10 +42346,11 @@ module AWS::SDK::EC2
     #   resp.data.transit_gateway_vpc_attachment.tags[0].value #=> String
     def reject_transit_gateway_vpc_attachment(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::RejectTransitGatewayVpcAttachmentInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::RejectTransitGatewayVpcAttachment.build(config)
+      stack = AWS::SDK::EC2::Middleware::RejectTransitGatewayVpcAttachment.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -41832,10 +42396,11 @@ module AWS::SDK::EC2
     #   resp.data.unsuccessful[0].resource_id #=> String
     def reject_vpc_endpoint_connections(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::RejectVpcEndpointConnectionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::RejectVpcEndpointConnections.build(config)
+      stack = AWS::SDK::EC2::Middleware::RejectVpcEndpointConnections.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -41876,10 +42441,11 @@ module AWS::SDK::EC2
     #   resp.data.return #=> Boolean
     def reject_vpc_peering_connection(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::RejectVpcPeeringConnectionInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::RejectVpcPeeringConnection.build(config)
+      stack = AWS::SDK::EC2::Middleware::RejectVpcPeeringConnection.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -41937,10 +42503,11 @@ module AWS::SDK::EC2
     #   nil
     def release_address(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ReleaseAddressInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ReleaseAddress.build(config)
+      stack = AWS::SDK::EC2::Middleware::ReleaseAddress.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -41994,10 +42561,11 @@ module AWS::SDK::EC2
     #   resp.data.unsuccessful[0].resource_id #=> String
     def release_hosts(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ReleaseHostsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ReleaseHosts.build(config)
+      stack = AWS::SDK::EC2::Middleware::ReleaseHosts.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -42041,10 +42609,11 @@ module AWS::SDK::EC2
     #   resp.data.success #=> Boolean
     def release_ipam_pool_allocation(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ReleaseIpamPoolAllocationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ReleaseIpamPoolAllocation.build(config)
+      stack = AWS::SDK::EC2::Middleware::ReleaseIpamPoolAllocation.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -42096,10 +42665,11 @@ module AWS::SDK::EC2
     #   resp.data.iam_instance_profile_association.timestamp #=> Time
     def replace_iam_instance_profile_association(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ReplaceIamInstanceProfileAssociationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ReplaceIamInstanceProfileAssociation.build(config)
+      stack = AWS::SDK::EC2::Middleware::ReplaceIamInstanceProfileAssociation.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -42152,10 +42722,11 @@ module AWS::SDK::EC2
     #   }
     def replace_network_acl_association(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ReplaceNetworkAclAssociationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ReplaceNetworkAclAssociation.build(config)
+      stack = AWS::SDK::EC2::Middleware::ReplaceNetworkAclAssociation.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -42224,10 +42795,11 @@ module AWS::SDK::EC2
     #   nil
     def replace_network_acl_entry(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ReplaceNetworkAclEntryInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ReplaceNetworkAclEntry.build(config)
+      stack = AWS::SDK::EC2::Middleware::ReplaceNetworkAclEntry.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -42294,10 +42866,11 @@ module AWS::SDK::EC2
     #   nil
     def replace_route(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ReplaceRouteInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ReplaceRoute.build(config)
+      stack = AWS::SDK::EC2::Middleware::ReplaceRoute.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -42354,10 +42927,11 @@ module AWS::SDK::EC2
     #   }
     def replace_route_table_association(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ReplaceRouteTableAssociationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ReplaceRouteTableAssociation.build(config)
+      stack = AWS::SDK::EC2::Middleware::ReplaceRouteTableAssociation.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -42408,10 +42982,11 @@ module AWS::SDK::EC2
     #   resp.data.route.state #=> String, one of ["pending", "active", "blackhole", "deleting", "deleted"]
     def replace_transit_gateway_route(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ReplaceTransitGatewayRouteInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ReplaceTransitGatewayRoute.build(config)
+      stack = AWS::SDK::EC2::Middleware::ReplaceTransitGatewayRoute.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -42451,10 +43026,11 @@ module AWS::SDK::EC2
     #   resp.data.return #=> Boolean
     def replace_vpn_tunnel(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ReplaceVpnTunnelInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ReplaceVpnTunnel.build(config)
+      stack = AWS::SDK::EC2::Middleware::ReplaceVpnTunnel.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -42504,10 +43080,11 @@ module AWS::SDK::EC2
     #   resp.data #=> Types::ReportInstanceStatusOutput
     def report_instance_status(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ReportInstanceStatusInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ReportInstanceStatus.build(config)
+      stack = AWS::SDK::EC2::Middleware::ReportInstanceStatus.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -42953,10 +43530,11 @@ module AWS::SDK::EC2
     #   }
     def request_spot_fleet(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::RequestSpotFleetInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::RequestSpotFleet.build(config)
+      stack = AWS::SDK::EC2::Middleware::RequestSpotFleet.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -43276,10 +43854,11 @@ module AWS::SDK::EC2
     #   nil
     def request_spot_instances(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::RequestSpotInstancesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::RequestSpotInstances.build(config)
+      stack = AWS::SDK::EC2::Middleware::RequestSpotInstances.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -43325,10 +43904,11 @@ module AWS::SDK::EC2
     #   resp.data.address.ptr_record_update.reason #=> String
     def reset_address_attribute(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ResetAddressAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ResetAddressAttribute.build(config)
+      stack = AWS::SDK::EC2::Middleware::ResetAddressAttribute.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -43370,10 +43950,11 @@ module AWS::SDK::EC2
     #   resp.data.kms_key_id #=> String
     def reset_ebs_default_kms_key_id(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ResetEbsDefaultKmsKeyIdInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ResetEbsDefaultKmsKeyId.build(config)
+      stack = AWS::SDK::EC2::Middleware::ResetEbsDefaultKmsKeyId.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -43413,10 +43994,11 @@ module AWS::SDK::EC2
     #   resp.data.return #=> Boolean
     def reset_fpga_image_attribute(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ResetFpgaImageAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ResetFpgaImageAttribute.build(config)
+      stack = AWS::SDK::EC2::Middleware::ResetFpgaImageAttribute.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -43463,10 +44045,11 @@ module AWS::SDK::EC2
     #   {}
     def reset_image_attribute(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ResetImageAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ResetImageAttribute.build(config)
+      stack = AWS::SDK::EC2::Middleware::ResetImageAttribute.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -43521,10 +44104,11 @@ module AWS::SDK::EC2
     #   {}
     def reset_instance_attribute(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ResetInstanceAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ResetInstanceAttribute.build(config)
+      stack = AWS::SDK::EC2::Middleware::ResetInstanceAttribute.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -43562,10 +44146,11 @@ module AWS::SDK::EC2
     #   resp.data #=> Types::ResetNetworkInterfaceAttributeOutput
     def reset_network_interface_attribute(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ResetNetworkInterfaceAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ResetNetworkInterfaceAttribute.build(config)
+      stack = AWS::SDK::EC2::Middleware::ResetNetworkInterfaceAttribute.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -43614,10 +44199,11 @@ module AWS::SDK::EC2
     #   {}
     def reset_snapshot_attribute(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::ResetSnapshotAttributeInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::ResetSnapshotAttribute.build(config)
+      stack = AWS::SDK::EC2::Middleware::ResetSnapshotAttribute.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -43659,10 +44245,11 @@ module AWS::SDK::EC2
     #   resp.data.status #=> String, one of ["MoveInProgress", "InVpc", "InClassic"]
     def restore_address_to_classic(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::RestoreAddressToClassicInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::RestoreAddressToClassic.build(config)
+      stack = AWS::SDK::EC2::Middleware::RestoreAddressToClassic.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -43700,10 +44287,11 @@ module AWS::SDK::EC2
     #   resp.data.return #=> Boolean
     def restore_image_from_recycle_bin(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::RestoreImageFromRecycleBinInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::RestoreImageFromRecycleBin.build(config)
+      stack = AWS::SDK::EC2::Middleware::RestoreImageFromRecycleBin.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -43756,10 +44344,11 @@ module AWS::SDK::EC2
     #   resp.data.prefix_list.owner_id #=> String
     def restore_managed_prefix_list_version(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::RestoreManagedPrefixListVersionInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::RestoreManagedPrefixListVersion.build(config)
+      stack = AWS::SDK::EC2::Middleware::RestoreManagedPrefixListVersion.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -43808,10 +44397,11 @@ module AWS::SDK::EC2
     #   resp.data.sse_type #=> String, one of ["sse-ebs", "sse-kms", "none"]
     def restore_snapshot_from_recycle_bin(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::RestoreSnapshotFromRecycleBinInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::RestoreSnapshotFromRecycleBin.build(config)
+      stack = AWS::SDK::EC2::Middleware::RestoreSnapshotFromRecycleBin.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -43858,10 +44448,11 @@ module AWS::SDK::EC2
     #   resp.data.is_permanent_restore #=> Boolean
     def restore_snapshot_tier(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::RestoreSnapshotTierInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::RestoreSnapshotTier.build(config)
+      stack = AWS::SDK::EC2::Middleware::RestoreSnapshotTier.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -43904,10 +44495,11 @@ module AWS::SDK::EC2
     #   resp.data.status.message #=> String
     def revoke_client_vpn_ingress(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::RevokeClientVpnIngressInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::RevokeClientVpnIngress.build(config)
+      stack = AWS::SDK::EC2::Middleware::RevokeClientVpnIngress.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -44028,10 +44620,11 @@ module AWS::SDK::EC2
     #   resp.data.unknown_ip_permissions[0].user_id_group_pairs[0].vpc_peering_connection_id #=> String
     def revoke_security_group_egress(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::RevokeSecurityGroupEgressInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::RevokeSecurityGroupEgress.build(config)
+      stack = AWS::SDK::EC2::Middleware::RevokeSecurityGroupEgress.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -44157,10 +44750,11 @@ module AWS::SDK::EC2
     #   resp.data.unknown_ip_permissions[0].user_id_group_pairs[0].vpc_peering_connection_id #=> String
     def revoke_security_group_ingress(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::RevokeSecurityGroupIngressInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::RevokeSecurityGroupIngress.build(config)
+      stack = AWS::SDK::EC2::Middleware::RevokeSecurityGroupIngress.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -44646,10 +45240,11 @@ module AWS::SDK::EC2
     #   {}
     def run_instances(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::RunInstancesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::RunInstances.build(config)
+      stack = AWS::SDK::EC2::Middleware::RunInstances.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -44758,10 +45353,11 @@ module AWS::SDK::EC2
     #   resp.data.instance_id_set[0] #=> String
     def run_scheduled_instances(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::RunScheduledInstancesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::RunScheduledInstances.build(config)
+      stack = AWS::SDK::EC2::Middleware::RunScheduledInstances.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -44822,10 +45418,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def search_local_gateway_routes(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::SearchLocalGatewayRoutesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::SearchLocalGatewayRoutes.build(config)
+      stack = AWS::SDK::EC2::Middleware::SearchLocalGatewayRoutes.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -44886,10 +45483,11 @@ module AWS::SDK::EC2
     #   resp.data.next_token #=> String
     def search_transit_gateway_multicast_groups(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::SearchTransitGatewayMulticastGroupsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::SearchTransitGatewayMulticastGroups.build(config)
+      stack = AWS::SDK::EC2::Middleware::SearchTransitGatewayMulticastGroups.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -44948,10 +45546,11 @@ module AWS::SDK::EC2
     #   resp.data.additional_routes_available #=> Boolean
     def search_transit_gateway_routes(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::SearchTransitGatewayRoutesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::SearchTransitGatewayRoutes.build(config)
+      stack = AWS::SDK::EC2::Middleware::SearchTransitGatewayRoutes.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -45002,10 +45601,11 @@ module AWS::SDK::EC2
     #   resp.data #=> Types::SendDiagnosticInterruptOutput
     def send_diagnostic_interrupt(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::SendDiagnosticInterruptInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::SendDiagnosticInterrupt.build(config)
+      stack = AWS::SDK::EC2::Middleware::SendDiagnosticInterrupt.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -45094,10 +45694,11 @@ module AWS::SDK::EC2
     #   }
     def start_instances(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::StartInstancesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::StartInstances.build(config)
+      stack = AWS::SDK::EC2::Middleware::StartInstances.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -45161,10 +45762,11 @@ module AWS::SDK::EC2
     #   resp.data.network_insights_access_scope_analysis.tags[0].value #=> String
     def start_network_insights_access_scope_analysis(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::StartNetworkInsightsAccessScopeAnalysisInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::StartNetworkInsightsAccessScopeAnalysis.build(config)
+      stack = AWS::SDK::EC2::Middleware::StartNetworkInsightsAccessScopeAnalysis.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -45406,10 +46008,11 @@ module AWS::SDK::EC2
     #   resp.data.network_insights_analysis.tags[0].value #=> String
     def start_network_insights_analysis(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::StartNetworkInsightsAnalysisInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::StartNetworkInsightsAnalysis.build(config)
+      stack = AWS::SDK::EC2::Middleware::StartNetworkInsightsAnalysis.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -45450,10 +46053,11 @@ module AWS::SDK::EC2
     #   resp.data.return_value #=> Boolean
     def start_vpc_endpoint_service_private_dns_verification(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::StartVpcEndpointServicePrivateDnsVerificationInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::StartVpcEndpointServicePrivateDnsVerification.build(config)
+      stack = AWS::SDK::EC2::Middleware::StartVpcEndpointServicePrivateDnsVerification.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -45555,10 +46159,11 @@ module AWS::SDK::EC2
     #   }
     def stop_instances(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::StopInstancesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::StopInstances.build(config)
+      stack = AWS::SDK::EC2::Middleware::StopInstances.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -45606,10 +46211,11 @@ module AWS::SDK::EC2
     #   resp.data.connection_statuses[0].current_status #=> Types::ClientVpnConnectionStatus
     def terminate_client_vpn_connections(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::TerminateClientVpnConnectionsInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::TerminateClientVpnConnections.build(config)
+      stack = AWS::SDK::EC2::Middleware::TerminateClientVpnConnections.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -45738,10 +46344,11 @@ module AWS::SDK::EC2
     #   }
     def terminate_instances(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::TerminateInstancesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::TerminateInstances.build(config)
+      stack = AWS::SDK::EC2::Middleware::TerminateInstances.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -45788,10 +46395,11 @@ module AWS::SDK::EC2
     #   resp.data.unassigned_ipv6_prefixes[0] #=> String
     def unassign_ipv6_addresses(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::UnassignIpv6AddressesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::UnassignIpv6Addresses.build(config)
+      stack = AWS::SDK::EC2::Middleware::UnassignIpv6Addresses.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -45845,10 +46453,11 @@ module AWS::SDK::EC2
     #   nil
     def unassign_private_ip_addresses(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::UnassignPrivateIpAddressesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::UnassignPrivateIpAddresses.build(config)
+      stack = AWS::SDK::EC2::Middleware::UnassignPrivateIpAddresses.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -45908,10 +46517,11 @@ module AWS::SDK::EC2
     #   resp.data.nat_gateway_addresses[0].status #=> String, one of ["assigning", "unassigning", "associating", "disassociating", "succeeded", "failed"]
     def unassign_private_nat_gateway_address(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::UnassignPrivateNatGatewayAddressInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::UnassignPrivateNatGatewayAddress.build(config)
+      stack = AWS::SDK::EC2::Middleware::UnassignPrivateNatGatewayAddress.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -45951,10 +46561,11 @@ module AWS::SDK::EC2
     #   resp.data.snapshot_id #=> String
     def unlock_snapshot(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::UnlockSnapshotInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::UnlockSnapshot.build(config)
+      stack = AWS::SDK::EC2::Middleware::UnlockSnapshot.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -46000,10 +46611,11 @@ module AWS::SDK::EC2
     #   resp.data.instance_monitorings[0].monitoring.state #=> String, one of ["disabled", "disabling", "enabled", "pending"]
     def unmonitor_instances(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::UnmonitorInstancesInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::UnmonitorInstances.build(config)
+      stack = AWS::SDK::EC2::Middleware::UnmonitorInstances.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -46108,10 +46720,11 @@ module AWS::SDK::EC2
     #   {}
     def update_security_group_rule_descriptions_egress(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::UpdateSecurityGroupRuleDescriptionsEgressInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::UpdateSecurityGroupRuleDescriptionsEgress.build(config)
+      stack = AWS::SDK::EC2::Middleware::UpdateSecurityGroupRuleDescriptionsEgress.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -46216,10 +46829,11 @@ module AWS::SDK::EC2
     #   {}
     def update_security_group_rule_descriptions_ingress(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::UpdateSecurityGroupRuleDescriptionsIngressInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::UpdateSecurityGroupRuleDescriptionsIngress.build(config)
+      stack = AWS::SDK::EC2::Middleware::UpdateSecurityGroupRuleDescriptionsIngress.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -46272,10 +46886,11 @@ module AWS::SDK::EC2
     #   resp.data.byoip_cidr.network_border_group #=> String
     def withdraw_byoip_cidr(params = {}, options = {})
       response_body = ::StringIO.new
+      middleware_opts = {}
       config = operation_config(options)
       tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ec2.client')
       input = Params::WithdrawByoipCidrInput.build(params, context: 'params')
-      stack = AWS::SDK::EC2::Middleware::WithdrawByoipCidr.build(config)
+      stack = AWS::SDK::EC2::Middleware::WithdrawByoipCidr.build(config, middleware_opts)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),

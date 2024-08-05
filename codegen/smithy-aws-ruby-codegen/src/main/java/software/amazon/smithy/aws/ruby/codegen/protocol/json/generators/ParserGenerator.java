@@ -172,6 +172,35 @@ public class ParserGenerator extends ParserGeneratorBase {
                 .closeBlock("end");
     }
 
+    @Override
+    protected void renderEventParseMethod(StructureShape event) {
+        writer
+                .openBlock("def self.parse(message)")
+                .write("data = $T.new", context.symbolProvider().toSymbol(event))
+                .write("payload = message.payload.read")
+                .write("return data if payload.empty?")
+                .write("map = $T.parse(payload)", Hearth.JSON)
+                .call(() -> renderMemberParsers(event))
+                .write("data")
+                .closeBlock("end");
+    }
+
+    @Override
+    protected void renderEventImplicitStructurePayloadParser(StructureShape event) {
+        writer.write("map = $T.parse(payload)", Hearth.JSON);
+        renderMemberParsers(event);
+    }
+
+    @Override
+    protected void renderEventExplicitStructurePayloadParser(MemberShape payloadMember, StructureShape shape) {
+        String dataName = symbolProvider.toMemberName(payloadMember);
+        String dataSetter = "data." + dataName + " = ";
+        String valueGetter = "map";
+
+        writer.write("map = $T.parse(payload)", Hearth.JSON);
+        shape.accept(new MemberDeserializer(payloadMember, dataSetter, valueGetter, false));
+    }
+
     private class MemberDeserializer extends ShapeVisitor.Default<Void> {
 
         private final String jsonGetter;
