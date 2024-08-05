@@ -167,6 +167,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::CancelKeyDeletionInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::CancelKeyDeletion.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -174,15 +175,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :cancel_key_deletion,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#cancel_key_deletion] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#cancel_key_deletion] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::CancelKeyDeletion.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#cancel_key_deletion] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#cancel_key_deletion] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#cancel_key_deletion] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#cancel_key_deletion] #{output.data}")
-      output
     end
 
     # <p>Connects or reconnects a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> to its backing key store. For an CloudHSM key
@@ -300,6 +304,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::ConnectCustomKeyStoreInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::ConnectCustomKeyStore.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -307,15 +312,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :connect_custom_key_store,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#connect_custom_key_store] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#connect_custom_key_store] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::ConnectCustomKeyStore.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#connect_custom_key_store] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#connect_custom_key_store] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#connect_custom_key_store] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#connect_custom_key_store] #{output.data}")
-      output
     end
 
     # <p>Creates a friendly name for a KMS key. </p>
@@ -405,6 +413,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::CreateAliasInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::CreateAlias.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -412,15 +421,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :create_alias,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_alias] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#create_alias] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::CreateAlias.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_alias] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#create_alias] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_alias] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_alias] #{output.data}")
-      output
     end
 
     # <p>Creates a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> backed by a key store that you own and manage. When you use a
@@ -558,6 +570,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::CreateCustomKeyStoreInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::CreateCustomKeyStore.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -565,15 +578,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :create_custom_key_store,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_custom_key_store] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#create_custom_key_store] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::CreateCustomKeyStore.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_custom_key_store] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#create_custom_key_store] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_custom_key_store] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_custom_key_store] #{output.data}")
-      output
     end
 
     # <p>Adds a grant to a KMS key. </p>
@@ -691,6 +707,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::CreateGrantInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::CreateGrant.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -698,15 +715,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :create_grant,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_grant] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#create_grant] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::CreateGrant.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_grant] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#create_grant] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_grant] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_grant] #{output.data}")
-      output
     end
 
     # <p>Creates a unique customer managed <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms-keys">KMS key</a> in your Amazon Web Services account and Region.
@@ -942,6 +962,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::CreateKeyInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::CreateKey.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -949,15 +970,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :create_key,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_key] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#create_key] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::CreateKey.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_key] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#create_key] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_key] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_key] #{output.data}")
-      output
     end
 
     # <p>Decrypts ciphertext that was encrypted by a KMS key using any of the following
@@ -1118,6 +1142,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::DecryptInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::Decrypt.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -1125,15 +1150,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :decrypt,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#decrypt] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#decrypt] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::Decrypt.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#decrypt] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#decrypt] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#decrypt] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#decrypt] #{output.data}")
-      output
     end
 
     # <p>Deletes the specified alias. </p>
@@ -1212,6 +1240,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::DeleteAliasInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::DeleteAlias.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -1219,15 +1248,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :delete_alias,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_alias] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_alias] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DeleteAlias.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_alias] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_alias] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_alias] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_alias] #{output.data}")
-      output
     end
 
     # <p>Deletes a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>. This operation does not affect any backing elements of the
@@ -1317,6 +1349,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::DeleteCustomKeyStoreInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::DeleteCustomKeyStore.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -1324,15 +1357,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :delete_custom_key_store,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_custom_key_store] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_custom_key_store] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DeleteCustomKeyStore.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_custom_key_store] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_custom_key_store] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_custom_key_store] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_custom_key_store] #{output.data}")
-      output
     end
 
     # <p>Deletes key material that was previously imported. This operation makes the specified KMS
@@ -1391,6 +1427,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::DeleteImportedKeyMaterialInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::DeleteImportedKeyMaterial.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -1398,15 +1435,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :delete_imported_key_material,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_imported_key_material] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_imported_key_material] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DeleteImportedKeyMaterial.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_imported_key_material] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_imported_key_material] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_imported_key_material] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_imported_key_material] #{output.data}")
-      output
     end
 
     # <p>Gets information about <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key stores</a> in the account and Region.</p>
@@ -1518,6 +1558,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::DescribeCustomKeyStoresInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::DescribeCustomKeyStores.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -1525,15 +1566,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :describe_custom_key_stores,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_custom_key_stores] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#describe_custom_key_stores] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DescribeCustomKeyStores.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_custom_key_stores] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#describe_custom_key_stores] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_custom_key_stores] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_custom_key_stores] #{output.data}")
-      output
     end
 
     # <p>Provides detailed information about a KMS key. You can run <code>DescribeKey</code> on a
@@ -1839,6 +1883,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::DescribeKeyInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::DescribeKey.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -1846,15 +1891,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :describe_key,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_key] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#describe_key] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DescribeKey.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_key] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#describe_key] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_key] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#describe_key] #{output.data}")
-      output
     end
 
     # <p>Sets the state of a KMS key to disabled. This change temporarily prevents use of the KMS
@@ -1900,6 +1948,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::DisableKeyInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::DisableKey.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -1907,15 +1956,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :disable_key,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_key] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#disable_key] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DisableKey.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_key] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#disable_key] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_key] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_key] #{output.data}")
-      output
     end
 
     # <p>Disables <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">automatic
@@ -1979,6 +2031,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::DisableKeyRotationInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::DisableKeyRotation.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -1986,15 +2039,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :disable_key_rotation,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_key_rotation] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#disable_key_rotation] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DisableKeyRotation.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_key_rotation] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#disable_key_rotation] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_key_rotation] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disable_key_rotation] #{output.data}")
-      output
     end
 
     # <p>Disconnects the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> from its backing key store. This operation disconnects an
@@ -2077,6 +2133,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::DisconnectCustomKeyStoreInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::DisconnectCustomKeyStore.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -2084,15 +2141,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :disconnect_custom_key_store,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disconnect_custom_key_store] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#disconnect_custom_key_store] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DisconnectCustomKeyStore.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disconnect_custom_key_store] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#disconnect_custom_key_store] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disconnect_custom_key_store] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#disconnect_custom_key_store] #{output.data}")
-      output
     end
 
     # <p>Sets the key state of a KMS key to enabled. This allows you to use the KMS key for
@@ -2134,6 +2194,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::EnableKeyInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::EnableKey.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -2141,15 +2202,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :enable_key,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_key] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#enable_key] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::EnableKey.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_key] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#enable_key] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_key] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_key] #{output.data}")
-      output
     end
 
     # <p>Enables <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">automatic rotation
@@ -2221,6 +2285,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::EnableKeyRotationInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::EnableKeyRotation.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -2228,15 +2293,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :enable_key_rotation,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_key_rotation] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#enable_key_rotation] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::EnableKeyRotation.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_key_rotation] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#enable_key_rotation] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_key_rotation] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#enable_key_rotation] #{output.data}")
-      output
     end
 
     # <p>Encrypts plaintext of up to 4,096 bytes using a KMS key. You can use a symmetric or
@@ -2407,6 +2475,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::EncryptInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::Encrypt.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -2414,15 +2483,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :encrypt,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#encrypt] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#encrypt] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::Encrypt.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#encrypt] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#encrypt] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#encrypt] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#encrypt] #{output.data}")
-      output
     end
 
     # <p>Returns a unique symmetric data key for use outside of KMS. This operation returns a
@@ -2578,6 +2650,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::GenerateDataKeyInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::GenerateDataKey.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -2585,15 +2658,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :generate_data_key,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#generate_data_key] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#generate_data_key] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GenerateDataKey.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#generate_data_key] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#generate_data_key] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#generate_data_key] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#generate_data_key] #{output.data}")
-      output
     end
 
     # <p>Returns a unique asymmetric data key pair for use outside of KMS. This operation returns
@@ -2731,6 +2807,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::GenerateDataKeyPairInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::GenerateDataKeyPair.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -2738,15 +2815,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :generate_data_key_pair,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#generate_data_key_pair] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#generate_data_key_pair] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GenerateDataKeyPair.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#generate_data_key_pair] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#generate_data_key_pair] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#generate_data_key_pair] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#generate_data_key_pair] #{output.data}")
-      output
     end
 
     # <p>Returns a unique asymmetric data key pair for use outside of KMS. This operation returns
@@ -2859,6 +2939,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::GenerateDataKeyPairWithoutPlaintextInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::GenerateDataKeyPairWithoutPlaintext.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -2866,15 +2947,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :generate_data_key_pair_without_plaintext,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#generate_data_key_pair_without_plaintext] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#generate_data_key_pair_without_plaintext] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GenerateDataKeyPairWithoutPlaintext.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#generate_data_key_pair_without_plaintext] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#generate_data_key_pair_without_plaintext] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#generate_data_key_pair_without_plaintext] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#generate_data_key_pair_without_plaintext] #{output.data}")
-      output
     end
 
     # <p>Returns a unique symmetric data key for use outside of KMS. This operation returns a
@@ -2993,6 +3077,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::GenerateDataKeyWithoutPlaintextInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::GenerateDataKeyWithoutPlaintext.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -3000,15 +3085,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :generate_data_key_without_plaintext,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#generate_data_key_without_plaintext] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#generate_data_key_without_plaintext] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GenerateDataKeyWithoutPlaintext.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#generate_data_key_without_plaintext] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#generate_data_key_without_plaintext] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#generate_data_key_without_plaintext] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#generate_data_key_without_plaintext] #{output.data}")
-      output
     end
 
     # <p>Generates a hash-based message authentication code (HMAC) for a message using an HMAC KMS
@@ -3083,6 +3171,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::GenerateMacInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::GenerateMac.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -3090,15 +3179,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :generate_mac,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#generate_mac] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#generate_mac] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GenerateMac.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#generate_mac] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#generate_mac] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#generate_mac] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#generate_mac] #{output.data}")
-      output
     end
 
     # <p>Returns a random byte string that is cryptographically secure.</p>
@@ -3159,6 +3251,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::GenerateRandomInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::GenerateRandom.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -3166,15 +3259,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :generate_random,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#generate_random] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#generate_random] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GenerateRandom.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#generate_random] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#generate_random] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#generate_random] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#generate_random] #{output.data}")
-      output
     end
 
     # <p>Gets a key policy attached to the specified KMS key.</p>
@@ -3218,6 +3314,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::GetKeyPolicyInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::GetKeyPolicy.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -3225,15 +3322,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_key_policy,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_key_policy] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_key_policy] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetKeyPolicy.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_key_policy] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_key_policy] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_key_policy] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_key_policy] #{output.data}")
-      output
     end
 
     # <p>Gets a Boolean value that indicates whether <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">automatic rotation of the key material</a> is
@@ -3320,6 +3420,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::GetKeyRotationStatusInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::GetKeyRotationStatus.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -3327,15 +3428,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_key_rotation_status,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_key_rotation_status] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_key_rotation_status] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetKeyRotationStatus.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_key_rotation_status] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_key_rotation_status] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_key_rotation_status] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_key_rotation_status] #{output.data}")
-      output
     end
 
     # <p>Returns the public key and an import token you need to import or reimport key material for
@@ -3438,6 +3542,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::GetParametersForImportInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::GetParametersForImport.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -3445,15 +3550,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_parameters_for_import,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_parameters_for_import] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_parameters_for_import] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetParametersForImport.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_parameters_for_import] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_parameters_for_import] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_parameters_for_import] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_parameters_for_import] #{output.data}")
-      output
     end
 
     # <p>Returns the public key of an asymmetric KMS key. Unlike the private key of a asymmetric
@@ -3553,6 +3661,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::GetPublicKeyInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::GetPublicKey.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -3560,15 +3669,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_public_key,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_public_key] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_public_key] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetPublicKey.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_public_key] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_public_key] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_public_key] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_public_key] #{output.data}")
-      output
     end
 
     # <p>Imports or reimports key material into an existing KMS key that was created without key
@@ -3708,6 +3820,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::ImportKeyMaterialInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::ImportKeyMaterial.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -3715,15 +3828,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :import_key_material,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#import_key_material] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#import_key_material] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::ImportKeyMaterial.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#import_key_material] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#import_key_material] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#import_key_material] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#import_key_material] #{output.data}")
-      output
     end
 
     # <p>Gets a list of aliases in the caller's Amazon Web Services account and region. For more information
@@ -3847,6 +3963,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::ListAliasesInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::ListAliases.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -3854,15 +3971,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :list_aliases,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_aliases] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_aliases] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::ListAliases.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_aliases] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_aliases] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_aliases] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_aliases] #{output.data}")
-      output
     end
 
     # <p>Gets a list of all grants for the specified KMS key. </p>
@@ -3951,6 +4071,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::ListGrantsInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::ListGrants.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -3958,15 +4079,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :list_grants,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_grants] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_grants] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::ListGrants.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_grants] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_grants] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_grants] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_grants] #{output.data}")
-      output
     end
 
     # <p>Gets the names of the key policies that are attached to a KMS key. This operation is
@@ -4030,6 +4154,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::ListKeyPoliciesInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::ListKeyPolicies.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -4037,15 +4162,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :list_key_policies,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_key_policies] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_key_policies] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::ListKeyPolicies.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_key_policies] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_key_policies] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_key_policies] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_key_policies] #{output.data}")
-      output
     end
 
     # <p>Gets a list of all KMS keys in the caller's Amazon Web Services account and Region.</p>
@@ -4142,6 +4270,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::ListKeysInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::ListKeys.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -4149,15 +4278,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :list_keys,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_keys] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_keys] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::ListKeys.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_keys] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_keys] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_keys] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_keys] #{output.data}")
-      output
     end
 
     # <p>Returns all tags on the specified KMS key.</p>
@@ -4246,6 +4378,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::ListResourceTagsInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::ListResourceTags.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -4253,15 +4386,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :list_resource_tags,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_resource_tags] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_resource_tags] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::ListResourceTags.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_resource_tags] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_resource_tags] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_resource_tags] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_resource_tags] #{output.data}")
-      output
     end
 
     # <p>Returns information about all grants in the Amazon Web Services account and Region that have the
@@ -4355,6 +4491,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::ListRetirableGrantsInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::ListRetirableGrants.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -4362,15 +4499,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :list_retirable_grants,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_retirable_grants] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_retirable_grants] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::ListRetirableGrants.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_retirable_grants] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_retirable_grants] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_retirable_grants] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_retirable_grants] #{output.data}")
-      output
     end
 
     # <p>Attaches a key policy to the specified KMS key. </p>
@@ -4419,6 +4559,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::PutKeyPolicyInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::PutKeyPolicy.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -4426,15 +4567,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_key_policy,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_key_policy] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_key_policy] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::PutKeyPolicy.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_key_policy] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_key_policy] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_key_policy] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_key_policy] #{output.data}")
-      output
     end
 
     # <p>Decrypts ciphertext and then reencrypts it entirely within KMS. You can use this
@@ -4581,6 +4725,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::ReEncryptInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::ReEncrypt.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -4588,15 +4733,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :re_encrypt,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#re_encrypt] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#re_encrypt] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::ReEncrypt.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#re_encrypt] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#re_encrypt] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#re_encrypt] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#re_encrypt] #{output.data}")
-      output
     end
 
     # <p>Replicates a multi-Region key into the specified Region. This operation creates a
@@ -4796,6 +4944,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::ReplicateKeyInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::ReplicateKey.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -4803,15 +4952,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :replicate_key,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#replicate_key] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#replicate_key] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::ReplicateKey.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#replicate_key] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#replicate_key] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#replicate_key] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#replicate_key] #{output.data}")
-      output
     end
 
     # <p>Deletes a grant. Typically, you retire a grant when you no longer need its permissions. To
@@ -4892,6 +5044,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::RetireGrantInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::RetireGrant.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -4899,15 +5052,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :retire_grant,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#retire_grant] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#retire_grant] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::RetireGrant.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#retire_grant] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#retire_grant] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#retire_grant] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#retire_grant] #{output.data}")
-      output
     end
 
     # <p>Deletes the specified grant. You revoke a grant to terminate the permissions that the
@@ -4985,6 +5141,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::RevokeGrantInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::RevokeGrant.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -4992,15 +5149,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :revoke_grant,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#revoke_grant] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#revoke_grant] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::RevokeGrant.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#revoke_grant] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#revoke_grant] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#revoke_grant] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#revoke_grant] #{output.data}")
-      output
     end
 
     # <p>Schedules the deletion of a KMS key. By default, KMS applies a waiting period of 30
@@ -5085,6 +5245,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::ScheduleKeyDeletionInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::ScheduleKeyDeletion.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -5092,15 +5253,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :schedule_key_deletion,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#schedule_key_deletion] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#schedule_key_deletion] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::ScheduleKeyDeletion.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#schedule_key_deletion] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#schedule_key_deletion] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#schedule_key_deletion] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#schedule_key_deletion] #{output.data}")
-      output
     end
 
     # <p>Creates a <a href="https://en.wikipedia.org/wiki/Digital_signature">digital
@@ -5215,6 +5379,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::SignInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::Sign.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -5222,15 +5387,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :sign,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#sign] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#sign] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::Sign.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#sign] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#sign] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#sign] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#sign] #{output.data}")
-      output
     end
 
     # <p>Adds or edits tags on a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer managed key</a>.</p>
@@ -5320,6 +5488,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::TagResourceInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::TagResource.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -5327,15 +5496,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :tag_resource,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#tag_resource] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#tag_resource] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::TagResource.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#tag_resource] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#tag_resource] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#tag_resource] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#tag_resource] #{output.data}")
-      output
     end
 
     # <p>Deletes tags from a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer managed key</a>. To delete a tag,
@@ -5415,6 +5587,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::UntagResourceInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::UntagResource.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -5422,15 +5595,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :untag_resource,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#untag_resource] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#untag_resource] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::UntagResource.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#untag_resource] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#untag_resource] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#untag_resource] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#untag_resource] #{output.data}")
-      output
     end
 
     # <p>Associates an existing KMS alias with a different KMS key. Each alias is associated with
@@ -5526,6 +5702,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::UpdateAliasInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::UpdateAlias.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -5533,15 +5710,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :update_alias,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_alias] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#update_alias] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::UpdateAlias.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_alias] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#update_alias] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_alias] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_alias] #{output.data}")
-      output
     end
 
     # <p>Changes the properties of a custom key store. You can use this operation to change the
@@ -5715,6 +5895,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::UpdateCustomKeyStoreInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::UpdateCustomKeyStore.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -5722,15 +5903,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :update_custom_key_store,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_custom_key_store] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#update_custom_key_store] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::UpdateCustomKeyStore.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_custom_key_store] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#update_custom_key_store] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_custom_key_store] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_custom_key_store] #{output.data}")
-      output
     end
 
     # <p>Updates the description of a KMS key. To see the description of a KMS key, use <a>DescribeKey</a>. </p>
@@ -5785,6 +5969,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::UpdateKeyDescriptionInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::UpdateKeyDescription.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -5792,15 +5977,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :update_key_description,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_key_description] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#update_key_description] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::UpdateKeyDescription.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_key_description] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#update_key_description] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_key_description] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_key_description] #{output.data}")
-      output
     end
 
     # <p>Changes the primary key of a multi-Region key. </p>
@@ -5902,6 +6090,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::UpdatePrimaryRegionInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::UpdatePrimaryRegion.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -5909,15 +6098,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :update_primary_region,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_primary_region] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#update_primary_region] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::UpdatePrimaryRegion.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_primary_region] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#update_primary_region] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_primary_region] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#update_primary_region] #{output.data}")
-      output
     end
 
     # <p>Verifies a digital signature that was generated by the <a>Sign</a> operation. </p>
@@ -6018,6 +6210,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::VerifyInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::Verify.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -6025,15 +6218,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :verify,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#verify] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#verify] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::Verify.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#verify] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#verify] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#verify] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#verify] #{output.data}")
-      output
     end
 
     # <p>Verifies the hash-based message authentication code (HMAC) for a specified message, HMAC
@@ -6102,6 +6298,7 @@ module AWS::SDK::KMS
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.kms.client')
       input = Params::VerifyMacInput.build(params, context: 'params')
       stack = AWS::SDK::KMS::Middleware::VerifyMac.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -6109,15 +6306,18 @@ module AWS::SDK::KMS
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :verify_mac,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#verify_mac] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#verify_mac] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::VerifyMac.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#verify_mac] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#verify_mac] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#verify_mac] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#verify_mac] #{output.data}")
-      output
     end
   end
 end

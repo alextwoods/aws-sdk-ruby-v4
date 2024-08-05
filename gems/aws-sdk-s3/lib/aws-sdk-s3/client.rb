@@ -132,6 +132,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::AbortMultipartUploadInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::AbortMultipartUpload.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -139,15 +140,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :abort_multipart_upload,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#abort_multipart_upload] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#abort_multipart_upload] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::AbortMultipartUpload.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#abort_multipart_upload] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#abort_multipart_upload] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#abort_multipart_upload] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#abort_multipart_upload] #{output.data}")
-      output
     end
 
     # <p>Completes a multipart upload by assembling previously uploaded parts.</p>
@@ -359,6 +363,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::CompleteMultipartUploadInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::CompleteMultipartUpload.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -366,15 +371,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :complete_multipart_upload,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#complete_multipart_upload] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#complete_multipart_upload] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::CompleteMultipartUpload.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#complete_multipart_upload] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#complete_multipart_upload] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#complete_multipart_upload] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#complete_multipart_upload] #{output.data}")
-      output
     end
 
     # <p>Creates a copy of an object that is already stored in Amazon S3.</p>
@@ -626,6 +634,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::CopyObjectInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::CopyObject.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -633,15 +642,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :copy_object,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#copy_object] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#copy_object] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::CopyObject.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#copy_object] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#copy_object] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#copy_object] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#copy_object] #{output.data}")
-      output
     end
 
     # <note>
@@ -828,6 +840,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::CreateBucketInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::CreateBucket.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -835,15 +848,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :create_bucket,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_bucket] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#create_bucket] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::CreateBucket.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_bucket] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#create_bucket] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_bucket] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_bucket] #{output.data}")
-      output
     end
 
     # <p>This action initiates a multipart upload and returns an upload ID. This upload ID is
@@ -1137,6 +1153,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::CreateMultipartUploadInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::CreateMultipartUpload.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -1144,15 +1161,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :create_multipart_upload,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_multipart_upload] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#create_multipart_upload] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::CreateMultipartUpload.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_multipart_upload] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#create_multipart_upload] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_multipart_upload] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_multipart_upload] #{output.data}")
-      output
     end
 
     # <p>Creates a session that establishes temporary security credentials to support fast authentication and authorization for the Zonal endpoint APIs on directory buckets.
@@ -1242,6 +1262,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::CreateSessionInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::CreateSession.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -1249,15 +1270,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :create_session,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_session] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#create_session] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::CreateSession.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_session] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#create_session] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_session] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_session] #{output.data}")
-      output
     end
 
     # <p>Deletes the S3 bucket. All objects (including all object versions and delete markers) in
@@ -1336,6 +1360,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::DeleteBucketInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::DeleteBucket.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -1343,15 +1368,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :delete_bucket,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DeleteBucket.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket] #{output.data}")
-      output
     end
 
     # <note>
@@ -1404,6 +1432,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::DeleteBucketAnalyticsConfigurationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::DeleteBucketAnalyticsConfiguration.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -1411,15 +1440,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :delete_bucket_analytics_configuration,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_analytics_configuration] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_analytics_configuration] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DeleteBucketAnalyticsConfiguration.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_analytics_configuration] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_analytics_configuration] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_analytics_configuration] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_analytics_configuration] #{output.data}")
-      output
     end
 
     # <note>
@@ -1472,6 +1504,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::DeleteBucketCorsInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::DeleteBucketCors.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -1479,15 +1512,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :delete_bucket_cors,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_cors] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_cors] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DeleteBucketCors.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_cors] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_cors] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_cors] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_cors] #{output.data}")
-      output
     end
 
     # <note>
@@ -1534,6 +1570,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::DeleteBucketEncryptionInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::DeleteBucketEncryption.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -1541,15 +1578,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :delete_bucket_encryption,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_encryption] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_encryption] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DeleteBucketEncryption.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_encryption] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_encryption] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_encryption] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_encryption] #{output.data}")
-      output
     end
 
     # <note>
@@ -1595,6 +1635,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::DeleteBucketIntelligentTieringConfigurationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::DeleteBucketIntelligentTieringConfiguration.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -1602,15 +1643,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :delete_bucket_intelligent_tiering_configuration,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_intelligent_tiering_configuration] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_intelligent_tiering_configuration] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DeleteBucketIntelligentTieringConfiguration.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_intelligent_tiering_configuration] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_intelligent_tiering_configuration] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_intelligent_tiering_configuration] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_intelligent_tiering_configuration] #{output.data}")
-      output
     end
 
     # <note>
@@ -1661,6 +1705,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::DeleteBucketInventoryConfigurationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::DeleteBucketInventoryConfiguration.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -1668,15 +1713,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :delete_bucket_inventory_configuration,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_inventory_configuration] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_inventory_configuration] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DeleteBucketInventoryConfiguration.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_inventory_configuration] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_inventory_configuration] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_inventory_configuration] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_inventory_configuration] #{output.data}")
-      output
     end
 
     # <note>
@@ -1731,6 +1779,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::DeleteBucketLifecycleInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::DeleteBucketLifecycle.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -1738,15 +1787,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :delete_bucket_lifecycle,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_lifecycle] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_lifecycle] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DeleteBucketLifecycle.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_lifecycle] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_lifecycle] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_lifecycle] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_lifecycle] #{output.data}")
-      output
     end
 
     # <note>
@@ -1805,6 +1857,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::DeleteBucketMetricsConfigurationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::DeleteBucketMetricsConfiguration.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -1812,15 +1865,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :delete_bucket_metrics_configuration,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_metrics_configuration] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_metrics_configuration] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DeleteBucketMetricsConfiguration.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_metrics_configuration] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_metrics_configuration] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_metrics_configuration] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_metrics_configuration] #{output.data}")
-      output
     end
 
     # <note>
@@ -1863,6 +1919,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::DeleteBucketOwnershipControlsInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::DeleteBucketOwnershipControls.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -1870,15 +1927,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :delete_bucket_ownership_controls,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_ownership_controls] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_ownership_controls] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DeleteBucketOwnershipControls.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_ownership_controls] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_ownership_controls] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_ownership_controls] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_ownership_controls] #{output.data}")
-      output
     end
 
     # <p>Deletes the
@@ -1969,6 +2029,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::DeleteBucketPolicyInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::DeleteBucketPolicy.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -1976,15 +2037,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :delete_bucket_policy,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_policy] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_policy] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DeleteBucketPolicy.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_policy] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_policy] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_policy] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_policy] #{output.data}")
-      output
     end
 
     # <note>
@@ -2041,6 +2105,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::DeleteBucketReplicationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::DeleteBucketReplication.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -2048,15 +2113,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :delete_bucket_replication,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_replication] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_replication] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DeleteBucketReplication.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_replication] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_replication] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_replication] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_replication] #{output.data}")
-      output
     end
 
     # <note>
@@ -2105,6 +2173,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::DeleteBucketTaggingInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::DeleteBucketTagging.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -2112,15 +2181,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :delete_bucket_tagging,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_tagging] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_tagging] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DeleteBucketTagging.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_tagging] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_tagging] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_tagging] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_tagging] #{output.data}")
-      output
     end
 
     # <note>
@@ -2176,6 +2248,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::DeleteBucketWebsiteInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::DeleteBucketWebsite.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -2183,15 +2256,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :delete_bucket_website,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_website] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_website] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DeleteBucketWebsite.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_website] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_bucket_website] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_website] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_bucket_website] #{output.data}")
-      output
     end
 
     # <p>Removes an object from a bucket. The behavior depends on the bucket's versioning state: </p>
@@ -2336,6 +2412,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::DeleteObjectInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::DeleteObject.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -2343,15 +2420,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :delete_object,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_object] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_object] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DeleteObject.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_object] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_object] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_object] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_object] #{output.data}")
-      output
     end
 
     # <note>
@@ -2421,6 +2501,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::DeleteObjectTaggingInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::DeleteObjectTagging.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -2428,15 +2509,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :delete_object_tagging,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_object_tagging] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_object_tagging] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DeleteObjectTagging.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_object_tagging] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_object_tagging] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_object_tagging] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_object_tagging] #{output.data}")
-      output
     end
 
     # <p>This operation enables you to delete multiple objects from a bucket using a single HTTP
@@ -2641,6 +2725,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::DeleteObjectsInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::DeleteObjects.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -2648,15 +2733,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :delete_objects,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_objects] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_objects] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DeleteObjects.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_objects] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_objects] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_objects] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_objects] #{output.data}")
-      output
     end
 
     # <note>
@@ -2708,6 +2796,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::DeletePublicAccessBlockInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::DeletePublicAccessBlock.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -2715,15 +2804,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :delete_public_access_block,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_public_access_block] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_public_access_block] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::DeletePublicAccessBlock.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_public_access_block] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#delete_public_access_block] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_public_access_block] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#delete_public_access_block] #{output.data}")
-      output
     end
 
     # <note>
@@ -2776,6 +2868,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetBucketAccelerateConfigurationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetBucketAccelerateConfiguration.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -2783,15 +2876,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_bucket_accelerate_configuration,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_accelerate_configuration] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_accelerate_configuration] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetBucketAccelerateConfiguration.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_accelerate_configuration] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_accelerate_configuration] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_accelerate_configuration] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_accelerate_configuration] #{output.data}")
-      output
     end
 
     # <note>
@@ -2853,6 +2949,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetBucketAclInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetBucketAcl.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -2860,15 +2957,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_bucket_acl,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_acl] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_acl] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetBucketAcl.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_acl] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_acl] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_acl] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_acl] #{output.data}")
-      output
     end
 
     # <note>
@@ -2941,6 +3041,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetBucketAnalyticsConfigurationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetBucketAnalyticsConfiguration.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -2948,15 +3049,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_bucket_analytics_configuration,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_analytics_configuration] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_analytics_configuration] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetBucketAnalyticsConfiguration.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_analytics_configuration] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_analytics_configuration] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_analytics_configuration] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_analytics_configuration] #{output.data}")
-      output
     end
 
     # <note>
@@ -3040,6 +3144,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetBucketCorsInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetBucketCors.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -3047,15 +3152,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_bucket_cors,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_cors] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_cors] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetBucketCors.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_cors] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_cors] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_cors] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_cors] #{output.data}")
-      output
     end
 
     # <note>
@@ -3108,6 +3216,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetBucketEncryptionInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetBucketEncryption.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -3115,15 +3224,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_bucket_encryption,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_encryption] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_encryption] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetBucketEncryption.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_encryption] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_encryption] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_encryption] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_encryption] #{output.data}")
-      output
     end
 
     # <note>
@@ -3184,6 +3296,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetBucketIntelligentTieringConfigurationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetBucketIntelligentTieringConfiguration.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -3191,15 +3304,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_bucket_intelligent_tiering_configuration,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_intelligent_tiering_configuration] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_intelligent_tiering_configuration] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetBucketIntelligentTieringConfiguration.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_intelligent_tiering_configuration] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_intelligent_tiering_configuration] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_intelligent_tiering_configuration] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_intelligent_tiering_configuration] #{output.data}")
-      output
     end
 
     # <note>
@@ -3271,6 +3387,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetBucketInventoryConfigurationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetBucketInventoryConfiguration.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -3278,15 +3395,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_bucket_inventory_configuration,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_inventory_configuration] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_inventory_configuration] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetBucketInventoryConfiguration.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_inventory_configuration] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_inventory_configuration] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_inventory_configuration] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_inventory_configuration] #{output.data}")
-      output
     end
 
     # <note>
@@ -3422,6 +3542,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetBucketLifecycleConfigurationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetBucketLifecycleConfiguration.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -3429,15 +3550,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_bucket_lifecycle_configuration,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_lifecycle_configuration] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_lifecycle_configuration] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetBucketLifecycleConfiguration.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_lifecycle_configuration] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_lifecycle_configuration] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_lifecycle_configuration] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_lifecycle_configuration] #{output.data}")
-      output
     end
 
     # <note>
@@ -3498,6 +3622,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetBucketLocationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetBucketLocation.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -3505,15 +3630,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_bucket_location,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_location] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_location] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetBucketLocation.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_location] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_location] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_location] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_location] #{output.data}")
-      output
     end
 
     # <note>
@@ -3568,6 +3696,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetBucketLoggingInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetBucketLogging.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -3575,15 +3704,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_bucket_logging,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_logging] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_logging] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetBucketLogging.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_logging] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_logging] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_logging] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_logging] #{output.data}")
-      output
     end
 
     # <note>
@@ -3653,6 +3785,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetBucketMetricsConfigurationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetBucketMetricsConfiguration.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -3660,15 +3793,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_bucket_metrics_configuration,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_metrics_configuration] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_metrics_configuration] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetBucketMetricsConfiguration.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_metrics_configuration] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_metrics_configuration] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_metrics_configuration] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_metrics_configuration] #{output.data}")
-      output
     end
 
     # <note>
@@ -3740,6 +3876,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetBucketNotificationConfigurationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetBucketNotificationConfiguration.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -3747,15 +3884,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_bucket_notification_configuration,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_notification_configuration] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_notification_configuration] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetBucketNotificationConfiguration.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_notification_configuration] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_notification_configuration] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_notification_configuration] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_notification_configuration] #{output.data}")
-      output
     end
 
     # <note>
@@ -3802,6 +3942,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetBucketOwnershipControlsInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetBucketOwnershipControls.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -3809,15 +3950,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_bucket_ownership_controls,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_ownership_controls] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_ownership_controls] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetBucketOwnershipControls.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_ownership_controls] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_ownership_controls] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_ownership_controls] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_ownership_controls] #{output.data}")
-      output
     end
 
     # <p>Returns the policy of a specified bucket.</p>
@@ -3911,6 +4055,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetBucketPolicyInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetBucketPolicy.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -3918,15 +4063,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_bucket_policy,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_policy] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_policy] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetBucketPolicy.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_policy] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_policy] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_policy] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_policy] #{output.data}")
-      output
     end
 
     # <note>
@@ -3981,6 +4129,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetBucketPolicyStatusInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetBucketPolicyStatus.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -3988,15 +4137,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_bucket_policy_status,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_policy_status] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_policy_status] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetBucketPolicyStatus.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_policy_status] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_policy_status] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_policy_status] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_policy_status] #{output.data}")
-      output
     end
 
     # <note>
@@ -4112,6 +4264,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetBucketReplicationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetBucketReplication.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -4119,15 +4272,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_bucket_replication,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_replication] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_replication] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetBucketReplication.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_replication] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_replication] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_replication] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_replication] #{output.data}")
-      output
     end
 
     # <note>
@@ -4173,6 +4329,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetBucketRequestPaymentInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetBucketRequestPayment.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -4180,15 +4337,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_bucket_request_payment,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_request_payment] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_request_payment] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetBucketRequestPayment.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_request_payment] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_request_payment] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_request_payment] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_request_payment] #{output.data}")
-      output
     end
 
     # <note>
@@ -4265,6 +4425,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetBucketTaggingInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetBucketTagging.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -4272,15 +4433,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_bucket_tagging,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_tagging] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_tagging] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetBucketTagging.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_tagging] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_tagging] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_tagging] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_tagging] #{output.data}")
-      output
     end
 
     # <note>
@@ -4340,6 +4504,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetBucketVersioningInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetBucketVersioning.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -4347,15 +4512,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_bucket_versioning,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_versioning] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_versioning] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetBucketVersioning.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_versioning] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_versioning] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_versioning] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_versioning] #{output.data}")
-      output
     end
 
     # <note>
@@ -4432,6 +4600,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetBucketWebsiteInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetBucketWebsite.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -4439,15 +4608,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_bucket_website,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_website] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_website] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetBucketWebsite.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_website] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_bucket_website] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_website] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_bucket_website] #{output.data}")
-      output
     end
 
     # <p>Retrieves an object from Amazon S3.</p>
@@ -4674,6 +4846,7 @@ module AWS::SDK::S3
       response_body = output_stream(options, &block)
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetObjectInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetObject.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -4681,15 +4854,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_object,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_object] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetObject.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_object] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object] #{output.data}")
-      output
     end
 
     # <note>
@@ -4816,6 +4992,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetObjectAclInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetObjectAcl.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -4823,15 +5000,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_object_acl,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_acl] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_object_acl] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetObjectAcl.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_acl] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_object_acl] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_acl] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_acl] #{output.data}")
-      output
     end
 
     # <p>Retrieves all the metadata from an object without returning the object itself. This
@@ -5076,6 +5256,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetObjectAttributesInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetObjectAttributes.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -5083,15 +5264,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_object_attributes,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_attributes] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_object_attributes] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetObjectAttributes.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_attributes] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_object_attributes] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_attributes] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_attributes] #{output.data}")
-      output
     end
 
     # <note>
@@ -5131,6 +5315,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetObjectLegalHoldInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetObjectLegalHold.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -5138,15 +5323,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_object_legal_hold,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_legal_hold] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_object_legal_hold] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetObjectLegalHold.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_legal_hold] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_object_legal_hold] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_legal_hold] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_legal_hold] #{output.data}")
-      output
     end
 
     # <note>
@@ -5188,6 +5376,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetObjectLockConfigurationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetObjectLockConfiguration.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -5195,15 +5384,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_object_lock_configuration,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_lock_configuration] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_object_lock_configuration] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetObjectLockConfiguration.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_lock_configuration] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_object_lock_configuration] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_lock_configuration] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_lock_configuration] #{output.data}")
-      output
     end
 
     # <note>
@@ -5244,6 +5436,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetObjectRetentionInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetObjectRetention.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -5251,15 +5444,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_object_retention,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_retention] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_object_retention] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetObjectRetention.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_retention] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_object_retention] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_retention] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_retention] #{output.data}")
-      output
     end
 
     # <note>
@@ -5359,6 +5555,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetObjectTaggingInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetObjectTagging.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -5366,15 +5563,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_object_tagging,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_tagging] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_object_tagging] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetObjectTagging.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_tagging] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_object_tagging] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_tagging] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_tagging] #{output.data}")
-      output
     end
 
     # <note>
@@ -5428,6 +5628,7 @@ module AWS::SDK::S3
       response_body = output_stream(options, &block)
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetObjectTorrentInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetObjectTorrent.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -5435,15 +5636,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_object_torrent,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_torrent] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_object_torrent] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetObjectTorrent.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_torrent] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_object_torrent] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_torrent] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_object_torrent] #{output.data}")
-      output
     end
 
     # <note>
@@ -5509,6 +5713,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::GetPublicAccessBlockInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::GetPublicAccessBlock.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -5516,15 +5721,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :get_public_access_block,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_public_access_block] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_public_access_block] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::GetPublicAccessBlock.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_public_access_block] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#get_public_access_block] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_public_access_block] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#get_public_access_block] #{output.data}")
-      output
     end
 
     # <p>You can use this operation to determine if a bucket exists and if you have permission to access it. The action returns a <code>200 OK</code> if the bucket exists and you have permission
@@ -5607,6 +5815,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::HeadBucketInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::HeadBucket.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -5614,15 +5823,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :head_bucket,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#head_bucket] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#head_bucket] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::HeadBucket.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#head_bucket] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#head_bucket] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#head_bucket] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#head_bucket] #{output.data}")
-      output
     end
 
     # <p>The <code>HEAD</code> operation retrieves metadata from an object without returning the
@@ -5826,6 +6038,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::HeadObjectInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::HeadObject.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -5833,15 +6046,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :head_object,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#head_object] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#head_object] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::HeadObject.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#head_object] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#head_object] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#head_object] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#head_object] #{output.data}")
-      output
     end
 
     # <note>
@@ -5925,6 +6141,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::ListBucketAnalyticsConfigurationsInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::ListBucketAnalyticsConfigurations.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -5932,15 +6149,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :list_bucket_analytics_configurations,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_bucket_analytics_configurations] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_bucket_analytics_configurations] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::ListBucketAnalyticsConfigurations.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_bucket_analytics_configurations] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_bucket_analytics_configurations] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_bucket_analytics_configurations] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_bucket_analytics_configurations] #{output.data}")
-      output
     end
 
     # <note>
@@ -6005,6 +6225,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::ListBucketIntelligentTieringConfigurationsInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::ListBucketIntelligentTieringConfigurations.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -6012,15 +6233,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :list_bucket_intelligent_tiering_configurations,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_bucket_intelligent_tiering_configurations] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_bucket_intelligent_tiering_configurations] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::ListBucketIntelligentTieringConfigurations.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_bucket_intelligent_tiering_configurations] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_bucket_intelligent_tiering_configurations] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_bucket_intelligent_tiering_configurations] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_bucket_intelligent_tiering_configurations] #{output.data}")
-      output
     end
 
     # <note>
@@ -6104,6 +6328,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::ListBucketInventoryConfigurationsInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::ListBucketInventoryConfigurations.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -6111,15 +6336,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :list_bucket_inventory_configurations,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_bucket_inventory_configurations] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_bucket_inventory_configurations] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::ListBucketInventoryConfigurations.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_bucket_inventory_configurations] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_bucket_inventory_configurations] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_bucket_inventory_configurations] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_bucket_inventory_configurations] #{output.data}")
-      output
     end
 
     # <note>
@@ -6196,6 +6424,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::ListBucketMetricsConfigurationsInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::ListBucketMetricsConfigurations.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -6203,15 +6432,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :list_bucket_metrics_configurations,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_bucket_metrics_configurations] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_bucket_metrics_configurations] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::ListBucketMetricsConfigurations.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_bucket_metrics_configurations] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_bucket_metrics_configurations] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_bucket_metrics_configurations] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_bucket_metrics_configurations] #{output.data}")
-      output
     end
 
     # <note>
@@ -6267,6 +6499,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::ListBucketsInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::ListBuckets.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -6274,15 +6507,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :list_buckets,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_buckets] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_buckets] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::ListBuckets.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_buckets] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_buckets] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_buckets] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_buckets] #{output.data}")
-      output
     end
 
     # <p>Returns a list of all Amazon S3 directory buckets owned by the authenticated sender of the request. For more information about directory buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-overview.html">Directory buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -6327,6 +6563,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::ListDirectoryBucketsInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::ListDirectoryBuckets.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -6334,15 +6571,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :list_directory_buckets,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_directory_buckets] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_directory_buckets] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::ListDirectoryBuckets.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_directory_buckets] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_directory_buckets] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_directory_buckets] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_directory_buckets] #{output.data}")
-      output
     end
 
     # <p>This operation lists in-progress multipart uploads in a bucket. An in-progress multipart upload is a
@@ -6550,6 +6790,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::ListMultipartUploadsInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::ListMultipartUploads.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -6557,15 +6798,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :list_multipart_uploads,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_multipart_uploads] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_multipart_uploads] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::ListMultipartUploads.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_multipart_uploads] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_multipart_uploads] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_multipart_uploads] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_multipart_uploads] #{output.data}")
-      output
     end
 
     # <note>
@@ -6711,6 +6955,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::ListObjectVersionsInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::ListObjectVersions.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -6718,15 +6963,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :list_object_versions,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_object_versions] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_object_versions] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::ListObjectVersions.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_object_versions] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_object_versions] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_object_versions] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_object_versions] #{output.data}")
-      output
     end
 
     # <note>
@@ -6822,6 +7070,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::ListObjectsInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::ListObjects.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -6829,15 +7078,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :list_objects,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_objects] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_objects] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::ListObjects.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_objects] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_objects] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_objects] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_objects] #{output.data}")
-      output
     end
 
     # <p>Returns some or all (up to 1,000) of the objects in a bucket with each request. You can
@@ -6977,6 +7229,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::ListObjectsV2Input.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::ListObjectsV2.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -6984,15 +7237,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :list_objects_v2,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_objects_v2] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_objects_v2] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::ListObjectsV2.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_objects_v2] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_objects_v2] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_objects_v2] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_objects_v2] #{output.data}")
-      output
     end
 
     # <p>Lists the parts that have been uploaded for a specific multipart upload.</p>
@@ -7131,6 +7387,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::ListPartsInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::ListParts.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -7138,15 +7395,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :list_parts,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_parts] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_parts] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::ListParts.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_parts] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#list_parts] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_parts] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#list_parts] #{output.data}")
-      output
     end
 
     # <note>
@@ -7213,6 +7473,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutBucketAccelerateConfigurationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutBucketAccelerateConfiguration.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -7220,15 +7481,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_bucket_accelerate_configuration,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_accelerate_configuration] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_accelerate_configuration] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::PutBucketAccelerateConfiguration.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_accelerate_configuration] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_accelerate_configuration] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_accelerate_configuration] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_accelerate_configuration] #{output.data}")
-      output
     end
 
     # <note>
@@ -7486,6 +7750,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutBucketAclInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutBucketAcl.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -7493,15 +7758,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_bucket_acl,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_acl] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_acl] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::PutBucketAcl.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_acl] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_acl] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_acl] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_acl] #{output.data}")
-      output
     end
 
     # <note>
@@ -7656,6 +7924,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutBucketAnalyticsConfigurationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutBucketAnalyticsConfiguration.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -7663,15 +7932,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_bucket_analytics_configuration,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_analytics_configuration] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_analytics_configuration] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::PutBucketAnalyticsConfiguration.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_analytics_configuration] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_analytics_configuration] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_analytics_configuration] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_analytics_configuration] #{output.data}")
-      output
     end
 
     # <note>
@@ -7813,6 +8085,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutBucketCorsInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutBucketCors.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -7820,15 +8093,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_bucket_cors,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_cors] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_cors] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::PutBucketCors.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_cors] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_cors] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_cors] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_cors] #{output.data}")
-      output
     end
 
     # <note>
@@ -7896,6 +8172,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutBucketEncryptionInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutBucketEncryption.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -7903,15 +8180,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_bucket_encryption,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_encryption] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_encryption] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::PutBucketEncryption.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_encryption] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_encryption] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_encryption] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_encryption] #{output.data}")
-      output
     end
 
     # <note>
@@ -8010,6 +8290,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutBucketIntelligentTieringConfigurationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutBucketIntelligentTieringConfiguration.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -8017,15 +8298,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_bucket_intelligent_tiering_configuration,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_intelligent_tiering_configuration] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_intelligent_tiering_configuration] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::PutBucketIntelligentTieringConfiguration.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_intelligent_tiering_configuration] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_intelligent_tiering_configuration] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_intelligent_tiering_configuration] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_intelligent_tiering_configuration] #{output.data}")
-      output
     end
 
     # <note>
@@ -8162,6 +8446,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutBucketInventoryConfigurationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutBucketInventoryConfiguration.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -8169,15 +8454,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_bucket_inventory_configuration,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_inventory_configuration] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_inventory_configuration] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::PutBucketInventoryConfiguration.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_inventory_configuration] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_inventory_configuration] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_inventory_configuration] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_inventory_configuration] #{output.data}")
-      output
     end
 
     # <note>
@@ -8374,6 +8662,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutBucketLifecycleConfigurationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutBucketLifecycleConfiguration.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -8381,15 +8670,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_bucket_lifecycle_configuration,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_lifecycle_configuration] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_lifecycle_configuration] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::PutBucketLifecycleConfiguration.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_lifecycle_configuration] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_lifecycle_configuration] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_lifecycle_configuration] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_lifecycle_configuration] #{output.data}")
-      output
     end
 
     # <note>
@@ -8547,6 +8839,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutBucketLoggingInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutBucketLogging.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -8554,15 +8847,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_bucket_logging,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_logging] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_logging] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::PutBucketLogging.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_logging] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_logging] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_logging] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_logging] #{output.data}")
-      output
     end
 
     # <note>
@@ -8650,6 +8946,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutBucketMetricsConfigurationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutBucketMetricsConfiguration.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -8657,15 +8954,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_bucket_metrics_configuration,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_metrics_configuration] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_metrics_configuration] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::PutBucketMetricsConfiguration.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_metrics_configuration] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_metrics_configuration] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_metrics_configuration] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_metrics_configuration] #{output.data}")
-      output
     end
 
     # <note>
@@ -8794,6 +9094,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutBucketNotificationConfigurationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutBucketNotificationConfiguration.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -8801,15 +9102,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_bucket_notification_configuration,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_notification_configuration] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_notification_configuration] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::PutBucketNotificationConfiguration.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_notification_configuration] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_notification_configuration] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_notification_configuration] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_notification_configuration] #{output.data}")
-      output
     end
 
     # <note>
@@ -8860,6 +9164,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutBucketOwnershipControlsInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutBucketOwnershipControls.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -8867,15 +9172,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_bucket_ownership_controls,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_ownership_controls] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_ownership_controls] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::PutBucketOwnershipControls.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_ownership_controls] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_ownership_controls] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_ownership_controls] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_ownership_controls] #{output.data}")
-      output
     end
 
     # <p>Applies an Amazon S3 bucket policy to an Amazon S3 bucket.</p>
@@ -8976,6 +9284,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutBucketPolicyInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutBucketPolicy.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -8983,15 +9292,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_bucket_policy,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_policy] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_policy] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::PutBucketPolicy.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_policy] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_policy] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_policy] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_policy] #{output.data}")
-      output
     end
 
     # <note>
@@ -9166,6 +9478,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutBucketReplicationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutBucketReplication.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -9173,15 +9486,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_bucket_replication,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_replication] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_replication] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::PutBucketReplication.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_replication] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_replication] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_replication] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_replication] #{output.data}")
-      output
     end
 
     # <note>
@@ -9239,6 +9555,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutBucketRequestPaymentInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutBucketRequestPayment.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -9246,15 +9563,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_bucket_request_payment,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_request_payment] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_request_payment] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::PutBucketRequestPayment.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_request_payment] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_request_payment] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_request_payment] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_request_payment] #{output.data}")
-      output
     end
 
     # <note>
@@ -9366,6 +9686,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutBucketTaggingInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutBucketTagging.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -9373,15 +9694,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_bucket_tagging,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_tagging] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_tagging] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::PutBucketTagging.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_tagging] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_tagging] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_tagging] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_tagging] #{output.data}")
-      output
     end
 
     # <note>
@@ -9465,6 +9789,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutBucketVersioningInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutBucketVersioning.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -9472,15 +9797,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_bucket_versioning,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_versioning] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_versioning] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::PutBucketVersioning.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_versioning] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_versioning] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_versioning] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_versioning] #{output.data}")
-      output
     end
 
     # <note>
@@ -9673,6 +10001,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutBucketWebsiteInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutBucketWebsite.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -9680,15 +10009,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_bucket_website,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_website] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_website] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::PutBucketWebsite.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_website] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_bucket_website] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_website] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_bucket_website] #{output.data}")
-      output
     end
 
     # <p>Adds an object to a bucket.</p>
@@ -9991,6 +10323,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutObjectInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutObject.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -9998,15 +10331,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_object,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_object] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::PutObject.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_object] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object] #{output.data}")
-      output
     end
 
     # <note>
@@ -10258,6 +10594,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutObjectAclInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutObjectAcl.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -10265,15 +10602,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_object_acl,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_acl] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_object_acl] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::PutObjectAcl.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_acl] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_object_acl] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_acl] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_acl] #{output.data}")
-      output
     end
 
     # <note>
@@ -10310,6 +10650,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutObjectLegalHoldInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutObjectLegalHold.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -10317,15 +10658,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_object_legal_hold,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_legal_hold] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_object_legal_hold] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::PutObjectLegalHold.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_legal_hold] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_object_legal_hold] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_legal_hold] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_legal_hold] #{output.data}")
-      output
     end
 
     # <note>
@@ -10385,6 +10729,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutObjectLockConfigurationInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutObjectLockConfiguration.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -10392,15 +10737,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_object_lock_configuration,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_lock_configuration] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_object_lock_configuration] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::PutObjectLockConfiguration.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_lock_configuration] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_object_lock_configuration] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_lock_configuration] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_lock_configuration] #{output.data}")
-      output
     end
 
     # <note>
@@ -10440,6 +10788,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutObjectRetentionInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutObjectRetention.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -10447,15 +10796,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_object_retention,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_retention] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_object_retention] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::PutObjectRetention.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_retention] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_object_retention] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_retention] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_retention] #{output.data}")
-      output
     end
 
     # <note>
@@ -10569,6 +10921,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutObjectTaggingInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutObjectTagging.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -10576,15 +10929,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_object_tagging,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_tagging] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_object_tagging] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::PutObjectTagging.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_tagging] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_object_tagging] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_tagging] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_object_tagging] #{output.data}")
-      output
     end
 
     # <note>
@@ -10653,6 +11009,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::PutPublicAccessBlockInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::PutPublicAccessBlock.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -10660,15 +11017,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :put_public_access_block,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_public_access_block] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_public_access_block] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::PutPublicAccessBlock.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_public_access_block] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#put_public_access_block] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_public_access_block] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#put_public_access_block] #{output.data}")
-      output
     end
 
     # <note>
@@ -11055,6 +11415,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::RestoreObjectInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::RestoreObject.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -11062,15 +11423,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :restore_object,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#restore_object] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#restore_object] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::RestoreObject.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#restore_object] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#restore_object] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#restore_object] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#restore_object] #{output.data}")
-      output
     end
 
     # <note>
@@ -11487,6 +11851,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::UploadPartInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::UploadPart.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -11494,15 +11859,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :upload_part,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#upload_part] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#upload_part] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::UploadPart.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#upload_part] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#upload_part] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#upload_part] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#upload_part] #{output.data}")
-      output
     end
 
     # <p>Uploads a part by copying data from an existing object as data source. To specify the
@@ -11732,6 +12100,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::UploadPartCopyInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::UploadPartCopy.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -11739,15 +12108,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :upload_part_copy,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#upload_part_copy] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#upload_part_copy] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::UploadPartCopy.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#upload_part_copy] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#upload_part_copy] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#upload_part_copy] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#upload_part_copy] #{output.data}")
-      output
     end
 
     # <note>
@@ -11845,6 +12217,7 @@ module AWS::SDK::S3
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.s3.client')
       input = Params::WriteGetObjectResponseInput.build(params, context: 'params')
       stack = AWS::SDK::S3::Middleware::WriteGetObjectResponse.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -11852,15 +12225,18 @@ module AWS::SDK::S3
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :write_get_object_response,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#write_get_object_response] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#write_get_object_response] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::WriteGetObjectResponse.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#write_get_object_response] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#write_get_object_response] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#write_get_object_response] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#write_get_object_response] #{output.data}")
-      output
     end
   end
 end

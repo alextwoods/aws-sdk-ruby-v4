@@ -136,6 +136,7 @@ module AWS::SDK::SSOOIDC
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ssooidc.client')
       input = Params::CreateTokenInput.build(params, context: 'params')
       stack = AWS::SDK::SSOOIDC::Middleware::CreateToken.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -143,15 +144,18 @@ module AWS::SDK::SSOOIDC
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :create_token,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_token] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#create_token] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::CreateToken.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_token] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#create_token] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_token] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_token] #{output.data}")
-      output
     end
 
     # <p>Creates and returns access and refresh tokens for clients and applications that are
@@ -289,6 +293,7 @@ module AWS::SDK::SSOOIDC
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ssooidc.client')
       input = Params::CreateTokenWithIAMInput.build(params, context: 'params')
       stack = AWS::SDK::SSOOIDC::Middleware::CreateTokenWithIAM.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -296,15 +301,18 @@ module AWS::SDK::SSOOIDC
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :create_token_with_iam,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_token_with_iam] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#create_token_with_iam] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::CreateTokenWithIAM.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_token_with_iam] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#create_token_with_iam] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_token_with_iam] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#create_token_with_iam] #{output.data}")
-      output
     end
 
     # <p>Registers a client with IAM Identity Center. This allows clients to initiate device authorization.
@@ -371,6 +379,7 @@ module AWS::SDK::SSOOIDC
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ssooidc.client')
       input = Params::RegisterClientInput.build(params, context: 'params')
       stack = AWS::SDK::SSOOIDC::Middleware::RegisterClient.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -378,15 +387,18 @@ module AWS::SDK::SSOOIDC
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :register_client,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#register_client] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#register_client] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::RegisterClient.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#register_client] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#register_client] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#register_client] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#register_client] #{output.data}")
-      output
     end
 
     # <p>Initiates device authorization by requesting a pair of verification codes from the
@@ -433,6 +445,7 @@ module AWS::SDK::SSOOIDC
       response_body = ::StringIO.new
       middleware_opts = {}
       config = operation_config(options)
+      tracer = config.telemetry_provider.tracer_provider.tracer('aws.sdk.ssooidc.client')
       input = Params::StartDeviceAuthorizationInput.build(params, context: 'params')
       stack = AWS::SDK::SSOOIDC::Middleware::StartDeviceAuthorization.build(config, middleware_opts)
       context = Hearth::Context.new(
@@ -440,15 +453,18 @@ module AWS::SDK::SSOOIDC
         response: Hearth::HTTP::Response.new(body: response_body),
         config: config,
         operation_name: :start_device_authorization,
+        tracer: tracer
       )
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_device_authorization] params: #{params}, options: #{options}")
-      output = stack.run(input, context)
-      if output.error
-        context.config.logger.error("[#{context.invocation_id}] [#{self.class}#start_device_authorization] #{output.error} (#{output.error.class})")
-        raise output.error
+      Telemetry::StartDeviceAuthorization.in_span(context) do
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_device_authorization] params: #{params}, options: #{options}")
+        output = stack.run(input, context)
+        if output.error
+          context.config.logger.error("[#{context.invocation_id}] [#{self.class}#start_device_authorization] #{output.error} (#{output.error.class})")
+          raise output.error
+        end
+        context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_device_authorization] #{output.data}")
+        output
       end
-      context.config.logger.info("[#{context.invocation_id}] [#{self.class}#start_device_authorization] #{output.data}")
-      output
     end
   end
 end
