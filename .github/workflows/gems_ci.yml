@@ -27,7 +27,7 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby }}
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - uses: actions/cache@v2
         with:
@@ -71,7 +71,7 @@ jobs:
           ruby-version: ${{ env.ruby_version }}
           bundler-cache: true
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Install gems
         run: bundle install

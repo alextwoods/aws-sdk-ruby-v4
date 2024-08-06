@@ -135,7 +135,7 @@ module AWS::SDK::Core
         }
         JSON
 
-        before(:each) do
+        before do
           allow(client).to receive(:get)
             .with(EC2CredentialsProvider::METADATA_PATH_BASE)
             .and_return(metadata_resp)
