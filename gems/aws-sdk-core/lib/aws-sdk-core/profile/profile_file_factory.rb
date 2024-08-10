@@ -3,9 +3,13 @@
 module AWS::SDK::Core
   # @api private
   class ProfileFileFactory
-    def create
-      parsed_config_file = ProfileFileParser.new(config_file).parse
-      parsed_credentials_file = ProfileFileParser.new(credentials_file).parse
+    def create(config_file_path: nil, credentials_file_path: nil)
+      parsed_config_file = ProfileFileParser.new(
+        config_file(config_file_path)
+      ).parse
+      parsed_credentials_file = ProfileFileParser.new(
+        credentials_file(credentials_file_path)
+      ).parse
 
       config_file = ProfileFileStandardizer.new(
         parsed_config_file,
@@ -21,22 +25,24 @@ module AWS::SDK::Core
 
     private
 
-    def config_file
+    def config_file(path)
       load_file(
+        path,
         'AWS_CONFIG_FILE',
         File.join(Dir.home, '.aws', 'config')
       )
     end
 
-    def credentials_file
+    def credentials_file(path)
       load_file(
+        path,
         'AWS_SHARED_CREDENTIALS_FILE',
         File.join(Dir.home, '.aws', 'credentials')
       )
     end
 
-    def load_file(file_environment_variable, default_file_location)
-      file_location = ENV[file_environment_variable] || default_file_location
+    def load_file(path, env_location, default_location)
+      file_location = path || ENV[env_location] || default_location
 
       # Resolve ~ without using File.expand_path to avoid prepending
       # the current working directory.

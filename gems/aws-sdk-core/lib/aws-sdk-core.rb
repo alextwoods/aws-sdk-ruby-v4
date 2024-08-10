@@ -80,7 +80,6 @@ require_relative 'aws-sdk-core/static_credentials_provider'
 
 # Shared Config
 require_relative 'aws-sdk-core/profile'
-require_relative 'aws-sdk-core/ini_parser'
 require_relative 'aws-sdk-core/shared_config'
 require_relative 'aws-sdk-core/shared_config_provider'
 
