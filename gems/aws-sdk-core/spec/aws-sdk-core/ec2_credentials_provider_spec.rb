@@ -18,12 +18,15 @@ module AWS::SDK::Core
 
       context 'environment does not have ec2 metadata disabled' do
         before do
-          allow(AWS::SDK::Core).to receive(:shared_config)
-            .and_return(shared_config)
+          config_file = Tempfile.create('config')
+          config_file.write(shared_config)
+          config_file.close
+          config = SharedConfig.load(config_path: config_file.path)
+          allow(AWS::SDK::Core).to receive(:shared_config).and_return(config)
         end
 
         let(:shared_config) do
-          IniParser.ini_parse(<<~CONFIG)
+          <<~CONFIG
             [profile default]
             some_key = some_value
 
