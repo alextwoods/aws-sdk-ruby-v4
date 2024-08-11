@@ -10,6 +10,8 @@ module AWS::SDK::Core
 
     attr_reader :profiles
 
+    # TODO: do these belong here? Same for sso-session?
+    #
     # def credentials(profile_name)
     #   return nil unless @profiles.key?(profile_name)
     #
@@ -22,12 +24,15 @@ module AWS::SDK::Core
     #     aws_secret_access_key = properties['aws_secret_access_key']
     #     aws_session_token = properties['aws_session_token']
     #
-    #     raise "'aws_secret_access_key' was not specified in profile: #{profile_name}" unless aws_secret_access_key
+    #     raise "'aws_secret_access_key' was not specified in profile:
+    # #{profile_name}" unless aws_secret_access_key
     #
     #     if aws_session_token
-    #       return SessionCredentials.new(aws_access_key_id.value, aws_secret_access_key.value, aws_session_token.value)
+    #       return SessionCredentials.new(aws_access_key_id.value,
+    # aws_secret_access_key.value, aws_session_token.value)
     #     else
-    #       return BasicCredentials.new(aws_access_key_id.value, aws_secret_access_key.value)
+    #       return BasicCredentials.new(aws_access_key_id.value,
+    # aws_secret_access_key.value)
     #     end
     #   else
     #     return nil
@@ -50,14 +55,16 @@ module AWS::SDK::Core
       aggregate_file = config_file.dup
 
       credentials_file.each do |credentials_profile_name, credentials_profile|
-        if !aggregate_file.key?(credentials_profile_name)
-          aggregate_file[credentials_profile_name] = credentials_profile
-        else
-          puts "Warning: The profile '#{credentials_profile_name}' was found in both the configuration and " \
-               "credentials configuration files. The properties will be merged, using the property in the credentials " \
-               "file if there are duplicates."
+        if aggregate_file.key?(credentials_profile_name)
+          puts "Warning: The profile '#{credentials_profile_name}' was found " \
+               'in both the configuration and credentials configuration ' \
+               'files. The properties will be merged, using the property in ' \
+               'the credentials file if there are duplicates.'
 
-          aggregate_file[credentials_profile_name].update_properties(credentials_profile.properties)
+          aggregate_file[credentials_profile_name]
+            .update_properties(credentials_profile.properties)
+        else
+          aggregate_file[credentials_profile_name] = credentials_profile
         end
       end
 

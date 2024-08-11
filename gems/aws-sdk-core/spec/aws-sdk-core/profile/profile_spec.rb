@@ -7,7 +7,7 @@ module AWS::SDK::Core
     subject { described_class }
 
     context '#profiles' do
-      file = File.join(File.dirname(__FILE__),'profile-tests.json')
+      file = File.join(File.dirname(__FILE__), 'profile-tests.json')
       test_cases = JSON.load_file(file)['testSuites']
 
       def assert_credential_type(credential_type, profile)

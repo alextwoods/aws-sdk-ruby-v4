@@ -15,6 +15,7 @@ module AWS::SDK::Core
 
     private
 
+    # rubocop:disable Metrics
     def standardize_profile_file
       @standardized_file = {}
 
@@ -28,9 +29,11 @@ module AWS::SDK::Core
 
         if @file_type == :config
           if raw_profile_name_has_profile_prefix
-            standardized_profile_name = raw_profile_name['profile'.length..-1].strip
+            standardized_profile_name =
+              raw_profile_name[('profile'.length)..].strip
           elsif raw_profile_name_has_sso_session_prefix
-            standardized_profile_name = raw_profile_name['sso-session'.length..-1].strip
+            standardized_profile_name =
+              raw_profile_name[('sso-session'.length)..].strip
           elsif raw_profile_name == 'default'
             standardized_profile_name = 'default'
           else
@@ -48,8 +51,8 @@ module AWS::SDK::Core
         end
 
         unless ProfileFileUtils.valid_identifier?(standardized_profile_name)
-          puts "Ignoring profile '#{standardized_profile_name}' because it was " \
-               'not alphanumeric with dashes or underscores.'
+          puts "Ignoring profile '#{standardized_profile_name}' because it " \
+               'was not alphanumeric with dashes or underscores.'
           next
         end
 
@@ -57,11 +60,15 @@ module AWS::SDK::Core
         seen_profile_before = @standardized_file.key?(standardized_profile_name)
 
         if @file_type == :config && is_default_profile && seen_profile_before
-          if !raw_profile_name_has_profile_prefix && @default_profile_in_standardized_file_has_profile_prefix
-            puts "Ignoring profile '[default]', because '[profile default]' was found in the same file."
+          if !raw_profile_name_has_profile_prefix &&
+             @default_profile_in_standardized_file_has_profile_prefix
+            puts "Ignoring profile '[default]', because '[profile default]' " \
+                 'was found in the same file.'
             next
-          elsif raw_profile_name_has_profile_prefix && !@default_profile_in_standardized_file_has_profile_prefix
-            puts "Dropping earlier-seen '[default]', because '[profile default]' was found in the same file."
+          elsif raw_profile_name_has_profile_prefix &&
+                !@default_profile_in_standardized_file_has_profile_prefix
+            puts "Dropping earlier-seen '[default]', because " \
+                 "'[profile default]' was found in the same file."
             @standardized_file.delete(standardized_profile_name)
           end
         end
@@ -71,26 +78,33 @@ module AWS::SDK::Core
             @default_profile_in_standardized_file_has_profile_prefix = true
           end
 
-          @standardized_file[standardized_profile_name] = Profile.new(standardized_profile_name)
+          @standardized_file[standardized_profile_name] =
+            Profile.new(standardized_profile_name)
         end
 
-        standardized_properties = standardize_properties(standardized_profile_name, profile_properties)
+        standardized_properties = standardize_properties(
+          standardized_profile_name, profile_properties
+        )
 
-        @standardized_file[standardized_profile_name].update_properties(standardized_properties)
+        @standardized_file[standardized_profile_name]
+          .update_properties(standardized_properties)
       end
     end
+    # rubocop:enable Metrics
 
     def standardize_properties(profile_name, raw_properties)
       standardized_properties = {}
 
       raw_properties.each do |property_name, property_value|
         unless ProfileFileUtils.valid_identifier?(property_name)
-          puts "Ignoring property '#{property_name}' in profile '#{profile_name}' " \
-               'because its name was not alphanumeric with dashes or underscores.'
+          puts "Ignoring property '#{property_name}' in profile " \
+               "'#{profile_name}' because its name was not alphanumeric with " \
+               'dashes or underscores.'
           next
         end
 
-        standardized_properties[property_name] = Profile::Property.new(property_name, property_value).to_h
+        standardized_properties[property_name] =
+          Profile::Property.new(property_name, property_value).to_h
       end
 
       standardized_properties

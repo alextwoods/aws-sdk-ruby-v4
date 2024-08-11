@@ -46,8 +46,8 @@ module AWS::SDK::Core
 
       # Resolve ~ without using File.expand_path to avoid prepending
       # the current working directory.
-      if file_location =~ /^~(\/|#{Regexp.quote(File::SEPARATOR)}).*$/
-        file_location = user_home_directory + file_location[1..-1]
+      if file_location =~ %r{^~(/|#{Regexp.quote(File::SEPARATOR)}).*$}
+        file_location = user_home_directory + file_location[1..]
       end
 
       configuration_file = Pathname.new(file_location)

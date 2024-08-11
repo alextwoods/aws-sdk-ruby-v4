@@ -12,9 +12,12 @@ module AWS::SDK::Core
         end
 
         key = trim_whitespace(line[0...first_equals_location]).downcase
-        raise ArgumentError, "Property did not have a name #{location}" if key.empty?
+        if key.empty?
+          raise ArgumentError,
+                "Property did not have a name #{location}"
+        end
 
-        value = trim_whitespace(line[first_equals_location + 1..-1])
+        value = trim_whitespace(line[first_equals_location + 1..])
         [key, value]
       end
 

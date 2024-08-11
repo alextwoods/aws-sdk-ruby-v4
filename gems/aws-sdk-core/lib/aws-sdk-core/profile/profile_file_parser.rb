@@ -35,11 +35,13 @@ module AWS::SDK::Core
 
     def read_profile_line(line)
       line_without_comments = remove_trailing_comments(line, %w[# ;])
-      line_without_whitespace = ProfileFileUtils.trim_whitespace(line_without_comments)
+      line_without_whitespace =
+        ProfileFileUtils.trim_whitespace(line_without_comments)
 
       unless line_without_whitespace[-1] == ']'
         raise ArgumentError,
-              "Profile definition must end with ']' on line #{@current_line_number}"
+              "Profile definition must end with ']' " \
+              "on line #{@current_line_number}"
       end
 
       line_without_brackets = line_without_whitespace[1..-2]
@@ -53,14 +55,20 @@ module AWS::SDK::Core
     def read_property_definition_line(line)
       unless @current_profile
         raise ArgumentError,
-              "Expected a profile definition, found property on line #{@current_line_number}"
+              'Expected a profile definition, found property ' \
+              "on line #{@current_line_number}"
       end
 
-      line_without_comments = remove_trailing_comments(line, [' #', ' ;', "\t#", "\t;"])
-      line_without_whitespace = ProfileFileUtils.trim_whitespace(line_without_comments)
+      line_without_comments = remove_trailing_comments(
+        line,
+        [' #', ' ;', "\t#", "\t;"]
+      )
+      line_without_whitespace =
+        ProfileFileUtils.trim_whitespace(line_without_comments)
 
       key, value = ProfileFileUtils.parse_property_definition_line(
-        line_without_whitespace, "on line #{@current_line_number}"
+        line_without_whitespace,
+        "on line #{@current_line_number}"
       )
       @current_property = key
       @profiles[@current_profile][key] = value
@@ -69,11 +77,13 @@ module AWS::SDK::Core
     def read_property_continuation_line(line)
       unless @current_profile
         raise ArgumentError,
-              "Expected a profile definition, found continuation on line #{@current_line_number}"
+              'Expected a profile definition, found continuation ' \
+              "on line #{@current_line_number}"
       end
       unless @current_property
         raise ArgumentError,
-              "Expected a property definition, found continuation on line #{@current_line_number}"
+              'Expected a property definition, found continuation  ' \
+              "on line #{@current_line_number}"
       end
 
       line = ProfileFileUtils.trim_whitespace(line)

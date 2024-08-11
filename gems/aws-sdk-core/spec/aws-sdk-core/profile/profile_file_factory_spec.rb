@@ -7,7 +7,8 @@ module AWS::SDK::Core
     subject { described_class }
 
     context '#create' do
-      file = File.join(File.dirname(__FILE__),'config-file-location-tests.json')
+      file = File.join(File.dirname(__FILE__),
+                       'config-file-location-tests.json')
       test_cases = JSON.load_file(file)['tests']
 
       # Even for Windows paths, ruby uses /
@@ -59,8 +60,10 @@ module AWS::SDK::Core
           readable_file = double(readable?: true, read: '')
           config_file = normalize_path(test_case['configLocation'])
           credentials_file = normalize_path(test_case['credentialsLocation'])
-          expect(Pathname).to receive(:new).with(config_file).and_return(readable_file)
-          expect(Pathname).to receive(:new).with(credentials_file).and_return(readable_file)
+          expect(Pathname)
+            .to receive(:new).with(config_file).and_return(readable_file)
+          expect(Pathname)
+            .to receive(:new).with(credentials_file).and_return(readable_file)
 
           subject.new.create
         end

@@ -7,7 +7,7 @@ module AWS::SDK::Core
     subject { described_class }
 
     context '#profiles' do
-      file = File.join(File.dirname(__FILE__),'config-file-parser-tests.json')
+      file = File.join(File.dirname(__FILE__), 'config-file-parser-tests.json')
       test_cases = JSON.load_file(file)['tests']
 
       def parse(input)

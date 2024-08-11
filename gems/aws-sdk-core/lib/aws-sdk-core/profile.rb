@@ -20,8 +20,8 @@ module AWS::SDK::Core
     def update_properties(new_values)
       new_values.each do |key, value|
         if @properties.key?(key)
-          puts "Warning: Duplicate property '#{key}' detected in profile #{@name}. "\
-               'One value will be ignored.'
+          puts "Warning: Duplicate property '#{key}' detected in profile " \
+               "#{@name}. One value will be ignored."
         end
         @properties[key] = value
       end
@@ -60,8 +60,8 @@ module AWS::SDK::Core
           next unless ProfileFileUtils.valid_identifier?(left)
 
           if sub_properties.key?(left)
-            puts "Warning: Duplicate sub-property '#{left}' detected in property '#{@name}'. "\
-                 'The later one in the file will be used.'
+            puts "Warning: Duplicate sub-property '#{left}' detected in " \
+                 "property '#{@name}'. The later one in the file will be used."
           end
 
           sub_properties[left] = Property.new(left, right)
