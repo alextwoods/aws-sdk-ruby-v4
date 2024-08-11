@@ -42,10 +42,7 @@ module AWS::SDK::Core
       # @param profile [String] - the profile this sso session is referenced in.
       # @param sso_session_name [String] - name of the sso_session
       def sso_session(cfg, profile, sso_session_name)
-        # aws sso-configure may add quotes around sso session names
-        # with whitespace
-        sso_session = cfg["sso-session #{sso_session_name}"] ||
-                      cfg["sso-session '#{sso_session_name}'"]
+        sso_session = cfg[sso_session_name]
 
         unless sso_session
           raise ArgumentError,

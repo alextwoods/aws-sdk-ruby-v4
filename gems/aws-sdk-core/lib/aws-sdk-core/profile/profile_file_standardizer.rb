@@ -22,10 +22,15 @@ module AWS::SDK::Core
         raw_profile_name_has_profile_prefix =
           raw_profile_name.start_with?('profile ') ||
           raw_profile_name.start_with?("profile\t")
+        raw_profile_name_has_sso_session_prefix =
+          raw_profile_name.start_with?('sso-session ') ||
+          raw_profile_name.start_with?("sso-session\t")
 
         if @file_type == :config
           if raw_profile_name_has_profile_prefix
             standardized_profile_name = raw_profile_name['profile'.length..-1].strip
+          elsif raw_profile_name_has_sso_session_prefix
+            standardized_profile_name = raw_profile_name['sso-session'.length..-1].strip
           elsif raw_profile_name == 'default'
             standardized_profile_name = 'default'
           else
@@ -33,7 +38,12 @@ module AWS::SDK::Core
                  "start with 'profile ' and it was not 'default'."
             next
           end
-        else
+        elsif @file_type == :credentials
+          if raw_profile_name_has_sso_session_prefix
+            puts "Ignoring profile '#{raw_profile_name}' because ' \
+                 'it is only valid in the config file'"
+            next
+          end
           standardized_profile_name = raw_profile_name
         end
 

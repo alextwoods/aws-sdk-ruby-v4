@@ -9,11 +9,7 @@ module AWS::SDK::Core
     let(:cfg) { { profile: 'default' } }
 
     before do
-      config_file = Tempfile.create('config')
-      config_file.write(shared_config)
-      config_file.close
-      config = SharedConfig.load(config_path: config_file.path)
-      allow(AWS::SDK::Core).to receive(:shared_config).and_return(config)
+      mock_shared_config(shared_config)
     end
 
     let(:shared_config) do

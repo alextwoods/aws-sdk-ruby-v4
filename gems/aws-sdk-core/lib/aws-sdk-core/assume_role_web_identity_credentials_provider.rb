@@ -57,7 +57,7 @@ module AWS::SDK::Core
         new(
           web_identity_token_file: ENV['AWS_WEB_IDENTITY_TOKEN_FILE'],
           role_arn: ENV['AWS_ROLE_ARN'],
-          role_session_name: ENV.fetch('AWS_ROLE_SESSION_NAME', nil)
+          role_session_name: ENV['AWS_ROLE_SESSION_NAME']
         )
       end
     end

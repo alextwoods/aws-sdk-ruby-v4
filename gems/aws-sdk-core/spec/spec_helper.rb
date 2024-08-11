@@ -20,6 +20,8 @@ end
 
 # Use in an example block to set the ENV for the duration of a test.
 def mock_env(mock_env = {})
+  allow(ENV).to receive(:[]).and_call_original
+  allow(ENV).to receive(:fetch).and_call_original
   mock_env.each_pair do |k, v|
     allow(ENV).to receive(:[]).with(k).and_return(v)
     allow(ENV).to receive(:fetch).with(k).and_return(v)
@@ -29,8 +31,45 @@ def mock_env(mock_env = {})
   end
 end
 
-## Necessary to run for aws-sdk-core tests on their own
+# Use in a context block to set the shared config for the duration of a test.
+def let_shared_config(config_contents = '', credentials_contents = '')
+  before do
+    mock_shared_config(config_contents, credentials_contents)
+  end
+end
 
+# Use in an example block to set the shared config for the duration of a test.
+def mock_shared_config(config_contents = '', credentials_contents = '')
+  parsed_config = AWS::SDK::Core::ProfileFileParser.new(config_contents).parse
+  parsed_credentials = AWS::SDK::Core::ProfileFileParser.new(
+    credentials_contents
+  ).parse
+
+  config_file = AWS::SDK::Core::ProfileFileStandardizer.new(
+    parsed_config,
+    :config
+  ).standardize
+  credentials_file = AWS::SDK::Core::ProfileFileStandardizer.new(
+    parsed_credentials,
+    :credentials
+  ).standardize
+
+  profiles = AWS::SDK::Core::ProfileFile.new(
+    config_file,
+    credentials_file
+  ).profiles
+  allow(AWS::SDK::Core::SharedConfig).to receive(:load).and_return(profiles)
+end
+
+RSpec.configure do |config|
+  config.before(:each) do
+    # Default all shared config to be empty
+    AWS::SDK::Core.instance_variable_set(:@shared_config, nil)
+    mock_shared_config
+  end
+end
+
+## Necessary to run for aws-sdk-core tests on their own
 # rubocop:disable Lint/MissingSuper
 module AWS::SDK::SSO
   class Client < Hearth::Client
@@ -68,5 +107,4 @@ module Aws
     end
   end
 end
-
 ##

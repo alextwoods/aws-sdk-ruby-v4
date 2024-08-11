@@ -6,11 +6,7 @@ module AWS::SDK::Core
   describe StaticCredentialsProvider do
     describe 'StaticCredentialProvider::PROFILE' do
       before do
-        config_file = Tempfile.create('config')
-        config_file.write(shared_config)
-        config_file.close
-        config = SharedConfig.load(config_path: config_file.path)
-        allow(AWS::SDK::Core).to receive(:shared_config).and_return(config)
+        mock_shared_config(shared_config)
       end
 
       context 'profile has credentials' do
