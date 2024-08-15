@@ -41,7 +41,7 @@ module AWS::SDK::Core
     PROFILE = proc do |cfg|
       next unless AWS::SDK::Core.sso_loaded? && AWS::SDK::Core.sso_oidc_loaded?
 
-      profile_config = AWS::SDK::Core.shared_config[cfg[:profile]]
+      profile_config = AWS::SDK::Core.shared_config.profiles[cfg[:profile]]
       warn_on_legacy_profile(cfg)
 
       if profile_config &&
@@ -49,7 +49,7 @@ module AWS::SDK::Core
          profile_config['sso_account_id'] &&
          profile_config['sso_role_name']
         sso_session_cfg = AWS::SDK::Core::SharedConfig.sso_session(
-          AWS::SDK::Core.shared_config,
+          AWS::SDK::Core.shared_config.sso_sessions,
           cfg[:profile],
           profile_config['sso_session']
         )
@@ -113,7 +113,7 @@ module AWS::SDK::Core
     end
 
     private_class_method def self.warn_on_legacy_profile(cfg)
-      profile_config = AWS::SDK::Core.shared_config[cfg[:profile]]
+      profile_config = AWS::SDK::Core.shared_config.profiles[cfg[:profile]]
       if profile_config &&
          profile_config['sso_start_url'] &&
          cfg[:logger]

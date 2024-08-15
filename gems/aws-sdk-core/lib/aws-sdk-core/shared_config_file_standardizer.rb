@@ -1,0 +1,155 @@
+# frozen_string_literal: true
+
+module AWS::SDK::Core
+  # Converts a raw map of maps into a map of profiles.
+  # @api private
+  class SharedConfigFileStandardizer
+    def initialize(raw_file, file_type)
+      @raw_file = raw_file
+      @file_type = file_type
+    end
+
+    def standardize
+      standardize_profile_file
+      if @file_type == :config
+        [@standardized_profiles, @standardized_sso_sessions]
+      else
+        @standardized_profiles
+      end
+    end
+
+    private
+
+    # rubocop:disable Metrics
+    def standardize_profile_file
+      @standardized_profiles = {}
+      @standardized_sso_sessions = {}
+
+      @raw_file.each do |raw_section_name, section_properties|
+        raw_section_name_has_profile_prefix =
+          raw_section_name.start_with?('profile ') ||
+          raw_section_name.start_with?("profile\t")
+        raw_sso_session_name_has_sso_session_prefix =
+          raw_section_name.start_with?('sso-session ') ||
+          raw_section_name.start_with?("sso-session\t")
+
+        if @file_type == :config
+          if raw_section_name_has_profile_prefix
+            standardized_profile_name =
+              raw_section_name[('profile'.length)..].strip
+          elsif raw_sso_session_name_has_sso_session_prefix
+            standardized_sso_session_name =
+              raw_section_name[('sso-session'.length)..].strip
+          elsif raw_section_name == 'default'
+            standardized_profile_name = 'default'
+          else
+            Kernel.warn(
+              "Ignoring profile '#{raw_section_name}' because it did not " \
+              "start with 'profile ' and it was not 'default'."
+            )
+            next
+          end
+        elsif @file_type == :credentials
+          if raw_sso_session_name_has_sso_session_prefix
+            Kernel.warn(
+              "Ignoring sso-session '#{raw_section_name}' because ' \
+              'it is only valid in the config file'"
+            )
+            next
+          end
+          standardized_profile_name = raw_section_name
+        end
+
+        if standardized_profile_name &&
+           !SharedConfigFileUtils.valid_identifier?(standardized_profile_name)
+          Kernel.warn(
+            "Ignoring profile '#{standardized_profile_name}' because it " \
+            'was not alphanumeric with dashes or underscores.'
+          )
+          next
+        end
+
+        if standardized_sso_session_name &&
+           !SharedConfigFileUtils.valid_identifier?(standardized_sso_session_name)
+          Kernel.warn(
+            "Ignoring sso-session '#{standardized_sso_session_name}' because it " \
+            'was not alphanumeric with dashes or underscores.'
+          )
+        end
+
+        is_default_profile = standardized_profile_name == 'default'
+        seen_profile_before =
+          @standardized_profiles.key?(standardized_profile_name)
+
+        if @file_type == :config && is_default_profile && seen_profile_before
+          if !raw_section_name_has_profile_prefix &&
+             @default_profile_has_profile_prefix
+            Kernel.warn(
+              "Ignoring profile '[default]', because '[profile default]' " \
+              'was found in the same file.'
+            )
+            next
+          elsif raw_section_name_has_profile_prefix &&
+                !@default_profile_has_profile_prefix
+            Kernel.warn(
+              "Dropping earlier-seen '[default]', because " \
+              "'[profile default]' was found in the same file."
+            )
+            @standardized_profiles.delete(standardized_profile_name)
+          end
+        end
+
+        unless @standardized_profiles.key?(standardized_profile_name)
+          if is_default_profile && raw_section_name_has_profile_prefix
+            @default_profile_has_profile_prefix = true
+          end
+
+          @standardized_profiles[standardized_profile_name] =
+            SharedConfigFileSection.new(standardized_profile_name)
+        end
+
+        unless @standardized_sso_sessions.key?(standardized_sso_session_name)
+          @standardized_sso_sessions[standardized_sso_session_name] =
+            SharedConfigFileSection.new(standardized_sso_session_name)
+        end
+
+        if standardized_sso_session_name
+          standardized_properties = standardize_properties(
+            standardized_sso_session_name, section_properties
+          )
+
+          @standardized_sso_sessions[standardized_sso_session_name]
+            .update_properties(standardized_properties)
+        else
+          standardized_properties = standardize_properties(
+            standardized_profile_name, section_properties
+          )
+
+          @standardized_profiles[standardized_profile_name]
+            .update_properties(standardized_properties)
+        end
+      end
+    end
+    # rubocop:enable Metrics
+
+    def standardize_properties(profile_name, raw_properties)
+      standardized_properties = {}
+
+      raw_properties.each do |property_name, property_value|
+        unless SharedConfigFileUtils.valid_identifier?(property_name)
+          Kernel.warn(
+            "Ignoring property '#{property_name}' in profile " \
+            "'#{profile_name}' because its name was not alphanumeric with " \
+            'dashes or underscores.'
+          )
+          next
+        end
+
+        standardized_properties[property_name] =
+          SharedConfigFileSection::Property.new(property_name, property_value)
+      end
+
+      standardized_properties
+    end
+  end
+end

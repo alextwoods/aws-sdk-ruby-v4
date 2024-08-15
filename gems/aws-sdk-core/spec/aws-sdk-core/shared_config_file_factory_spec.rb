@@ -1,10 +1,14 @@
 # frozen_string_literal: true
 
-require_relative '../../spec_helper'
+require_relative '../spec_helper'
 
 module AWS::SDK::Core
-  describe ProfileFileFactory do
+  describe SharedConfigFileFactory do
     subject { described_class }
+
+    before do
+      allow(Kernel).to receive(:warn)
+    end
 
     context '#create' do
       file = File.join(File.dirname(__FILE__),

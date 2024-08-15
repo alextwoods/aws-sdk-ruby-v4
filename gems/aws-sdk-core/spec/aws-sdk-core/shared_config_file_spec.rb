@@ -1,10 +1,14 @@
 # frozen_string_literal: true
 
-require_relative '../../spec_helper'
+require_relative '../spec_helper'
 
 module AWS::SDK::Core
-  describe ProfileFile do
+  describe SharedConfigFile do
     subject { described_class }
+
+    before do
+      allow(Kernel).to receive(:warn)
+    end
 
     context '#profiles' do
       file = File.join(File.dirname(__FILE__), 'config-file-parser-tests.json')
@@ -14,18 +18,22 @@ module AWS::SDK::Core
         test_config_file = input['configFile']
         test_credentials_file = input['credentialsFile']
         if test_config_file
-          config_file = ProfileFileStandardizer.new(
-            ProfileFileParser.new(test_config_file).parse,
+          config_profiles, sso_sessions = SharedConfigFileStandardizer.new(
+            SharedConfigFileParser.new(test_config_file).parse,
             :config
           ).standardize
         end
         if test_credentials_file
-          credentials_file = ProfileFileStandardizer.new(
-            ProfileFileParser.new(test_credentials_file).parse,
+          credentials_profiles = SharedConfigFileStandardizer.new(
+            SharedConfigFileParser.new(test_credentials_file).parse,
             :credentials
           ).standardize
         end
-        subject.new(config_file || {}, credentials_file || {}).profiles
+        subject.new(
+          config_profiles: config_profiles || {},
+          credentials_profiles: credentials_profiles || {},
+          sso_sessions: {} # TODO
+        ).profiles
       end
 
       test_cases.each do |test_case|
@@ -38,7 +46,7 @@ module AWS::SDK::Core
           elsif expected.key?('errorContaining')
             expect { parse(test_case['input']) }
               .to raise_error(
-                ArgumentError, include(expected['errorContaining'])
+                InvalidSharedConfigError, include(expected['errorContaining'])
               )
           end
         end

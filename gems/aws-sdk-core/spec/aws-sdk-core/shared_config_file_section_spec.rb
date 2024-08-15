@@ -1,13 +1,17 @@
 # frozen_string_literal: true
 
-require_relative '../../spec_helper'
+require_relative '../spec_helper'
 
 module AWS::SDK::Core
-  describe Profile do
+  describe SharedConfigFileSection do
     subject { described_class }
 
+    before do
+      allow(Kernel).to receive(:warn)
+    end
+
     context '#profiles' do
-      file = File.join(File.dirname(__FILE__), 'profile-tests.json')
+      file = File.join(File.dirname(__FILE__), 'config-file-section-tests.json')
       test_cases = JSON.load_file(file)['testSuites']
 
       def assert_credential_type(credential_type, profile)
@@ -27,7 +31,7 @@ module AWS::SDK::Core
         context "testSuite: #{i}" do
           profiles = test_case['profiles']
           profiles = profiles.each_with_object({}) do |(profile, values), h|
-            h[profile] = Profile.new(profile, values)
+            h[profile] = SharedConfigFileSection.new(profile, values)
           end
 
           if (region_tests = test_case['regionTests'])

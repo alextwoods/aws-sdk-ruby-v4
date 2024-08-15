@@ -1,16 +1,18 @@
 # frozen_string_literal: true
 
 module AWS::SDK::Core
+  # Represents the configuration and credentials files as a single profile file.
   # @api private
-  class ProfileFile
-    def initialize(config_profiles, credentials_profiles)
-      @profiles = merge_files(config_profiles, credentials_profiles)
-                  .transform_values { |profile| profile.properties.to_h }
+  class SharedConfigFile
+    def initialize(config_profiles:, credentials_profiles:, sso_sessions:)
+      merge_files!(config_profiles, credentials_profiles)
+      @profiles = config_profiles.transform_values { |profile| profile.to_h }
+      @sso_sessions = sso_sessions.transform_values { |sso_session| sso_session.to_h }
     end
 
-    attr_reader :profiles
+    attr_reader :profiles, :sso_sessions
 
-    # TODO: do these belong here? Same for sso-session?
+    # TODO: fill these out
     #
     # def credentials(profile_name)
     #   return nil unless @profiles.key?(profile_name)
@@ -51,24 +53,22 @@ module AWS::SDK::Core
 
     private
 
-    def merge_files(config_file, credentials_file)
-      aggregate_file = config_file.dup
-
+    def merge_files!(config_file, credentials_file)
       credentials_file.each do |credentials_profile_name, credentials_profile|
-        if aggregate_file.key?(credentials_profile_name)
-          puts "Warning: The profile '#{credentials_profile_name}' was found " \
-               'in both the configuration and credentials configuration ' \
-               'files. The properties will be merged, using the property in ' \
-               'the credentials file if there are duplicates.'
+        if config_file.key?(credentials_profile_name)
+          Kernel.warn(
+            "Warning: The profile '#{credentials_profile_name}' was found " \
+            'in both the configuration and credentials configuration ' \
+            'files. The properties will be merged, using the property in ' \
+            'the credentials file if there are duplicates.'
+          )
 
-          aggregate_file[credentials_profile_name]
+          config_file[credentials_profile_name]
             .update_properties(credentials_profile.properties)
         else
-          aggregate_file[credentials_profile_name] = credentials_profile
+          config_file[credentials_profile_name] = credentials_profile
         end
       end
-
-      aggregate_file
     end
   end
 end

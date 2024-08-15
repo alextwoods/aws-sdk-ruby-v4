@@ -1,19 +1,20 @@
 # frozen_string_literal: true
 
 module AWS::SDK::Core
+  # Utilities for parsing a profile file.
   # @api private
-  class ProfileFileUtils
+  class SharedConfigFileUtils
     class << self
       def parse_property_definition_line(line, location)
         first_equals_location = line.index('=')
         if first_equals_location.nil?
-          raise ArgumentError,
+          raise InvalidSharedConfigError,
                 "Expected an '=' sign defining a property #{location}"
         end
 
         key = trim_whitespace(line[0...first_equals_location]).downcase
         if key.empty?
-          raise ArgumentError,
+          raise InvalidSharedConfigError,
                 "Property did not have a name #{location}"
         end
 

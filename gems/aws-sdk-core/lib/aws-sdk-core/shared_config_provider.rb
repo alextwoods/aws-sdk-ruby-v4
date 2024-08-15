@@ -9,7 +9,7 @@ module AWS::SDK::Core
     end
 
     def call(cfg)
-      profile_config = AWS::SDK::Core.shared_config[cfg[:profile]]
+      profile_config = AWS::SDK::Core.shared_config.profiles[cfg[:profile]]
       return unless profile_config && (value = profile_config[@key])
 
       case @type

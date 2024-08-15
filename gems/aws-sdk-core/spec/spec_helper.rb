@@ -40,25 +40,26 @@ end
 
 # Use in an example block to set the shared config for the duration of a test.
 def mock_shared_config(config_contents = '', credentials_contents = '')
-  parsed_config = AWS::SDK::Core::ProfileFileParser.new(config_contents).parse
-  parsed_credentials = AWS::SDK::Core::ProfileFileParser.new(
+  parsed_config = AWS::SDK::Core::SharedConfigFileParser.new(config_contents).parse
+  parsed_credentials = AWS::SDK::Core::SharedConfigFileParser.new(
     credentials_contents
   ).parse
 
-  config_file = AWS::SDK::Core::ProfileFileStandardizer.new(
+  config_profiles, sso_sessions = AWS::SDK::Core::SharedConfigFileStandardizer.new(
     parsed_config,
     :config
   ).standardize
-  credentials_file = AWS::SDK::Core::ProfileFileStandardizer.new(
+  credentials_profiles = AWS::SDK::Core::SharedConfigFileStandardizer.new(
     parsed_credentials,
     :credentials
   ).standardize
 
-  profiles = AWS::SDK::Core::ProfileFile.new(
-    config_file,
-    credentials_file
-  ).profiles
-  allow(AWS::SDK::Core::SharedConfig).to receive(:load).and_return(profiles)
+  config = AWS::SDK::Core::SharedConfigFile.new(
+    config_profiles: config_profiles,
+    credentials_profiles: credentials_profiles,
+    sso_sessions: sso_sessions
+  )
+  allow(AWS::SDK::Core::SharedConfig).to receive(:load).and_return(config)
 end
 
 RSpec.configure do |config|

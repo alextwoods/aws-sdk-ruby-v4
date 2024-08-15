@@ -15,7 +15,7 @@ module AWS::SDK::Core
     # shared config profile.
     # @api private
     PROFILE = proc do |cfg|
-      profile_config = AWS::SDK::Core.shared_config[cfg[:profile]]
+      profile_config = AWS::SDK::Core.shared_config.profiles[cfg[:profile]]
       if profile_config &&
          profile_config['aws_access_key_id'] &&
          profile_config['aws_secret_access_key']
