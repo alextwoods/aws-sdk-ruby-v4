@@ -57,8 +57,10 @@ module AWS::SDK::CodeCatalyst
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::CreateAccessToken,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::ConflictException, Stubs::ResourceNotFoundException, Stubs::ServiceQuotaExceededException, Stubs::ThrottlingException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -110,8 +112,10 @@ module AWS::SDK::CodeCatalyst
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::CreateDevEnvironment,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::ConflictException, Stubs::ResourceNotFoundException, Stubs::ServiceQuotaExceededException, Stubs::ThrottlingException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -163,8 +167,10 @@ module AWS::SDK::CodeCatalyst
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::CreateProject,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::ConflictException, Stubs::ResourceNotFoundException, Stubs::ServiceQuotaExceededException, Stubs::ThrottlingException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -216,8 +222,10 @@ module AWS::SDK::CodeCatalyst
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::CreateSourceRepository,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::ConflictException, Stubs::ResourceNotFoundException, Stubs::ServiceQuotaExceededException, Stubs::ThrottlingException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -269,8 +277,10 @@ module AWS::SDK::CodeCatalyst
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::CreateSourceRepositoryBranch,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::ConflictException, Stubs::ResourceNotFoundException, Stubs::ServiceQuotaExceededException, Stubs::ThrottlingException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -321,8 +331,10 @@ module AWS::SDK::CodeCatalyst
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::DeleteAccessToken,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::ConflictException, Stubs::ResourceNotFoundException, Stubs::ServiceQuotaExceededException, Stubs::ThrottlingException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -373,8 +385,10 @@ module AWS::SDK::CodeCatalyst
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::DeleteDevEnvironment,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::ConflictException, Stubs::ResourceNotFoundException, Stubs::ServiceQuotaExceededException, Stubs::ThrottlingException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -425,8 +439,10 @@ module AWS::SDK::CodeCatalyst
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::DeleteProject,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::ConflictException, Stubs::ResourceNotFoundException, Stubs::ServiceQuotaExceededException, Stubs::ThrottlingException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -477,8 +493,10 @@ module AWS::SDK::CodeCatalyst
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::DeleteSourceRepository,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::ConflictException, Stubs::ResourceNotFoundException, Stubs::ServiceQuotaExceededException, Stubs::ThrottlingException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -529,8 +547,10 @@ module AWS::SDK::CodeCatalyst
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::DeleteSpace,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::ConflictException, Stubs::ResourceNotFoundException, Stubs::ServiceQuotaExceededException, Stubs::ThrottlingException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -581,8 +601,10 @@ module AWS::SDK::CodeCatalyst
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetDevEnvironment,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::ConflictException, Stubs::ResourceNotFoundException, Stubs::ServiceQuotaExceededException, Stubs::ThrottlingException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -633,8 +655,10 @@ module AWS::SDK::CodeCatalyst
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetProject,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::ConflictException, Stubs::ResourceNotFoundException, Stubs::ServiceQuotaExceededException, Stubs::ThrottlingException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -685,8 +709,10 @@ module AWS::SDK::CodeCatalyst
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetSourceRepository,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::ConflictException, Stubs::ResourceNotFoundException, Stubs::ServiceQuotaExceededException, Stubs::ThrottlingException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -737,8 +763,10 @@ module AWS::SDK::CodeCatalyst
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetSourceRepositoryCloneUrls,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::ConflictException, Stubs::ResourceNotFoundException, Stubs::ServiceQuotaExceededException, Stubs::ThrottlingException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -789,8 +817,10 @@ module AWS::SDK::CodeCatalyst
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetSpace,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::ConflictException, Stubs::ResourceNotFoundException, Stubs::ServiceQuotaExceededException, Stubs::ThrottlingException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -841,8 +871,10 @@ module AWS::SDK::CodeCatalyst
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetSubscription,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::ConflictException, Stubs::ResourceNotFoundException, Stubs::ServiceQuotaExceededException, Stubs::ThrottlingException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -893,8 +925,10 @@ module AWS::SDK::CodeCatalyst
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetUserDetails,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::ConflictException, Stubs::ResourceNotFoundException, Stubs::ServiceQuotaExceededException, Stubs::ThrottlingException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -945,8 +979,10 @@ module AWS::SDK::CodeCatalyst
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetWorkflow,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::ConflictException, Stubs::ResourceNotFoundException, Stubs::ServiceQuotaExceededException, Stubs::ThrottlingException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -997,8 +1033,10 @@ module AWS::SDK::CodeCatalyst
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetWorkflowRun,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::ConflictException, Stubs::ResourceNotFoundException, Stubs::ServiceQuotaExceededException, Stubs::ThrottlingException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1050,8 +1088,10 @@ module AWS::SDK::CodeCatalyst
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::ListAccessTokens,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::ConflictException, Stubs::ResourceNotFoundException, Stubs::ServiceQuotaExceededException, Stubs::ThrottlingException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1103,8 +1143,10 @@ module AWS::SDK::CodeCatalyst
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::ListDevEnvironmentSessions,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::ConflictException, Stubs::ResourceNotFoundException, Stubs::ServiceQuotaExceededException, Stubs::ThrottlingException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1156,8 +1198,10 @@ module AWS::SDK::CodeCatalyst
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::ListDevEnvironments,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::ConflictException, Stubs::ResourceNotFoundException, Stubs::ServiceQuotaExceededException, Stubs::ThrottlingException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1209,8 +1253,10 @@ module AWS::SDK::CodeCatalyst
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::ListEventLogs,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::ConflictException, Stubs::ResourceNotFoundException, Stubs::ServiceQuotaExceededException, Stubs::ThrottlingException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1262,8 +1308,10 @@ module AWS::SDK::CodeCatalyst
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::ListProjects,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::ConflictException, Stubs::ResourceNotFoundException, Stubs::ServiceQuotaExceededException, Stubs::ThrottlingException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1315,8 +1363,10 @@ module AWS::SDK::CodeCatalyst
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::ListSourceRepositories,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::ConflictException, Stubs::ResourceNotFoundException, Stubs::ServiceQuotaExceededException, Stubs::ThrottlingException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1368,8 +1418,10 @@ module AWS::SDK::CodeCatalyst
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::ListSourceRepositoryBranches,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::ConflictException, Stubs::ResourceNotFoundException, Stubs::ServiceQuotaExceededException, Stubs::ThrottlingException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1421,8 +1473,10 @@ module AWS::SDK::CodeCatalyst
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::ListSpaces,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::ConflictException, Stubs::ResourceNotFoundException, Stubs::ServiceQuotaExceededException, Stubs::ThrottlingException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1474,8 +1528,10 @@ module AWS::SDK::CodeCatalyst
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::ListWorkflowRuns,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::ConflictException, Stubs::ResourceNotFoundException, Stubs::ServiceQuotaExceededException, Stubs::ThrottlingException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1527,8 +1583,10 @@ module AWS::SDK::CodeCatalyst
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::ListWorkflows,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::ConflictException, Stubs::ResourceNotFoundException, Stubs::ServiceQuotaExceededException, Stubs::ThrottlingException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1580,8 +1638,10 @@ module AWS::SDK::CodeCatalyst
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::StartDevEnvironment,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::ConflictException, Stubs::ResourceNotFoundException, Stubs::ServiceQuotaExceededException, Stubs::ThrottlingException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1633,8 +1693,10 @@ module AWS::SDK::CodeCatalyst
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::StartDevEnvironmentSession,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::ConflictException, Stubs::ResourceNotFoundException, Stubs::ServiceQuotaExceededException, Stubs::ThrottlingException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1686,8 +1748,10 @@ module AWS::SDK::CodeCatalyst
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::StartWorkflowRun,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::ConflictException, Stubs::ResourceNotFoundException, Stubs::ServiceQuotaExceededException, Stubs::ThrottlingException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1738,8 +1802,10 @@ module AWS::SDK::CodeCatalyst
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::StopDevEnvironment,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::ConflictException, Stubs::ResourceNotFoundException, Stubs::ServiceQuotaExceededException, Stubs::ThrottlingException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1790,8 +1856,10 @@ module AWS::SDK::CodeCatalyst
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::StopDevEnvironmentSession,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::ConflictException, Stubs::ResourceNotFoundException, Stubs::ServiceQuotaExceededException, Stubs::ThrottlingException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1843,8 +1911,10 @@ module AWS::SDK::CodeCatalyst
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::UpdateDevEnvironment,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::ConflictException, Stubs::ResourceNotFoundException, Stubs::ServiceQuotaExceededException, Stubs::ThrottlingException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1896,8 +1966,10 @@ module AWS::SDK::CodeCatalyst
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::UpdateProject,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::ConflictException, Stubs::ResourceNotFoundException, Stubs::ServiceQuotaExceededException, Stubs::ThrottlingException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1949,8 +2021,10 @@ module AWS::SDK::CodeCatalyst
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::UpdateSpace,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::ConflictException, Stubs::ResourceNotFoundException, Stubs::ServiceQuotaExceededException, Stubs::ThrottlingException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -2001,8 +2075,10 @@ module AWS::SDK::CodeCatalyst
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::VerifySession,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::ConflictException, Stubs::ResourceNotFoundException, Stubs::ServiceQuotaExceededException, Stubs::ThrottlingException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )

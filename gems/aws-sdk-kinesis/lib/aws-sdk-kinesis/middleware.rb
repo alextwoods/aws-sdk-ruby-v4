@@ -57,8 +57,10 @@ module AWS::SDK::Kinesis
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::AddTagsToStream,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::InvalidArgumentException, Stubs::LimitExceededException, Stubs::ResourceInUseException, Stubs::ResourceNotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -110,8 +112,10 @@ module AWS::SDK::Kinesis
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::CreateStream,
           stub_error_classes: [Stubs::InvalidArgumentException, Stubs::LimitExceededException, Stubs::ResourceInUseException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -163,8 +167,10 @@ module AWS::SDK::Kinesis
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::DecreaseStreamRetentionPeriod,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::InvalidArgumentException, Stubs::LimitExceededException, Stubs::ResourceInUseException, Stubs::ResourceNotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -216,8 +222,10 @@ module AWS::SDK::Kinesis
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::DeleteResourcePolicy,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::InvalidArgumentException, Stubs::LimitExceededException, Stubs::ResourceInUseException, Stubs::ResourceNotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -269,8 +277,10 @@ module AWS::SDK::Kinesis
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::DeleteStream,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::InvalidArgumentException, Stubs::LimitExceededException, Stubs::ResourceInUseException, Stubs::ResourceNotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -322,8 +332,10 @@ module AWS::SDK::Kinesis
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::DeregisterStreamConsumer,
           stub_error_classes: [Stubs::InvalidArgumentException, Stubs::LimitExceededException, Stubs::ResourceNotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -375,8 +387,10 @@ module AWS::SDK::Kinesis
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::DescribeLimits,
           stub_error_classes: [Stubs::LimitExceededException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -428,8 +442,10 @@ module AWS::SDK::Kinesis
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::DescribeStream,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::InvalidArgumentException, Stubs::LimitExceededException, Stubs::ResourceNotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -481,8 +497,10 @@ module AWS::SDK::Kinesis
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::DescribeStreamConsumer,
           stub_error_classes: [Stubs::InvalidArgumentException, Stubs::LimitExceededException, Stubs::ResourceNotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -534,8 +552,10 @@ module AWS::SDK::Kinesis
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::DescribeStreamSummary,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::InvalidArgumentException, Stubs::LimitExceededException, Stubs::ResourceNotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -587,8 +607,10 @@ module AWS::SDK::Kinesis
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::DisableEnhancedMonitoring,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::InvalidArgumentException, Stubs::LimitExceededException, Stubs::ResourceInUseException, Stubs::ResourceNotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -640,8 +662,10 @@ module AWS::SDK::Kinesis
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::EnableEnhancedMonitoring,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::InvalidArgumentException, Stubs::LimitExceededException, Stubs::ResourceInUseException, Stubs::ResourceNotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -693,8 +717,10 @@ module AWS::SDK::Kinesis
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetRecords,
           stub_error_classes: [Stubs::KMSAccessDeniedException, Stubs::KMSDisabledException, Stubs::AccessDeniedException, Stubs::KMSNotFoundException, Stubs::ExpiredIteratorException, Stubs::KMSOptInRequired, Stubs::KMSThrottlingException, Stubs::ProvisionedThroughputExceededException, Stubs::InvalidArgumentException, Stubs::KMSInvalidStateException, Stubs::ResourceNotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -746,8 +772,10 @@ module AWS::SDK::Kinesis
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetResourcePolicy,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::InvalidArgumentException, Stubs::LimitExceededException, Stubs::ResourceNotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -799,8 +827,10 @@ module AWS::SDK::Kinesis
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetShardIterator,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::ProvisionedThroughputExceededException, Stubs::InvalidArgumentException, Stubs::ResourceNotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -852,8 +882,10 @@ module AWS::SDK::Kinesis
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::IncreaseStreamRetentionPeriod,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::InvalidArgumentException, Stubs::LimitExceededException, Stubs::ResourceInUseException, Stubs::ResourceNotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -905,8 +937,10 @@ module AWS::SDK::Kinesis
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::ListShards,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::ExpiredNextTokenException, Stubs::InvalidArgumentException, Stubs::ResourceInUseException, Stubs::LimitExceededException, Stubs::ResourceNotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -958,8 +992,10 @@ module AWS::SDK::Kinesis
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::ListStreamConsumers,
           stub_error_classes: [Stubs::ExpiredNextTokenException, Stubs::InvalidArgumentException, Stubs::ResourceInUseException, Stubs::LimitExceededException, Stubs::ResourceNotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1011,8 +1047,10 @@ module AWS::SDK::Kinesis
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::ListStreams,
           stub_error_classes: [Stubs::ExpiredNextTokenException, Stubs::InvalidArgumentException, Stubs::LimitExceededException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1064,8 +1102,10 @@ module AWS::SDK::Kinesis
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::ListTagsForStream,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::InvalidArgumentException, Stubs::LimitExceededException, Stubs::ResourceNotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1117,8 +1157,10 @@ module AWS::SDK::Kinesis
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::MergeShards,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::InvalidArgumentException, Stubs::LimitExceededException, Stubs::ResourceInUseException, Stubs::ResourceNotFoundException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1170,8 +1212,10 @@ module AWS::SDK::Kinesis
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::PutRecord,
           stub_error_classes: [Stubs::KMSAccessDeniedException, Stubs::KMSDisabledException, Stubs::AccessDeniedException, Stubs::KMSNotFoundException, Stubs::KMSOptInRequired, Stubs::KMSThrottlingException, Stubs::ProvisionedThroughputExceededException, Stubs::InvalidArgumentException, Stubs::KMSInvalidStateException, Stubs::ResourceNotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1223,8 +1267,10 @@ module AWS::SDK::Kinesis
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::PutRecords,
           stub_error_classes: [Stubs::KMSAccessDeniedException, Stubs::KMSDisabledException, Stubs::AccessDeniedException, Stubs::KMSNotFoundException, Stubs::KMSOptInRequired, Stubs::KMSThrottlingException, Stubs::ProvisionedThroughputExceededException, Stubs::InvalidArgumentException, Stubs::KMSInvalidStateException, Stubs::ResourceNotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1276,8 +1322,10 @@ module AWS::SDK::Kinesis
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::PutResourcePolicy,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::InvalidArgumentException, Stubs::LimitExceededException, Stubs::ResourceInUseException, Stubs::ResourceNotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1329,8 +1377,10 @@ module AWS::SDK::Kinesis
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::RegisterStreamConsumer,
           stub_error_classes: [Stubs::InvalidArgumentException, Stubs::ResourceInUseException, Stubs::LimitExceededException, Stubs::ResourceNotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1382,8 +1432,10 @@ module AWS::SDK::Kinesis
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::RemoveTagsFromStream,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::InvalidArgumentException, Stubs::LimitExceededException, Stubs::ResourceInUseException, Stubs::ResourceNotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1435,8 +1487,10 @@ module AWS::SDK::Kinesis
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::SplitShard,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::InvalidArgumentException, Stubs::LimitExceededException, Stubs::ResourceInUseException, Stubs::ResourceNotFoundException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1488,8 +1542,10 @@ module AWS::SDK::Kinesis
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::StartStreamEncryption,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::InvalidArgumentException, Stubs::KMSAccessDeniedException, Stubs::KMSDisabledException, Stubs::KMSInvalidStateException, Stubs::KMSNotFoundException, Stubs::KMSOptInRequired, Stubs::KMSThrottlingException, Stubs::LimitExceededException, Stubs::ResourceInUseException, Stubs::ResourceNotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1541,8 +1597,10 @@ module AWS::SDK::Kinesis
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::StopStreamEncryption,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::InvalidArgumentException, Stubs::LimitExceededException, Stubs::ResourceInUseException, Stubs::ResourceNotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1593,8 +1651,10 @@ module AWS::SDK::Kinesis
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http2_client,
+          event_handler: options[:event_stream_handler],
           stub_data_class: Stubs::SubscribeToShard,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::InvalidArgumentException, Stubs::ResourceInUseException, Stubs::LimitExceededException, Stubs::ResourceNotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1646,8 +1706,10 @@ module AWS::SDK::Kinesis
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::UpdateShardCount,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::ValidationException, Stubs::InvalidArgumentException, Stubs::ResourceInUseException, Stubs::LimitExceededException, Stubs::ResourceNotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1699,8 +1761,10 @@ module AWS::SDK::Kinesis
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::UpdateStreamMode,
           stub_error_classes: [Stubs::InvalidArgumentException, Stubs::LimitExceededException, Stubs::ResourceInUseException, Stubs::ResourceNotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )

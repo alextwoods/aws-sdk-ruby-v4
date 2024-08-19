@@ -58,8 +58,10 @@ module AWS::SDK::SSOOIDC
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::CreateToken,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::AuthorizationPendingException, Stubs::ExpiredTokenException, Stubs::InternalServerException, Stubs::InvalidClientException, Stubs::InvalidGrantException, Stubs::InvalidRequestException, Stubs::InvalidScopeException, Stubs::SlowDownException, Stubs::UnauthorizedClientException, Stubs::UnsupportedGrantTypeException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -112,8 +114,10 @@ module AWS::SDK::SSOOIDC
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::CreateTokenWithIAM,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::AuthorizationPendingException, Stubs::ExpiredTokenException, Stubs::InternalServerException, Stubs::InvalidClientException, Stubs::InvalidGrantException, Stubs::InvalidRequestException, Stubs::InvalidRequestRegionException, Stubs::InvalidScopeException, Stubs::SlowDownException, Stubs::UnauthorizedClientException, Stubs::UnsupportedGrantTypeException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -166,8 +170,10 @@ module AWS::SDK::SSOOIDC
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::RegisterClient,
           stub_error_classes: [Stubs::InternalServerException, Stubs::InvalidClientMetadataException, Stubs::InvalidRedirectUriException, Stubs::InvalidRequestException, Stubs::InvalidScopeException, Stubs::UnsupportedGrantTypeException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -220,8 +226,10 @@ module AWS::SDK::SSOOIDC
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::StartDeviceAuthorization,
           stub_error_classes: [Stubs::InternalServerException, Stubs::InvalidClientException, Stubs::InvalidRequestException, Stubs::SlowDownException, Stubs::UnauthorizedClientException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )

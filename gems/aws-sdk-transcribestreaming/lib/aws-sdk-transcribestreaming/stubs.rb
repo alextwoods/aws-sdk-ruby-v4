@@ -172,41 +172,6 @@ module AWS::SDK::TranscribeStreaming
       end
     end
 
-    class CallAnalyticsTranscriptResultStream
-      def self.default(visited = [])
-        return nil if visited.include?('CallAnalyticsTranscriptResultStream')
-        visited = visited + ['CallAnalyticsTranscriptResultStream']
-        {
-          utterance_event: UtteranceEvent.default(visited),
-        }
-      end
-
-      def self.stub(stub)
-        data = {}
-        case stub
-        when Types::CallAnalyticsTranscriptResultStream::UtteranceEvent
-          data['UtteranceEvent'] = (UtteranceEvent.stub(stub.__getobj__) unless stub.__getobj__.nil?)
-        when Types::CallAnalyticsTranscriptResultStream::CategoryEvent
-          data['CategoryEvent'] = (CategoryEvent.stub(stub.__getobj__) unless stub.__getobj__.nil?)
-        when Types::CallAnalyticsTranscriptResultStream::BadRequestException
-          data['BadRequestException'] = (BadRequestException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
-        when Types::CallAnalyticsTranscriptResultStream::LimitExceededException
-          data['LimitExceededException'] = (LimitExceededException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
-        when Types::CallAnalyticsTranscriptResultStream::InternalFailureException
-          data['InternalFailureException'] = (InternalFailureException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
-        when Types::CallAnalyticsTranscriptResultStream::ConflictException
-          data['ConflictException'] = (ConflictException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
-        when Types::CallAnalyticsTranscriptResultStream::ServiceUnavailableException
-          data['ServiceUnavailableException'] = (ServiceUnavailableException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
-        else
-          raise ArgumentError,
-          "Expected input to be one of the subclasses of Types::CallAnalyticsTranscriptResultStream"
-        end
-
-        data
-      end
-    end
-
     class CategoryEvent
       def self.default(visited = [])
         return nil if visited.include?('CategoryEvent')
@@ -719,39 +684,6 @@ module AWS::SDK::TranscribeStreaming
       end
     end
 
-    class MedicalTranscriptResultStream
-      def self.default(visited = [])
-        return nil if visited.include?('MedicalTranscriptResultStream')
-        visited = visited + ['MedicalTranscriptResultStream']
-        {
-          transcript_event: MedicalTranscriptEvent.default(visited),
-        }
-      end
-
-      def self.stub(stub)
-        data = {}
-        case stub
-        when Types::MedicalTranscriptResultStream::TranscriptEvent
-          data['TranscriptEvent'] = (MedicalTranscriptEvent.stub(stub.__getobj__) unless stub.__getobj__.nil?)
-        when Types::MedicalTranscriptResultStream::BadRequestException
-          data['BadRequestException'] = (BadRequestException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
-        when Types::MedicalTranscriptResultStream::LimitExceededException
-          data['LimitExceededException'] = (LimitExceededException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
-        when Types::MedicalTranscriptResultStream::InternalFailureException
-          data['InternalFailureException'] = (InternalFailureException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
-        when Types::MedicalTranscriptResultStream::ConflictException
-          data['ConflictException'] = (ConflictException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
-        when Types::MedicalTranscriptResultStream::ServiceUnavailableException
-          data['ServiceUnavailableException'] = (ServiceUnavailableException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
-        else
-          raise ArgumentError,
-          "Expected input to be one of the subclasses of Types::MedicalTranscriptResultStream"
-        end
-
-        data
-      end
-    end
-
     class PointsOfInterest
       def self.default(visited = [])
         return nil if visited.include?('PointsOfInterest')
@@ -861,7 +793,6 @@ module AWS::SDK::TranscribeStreaming
           media_encoding: 'media_encoding',
           vocabulary_name: 'vocabulary_name',
           session_id: 'session_id',
-          call_analytics_transcript_result_stream: CallAnalyticsTranscriptResultStream.default(visited),
           vocabulary_filter_name: 'vocabulary_filter_name',
           vocabulary_filter_method: 'vocabulary_filter_method',
           language_model_name: 'language_model_name',
@@ -890,7 +821,53 @@ module AWS::SDK::TranscribeStreaming
         http_resp.headers['x-amzn-transcribe-content-identification-type'] = stub.content_identification_type unless stub.content_identification_type.nil? || stub.content_identification_type.empty?
         http_resp.headers['x-amzn-transcribe-content-redaction-type'] = stub.content_redaction_type unless stub.content_redaction_type.nil? || stub.content_redaction_type.empty?
         http_resp.headers['x-amzn-transcribe-pii-entity-types'] = stub.pii_entity_types unless stub.pii_entity_types.nil? || stub.pii_entity_types.empty?
-        IO.copy_stream(stub.call_analytics_transcript_result_stream, http_resp.body)
+      end
+
+      def self.default_event(visited = [])
+        return nil if visited.include?('CallAnalyticsTranscriptResultStream')
+        visited = visited + ['CallAnalyticsTranscriptResultStream']
+        Params::UtteranceEvent.build(
+          UtteranceEvent.default(visited),
+          context: 'default_event'
+        )
+      end
+
+      def self.validate_event!(event, context:)
+        case event
+        when Types::CallAnalyticsTranscriptResultStream::UtteranceEvent
+          Validators::UtteranceEvent.validate!(event, context: context)
+        when Types::CallAnalyticsTranscriptResultStream::CategoryEvent
+          Validators::CategoryEvent.validate!(event, context: context)
+        when Types::CallAnalyticsTranscriptResultStream::BadRequestException
+          Validators::BadRequestException.validate!(event, context: context)
+        when Types::CallAnalyticsTranscriptResultStream::LimitExceededException
+          Validators::LimitExceededException.validate!(event, context: context)
+        when Types::CallAnalyticsTranscriptResultStream::InternalFailureException
+          Validators::InternalFailureException.validate!(event, context: context)
+        when Types::CallAnalyticsTranscriptResultStream::ConflictException
+          Validators::ConflictException.validate!(event, context: context)
+        when Types::CallAnalyticsTranscriptResultStream::ServiceUnavailableException
+          Validators::ServiceUnavailableException.validate!(event, context: context)
+        end
+      end
+
+      def self.stub_event(stub)
+        case stub
+        when Types::UtteranceEvent
+          EventStream::UtteranceEvent.stub('UtteranceEvent', stub)
+        when Types::CategoryEvent
+          EventStream::CategoryEvent.stub('CategoryEvent', stub)
+        when Types::BadRequestException
+          EventStream::BadRequestException.stub('BadRequestException', stub)
+        when Types::LimitExceededException
+          EventStream::LimitExceededException.stub('LimitExceededException', stub)
+        when Types::InternalFailureException
+          EventStream::InternalFailureException.stub('InternalFailureException', stub)
+        when Types::ConflictException
+          EventStream::ConflictException.stub('ConflictException', stub)
+        when Types::ServiceUnavailableException
+          EventStream::ServiceUnavailableException.stub('ServiceUnavailableException', stub)
+        end
       end
     end
 
@@ -914,7 +891,6 @@ module AWS::SDK::TranscribeStreaming
           type: 'type',
           show_speaker_label: false,
           session_id: 'session_id',
-          transcript_result_stream: MedicalTranscriptResultStream.default(visited),
           enable_channel_identification: false,
           number_of_channels: 1,
           content_identification_type: 'content_identification_type',
@@ -936,7 +912,49 @@ module AWS::SDK::TranscribeStreaming
         http_resp.headers['x-amzn-transcribe-enable-channel-identification'] = stub.enable_channel_identification.to_s unless stub.enable_channel_identification.nil?
         http_resp.headers['x-amzn-transcribe-number-of-channels'] = stub.number_of_channels.to_s unless stub.number_of_channels.nil?
         http_resp.headers['x-amzn-transcribe-content-identification-type'] = stub.content_identification_type unless stub.content_identification_type.nil? || stub.content_identification_type.empty?
-        IO.copy_stream(stub.transcript_result_stream, http_resp.body)
+      end
+
+      def self.default_event(visited = [])
+        return nil if visited.include?('MedicalTranscriptResultStream')
+        visited = visited + ['MedicalTranscriptResultStream']
+        Params::MedicalTranscriptEvent.build(
+          MedicalTranscriptEvent.default(visited),
+          context: 'default_event'
+        )
+      end
+
+      def self.validate_event!(event, context:)
+        case event
+        when Types::MedicalTranscriptResultStream::TranscriptEvent
+          Validators::MedicalTranscriptEvent.validate!(event, context: context)
+        when Types::MedicalTranscriptResultStream::BadRequestException
+          Validators::BadRequestException.validate!(event, context: context)
+        when Types::MedicalTranscriptResultStream::LimitExceededException
+          Validators::LimitExceededException.validate!(event, context: context)
+        when Types::MedicalTranscriptResultStream::InternalFailureException
+          Validators::InternalFailureException.validate!(event, context: context)
+        when Types::MedicalTranscriptResultStream::ConflictException
+          Validators::ConflictException.validate!(event, context: context)
+        when Types::MedicalTranscriptResultStream::ServiceUnavailableException
+          Validators::ServiceUnavailableException.validate!(event, context: context)
+        end
+      end
+
+      def self.stub_event(stub)
+        case stub
+        when Types::MedicalTranscriptEvent
+          EventStream::MedicalTranscriptEvent.stub('TranscriptEvent', stub)
+        when Types::BadRequestException
+          EventStream::BadRequestException.stub('BadRequestException', stub)
+        when Types::LimitExceededException
+          EventStream::LimitExceededException.stub('LimitExceededException', stub)
+        when Types::InternalFailureException
+          EventStream::InternalFailureException.stub('InternalFailureException', stub)
+        when Types::ConflictException
+          EventStream::ConflictException.stub('ConflictException', stub)
+        when Types::ServiceUnavailableException
+          EventStream::ServiceUnavailableException.stub('ServiceUnavailableException', stub)
+        end
       end
     end
 
@@ -957,7 +975,6 @@ module AWS::SDK::TranscribeStreaming
           media_encoding: 'media_encoding',
           vocabulary_name: 'vocabulary_name',
           session_id: 'session_id',
-          transcript_result_stream: TranscriptResultStream.default(visited),
           vocabulary_filter_name: 'vocabulary_filter_name',
           vocabulary_filter_method: 'vocabulary_filter_method',
           show_speaker_label: false,
@@ -1004,7 +1021,49 @@ module AWS::SDK::TranscribeStreaming
         http_resp.headers['x-amzn-transcribe-identify-multiple-languages'] = stub.identify_multiple_languages.to_s unless stub.identify_multiple_languages.nil?
         http_resp.headers['x-amzn-transcribe-vocabulary-names'] = stub.vocabulary_names unless stub.vocabulary_names.nil? || stub.vocabulary_names.empty?
         http_resp.headers['x-amzn-transcribe-vocabulary-filter-names'] = stub.vocabulary_filter_names unless stub.vocabulary_filter_names.nil? || stub.vocabulary_filter_names.empty?
-        IO.copy_stream(stub.transcript_result_stream, http_resp.body)
+      end
+
+      def self.default_event(visited = [])
+        return nil if visited.include?('TranscriptResultStream')
+        visited = visited + ['TranscriptResultStream']
+        Params::TranscriptEvent.build(
+          TranscriptEvent.default(visited),
+          context: 'default_event'
+        )
+      end
+
+      def self.validate_event!(event, context:)
+        case event
+        when Types::TranscriptResultStream::TranscriptEvent
+          Validators::TranscriptEvent.validate!(event, context: context)
+        when Types::TranscriptResultStream::BadRequestException
+          Validators::BadRequestException.validate!(event, context: context)
+        when Types::TranscriptResultStream::LimitExceededException
+          Validators::LimitExceededException.validate!(event, context: context)
+        when Types::TranscriptResultStream::InternalFailureException
+          Validators::InternalFailureException.validate!(event, context: context)
+        when Types::TranscriptResultStream::ConflictException
+          Validators::ConflictException.validate!(event, context: context)
+        when Types::TranscriptResultStream::ServiceUnavailableException
+          Validators::ServiceUnavailableException.validate!(event, context: context)
+        end
+      end
+
+      def self.stub_event(stub)
+        case stub
+        when Types::TranscriptEvent
+          EventStream::TranscriptEvent.stub('TranscriptEvent', stub)
+        when Types::BadRequestException
+          EventStream::BadRequestException.stub('BadRequestException', stub)
+        when Types::LimitExceededException
+          EventStream::LimitExceededException.stub('LimitExceededException', stub)
+        when Types::InternalFailureException
+          EventStream::InternalFailureException.stub('InternalFailureException', stub)
+        when Types::ConflictException
+          EventStream::ConflictException.stub('ConflictException', stub)
+        when Types::ServiceUnavailableException
+          EventStream::ServiceUnavailableException.stub('ServiceUnavailableException', stub)
+        end
       end
     end
 
@@ -1099,39 +1158,6 @@ module AWS::SDK::TranscribeStreaming
       end
     end
 
-    class TranscriptResultStream
-      def self.default(visited = [])
-        return nil if visited.include?('TranscriptResultStream')
-        visited = visited + ['TranscriptResultStream']
-        {
-          transcript_event: TranscriptEvent.default(visited),
-        }
-      end
-
-      def self.stub(stub)
-        data = {}
-        case stub
-        when Types::TranscriptResultStream::TranscriptEvent
-          data['TranscriptEvent'] = (TranscriptEvent.stub(stub.__getobj__) unless stub.__getobj__.nil?)
-        when Types::TranscriptResultStream::BadRequestException
-          data['BadRequestException'] = (BadRequestException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
-        when Types::TranscriptResultStream::LimitExceededException
-          data['LimitExceededException'] = (LimitExceededException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
-        when Types::TranscriptResultStream::InternalFailureException
-          data['InternalFailureException'] = (InternalFailureException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
-        when Types::TranscriptResultStream::ConflictException
-          data['ConflictException'] = (ConflictException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
-        when Types::TranscriptResultStream::ServiceUnavailableException
-          data['ServiceUnavailableException'] = (ServiceUnavailableException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
-        else
-          raise ArgumentError,
-          "Expected input to be one of the subclasses of Types::TranscriptResultStream"
-        end
-
-        data
-      end
-    end
-
     class UtteranceEvent
       def self.default(visited = [])
         return nil if visited.include?('UtteranceEvent')
@@ -1164,6 +1190,145 @@ module AWS::SDK::TranscribeStreaming
         data['Sentiment'] = stub.sentiment unless stub.sentiment.nil?
         data['IssuesDetected'] = IssuesDetected.stub(stub.issues_detected) unless stub.issues_detected.nil?
         data
+      end
+    end
+
+    module EventStream
+
+      class BadRequestException
+        def self.stub(event_type, stub)
+          message = Hearth::EventStream::Message.new
+          message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
+          message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: event_type, type: 'string')
+          payload_stub = stub
+          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/json', type: 'string')
+          data = {}
+          data['Message'] = stub.message unless stub.message.nil?
+          message.payload = ::StringIO.new(Hearth::JSON.dump(data))
+          message
+        end
+      end
+
+      class CategoryEvent
+        def self.stub(event_type, stub)
+          message = Hearth::EventStream::Message.new
+          message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
+          message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: event_type, type: 'string')
+          payload_stub = stub
+          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/json', type: 'string')
+          data = {}
+          data['MatchedCategories'] = StringList.stub(stub.matched_categories) unless stub.matched_categories.nil?
+          data['MatchedDetails'] = MatchedCategoryDetails.stub(stub.matched_details) unless stub.matched_details.nil?
+          message.payload = ::StringIO.new(Hearth::JSON.dump(data))
+          message
+        end
+      end
+
+      class ConflictException
+        def self.stub(event_type, stub)
+          message = Hearth::EventStream::Message.new
+          message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
+          message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: event_type, type: 'string')
+          payload_stub = stub
+          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/json', type: 'string')
+          data = {}
+          data['Message'] = stub.message unless stub.message.nil?
+          message.payload = ::StringIO.new(Hearth::JSON.dump(data))
+          message
+        end
+      end
+
+      class InternalFailureException
+        def self.stub(event_type, stub)
+          message = Hearth::EventStream::Message.new
+          message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
+          message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: event_type, type: 'string')
+          payload_stub = stub
+          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/json', type: 'string')
+          data = {}
+          data['Message'] = stub.message unless stub.message.nil?
+          message.payload = ::StringIO.new(Hearth::JSON.dump(data))
+          message
+        end
+      end
+
+      class LimitExceededException
+        def self.stub(event_type, stub)
+          message = Hearth::EventStream::Message.new
+          message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
+          message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: event_type, type: 'string')
+          payload_stub = stub
+          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/json', type: 'string')
+          data = {}
+          data['Message'] = stub.message unless stub.message.nil?
+          message.payload = ::StringIO.new(Hearth::JSON.dump(data))
+          message
+        end
+      end
+
+      class MedicalTranscriptEvent
+        def self.stub(event_type, stub)
+          message = Hearth::EventStream::Message.new
+          message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
+          message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: event_type, type: 'string')
+          payload_stub = stub
+          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/json', type: 'string')
+          data = {}
+          data['Transcript'] = MedicalTranscript.stub(stub.transcript) unless stub.transcript.nil?
+          message.payload = ::StringIO.new(Hearth::JSON.dump(data))
+          message
+        end
+      end
+
+      class ServiceUnavailableException
+        def self.stub(event_type, stub)
+          message = Hearth::EventStream::Message.new
+          message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
+          message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: event_type, type: 'string')
+          payload_stub = stub
+          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/json', type: 'string')
+          data = {}
+          data['Message'] = stub.message unless stub.message.nil?
+          message.payload = ::StringIO.new(Hearth::JSON.dump(data))
+          message
+        end
+      end
+
+      class TranscriptEvent
+        def self.stub(event_type, stub)
+          message = Hearth::EventStream::Message.new
+          message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
+          message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: event_type, type: 'string')
+          payload_stub = stub
+          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/json', type: 'string')
+          data = {}
+          data['Transcript'] = Transcript.stub(stub.transcript) unless stub.transcript.nil?
+          message.payload = ::StringIO.new(Hearth::JSON.dump(data))
+          message
+        end
+      end
+
+      class UtteranceEvent
+        def self.stub(event_type, stub)
+          message = Hearth::EventStream::Message.new
+          message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
+          message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: event_type, type: 'string')
+          payload_stub = stub
+          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/json', type: 'string')
+          data = {}
+          data['UtteranceId'] = stub.utterance_id unless stub.utterance_id.nil?
+          data['IsPartial'] = stub.is_partial unless stub.is_partial.nil?
+          data['ParticipantRole'] = stub.participant_role unless stub.participant_role.nil?
+          data['BeginOffsetMillis'] = stub.begin_offset_millis unless stub.begin_offset_millis.nil?
+          data['EndOffsetMillis'] = stub.end_offset_millis unless stub.end_offset_millis.nil?
+          data['Transcript'] = stub.transcript unless stub.transcript.nil?
+          data['Items'] = CallAnalyticsItemList.stub(stub.items) unless stub.items.nil?
+          data['Entities'] = CallAnalyticsEntityList.stub(stub.entities) unless stub.entities.nil?
+          data['Sentiment'] = stub.sentiment unless stub.sentiment.nil?
+          data['IssuesDetected'] = IssuesDetected.stub(stub.issues_detected) unless stub.issues_detected.nil?
+          message.payload = ::StringIO.new(Hearth::JSON.dump(data))
+          message
+        end
       end
     end
   end

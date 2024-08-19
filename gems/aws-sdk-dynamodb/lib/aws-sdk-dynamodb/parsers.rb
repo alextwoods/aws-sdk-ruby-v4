@@ -17,8 +17,8 @@ module AWS::SDK::DynamoDB
       def self.parse(map)
         data = Types::ArchivalSummary.new
         data.archival_date_time = Time.at(map['ArchivalDateTime'].to_i) if map['ArchivalDateTime']
-        data.archival_reason = map['ArchivalReason']
-        data.archival_backup_arn = map['ArchivalBackupArn']
+        data.archival_reason = map['ArchivalReason'] unless map['ArchivalReason'].nil?
+        data.archival_backup_arn = map['ArchivalBackupArn'] unless map['ArchivalBackupArn'].nil?
         return data
       end
     end
@@ -26,8 +26,8 @@ module AWS::SDK::DynamoDB
     class AttributeDefinition
       def self.parse(map)
         data = Types::AttributeDefinition.new
-        data.attribute_name = map['AttributeName']
-        data.attribute_type = map['AttributeType']
+        data.attribute_name = map['AttributeName'] unless map['AttributeName'].nil?
+        data.attribute_type = map['AttributeType'] unless map['AttributeType'].nil?
         return data
       end
     end
@@ -104,8 +104,8 @@ module AWS::SDK::DynamoDB
     class AutoScalingPolicyDescription
       def self.parse(map)
         data = Types::AutoScalingPolicyDescription.new
-        data.policy_name = map['PolicyName']
-        data.target_tracking_scaling_policy_configuration = (AutoScalingTargetTrackingScalingPolicyConfigurationDescription.parse(map['TargetTrackingScalingPolicyConfiguration']) unless map['TargetTrackingScalingPolicyConfiguration'].nil?)
+        data.policy_name = map['PolicyName'] unless map['PolicyName'].nil?
+        data.target_tracking_scaling_policy_configuration = AutoScalingTargetTrackingScalingPolicyConfigurationDescription.parse(map['TargetTrackingScalingPolicyConfiguration']) unless map['TargetTrackingScalingPolicyConfiguration'].nil?
         return data
       end
     end
@@ -121,11 +121,11 @@ module AWS::SDK::DynamoDB
     class AutoScalingSettingsDescription
       def self.parse(map)
         data = Types::AutoScalingSettingsDescription.new
-        data.minimum_units = map['MinimumUnits']
-        data.maximum_units = map['MaximumUnits']
-        data.auto_scaling_disabled = map['AutoScalingDisabled']
-        data.auto_scaling_role_arn = map['AutoScalingRoleArn']
-        data.scaling_policies = (AutoScalingPolicyDescriptionList.parse(map['ScalingPolicies']) unless map['ScalingPolicies'].nil?)
+        data.minimum_units = map['MinimumUnits'] unless map['MinimumUnits'].nil?
+        data.maximum_units = map['MaximumUnits'] unless map['MaximumUnits'].nil?
+        data.auto_scaling_disabled = map['AutoScalingDisabled'] unless map['AutoScalingDisabled'].nil?
+        data.auto_scaling_role_arn = map['AutoScalingRoleArn'] unless map['AutoScalingRoleArn'].nil?
+        data.scaling_policies = AutoScalingPolicyDescriptionList.parse(map['ScalingPolicies']) unless map['ScalingPolicies'].nil?
         return data
       end
     end
@@ -133,10 +133,10 @@ module AWS::SDK::DynamoDB
     class AutoScalingTargetTrackingScalingPolicyConfigurationDescription
       def self.parse(map)
         data = Types::AutoScalingTargetTrackingScalingPolicyConfigurationDescription.new
-        data.disable_scale_in = map['DisableScaleIn']
-        data.scale_in_cooldown = map['ScaleInCooldown']
-        data.scale_out_cooldown = map['ScaleOutCooldown']
-        data.target_value = Hearth::NumberHelper.deserialize(map['TargetValue'])
+        data.disable_scale_in = map['DisableScaleIn'] unless map['DisableScaleIn'].nil?
+        data.scale_in_cooldown = map['ScaleInCooldown'] unless map['ScaleInCooldown'].nil?
+        data.scale_out_cooldown = map['ScaleOutCooldown'] unless map['ScaleOutCooldown'].nil?
+        data.target_value = Hearth::NumberHelper.deserialize(map['TargetValue']) unless map['TargetValue'].nil?
         return data
       end
     end
@@ -144,9 +144,9 @@ module AWS::SDK::DynamoDB
     class BackupDescription
       def self.parse(map)
         data = Types::BackupDescription.new
-        data.backup_details = (BackupDetails.parse(map['BackupDetails']) unless map['BackupDetails'].nil?)
-        data.source_table_details = (SourceTableDetails.parse(map['SourceTableDetails']) unless map['SourceTableDetails'].nil?)
-        data.source_table_feature_details = (SourceTableFeatureDetails.parse(map['SourceTableFeatureDetails']) unless map['SourceTableFeatureDetails'].nil?)
+        data.backup_details = BackupDetails.parse(map['BackupDetails']) unless map['BackupDetails'].nil?
+        data.source_table_details = SourceTableDetails.parse(map['SourceTableDetails']) unless map['SourceTableDetails'].nil?
+        data.source_table_feature_details = SourceTableFeatureDetails.parse(map['SourceTableFeatureDetails']) unless map['SourceTableFeatureDetails'].nil?
         return data
       end
     end
@@ -154,11 +154,11 @@ module AWS::SDK::DynamoDB
     class BackupDetails
       def self.parse(map)
         data = Types::BackupDetails.new
-        data.backup_arn = map['BackupArn']
-        data.backup_name = map['BackupName']
-        data.backup_size_bytes = map['BackupSizeBytes']
-        data.backup_status = map['BackupStatus']
-        data.backup_type = map['BackupType']
+        data.backup_arn = map['BackupArn'] unless map['BackupArn'].nil?
+        data.backup_name = map['BackupName'] unless map['BackupName'].nil?
+        data.backup_size_bytes = map['BackupSizeBytes'] unless map['BackupSizeBytes'].nil?
+        data.backup_status = map['BackupStatus'] unless map['BackupStatus'].nil?
+        data.backup_type = map['BackupType'] unless map['BackupType'].nil?
         data.backup_creation_date_time = Time.at(map['BackupCreationDateTime'].to_i) if map['BackupCreationDateTime']
         data.backup_expiry_date_time = Time.at(map['BackupExpiryDateTime'].to_i) if map['BackupExpiryDateTime']
         return data
@@ -172,7 +172,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.message = map['message']
+        data.message = map['message'] unless map['message'].nil?
         data
       end
     end
@@ -184,7 +184,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.message = map['message']
+        data.message = map['message'] unless map['message'].nil?
         data
       end
     end
@@ -200,16 +200,16 @@ module AWS::SDK::DynamoDB
     class BackupSummary
       def self.parse(map)
         data = Types::BackupSummary.new
-        data.table_name = map['TableName']
-        data.table_id = map['TableId']
-        data.table_arn = map['TableArn']
-        data.backup_arn = map['BackupArn']
-        data.backup_name = map['BackupName']
+        data.table_name = map['TableName'] unless map['TableName'].nil?
+        data.table_id = map['TableId'] unless map['TableId'].nil?
+        data.table_arn = map['TableArn'] unless map['TableArn'].nil?
+        data.backup_arn = map['BackupArn'] unless map['BackupArn'].nil?
+        data.backup_name = map['BackupName'] unless map['BackupName'].nil?
         data.backup_creation_date_time = Time.at(map['BackupCreationDateTime'].to_i) if map['BackupCreationDateTime']
         data.backup_expiry_date_time = Time.at(map['BackupExpiryDateTime'].to_i) if map['BackupExpiryDateTime']
-        data.backup_status = map['BackupStatus']
-        data.backup_type = map['BackupType']
-        data.backup_size_bytes = map['BackupSizeBytes']
+        data.backup_status = map['BackupStatus'] unless map['BackupStatus'].nil?
+        data.backup_type = map['BackupType'] unless map['BackupType'].nil?
+        data.backup_size_bytes = map['BackupSizeBytes'] unless map['BackupSizeBytes'].nil?
         return data
       end
     end
@@ -220,8 +220,8 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.responses = (PartiQLBatchResponse.parse(map['Responses']) unless map['Responses'].nil?)
-        data.consumed_capacity = (ConsumedCapacityMultiple.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?)
+        data.responses = PartiQLBatchResponse.parse(map['Responses']) unless map['Responses'].nil?
+        data.consumed_capacity = ConsumedCapacityMultiple.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?
         data
       end
     end
@@ -232,9 +232,9 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.responses = (BatchGetResponseMap.parse(map['Responses']) unless map['Responses'].nil?)
-        data.unprocessed_keys = (BatchGetRequestMap.parse(map['UnprocessedKeys']) unless map['UnprocessedKeys'].nil?)
-        data.consumed_capacity = (ConsumedCapacityMultiple.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?)
+        data.responses = BatchGetResponseMap.parse(map['Responses']) unless map['Responses'].nil?
+        data.unprocessed_keys = BatchGetRequestMap.parse(map['UnprocessedKeys']) unless map['UnprocessedKeys'].nil?
+        data.consumed_capacity = ConsumedCapacityMultiple.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?
         data
       end
     end
@@ -262,9 +262,9 @@ module AWS::SDK::DynamoDB
     class BatchStatementError
       def self.parse(map)
         data = Types::BatchStatementError.new
-        data.code = map['Code']
-        data.message = map['Message']
-        data.item = (AttributeMap.parse(map['Item']) unless map['Item'].nil?)
+        data.code = map['Code'] unless map['Code'].nil?
+        data.message = map['Message'] unless map['Message'].nil?
+        data.item = AttributeMap.parse(map['Item']) unless map['Item'].nil?
         return data
       end
     end
@@ -272,9 +272,9 @@ module AWS::SDK::DynamoDB
     class BatchStatementResponse
       def self.parse(map)
         data = Types::BatchStatementResponse.new
-        data.error = (BatchStatementError.parse(map['Error']) unless map['Error'].nil?)
-        data.table_name = map['TableName']
-        data.item = (AttributeMap.parse(map['Item']) unless map['Item'].nil?)
+        data.error = BatchStatementError.parse(map['Error']) unless map['Error'].nil?
+        data.table_name = map['TableName'] unless map['TableName'].nil?
+        data.item = AttributeMap.parse(map['Item']) unless map['Item'].nil?
         return data
       end
     end
@@ -285,9 +285,9 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.unprocessed_items = (BatchWriteItemRequestMap.parse(map['UnprocessedItems']) unless map['UnprocessedItems'].nil?)
-        data.item_collection_metrics = (ItemCollectionMetricsPerTable.parse(map['ItemCollectionMetrics']) unless map['ItemCollectionMetrics'].nil?)
-        data.consumed_capacity = (ConsumedCapacityMultiple.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?)
+        data.unprocessed_items = BatchWriteItemRequestMap.parse(map['UnprocessedItems']) unless map['UnprocessedItems'].nil?
+        data.item_collection_metrics = ItemCollectionMetricsPerTable.parse(map['ItemCollectionMetrics']) unless map['ItemCollectionMetrics'].nil?
+        data.consumed_capacity = ConsumedCapacityMultiple.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?
         data
       end
     end
@@ -305,7 +305,7 @@ module AWS::SDK::DynamoDB
     class BillingModeSummary
       def self.parse(map)
         data = Types::BillingModeSummary.new
-        data.billing_mode = map['BillingMode']
+        data.billing_mode = map['BillingMode'] unless map['BillingMode'].nil?
         data.last_update_to_pay_per_request_date_time = Time.at(map['LastUpdateToPayPerRequestDateTime'].to_i) if map['LastUpdateToPayPerRequestDateTime']
         return data
       end
@@ -322,9 +322,9 @@ module AWS::SDK::DynamoDB
     class CancellationReason
       def self.parse(map)
         data = Types::CancellationReason.new
-        data.item = (AttributeMap.parse(map['Item']) unless map['Item'].nil?)
-        data.code = map['Code']
-        data.message = map['Message']
+        data.item = AttributeMap.parse(map['Item']) unless map['Item'].nil?
+        data.code = map['Code'] unless map['Code'].nil?
+        data.message = map['Message'] unless map['Message'].nil?
         return data
       end
     end
@@ -340,9 +340,9 @@ module AWS::SDK::DynamoDB
     class Capacity
       def self.parse(map)
         data = Types::Capacity.new
-        data.read_capacity_units = Hearth::NumberHelper.deserialize(map['ReadCapacityUnits'])
-        data.write_capacity_units = Hearth::NumberHelper.deserialize(map['WriteCapacityUnits'])
-        data.capacity_units = Hearth::NumberHelper.deserialize(map['CapacityUnits'])
+        data.read_capacity_units = Hearth::NumberHelper.deserialize(map['ReadCapacityUnits']) unless map['ReadCapacityUnits'].nil?
+        data.write_capacity_units = Hearth::NumberHelper.deserialize(map['WriteCapacityUnits']) unless map['WriteCapacityUnits'].nil?
+        data.capacity_units = Hearth::NumberHelper.deserialize(map['CapacityUnits']) unless map['CapacityUnits'].nil?
         return data
       end
     end
@@ -354,8 +354,8 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data.item = (AttributeMap.parse(map['Item']) unless map['Item'].nil?)
+        data.message = map['message'] unless map['message'].nil?
+        data.item = AttributeMap.parse(map['Item']) unless map['Item'].nil?
         data
       end
     end
@@ -363,13 +363,13 @@ module AWS::SDK::DynamoDB
     class ConsumedCapacity
       def self.parse(map)
         data = Types::ConsumedCapacity.new
-        data.table_name = map['TableName']
-        data.capacity_units = Hearth::NumberHelper.deserialize(map['CapacityUnits'])
-        data.read_capacity_units = Hearth::NumberHelper.deserialize(map['ReadCapacityUnits'])
-        data.write_capacity_units = Hearth::NumberHelper.deserialize(map['WriteCapacityUnits'])
-        data.table = (Capacity.parse(map['Table']) unless map['Table'].nil?)
-        data.local_secondary_indexes = (SecondaryIndexesCapacityMap.parse(map['LocalSecondaryIndexes']) unless map['LocalSecondaryIndexes'].nil?)
-        data.global_secondary_indexes = (SecondaryIndexesCapacityMap.parse(map['GlobalSecondaryIndexes']) unless map['GlobalSecondaryIndexes'].nil?)
+        data.table_name = map['TableName'] unless map['TableName'].nil?
+        data.capacity_units = Hearth::NumberHelper.deserialize(map['CapacityUnits']) unless map['CapacityUnits'].nil?
+        data.read_capacity_units = Hearth::NumberHelper.deserialize(map['ReadCapacityUnits']) unless map['ReadCapacityUnits'].nil?
+        data.write_capacity_units = Hearth::NumberHelper.deserialize(map['WriteCapacityUnits']) unless map['WriteCapacityUnits'].nil?
+        data.table = Capacity.parse(map['Table']) unless map['Table'].nil?
+        data.local_secondary_indexes = SecondaryIndexesCapacityMap.parse(map['LocalSecondaryIndexes']) unless map['LocalSecondaryIndexes'].nil?
+        data.global_secondary_indexes = SecondaryIndexesCapacityMap.parse(map['GlobalSecondaryIndexes']) unless map['GlobalSecondaryIndexes'].nil?
         return data
       end
     end
@@ -385,8 +385,8 @@ module AWS::SDK::DynamoDB
     class ContinuousBackupsDescription
       def self.parse(map)
         data = Types::ContinuousBackupsDescription.new
-        data.continuous_backups_status = map['ContinuousBackupsStatus']
-        data.point_in_time_recovery_description = (PointInTimeRecoveryDescription.parse(map['PointInTimeRecoveryDescription']) unless map['PointInTimeRecoveryDescription'].nil?)
+        data.continuous_backups_status = map['ContinuousBackupsStatus'] unless map['ContinuousBackupsStatus'].nil?
+        data.point_in_time_recovery_description = PointInTimeRecoveryDescription.parse(map['PointInTimeRecoveryDescription']) unless map['PointInTimeRecoveryDescription'].nil?
         return data
       end
     end
@@ -398,7 +398,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.message = map['message']
+        data.message = map['message'] unless map['message'].nil?
         data
       end
     end
@@ -422,9 +422,9 @@ module AWS::SDK::DynamoDB
     class ContributorInsightsSummary
       def self.parse(map)
         data = Types::ContributorInsightsSummary.new
-        data.table_name = map['TableName']
-        data.index_name = map['IndexName']
-        data.contributor_insights_status = map['ContributorInsightsStatus']
+        data.table_name = map['TableName'] unless map['TableName'].nil?
+        data.index_name = map['IndexName'] unless map['IndexName'].nil?
+        data.contributor_insights_status = map['ContributorInsightsStatus'] unless map['ContributorInsightsStatus'].nil?
         return data
       end
     end
@@ -435,7 +435,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.backup_details = (BackupDetails.parse(map['BackupDetails']) unless map['BackupDetails'].nil?)
+        data.backup_details = BackupDetails.parse(map['BackupDetails']) unless map['BackupDetails'].nil?
         data
       end
     end
@@ -446,7 +446,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.global_table_description = (GlobalTableDescription.parse(map['GlobalTableDescription']) unless map['GlobalTableDescription'].nil?)
+        data.global_table_description = GlobalTableDescription.parse(map['GlobalTableDescription']) unless map['GlobalTableDescription'].nil?
         data
       end
     end
@@ -457,7 +457,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.table_description = (TableDescription.parse(map['TableDescription']) unless map['TableDescription'].nil?)
+        data.table_description = TableDescription.parse(map['TableDescription']) unless map['TableDescription'].nil?
         data
       end
     end
@@ -473,8 +473,8 @@ module AWS::SDK::DynamoDB
     class CsvOptions
       def self.parse(map)
         data = Types::CsvOptions.new
-        data.delimiter = map['Delimiter']
-        data.header_list = (CsvHeaderList.parse(map['HeaderList']) unless map['HeaderList'].nil?)
+        data.delimiter = map['Delimiter'] unless map['Delimiter'].nil?
+        data.header_list = CsvHeaderList.parse(map['HeaderList']) unless map['HeaderList'].nil?
         return data
       end
     end
@@ -485,7 +485,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.backup_description = (BackupDescription.parse(map['BackupDescription']) unless map['BackupDescription'].nil?)
+        data.backup_description = BackupDescription.parse(map['BackupDescription']) unless map['BackupDescription'].nil?
         data
       end
     end
@@ -496,9 +496,9 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.attributes = (AttributeMap.parse(map['Attributes']) unless map['Attributes'].nil?)
-        data.consumed_capacity = (ConsumedCapacity.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?)
-        data.item_collection_metrics = (ItemCollectionMetrics.parse(map['ItemCollectionMetrics']) unless map['ItemCollectionMetrics'].nil?)
+        data.attributes = AttributeMap.parse(map['Attributes']) unless map['Attributes'].nil?
+        data.consumed_capacity = ConsumedCapacity.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?
+        data.item_collection_metrics = ItemCollectionMetrics.parse(map['ItemCollectionMetrics']) unless map['ItemCollectionMetrics'].nil?
         data
       end
     end
@@ -506,7 +506,7 @@ module AWS::SDK::DynamoDB
     class DeleteRequest
       def self.parse(map)
         data = Types::DeleteRequest.new
-        data.key = (Key.parse(map['Key']) unless map['Key'].nil?)
+        data.key = Key.parse(map['Key']) unless map['Key'].nil?
         return data
       end
     end
@@ -517,7 +517,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.table_description = (TableDescription.parse(map['TableDescription']) unless map['TableDescription'].nil?)
+        data.table_description = TableDescription.parse(map['TableDescription']) unless map['TableDescription'].nil?
         data
       end
     end
@@ -528,7 +528,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.backup_description = (BackupDescription.parse(map['BackupDescription']) unless map['BackupDescription'].nil?)
+        data.backup_description = BackupDescription.parse(map['BackupDescription']) unless map['BackupDescription'].nil?
         data
       end
     end
@@ -539,7 +539,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.continuous_backups_description = (ContinuousBackupsDescription.parse(map['ContinuousBackupsDescription']) unless map['ContinuousBackupsDescription'].nil?)
+        data.continuous_backups_description = ContinuousBackupsDescription.parse(map['ContinuousBackupsDescription']) unless map['ContinuousBackupsDescription'].nil?
         data
       end
     end
@@ -550,12 +550,12 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.table_name = map['TableName']
-        data.index_name = map['IndexName']
-        data.contributor_insights_rule_list = (ContributorInsightsRuleList.parse(map['ContributorInsightsRuleList']) unless map['ContributorInsightsRuleList'].nil?)
-        data.contributor_insights_status = map['ContributorInsightsStatus']
+        data.table_name = map['TableName'] unless map['TableName'].nil?
+        data.index_name = map['IndexName'] unless map['IndexName'].nil?
+        data.contributor_insights_rule_list = ContributorInsightsRuleList.parse(map['ContributorInsightsRuleList']) unless map['ContributorInsightsRuleList'].nil?
+        data.contributor_insights_status = map['ContributorInsightsStatus'] unless map['ContributorInsightsStatus'].nil?
         data.last_update_date_time = Time.at(map['LastUpdateDateTime'].to_i) if map['LastUpdateDateTime']
-        data.failure_exception = (FailureException.parse(map['FailureException']) unless map['FailureException'].nil?)
+        data.failure_exception = FailureException.parse(map['FailureException']) unless map['FailureException'].nil?
         data
       end
     end
@@ -566,7 +566,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.endpoints = (Endpoints.parse(map['Endpoints']) unless map['Endpoints'].nil?)
+        data.endpoints = Endpoints.parse(map['Endpoints']) unless map['Endpoints'].nil?
         data
       end
     end
@@ -577,7 +577,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.export_description = (ExportDescription.parse(map['ExportDescription']) unless map['ExportDescription'].nil?)
+        data.export_description = ExportDescription.parse(map['ExportDescription']) unless map['ExportDescription'].nil?
         data
       end
     end
@@ -588,7 +588,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.global_table_description = (GlobalTableDescription.parse(map['GlobalTableDescription']) unless map['GlobalTableDescription'].nil?)
+        data.global_table_description = GlobalTableDescription.parse(map['GlobalTableDescription']) unless map['GlobalTableDescription'].nil?
         data
       end
     end
@@ -599,8 +599,8 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.global_table_name = map['GlobalTableName']
-        data.replica_settings = (ReplicaSettingsDescriptionList.parse(map['ReplicaSettings']) unless map['ReplicaSettings'].nil?)
+        data.global_table_name = map['GlobalTableName'] unless map['GlobalTableName'].nil?
+        data.replica_settings = ReplicaSettingsDescriptionList.parse(map['ReplicaSettings']) unless map['ReplicaSettings'].nil?
         data
       end
     end
@@ -611,7 +611,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.import_table_description = (ImportTableDescription.parse(map['ImportTableDescription']) unless map['ImportTableDescription'].nil?)
+        data.import_table_description = ImportTableDescription.parse(map['ImportTableDescription']) unless map['ImportTableDescription'].nil?
         data
       end
     end
@@ -622,8 +622,8 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.table_name = map['TableName']
-        data.kinesis_data_stream_destinations = (KinesisDataStreamDestinations.parse(map['KinesisDataStreamDestinations']) unless map['KinesisDataStreamDestinations'].nil?)
+        data.table_name = map['TableName'] unless map['TableName'].nil?
+        data.kinesis_data_stream_destinations = KinesisDataStreamDestinations.parse(map['KinesisDataStreamDestinations']) unless map['KinesisDataStreamDestinations'].nil?
         data
       end
     end
@@ -634,10 +634,10 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.account_max_read_capacity_units = map['AccountMaxReadCapacityUnits']
-        data.account_max_write_capacity_units = map['AccountMaxWriteCapacityUnits']
-        data.table_max_read_capacity_units = map['TableMaxReadCapacityUnits']
-        data.table_max_write_capacity_units = map['TableMaxWriteCapacityUnits']
+        data.account_max_read_capacity_units = map['AccountMaxReadCapacityUnits'] unless map['AccountMaxReadCapacityUnits'].nil?
+        data.account_max_write_capacity_units = map['AccountMaxWriteCapacityUnits'] unless map['AccountMaxWriteCapacityUnits'].nil?
+        data.table_max_read_capacity_units = map['TableMaxReadCapacityUnits'] unless map['TableMaxReadCapacityUnits'].nil?
+        data.table_max_write_capacity_units = map['TableMaxWriteCapacityUnits'] unless map['TableMaxWriteCapacityUnits'].nil?
         data
       end
     end
@@ -648,7 +648,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.table = (TableDescription.parse(map['Table']) unless map['Table'].nil?)
+        data.table = TableDescription.parse(map['Table']) unless map['Table'].nil?
         data
       end
     end
@@ -659,7 +659,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.table_auto_scaling_description = (TableAutoScalingDescription.parse(map['TableAutoScalingDescription']) unless map['TableAutoScalingDescription'].nil?)
+        data.table_auto_scaling_description = TableAutoScalingDescription.parse(map['TableAutoScalingDescription']) unless map['TableAutoScalingDescription'].nil?
         data
       end
     end
@@ -670,7 +670,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.time_to_live_description = (TimeToLiveDescription.parse(map['TimeToLiveDescription']) unless map['TimeToLiveDescription'].nil?)
+        data.time_to_live_description = TimeToLiveDescription.parse(map['TimeToLiveDescription']) unless map['TimeToLiveDescription'].nil?
         data
       end
     end
@@ -681,10 +681,10 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.table_name = map['TableName']
-        data.stream_arn = map['StreamArn']
-        data.destination_status = map['DestinationStatus']
-        data.enable_kinesis_streaming_configuration = (EnableKinesisStreamingConfiguration.parse(map['EnableKinesisStreamingConfiguration']) unless map['EnableKinesisStreamingConfiguration'].nil?)
+        data.table_name = map['TableName'] unless map['TableName'].nil?
+        data.stream_arn = map['StreamArn'] unless map['StreamArn'].nil?
+        data.destination_status = map['DestinationStatus'] unless map['DestinationStatus'].nil?
+        data.enable_kinesis_streaming_configuration = EnableKinesisStreamingConfiguration.parse(map['EnableKinesisStreamingConfiguration']) unless map['EnableKinesisStreamingConfiguration'].nil?
         data
       end
     end
@@ -696,7 +696,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.message = map['message']
+        data.message = map['message'] unless map['message'].nil?
         data
       end
     end
@@ -704,7 +704,7 @@ module AWS::SDK::DynamoDB
     class EnableKinesisStreamingConfiguration
       def self.parse(map)
         data = Types::EnableKinesisStreamingConfiguration.new
-        data.approximate_creation_date_time_precision = map['ApproximateCreationDateTimePrecision']
+        data.approximate_creation_date_time_precision = map['ApproximateCreationDateTimePrecision'] unless map['ApproximateCreationDateTimePrecision'].nil?
         return data
       end
     end
@@ -715,10 +715,10 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.table_name = map['TableName']
-        data.stream_arn = map['StreamArn']
-        data.destination_status = map['DestinationStatus']
-        data.enable_kinesis_streaming_configuration = (EnableKinesisStreamingConfiguration.parse(map['EnableKinesisStreamingConfiguration']) unless map['EnableKinesisStreamingConfiguration'].nil?)
+        data.table_name = map['TableName'] unless map['TableName'].nil?
+        data.stream_arn = map['StreamArn'] unless map['StreamArn'].nil?
+        data.destination_status = map['DestinationStatus'] unless map['DestinationStatus'].nil?
+        data.enable_kinesis_streaming_configuration = EnableKinesisStreamingConfiguration.parse(map['EnableKinesisStreamingConfiguration']) unless map['EnableKinesisStreamingConfiguration'].nil?
         data
       end
     end
@@ -726,8 +726,8 @@ module AWS::SDK::DynamoDB
     class Endpoint
       def self.parse(map)
         data = Types::Endpoint.new
-        data.address = map['Address']
-        data.cache_period_in_minutes = map['CachePeriodInMinutes']
+        data.address = map['Address'] unless map['Address'].nil?
+        data.cache_period_in_minutes = map['CachePeriodInMinutes'] unless map['CachePeriodInMinutes'].nil?
         return data
       end
     end
@@ -746,10 +746,10 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.items = (ItemList.parse(map['Items']) unless map['Items'].nil?)
-        data.next_token = map['NextToken']
-        data.consumed_capacity = (ConsumedCapacity.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?)
-        data.last_evaluated_key = (Key.parse(map['LastEvaluatedKey']) unless map['LastEvaluatedKey'].nil?)
+        data.items = ItemList.parse(map['Items']) unless map['Items'].nil?
+        data.next_token = map['NextToken'] unless map['NextToken'].nil?
+        data.consumed_capacity = ConsumedCapacity.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?
+        data.last_evaluated_key = Key.parse(map['LastEvaluatedKey']) unless map['LastEvaluatedKey'].nil?
         data
       end
     end
@@ -760,8 +760,8 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.responses = (ItemResponseList.parse(map['Responses']) unless map['Responses'].nil?)
-        data.consumed_capacity = (ConsumedCapacityMultiple.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?)
+        data.responses = ItemResponseList.parse(map['Responses']) unless map['Responses'].nil?
+        data.consumed_capacity = ConsumedCapacityMultiple.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?
         data
       end
     end
@@ -773,7 +773,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.message = map['message']
+        data.message = map['message'] unless map['message'].nil?
         data
       end
     end
@@ -781,27 +781,27 @@ module AWS::SDK::DynamoDB
     class ExportDescription
       def self.parse(map)
         data = Types::ExportDescription.new
-        data.export_arn = map['ExportArn']
-        data.export_status = map['ExportStatus']
+        data.export_arn = map['ExportArn'] unless map['ExportArn'].nil?
+        data.export_status = map['ExportStatus'] unless map['ExportStatus'].nil?
         data.start_time = Time.at(map['StartTime'].to_i) if map['StartTime']
         data.end_time = Time.at(map['EndTime'].to_i) if map['EndTime']
-        data.export_manifest = map['ExportManifest']
-        data.table_arn = map['TableArn']
-        data.table_id = map['TableId']
+        data.export_manifest = map['ExportManifest'] unless map['ExportManifest'].nil?
+        data.table_arn = map['TableArn'] unless map['TableArn'].nil?
+        data.table_id = map['TableId'] unless map['TableId'].nil?
         data.export_time = Time.at(map['ExportTime'].to_i) if map['ExportTime']
-        data.client_token = map['ClientToken']
-        data.s3_bucket = map['S3Bucket']
-        data.s3_bucket_owner = map['S3BucketOwner']
-        data.s3_prefix = map['S3Prefix']
-        data.s3_sse_algorithm = map['S3SseAlgorithm']
-        data.s3_sse_kms_key_id = map['S3SseKmsKeyId']
-        data.failure_code = map['FailureCode']
-        data.failure_message = map['FailureMessage']
-        data.export_format = map['ExportFormat']
-        data.billed_size_bytes = map['BilledSizeBytes']
-        data.item_count = map['ItemCount']
-        data.export_type = map['ExportType']
-        data.incremental_export_specification = (IncrementalExportSpecification.parse(map['IncrementalExportSpecification']) unless map['IncrementalExportSpecification'].nil?)
+        data.client_token = map['ClientToken'] unless map['ClientToken'].nil?
+        data.s3_bucket = map['S3Bucket'] unless map['S3Bucket'].nil?
+        data.s3_bucket_owner = map['S3BucketOwner'] unless map['S3BucketOwner'].nil?
+        data.s3_prefix = map['S3Prefix'] unless map['S3Prefix'].nil?
+        data.s3_sse_algorithm = map['S3SseAlgorithm'] unless map['S3SseAlgorithm'].nil?
+        data.s3_sse_kms_key_id = map['S3SseKmsKeyId'] unless map['S3SseKmsKeyId'].nil?
+        data.failure_code = map['FailureCode'] unless map['FailureCode'].nil?
+        data.failure_message = map['FailureMessage'] unless map['FailureMessage'].nil?
+        data.export_format = map['ExportFormat'] unless map['ExportFormat'].nil?
+        data.billed_size_bytes = map['BilledSizeBytes'] unless map['BilledSizeBytes'].nil?
+        data.item_count = map['ItemCount'] unless map['ItemCount'].nil?
+        data.export_type = map['ExportType'] unless map['ExportType'].nil?
+        data.incremental_export_specification = IncrementalExportSpecification.parse(map['IncrementalExportSpecification']) unless map['IncrementalExportSpecification'].nil?
         return data
       end
     end
@@ -813,7 +813,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.message = map['message']
+        data.message = map['message'] unless map['message'].nil?
         data
       end
     end
@@ -829,9 +829,9 @@ module AWS::SDK::DynamoDB
     class ExportSummary
       def self.parse(map)
         data = Types::ExportSummary.new
-        data.export_arn = map['ExportArn']
-        data.export_status = map['ExportStatus']
-        data.export_type = map['ExportType']
+        data.export_arn = map['ExportArn'] unless map['ExportArn'].nil?
+        data.export_status = map['ExportStatus'] unless map['ExportStatus'].nil?
+        data.export_type = map['ExportType'] unless map['ExportType'].nil?
         return data
       end
     end
@@ -842,7 +842,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.export_description = (ExportDescription.parse(map['ExportDescription']) unless map['ExportDescription'].nil?)
+        data.export_description = ExportDescription.parse(map['ExportDescription']) unless map['ExportDescription'].nil?
         data
       end
     end
@@ -860,8 +860,8 @@ module AWS::SDK::DynamoDB
     class FailureException
       def self.parse(map)
         data = Types::FailureException.new
-        data.exception_name = map['ExceptionName']
-        data.exception_description = map['ExceptionDescription']
+        data.exception_name = map['ExceptionName'] unless map['ExceptionName'].nil?
+        data.exception_description = map['ExceptionDescription'] unless map['ExceptionDescription'].nil?
         return data
       end
     end
@@ -872,8 +872,8 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.item = (AttributeMap.parse(map['Item']) unless map['Item'].nil?)
-        data.consumed_capacity = (ConsumedCapacity.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?)
+        data.item = AttributeMap.parse(map['Item']) unless map['Item'].nil?
+        data.consumed_capacity = ConsumedCapacity.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?
         data
       end
     end
@@ -881,10 +881,10 @@ module AWS::SDK::DynamoDB
     class GlobalSecondaryIndex
       def self.parse(map)
         data = Types::GlobalSecondaryIndex.new
-        data.index_name = map['IndexName']
-        data.key_schema = (KeySchema.parse(map['KeySchema']) unless map['KeySchema'].nil?)
-        data.projection = (Projection.parse(map['Projection']) unless map['Projection'].nil?)
-        data.provisioned_throughput = (ProvisionedThroughput.parse(map['ProvisionedThroughput']) unless map['ProvisionedThroughput'].nil?)
+        data.index_name = map['IndexName'] unless map['IndexName'].nil?
+        data.key_schema = KeySchema.parse(map['KeySchema']) unless map['KeySchema'].nil?
+        data.projection = Projection.parse(map['Projection']) unless map['Projection'].nil?
+        data.provisioned_throughput = ProvisionedThroughput.parse(map['ProvisionedThroughput']) unless map['ProvisionedThroughput'].nil?
         return data
       end
     end
@@ -892,15 +892,15 @@ module AWS::SDK::DynamoDB
     class GlobalSecondaryIndexDescription
       def self.parse(map)
         data = Types::GlobalSecondaryIndexDescription.new
-        data.index_name = map['IndexName']
-        data.key_schema = (KeySchema.parse(map['KeySchema']) unless map['KeySchema'].nil?)
-        data.projection = (Projection.parse(map['Projection']) unless map['Projection'].nil?)
-        data.index_status = map['IndexStatus']
-        data.backfilling = map['Backfilling']
-        data.provisioned_throughput = (ProvisionedThroughputDescription.parse(map['ProvisionedThroughput']) unless map['ProvisionedThroughput'].nil?)
-        data.index_size_bytes = map['IndexSizeBytes']
-        data.item_count = map['ItemCount']
-        data.index_arn = map['IndexArn']
+        data.index_name = map['IndexName'] unless map['IndexName'].nil?
+        data.key_schema = KeySchema.parse(map['KeySchema']) unless map['KeySchema'].nil?
+        data.projection = Projection.parse(map['Projection']) unless map['Projection'].nil?
+        data.index_status = map['IndexStatus'] unless map['IndexStatus'].nil?
+        data.backfilling = map['Backfilling'] unless map['Backfilling'].nil?
+        data.provisioned_throughput = ProvisionedThroughputDescription.parse(map['ProvisionedThroughput']) unless map['ProvisionedThroughput'].nil?
+        data.index_size_bytes = map['IndexSizeBytes'] unless map['IndexSizeBytes'].nil?
+        data.item_count = map['ItemCount'] unless map['ItemCount'].nil?
+        data.index_arn = map['IndexArn'] unless map['IndexArn'].nil?
         return data
       end
     end
@@ -916,10 +916,10 @@ module AWS::SDK::DynamoDB
     class GlobalSecondaryIndexInfo
       def self.parse(map)
         data = Types::GlobalSecondaryIndexInfo.new
-        data.index_name = map['IndexName']
-        data.key_schema = (KeySchema.parse(map['KeySchema']) unless map['KeySchema'].nil?)
-        data.projection = (Projection.parse(map['Projection']) unless map['Projection'].nil?)
-        data.provisioned_throughput = (ProvisionedThroughput.parse(map['ProvisionedThroughput']) unless map['ProvisionedThroughput'].nil?)
+        data.index_name = map['IndexName'] unless map['IndexName'].nil?
+        data.key_schema = KeySchema.parse(map['KeySchema']) unless map['KeySchema'].nil?
+        data.projection = Projection.parse(map['Projection']) unless map['Projection'].nil?
+        data.provisioned_throughput = ProvisionedThroughput.parse(map['ProvisionedThroughput']) unless map['ProvisionedThroughput'].nil?
         return data
       end
     end
@@ -943,8 +943,8 @@ module AWS::SDK::DynamoDB
     class GlobalTable
       def self.parse(map)
         data = Types::GlobalTable.new
-        data.global_table_name = map['GlobalTableName']
-        data.replication_group = (ReplicaList.parse(map['ReplicationGroup']) unless map['ReplicationGroup'].nil?)
+        data.global_table_name = map['GlobalTableName'] unless map['GlobalTableName'].nil?
+        data.replication_group = ReplicaList.parse(map['ReplicationGroup']) unless map['ReplicationGroup'].nil?
         return data
       end
     end
@@ -956,7 +956,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.message = map['message']
+        data.message = map['message'] unless map['message'].nil?
         data
       end
     end
@@ -964,11 +964,11 @@ module AWS::SDK::DynamoDB
     class GlobalTableDescription
       def self.parse(map)
         data = Types::GlobalTableDescription.new
-        data.replication_group = (ReplicaDescriptionList.parse(map['ReplicationGroup']) unless map['ReplicationGroup'].nil?)
-        data.global_table_arn = map['GlobalTableArn']
+        data.replication_group = ReplicaDescriptionList.parse(map['ReplicationGroup']) unless map['ReplicationGroup'].nil?
+        data.global_table_arn = map['GlobalTableArn'] unless map['GlobalTableArn'].nil?
         data.creation_date_time = Time.at(map['CreationDateTime'].to_i) if map['CreationDateTime']
-        data.global_table_status = map['GlobalTableStatus']
-        data.global_table_name = map['GlobalTableName']
+        data.global_table_status = map['GlobalTableStatus'] unless map['GlobalTableStatus'].nil?
+        data.global_table_name = map['GlobalTableName'] unless map['GlobalTableName'].nil?
         return data
       end
     end
@@ -988,7 +988,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.message = map['message']
+        data.message = map['message'] unless map['message'].nil?
         data
       end
     end
@@ -1000,7 +1000,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.message = map['Message']
+        data.message = map['Message'] unless map['Message'].nil?
         data
       end
     end
@@ -1012,7 +1012,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.message = map['message']
+        data.message = map['message'] unless map['message'].nil?
         data
       end
     end
@@ -1024,7 +1024,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.message = map['message']
+        data.message = map['message'] unless map['message'].nil?
         data
       end
     end
@@ -1032,12 +1032,12 @@ module AWS::SDK::DynamoDB
     class ImportSummary
       def self.parse(map)
         data = Types::ImportSummary.new
-        data.import_arn = map['ImportArn']
-        data.import_status = map['ImportStatus']
-        data.table_arn = map['TableArn']
-        data.s3_bucket_source = (S3BucketSource.parse(map['S3BucketSource']) unless map['S3BucketSource'].nil?)
-        data.cloud_watch_log_group_arn = map['CloudWatchLogGroupArn']
-        data.input_format = map['InputFormat']
+        data.import_arn = map['ImportArn'] unless map['ImportArn'].nil?
+        data.import_status = map['ImportStatus'] unless map['ImportStatus'].nil?
+        data.table_arn = map['TableArn'] unless map['TableArn'].nil?
+        data.s3_bucket_source = S3BucketSource.parse(map['S3BucketSource']) unless map['S3BucketSource'].nil?
+        data.cloud_watch_log_group_arn = map['CloudWatchLogGroupArn'] unless map['CloudWatchLogGroupArn'].nil?
+        data.input_format = map['InputFormat'] unless map['InputFormat'].nil?
         data.start_time = Time.at(map['StartTime'].to_i) if map['StartTime']
         data.end_time = Time.at(map['EndTime'].to_i) if map['EndTime']
         return data
@@ -1058,7 +1058,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.import_table_description = (ImportTableDescription.parse(map['ImportTableDescription']) unless map['ImportTableDescription'].nil?)
+        data.import_table_description = ImportTableDescription.parse(map['ImportTableDescription']) unless map['ImportTableDescription'].nil?
         data
       end
     end
@@ -1066,25 +1066,25 @@ module AWS::SDK::DynamoDB
     class ImportTableDescription
       def self.parse(map)
         data = Types::ImportTableDescription.new
-        data.import_arn = map['ImportArn']
-        data.import_status = map['ImportStatus']
-        data.table_arn = map['TableArn']
-        data.table_id = map['TableId']
-        data.client_token = map['ClientToken']
-        data.s3_bucket_source = (S3BucketSource.parse(map['S3BucketSource']) unless map['S3BucketSource'].nil?)
-        data.error_count = map['ErrorCount']
-        data.cloud_watch_log_group_arn = map['CloudWatchLogGroupArn']
-        data.input_format = map['InputFormat']
-        data.input_format_options = (InputFormatOptions.parse(map['InputFormatOptions']) unless map['InputFormatOptions'].nil?)
-        data.input_compression_type = map['InputCompressionType']
-        data.table_creation_parameters = (TableCreationParameters.parse(map['TableCreationParameters']) unless map['TableCreationParameters'].nil?)
+        data.import_arn = map['ImportArn'] unless map['ImportArn'].nil?
+        data.import_status = map['ImportStatus'] unless map['ImportStatus'].nil?
+        data.table_arn = map['TableArn'] unless map['TableArn'].nil?
+        data.table_id = map['TableId'] unless map['TableId'].nil?
+        data.client_token = map['ClientToken'] unless map['ClientToken'].nil?
+        data.s3_bucket_source = S3BucketSource.parse(map['S3BucketSource']) unless map['S3BucketSource'].nil?
+        data.error_count = map['ErrorCount'] unless map['ErrorCount'].nil?
+        data.cloud_watch_log_group_arn = map['CloudWatchLogGroupArn'] unless map['CloudWatchLogGroupArn'].nil?
+        data.input_format = map['InputFormat'] unless map['InputFormat'].nil?
+        data.input_format_options = InputFormatOptions.parse(map['InputFormatOptions']) unless map['InputFormatOptions'].nil?
+        data.input_compression_type = map['InputCompressionType'] unless map['InputCompressionType'].nil?
+        data.table_creation_parameters = TableCreationParameters.parse(map['TableCreationParameters']) unless map['TableCreationParameters'].nil?
         data.start_time = Time.at(map['StartTime'].to_i) if map['StartTime']
         data.end_time = Time.at(map['EndTime'].to_i) if map['EndTime']
-        data.processed_size_bytes = map['ProcessedSizeBytes']
-        data.processed_item_count = map['ProcessedItemCount']
-        data.imported_item_count = map['ImportedItemCount']
-        data.failure_code = map['FailureCode']
-        data.failure_message = map['FailureMessage']
+        data.processed_size_bytes = map['ProcessedSizeBytes'] unless map['ProcessedSizeBytes'].nil?
+        data.processed_item_count = map['ProcessedItemCount'] unless map['ProcessedItemCount'].nil?
+        data.imported_item_count = map['ImportedItemCount'] unless map['ImportedItemCount'].nil?
+        data.failure_code = map['FailureCode'] unless map['FailureCode'].nil?
+        data.failure_message = map['FailureMessage'] unless map['FailureMessage'].nil?
         return data
       end
     end
@@ -1094,7 +1094,7 @@ module AWS::SDK::DynamoDB
         data = Types::IncrementalExportSpecification.new
         data.export_from_time = Time.at(map['ExportFromTime'].to_i) if map['ExportFromTime']
         data.export_to_time = Time.at(map['ExportToTime'].to_i) if map['ExportToTime']
-        data.export_view_type = map['ExportViewType']
+        data.export_view_type = map['ExportViewType'] unless map['ExportViewType'].nil?
         return data
       end
     end
@@ -1106,7 +1106,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.message = map['message']
+        data.message = map['message'] unless map['message'].nil?
         data
       end
     end
@@ -1114,7 +1114,7 @@ module AWS::SDK::DynamoDB
     class InputFormatOptions
       def self.parse(map)
         data = Types::InputFormatOptions.new
-        data.csv = (CsvOptions.parse(map['Csv']) unless map['Csv'].nil?)
+        data.csv = CsvOptions.parse(map['Csv']) unless map['Csv'].nil?
         return data
       end
     end
@@ -1126,7 +1126,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.message = map['message']
+        data.message = map['message'] unless map['message'].nil?
         data
       end
     end
@@ -1138,7 +1138,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.message = map['Message']
+        data.message = map['Message'] unless map['Message'].nil?
         data
       end
     end
@@ -1150,7 +1150,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.message = map['message']
+        data.message = map['message'] unless map['message'].nil?
         data
       end
     end
@@ -1162,7 +1162,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.message = map['message']
+        data.message = map['message'] unless map['message'].nil?
         data
       end
     end
@@ -1180,8 +1180,8 @@ module AWS::SDK::DynamoDB
     class ItemCollectionMetrics
       def self.parse(map)
         data = Types::ItemCollectionMetrics.new
-        data.item_collection_key = (ItemCollectionKeyAttributeMap.parse(map['ItemCollectionKey']) unless map['ItemCollectionKey'].nil?)
-        data.size_estimate_range_gb = (ItemCollectionSizeEstimateRange.parse(map['SizeEstimateRangeGB']) unless map['SizeEstimateRangeGB'].nil?)
+        data.item_collection_key = ItemCollectionKeyAttributeMap.parse(map['ItemCollectionKey']) unless map['ItemCollectionKey'].nil?
+        data.size_estimate_range_gb = ItemCollectionSizeEstimateRange.parse(map['SizeEstimateRangeGB']) unless map['SizeEstimateRangeGB'].nil?
         return data
       end
     end
@@ -1219,7 +1219,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.message = map['message']
+        data.message = map['message'] unless map['message'].nil?
         data
       end
     end
@@ -1235,7 +1235,7 @@ module AWS::SDK::DynamoDB
     class ItemResponse
       def self.parse(map)
         data = Types::ItemResponse.new
-        data.item = (AttributeMap.parse(map['Item']) unless map['Item'].nil?)
+        data.item = AttributeMap.parse(map['Item']) unless map['Item'].nil?
         return data
       end
     end
@@ -1277,8 +1277,8 @@ module AWS::SDK::DynamoDB
     class KeySchemaElement
       def self.parse(map)
         data = Types::KeySchemaElement.new
-        data.attribute_name = map['AttributeName']
-        data.key_type = map['KeyType']
+        data.attribute_name = map['AttributeName'] unless map['AttributeName'].nil?
+        data.key_type = map['KeyType'] unless map['KeyType'].nil?
         return data
       end
     end
@@ -1286,11 +1286,11 @@ module AWS::SDK::DynamoDB
     class KeysAndAttributes
       def self.parse(map)
         data = Types::KeysAndAttributes.new
-        data.keys = (KeyList.parse(map['Keys']) unless map['Keys'].nil?)
-        data.attributes_to_get = (AttributeNameList.parse(map['AttributesToGet']) unless map['AttributesToGet'].nil?)
-        data.consistent_read = map['ConsistentRead']
-        data.projection_expression = map['ProjectionExpression']
-        data.expression_attribute_names = (ExpressionAttributeNameMap.parse(map['ExpressionAttributeNames']) unless map['ExpressionAttributeNames'].nil?)
+        data.keys = KeyList.parse(map['Keys']) unless map['Keys'].nil?
+        data.attributes_to_get = AttributeNameList.parse(map['AttributesToGet']) unless map['AttributesToGet'].nil?
+        data.consistent_read = map['ConsistentRead'] unless map['ConsistentRead'].nil?
+        data.projection_expression = map['ProjectionExpression'] unless map['ProjectionExpression'].nil?
+        data.expression_attribute_names = ExpressionAttributeNameMap.parse(map['ExpressionAttributeNames']) unless map['ExpressionAttributeNames'].nil?
         return data
       end
     end
@@ -1298,10 +1298,10 @@ module AWS::SDK::DynamoDB
     class KinesisDataStreamDestination
       def self.parse(map)
         data = Types::KinesisDataStreamDestination.new
-        data.stream_arn = map['StreamArn']
-        data.destination_status = map['DestinationStatus']
-        data.destination_status_description = map['DestinationStatusDescription']
-        data.approximate_creation_date_time_precision = map['ApproximateCreationDateTimePrecision']
+        data.stream_arn = map['StreamArn'] unless map['StreamArn'].nil?
+        data.destination_status = map['DestinationStatus'] unless map['DestinationStatus'].nil?
+        data.destination_status_description = map['DestinationStatusDescription'] unless map['DestinationStatusDescription'].nil?
+        data.approximate_creation_date_time_precision = map['ApproximateCreationDateTimePrecision'] unless map['ApproximateCreationDateTimePrecision'].nil?
         return data
       end
     end
@@ -1321,7 +1321,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.message = map['message']
+        data.message = map['message'] unless map['message'].nil?
         data
       end
     end
@@ -1340,8 +1340,8 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.backup_summaries = (BackupSummaries.parse(map['BackupSummaries']) unless map['BackupSummaries'].nil?)
-        data.last_evaluated_backup_arn = map['LastEvaluatedBackupArn']
+        data.backup_summaries = BackupSummaries.parse(map['BackupSummaries']) unless map['BackupSummaries'].nil?
+        data.last_evaluated_backup_arn = map['LastEvaluatedBackupArn'] unless map['LastEvaluatedBackupArn'].nil?
         data
       end
     end
@@ -1352,8 +1352,8 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.contributor_insights_summaries = (ContributorInsightsSummaries.parse(map['ContributorInsightsSummaries']) unless map['ContributorInsightsSummaries'].nil?)
-        data.next_token = map['NextToken']
+        data.contributor_insights_summaries = ContributorInsightsSummaries.parse(map['ContributorInsightsSummaries']) unless map['ContributorInsightsSummaries'].nil?
+        data.next_token = map['NextToken'] unless map['NextToken'].nil?
         data
       end
     end
@@ -1364,8 +1364,8 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.export_summaries = (ExportSummaries.parse(map['ExportSummaries']) unless map['ExportSummaries'].nil?)
-        data.next_token = map['NextToken']
+        data.export_summaries = ExportSummaries.parse(map['ExportSummaries']) unless map['ExportSummaries'].nil?
+        data.next_token = map['NextToken'] unless map['NextToken'].nil?
         data
       end
     end
@@ -1376,8 +1376,8 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.global_tables = (GlobalTableList.parse(map['GlobalTables']) unless map['GlobalTables'].nil?)
-        data.last_evaluated_global_table_name = map['LastEvaluatedGlobalTableName']
+        data.global_tables = GlobalTableList.parse(map['GlobalTables']) unless map['GlobalTables'].nil?
+        data.last_evaluated_global_table_name = map['LastEvaluatedGlobalTableName'] unless map['LastEvaluatedGlobalTableName'].nil?
         data
       end
     end
@@ -1388,8 +1388,8 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.import_summary_list = (ImportSummaryList.parse(map['ImportSummaryList']) unless map['ImportSummaryList'].nil?)
-        data.next_token = map['NextToken']
+        data.import_summary_list = ImportSummaryList.parse(map['ImportSummaryList']) unless map['ImportSummaryList'].nil?
+        data.next_token = map['NextToken'] unless map['NextToken'].nil?
         data
       end
     end
@@ -1400,8 +1400,8 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.table_names = (TableNameList.parse(map['TableNames']) unless map['TableNames'].nil?)
-        data.last_evaluated_table_name = map['LastEvaluatedTableName']
+        data.table_names = TableNameList.parse(map['TableNames']) unless map['TableNames'].nil?
+        data.last_evaluated_table_name = map['LastEvaluatedTableName'] unless map['LastEvaluatedTableName'].nil?
         data
       end
     end
@@ -1412,8 +1412,8 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
-        data.next_token = map['NextToken']
+        data.tags = TagList.parse(map['Tags']) unless map['Tags'].nil?
+        data.next_token = map['NextToken'] unless map['NextToken'].nil?
         data
       end
     end
@@ -1421,12 +1421,12 @@ module AWS::SDK::DynamoDB
     class LocalSecondaryIndexDescription
       def self.parse(map)
         data = Types::LocalSecondaryIndexDescription.new
-        data.index_name = map['IndexName']
-        data.key_schema = (KeySchema.parse(map['KeySchema']) unless map['KeySchema'].nil?)
-        data.projection = (Projection.parse(map['Projection']) unless map['Projection'].nil?)
-        data.index_size_bytes = map['IndexSizeBytes']
-        data.item_count = map['ItemCount']
-        data.index_arn = map['IndexArn']
+        data.index_name = map['IndexName'] unless map['IndexName'].nil?
+        data.key_schema = KeySchema.parse(map['KeySchema']) unless map['KeySchema'].nil?
+        data.projection = Projection.parse(map['Projection']) unless map['Projection'].nil?
+        data.index_size_bytes = map['IndexSizeBytes'] unless map['IndexSizeBytes'].nil?
+        data.item_count = map['ItemCount'] unless map['ItemCount'].nil?
+        data.index_arn = map['IndexArn'] unless map['IndexArn'].nil?
         return data
       end
     end
@@ -1442,9 +1442,9 @@ module AWS::SDK::DynamoDB
     class LocalSecondaryIndexInfo
       def self.parse(map)
         data = Types::LocalSecondaryIndexInfo.new
-        data.index_name = map['IndexName']
-        data.key_schema = (KeySchema.parse(map['KeySchema']) unless map['KeySchema'].nil?)
-        data.projection = (Projection.parse(map['Projection']) unless map['Projection'].nil?)
+        data.index_name = map['IndexName'] unless map['IndexName'].nil?
+        data.key_schema = KeySchema.parse(map['KeySchema']) unless map['KeySchema'].nil?
+        data.projection = Projection.parse(map['Projection']) unless map['Projection'].nil?
         return data
       end
     end
@@ -1494,7 +1494,7 @@ module AWS::SDK::DynamoDB
     class PointInTimeRecoveryDescription
       def self.parse(map)
         data = Types::PointInTimeRecoveryDescription.new
-        data.point_in_time_recovery_status = map['PointInTimeRecoveryStatus']
+        data.point_in_time_recovery_status = map['PointInTimeRecoveryStatus'] unless map['PointInTimeRecoveryStatus'].nil?
         data.earliest_restorable_date_time = Time.at(map['EarliestRestorableDateTime'].to_i) if map['EarliestRestorableDateTime']
         data.latest_restorable_date_time = Time.at(map['LatestRestorableDateTime'].to_i) if map['LatestRestorableDateTime']
         return data
@@ -1508,7 +1508,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.message = map['message']
+        data.message = map['message'] unless map['message'].nil?
         data
       end
     end
@@ -1516,8 +1516,8 @@ module AWS::SDK::DynamoDB
     class Projection
       def self.parse(map)
         data = Types::Projection.new
-        data.projection_type = map['ProjectionType']
-        data.non_key_attributes = (NonKeyAttributeNameList.parse(map['NonKeyAttributes']) unless map['NonKeyAttributes'].nil?)
+        data.projection_type = map['ProjectionType'] unless map['ProjectionType'].nil?
+        data.non_key_attributes = NonKeyAttributeNameList.parse(map['NonKeyAttributes']) unless map['NonKeyAttributes'].nil?
         return data
       end
     end
@@ -1525,8 +1525,8 @@ module AWS::SDK::DynamoDB
     class ProvisionedThroughput
       def self.parse(map)
         data = Types::ProvisionedThroughput.new
-        data.read_capacity_units = map['ReadCapacityUnits']
-        data.write_capacity_units = map['WriteCapacityUnits']
+        data.read_capacity_units = map['ReadCapacityUnits'] unless map['ReadCapacityUnits'].nil?
+        data.write_capacity_units = map['WriteCapacityUnits'] unless map['WriteCapacityUnits'].nil?
         return data
       end
     end
@@ -1536,9 +1536,9 @@ module AWS::SDK::DynamoDB
         data = Types::ProvisionedThroughputDescription.new
         data.last_increase_date_time = Time.at(map['LastIncreaseDateTime'].to_i) if map['LastIncreaseDateTime']
         data.last_decrease_date_time = Time.at(map['LastDecreaseDateTime'].to_i) if map['LastDecreaseDateTime']
-        data.number_of_decreases_today = map['NumberOfDecreasesToday']
-        data.read_capacity_units = map['ReadCapacityUnits']
-        data.write_capacity_units = map['WriteCapacityUnits']
+        data.number_of_decreases_today = map['NumberOfDecreasesToday'] unless map['NumberOfDecreasesToday'].nil?
+        data.read_capacity_units = map['ReadCapacityUnits'] unless map['ReadCapacityUnits'].nil?
+        data.write_capacity_units = map['WriteCapacityUnits'] unless map['WriteCapacityUnits'].nil?
         return data
       end
     end
@@ -1550,7 +1550,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.message = map['message']
+        data.message = map['message'] unless map['message'].nil?
         data
       end
     end
@@ -1558,7 +1558,7 @@ module AWS::SDK::DynamoDB
     class ProvisionedThroughputOverride
       def self.parse(map)
         data = Types::ProvisionedThroughputOverride.new
-        data.read_capacity_units = map['ReadCapacityUnits']
+        data.read_capacity_units = map['ReadCapacityUnits'] unless map['ReadCapacityUnits'].nil?
         return data
       end
     end
@@ -1569,9 +1569,9 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.attributes = (AttributeMap.parse(map['Attributes']) unless map['Attributes'].nil?)
-        data.consumed_capacity = (ConsumedCapacity.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?)
-        data.item_collection_metrics = (ItemCollectionMetrics.parse(map['ItemCollectionMetrics']) unless map['ItemCollectionMetrics'].nil?)
+        data.attributes = AttributeMap.parse(map['Attributes']) unless map['Attributes'].nil?
+        data.consumed_capacity = ConsumedCapacity.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?
+        data.item_collection_metrics = ItemCollectionMetrics.parse(map['ItemCollectionMetrics']) unless map['ItemCollectionMetrics'].nil?
         data
       end
     end
@@ -1589,7 +1589,7 @@ module AWS::SDK::DynamoDB
     class PutRequest
       def self.parse(map)
         data = Types::PutRequest.new
-        data.item = (PutItemInputAttributeMap.parse(map['Item']) unless map['Item'].nil?)
+        data.item = PutItemInputAttributeMap.parse(map['Item']) unless map['Item'].nil?
         return data
       end
     end
@@ -1600,11 +1600,11 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.items = (ItemList.parse(map['Items']) unless map['Items'].nil?)
-        data.count = map['Count']
-        data.scanned_count = map['ScannedCount']
-        data.last_evaluated_key = (Key.parse(map['LastEvaluatedKey']) unless map['LastEvaluatedKey'].nil?)
-        data.consumed_capacity = (ConsumedCapacity.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?)
+        data.items = ItemList.parse(map['Items']) unless map['Items'].nil?
+        data.count = map['Count'] unless map['Count'].nil?
+        data.scanned_count = map['ScannedCount'] unless map['ScannedCount'].nil?
+        data.last_evaluated_key = Key.parse(map['LastEvaluatedKey']) unless map['LastEvaluatedKey'].nil?
+        data.consumed_capacity = ConsumedCapacity.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?
         data
       end
     end
@@ -1612,7 +1612,7 @@ module AWS::SDK::DynamoDB
     class Replica
       def self.parse(map)
         data = Types::Replica.new
-        data.region_name = map['RegionName']
+        data.region_name = map['RegionName'] unless map['RegionName'].nil?
         return data
       end
     end
@@ -1624,7 +1624,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.message = map['message']
+        data.message = map['message'] unless map['message'].nil?
         data
       end
     end
@@ -1632,11 +1632,11 @@ module AWS::SDK::DynamoDB
     class ReplicaAutoScalingDescription
       def self.parse(map)
         data = Types::ReplicaAutoScalingDescription.new
-        data.region_name = map['RegionName']
-        data.global_secondary_indexes = (ReplicaGlobalSecondaryIndexAutoScalingDescriptionList.parse(map['GlobalSecondaryIndexes']) unless map['GlobalSecondaryIndexes'].nil?)
-        data.replica_provisioned_read_capacity_auto_scaling_settings = (AutoScalingSettingsDescription.parse(map['ReplicaProvisionedReadCapacityAutoScalingSettings']) unless map['ReplicaProvisionedReadCapacityAutoScalingSettings'].nil?)
-        data.replica_provisioned_write_capacity_auto_scaling_settings = (AutoScalingSettingsDescription.parse(map['ReplicaProvisionedWriteCapacityAutoScalingSettings']) unless map['ReplicaProvisionedWriteCapacityAutoScalingSettings'].nil?)
-        data.replica_status = map['ReplicaStatus']
+        data.region_name = map['RegionName'] unless map['RegionName'].nil?
+        data.global_secondary_indexes = ReplicaGlobalSecondaryIndexAutoScalingDescriptionList.parse(map['GlobalSecondaryIndexes']) unless map['GlobalSecondaryIndexes'].nil?
+        data.replica_provisioned_read_capacity_auto_scaling_settings = AutoScalingSettingsDescription.parse(map['ReplicaProvisionedReadCapacityAutoScalingSettings']) unless map['ReplicaProvisionedReadCapacityAutoScalingSettings'].nil?
+        data.replica_provisioned_write_capacity_auto_scaling_settings = AutoScalingSettingsDescription.parse(map['ReplicaProvisionedWriteCapacityAutoScalingSettings']) unless map['ReplicaProvisionedWriteCapacityAutoScalingSettings'].nil?
+        data.replica_status = map['ReplicaStatus'] unless map['ReplicaStatus'].nil?
         return data
       end
     end
@@ -1652,15 +1652,15 @@ module AWS::SDK::DynamoDB
     class ReplicaDescription
       def self.parse(map)
         data = Types::ReplicaDescription.new
-        data.region_name = map['RegionName']
-        data.replica_status = map['ReplicaStatus']
-        data.replica_status_description = map['ReplicaStatusDescription']
-        data.replica_status_percent_progress = map['ReplicaStatusPercentProgress']
-        data.kms_master_key_id = map['KMSMasterKeyId']
-        data.provisioned_throughput_override = (ProvisionedThroughputOverride.parse(map['ProvisionedThroughputOverride']) unless map['ProvisionedThroughputOverride'].nil?)
-        data.global_secondary_indexes = (ReplicaGlobalSecondaryIndexDescriptionList.parse(map['GlobalSecondaryIndexes']) unless map['GlobalSecondaryIndexes'].nil?)
+        data.region_name = map['RegionName'] unless map['RegionName'].nil?
+        data.replica_status = map['ReplicaStatus'] unless map['ReplicaStatus'].nil?
+        data.replica_status_description = map['ReplicaStatusDescription'] unless map['ReplicaStatusDescription'].nil?
+        data.replica_status_percent_progress = map['ReplicaStatusPercentProgress'] unless map['ReplicaStatusPercentProgress'].nil?
+        data.kms_master_key_id = map['KMSMasterKeyId'] unless map['KMSMasterKeyId'].nil?
+        data.provisioned_throughput_override = ProvisionedThroughputOverride.parse(map['ProvisionedThroughputOverride']) unless map['ProvisionedThroughputOverride'].nil?
+        data.global_secondary_indexes = ReplicaGlobalSecondaryIndexDescriptionList.parse(map['GlobalSecondaryIndexes']) unless map['GlobalSecondaryIndexes'].nil?
         data.replica_inaccessible_date_time = Time.at(map['ReplicaInaccessibleDateTime'].to_i) if map['ReplicaInaccessibleDateTime']
-        data.replica_table_class_summary = (TableClassSummary.parse(map['ReplicaTableClassSummary']) unless map['ReplicaTableClassSummary'].nil?)
+        data.replica_table_class_summary = TableClassSummary.parse(map['ReplicaTableClassSummary']) unless map['ReplicaTableClassSummary'].nil?
         return data
       end
     end
@@ -1676,10 +1676,10 @@ module AWS::SDK::DynamoDB
     class ReplicaGlobalSecondaryIndexAutoScalingDescription
       def self.parse(map)
         data = Types::ReplicaGlobalSecondaryIndexAutoScalingDescription.new
-        data.index_name = map['IndexName']
-        data.index_status = map['IndexStatus']
-        data.provisioned_read_capacity_auto_scaling_settings = (AutoScalingSettingsDescription.parse(map['ProvisionedReadCapacityAutoScalingSettings']) unless map['ProvisionedReadCapacityAutoScalingSettings'].nil?)
-        data.provisioned_write_capacity_auto_scaling_settings = (AutoScalingSettingsDescription.parse(map['ProvisionedWriteCapacityAutoScalingSettings']) unless map['ProvisionedWriteCapacityAutoScalingSettings'].nil?)
+        data.index_name = map['IndexName'] unless map['IndexName'].nil?
+        data.index_status = map['IndexStatus'] unless map['IndexStatus'].nil?
+        data.provisioned_read_capacity_auto_scaling_settings = AutoScalingSettingsDescription.parse(map['ProvisionedReadCapacityAutoScalingSettings']) unless map['ProvisionedReadCapacityAutoScalingSettings'].nil?
+        data.provisioned_write_capacity_auto_scaling_settings = AutoScalingSettingsDescription.parse(map['ProvisionedWriteCapacityAutoScalingSettings']) unless map['ProvisionedWriteCapacityAutoScalingSettings'].nil?
         return data
       end
     end
@@ -1695,8 +1695,8 @@ module AWS::SDK::DynamoDB
     class ReplicaGlobalSecondaryIndexDescription
       def self.parse(map)
         data = Types::ReplicaGlobalSecondaryIndexDescription.new
-        data.index_name = map['IndexName']
-        data.provisioned_throughput_override = (ProvisionedThroughputOverride.parse(map['ProvisionedThroughputOverride']) unless map['ProvisionedThroughputOverride'].nil?)
+        data.index_name = map['IndexName'] unless map['IndexName'].nil?
+        data.provisioned_throughput_override = ProvisionedThroughputOverride.parse(map['ProvisionedThroughputOverride']) unless map['ProvisionedThroughputOverride'].nil?
         return data
       end
     end
@@ -1712,12 +1712,12 @@ module AWS::SDK::DynamoDB
     class ReplicaGlobalSecondaryIndexSettingsDescription
       def self.parse(map)
         data = Types::ReplicaGlobalSecondaryIndexSettingsDescription.new
-        data.index_name = map['IndexName']
-        data.index_status = map['IndexStatus']
-        data.provisioned_read_capacity_units = map['ProvisionedReadCapacityUnits']
-        data.provisioned_read_capacity_auto_scaling_settings = (AutoScalingSettingsDescription.parse(map['ProvisionedReadCapacityAutoScalingSettings']) unless map['ProvisionedReadCapacityAutoScalingSettings'].nil?)
-        data.provisioned_write_capacity_units = map['ProvisionedWriteCapacityUnits']
-        data.provisioned_write_capacity_auto_scaling_settings = (AutoScalingSettingsDescription.parse(map['ProvisionedWriteCapacityAutoScalingSettings']) unless map['ProvisionedWriteCapacityAutoScalingSettings'].nil?)
+        data.index_name = map['IndexName'] unless map['IndexName'].nil?
+        data.index_status = map['IndexStatus'] unless map['IndexStatus'].nil?
+        data.provisioned_read_capacity_units = map['ProvisionedReadCapacityUnits'] unless map['ProvisionedReadCapacityUnits'].nil?
+        data.provisioned_read_capacity_auto_scaling_settings = AutoScalingSettingsDescription.parse(map['ProvisionedReadCapacityAutoScalingSettings']) unless map['ProvisionedReadCapacityAutoScalingSettings'].nil?
+        data.provisioned_write_capacity_units = map['ProvisionedWriteCapacityUnits'] unless map['ProvisionedWriteCapacityUnits'].nil?
+        data.provisioned_write_capacity_auto_scaling_settings = AutoScalingSettingsDescription.parse(map['ProvisionedWriteCapacityAutoScalingSettings']) unless map['ProvisionedWriteCapacityAutoScalingSettings'].nil?
         return data
       end
     end
@@ -1745,7 +1745,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.message = map['message']
+        data.message = map['message'] unless map['message'].nil?
         data
       end
     end
@@ -1753,15 +1753,15 @@ module AWS::SDK::DynamoDB
     class ReplicaSettingsDescription
       def self.parse(map)
         data = Types::ReplicaSettingsDescription.new
-        data.region_name = map['RegionName']
-        data.replica_status = map['ReplicaStatus']
-        data.replica_billing_mode_summary = (BillingModeSummary.parse(map['ReplicaBillingModeSummary']) unless map['ReplicaBillingModeSummary'].nil?)
-        data.replica_provisioned_read_capacity_units = map['ReplicaProvisionedReadCapacityUnits']
-        data.replica_provisioned_read_capacity_auto_scaling_settings = (AutoScalingSettingsDescription.parse(map['ReplicaProvisionedReadCapacityAutoScalingSettings']) unless map['ReplicaProvisionedReadCapacityAutoScalingSettings'].nil?)
-        data.replica_provisioned_write_capacity_units = map['ReplicaProvisionedWriteCapacityUnits']
-        data.replica_provisioned_write_capacity_auto_scaling_settings = (AutoScalingSettingsDescription.parse(map['ReplicaProvisionedWriteCapacityAutoScalingSettings']) unless map['ReplicaProvisionedWriteCapacityAutoScalingSettings'].nil?)
-        data.replica_global_secondary_index_settings = (ReplicaGlobalSecondaryIndexSettingsDescriptionList.parse(map['ReplicaGlobalSecondaryIndexSettings']) unless map['ReplicaGlobalSecondaryIndexSettings'].nil?)
-        data.replica_table_class_summary = (TableClassSummary.parse(map['ReplicaTableClassSummary']) unless map['ReplicaTableClassSummary'].nil?)
+        data.region_name = map['RegionName'] unless map['RegionName'].nil?
+        data.replica_status = map['ReplicaStatus'] unless map['ReplicaStatus'].nil?
+        data.replica_billing_mode_summary = BillingModeSummary.parse(map['ReplicaBillingModeSummary']) unless map['ReplicaBillingModeSummary'].nil?
+        data.replica_provisioned_read_capacity_units = map['ReplicaProvisionedReadCapacityUnits'] unless map['ReplicaProvisionedReadCapacityUnits'].nil?
+        data.replica_provisioned_read_capacity_auto_scaling_settings = AutoScalingSettingsDescription.parse(map['ReplicaProvisionedReadCapacityAutoScalingSettings']) unless map['ReplicaProvisionedReadCapacityAutoScalingSettings'].nil?
+        data.replica_provisioned_write_capacity_units = map['ReplicaProvisionedWriteCapacityUnits'] unless map['ReplicaProvisionedWriteCapacityUnits'].nil?
+        data.replica_provisioned_write_capacity_auto_scaling_settings = AutoScalingSettingsDescription.parse(map['ReplicaProvisionedWriteCapacityAutoScalingSettings']) unless map['ReplicaProvisionedWriteCapacityAutoScalingSettings'].nil?
+        data.replica_global_secondary_index_settings = ReplicaGlobalSecondaryIndexSettingsDescriptionList.parse(map['ReplicaGlobalSecondaryIndexSettings']) unless map['ReplicaGlobalSecondaryIndexSettings'].nil?
+        data.replica_table_class_summary = TableClassSummary.parse(map['ReplicaTableClassSummary']) unless map['ReplicaTableClassSummary'].nil?
         return data
       end
     end
@@ -1781,7 +1781,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.message = map['message']
+        data.message = map['message'] unless map['message'].nil?
         data
       end
     end
@@ -1793,7 +1793,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.message = map['message']
+        data.message = map['message'] unless map['message'].nil?
         data
       end
     end
@@ -1805,7 +1805,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.message = map['message']
+        data.message = map['message'] unless map['message'].nil?
         data
       end
     end
@@ -1813,10 +1813,10 @@ module AWS::SDK::DynamoDB
     class RestoreSummary
       def self.parse(map)
         data = Types::RestoreSummary.new
-        data.source_backup_arn = map['SourceBackupArn']
-        data.source_table_arn = map['SourceTableArn']
+        data.source_backup_arn = map['SourceBackupArn'] unless map['SourceBackupArn'].nil?
+        data.source_table_arn = map['SourceTableArn'] unless map['SourceTableArn'].nil?
         data.restore_date_time = Time.at(map['RestoreDateTime'].to_i) if map['RestoreDateTime']
-        data.restore_in_progress = map['RestoreInProgress']
+        data.restore_in_progress = map['RestoreInProgress'] unless map['RestoreInProgress'].nil?
         return data
       end
     end
@@ -1827,7 +1827,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.table_description = (TableDescription.parse(map['TableDescription']) unless map['TableDescription'].nil?)
+        data.table_description = TableDescription.parse(map['TableDescription']) unless map['TableDescription'].nil?
         data
       end
     end
@@ -1838,7 +1838,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.table_description = (TableDescription.parse(map['TableDescription']) unless map['TableDescription'].nil?)
+        data.table_description = TableDescription.parse(map['TableDescription']) unless map['TableDescription'].nil?
         data
       end
     end
@@ -1846,9 +1846,9 @@ module AWS::SDK::DynamoDB
     class S3BucketSource
       def self.parse(map)
         data = Types::S3BucketSource.new
-        data.s3_bucket_owner = map['S3BucketOwner']
-        data.s3_bucket = map['S3Bucket']
-        data.s3_key_prefix = map['S3KeyPrefix']
+        data.s3_bucket_owner = map['S3BucketOwner'] unless map['S3BucketOwner'].nil?
+        data.s3_bucket = map['S3Bucket'] unless map['S3Bucket'].nil?
+        data.s3_key_prefix = map['S3KeyPrefix'] unless map['S3KeyPrefix'].nil?
         return data
       end
     end
@@ -1856,9 +1856,9 @@ module AWS::SDK::DynamoDB
     class SSEDescription
       def self.parse(map)
         data = Types::SSEDescription.new
-        data.status = map['Status']
-        data.sse_type = map['SSEType']
-        data.kms_master_key_arn = map['KMSMasterKeyArn']
+        data.status = map['Status'] unless map['Status'].nil?
+        data.sse_type = map['SSEType'] unless map['SSEType'].nil?
+        data.kms_master_key_arn = map['KMSMasterKeyArn'] unless map['KMSMasterKeyArn'].nil?
         data.inaccessible_encryption_date_time = Time.at(map['InaccessibleEncryptionDateTime'].to_i) if map['InaccessibleEncryptionDateTime']
         return data
       end
@@ -1867,9 +1867,9 @@ module AWS::SDK::DynamoDB
     class SSESpecification
       def self.parse(map)
         data = Types::SSESpecification.new
-        data.enabled = map['Enabled']
-        data.sse_type = map['SSEType']
-        data.kms_master_key_id = map['KMSMasterKeyId']
+        data.enabled = map['Enabled'] unless map['Enabled'].nil?
+        data.sse_type = map['SSEType'] unless map['SSEType'].nil?
+        data.kms_master_key_id = map['KMSMasterKeyId'] unless map['KMSMasterKeyId'].nil?
         return data
       end
     end
@@ -1880,11 +1880,11 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.items = (ItemList.parse(map['Items']) unless map['Items'].nil?)
-        data.count = map['Count']
-        data.scanned_count = map['ScannedCount']
-        data.last_evaluated_key = (Key.parse(map['LastEvaluatedKey']) unless map['LastEvaluatedKey'].nil?)
-        data.consumed_capacity = (ConsumedCapacity.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?)
+        data.items = ItemList.parse(map['Items']) unless map['Items'].nil?
+        data.count = map['Count'] unless map['Count'].nil?
+        data.scanned_count = map['ScannedCount'] unless map['ScannedCount'].nil?
+        data.last_evaluated_key = Key.parse(map['LastEvaluatedKey']) unless map['LastEvaluatedKey'].nil?
+        data.consumed_capacity = ConsumedCapacity.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?
         data
       end
     end
@@ -1902,15 +1902,15 @@ module AWS::SDK::DynamoDB
     class SourceTableDetails
       def self.parse(map)
         data = Types::SourceTableDetails.new
-        data.table_name = map['TableName']
-        data.table_id = map['TableId']
-        data.table_arn = map['TableArn']
-        data.table_size_bytes = map['TableSizeBytes']
-        data.key_schema = (KeySchema.parse(map['KeySchema']) unless map['KeySchema'].nil?)
+        data.table_name = map['TableName'] unless map['TableName'].nil?
+        data.table_id = map['TableId'] unless map['TableId'].nil?
+        data.table_arn = map['TableArn'] unless map['TableArn'].nil?
+        data.table_size_bytes = map['TableSizeBytes'] unless map['TableSizeBytes'].nil?
+        data.key_schema = KeySchema.parse(map['KeySchema']) unless map['KeySchema'].nil?
         data.table_creation_date_time = Time.at(map['TableCreationDateTime'].to_i) if map['TableCreationDateTime']
-        data.provisioned_throughput = (ProvisionedThroughput.parse(map['ProvisionedThroughput']) unless map['ProvisionedThroughput'].nil?)
-        data.item_count = map['ItemCount']
-        data.billing_mode = map['BillingMode']
+        data.provisioned_throughput = ProvisionedThroughput.parse(map['ProvisionedThroughput']) unless map['ProvisionedThroughput'].nil?
+        data.item_count = map['ItemCount'] unless map['ItemCount'].nil?
+        data.billing_mode = map['BillingMode'] unless map['BillingMode'].nil?
         return data
       end
     end
@@ -1918,11 +1918,11 @@ module AWS::SDK::DynamoDB
     class SourceTableFeatureDetails
       def self.parse(map)
         data = Types::SourceTableFeatureDetails.new
-        data.local_secondary_indexes = (LocalSecondaryIndexes.parse(map['LocalSecondaryIndexes']) unless map['LocalSecondaryIndexes'].nil?)
-        data.global_secondary_indexes = (GlobalSecondaryIndexes.parse(map['GlobalSecondaryIndexes']) unless map['GlobalSecondaryIndexes'].nil?)
-        data.stream_description = (StreamSpecification.parse(map['StreamDescription']) unless map['StreamDescription'].nil?)
-        data.time_to_live_description = (TimeToLiveDescription.parse(map['TimeToLiveDescription']) unless map['TimeToLiveDescription'].nil?)
-        data.sse_description = (SSEDescription.parse(map['SSEDescription']) unless map['SSEDescription'].nil?)
+        data.local_secondary_indexes = LocalSecondaryIndexes.parse(map['LocalSecondaryIndexes']) unless map['LocalSecondaryIndexes'].nil?
+        data.global_secondary_indexes = GlobalSecondaryIndexes.parse(map['GlobalSecondaryIndexes']) unless map['GlobalSecondaryIndexes'].nil?
+        data.stream_description = StreamSpecification.parse(map['StreamDescription']) unless map['StreamDescription'].nil?
+        data.time_to_live_description = TimeToLiveDescription.parse(map['TimeToLiveDescription']) unless map['TimeToLiveDescription'].nil?
+        data.sse_description = SSEDescription.parse(map['SSEDescription']) unless map['SSEDescription'].nil?
         return data
       end
     end
@@ -1930,8 +1930,8 @@ module AWS::SDK::DynamoDB
     class StreamSpecification
       def self.parse(map)
         data = Types::StreamSpecification.new
-        data.stream_enabled = map['StreamEnabled']
-        data.stream_view_type = map['StreamViewType']
+        data.stream_enabled = map['StreamEnabled'] unless map['StreamEnabled'].nil?
+        data.stream_view_type = map['StreamViewType'] unless map['StreamViewType'].nil?
         return data
       end
     end
@@ -1951,7 +1951,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.message = map['message']
+        data.message = map['message'] unless map['message'].nil?
         data
       end
     end
@@ -1959,9 +1959,9 @@ module AWS::SDK::DynamoDB
     class TableAutoScalingDescription
       def self.parse(map)
         data = Types::TableAutoScalingDescription.new
-        data.table_name = map['TableName']
-        data.table_status = map['TableStatus']
-        data.replicas = (ReplicaAutoScalingDescriptionList.parse(map['Replicas']) unless map['Replicas'].nil?)
+        data.table_name = map['TableName'] unless map['TableName'].nil?
+        data.table_status = map['TableStatus'] unless map['TableStatus'].nil?
+        data.replicas = ReplicaAutoScalingDescriptionList.parse(map['Replicas']) unless map['Replicas'].nil?
         return data
       end
     end
@@ -1969,7 +1969,7 @@ module AWS::SDK::DynamoDB
     class TableClassSummary
       def self.parse(map)
         data = Types::TableClassSummary.new
-        data.table_class = map['TableClass']
+        data.table_class = map['TableClass'] unless map['TableClass'].nil?
         data.last_update_date_time = Time.at(map['LastUpdateDateTime'].to_i) if map['LastUpdateDateTime']
         return data
       end
@@ -1978,13 +1978,13 @@ module AWS::SDK::DynamoDB
     class TableCreationParameters
       def self.parse(map)
         data = Types::TableCreationParameters.new
-        data.table_name = map['TableName']
-        data.attribute_definitions = (AttributeDefinitions.parse(map['AttributeDefinitions']) unless map['AttributeDefinitions'].nil?)
-        data.key_schema = (KeySchema.parse(map['KeySchema']) unless map['KeySchema'].nil?)
-        data.billing_mode = map['BillingMode']
-        data.provisioned_throughput = (ProvisionedThroughput.parse(map['ProvisionedThroughput']) unless map['ProvisionedThroughput'].nil?)
-        data.sse_specification = (SSESpecification.parse(map['SSESpecification']) unless map['SSESpecification'].nil?)
-        data.global_secondary_indexes = (GlobalSecondaryIndexList.parse(map['GlobalSecondaryIndexes']) unless map['GlobalSecondaryIndexes'].nil?)
+        data.table_name = map['TableName'] unless map['TableName'].nil?
+        data.attribute_definitions = AttributeDefinitions.parse(map['AttributeDefinitions']) unless map['AttributeDefinitions'].nil?
+        data.key_schema = KeySchema.parse(map['KeySchema']) unless map['KeySchema'].nil?
+        data.billing_mode = map['BillingMode'] unless map['BillingMode'].nil?
+        data.provisioned_throughput = ProvisionedThroughput.parse(map['ProvisionedThroughput']) unless map['ProvisionedThroughput'].nil?
+        data.sse_specification = SSESpecification.parse(map['SSESpecification']) unless map['SSESpecification'].nil?
+        data.global_secondary_indexes = GlobalSecondaryIndexList.parse(map['GlobalSecondaryIndexes']) unless map['GlobalSecondaryIndexes'].nil?
         return data
       end
     end
@@ -1992,29 +1992,29 @@ module AWS::SDK::DynamoDB
     class TableDescription
       def self.parse(map)
         data = Types::TableDescription.new
-        data.attribute_definitions = (AttributeDefinitions.parse(map['AttributeDefinitions']) unless map['AttributeDefinitions'].nil?)
-        data.table_name = map['TableName']
-        data.key_schema = (KeySchema.parse(map['KeySchema']) unless map['KeySchema'].nil?)
-        data.table_status = map['TableStatus']
+        data.attribute_definitions = AttributeDefinitions.parse(map['AttributeDefinitions']) unless map['AttributeDefinitions'].nil?
+        data.table_name = map['TableName'] unless map['TableName'].nil?
+        data.key_schema = KeySchema.parse(map['KeySchema']) unless map['KeySchema'].nil?
+        data.table_status = map['TableStatus'] unless map['TableStatus'].nil?
         data.creation_date_time = Time.at(map['CreationDateTime'].to_i) if map['CreationDateTime']
-        data.provisioned_throughput = (ProvisionedThroughputDescription.parse(map['ProvisionedThroughput']) unless map['ProvisionedThroughput'].nil?)
-        data.table_size_bytes = map['TableSizeBytes']
-        data.item_count = map['ItemCount']
-        data.table_arn = map['TableArn']
-        data.table_id = map['TableId']
-        data.billing_mode_summary = (BillingModeSummary.parse(map['BillingModeSummary']) unless map['BillingModeSummary'].nil?)
-        data.local_secondary_indexes = (LocalSecondaryIndexDescriptionList.parse(map['LocalSecondaryIndexes']) unless map['LocalSecondaryIndexes'].nil?)
-        data.global_secondary_indexes = (GlobalSecondaryIndexDescriptionList.parse(map['GlobalSecondaryIndexes']) unless map['GlobalSecondaryIndexes'].nil?)
-        data.stream_specification = (StreamSpecification.parse(map['StreamSpecification']) unless map['StreamSpecification'].nil?)
-        data.latest_stream_label = map['LatestStreamLabel']
-        data.latest_stream_arn = map['LatestStreamArn']
-        data.global_table_version = map['GlobalTableVersion']
-        data.replicas = (ReplicaDescriptionList.parse(map['Replicas']) unless map['Replicas'].nil?)
-        data.restore_summary = (RestoreSummary.parse(map['RestoreSummary']) unless map['RestoreSummary'].nil?)
-        data.sse_description = (SSEDescription.parse(map['SSEDescription']) unless map['SSEDescription'].nil?)
-        data.archival_summary = (ArchivalSummary.parse(map['ArchivalSummary']) unless map['ArchivalSummary'].nil?)
-        data.table_class_summary = (TableClassSummary.parse(map['TableClassSummary']) unless map['TableClassSummary'].nil?)
-        data.deletion_protection_enabled = map['DeletionProtectionEnabled']
+        data.provisioned_throughput = ProvisionedThroughputDescription.parse(map['ProvisionedThroughput']) unless map['ProvisionedThroughput'].nil?
+        data.table_size_bytes = map['TableSizeBytes'] unless map['TableSizeBytes'].nil?
+        data.item_count = map['ItemCount'] unless map['ItemCount'].nil?
+        data.table_arn = map['TableArn'] unless map['TableArn'].nil?
+        data.table_id = map['TableId'] unless map['TableId'].nil?
+        data.billing_mode_summary = BillingModeSummary.parse(map['BillingModeSummary']) unless map['BillingModeSummary'].nil?
+        data.local_secondary_indexes = LocalSecondaryIndexDescriptionList.parse(map['LocalSecondaryIndexes']) unless map['LocalSecondaryIndexes'].nil?
+        data.global_secondary_indexes = GlobalSecondaryIndexDescriptionList.parse(map['GlobalSecondaryIndexes']) unless map['GlobalSecondaryIndexes'].nil?
+        data.stream_specification = StreamSpecification.parse(map['StreamSpecification']) unless map['StreamSpecification'].nil?
+        data.latest_stream_label = map['LatestStreamLabel'] unless map['LatestStreamLabel'].nil?
+        data.latest_stream_arn = map['LatestStreamArn'] unless map['LatestStreamArn'].nil?
+        data.global_table_version = map['GlobalTableVersion'] unless map['GlobalTableVersion'].nil?
+        data.replicas = ReplicaDescriptionList.parse(map['Replicas']) unless map['Replicas'].nil?
+        data.restore_summary = RestoreSummary.parse(map['RestoreSummary']) unless map['RestoreSummary'].nil?
+        data.sse_description = SSEDescription.parse(map['SSEDescription']) unless map['SSEDescription'].nil?
+        data.archival_summary = ArchivalSummary.parse(map['ArchivalSummary']) unless map['ArchivalSummary'].nil?
+        data.table_class_summary = TableClassSummary.parse(map['TableClassSummary']) unless map['TableClassSummary'].nil?
+        data.deletion_protection_enabled = map['DeletionProtectionEnabled'] unless map['DeletionProtectionEnabled'].nil?
         return data
       end
     end
@@ -2026,7 +2026,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.message = map['message']
+        data.message = map['message'] unless map['message'].nil?
         data
       end
     end
@@ -2046,7 +2046,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.message = map['message']
+        data.message = map['message'] unless map['message'].nil?
         data
       end
     end
@@ -2054,8 +2054,8 @@ module AWS::SDK::DynamoDB
     class Tag
       def self.parse(map)
         data = Types::Tag.new
-        data.key = map['Key']
-        data.value = map['Value']
+        data.key = map['Key'] unless map['Key'].nil?
+        data.value = map['Value'] unless map['Value'].nil?
         return data
       end
     end
@@ -2081,8 +2081,8 @@ module AWS::SDK::DynamoDB
     class TimeToLiveDescription
       def self.parse(map)
         data = Types::TimeToLiveDescription.new
-        data.time_to_live_status = map['TimeToLiveStatus']
-        data.attribute_name = map['AttributeName']
+        data.time_to_live_status = map['TimeToLiveStatus'] unless map['TimeToLiveStatus'].nil?
+        data.attribute_name = map['AttributeName'] unless map['AttributeName'].nil?
         return data
       end
     end
@@ -2090,8 +2090,8 @@ module AWS::SDK::DynamoDB
     class TimeToLiveSpecification
       def self.parse(map)
         data = Types::TimeToLiveSpecification.new
-        data.enabled = map['Enabled']
-        data.attribute_name = map['AttributeName']
+        data.enabled = map['Enabled'] unless map['Enabled'].nil?
+        data.attribute_name = map['AttributeName'] unless map['AttributeName'].nil?
         return data
       end
     end
@@ -2102,8 +2102,8 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.consumed_capacity = (ConsumedCapacityMultiple.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?)
-        data.responses = (ItemResponseList.parse(map['Responses']) unless map['Responses'].nil?)
+        data.consumed_capacity = ConsumedCapacityMultiple.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?
+        data.responses = ItemResponseList.parse(map['Responses']) unless map['Responses'].nil?
         data
       end
     end
@@ -2114,8 +2114,8 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.consumed_capacity = (ConsumedCapacityMultiple.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?)
-        data.item_collection_metrics = (ItemCollectionMetricsPerTable.parse(map['ItemCollectionMetrics']) unless map['ItemCollectionMetrics'].nil?)
+        data.consumed_capacity = ConsumedCapacityMultiple.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?
+        data.item_collection_metrics = ItemCollectionMetricsPerTable.parse(map['ItemCollectionMetrics']) unless map['ItemCollectionMetrics'].nil?
         data
       end
     end
@@ -2127,8 +2127,8 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.message = map['Message']
-        data.cancellation_reasons = (CancellationReasonList.parse(map['CancellationReasons']) unless map['CancellationReasons'].nil?)
+        data.message = map['Message'] unless map['Message'].nil?
+        data.cancellation_reasons = CancellationReasonList.parse(map['CancellationReasons']) unless map['CancellationReasons'].nil?
         data
       end
     end
@@ -2140,7 +2140,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.message = map['message']
+        data.message = map['message'] unless map['message'].nil?
         data
       end
     end
@@ -2152,7 +2152,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.message = map['Message']
+        data.message = map['Message'] unless map['Message'].nil?
         data
       end
     end
@@ -2173,7 +2173,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.continuous_backups_description = (ContinuousBackupsDescription.parse(map['ContinuousBackupsDescription']) unless map['ContinuousBackupsDescription'].nil?)
+        data.continuous_backups_description = ContinuousBackupsDescription.parse(map['ContinuousBackupsDescription']) unless map['ContinuousBackupsDescription'].nil?
         data
       end
     end
@@ -2184,9 +2184,9 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.table_name = map['TableName']
-        data.index_name = map['IndexName']
-        data.contributor_insights_status = map['ContributorInsightsStatus']
+        data.table_name = map['TableName'] unless map['TableName'].nil?
+        data.index_name = map['IndexName'] unless map['IndexName'].nil?
+        data.contributor_insights_status = map['ContributorInsightsStatus'] unless map['ContributorInsightsStatus'].nil?
         data
       end
     end
@@ -2197,7 +2197,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.global_table_description = (GlobalTableDescription.parse(map['GlobalTableDescription']) unless map['GlobalTableDescription'].nil?)
+        data.global_table_description = GlobalTableDescription.parse(map['GlobalTableDescription']) unless map['GlobalTableDescription'].nil?
         data
       end
     end
@@ -2208,8 +2208,8 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.global_table_name = map['GlobalTableName']
-        data.replica_settings = (ReplicaSettingsDescriptionList.parse(map['ReplicaSettings']) unless map['ReplicaSettings'].nil?)
+        data.global_table_name = map['GlobalTableName'] unless map['GlobalTableName'].nil?
+        data.replica_settings = ReplicaSettingsDescriptionList.parse(map['ReplicaSettings']) unless map['ReplicaSettings'].nil?
         data
       end
     end
@@ -2220,9 +2220,9 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.attributes = (AttributeMap.parse(map['Attributes']) unless map['Attributes'].nil?)
-        data.consumed_capacity = (ConsumedCapacity.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?)
-        data.item_collection_metrics = (ItemCollectionMetrics.parse(map['ItemCollectionMetrics']) unless map['ItemCollectionMetrics'].nil?)
+        data.attributes = AttributeMap.parse(map['Attributes']) unless map['Attributes'].nil?
+        data.consumed_capacity = ConsumedCapacity.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?
+        data.item_collection_metrics = ItemCollectionMetrics.parse(map['ItemCollectionMetrics']) unless map['ItemCollectionMetrics'].nil?
         data
       end
     end
@@ -2230,7 +2230,7 @@ module AWS::SDK::DynamoDB
     class UpdateKinesisStreamingConfiguration
       def self.parse(map)
         data = Types::UpdateKinesisStreamingConfiguration.new
-        data.approximate_creation_date_time_precision = map['ApproximateCreationDateTimePrecision']
+        data.approximate_creation_date_time_precision = map['ApproximateCreationDateTimePrecision'] unless map['ApproximateCreationDateTimePrecision'].nil?
         return data
       end
     end
@@ -2241,10 +2241,10 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.table_name = map['TableName']
-        data.stream_arn = map['StreamArn']
-        data.destination_status = map['DestinationStatus']
-        data.update_kinesis_streaming_configuration = (UpdateKinesisStreamingConfiguration.parse(map['UpdateKinesisStreamingConfiguration']) unless map['UpdateKinesisStreamingConfiguration'].nil?)
+        data.table_name = map['TableName'] unless map['TableName'].nil?
+        data.stream_arn = map['StreamArn'] unless map['StreamArn'].nil?
+        data.destination_status = map['DestinationStatus'] unless map['DestinationStatus'].nil?
+        data.update_kinesis_streaming_configuration = UpdateKinesisStreamingConfiguration.parse(map['UpdateKinesisStreamingConfiguration']) unless map['UpdateKinesisStreamingConfiguration'].nil?
         data
       end
     end
@@ -2255,7 +2255,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.table_description = (TableDescription.parse(map['TableDescription']) unless map['TableDescription'].nil?)
+        data.table_description = TableDescription.parse(map['TableDescription']) unless map['TableDescription'].nil?
         data
       end
     end
@@ -2266,7 +2266,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.table_auto_scaling_description = (TableAutoScalingDescription.parse(map['TableAutoScalingDescription']) unless map['TableAutoScalingDescription'].nil?)
+        data.table_auto_scaling_description = TableAutoScalingDescription.parse(map['TableAutoScalingDescription']) unless map['TableAutoScalingDescription'].nil?
         data
       end
     end
@@ -2277,7 +2277,7 @@ module AWS::SDK::DynamoDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.parse(body)
-        data.time_to_live_specification = (TimeToLiveSpecification.parse(map['TimeToLiveSpecification']) unless map['TimeToLiveSpecification'].nil?)
+        data.time_to_live_specification = TimeToLiveSpecification.parse(map['TimeToLiveSpecification']) unless map['TimeToLiveSpecification'].nil?
         data
       end
     end
@@ -2285,8 +2285,8 @@ module AWS::SDK::DynamoDB
     class WriteRequest
       def self.parse(map)
         data = Types::WriteRequest.new
-        data.put_request = (PutRequest.parse(map['PutRequest']) unless map['PutRequest'].nil?)
-        data.delete_request = (DeleteRequest.parse(map['DeleteRequest']) unless map['DeleteRequest'].nil?)
+        data.put_request = PutRequest.parse(map['PutRequest']) unless map['PutRequest'].nil?
+        data.delete_request = DeleteRequest.parse(map['DeleteRequest']) unless map['DeleteRequest'].nil?
         return data
       end
     end

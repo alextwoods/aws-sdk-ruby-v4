@@ -83,6 +83,18 @@ module AWS::SDK::Kinesis
       attr_reader :data
     end
 
+    class InternalFailureException < ApiServerError
+      def initialize(http_resp:, **kwargs)
+        @data = Parsers::InternalFailureException.parse(http_resp)
+        kwargs[:message] = @data.message if @data.respond_to?(:message)
+
+        super(http_resp: http_resp, **kwargs)
+      end
+
+      # @return [Types::InternalFailureException]
+      attr_reader :data
+    end
+
     class InvalidArgumentException < ApiClientError
       def initialize(http_resp:, **kwargs)
         @data = Parsers::InvalidArgumentException.parse(http_resp)

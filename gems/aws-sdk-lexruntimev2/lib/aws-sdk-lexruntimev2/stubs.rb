@@ -972,63 +972,87 @@ module AWS::SDK::LexRuntimeV2
 
       def self.default(visited = [])
         {
-          response_event_stream: StartConversationResponseEventStream.default(visited),
         }
       end
 
       def self.stub(http_resp, stub:)
         data = {}
         http_resp.status = 200
-        IO.copy_stream(stub.response_event_stream, http_resp.body)
       end
-    end
 
-    class StartConversationResponseEventStream
-      def self.default(visited = [])
+      def self.default_event(visited = [])
         return nil if visited.include?('StartConversationResponseEventStream')
         visited = visited + ['StartConversationResponseEventStream']
-        {
-          playback_interruption_event: PlaybackInterruptionEvent.default(visited),
-        }
+        Params::PlaybackInterruptionEvent.build(
+          PlaybackInterruptionEvent.default(visited),
+          context: 'default_event'
+        )
       end
 
-      def self.stub(stub)
-        data = {}
-        case stub
+      def self.validate_event!(event, context:)
+        case event
         when Types::StartConversationResponseEventStream::PlaybackInterruptionEvent
-          data['PlaybackInterruptionEvent'] = (PlaybackInterruptionEvent.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          Validators::PlaybackInterruptionEvent.validate!(event, context: context)
         when Types::StartConversationResponseEventStream::TranscriptEvent
-          data['TranscriptEvent'] = (TranscriptEvent.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          Validators::TranscriptEvent.validate!(event, context: context)
         when Types::StartConversationResponseEventStream::IntentResultEvent
-          data['IntentResultEvent'] = (IntentResultEvent.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          Validators::IntentResultEvent.validate!(event, context: context)
         when Types::StartConversationResponseEventStream::TextResponseEvent
-          data['TextResponseEvent'] = (TextResponseEvent.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          Validators::TextResponseEvent.validate!(event, context: context)
         when Types::StartConversationResponseEventStream::AudioResponseEvent
-          data['AudioResponseEvent'] = (AudioResponseEvent.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          Validators::AudioResponseEvent.validate!(event, context: context)
         when Types::StartConversationResponseEventStream::HeartbeatEvent
-          data['HeartbeatEvent'] = (HeartbeatEvent.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          Validators::HeartbeatEvent.validate!(event, context: context)
         when Types::StartConversationResponseEventStream::AccessDeniedException
-          data['AccessDeniedException'] = (AccessDeniedException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          Validators::AccessDeniedException.validate!(event, context: context)
         when Types::StartConversationResponseEventStream::ResourceNotFoundException
-          data['ResourceNotFoundException'] = (ResourceNotFoundException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          Validators::ResourceNotFoundException.validate!(event, context: context)
         when Types::StartConversationResponseEventStream::ValidationException
-          data['ValidationException'] = (ValidationException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          Validators::ValidationException.validate!(event, context: context)
         when Types::StartConversationResponseEventStream::ThrottlingException
-          data['ThrottlingException'] = (ThrottlingException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          Validators::ThrottlingException.validate!(event, context: context)
         when Types::StartConversationResponseEventStream::InternalServerException
-          data['InternalServerException'] = (InternalServerException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          Validators::InternalServerException.validate!(event, context: context)
         when Types::StartConversationResponseEventStream::ConflictException
-          data['ConflictException'] = (ConflictException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          Validators::ConflictException.validate!(event, context: context)
         when Types::StartConversationResponseEventStream::DependencyFailedException
-          data['DependencyFailedException'] = (DependencyFailedException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          Validators::DependencyFailedException.validate!(event, context: context)
         when Types::StartConversationResponseEventStream::BadGatewayException
-          data['BadGatewayException'] = (BadGatewayException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
-        else
-          raise ArgumentError,
-          "Expected input to be one of the subclasses of Types::StartConversationResponseEventStream"
+          Validators::BadGatewayException.validate!(event, context: context)
         end
+      end
 
-        data
+      def self.stub_event(stub)
+        case stub
+        when Types::PlaybackInterruptionEvent
+          EventStream::PlaybackInterruptionEvent.stub('PlaybackInterruptionEvent', stub)
+        when Types::TranscriptEvent
+          EventStream::TranscriptEvent.stub('TranscriptEvent', stub)
+        when Types::IntentResultEvent
+          EventStream::IntentResultEvent.stub('IntentResultEvent', stub)
+        when Types::TextResponseEvent
+          EventStream::TextResponseEvent.stub('TextResponseEvent', stub)
+        when Types::AudioResponseEvent
+          EventStream::AudioResponseEvent.stub('AudioResponseEvent', stub)
+        when Types::HeartbeatEvent
+          EventStream::HeartbeatEvent.stub('HeartbeatEvent', stub)
+        when Types::AccessDeniedException
+          EventStream::AccessDeniedException.stub('AccessDeniedException', stub)
+        when Types::ResourceNotFoundException
+          EventStream::ResourceNotFoundException.stub('ResourceNotFoundException', stub)
+        when Types::ValidationException
+          EventStream::ValidationException.stub('ValidationException', stub)
+        when Types::ThrottlingException
+          EventStream::ThrottlingException.stub('ThrottlingException', stub)
+        when Types::InternalServerException
+          EventStream::InternalServerException.stub('InternalServerException', stub)
+        when Types::ConflictException
+          EventStream::ConflictException.stub('ConflictException', stub)
+        when Types::DependencyFailedException
+          EventStream::DependencyFailedException.stub('DependencyFailedException', stub)
+        when Types::BadGatewayException
+          EventStream::BadGatewayException.stub('BadGatewayException', stub)
+        end
       end
     end
 
@@ -1195,6 +1219,217 @@ module AWS::SDK::LexRuntimeV2
           data << Slot.stub(element) unless element.nil?
         end
         data
+      end
+    end
+
+    module EventStream
+
+      class AccessDeniedException
+        def self.stub(event_type, stub)
+          message = Hearth::EventStream::Message.new
+          message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
+          message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: event_type, type: 'string')
+          payload_stub = stub
+          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/json', type: 'string')
+          data = {}
+          data['message'] = stub.message unless stub.message.nil?
+          message.payload = ::StringIO.new(Hearth::JSON.dump(data))
+          message
+        end
+      end
+
+      class AudioResponseEvent
+        def self.stub(event_type, stub)
+          message = Hearth::EventStream::Message.new
+          message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
+          message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: event_type, type: 'string')
+          payload_stub = stub
+          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/json', type: 'string')
+          data = {}
+          data['audioChunk'] = ::Base64::strict_encode64(stub.audio_chunk) unless stub.audio_chunk.nil?
+          data['contentType'] = stub.content_type unless stub.content_type.nil?
+          data['eventId'] = stub.event_id unless stub.event_id.nil?
+          message.payload = ::StringIO.new(Hearth::JSON.dump(data))
+          message
+        end
+      end
+
+      class BadGatewayException
+        def self.stub(event_type, stub)
+          message = Hearth::EventStream::Message.new
+          message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
+          message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: event_type, type: 'string')
+          payload_stub = stub
+          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/json', type: 'string')
+          data = {}
+          data['message'] = stub.message unless stub.message.nil?
+          message.payload = ::StringIO.new(Hearth::JSON.dump(data))
+          message
+        end
+      end
+
+      class ConflictException
+        def self.stub(event_type, stub)
+          message = Hearth::EventStream::Message.new
+          message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
+          message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: event_type, type: 'string')
+          payload_stub = stub
+          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/json', type: 'string')
+          data = {}
+          data['message'] = stub.message unless stub.message.nil?
+          message.payload = ::StringIO.new(Hearth::JSON.dump(data))
+          message
+        end
+      end
+
+      class DependencyFailedException
+        def self.stub(event_type, stub)
+          message = Hearth::EventStream::Message.new
+          message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
+          message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: event_type, type: 'string')
+          payload_stub = stub
+          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/json', type: 'string')
+          data = {}
+          data['message'] = stub.message unless stub.message.nil?
+          message.payload = ::StringIO.new(Hearth::JSON.dump(data))
+          message
+        end
+      end
+
+      class HeartbeatEvent
+        def self.stub(event_type, stub)
+          message = Hearth::EventStream::Message.new
+          message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
+          message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: event_type, type: 'string')
+          payload_stub = stub
+          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/json', type: 'string')
+          data = {}
+          data['eventId'] = stub.event_id unless stub.event_id.nil?
+          message.payload = ::StringIO.new(Hearth::JSON.dump(data))
+          message
+        end
+      end
+
+      class IntentResultEvent
+        def self.stub(event_type, stub)
+          message = Hearth::EventStream::Message.new
+          message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
+          message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: event_type, type: 'string')
+          payload_stub = stub
+          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/json', type: 'string')
+          data = {}
+          data['inputMode'] = stub.input_mode unless stub.input_mode.nil?
+          data['interpretations'] = Interpretations.stub(stub.interpretations) unless stub.interpretations.nil?
+          data['sessionState'] = SessionState.stub(stub.session_state) unless stub.session_state.nil?
+          data['requestAttributes'] = StringMap.stub(stub.request_attributes) unless stub.request_attributes.nil?
+          data['sessionId'] = stub.session_id unless stub.session_id.nil?
+          data['eventId'] = stub.event_id unless stub.event_id.nil?
+          data['recognizedBotMember'] = RecognizedBotMember.stub(stub.recognized_bot_member) unless stub.recognized_bot_member.nil?
+          message.payload = ::StringIO.new(Hearth::JSON.dump(data))
+          message
+        end
+      end
+
+      class InternalServerException
+        def self.stub(event_type, stub)
+          message = Hearth::EventStream::Message.new
+          message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
+          message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: event_type, type: 'string')
+          payload_stub = stub
+          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/json', type: 'string')
+          data = {}
+          data['message'] = stub.message unless stub.message.nil?
+          message.payload = ::StringIO.new(Hearth::JSON.dump(data))
+          message
+        end
+      end
+
+      class PlaybackInterruptionEvent
+        def self.stub(event_type, stub)
+          message = Hearth::EventStream::Message.new
+          message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
+          message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: event_type, type: 'string')
+          payload_stub = stub
+          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/json', type: 'string')
+          data = {}
+          data['eventReason'] = stub.event_reason unless stub.event_reason.nil?
+          data['causedByEventId'] = stub.caused_by_event_id unless stub.caused_by_event_id.nil?
+          data['eventId'] = stub.event_id unless stub.event_id.nil?
+          message.payload = ::StringIO.new(Hearth::JSON.dump(data))
+          message
+        end
+      end
+
+      class ResourceNotFoundException
+        def self.stub(event_type, stub)
+          message = Hearth::EventStream::Message.new
+          message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
+          message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: event_type, type: 'string')
+          payload_stub = stub
+          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/json', type: 'string')
+          data = {}
+          data['message'] = stub.message unless stub.message.nil?
+          message.payload = ::StringIO.new(Hearth::JSON.dump(data))
+          message
+        end
+      end
+
+      class TextResponseEvent
+        def self.stub(event_type, stub)
+          message = Hearth::EventStream::Message.new
+          message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
+          message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: event_type, type: 'string')
+          payload_stub = stub
+          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/json', type: 'string')
+          data = {}
+          data['messages'] = Messages.stub(stub.messages) unless stub.messages.nil?
+          data['eventId'] = stub.event_id unless stub.event_id.nil?
+          message.payload = ::StringIO.new(Hearth::JSON.dump(data))
+          message
+        end
+      end
+
+      class ThrottlingException
+        def self.stub(event_type, stub)
+          message = Hearth::EventStream::Message.new
+          message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
+          message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: event_type, type: 'string')
+          payload_stub = stub
+          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/json', type: 'string')
+          data = {}
+          data['message'] = stub.message unless stub.message.nil?
+          message.payload = ::StringIO.new(Hearth::JSON.dump(data))
+          message
+        end
+      end
+
+      class TranscriptEvent
+        def self.stub(event_type, stub)
+          message = Hearth::EventStream::Message.new
+          message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
+          message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: event_type, type: 'string')
+          payload_stub = stub
+          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/json', type: 'string')
+          data = {}
+          data['transcript'] = stub.transcript unless stub.transcript.nil?
+          data['eventId'] = stub.event_id unless stub.event_id.nil?
+          message.payload = ::StringIO.new(Hearth::JSON.dump(data))
+          message
+        end
+      end
+
+      class ValidationException
+        def self.stub(event_type, stub)
+          message = Hearth::EventStream::Message.new
+          message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
+          message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: event_type, type: 'string')
+          payload_stub = stub
+          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/json', type: 'string')
+          data = {}
+          data['message'] = stub.message unless stub.message.nil?
+          message.payload = ::StringIO.new(Hearth::JSON.dump(data))
+          message
+        end
       end
     end
   end
