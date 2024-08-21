@@ -293,7 +293,7 @@ module AWS
       # rubocop:disable Layout/LineLength
       # TODO: Documentation
       def sign_event(prior_signature:, payload:, encoder:, credentials:, **kwargs)
-        # Note: CRT does not currently provide event stream signing, so we always use the ruby implementation.
+        # NOTE: CRT does not currently provide event stream signing, so we always use the ruby implementation.
         validate_credentials!(credentials)
         options = extract_options(kwargs)
 
@@ -308,22 +308,26 @@ module AWS
         datetime = time.utc.strftime('%Y%m%dT%H%M%SZ')
         date = datetime[0, 8]
         headers[':date'] = HeaderValue.new(
-          value: time.to_i * 1000, type: 'timestamp')
+          value: time.to_i * 1000, type: 'timestamp'
+        )
 
         region = extract_region(options)
         service = extract_service(options)
 
         sts = event_string_to_sign(
           datetime, headers, payload, region, service,
-          prior_signature, encoder)
+          prior_signature, encoder
+        )
         sig = event_signature(
-          credentials.secret_access_key, date, region, service, sts)
+          credentials.secret_access_key, date, region, service, sts
+        )
 
         headers[':chunk-signature'] = HeaderValue.new(
-          value: sig, type: 'bytes')
+          value: sig, type: 'bytes'
+        )
 
         # Returning signed headers and signature value in hex-encoded string
-        [headers, sig.unpack('H*').first]
+        [headers, sig.unpack1('H*')]
       end
       # rubocop:enable Layout/LineLength
 
@@ -562,12 +566,12 @@ module AWS
       #   payload used is already eventstream encoded (event without signature),
       #   thus no extra encoding is needed.
       def event_string_to_sign(datetime, headers, payload, region, service,
-        prior_signature, encoder)
+                               prior_signature, encoder)
         encoded_headers = encoder.encode_headers(headers)
         [
-          "AWS4-HMAC-SHA256-PAYLOAD",
+          'AWS4-HMAC-SHA256-PAYLOAD',
           datetime,
-          credential_scope(datetime[0,8], region, service, :sigv4),
+          credential_scope(datetime[0, 8], region, service, :sigv4),
           prior_signature,
           sha256_hexdigest(encoded_headers),
           sha256_hexdigest(payload)
@@ -617,7 +621,7 @@ module AWS
       #   as next prior signature for event signing)
       def event_signature(secret_access_key, date, region, service,
                           string_to_sign)
-        k_date = hmac("AWS4" + secret_access_key, date)
+        k_date = hmac("AWS4#{secret_access_key}", date)
         k_region = hmac(k_date, region)
         k_service = hmac(k_region, service)
         k_credentials = hmac(k_service, 'aws4_request')

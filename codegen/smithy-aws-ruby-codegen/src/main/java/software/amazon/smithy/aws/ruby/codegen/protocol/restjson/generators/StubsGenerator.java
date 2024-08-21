@@ -157,13 +157,17 @@ public class StubsGenerator extends RestStubsGeneratorBase {
     }
 
     private void renderMemberStubbers(Shape s) {
+        renderMemberStubbers(s, "stub");
+    }
+
+    private void renderMemberStubbers(Shape s, String input) {
         Optional<MemberShape> payload =
                 s.members().stream().filter((m) -> m.hasTrait(HttpPayloadTrait.class)).findFirst();
 
         if (payload.isPresent()) {
             MemberShape member = payload.get();
             Shape target = model.expectShape(member.getTarget());
-            String inputGetter = "stub." + symbolProvider.toMemberName(member);
+            String inputGetter = input + "." + symbolProvider.toMemberName(member);
             target.accept(new MemberSerializer(member, "data = ", inputGetter, true));
             writer.write("data ||= {}");
         } else {
@@ -187,6 +191,17 @@ public class StubsGenerator extends RestStubsGeneratorBase {
     }
 
     @Override
+    protected void renderEventPayloadStructureStub(StructureShape eventPayload) {
+        writer
+                .write("message.headers[':content-type'] = "
+                        + "Hearth::EventStream::HeaderValue.new(value: 'application/json', type: 'string')")
+                .write("data = {}")
+                .call(() -> renderMemberStubbers(eventPayload, "payload_payload"))
+                .write("message.payload = $T.new($T.dump(data))",
+                        RubyImportContainer.STRING_IO, Hearth.JSON);
+    }
+
+    @Override
     protected void renderErrorStubMethod(Shape errorShape) {
         writer
                 .openBlock("def self.stub(http_resp, stub:)")
@@ -196,7 +211,7 @@ public class StubsGenerator extends RestStubsGeneratorBase {
                 .write("http_resp.headers['X-Amzn-Errortype'] = '$L'", errorShape.toShapeId().getName())
                 .call(() -> renderPrefixHeadersStubbers(errorShape))
                 .call(() -> renderResponseCodeStubber(errorShape))
-                .call(() -> renderBodyStubber(errorShape))
+                .call(() -> renderBodyStubber(errorShape, false))
                 .closeBlock("end");
     }
 

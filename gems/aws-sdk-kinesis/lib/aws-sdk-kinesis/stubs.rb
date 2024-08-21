@@ -1573,15 +1573,69 @@ module AWS::SDK::Kinesis
 
       def self.default(visited = [])
         {
-          event_stream: SubscribeToShardEventStream.default(visited),
         }
       end
 
       def self.stub(http_resp, stub:)
-        data = {}
-        data['EventStream'] = SubscribeToShardEventStream.stub(stub.event_stream) unless stub.event_stream.nil?
-        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
-        http_resp.status = 200
+      end
+
+      def self.default_event(visited = [])
+        return nil if visited.include?('SubscribeToShardEventStream')
+        visited = visited + ['SubscribeToShardEventStream']
+        Params::SubscribeToShardEvent.build(
+          SubscribeToShardEvent.default(visited),
+          context: 'default_event'
+        )
+      end
+
+      def self.validate_event!(event, context:)
+        case event
+        when Types::SubscribeToShardEventStream::SubscribeToShardEvent
+          Validators::SubscribeToShardEvent.validate!(event, context: context)
+        when Types::SubscribeToShardEventStream::ResourceNotFoundException
+          Validators::ResourceNotFoundException.validate!(event, context: context)
+        when Types::SubscribeToShardEventStream::ResourceInUseException
+          Validators::ResourceInUseException.validate!(event, context: context)
+        when Types::SubscribeToShardEventStream::KmsDisabledException
+          Validators::KMSDisabledException.validate!(event, context: context)
+        when Types::SubscribeToShardEventStream::KmsInvalidStateException
+          Validators::KMSInvalidStateException.validate!(event, context: context)
+        when Types::SubscribeToShardEventStream::KmsAccessDeniedException
+          Validators::KMSAccessDeniedException.validate!(event, context: context)
+        when Types::SubscribeToShardEventStream::KmsNotFoundException
+          Validators::KMSNotFoundException.validate!(event, context: context)
+        when Types::SubscribeToShardEventStream::KmsOptInRequired
+          Validators::KMSOptInRequired.validate!(event, context: context)
+        when Types::SubscribeToShardEventStream::KmsThrottlingException
+          Validators::KMSThrottlingException.validate!(event, context: context)
+        when Types::SubscribeToShardEventStream::InternalFailureException
+          Validators::InternalFailureException.validate!(event, context: context)
+        end
+      end
+
+      def self.stub_event(stub)
+        case stub
+        when Types::SubscribeToShardEvent
+          EventStream::SubscribeToShardEvent.stub('SubscribeToShardEvent', stub)
+        when Types::ResourceNotFoundException
+          EventStream::ResourceNotFoundException.stub('ResourceNotFoundException', stub)
+        when Types::ResourceInUseException
+          EventStream::ResourceInUseException.stub('ResourceInUseException', stub)
+        when Types::KMSDisabledException
+          EventStream::KMSDisabledException.stub('KmsDisabledException', stub)
+        when Types::KMSInvalidStateException
+          EventStream::KMSInvalidStateException.stub('KmsInvalidStateException', stub)
+        when Types::KMSAccessDeniedException
+          EventStream::KMSAccessDeniedException.stub('KmsAccessDeniedException', stub)
+        when Types::KMSNotFoundException
+          EventStream::KMSNotFoundException.stub('KmsNotFoundException', stub)
+        when Types::KMSOptInRequired
+          EventStream::KMSOptInRequired.stub('KmsOptInRequired', stub)
+        when Types::KMSThrottlingException
+          EventStream::KMSThrottlingException.stub('KmsThrottlingException', stub)
+        when Types::InternalFailureException
+          EventStream::InternalFailureException.stub('InternalFailureException', stub)
+        end
       end
     end
 
@@ -1604,47 +1658,6 @@ module AWS::SDK::Kinesis
         data['ContinuationSequenceNumber'] = stub.continuation_sequence_number unless stub.continuation_sequence_number.nil?
         data['MillisBehindLatest'] = stub.millis_behind_latest unless stub.millis_behind_latest.nil?
         data['ChildShards'] = ChildShardList.stub(stub.child_shards) unless stub.child_shards.nil?
-        data
-      end
-    end
-
-    class SubscribeToShardEventStream
-      def self.default(visited = [])
-        return nil if visited.include?('SubscribeToShardEventStream')
-        visited = visited + ['SubscribeToShardEventStream']
-        {
-          subscribe_to_shard_event: SubscribeToShardEvent.default(visited),
-        }
-      end
-
-      def self.stub(stub)
-        data = {}
-        case stub
-        when Types::SubscribeToShardEventStream::SubscribeToShardEvent
-          data['SubscribeToShardEvent'] = (SubscribeToShardEvent.stub(stub.__getobj__) unless stub.__getobj__.nil?)
-        when Types::SubscribeToShardEventStream::ResourceNotFoundException
-          data['ResourceNotFoundException'] = (ResourceNotFoundException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
-        when Types::SubscribeToShardEventStream::ResourceInUseException
-          data['ResourceInUseException'] = (ResourceInUseException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
-        when Types::SubscribeToShardEventStream::KmsDisabledException
-          data['KMSDisabledException'] = (KMSDisabledException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
-        when Types::SubscribeToShardEventStream::KmsInvalidStateException
-          data['KMSInvalidStateException'] = (KMSInvalidStateException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
-        when Types::SubscribeToShardEventStream::KmsAccessDeniedException
-          data['KMSAccessDeniedException'] = (KMSAccessDeniedException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
-        when Types::SubscribeToShardEventStream::KmsNotFoundException
-          data['KMSNotFoundException'] = (KMSNotFoundException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
-        when Types::SubscribeToShardEventStream::KmsOptInRequired
-          data['KMSOptInRequired'] = (KMSOptInRequired.stub(stub.__getobj__) unless stub.__getobj__.nil?)
-        when Types::SubscribeToShardEventStream::KmsThrottlingException
-          data['KMSThrottlingException'] = (KMSThrottlingException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
-        when Types::SubscribeToShardEventStream::InternalFailureException
-          data['InternalFailureException'] = (InternalFailureException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
-        else
-          raise ArgumentError,
-          "Expected input to be one of the subclasses of Types::SubscribeToShardEventStream"
-        end
-
         data
       end
     end
@@ -1758,6 +1771,152 @@ module AWS::SDK::Kinesis
         data['__type'] = 'ValidationException'
         data['message'] = stub.message unless stub.message.nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
+    end
+
+    module EventStream
+
+      class InternalFailureException
+        def self.stub(event_type, stub)
+          message = Hearth::EventStream::Message.new
+          message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
+          message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: event_type, type: 'string')
+          payload_stub = stub
+          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/json', type: 'string')
+          data = {}
+          data['message'] = payload_stub.message unless payload_stub.message.nil?
+          message.payload = ::StringIO.new(Hearth::JSON.dump(data))
+          message
+        end
+      end
+
+      class KMSAccessDeniedException
+        def self.stub(event_type, stub)
+          message = Hearth::EventStream::Message.new
+          message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
+          message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: event_type, type: 'string')
+          payload_stub = stub
+          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/json', type: 'string')
+          data = {}
+          data['message'] = payload_stub.message unless payload_stub.message.nil?
+          message.payload = ::StringIO.new(Hearth::JSON.dump(data))
+          message
+        end
+      end
+
+      class KMSDisabledException
+        def self.stub(event_type, stub)
+          message = Hearth::EventStream::Message.new
+          message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
+          message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: event_type, type: 'string')
+          payload_stub = stub
+          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/json', type: 'string')
+          data = {}
+          data['message'] = payload_stub.message unless payload_stub.message.nil?
+          message.payload = ::StringIO.new(Hearth::JSON.dump(data))
+          message
+        end
+      end
+
+      class KMSInvalidStateException
+        def self.stub(event_type, stub)
+          message = Hearth::EventStream::Message.new
+          message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
+          message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: event_type, type: 'string')
+          payload_stub = stub
+          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/json', type: 'string')
+          data = {}
+          data['message'] = payload_stub.message unless payload_stub.message.nil?
+          message.payload = ::StringIO.new(Hearth::JSON.dump(data))
+          message
+        end
+      end
+
+      class KMSNotFoundException
+        def self.stub(event_type, stub)
+          message = Hearth::EventStream::Message.new
+          message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
+          message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: event_type, type: 'string')
+          payload_stub = stub
+          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/json', type: 'string')
+          data = {}
+          data['message'] = payload_stub.message unless payload_stub.message.nil?
+          message.payload = ::StringIO.new(Hearth::JSON.dump(data))
+          message
+        end
+      end
+
+      class KMSOptInRequired
+        def self.stub(event_type, stub)
+          message = Hearth::EventStream::Message.new
+          message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
+          message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: event_type, type: 'string')
+          payload_stub = stub
+          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/json', type: 'string')
+          data = {}
+          data['message'] = payload_stub.message unless payload_stub.message.nil?
+          message.payload = ::StringIO.new(Hearth::JSON.dump(data))
+          message
+        end
+      end
+
+      class KMSThrottlingException
+        def self.stub(event_type, stub)
+          message = Hearth::EventStream::Message.new
+          message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
+          message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: event_type, type: 'string')
+          payload_stub = stub
+          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/json', type: 'string')
+          data = {}
+          data['message'] = payload_stub.message unless payload_stub.message.nil?
+          message.payload = ::StringIO.new(Hearth::JSON.dump(data))
+          message
+        end
+      end
+
+      class ResourceInUseException
+        def self.stub(event_type, stub)
+          message = Hearth::EventStream::Message.new
+          message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
+          message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: event_type, type: 'string')
+          payload_stub = stub
+          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/json', type: 'string')
+          data = {}
+          data['message'] = payload_stub.message unless payload_stub.message.nil?
+          message.payload = ::StringIO.new(Hearth::JSON.dump(data))
+          message
+        end
+      end
+
+      class ResourceNotFoundException
+        def self.stub(event_type, stub)
+          message = Hearth::EventStream::Message.new
+          message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
+          message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: event_type, type: 'string')
+          payload_stub = stub
+          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/json', type: 'string')
+          data = {}
+          data['message'] = payload_stub.message unless payload_stub.message.nil?
+          message.payload = ::StringIO.new(Hearth::JSON.dump(data))
+          message
+        end
+      end
+
+      class SubscribeToShardEvent
+        def self.stub(event_type, stub)
+          message = Hearth::EventStream::Message.new
+          message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
+          message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: event_type, type: 'string')
+          payload_stub = stub
+          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/json', type: 'string')
+          data = {}
+          data['Records'] = RecordList.stub(payload_stub.records) unless payload_stub.records.nil?
+          data['ContinuationSequenceNumber'] = payload_stub.continuation_sequence_number unless payload_stub.continuation_sequence_number.nil?
+          data['MillisBehindLatest'] = payload_stub.millis_behind_latest unless payload_stub.millis_behind_latest.nil?
+          data['ChildShards'] = ChildShardList.stub(payload_stub.child_shards) unless payload_stub.child_shards.nil?
+          message.payload = ::StringIO.new(Hearth::JSON.dump(data))
+          message
+        end
       end
     end
   end

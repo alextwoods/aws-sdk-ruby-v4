@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import software.amazon.smithy.build.SmithyBuildException;
 import software.amazon.smithy.model.shapes.BlobShape;
 import software.amazon.smithy.model.shapes.DocumentShape;
 import software.amazon.smithy.model.shapes.DoubleShape;
@@ -63,12 +64,21 @@ public class StubsGenerator extends RestStubsGeneratorBase {
     // RestXml ignores queryParam trait in service responses
     // override the base class to not filter query params from the body
     @Override
-    protected void renderBodyStubber(Shape outputShape) {
+    protected void renderBodyStubber(Shape outputShape, boolean isEventStream) {
         //determine if there are any members of the input that need to be serialized to the body
         boolean serializeBody = outputShape.members().stream().anyMatch((m) -> !m.hasTrait(HttpLabelTrait.class)
                 && !m.hasTrait(HttpHeaderTrait.class)
                 && !m.hasTrait(HttpPrefixHeadersTrait.class)
-                && !m.hasTrait(HttpResponseCodeTrait.class));
+                && !m.hasTrait(HttpResponseCodeTrait.class)
+                && !StreamingTrait.isEventStream(model, m));
+
+        if (isEventStream && serializeBody) {
+            throw new SmithyBuildException(
+                    "Event Stream operations in Rest Protocols must not have members "
+                            + "serialized to the body in the initial response.  All members of the operation input "
+                            + "should be marked with HTTP traits such as @httpLabel");
+        }
+
         //determine if there is an httpPayload member
         List<MemberShape> httpPayloadMembers = outputShape.members()
                 .stream()
@@ -81,7 +91,11 @@ public class StubsGenerator extends RestStubsGeneratorBase {
         } else {
             MemberShape payloadMember = httpPayloadMembers.get(0);
             Shape target = model.expectShape(payloadMember.getTarget());
-            renderPayloadBodyStub(outputShape, payloadMember, target);
+            // event stream members may be marked with httpPayload in REST protocols
+            // but should not be stubbed as the body.
+            if (!StreamingTrait.isEventStream(model, payloadMember)) {
+                renderPayloadBodyStub(outputShape, payloadMember, target);
+            }
         }
     }
 
@@ -120,6 +134,24 @@ public class StubsGenerator extends RestStubsGeneratorBase {
         } else {
             target.accept(new PayloadMemberSerializer(payloadMember, inputGetter));
         }
+    }
+
+    @Override
+    protected void renderEventPayloadStructureStub(StructureShape eventPayload) {
+        String nodeName = symbolProvider.toSymbol(eventPayload).getName();
+        if (eventPayload.hasTrait(XmlNameTrait.class)) {
+            nodeName = eventPayload.getTrait(XmlNameTrait.class).get().getValue();
+        } else if (eventPayload.hasTrait(OriginalShapeIdTrait.class)) {
+            nodeName = eventPayload.getTrait(OriginalShapeIdTrait.class).get().getOriginalId().getName();
+        }
+
+        writer
+                .write("message.headers[':content-type'] = "
+                        + "Hearth::EventStream::HeaderValue.new(value: 'application/xml', type: 'string')")
+                .write("xml = $T.new('$L')", Hearth.XML_NODE, nodeName)
+                .call(() -> renderMemberStubbers(eventPayload, "payload_payload"))
+                .write("message.payload = $T.new(xml.to_str) if xml",
+                        RubyImportContainer.STRING_IO);
     }
 
 
@@ -244,6 +276,10 @@ public class StubsGenerator extends RestStubsGeneratorBase {
     }
 
     private void renderMemberStubbers(Shape s) {
+        renderMemberStubbers(s, "stub");
+    }
+
+    private void renderMemberStubbers(Shape s, String input) {
         //remove members w/ http traits or marked NoSerialize
         Stream<MemberShape> serializeMembers = s.members().stream()
                 .filter((m) -> !m.hasTrait(HttpLabelTrait.class)
@@ -252,7 +288,7 @@ public class StubsGenerator extends RestStubsGeneratorBase {
 
         serializeMembers.forEach((member) -> {
             Shape target = model.expectShape(member.getTarget());
-            String inputGetter = "stub." + symbolProvider.toMemberName(member);
+            String inputGetter = input + "." + symbolProvider.toMemberName(member);
 
             if (member.hasTrait(XmlAttributeTrait.class)) {
                 String attributeName = member.getMemberName();

@@ -5253,45 +5253,51 @@ module AWS::SDK::S3
 
       def self.default(visited = [])
         {
-          payload: SelectObjectContentEventStream.default(visited),
         }
       end
 
       def self.stub(http_resp, stub:)
         data = {}
         http_resp.status = 200
-        IO.copy_stream(stub.payload, http_resp.body)
       end
-    end
 
-    class SelectObjectContentEventStream
-      def self.default(visited = [])
+      def self.default_event(visited = [])
         return nil if visited.include?('SelectObjectContentEventStream')
         visited = visited + ['SelectObjectContentEventStream']
-        {
-          records: RecordsEvent.default(visited),
-        }
+        Params::RecordsEvent.build(
+          RecordsEvent.default(visited),
+          context: 'default_event'
+        )
       end
 
-      def self.stub(node_name, stub)
-        xml = Hearth::XML::Node.new(node_name)
-        case stub
+      def self.validate_event!(event, context:)
+        case event
         when Types::SelectObjectContentEventStream::Records
-          xml << Stubs::RecordsEvent.stub('Records', stub.__getobj__) unless stub.__getobj__.nil?
+          Validators::RecordsEvent.validate!(event, context: context)
         when Types::SelectObjectContentEventStream::Stats
-          xml << Stubs::StatsEvent.stub('Stats', stub.__getobj__) unless stub.__getobj__.nil?
+          Validators::StatsEvent.validate!(event, context: context)
         when Types::SelectObjectContentEventStream::Progress
-          xml << Stubs::ProgressEvent.stub('Progress', stub.__getobj__) unless stub.__getobj__.nil?
+          Validators::ProgressEvent.validate!(event, context: context)
         when Types::SelectObjectContentEventStream::Cont
-          xml << Stubs::ContinuationEvent.stub('Cont', stub.__getobj__) unless stub.__getobj__.nil?
+          Validators::ContinuationEvent.validate!(event, context: context)
         when Types::SelectObjectContentEventStream::End
-          xml << Stubs::EndEvent.stub('End', stub.__getobj__) unless stub.__getobj__.nil?
-        else
-          raise ArgumentError,
-          "Expected input to be one of the subclasses of Types::SelectObjectContentEventStream"
+          Validators::EndEvent.validate!(event, context: context)
         end
+      end
 
-        xml
+      def self.stub_event(stub)
+        case stub
+        when Types::RecordsEvent
+          EventStream::RecordsEvent.stub('Records', stub)
+        when Types::StatsEvent
+          EventStream::StatsEvent.stub('Stats', stub)
+        when Types::ProgressEvent
+          EventStream::ProgressEvent.stub('Progress', stub)
+        when Types::ContinuationEvent
+          EventStream::ContinuationEvent.stub('Cont', stub)
+        when Types::EndEvent
+          EventStream::EndEvent.stub('End', stub)
+        end
       end
     end
 
@@ -5833,6 +5839,78 @@ module AWS::SDK::S3
       def self.stub(http_resp, stub:)
         data = {}
         http_resp.status = 200
+      end
+    end
+
+    module EventStream
+
+      class ContinuationEvent
+        def self.stub(event_type, stub)
+          message = Hearth::EventStream::Message.new
+          message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
+          message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: event_type, type: 'string')
+          payload_stub = stub
+          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/xml', type: 'string')
+          xml = Hearth::XML::Node.new('ContinuationEvent')
+          message.payload = ::StringIO.new(xml.to_str) if xml
+          message
+        end
+      end
+
+      class EndEvent
+        def self.stub(event_type, stub)
+          message = Hearth::EventStream::Message.new
+          message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
+          message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: event_type, type: 'string')
+          payload_stub = stub
+          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/xml', type: 'string')
+          xml = Hearth::XML::Node.new('EndEvent')
+          message.payload = ::StringIO.new(xml.to_str) if xml
+          message
+        end
+      end
+
+      class ProgressEvent
+        def self.stub(event_type, stub)
+          message = Hearth::EventStream::Message.new
+          message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
+          message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: event_type, type: 'string')
+          payload_stub = stub.details
+          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/xml', type: 'string')
+          xml = Hearth::XML::Node.new('Progress')
+          xml << Hearth::XML::Node.new('BytesScanned', payload_payload.bytes_scanned.to_s) unless payload_payload.bytes_scanned.nil?
+          xml << Hearth::XML::Node.new('BytesProcessed', payload_payload.bytes_processed.to_s) unless payload_payload.bytes_processed.nil?
+          xml << Hearth::XML::Node.new('BytesReturned', payload_payload.bytes_returned.to_s) unless payload_payload.bytes_returned.nil?
+          message.payload = ::StringIO.new(xml.to_str) if xml
+          message
+        end
+      end
+
+      class RecordsEvent
+        def self.stub(event_type, stub)
+          message = Hearth::EventStream::Message.new
+          message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
+          message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: event_type, type: 'string')
+          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/octet-stream', type: 'string')
+          message.payload = ::StringIO.new(stub.payload)
+          message
+        end
+      end
+
+      class StatsEvent
+        def self.stub(event_type, stub)
+          message = Hearth::EventStream::Message.new
+          message.headers[':message-type'] = Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')
+          message.headers[':event-type'] = Hearth::EventStream::HeaderValue.new(value: event_type, type: 'string')
+          payload_stub = stub.details
+          message.headers[':content-type'] = Hearth::EventStream::HeaderValue.new(value: 'application/xml', type: 'string')
+          xml = Hearth::XML::Node.new('Stats')
+          xml << Hearth::XML::Node.new('BytesScanned', payload_payload.bytes_scanned.to_s) unless payload_payload.bytes_scanned.nil?
+          xml << Hearth::XML::Node.new('BytesProcessed', payload_payload.bytes_processed.to_s) unless payload_payload.bytes_processed.nil?
+          xml << Hearth::XML::Node.new('BytesReturned', payload_payload.bytes_returned.to_s) unless payload_payload.bytes_returned.nil?
+          message.payload = ::StringIO.new(xml.to_str) if xml
+          message
+        end
       end
     end
   end

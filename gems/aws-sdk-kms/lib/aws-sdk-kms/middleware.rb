@@ -57,8 +57,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::CancelKeyDeletion,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -110,8 +112,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::ConnectCustomKeyStore,
           stub_error_classes: [Stubs::CloudHsmClusterInvalidConfigurationException, Stubs::CloudHsmClusterNotActiveException, Stubs::CustomKeyStoreInvalidStateException, Stubs::CustomKeyStoreNotFoundException, Stubs::KMSInternalException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -163,8 +167,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::CreateAlias,
           stub_error_classes: [Stubs::AlreadyExistsException, Stubs::DependencyTimeoutException, Stubs::InvalidAliasNameException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::LimitExceededException, Stubs::NotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -216,8 +222,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::CreateCustomKeyStore,
           stub_error_classes: [Stubs::CloudHsmClusterInUseException, Stubs::CloudHsmClusterInvalidConfigurationException, Stubs::CloudHsmClusterNotActiveException, Stubs::CloudHsmClusterNotFoundException, Stubs::CustomKeyStoreNameInUseException, Stubs::IncorrectTrustAnchorException, Stubs::KMSInternalException, Stubs::LimitExceededException, Stubs::XksProxyIncorrectAuthenticationCredentialException, Stubs::XksProxyInvalidConfigurationException, Stubs::XksProxyInvalidResponseException, Stubs::XksProxyUriEndpointInUseException, Stubs::XksProxyUriInUseException, Stubs::XksProxyUriUnreachableException, Stubs::XksProxyVpcEndpointServiceInUseException, Stubs::XksProxyVpcEndpointServiceInvalidConfigurationException, Stubs::XksProxyVpcEndpointServiceNotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -269,8 +277,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::CreateGrant,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidArnException, Stubs::InvalidGrantTokenException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::LimitExceededException, Stubs::NotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -322,8 +332,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::CreateKey,
           stub_error_classes: [Stubs::CloudHsmClusterInvalidConfigurationException, Stubs::CustomKeyStoreInvalidStateException, Stubs::CustomKeyStoreNotFoundException, Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::LimitExceededException, Stubs::MalformedPolicyDocumentException, Stubs::TagException, Stubs::UnsupportedOperationException, Stubs::XksKeyAlreadyInUseException, Stubs::XksKeyInvalidConfigurationException, Stubs::XksKeyNotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -375,8 +387,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::Decrypt,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::IncorrectKeyException, Stubs::InvalidCiphertextException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -428,8 +442,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::DeleteAlias,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -481,8 +497,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::DeleteCustomKeyStore,
           stub_error_classes: [Stubs::CustomKeyStoreHasCMKsException, Stubs::CustomKeyStoreInvalidStateException, Stubs::CustomKeyStoreNotFoundException, Stubs::KMSInternalException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -534,8 +552,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::DeleteImportedKeyMaterial,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -587,8 +607,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::DescribeCustomKeyStores,
           stub_error_classes: [Stubs::CustomKeyStoreNotFoundException, Stubs::InvalidMarkerException, Stubs::KMSInternalException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -640,8 +662,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::DescribeKey,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::NotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -693,8 +717,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::DisableKey,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -746,8 +772,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::DisableKeyRotation,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -799,8 +827,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::DisconnectCustomKeyStore,
           stub_error_classes: [Stubs::CustomKeyStoreInvalidStateException, Stubs::CustomKeyStoreNotFoundException, Stubs::KMSInternalException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -852,8 +882,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::EnableKey,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::LimitExceededException, Stubs::NotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -905,8 +937,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::EnableKeyRotation,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -958,8 +992,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::Encrypt,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1011,8 +1047,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GenerateDataKey,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1064,8 +1102,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GenerateDataKeyPair,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1117,8 +1157,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GenerateDataKeyPairWithoutPlaintext,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1170,8 +1212,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GenerateDataKeyWithoutPlaintext,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1223,8 +1267,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GenerateMac,
           stub_error_classes: [Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1276,8 +1322,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GenerateRandom,
           stub_error_classes: [Stubs::CustomKeyStoreInvalidStateException, Stubs::CustomKeyStoreNotFoundException, Stubs::DependencyTimeoutException, Stubs::KMSInternalException, Stubs::UnsupportedOperationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1329,8 +1377,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetKeyPolicy,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1382,8 +1432,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetKeyRotationStatus,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1435,8 +1487,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetParametersForImport,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1488,8 +1542,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetPublicKey,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::InvalidArnException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1541,8 +1597,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::ImportKeyMaterial,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::ExpiredImportTokenException, Stubs::IncorrectKeyMaterialException, Stubs::InvalidArnException, Stubs::InvalidCiphertextException, Stubs::InvalidImportTokenException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1594,8 +1652,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::ListAliases,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::InvalidMarkerException, Stubs::KMSInternalException, Stubs::NotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1647,8 +1707,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::ListGrants,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::InvalidGrantIdException, Stubs::InvalidMarkerException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1700,8 +1762,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::ListKeyPolicies,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1753,8 +1817,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::ListKeys,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidMarkerException, Stubs::KMSInternalException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1806,8 +1872,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::ListResourceTags,
           stub_error_classes: [Stubs::InvalidArnException, Stubs::InvalidMarkerException, Stubs::KMSInternalException, Stubs::NotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1859,8 +1927,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::ListRetirableGrants,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::InvalidMarkerException, Stubs::KMSInternalException, Stubs::NotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1912,8 +1982,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::PutKeyPolicy,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::LimitExceededException, Stubs::MalformedPolicyDocumentException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1965,8 +2037,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::ReEncrypt,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::IncorrectKeyException, Stubs::InvalidCiphertextException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -2018,8 +2092,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::ReplicateKey,
           stub_error_classes: [Stubs::AlreadyExistsException, Stubs::DisabledException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::LimitExceededException, Stubs::MalformedPolicyDocumentException, Stubs::NotFoundException, Stubs::TagException, Stubs::UnsupportedOperationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -2071,8 +2147,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::RetireGrant,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DryRunOperationException, Stubs::InvalidArnException, Stubs::InvalidGrantIdException, Stubs::InvalidGrantTokenException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -2124,8 +2202,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::RevokeGrant,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DryRunOperationException, Stubs::InvalidArnException, Stubs::InvalidGrantIdException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -2177,8 +2257,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::ScheduleKeyDeletion,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -2230,8 +2312,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::Sign,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -2283,8 +2367,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::TagResource,
           stub_error_classes: [Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::LimitExceededException, Stubs::NotFoundException, Stubs::TagException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -2336,8 +2422,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::UntagResource,
           stub_error_classes: [Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::TagException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -2389,8 +2477,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::UpdateAlias,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::LimitExceededException, Stubs::NotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -2442,8 +2532,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::UpdateCustomKeyStore,
           stub_error_classes: [Stubs::CloudHsmClusterInvalidConfigurationException, Stubs::CloudHsmClusterNotActiveException, Stubs::CloudHsmClusterNotFoundException, Stubs::CloudHsmClusterNotRelatedException, Stubs::CustomKeyStoreInvalidStateException, Stubs::CustomKeyStoreNameInUseException, Stubs::CustomKeyStoreNotFoundException, Stubs::KMSInternalException, Stubs::XksProxyIncorrectAuthenticationCredentialException, Stubs::XksProxyInvalidConfigurationException, Stubs::XksProxyInvalidResponseException, Stubs::XksProxyUriEndpointInUseException, Stubs::XksProxyUriInUseException, Stubs::XksProxyUriUnreachableException, Stubs::XksProxyVpcEndpointServiceInUseException, Stubs::XksProxyVpcEndpointServiceInvalidConfigurationException, Stubs::XksProxyVpcEndpointServiceNotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -2495,8 +2587,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::UpdateKeyDescription,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -2548,8 +2642,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::UpdatePrimaryRegion,
           stub_error_classes: [Stubs::DisabledException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -2601,8 +2697,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::Verify,
           stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidSignatureException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -2654,8 +2752,10 @@ module AWS::SDK::KMS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::VerifyMac,
           stub_error_classes: [Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidMacException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )

@@ -61,8 +61,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::AbortMultipartUpload,
           stub_error_classes: [Stubs::NoSuchUpload],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -118,8 +120,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::CompleteMultipartUpload,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -175,8 +179,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::CopyObject,
           stub_error_classes: [Stubs::ObjectNotInActiveTierError],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -232,8 +238,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::CreateBucket,
           stub_error_classes: [Stubs::BucketAlreadyExists, Stubs::BucketAlreadyOwnedByYou],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -289,8 +297,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::CreateMultipartUpload,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -346,8 +356,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::CreateSession,
           stub_error_classes: [Stubs::NoSuchBucket],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -403,8 +415,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::DeleteBucket,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -460,8 +474,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::DeleteBucketAnalyticsConfiguration,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -517,8 +533,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::DeleteBucketCors,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -574,8 +592,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::DeleteBucketEncryption,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -631,8 +651,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::DeleteBucketIntelligentTieringConfiguration,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -688,8 +710,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::DeleteBucketInventoryConfiguration,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -745,8 +769,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::DeleteBucketLifecycle,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -802,8 +828,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::DeleteBucketMetricsConfiguration,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -859,8 +887,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::DeleteBucketOwnershipControls,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -916,8 +946,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::DeleteBucketPolicy,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -973,8 +1005,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::DeleteBucketReplication,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1030,8 +1064,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::DeleteBucketTagging,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1087,8 +1123,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::DeleteBucketWebsite,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1144,8 +1182,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::DeleteObject,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1201,8 +1241,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::DeleteObjectTagging,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1262,8 +1304,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::DeleteObjects,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1319,8 +1363,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::DeletePublicAccessBlock,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1376,8 +1422,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetBucketAccelerateConfiguration,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1433,8 +1481,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetBucketAcl,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1490,8 +1540,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetBucketAnalyticsConfiguration,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1547,8 +1599,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetBucketCors,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1604,8 +1658,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetBucketEncryption,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1661,8 +1717,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetBucketIntelligentTieringConfiguration,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1718,8 +1776,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetBucketInventoryConfiguration,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1775,8 +1835,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetBucketLifecycleConfiguration,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1832,8 +1894,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetBucketLocation,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1889,8 +1953,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetBucketLogging,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -1946,8 +2012,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetBucketMetricsConfiguration,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -2003,8 +2071,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetBucketNotificationConfiguration,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -2060,8 +2130,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetBucketOwnershipControls,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -2117,8 +2189,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetBucketPolicy,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -2174,8 +2248,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetBucketPolicyStatus,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -2231,8 +2307,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetBucketReplication,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -2288,8 +2366,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetBucketRequestPayment,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -2345,8 +2425,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetBucketTagging,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -2402,8 +2484,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetBucketVersioning,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -2459,8 +2543,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetBucketWebsite,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -2521,8 +2607,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetObject,
           stub_error_classes: [Stubs::InvalidObjectState, Stubs::NoSuchKey],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -2578,8 +2666,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetObjectAcl,
           stub_error_classes: [Stubs::NoSuchKey],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -2635,8 +2725,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetObjectAttributes,
           stub_error_classes: [Stubs::NoSuchKey],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -2692,8 +2784,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetObjectLegalHold,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -2749,8 +2843,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetObjectLockConfiguration,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -2806,8 +2902,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetObjectRetention,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -2863,8 +2961,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetObjectTagging,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -2920,8 +3020,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetObjectTorrent,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -2977,8 +3079,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetPublicAccessBlock,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -3034,8 +3138,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::HeadBucket,
           stub_error_classes: [Stubs::NotFound],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -3091,8 +3197,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::HeadObject,
           stub_error_classes: [Stubs::NotFound],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -3148,8 +3256,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::ListBucketAnalyticsConfigurations,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -3205,8 +3315,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::ListBucketIntelligentTieringConfigurations,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -3262,8 +3374,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::ListBucketInventoryConfigurations,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -3319,8 +3433,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::ListBucketMetricsConfigurations,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -3376,8 +3492,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::ListBuckets,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -3433,8 +3551,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::ListDirectoryBuckets,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -3490,8 +3610,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::ListMultipartUploads,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -3547,8 +3669,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::ListObjectVersions,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -3604,8 +3728,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::ListObjects,
           stub_error_classes: [Stubs::NoSuchBucket],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -3661,8 +3787,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::ListObjectsV2,
           stub_error_classes: [Stubs::NoSuchBucket],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -3718,8 +3846,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::ListParts,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -3779,8 +3909,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::PutBucketAccelerateConfiguration,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -3840,8 +3972,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::PutBucketAcl,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -3897,8 +4031,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::PutBucketAnalyticsConfiguration,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -3958,8 +4094,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::PutBucketCors,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -4019,8 +4157,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::PutBucketEncryption,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -4076,8 +4216,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::PutBucketIntelligentTieringConfiguration,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -4133,8 +4275,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::PutBucketInventoryConfiguration,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -4194,8 +4338,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::PutBucketLifecycleConfiguration,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -4255,8 +4401,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::PutBucketLogging,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -4312,8 +4460,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::PutBucketMetricsConfiguration,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -4369,8 +4519,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::PutBucketNotificationConfiguration,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -4429,8 +4581,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::PutBucketOwnershipControls,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -4490,8 +4644,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::PutBucketPolicy,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -4551,8 +4707,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::PutBucketReplication,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -4612,8 +4770,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::PutBucketRequestPayment,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -4673,8 +4833,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::PutBucketTagging,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -4734,8 +4896,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::PutBucketVersioning,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -4795,8 +4959,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::PutBucketWebsite,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -4859,8 +5025,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::PutObject,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -4920,8 +5088,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::PutObjectAcl,
           stub_error_classes: [Stubs::NoSuchKey],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -4981,8 +5151,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::PutObjectLegalHold,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -5042,8 +5214,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::PutObjectLockConfiguration,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -5103,8 +5277,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::PutObjectRetention,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -5164,8 +5340,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::PutObjectTagging,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -5225,8 +5403,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::PutPublicAccessBlock,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -5286,8 +5466,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::RestoreObject,
           stub_error_classes: [Stubs::ObjectAlreadyInActiveTierError],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -5342,8 +5524,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: options[:event_stream_handler],
           stub_data_class: Stubs::SelectObjectContent,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -5406,8 +5590,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::UploadPart,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -5463,8 +5649,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::UploadPartCopy,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -5524,8 +5712,10 @@ module AWS::SDK::S3
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::WriteGetObjectResponse,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )

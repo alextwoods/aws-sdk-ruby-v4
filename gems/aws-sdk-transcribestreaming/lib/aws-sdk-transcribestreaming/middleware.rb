@@ -56,8 +56,10 @@ module AWS::SDK::TranscribeStreaming
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http2_client,
+          event_handler: options[:event_stream_handler],
           stub_data_class: Stubs::StartCallAnalyticsStreamTranscription,
           stub_error_classes: [Stubs::BadRequestException, Stubs::ConflictException, Stubs::InternalFailureException, Stubs::LimitExceededException, Stubs::ServiceUnavailableException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -108,8 +110,10 @@ module AWS::SDK::TranscribeStreaming
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http2_client,
+          event_handler: options[:event_stream_handler],
           stub_data_class: Stubs::StartMedicalStreamTranscription,
           stub_error_classes: [Stubs::BadRequestException, Stubs::ConflictException, Stubs::InternalFailureException, Stubs::LimitExceededException, Stubs::ServiceUnavailableException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -160,8 +164,10 @@ module AWS::SDK::TranscribeStreaming
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http2_client,
+          event_handler: options[:event_stream_handler],
           stub_data_class: Stubs::StartStreamTranscription,
           stub_error_classes: [Stubs::BadRequestException, Stubs::ConflictException, Stubs::InternalFailureException, Stubs::LimitExceededException, Stubs::ServiceUnavailableException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )

@@ -57,8 +57,10 @@ module AWS::SDK::STS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::AssumeRole,
           stub_error_classes: [Stubs::ExpiredTokenException, Stubs::MalformedPolicyDocumentException, Stubs::PackedPolicyTooLargeException, Stubs::RegionDisabledException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -110,8 +112,10 @@ module AWS::SDK::STS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::AssumeRoleWithSAML,
           stub_error_classes: [Stubs::ExpiredTokenException, Stubs::IDPRejectedClaimException, Stubs::InvalidIdentityTokenException, Stubs::MalformedPolicyDocumentException, Stubs::PackedPolicyTooLargeException, Stubs::RegionDisabledException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -163,8 +167,10 @@ module AWS::SDK::STS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::AssumeRoleWithWebIdentity,
           stub_error_classes: [Stubs::ExpiredTokenException, Stubs::IDPCommunicationErrorException, Stubs::IDPRejectedClaimException, Stubs::InvalidIdentityTokenException, Stubs::MalformedPolicyDocumentException, Stubs::PackedPolicyTooLargeException, Stubs::RegionDisabledException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -216,8 +222,10 @@ module AWS::SDK::STS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::DecodeAuthorizationMessage,
           stub_error_classes: [Stubs::InvalidAuthorizationMessageException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -269,8 +277,10 @@ module AWS::SDK::STS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetAccessKeyInfo,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -322,8 +332,10 @@ module AWS::SDK::STS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetCallerIdentity,
           stub_error_classes: [],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -375,8 +387,10 @@ module AWS::SDK::STS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetFederationToken,
           stub_error_classes: [Stubs::MalformedPolicyDocumentException, Stubs::PackedPolicyTooLargeException, Stubs::RegionDisabledException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -428,8 +442,10 @@ module AWS::SDK::STS
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetSessionToken,
           stub_error_classes: [Stubs::RegionDisabledException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )

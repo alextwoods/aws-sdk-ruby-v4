@@ -57,8 +57,10 @@ module AWS::SDK::LexRuntimeV2
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::DeleteSession,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::ConflictException, Stubs::InternalServerException, Stubs::ResourceNotFoundException, Stubs::ThrottlingException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -110,8 +112,10 @@ module AWS::SDK::LexRuntimeV2
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::GetSession,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::InternalServerException, Stubs::ResourceNotFoundException, Stubs::ThrottlingException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -164,8 +168,10 @@ module AWS::SDK::LexRuntimeV2
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::PutSession,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::BadGatewayException, Stubs::ConflictException, Stubs::DependencyFailedException, Stubs::InternalServerException, Stubs::ResourceNotFoundException, Stubs::ThrottlingException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -218,8 +224,10 @@ module AWS::SDK::LexRuntimeV2
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::RecognizeText,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::BadGatewayException, Stubs::ConflictException, Stubs::DependencyFailedException, Stubs::InternalServerException, Stubs::ResourceNotFoundException, Stubs::ThrottlingException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -271,8 +279,10 @@ module AWS::SDK::LexRuntimeV2
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http_client,
+          event_handler: nil,
           stub_data_class: Stubs::RecognizeUtterance,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::BadGatewayException, Stubs::ConflictException, Stubs::DependencyFailedException, Stubs::InternalServerException, Stubs::ResourceNotFoundException, Stubs::ThrottlingException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )
@@ -323,8 +333,10 @@ module AWS::SDK::LexRuntimeV2
         stack.use(Middleware::RequestId)
         stack.use(Hearth::Middleware::Send,
           client: config.http2_client,
+          event_handler: options[:event_stream_handler],
           stub_data_class: Stubs::StartConversation,
           stub_error_classes: [Stubs::AccessDeniedException, Stubs::InternalServerException, Stubs::ThrottlingException, Stubs::ValidationException],
+          stub_message_encoder: Hearth::EventStream::Binary.const_get(:MessageEncoder).new,
           stub_responses: config.stub_responses,
           stubs: config.stubs
         )

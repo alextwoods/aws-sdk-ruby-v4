@@ -31,7 +31,9 @@ import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.TimestampShape;
 import software.amazon.smithy.model.shapes.UnionShape;
 import software.amazon.smithy.model.traits.ErrorTrait;
+import software.amazon.smithy.model.traits.EventHeaderTrait;
 import software.amazon.smithy.model.traits.SparseTrait;
+import software.amazon.smithy.model.traits.StreamingTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
 import software.amazon.smithy.model.traits.XmlAttributeTrait;
 import software.amazon.smithy.model.traits.XmlFlattenedTrait;
@@ -51,13 +53,22 @@ public class StubsGenerator extends StubsGeneratorBase {
     }
 
     private void renderMemberBuilders(Shape s) {
+        renderMemberBuilders(s, "stub");
+    }
+
+
+    private void renderMemberBuilders(Shape s, String input) {
         //remove members w/ NoSerialize
         Stream<MemberShape> serializeMembers =
-                s.members().stream().filter(NoSerializeTrait.excludeNoSerializeMembers());
+                s.members().stream()
+                        .filter(NoSerializeTrait.excludeNoSerializeMembers())
+                        .filter(NoSerializeTrait.excludeNoSerializeMembers())
+                        .filter((m) -> !StreamingTrait.isEventStream(model, m) && !m.hasTrait(EventHeaderTrait.class));
+
 
         serializeMembers.forEach((member) -> {
             Shape target = model.expectShape(member.getTarget());
-            String inputGetter = "stub." + symbolProvider.toMemberName(member);
+            String inputGetter = input + "." + symbolProvider.toMemberName(member);
 
             if (member.hasTrait(XmlAttributeTrait.class)) {
                 String attributeName = member.getMemberName();
@@ -167,24 +178,73 @@ public class StubsGenerator extends StubsGeneratorBase {
     }
 
     @Override
-    protected void renderOperationStubMethod(OperationShape operation, Shape outputShape) {
+    protected void renderOperationStubMethod(OperationShape operation, Shape outputShape, boolean isEventStream) {
         String nodeName = symbolProvider.toSymbol(operation).getName();
 
         writer
                 .openBlock("def self.stub(http_resp, stub:)")
                 .write("http_resp.headers['Content-Type'] = 'application/xml'")
-                .write("response = $T.new('$LResponse')", Hearth.XML_NODE, nodeName)
                 .call(() -> {
-                    if (context.service().hasTrait(XmlNamespaceTrait.class)) {
-                        writeXmlNamespaceForShape(context.service(), "response");
+                    if (isEventStream) {
+                        renderEventStreamInitialResponseMessage(outputShape, nodeName);
+                    } else {
+                        writer
+                                .write("response = $T.new('$LResponse')", Hearth.XML_NODE, nodeName)
+                                .call(() -> {
+                                    if (context.service().hasTrait(XmlNamespaceTrait.class)) {
+                                        writeXmlNamespaceForShape(context.service(), "response");
+                                    }
+                                })
+                                .write("xml = $T.new('$LResult')", Hearth.XML_NODE, nodeName)
+                                .call(() -> renderMemberBuilders(outputShape))
+                                .write("response << xml")
+                                .write("http_resp.body = $T.new(response.to_str)",
+                                        RubyImportContainer.STRING_IO)
+                                .write("http_resp.status = 200");
                     }
                 })
-                .write("xml = $T.new('$LResult')", Hearth.XML_NODE, nodeName)
-                .call(() -> renderMemberBuilders(outputShape))
-                .write("response << xml")
-                .write("http_resp.body = $T.new(response.to_str)", RubyImportContainer.STRING_IO)
-                .write("http_resp.status = 200")
                 .closeBlock("end");
+    }
+
+    private void renderEventStreamInitialResponseMessage(Shape outputShape, String nodeName) {
+        boolean serializeBody = outputShape.members().stream()
+                .filter(NoSerializeTrait.excludeNoSerializeMembers())
+                .filter((m) -> !StreamingTrait.isEventStream(model, m))
+                .findAny().isPresent();
+
+        if (serializeBody) {
+            writer
+                    .write("message = Hearth::EventStream::Message.new")
+                    .write("message.headers[':message-type'] = "
+                            + "Hearth::EventStream::HeaderValue.new(value: 'event', type: 'string')")
+                    .write("message.headers[':event-type'] = "
+                            + "Hearth::EventStream::HeaderValue.new(value: 'initial-response', "
+                            + "type: 'string')")
+                    .write("message.headers[':content-type'] = "
+                            + "Hearth::EventStream::HeaderValue.new(value: 'application/xml', "
+                            + "type: 'string')")
+                    .write("xml = $T.new('$LResponse')", Hearth.XML_NODE, nodeName)
+                    .call(() -> {
+                        if (context.service().hasTrait(XmlNamespaceTrait.class)) {
+                            writeXmlNamespaceForShape(context.service(), "xml");
+                        }
+                    })
+                    .call(() -> renderMemberBuilders(outputShape))
+                    .write("message.payload = $T.new(xml.to_str) if xml",
+                            RubyImportContainer.STRING_IO)
+                    .write("http_resp.body = message");
+        }
+    }
+
+    @Override
+    protected void renderEventPayloadStructureStub(StructureShape eventPayload) {
+        writer
+                .write("message.headers[':content-type'] = "
+                        + "Hearth::EventStream::HeaderValue.new(value: 'application/xml', type: 'string')")
+                .write("xml = $T.new(node_name)", Hearth.XML_NODE)
+                .call(() -> renderMemberBuilders(eventPayload, "payload_stub"))
+                .write("message.payload = $T.new(xml.to_str)",
+                        RubyImportContainer.STRING_IO);
     }
 
     @Override
@@ -226,7 +286,7 @@ public class StubsGenerator extends StubsGeneratorBase {
             }
         }
 
-        this.writer.write("http_resp.status = $1L", new Object[] {statusCode});
+        this.writer.write("http_resp.status = $1L", statusCode);
     }
 
     private void writeXmlNamespaceForShape(Shape shape, String dataSetter) {
