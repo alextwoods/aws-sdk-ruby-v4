@@ -51,7 +51,7 @@ module AWS::SDK::CodeCatalyst
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 201,
-            errors: [Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceNotFoundException, Errors::ServiceQuotaExceededException, Errors::ThrottlingException, Errors::ValidationException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::ConflictException, Parsers::ResourceNotFoundException, Parsers::ServiceQuotaExceededException, Parsers::ThrottlingException, Parsers::ValidationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -106,7 +106,7 @@ module AWS::SDK::CodeCatalyst
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 201,
-            errors: [Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceNotFoundException, Errors::ServiceQuotaExceededException, Errors::ThrottlingException, Errors::ValidationException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::ConflictException, Parsers::ResourceNotFoundException, Parsers::ServiceQuotaExceededException, Parsers::ThrottlingException, Parsers::ValidationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -161,7 +161,7 @@ module AWS::SDK::CodeCatalyst
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 201,
-            errors: [Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceNotFoundException, Errors::ServiceQuotaExceededException, Errors::ThrottlingException, Errors::ValidationException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::ConflictException, Parsers::ResourceNotFoundException, Parsers::ServiceQuotaExceededException, Parsers::ThrottlingException, Parsers::ValidationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -216,7 +216,7 @@ module AWS::SDK::CodeCatalyst
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 201,
-            errors: [Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceNotFoundException, Errors::ServiceQuotaExceededException, Errors::ThrottlingException, Errors::ValidationException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::ConflictException, Parsers::ResourceNotFoundException, Parsers::ServiceQuotaExceededException, Parsers::ThrottlingException, Parsers::ValidationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -271,7 +271,7 @@ module AWS::SDK::CodeCatalyst
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 201,
-            errors: [Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceNotFoundException, Errors::ServiceQuotaExceededException, Errors::ThrottlingException, Errors::ValidationException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::ConflictException, Parsers::ResourceNotFoundException, Parsers::ServiceQuotaExceededException, Parsers::ThrottlingException, Parsers::ValidationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -325,7 +325,7 @@ module AWS::SDK::CodeCatalyst
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceNotFoundException, Errors::ServiceQuotaExceededException, Errors::ThrottlingException, Errors::ValidationException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::ConflictException, Parsers::ResourceNotFoundException, Parsers::ServiceQuotaExceededException, Parsers::ThrottlingException, Parsers::ValidationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -379,7 +379,7 @@ module AWS::SDK::CodeCatalyst
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceNotFoundException, Errors::ServiceQuotaExceededException, Errors::ThrottlingException, Errors::ValidationException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::ConflictException, Parsers::ResourceNotFoundException, Parsers::ServiceQuotaExceededException, Parsers::ThrottlingException, Parsers::ValidationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -433,7 +433,7 @@ module AWS::SDK::CodeCatalyst
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceNotFoundException, Errors::ServiceQuotaExceededException, Errors::ThrottlingException, Errors::ValidationException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::ConflictException, Parsers::ResourceNotFoundException, Parsers::ServiceQuotaExceededException, Parsers::ThrottlingException, Parsers::ValidationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -487,7 +487,7 @@ module AWS::SDK::CodeCatalyst
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceNotFoundException, Errors::ServiceQuotaExceededException, Errors::ThrottlingException, Errors::ValidationException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::ConflictException, Parsers::ResourceNotFoundException, Parsers::ServiceQuotaExceededException, Parsers::ThrottlingException, Parsers::ValidationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -541,7 +541,7 @@ module AWS::SDK::CodeCatalyst
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceNotFoundException, Errors::ServiceQuotaExceededException, Errors::ThrottlingException, Errors::ValidationException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::ConflictException, Parsers::ResourceNotFoundException, Parsers::ServiceQuotaExceededException, Parsers::ThrottlingException, Parsers::ValidationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -595,7 +595,7 @@ module AWS::SDK::CodeCatalyst
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceNotFoundException, Errors::ServiceQuotaExceededException, Errors::ThrottlingException, Errors::ValidationException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::ConflictException, Parsers::ResourceNotFoundException, Parsers::ServiceQuotaExceededException, Parsers::ThrottlingException, Parsers::ValidationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -649,7 +649,7 @@ module AWS::SDK::CodeCatalyst
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceNotFoundException, Errors::ServiceQuotaExceededException, Errors::ThrottlingException, Errors::ValidationException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::ConflictException, Parsers::ResourceNotFoundException, Parsers::ServiceQuotaExceededException, Parsers::ThrottlingException, Parsers::ValidationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -703,7 +703,7 @@ module AWS::SDK::CodeCatalyst
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceNotFoundException, Errors::ServiceQuotaExceededException, Errors::ThrottlingException, Errors::ValidationException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::ConflictException, Parsers::ResourceNotFoundException, Parsers::ServiceQuotaExceededException, Parsers::ThrottlingException, Parsers::ValidationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -757,7 +757,7 @@ module AWS::SDK::CodeCatalyst
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceNotFoundException, Errors::ServiceQuotaExceededException, Errors::ThrottlingException, Errors::ValidationException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::ConflictException, Parsers::ResourceNotFoundException, Parsers::ServiceQuotaExceededException, Parsers::ThrottlingException, Parsers::ValidationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -811,7 +811,7 @@ module AWS::SDK::CodeCatalyst
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceNotFoundException, Errors::ServiceQuotaExceededException, Errors::ThrottlingException, Errors::ValidationException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::ConflictException, Parsers::ResourceNotFoundException, Parsers::ServiceQuotaExceededException, Parsers::ThrottlingException, Parsers::ValidationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -865,7 +865,7 @@ module AWS::SDK::CodeCatalyst
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceNotFoundException, Errors::ServiceQuotaExceededException, Errors::ThrottlingException, Errors::ValidationException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::ConflictException, Parsers::ResourceNotFoundException, Parsers::ServiceQuotaExceededException, Parsers::ThrottlingException, Parsers::ValidationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -919,7 +919,7 @@ module AWS::SDK::CodeCatalyst
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceNotFoundException, Errors::ServiceQuotaExceededException, Errors::ThrottlingException, Errors::ValidationException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::ConflictException, Parsers::ResourceNotFoundException, Parsers::ServiceQuotaExceededException, Parsers::ThrottlingException, Parsers::ValidationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -973,7 +973,7 @@ module AWS::SDK::CodeCatalyst
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceNotFoundException, Errors::ServiceQuotaExceededException, Errors::ThrottlingException, Errors::ValidationException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::ConflictException, Parsers::ResourceNotFoundException, Parsers::ServiceQuotaExceededException, Parsers::ThrottlingException, Parsers::ValidationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1027,7 +1027,7 @@ module AWS::SDK::CodeCatalyst
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceNotFoundException, Errors::ServiceQuotaExceededException, Errors::ThrottlingException, Errors::ValidationException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::ConflictException, Parsers::ResourceNotFoundException, Parsers::ServiceQuotaExceededException, Parsers::ThrottlingException, Parsers::ValidationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1082,7 +1082,7 @@ module AWS::SDK::CodeCatalyst
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceNotFoundException, Errors::ServiceQuotaExceededException, Errors::ThrottlingException, Errors::ValidationException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::ConflictException, Parsers::ResourceNotFoundException, Parsers::ServiceQuotaExceededException, Parsers::ThrottlingException, Parsers::ValidationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1137,7 +1137,7 @@ module AWS::SDK::CodeCatalyst
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceNotFoundException, Errors::ServiceQuotaExceededException, Errors::ThrottlingException, Errors::ValidationException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::ConflictException, Parsers::ResourceNotFoundException, Parsers::ServiceQuotaExceededException, Parsers::ThrottlingException, Parsers::ValidationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1192,7 +1192,7 @@ module AWS::SDK::CodeCatalyst
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceNotFoundException, Errors::ServiceQuotaExceededException, Errors::ThrottlingException, Errors::ValidationException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::ConflictException, Parsers::ResourceNotFoundException, Parsers::ServiceQuotaExceededException, Parsers::ThrottlingException, Parsers::ValidationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1247,7 +1247,7 @@ module AWS::SDK::CodeCatalyst
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceNotFoundException, Errors::ServiceQuotaExceededException, Errors::ThrottlingException, Errors::ValidationException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::ConflictException, Parsers::ResourceNotFoundException, Parsers::ServiceQuotaExceededException, Parsers::ThrottlingException, Parsers::ValidationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1302,7 +1302,7 @@ module AWS::SDK::CodeCatalyst
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceNotFoundException, Errors::ServiceQuotaExceededException, Errors::ThrottlingException, Errors::ValidationException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::ConflictException, Parsers::ResourceNotFoundException, Parsers::ServiceQuotaExceededException, Parsers::ThrottlingException, Parsers::ValidationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1357,7 +1357,7 @@ module AWS::SDK::CodeCatalyst
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceNotFoundException, Errors::ServiceQuotaExceededException, Errors::ThrottlingException, Errors::ValidationException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::ConflictException, Parsers::ResourceNotFoundException, Parsers::ServiceQuotaExceededException, Parsers::ThrottlingException, Parsers::ValidationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1412,7 +1412,7 @@ module AWS::SDK::CodeCatalyst
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceNotFoundException, Errors::ServiceQuotaExceededException, Errors::ThrottlingException, Errors::ValidationException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::ConflictException, Parsers::ResourceNotFoundException, Parsers::ServiceQuotaExceededException, Parsers::ThrottlingException, Parsers::ValidationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1467,7 +1467,7 @@ module AWS::SDK::CodeCatalyst
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceNotFoundException, Errors::ServiceQuotaExceededException, Errors::ThrottlingException, Errors::ValidationException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::ConflictException, Parsers::ResourceNotFoundException, Parsers::ServiceQuotaExceededException, Parsers::ThrottlingException, Parsers::ValidationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1522,7 +1522,7 @@ module AWS::SDK::CodeCatalyst
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceNotFoundException, Errors::ServiceQuotaExceededException, Errors::ThrottlingException, Errors::ValidationException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::ConflictException, Parsers::ResourceNotFoundException, Parsers::ServiceQuotaExceededException, Parsers::ThrottlingException, Parsers::ValidationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1577,7 +1577,7 @@ module AWS::SDK::CodeCatalyst
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceNotFoundException, Errors::ServiceQuotaExceededException, Errors::ThrottlingException, Errors::ValidationException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::ConflictException, Parsers::ResourceNotFoundException, Parsers::ServiceQuotaExceededException, Parsers::ThrottlingException, Parsers::ValidationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1632,7 +1632,7 @@ module AWS::SDK::CodeCatalyst
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceNotFoundException, Errors::ServiceQuotaExceededException, Errors::ThrottlingException, Errors::ValidationException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::ConflictException, Parsers::ResourceNotFoundException, Parsers::ServiceQuotaExceededException, Parsers::ThrottlingException, Parsers::ValidationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1687,7 +1687,7 @@ module AWS::SDK::CodeCatalyst
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceNotFoundException, Errors::ServiceQuotaExceededException, Errors::ThrottlingException, Errors::ValidationException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::ConflictException, Parsers::ResourceNotFoundException, Parsers::ServiceQuotaExceededException, Parsers::ThrottlingException, Parsers::ValidationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1742,7 +1742,7 @@ module AWS::SDK::CodeCatalyst
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceNotFoundException, Errors::ServiceQuotaExceededException, Errors::ThrottlingException, Errors::ValidationException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::ConflictException, Parsers::ResourceNotFoundException, Parsers::ServiceQuotaExceededException, Parsers::ThrottlingException, Parsers::ValidationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1796,7 +1796,7 @@ module AWS::SDK::CodeCatalyst
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceNotFoundException, Errors::ServiceQuotaExceededException, Errors::ThrottlingException, Errors::ValidationException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::ConflictException, Parsers::ResourceNotFoundException, Parsers::ServiceQuotaExceededException, Parsers::ThrottlingException, Parsers::ValidationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1850,7 +1850,7 @@ module AWS::SDK::CodeCatalyst
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceNotFoundException, Errors::ServiceQuotaExceededException, Errors::ThrottlingException, Errors::ValidationException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::ConflictException, Parsers::ResourceNotFoundException, Parsers::ServiceQuotaExceededException, Parsers::ThrottlingException, Parsers::ValidationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1905,7 +1905,7 @@ module AWS::SDK::CodeCatalyst
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceNotFoundException, Errors::ServiceQuotaExceededException, Errors::ThrottlingException, Errors::ValidationException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::ConflictException, Parsers::ResourceNotFoundException, Parsers::ServiceQuotaExceededException, Parsers::ThrottlingException, Parsers::ValidationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1960,7 +1960,7 @@ module AWS::SDK::CodeCatalyst
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceNotFoundException, Errors::ServiceQuotaExceededException, Errors::ThrottlingException, Errors::ValidationException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::ConflictException, Parsers::ResourceNotFoundException, Parsers::ServiceQuotaExceededException, Parsers::ThrottlingException, Parsers::ValidationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -2015,7 +2015,7 @@ module AWS::SDK::CodeCatalyst
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceNotFoundException, Errors::ServiceQuotaExceededException, Errors::ThrottlingException, Errors::ValidationException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::ConflictException, Parsers::ResourceNotFoundException, Parsers::ServiceQuotaExceededException, Parsers::ThrottlingException, Parsers::ValidationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -2069,7 +2069,7 @@ module AWS::SDK::CodeCatalyst
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceNotFoundException, Errors::ServiceQuotaExceededException, Errors::ThrottlingException, Errors::ValidationException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::ConflictException, Parsers::ResourceNotFoundException, Parsers::ServiceQuotaExceededException, Parsers::ThrottlingException, Parsers::ValidationException]
           )
         )
         stack.use(Middleware::RequestId)

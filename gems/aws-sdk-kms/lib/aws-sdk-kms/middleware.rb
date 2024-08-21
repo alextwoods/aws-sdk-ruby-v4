@@ -51,7 +51,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
+            error_parsers: [Parsers::DependencyTimeoutException, Parsers::InvalidArnException, Parsers::KMSInternalException, Parsers::KMSInvalidStateException, Parsers::NotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -106,7 +106,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::CloudHsmClusterInvalidConfigurationException, Errors::CloudHsmClusterNotActiveException, Errors::CustomKeyStoreInvalidStateException, Errors::CustomKeyStoreNotFoundException, Errors::KMSInternalException]
+            error_parsers: [Parsers::CloudHsmClusterInvalidConfigurationException, Parsers::CloudHsmClusterNotActiveException, Parsers::CustomKeyStoreInvalidStateException, Parsers::CustomKeyStoreNotFoundException, Parsers::KMSInternalException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -161,7 +161,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AlreadyExistsException, Errors::DependencyTimeoutException, Errors::InvalidAliasNameException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::LimitExceededException, Errors::NotFoundException]
+            error_parsers: [Parsers::AlreadyExistsException, Parsers::DependencyTimeoutException, Parsers::InvalidAliasNameException, Parsers::KMSInternalException, Parsers::KMSInvalidStateException, Parsers::LimitExceededException, Parsers::NotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -216,7 +216,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::CloudHsmClusterInUseException, Errors::CloudHsmClusterInvalidConfigurationException, Errors::CloudHsmClusterNotActiveException, Errors::CloudHsmClusterNotFoundException, Errors::CustomKeyStoreNameInUseException, Errors::IncorrectTrustAnchorException, Errors::KMSInternalException, Errors::LimitExceededException, Errors::XksProxyIncorrectAuthenticationCredentialException, Errors::XksProxyInvalidConfigurationException, Errors::XksProxyInvalidResponseException, Errors::XksProxyUriEndpointInUseException, Errors::XksProxyUriInUseException, Errors::XksProxyUriUnreachableException, Errors::XksProxyVpcEndpointServiceInUseException, Errors::XksProxyVpcEndpointServiceInvalidConfigurationException, Errors::XksProxyVpcEndpointServiceNotFoundException]
+            error_parsers: [Parsers::CloudHsmClusterInUseException, Parsers::CloudHsmClusterInvalidConfigurationException, Parsers::CloudHsmClusterNotActiveException, Parsers::CloudHsmClusterNotFoundException, Parsers::CustomKeyStoreNameInUseException, Parsers::IncorrectTrustAnchorException, Parsers::KMSInternalException, Parsers::LimitExceededException, Parsers::XksProxyIncorrectAuthenticationCredentialException, Parsers::XksProxyInvalidConfigurationException, Parsers::XksProxyInvalidResponseException, Parsers::XksProxyUriEndpointInUseException, Parsers::XksProxyUriInUseException, Parsers::XksProxyUriUnreachableException, Parsers::XksProxyVpcEndpointServiceInUseException, Parsers::XksProxyVpcEndpointServiceInvalidConfigurationException, Parsers::XksProxyVpcEndpointServiceNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -271,7 +271,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::DryRunOperationException, Errors::InvalidArnException, Errors::InvalidGrantTokenException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::LimitExceededException, Errors::NotFoundException]
+            error_parsers: [Parsers::DependencyTimeoutException, Parsers::DisabledException, Parsers::DryRunOperationException, Parsers::InvalidArnException, Parsers::InvalidGrantTokenException, Parsers::KMSInternalException, Parsers::KMSInvalidStateException, Parsers::LimitExceededException, Parsers::NotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -326,7 +326,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::CloudHsmClusterInvalidConfigurationException, Errors::CustomKeyStoreInvalidStateException, Errors::CustomKeyStoreNotFoundException, Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::LimitExceededException, Errors::MalformedPolicyDocumentException, Errors::TagException, Errors::UnsupportedOperationException, Errors::XksKeyAlreadyInUseException, Errors::XksKeyInvalidConfigurationException, Errors::XksKeyNotFoundException]
+            error_parsers: [Parsers::CloudHsmClusterInvalidConfigurationException, Parsers::CustomKeyStoreInvalidStateException, Parsers::CustomKeyStoreNotFoundException, Parsers::DependencyTimeoutException, Parsers::InvalidArnException, Parsers::KMSInternalException, Parsers::LimitExceededException, Parsers::MalformedPolicyDocumentException, Parsers::TagException, Parsers::UnsupportedOperationException, Parsers::XksKeyAlreadyInUseException, Parsers::XksKeyInvalidConfigurationException, Parsers::XksKeyNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -381,7 +381,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::DryRunOperationException, Errors::IncorrectKeyException, Errors::InvalidCiphertextException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
+            error_parsers: [Parsers::DependencyTimeoutException, Parsers::DisabledException, Parsers::DryRunOperationException, Parsers::IncorrectKeyException, Parsers::InvalidCiphertextException, Parsers::InvalidGrantTokenException, Parsers::InvalidKeyUsageException, Parsers::KeyUnavailableException, Parsers::KMSInternalException, Parsers::KMSInvalidStateException, Parsers::NotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -436,7 +436,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::DependencyTimeoutException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
+            error_parsers: [Parsers::DependencyTimeoutException, Parsers::KMSInternalException, Parsers::KMSInvalidStateException, Parsers::NotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -491,7 +491,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::CustomKeyStoreHasCMKsException, Errors::CustomKeyStoreInvalidStateException, Errors::CustomKeyStoreNotFoundException, Errors::KMSInternalException]
+            error_parsers: [Parsers::CustomKeyStoreHasCMKsException, Parsers::CustomKeyStoreInvalidStateException, Parsers::CustomKeyStoreNotFoundException, Parsers::KMSInternalException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -546,7 +546,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException, Errors::UnsupportedOperationException]
+            error_parsers: [Parsers::DependencyTimeoutException, Parsers::InvalidArnException, Parsers::KMSInternalException, Parsers::KMSInvalidStateException, Parsers::NotFoundException, Parsers::UnsupportedOperationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -601,7 +601,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::CustomKeyStoreNotFoundException, Errors::InvalidMarkerException, Errors::KMSInternalException]
+            error_parsers: [Parsers::CustomKeyStoreNotFoundException, Parsers::InvalidMarkerException, Parsers::KMSInternalException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -656,7 +656,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::NotFoundException]
+            error_parsers: [Parsers::DependencyTimeoutException, Parsers::InvalidArnException, Parsers::KMSInternalException, Parsers::NotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -711,7 +711,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
+            error_parsers: [Parsers::DependencyTimeoutException, Parsers::InvalidArnException, Parsers::KMSInternalException, Parsers::KMSInvalidStateException, Parsers::NotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -766,7 +766,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException, Errors::UnsupportedOperationException]
+            error_parsers: [Parsers::DependencyTimeoutException, Parsers::DisabledException, Parsers::InvalidArnException, Parsers::KMSInternalException, Parsers::KMSInvalidStateException, Parsers::NotFoundException, Parsers::UnsupportedOperationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -821,7 +821,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::CustomKeyStoreInvalidStateException, Errors::CustomKeyStoreNotFoundException, Errors::KMSInternalException]
+            error_parsers: [Parsers::CustomKeyStoreInvalidStateException, Parsers::CustomKeyStoreNotFoundException, Parsers::KMSInternalException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -876,7 +876,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::LimitExceededException, Errors::NotFoundException]
+            error_parsers: [Parsers::DependencyTimeoutException, Parsers::InvalidArnException, Parsers::KMSInternalException, Parsers::KMSInvalidStateException, Parsers::LimitExceededException, Parsers::NotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -931,7 +931,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException, Errors::UnsupportedOperationException]
+            error_parsers: [Parsers::DependencyTimeoutException, Parsers::DisabledException, Parsers::InvalidArnException, Parsers::KMSInternalException, Parsers::KMSInvalidStateException, Parsers::NotFoundException, Parsers::UnsupportedOperationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -986,7 +986,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::DryRunOperationException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
+            error_parsers: [Parsers::DependencyTimeoutException, Parsers::DisabledException, Parsers::DryRunOperationException, Parsers::InvalidGrantTokenException, Parsers::InvalidKeyUsageException, Parsers::KeyUnavailableException, Parsers::KMSInternalException, Parsers::KMSInvalidStateException, Parsers::NotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1041,7 +1041,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::DryRunOperationException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
+            error_parsers: [Parsers::DependencyTimeoutException, Parsers::DisabledException, Parsers::DryRunOperationException, Parsers::InvalidGrantTokenException, Parsers::InvalidKeyUsageException, Parsers::KeyUnavailableException, Parsers::KMSInternalException, Parsers::KMSInvalidStateException, Parsers::NotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1096,7 +1096,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::DryRunOperationException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException, Errors::UnsupportedOperationException]
+            error_parsers: [Parsers::DependencyTimeoutException, Parsers::DisabledException, Parsers::DryRunOperationException, Parsers::InvalidGrantTokenException, Parsers::InvalidKeyUsageException, Parsers::KeyUnavailableException, Parsers::KMSInternalException, Parsers::KMSInvalidStateException, Parsers::NotFoundException, Parsers::UnsupportedOperationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1151,7 +1151,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::DryRunOperationException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException, Errors::UnsupportedOperationException]
+            error_parsers: [Parsers::DependencyTimeoutException, Parsers::DisabledException, Parsers::DryRunOperationException, Parsers::InvalidGrantTokenException, Parsers::InvalidKeyUsageException, Parsers::KeyUnavailableException, Parsers::KMSInternalException, Parsers::KMSInvalidStateException, Parsers::NotFoundException, Parsers::UnsupportedOperationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1206,7 +1206,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::DryRunOperationException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
+            error_parsers: [Parsers::DependencyTimeoutException, Parsers::DisabledException, Parsers::DryRunOperationException, Parsers::InvalidGrantTokenException, Parsers::InvalidKeyUsageException, Parsers::KeyUnavailableException, Parsers::KMSInternalException, Parsers::KMSInvalidStateException, Parsers::NotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1261,7 +1261,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::DisabledException, Errors::DryRunOperationException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
+            error_parsers: [Parsers::DisabledException, Parsers::DryRunOperationException, Parsers::InvalidGrantTokenException, Parsers::InvalidKeyUsageException, Parsers::KeyUnavailableException, Parsers::KMSInternalException, Parsers::KMSInvalidStateException, Parsers::NotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1316,7 +1316,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::CustomKeyStoreInvalidStateException, Errors::CustomKeyStoreNotFoundException, Errors::DependencyTimeoutException, Errors::KMSInternalException, Errors::UnsupportedOperationException]
+            error_parsers: [Parsers::CustomKeyStoreInvalidStateException, Parsers::CustomKeyStoreNotFoundException, Parsers::DependencyTimeoutException, Parsers::KMSInternalException, Parsers::UnsupportedOperationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1371,7 +1371,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
+            error_parsers: [Parsers::DependencyTimeoutException, Parsers::InvalidArnException, Parsers::KMSInternalException, Parsers::KMSInvalidStateException, Parsers::NotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1426,7 +1426,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException, Errors::UnsupportedOperationException]
+            error_parsers: [Parsers::DependencyTimeoutException, Parsers::InvalidArnException, Parsers::KMSInternalException, Parsers::KMSInvalidStateException, Parsers::NotFoundException, Parsers::UnsupportedOperationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1481,7 +1481,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException, Errors::UnsupportedOperationException]
+            error_parsers: [Parsers::DependencyTimeoutException, Parsers::InvalidArnException, Parsers::KMSInternalException, Parsers::KMSInvalidStateException, Parsers::NotFoundException, Parsers::UnsupportedOperationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1536,7 +1536,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::InvalidArnException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException, Errors::UnsupportedOperationException]
+            error_parsers: [Parsers::DependencyTimeoutException, Parsers::DisabledException, Parsers::InvalidArnException, Parsers::InvalidGrantTokenException, Parsers::InvalidKeyUsageException, Parsers::KeyUnavailableException, Parsers::KMSInternalException, Parsers::KMSInvalidStateException, Parsers::NotFoundException, Parsers::UnsupportedOperationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1591,7 +1591,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::DependencyTimeoutException, Errors::ExpiredImportTokenException, Errors::IncorrectKeyMaterialException, Errors::InvalidArnException, Errors::InvalidCiphertextException, Errors::InvalidImportTokenException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException, Errors::UnsupportedOperationException]
+            error_parsers: [Parsers::DependencyTimeoutException, Parsers::ExpiredImportTokenException, Parsers::IncorrectKeyMaterialException, Parsers::InvalidArnException, Parsers::InvalidCiphertextException, Parsers::InvalidImportTokenException, Parsers::KMSInternalException, Parsers::KMSInvalidStateException, Parsers::NotFoundException, Parsers::UnsupportedOperationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1646,7 +1646,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::InvalidMarkerException, Errors::KMSInternalException, Errors::NotFoundException]
+            error_parsers: [Parsers::DependencyTimeoutException, Parsers::InvalidArnException, Parsers::InvalidMarkerException, Parsers::KMSInternalException, Parsers::NotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1701,7 +1701,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::InvalidGrantIdException, Errors::InvalidMarkerException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
+            error_parsers: [Parsers::DependencyTimeoutException, Parsers::InvalidArnException, Parsers::InvalidGrantIdException, Parsers::InvalidMarkerException, Parsers::KMSInternalException, Parsers::KMSInvalidStateException, Parsers::NotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1756,7 +1756,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
+            error_parsers: [Parsers::DependencyTimeoutException, Parsers::InvalidArnException, Parsers::KMSInternalException, Parsers::KMSInvalidStateException, Parsers::NotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1811,7 +1811,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::DependencyTimeoutException, Errors::InvalidMarkerException, Errors::KMSInternalException]
+            error_parsers: [Parsers::DependencyTimeoutException, Parsers::InvalidMarkerException, Parsers::KMSInternalException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1866,7 +1866,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InvalidArnException, Errors::InvalidMarkerException, Errors::KMSInternalException, Errors::NotFoundException]
+            error_parsers: [Parsers::InvalidArnException, Parsers::InvalidMarkerException, Parsers::KMSInternalException, Parsers::NotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1921,7 +1921,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::InvalidMarkerException, Errors::KMSInternalException, Errors::NotFoundException]
+            error_parsers: [Parsers::DependencyTimeoutException, Parsers::InvalidArnException, Parsers::InvalidMarkerException, Parsers::KMSInternalException, Parsers::NotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1976,7 +1976,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::LimitExceededException, Errors::MalformedPolicyDocumentException, Errors::NotFoundException, Errors::UnsupportedOperationException]
+            error_parsers: [Parsers::DependencyTimeoutException, Parsers::InvalidArnException, Parsers::KMSInternalException, Parsers::KMSInvalidStateException, Parsers::LimitExceededException, Parsers::MalformedPolicyDocumentException, Parsers::NotFoundException, Parsers::UnsupportedOperationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -2031,7 +2031,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::DryRunOperationException, Errors::IncorrectKeyException, Errors::InvalidCiphertextException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
+            error_parsers: [Parsers::DependencyTimeoutException, Parsers::DisabledException, Parsers::DryRunOperationException, Parsers::IncorrectKeyException, Parsers::InvalidCiphertextException, Parsers::InvalidGrantTokenException, Parsers::InvalidKeyUsageException, Parsers::KeyUnavailableException, Parsers::KMSInternalException, Parsers::KMSInvalidStateException, Parsers::NotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -2086,7 +2086,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AlreadyExistsException, Errors::DisabledException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::LimitExceededException, Errors::MalformedPolicyDocumentException, Errors::NotFoundException, Errors::TagException, Errors::UnsupportedOperationException]
+            error_parsers: [Parsers::AlreadyExistsException, Parsers::DisabledException, Parsers::InvalidArnException, Parsers::KMSInternalException, Parsers::KMSInvalidStateException, Parsers::LimitExceededException, Parsers::MalformedPolicyDocumentException, Parsers::NotFoundException, Parsers::TagException, Parsers::UnsupportedOperationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -2141,7 +2141,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::DependencyTimeoutException, Errors::DryRunOperationException, Errors::InvalidArnException, Errors::InvalidGrantIdException, Errors::InvalidGrantTokenException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
+            error_parsers: [Parsers::DependencyTimeoutException, Parsers::DryRunOperationException, Parsers::InvalidArnException, Parsers::InvalidGrantIdException, Parsers::InvalidGrantTokenException, Parsers::KMSInternalException, Parsers::KMSInvalidStateException, Parsers::NotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -2196,7 +2196,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::DependencyTimeoutException, Errors::DryRunOperationException, Errors::InvalidArnException, Errors::InvalidGrantIdException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
+            error_parsers: [Parsers::DependencyTimeoutException, Parsers::DryRunOperationException, Parsers::InvalidArnException, Parsers::InvalidGrantIdException, Parsers::KMSInternalException, Parsers::KMSInvalidStateException, Parsers::NotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -2251,7 +2251,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
+            error_parsers: [Parsers::DependencyTimeoutException, Parsers::InvalidArnException, Parsers::KMSInternalException, Parsers::KMSInvalidStateException, Parsers::NotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -2306,7 +2306,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::DryRunOperationException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
+            error_parsers: [Parsers::DependencyTimeoutException, Parsers::DisabledException, Parsers::DryRunOperationException, Parsers::InvalidGrantTokenException, Parsers::InvalidKeyUsageException, Parsers::KeyUnavailableException, Parsers::KMSInternalException, Parsers::KMSInvalidStateException, Parsers::NotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -2361,7 +2361,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::LimitExceededException, Errors::NotFoundException, Errors::TagException]
+            error_parsers: [Parsers::InvalidArnException, Parsers::KMSInternalException, Parsers::KMSInvalidStateException, Parsers::LimitExceededException, Parsers::NotFoundException, Parsers::TagException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -2416,7 +2416,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException, Errors::TagException]
+            error_parsers: [Parsers::InvalidArnException, Parsers::KMSInternalException, Parsers::KMSInvalidStateException, Parsers::NotFoundException, Parsers::TagException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -2471,7 +2471,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::DependencyTimeoutException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::LimitExceededException, Errors::NotFoundException]
+            error_parsers: [Parsers::DependencyTimeoutException, Parsers::KMSInternalException, Parsers::KMSInvalidStateException, Parsers::LimitExceededException, Parsers::NotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -2526,7 +2526,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::CloudHsmClusterInvalidConfigurationException, Errors::CloudHsmClusterNotActiveException, Errors::CloudHsmClusterNotFoundException, Errors::CloudHsmClusterNotRelatedException, Errors::CustomKeyStoreInvalidStateException, Errors::CustomKeyStoreNameInUseException, Errors::CustomKeyStoreNotFoundException, Errors::KMSInternalException, Errors::XksProxyIncorrectAuthenticationCredentialException, Errors::XksProxyInvalidConfigurationException, Errors::XksProxyInvalidResponseException, Errors::XksProxyUriEndpointInUseException, Errors::XksProxyUriInUseException, Errors::XksProxyUriUnreachableException, Errors::XksProxyVpcEndpointServiceInUseException, Errors::XksProxyVpcEndpointServiceInvalidConfigurationException, Errors::XksProxyVpcEndpointServiceNotFoundException]
+            error_parsers: [Parsers::CloudHsmClusterInvalidConfigurationException, Parsers::CloudHsmClusterNotActiveException, Parsers::CloudHsmClusterNotFoundException, Parsers::CloudHsmClusterNotRelatedException, Parsers::CustomKeyStoreInvalidStateException, Parsers::CustomKeyStoreNameInUseException, Parsers::CustomKeyStoreNotFoundException, Parsers::KMSInternalException, Parsers::XksProxyIncorrectAuthenticationCredentialException, Parsers::XksProxyInvalidConfigurationException, Parsers::XksProxyInvalidResponseException, Parsers::XksProxyUriEndpointInUseException, Parsers::XksProxyUriInUseException, Parsers::XksProxyUriUnreachableException, Parsers::XksProxyVpcEndpointServiceInUseException, Parsers::XksProxyVpcEndpointServiceInvalidConfigurationException, Parsers::XksProxyVpcEndpointServiceNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -2581,7 +2581,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
+            error_parsers: [Parsers::DependencyTimeoutException, Parsers::InvalidArnException, Parsers::KMSInternalException, Parsers::KMSInvalidStateException, Parsers::NotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -2636,7 +2636,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::DisabledException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException, Errors::UnsupportedOperationException]
+            error_parsers: [Parsers::DisabledException, Parsers::InvalidArnException, Parsers::KMSInternalException, Parsers::KMSInvalidStateException, Parsers::NotFoundException, Parsers::UnsupportedOperationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -2691,7 +2691,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::DryRunOperationException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidSignatureException, Errors::KMSInvalidStateException, Errors::NotFoundException]
+            error_parsers: [Parsers::DependencyTimeoutException, Parsers::DisabledException, Parsers::DryRunOperationException, Parsers::InvalidGrantTokenException, Parsers::InvalidKeyUsageException, Parsers::KeyUnavailableException, Parsers::KMSInternalException, Parsers::KMSInvalidSignatureException, Parsers::KMSInvalidStateException, Parsers::NotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -2746,7 +2746,7 @@ module AWS::SDK::KMS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::DisabledException, Errors::DryRunOperationException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidMacException, Errors::KMSInvalidStateException, Errors::NotFoundException]
+            error_parsers: [Parsers::DisabledException, Parsers::DryRunOperationException, Parsers::InvalidGrantTokenException, Parsers::InvalidKeyUsageException, Parsers::KeyUnavailableException, Parsers::KMSInternalException, Parsers::KMSInvalidMacException, Parsers::KMSInvalidStateException, Parsers::NotFoundException]
           )
         )
         stack.use(Middleware::RequestId)

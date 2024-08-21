@@ -68,8 +68,8 @@ module AWS::SDK::DynamoDB
     #             indexes.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :attribute_name
-    #   @option params [String] :attribute_type
+    #   @option params [String] :attribute_name (0)
+    #   @option params [String] :attribute_type (0)
     # @!attribute attribute_name
     #   <p>A name for the attribute.</p>
     #   @return [String]
@@ -379,7 +379,7 @@ module AWS::SDK::DynamoDB
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [String] :policy_name
-    #   @option params [AutoScalingTargetTrackingScalingPolicyConfigurationUpdate] :target_tracking_scaling_policy_configuration
+    #   @option params [AutoScalingTargetTrackingScalingPolicyConfigurationUpdate] :target_tracking_scaling_policy_configuration (0)
     # @!attribute policy_name
     #   <p>The name of the scaling policy.</p>
     #   @return [String]
@@ -484,7 +484,7 @@ module AWS::SDK::DynamoDB
     #   @option params [Boolean] :disable_scale_in
     #   @option params [Integer] :scale_in_cooldown
     #   @option params [Integer] :scale_out_cooldown
-    #   @option params [Float] :target_value
+    #   @option params [Float] :target_value (0)
     # @!attribute disable_scale_in
     #   <p>Indicates whether scale in by the target tracking policy is disabled. If the value is
     #               true, scale in is disabled and the target tracking policy won't remove capacity from the
@@ -530,7 +530,7 @@ module AWS::SDK::DynamoDB
     #   @option params [Boolean] :disable_scale_in
     #   @option params [Integer] :scale_in_cooldown
     #   @option params [Integer] :scale_out_cooldown
-    #   @option params [Float] :target_value
+    #   @option params [Float] :target_value (0)
     # @!attribute disable_scale_in
     #   <p>Indicates whether scale in by the target tracking policy is disabled. If the value is
     #               true, scale in is disabled and the target tracking policy won't remove capacity from the
@@ -600,12 +600,12 @@ module AWS::SDK::DynamoDB
     # <p>Contains the details of the backup created for the table.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :backup_arn
-    #   @option params [String] :backup_name
+    #   @option params [String] :backup_arn (0)
+    #   @option params [String] :backup_name (0)
     #   @option params [Integer] :backup_size_bytes
-    #   @option params [String] :backup_status
-    #   @option params [String] :backup_type
-    #   @option params [Time] :backup_creation_date_time
+    #   @option params [String] :backup_status (0)
+    #   @option params [String] :backup_type (0)
+    #   @option params [Time] :backup_creation_date_time (0)
     #   @option params [Time] :backup_expiry_date_time
     # @!attribute backup_arn
     #   <p>ARN associated with the backup.</p>
@@ -1151,7 +1151,7 @@ module AWS::SDK::DynamoDB
     # <p> A PartiQL batch statement request. </p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :statement
+    #   @option params [String] :statement (0)
     #   @option params [Array<AttributeValue>] :parameters
     #   @option params [Boolean] :consistent_read
     #   @option params [String] :return_values_on_condition_check_failure
@@ -1579,7 +1579,7 @@ module AWS::SDK::DynamoDB
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [Array<AttributeValue>] :attribute_value_list
-    #   @option params [String] :comparison_operator
+    #   @option params [String] :comparison_operator (0)
     # @!attribute attribute_value_list
     #   <p>One or more values to evaluate against the supplied attribute. The number of values in
     #               the list depends on the <code>ComparisonOperator</code> being used.</p>
@@ -1794,9 +1794,9 @@ module AWS::SDK::DynamoDB
     #             of specific attributes of the item.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Hash<String, AttributeValue>] :key
-    #   @option params [String] :table_name
-    #   @option params [String] :condition_expression
+    #   @option params [Hash<String, AttributeValue>] :key (0)
+    #   @option params [String] :table_name (0)
+    #   @option params [String] :condition_expression (0)
     #   @option params [Hash<String, String>] :expression_attribute_names
     #   @option params [Hash<String, AttributeValue>] :expression_attribute_values
     #   @option params [String] :return_values_on_condition_check_failure
@@ -1928,7 +1928,7 @@ module AWS::SDK::DynamoDB
     #             table.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :continuous_backups_status
+    #   @option params [String] :continuous_backups_status (0)
     #   @option params [PointInTimeRecoveryDescription] :point_in_time_recovery_description
     # @!attribute continuous_backups_status
     #   <p>
@@ -2062,9 +2062,9 @@ module AWS::SDK::DynamoDB
     # <p>Represents a new global secondary index to be added to an existing table.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :index_name
-    #   @option params [Array<KeySchemaElement>] :key_schema
-    #   @option params [Projection] :projection
+    #   @option params [String] :index_name (0)
+    #   @option params [Array<KeySchemaElement>] :key_schema (0)
+    #   @option params [Projection] :projection (0)
     #   @option params [ProvisionedThroughput] :provisioned_throughput
     # @!attribute index_name
     #   <p>The name of the global secondary index to be created.</p>
@@ -2137,7 +2137,7 @@ module AWS::SDK::DynamoDB
     # <p>Represents a replica to be added.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :region_name
+    #   @option params [String] :region_name (0)
     # @!attribute region_name
     #   <p>The Region of the replica to be added.</p>
     #   @return [String]
@@ -2154,7 +2154,7 @@ module AWS::SDK::DynamoDB
     # <p>Represents a replica to be created.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :region_name
+    #   @option params [String] :region_name (0)
     #   @option params [String] :kms_master_key_id
     #   @option params [ProvisionedThroughputOverride] :provisioned_throughput_override
     #   @option params [Array<ReplicaGlobalSecondaryIndex>] :global_secondary_indexes
@@ -2530,8 +2530,8 @@ module AWS::SDK::DynamoDB
     # <p>Represents a request to perform a <code>DeleteItem</code> operation.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Hash<String, AttributeValue>] :key
-    #   @option params [String] :table_name
+    #   @option params [Hash<String, AttributeValue>] :key (0)
+    #   @option params [String] :table_name (0)
     #   @option params [String] :condition_expression
     #   @option params [Hash<String, String>] :expression_attribute_names
     #   @option params [Hash<String, AttributeValue>] :expression_attribute_values
@@ -2610,7 +2610,7 @@ module AWS::SDK::DynamoDB
     # <p>Represents a global secondary index to be deleted from an existing table.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :index_name
+    #   @option params [String] :index_name (0)
     # @!attribute index_name
     #   <p>The name of the global secondary index to be deleted.</p>
     #   @return [String]
@@ -2908,7 +2908,7 @@ module AWS::SDK::DynamoDB
     # <p>Represents a replica to be removed.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :region_name
+    #   @option params [String] :region_name (0)
     # @!attribute region_name
     #   <p>The Region of the replica to be removed.</p>
     #   @return [String]
@@ -2925,7 +2925,7 @@ module AWS::SDK::DynamoDB
     # <p>Represents a replica to be deleted.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :region_name
+    #   @option params [String] :region_name (0)
     # @!attribute region_name
     #   <p>The Region where the replica exists.</p>
     #   @return [String]
@@ -2942,7 +2942,7 @@ module AWS::SDK::DynamoDB
     # <p>Represents a request to perform a <code>DeleteItem</code> operation on an item.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Hash<String, AttributeValue>] :key
+    #   @option params [Hash<String, AttributeValue>] :key (0)
     # @!attribute key
     #   <p>A map of attribute name to attribute values, representing the primary key of the item
     #               to delete. All of the table's primary key attributes must be specified, and their data
@@ -3153,7 +3153,7 @@ module AWS::SDK::DynamoDB
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Array<Endpoint>] :endpoints
+    #   @option params [Array<Endpoint>] :endpoints (0)
     # @!attribute endpoints
     #   <p>List of endpoints.</p>
     #   @return [Array<Endpoint>]
@@ -3286,7 +3286,7 @@ module AWS::SDK::DynamoDB
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [ImportTableDescription] :import_table_description
+    #   @option params [ImportTableDescription] :import_table_description (0)
     # @!attribute import_table_description
     #   <p> Represents the properties of the table created for the import, and parameters of the
     #               import. The import parameters include import status, how many items were processed, and
@@ -3656,7 +3656,7 @@ module AWS::SDK::DynamoDB
     # <p>An endpoint information details.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :address
+    #   @option params [String] :address (0)
     #   @option params [Integer] :cache_period_in_minutes (0)
     # @!attribute address
     #   <p>IP address of the endpoint.</p>
@@ -4524,8 +4524,8 @@ module AWS::SDK::DynamoDB
     #                 <code>TransactGetItem</code> object.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Hash<String, AttributeValue>] :key
-    #   @option params [String] :table_name
+    #   @option params [Hash<String, AttributeValue>] :key (0)
+    #   @option params [String] :table_name (0)
     #   @option params [String] :projection_expression
     #   @option params [Hash<String, String>] :expression_attribute_names
     # @!attribute key
@@ -4726,9 +4726,9 @@ module AWS::SDK::DynamoDB
     # <p>Represents the properties of a global secondary index.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :index_name
-    #   @option params [Array<KeySchemaElement>] :key_schema
-    #   @option params [Projection] :projection
+    #   @option params [String] :index_name (0)
+    #   @option params [Array<KeySchemaElement>] :key_schema (0)
+    #   @option params [Projection] :projection (0)
     #   @option params [ProvisionedThroughput] :provisioned_throughput
     # @!attribute index_name
     #   <p>The name of the global secondary index. The name must be unique among all other
@@ -5149,7 +5149,7 @@ module AWS::SDK::DynamoDB
     #             modified.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :index_name
+    #   @option params [String] :index_name (0)
     #   @option params [Integer] :provisioned_write_capacity_units
     #   @option params [AutoScalingSettingsUpdate] :provisioned_write_capacity_auto_scaling_settings_update
     # @!attribute index_name
@@ -5521,7 +5521,7 @@ module AWS::SDK::DynamoDB
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [ImportTableDescription] :import_table_description
+    #   @option params [ImportTableDescription] :import_table_description (0)
     # @!attribute import_table_description
     #   <p> Represents the properties of the table created for the import, and parameters of the
     #               import. The import parameters include import status, how many items were processed, and
@@ -5776,8 +5776,8 @@ module AWS::SDK::DynamoDB
     #             be nested within a List or a Map.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :attribute_name
-    #   @option params [String] :key_type
+    #   @option params [String] :attribute_name (0)
+    #   @option params [String] :key_type (0)
     # @!attribute attribute_name
     #   <p>The name of a key attribute.</p>
     #   @return [String]
@@ -5830,7 +5830,7 @@ module AWS::SDK::DynamoDB
     #             and the sort key.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Array<Hash<String, AttributeValue>>] :keys
+    #   @option params [Array<Hash<String, AttributeValue>>] :keys (0)
     #   @option params [Array<String>] :attributes_to_get
     #   @option params [Boolean] :consistent_read
     #   @option params [String] :projection_expression
@@ -6087,7 +6087,7 @@ module AWS::SDK::DynamoDB
     #   @param [Hash] params
     #   @option params [String] :table_name
     #   @option params [String] :next_token
-    #   @option params [Integer] :max_results (0)
+    #   @option params [Integer] :max_results
     # @!attribute table_name
     #   <p>The name of the table.</p>
     #   @return [String]
@@ -6389,9 +6389,9 @@ module AWS::SDK::DynamoDB
     # <p>Represents the properties of a local secondary index.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :index_name
-    #   @option params [Array<KeySchemaElement>] :key_schema
-    #   @option params [Projection] :projection
+    #   @option params [String] :index_name (0)
+    #   @option params [Array<KeySchemaElement>] :key_schema (0)
+    #   @option params [Projection] :projection (0)
     # @!attribute index_name
     #   <p>The name of the local secondary index. The name must be unique among all other indexes
     #               on this table.</p>
@@ -6560,7 +6560,7 @@ module AWS::SDK::DynamoDB
     # <p> Represents a PartiQL statement that uses parameters. </p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :statement
+    #   @option params [String] :statement (0)
     #   @option params [Array<AttributeValue>] :parameters
     #   @option params [String] :return_values_on_condition_check_failure
     # @!attribute statement
@@ -6633,7 +6633,7 @@ module AWS::SDK::DynamoDB
     # <p>Represents the settings used to enable point in time recovery.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Boolean] :point_in_time_recovery_enabled
+    #   @option params [Boolean] :point_in_time_recovery_enabled (false)
     # @!attribute point_in_time_recovery_enabled
     #   <p>Indicates whether point in time recovery is enabled (true) or disabled (false) on the
     #               table.</p>
@@ -6734,8 +6734,8 @@ module AWS::SDK::DynamoDB
     #                 Guide</i>.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Integer] :read_capacity_units
-    #   @option params [Integer] :write_capacity_units
+    #   @option params [Integer] :read_capacity_units (0)
+    #   @option params [Integer] :write_capacity_units (0)
     # @!attribute read_capacity_units
     #   <p>The maximum number of strongly consistent reads consumed per second before DynamoDB
     #               returns a <code>ThrottlingException</code>. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html">Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB
@@ -6849,8 +6849,8 @@ module AWS::SDK::DynamoDB
     # <p>Represents a request to perform a <code>PutItem</code> operation.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Hash<String, AttributeValue>] :item
-    #   @option params [String] :table_name
+    #   @option params [Hash<String, AttributeValue>] :item (0)
+    #   @option params [String] :table_name (0)
     #   @option params [String] :condition_expression
     #   @option params [Hash<String, String>] :expression_attribute_names
     #   @option params [Hash<String, AttributeValue>] :expression_attribute_values
@@ -7194,7 +7194,7 @@ module AWS::SDK::DynamoDB
     # <p>Represents a request to perform a <code>PutItem</code> operation on an item.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Hash<String, AttributeValue>] :item
+    #   @option params [Hash<String, AttributeValue>] :item (0)
     # @!attribute item
     #   <p>A map of attribute name to attribute values, representing the primary key of an item
     #               to be processed by <code>PutItem</code>. All of the table's primary key attributes must
@@ -7786,7 +7786,7 @@ module AWS::SDK::DynamoDB
     # <p>Represents the auto scaling settings of a replica that will be modified.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :region_name
+    #   @option params [String] :region_name (0)
     #   @option params [Array<ReplicaGlobalSecondaryIndexAutoScalingUpdate>] :replica_global_secondary_index_updates
     #   @option params [AutoScalingSettingsUpdate] :replica_provisioned_read_capacity_auto_scaling_update
     # @!attribute region_name
@@ -7916,7 +7916,7 @@ module AWS::SDK::DynamoDB
     # <p>Represents the properties of a replica global secondary index.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :index_name
+    #   @option params [String] :index_name (0)
     #   @option params [ProvisionedThroughputOverride] :provisioned_throughput_override
     # @!attribute index_name
     #   <p>The name of the global secondary index.</p>
@@ -8041,7 +8041,7 @@ module AWS::SDK::DynamoDB
     # <p>Represents the properties of a global secondary index.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :index_name
+    #   @option params [String] :index_name (0)
     #   @option params [String] :index_status
     #   @option params [Integer] :provisioned_read_capacity_units
     #   @option params [AutoScalingSettingsDescription] :provisioned_read_capacity_auto_scaling_settings
@@ -8108,7 +8108,7 @@ module AWS::SDK::DynamoDB
     #             modified.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :index_name
+    #   @option params [String] :index_name (0)
     #   @option params [Integer] :provisioned_read_capacity_units
     #   @option params [AutoScalingSettingsUpdate] :provisioned_read_capacity_auto_scaling_settings_update
     # @!attribute index_name
@@ -8154,7 +8154,7 @@ module AWS::SDK::DynamoDB
     # <p>Represents the properties of a replica.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :region_name
+    #   @option params [String] :region_name (0)
     #   @option params [String] :replica_status
     #   @option params [BillingModeSummary] :replica_billing_mode_summary
     #   @option params [Integer] :replica_provisioned_read_capacity_units
@@ -8234,7 +8234,7 @@ module AWS::SDK::DynamoDB
     # <p>Represents the settings for a global table in a Region that will be modified.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :region_name
+    #   @option params [String] :region_name (0)
     #   @option params [Integer] :replica_provisioned_read_capacity_units
     #   @option params [AutoScalingSettingsUpdate] :replica_provisioned_read_capacity_auto_scaling_settings_update
     #   @option params [Array<ReplicaGlobalSecondaryIndexSettingsUpdate>] :replica_global_secondary_index_settings_update
@@ -8432,8 +8432,8 @@ module AWS::SDK::DynamoDB
     #   @param [Hash] params
     #   @option params [String] :source_backup_arn
     #   @option params [String] :source_table_arn
-    #   @option params [Time] :restore_date_time
-    #   @option params [Boolean] :restore_in_progress
+    #   @option params [Time] :restore_date_time (0)
+    #   @option params [Boolean] :restore_in_progress (false)
     # @!attribute source_backup_arn
     #   <p>The Amazon Resource Name (ARN) of the backup from which the table was restored.</p>
     #   @return [String]
@@ -8675,7 +8675,7 @@ module AWS::SDK::DynamoDB
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [String] :s3_bucket_owner
-    #   @option params [String] :s3_bucket
+    #   @option params [String] :s3_bucket (0)
     #   @option params [String] :s3_key_prefix
     # @!attribute s3_bucket_owner
     #   <p> The account number of the S3 bucket that is being imported from. If the bucket is
@@ -9233,13 +9233,13 @@ module AWS::SDK::DynamoDB
     # <p>Contains the details of the table when the backup was created. </p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :table_name
-    #   @option params [String] :table_id
+    #   @option params [String] :table_name (0)
+    #   @option params [String] :table_id (0)
     #   @option params [String] :table_arn
     #   @option params [Integer] :table_size_bytes
-    #   @option params [Array<KeySchemaElement>] :key_schema
-    #   @option params [Time] :table_creation_date_time
-    #   @option params [ProvisionedThroughput] :provisioned_throughput
+    #   @option params [Array<KeySchemaElement>] :key_schema (0)
+    #   @option params [Time] :table_creation_date_time (0)
+    #   @option params [ProvisionedThroughput] :provisioned_throughput (0)
     #   @option params [Integer] :item_count
     #   @option params [String] :billing_mode
     # @!attribute table_name
@@ -9349,7 +9349,7 @@ module AWS::SDK::DynamoDB
     # <p>Represents the DynamoDB Streams configuration for a table in DynamoDB.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Boolean] :stream_enabled
+    #   @option params [Boolean] :stream_enabled (false)
     #   @option params [String] :stream_view_type
     # @!attribute stream_enabled
     #   <p>Indicates whether DynamoDB Streams is enabled (true) or disabled (false) on the
@@ -9501,9 +9501,9 @@ module AWS::SDK::DynamoDB
     # <p> The parameters for the table created as part of the import operation. </p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :table_name
-    #   @option params [Array<AttributeDefinition>] :attribute_definitions
-    #   @option params [Array<KeySchemaElement>] :key_schema
+    #   @option params [String] :table_name (0)
+    #   @option params [Array<AttributeDefinition>] :attribute_definitions (0)
+    #   @option params [Array<KeySchemaElement>] :key_schema (0)
     #   @option params [String] :billing_mode
     #   @option params [ProvisionedThroughput] :provisioned_throughput
     #   @option params [SSESpecification] :sse_specification
@@ -10029,8 +10029,8 @@ module AWS::SDK::DynamoDB
     #                 Guide</i>.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :key
-    #   @option params [String] :value
+    #   @option params [String] :key (0)
+    #   @option params [String] :value (0)
     # @!attribute key
     #   <p>The key of the tag. Tag keys are case sensitive. Each DynamoDB table can
     #               only have up to one tag with the same key. If you try to add an existing tag (same key),
@@ -10109,8 +10109,8 @@ module AWS::SDK::DynamoDB
     #             table.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Boolean] :enabled
-    #   @option params [String] :attribute_name
+    #   @option params [Boolean] :enabled (false)
+    #   @option params [String] :attribute_name (0)
     # @!attribute enabled
     #   <p>Indicates whether TTL is to be enabled (true) or disabled (false) on the table.</p>
     #   @return [Boolean]
@@ -10143,7 +10143,7 @@ module AWS::SDK::DynamoDB
     # <p>Specifies an item to be retrieved as part of the transaction.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Get] :get
+    #   @option params [Get] :get (0)
     # @!attribute get
     #   <p>Contains the primary key that identifies the item to get, together with the name of
     #               the table that contains the item, and optionally the specific attributes of the item to
@@ -10744,9 +10744,9 @@ module AWS::SDK::DynamoDB
     # <p>Represents a request to perform an <code>UpdateItem</code> operation.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Hash<String, AttributeValue>] :key
-    #   @option params [String] :update_expression
-    #   @option params [String] :table_name
+    #   @option params [Hash<String, AttributeValue>] :key (0)
+    #   @option params [String] :update_expression (0)
+    #   @option params [String] :table_name (0)
     #   @option params [String] :condition_expression
     #   @option params [Hash<String, String>] :expression_attribute_names
     #   @option params [Hash<String, AttributeValue>] :expression_attribute_values
@@ -10891,8 +10891,8 @@ module AWS::SDK::DynamoDB
     #             index.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :index_name
-    #   @option params [ProvisionedThroughput] :provisioned_throughput
+    #   @option params [String] :index_name (0)
+    #   @option params [ProvisionedThroughput] :provisioned_throughput (0)
     # @!attribute index_name
     #   <p>The name of the global secondary index to be updated.</p>
     #   @return [String]
@@ -11520,7 +11520,7 @@ module AWS::SDK::DynamoDB
     # <p>Represents a replica to be modified.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :region_name
+    #   @option params [String] :region_name (0)
     #   @option params [String] :kms_master_key_id
     #   @option params [ProvisionedThroughputOverride] :provisioned_throughput_override
     #   @option params [Array<ReplicaGlobalSecondaryIndex>] :global_secondary_indexes

@@ -762,7 +762,7 @@ module AWS::SDK::KMS
     #   @option params [String] :key_spec
     #   @option params [String] :origin
     #   @option params [String] :custom_key_store_id
-    #   @option params [Boolean] :bypass_policy_lockout_safety_check (false)
+    #   @option params [Boolean] :bypass_policy_lockout_safety_check
     #   @option params [Array<Tag>] :tags
     #   @option params [Boolean] :multi_region
     #   @option params [String] :xks_key_id
@@ -3872,7 +3872,7 @@ module AWS::SDK::KMS
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [String] :aws_account_id
-    #   @option params [String] :key_id
+    #   @option params [String] :key_id (0)
     #   @option params [String] :arn
     #   @option params [Time] :creation_date
     #   @option params [Boolean] :enabled (false)
@@ -4806,7 +4806,7 @@ module AWS::SDK::KMS
     #   @option params [String] :key_id
     #   @option params [String] :policy_name
     #   @option params [String] :policy
-    #   @option params [Boolean] :bypass_policy_lockout_safety_check (false)
+    #   @option params [Boolean] :bypass_policy_lockout_safety_check
     # @!attribute key_id
     #   <p>Sets the key policy on the specified KMS key.</p>
     #            <p>Specify the key ID or key ARN of the KMS key.</p>
@@ -5110,7 +5110,7 @@ module AWS::SDK::KMS
     #   @option params [String] :key_id
     #   @option params [String] :replica_region
     #   @option params [String] :policy
-    #   @option params [Boolean] :bypass_policy_lockout_safety_check (false)
+    #   @option params [Boolean] :bypass_policy_lockout_safety_check
     #   @option params [String] :description
     #   @option params [Array<Tag>] :tags
     # @!attribute key_id
@@ -5663,8 +5663,8 @@ module AWS::SDK::KMS
     #         User Guide</i>.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :tag_key
-    #   @option params [String] :tag_value
+    #   @option params [String] :tag_key (0)
+    #   @option params [String] :tag_value (0)
     # @!attribute tag_key
     #   <p>The key of the tag.</p>
     #   @return [String]
@@ -6475,8 +6475,8 @@ module AWS::SDK::KMS
     #          <p>The <code>XksProxyAuthenticationCredential</code> includes two required elements.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :access_key_id
-    #   @option params [String] :raw_secret_access_key
+    #   @option params [String] :access_key_id (0)
+    #   @option params [String] :raw_secret_access_key (0)
     # @!attribute access_key_id
     #   <p>A unique identifier for the raw secret access key.</p>
     #   @return [String]

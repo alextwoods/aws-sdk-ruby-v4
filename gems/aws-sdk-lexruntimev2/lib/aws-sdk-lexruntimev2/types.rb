@@ -13,7 +13,7 @@ module AWS::SDK::LexRuntimeV2
     # <p></p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :message
+    #   @option params [String] :message (0)
     # @!attribute message
     #   @return [String]
     class AccessDeniedException
@@ -36,9 +36,9 @@ module AWS::SDK::LexRuntimeV2
     #          for follow up.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :name
-    #   @option params [ActiveContextTimeToLive] :time_to_live
-    #   @option params [Hash<String, String>] :context_attributes
+    #   @option params [String] :name (0)
+    #   @option params [ActiveContextTimeToLive] :time_to_live (0)
+    #   @option params [Hash<String, String>] :context_attributes (0)
     # @!attribute name
     #   <p>The name of the context.</p>
     #   @return [String]
@@ -71,8 +71,8 @@ module AWS::SDK::LexRuntimeV2
     #          in seconds or in conversation turns.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Integer] :time_to_live_in_seconds
-    #   @option params [Integer] :turns_to_live
+    #   @option params [Integer] :time_to_live_in_seconds (0)
+    #   @option params [Integer] :turns_to_live (0)
     # @!attribute time_to_live_in_seconds
     #   <p>The number of seconds that the context is active. You can specify
     #            between 5 and 86400 seconds (24 hours).</p>
@@ -99,7 +99,7 @@ module AWS::SDK::LexRuntimeV2
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [String] :audio_chunk
-    #   @option params [String] :content_type
+    #   @option params [String] :content_type (0)
     #   @option params [String] :event_id
     #   @option params [Integer] :client_timestamp_millis (0)
     # @!attribute audio_chunk
@@ -179,7 +179,7 @@ module AWS::SDK::LexRuntimeV2
     # <p></p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :message
+    #   @option params [String] :message (0)
     # @!attribute message
     #   @return [String]
     class BadGatewayException
@@ -195,8 +195,8 @@ module AWS::SDK::LexRuntimeV2
     # <p>A button that appears on a response card show to the user.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :text
-    #   @option params [String] :value
+    #   @option params [String] :text (0)
+    #   @option params [String] :value (0)
     # @!attribute text
     #   <p>The text that is displayed on the button.</p>
     #   @return [String]
@@ -248,7 +248,7 @@ module AWS::SDK::LexRuntimeV2
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [Hash<String, String>] :request_attributes
-    #   @option params [String] :response_content_type
+    #   @option params [String] :response_content_type (0)
     #   @option params [SessionState] :session_state
     #   @option params [Array<Message>] :welcome_messages
     #   @option params [Boolean] :disable_playback (false)
@@ -370,7 +370,7 @@ module AWS::SDK::LexRuntimeV2
     # <p></p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :message
+    #   @option params [String] :message (0)
     # @!attribute message
     #   @return [String]
     class ConflictException
@@ -396,7 +396,7 @@ module AWS::SDK::LexRuntimeV2
     #          phone.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :input_character
+    #   @option params [String] :input_character (0)
     #   @option params [String] :event_id
     #   @option params [Integer] :client_timestamp_millis (0)
     # @!attribute input_character
@@ -505,7 +505,7 @@ module AWS::SDK::LexRuntimeV2
     # <p></p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :message
+    #   @option params [String] :message (0)
     # @!attribute message
     #   @return [String]
     class DependencyFailedException
@@ -521,7 +521,7 @@ module AWS::SDK::LexRuntimeV2
     # <p>The next action that Amazon Lex V2 should take.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :type
+    #   @option params [String] :type (0)
     #   @option params [String] :slot_to_elicit
     #   @option params [String] :slot_elicitation_style
     #   @option params [ElicitSubSlot] :sub_slot_to_elicit
@@ -648,7 +648,7 @@ module AWS::SDK::LexRuntimeV2
     # <p>The specific constituent sub slot of the composite slot to elicit in dialog action.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :name
+    #   @option params [String] :name (0)
     #   @option params [ElicitSubSlot] :sub_slot_to_elicit
     # @!attribute name
     #   <p>The name of the slot that should be elicited from the user.</p>
@@ -768,7 +768,7 @@ module AWS::SDK::LexRuntimeV2
     #             constrained to the text associated with a button on the card.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :title
+    #   @option params [String] :title (0)
     #   @option params [String] :subtitle
     #   @option params [String] :image_url
     #   @option params [Array<Button>] :buttons
@@ -816,7 +816,7 @@ module AWS::SDK::LexRuntimeV2
     # <p>The current intent that Amazon Lex V2 is attempting to fulfill.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :name
+    #   @option params [String] :name (0)
     #   @option params [Hash<String, Slot>] :slots
     #   @option params [String] :state
     #   @option params [String] :confirmation_state
@@ -950,7 +950,7 @@ module AWS::SDK::LexRuntimeV2
     # <p></p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :message
+    #   @option params [String] :message (0)
     # @!attribute message
     #   @return [String]
     class InternalServerException
@@ -1017,7 +1017,7 @@ module AWS::SDK::LexRuntimeV2
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [String] :content
-    #   @option params [String] :content_type
+    #   @option params [String] :content_type (0)
     #   @option params [ImageResponseCard] :image_response_card
     # @!attribute content
     #   <p>The text of the message.</p>
@@ -1216,7 +1216,7 @@ module AWS::SDK::LexRuntimeV2
     #   @option params [String] :session_state
     #   @option params [String] :request_attributes
     #   @option params [String] :session_id
-    #   @option params [IO] :audio_stream
+    #   @option params [IO] :audio_stream (0)
     # @!attribute content_type
     #   <p>The type of response. Same as the type specified in the
     #               <code>responseContentType</code> field in the request.</p>
@@ -1548,7 +1548,7 @@ module AWS::SDK::LexRuntimeV2
     #   @option params [String] :request_attributes
     #   @option params [String] :session_id
     #   @option params [String] :input_transcript
-    #   @option params [IO] :audio_stream
+    #   @option params [IO] :audio_stream (0)
     #   @option params [String] :recognized_bot_member
     # @!attribute input_mode
     #   <p>Indicates whether the input mode to the operation was text, speech, or from a touch-tone keypad.
@@ -1655,7 +1655,7 @@ module AWS::SDK::LexRuntimeV2
     # <p>The bot member that processes the request.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :bot_id
+    #   @option params [String] :bot_id (0)
     #   @option params [String] :bot_name
     # @!attribute bot_id
     #   <p>The identifier of the bot member that processes the request.</p>
@@ -1677,7 +1677,7 @@ module AWS::SDK::LexRuntimeV2
     # <p></p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :message
+    #   @option params [String] :message (0)
     # @!attribute message
     #   @return [String]
     class ResourceNotFoundException
@@ -1722,7 +1722,7 @@ module AWS::SDK::LexRuntimeV2
     #          to the bot.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :phrase
+    #   @option params [String] :phrase (0)
     # @!attribute phrase
     #   <p>The phrase that Amazon Lex V2 should look for in the user's input to the
     #            bot.</p>
@@ -2240,7 +2240,7 @@ module AWS::SDK::LexRuntimeV2
     #          from the user.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :text
+    #   @option params [String] :text (0)
     #   @option params [String] :event_id
     #   @option params [Integer] :client_timestamp_millis (0)
     # @!attribute text
@@ -2313,7 +2313,7 @@ module AWS::SDK::LexRuntimeV2
     # <p></p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :message
+    #   @option params [String] :message (0)
     # @!attribute message
     #   @return [String]
     class ThrottlingException
@@ -2355,7 +2355,7 @@ module AWS::SDK::LexRuntimeV2
     # <p></p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :message
+    #   @option params [String] :message (0)
     # @!attribute message
     #   @return [String]
     class ValidationException
@@ -2372,7 +2372,7 @@ module AWS::SDK::LexRuntimeV2
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [String] :original_value
-    #   @option params [String] :interpreted_value
+    #   @option params [String] :interpreted_value (0)
     #   @option params [Array<String>] :resolved_values
     # @!attribute original_value
     #   <p>The part of the user's response to the slot elicitation that Amazon Lex V2 determines is relevant to the slot value.</p>

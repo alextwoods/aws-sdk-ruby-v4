@@ -24,18 +24,16 @@ module AWS::SDK::LexRuntimeV2
     end
 
     # Base class for all errors returned by this service
-    class ApiError < Hearth::HTTP::ApiError; end
+    class ApiError < Hearth::ApiError; end
 
     # Base class for all errors returned where the client is at fault.
-    # These are generally errors with 4XX HTTP status codes.
     class ApiClientError < ApiError; end
 
     # Base class for all errors returned where the server is at fault.
-    # These are generally errors with 5XX HTTP status codes.
     class ApiServerError < ApiError; end
 
     # Base class for all errors returned where the service returned
-    # a 3XX redirection.
+    # a redirection.
     class ApiRedirectError < ApiError
       def initialize(location:, **kwargs)
         @location = location
@@ -47,11 +45,11 @@ module AWS::SDK::LexRuntimeV2
     end
 
     class AccessDeniedException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::AccessDeniedException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::AccessDeniedException]
@@ -59,11 +57,11 @@ module AWS::SDK::LexRuntimeV2
     end
 
     class BadGatewayException < ApiServerError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::BadGatewayException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::BadGatewayException]
@@ -71,11 +69,11 @@ module AWS::SDK::LexRuntimeV2
     end
 
     class ConflictException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::ConflictException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::ConflictException]
@@ -83,11 +81,11 @@ module AWS::SDK::LexRuntimeV2
     end
 
     class DependencyFailedException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::DependencyFailedException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::DependencyFailedException]
@@ -95,11 +93,11 @@ module AWS::SDK::LexRuntimeV2
     end
 
     class InternalServerException < ApiServerError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::InternalServerException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::InternalServerException]
@@ -107,11 +105,11 @@ module AWS::SDK::LexRuntimeV2
     end
 
     class ResourceNotFoundException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::ResourceNotFoundException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::ResourceNotFoundException]
@@ -119,11 +117,11 @@ module AWS::SDK::LexRuntimeV2
     end
 
     class ThrottlingException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::ThrottlingException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::ThrottlingException]
@@ -131,11 +129,11 @@ module AWS::SDK::LexRuntimeV2
     end
 
     class ValidationException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::ValidationException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::ValidationException]

@@ -13,7 +13,7 @@ module AWS::SDK::CodeCatalyst
     # <p>The request was denied because you don't have sufficient access to perform this action. Verify that you are a member of a role that allows this action.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :message
+    #   @option params [String] :message (0)
     # @!attribute message
     #   @return [String]
     class AccessDeniedException
@@ -29,8 +29,8 @@ module AWS::SDK::CodeCatalyst
     # <p>Information about a specified personal access token (PAT).</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :id
-    #   @option params [String] :name
+    #   @option params [String] :id (0)
+    #   @option params [String] :name (0)
     #   @option params [Time] :expires_time
     # @!attribute id
     #   <p>The system-generated ID of the personal access token.</p>
@@ -72,7 +72,7 @@ module AWS::SDK::CodeCatalyst
     #        Another user might have updated the resource. Reload, make sure you have the latest data, and then try again.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :message
+    #   @option params [String] :message (0)
     # @!attribute message
     #   @return [String]
     class ConflictException
@@ -108,10 +108,10 @@ module AWS::SDK::CodeCatalyst
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :secret
-    #   @option params [String] :name
-    #   @option params [Time] :expires_time
-    #   @option params [String] :access_token_id
+    #   @option params [String] :secret (0)
+    #   @option params [String] :name (0)
+    #   @option params [Time] :expires_time (0)
+    #   @option params [String] :access_token_id (0)
     # @!attribute secret
     #   <p>The secret value of the personal access token.</p>
     #   @return [String]
@@ -154,7 +154,7 @@ module AWS::SDK::CodeCatalyst
     #   @option params [String] :alias
     #   @option params [Array<IdeConfiguration>] :ides
     #   @option params [String] :instance_type
-    #   @option params [Integer] :inactivity_timeout_minutes (0)
+    #   @option params [Integer] :inactivity_timeout_minutes
     #   @option params [PersistentStorageConfiguration] :persistent_storage
     #   @option params [String] :vpc_connection_name
     # @!attribute space_name
@@ -221,9 +221,9 @@ module AWS::SDK::CodeCatalyst
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :space_name
-    #   @option params [String] :project_name
-    #   @option params [String] :id
+    #   @option params [String] :space_name (0)
+    #   @option params [String] :project_name (0)
+    #   @option params [String] :id (0)
     #   @option params [String] :vpc_connection_name
     # @!attribute space_name
     #   <p>The name of the space.</p>
@@ -279,7 +279,7 @@ module AWS::SDK::CodeCatalyst
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [String] :space_name
-    #   @option params [String] :name
+    #   @option params [String] :name (0)
     #   @option params [String] :display_name
     #   @option params [String] :description
     # @!attribute space_name
@@ -407,9 +407,9 @@ module AWS::SDK::CodeCatalyst
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :space_name
-    #   @option params [String] :project_name
-    #   @option params [String] :name
+    #   @option params [String] :space_name (0)
+    #   @option params [String] :project_name (0)
+    #   @option params [String] :name (0)
     #   @option params [String] :description
     # @!attribute space_name
     #   <p>The name of the space.</p>
@@ -490,9 +490,9 @@ module AWS::SDK::CodeCatalyst
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :space_name
-    #   @option params [String] :project_name
-    #   @option params [String] :id
+    #   @option params [String] :space_name (0)
+    #   @option params [String] :project_name (0)
+    #   @option params [String] :id (0)
     # @!attribute space_name
     #   <p>The name of the space.</p>
     #   @return [String]
@@ -537,8 +537,8 @@ module AWS::SDK::CodeCatalyst
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :space_name
-    #   @option params [String] :name
+    #   @option params [String] :space_name (0)
+    #   @option params [String] :name (0)
     #   @option params [String] :display_name
     # @!attribute space_name
     #   <p>The name of the space.</p>
@@ -589,9 +589,9 @@ module AWS::SDK::CodeCatalyst
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :space_name
-    #   @option params [String] :project_name
-    #   @option params [String] :name
+    #   @option params [String] :space_name (0)
+    #   @option params [String] :project_name (0)
+    #   @option params [String] :name (0)
     # @!attribute space_name
     #   <p>The name of the space.</p>
     #   @return [String]
@@ -631,7 +631,7 @@ module AWS::SDK::CodeCatalyst
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :name
+    #   @option params [String] :name (0)
     #   @option params [String] :display_name
     # @!attribute name
     #   <p>The name of the space.</p>
@@ -655,8 +655,8 @@ module AWS::SDK::CodeCatalyst
     #   This shape is sensitive and must be handled with care.
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :stream_url
-    #   @option params [String] :token_value
+    #   @option params [String] :stream_url (0)
+    #   @option params [String] :token_value (0)
     # @!attribute stream_url
     #   <p>The URL used to send commands to and from the Dev Environment.</p>
     #   @return [String]
@@ -681,7 +681,7 @@ module AWS::SDK::CodeCatalyst
     # <p>Information about the source repsitory for a Dev Environment. </p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :repository_name
+    #   @option params [String] :repository_name (0)
     #   @option params [String] :branch_name
     # @!attribute repository_name
     #   <p>The name of the source repository.</p>
@@ -703,7 +703,7 @@ module AWS::SDK::CodeCatalyst
     # <p>Information about the configuration of a Dev Environment session.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :session_type
+    #   @option params [String] :session_type (0)
     #   @option params [ExecuteCommandSessionConfiguration] :execute_command_session_configuration
     # @!attribute session_type
     #   <p>The type of the session.</p>
@@ -726,11 +726,11 @@ module AWS::SDK::CodeCatalyst
     # <p>Information about active sessions for a Dev Environment.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :space_name
-    #   @option params [String] :project_name
-    #   @option params [String] :dev_environment_id
-    #   @option params [Time] :started_time
-    #   @option params [String] :id
+    #   @option params [String] :space_name (0)
+    #   @option params [String] :project_name (0)
+    #   @option params [String] :dev_environment_id (0)
+    #   @option params [Time] :started_time (0)
+    #   @option params [String] :id (0)
     # @!attribute space_name
     #   <p>The name of the space.</p>
     #   @return [String]
@@ -792,17 +792,17 @@ module AWS::SDK::CodeCatalyst
     #   @param [Hash] params
     #   @option params [String] :space_name
     #   @option params [String] :project_name
-    #   @option params [String] :id
-    #   @option params [Time] :last_updated_time
-    #   @option params [String] :creator_id
-    #   @option params [String] :status
+    #   @option params [String] :id (0)
+    #   @option params [Time] :last_updated_time (0)
+    #   @option params [String] :creator_id (0)
+    #   @option params [String] :status (0)
     #   @option params [String] :status_reason
-    #   @option params [Array<DevEnvironmentRepositorySummary>] :repositories
+    #   @option params [Array<DevEnvironmentRepositorySummary>] :repositories (0)
     #   @option params [String] :alias
     #   @option params [Array<Ide>] :ides
-    #   @option params [String] :instance_type
+    #   @option params [String] :instance_type (0)
     #   @option params [Integer] :inactivity_timeout_minutes (0)
-    #   @option params [PersistentStorage] :persistent_storage
+    #   @option params [PersistentStorage] :persistent_storage (0)
     #   @option params [String] :vpc_connection_name
     # @!attribute space_name
     #   <p>The name of the space.</p>
@@ -904,14 +904,14 @@ module AWS::SDK::CodeCatalyst
     # <p>Information about an entry in an event log of Amazon CodeCatalyst activity.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :id
-    #   @option params [String] :event_name
-    #   @option params [String] :event_type
-    #   @option params [String] :event_category
-    #   @option params [String] :event_source
-    #   @option params [Time] :event_time
-    #   @option params [String] :operation_type
-    #   @option params [UserIdentity] :user_identity
+    #   @option params [String] :id (0)
+    #   @option params [String] :event_name (0)
+    #   @option params [String] :event_type (0)
+    #   @option params [String] :event_category (0)
+    #   @option params [String] :event_source (0)
+    #   @option params [Time] :event_time (0)
+    #   @option params [String] :operation_type (0)
+    #   @option params [UserIdentity] :user_identity (0)
     #   @option params [ProjectInformation] :project_information
     #   @option params [String] :request_id
     #   @option params [EventPayload] :request_payload
@@ -1014,7 +1014,7 @@ module AWS::SDK::CodeCatalyst
     # <p>Information about the commands that will be run on a Dev Environment when an SSH session begins.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :command
+    #   @option params [String] :command (0)
     #   @option params [Array<String>] :arguments
     # @!attribute command
     #   <p>The command used at the beginning of the SSH session to a Dev Environment.</p>
@@ -1036,8 +1036,8 @@ module AWS::SDK::CodeCatalyst
     # <p>Information about a filter used to limit results of a query.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :key
-    #   @option params [Array<String>] :values
+    #   @option params [String] :key (0)
+    #   @option params [Array<String>] :values (0)
     #   @option params [String] :comparison_operator
     # @!attribute key
     #   <p>A key that can be used to sort results.</p>
@@ -1095,19 +1095,19 @@ module AWS::SDK::CodeCatalyst
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :space_name
-    #   @option params [String] :project_name
-    #   @option params [String] :id
-    #   @option params [Time] :last_updated_time
-    #   @option params [String] :creator_id
-    #   @option params [String] :status
+    #   @option params [String] :space_name (0)
+    #   @option params [String] :project_name (0)
+    #   @option params [String] :id (0)
+    #   @option params [Time] :last_updated_time (0)
+    #   @option params [String] :creator_id (0)
+    #   @option params [String] :status (0)
     #   @option params [String] :status_reason
-    #   @option params [Array<DevEnvironmentRepositorySummary>] :repositories
+    #   @option params [Array<DevEnvironmentRepositorySummary>] :repositories (0)
     #   @option params [String] :alias
     #   @option params [Array<Ide>] :ides
-    #   @option params [String] :instance_type
+    #   @option params [String] :instance_type (0)
     #   @option params [Integer] :inactivity_timeout_minutes (0)
-    #   @option params [PersistentStorage] :persistent_storage
+    #   @option params [PersistentStorage] :persistent_storage (0)
     #   @option params [String] :vpc_connection_name
     # @!attribute space_name
     #   <p>The name of the space.</p>
@@ -1208,7 +1208,7 @@ module AWS::SDK::CodeCatalyst
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [String] :space_name
-    #   @option params [String] :name
+    #   @option params [String] :name (0)
     #   @option params [String] :display_name
     #   @option params [String] :description
     # @!attribute space_name
@@ -1264,7 +1264,7 @@ module AWS::SDK::CodeCatalyst
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :https
+    #   @option params [String] :https (0)
     # @!attribute https
     #   <p>The HTTPS URL to use when cloning the source repository.</p>
     #   @return [String]
@@ -1306,12 +1306,12 @@ module AWS::SDK::CodeCatalyst
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :space_name
-    #   @option params [String] :project_name
-    #   @option params [String] :name
+    #   @option params [String] :space_name (0)
+    #   @option params [String] :project_name (0)
+    #   @option params [String] :name (0)
     #   @option params [String] :description
-    #   @option params [Time] :last_updated_time
-    #   @option params [Time] :created_time
+    #   @option params [Time] :last_updated_time (0)
+    #   @option params [Time] :created_time (0)
     # @!attribute space_name
     #   <p>The name of the space.</p>
     #   @return [String]
@@ -1363,8 +1363,8 @@ module AWS::SDK::CodeCatalyst
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :name
-    #   @option params [String] :region_name
+    #   @option params [String] :name (0)
+    #   @option params [String] :region_name (0)
     #   @option params [String] :display_name
     #   @option params [String] :description
     # @!attribute name
@@ -1526,17 +1526,17 @@ module AWS::SDK::CodeCatalyst
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :space_name
-    #   @option params [String] :project_name
-    #   @option params [String] :id
-    #   @option params [String] :name
+    #   @option params [String] :space_name (0)
+    #   @option params [String] :project_name (0)
+    #   @option params [String] :id (0)
+    #   @option params [String] :name (0)
     #   @option params [String] :source_repository_name
     #   @option params [String] :source_branch_name
-    #   @option params [WorkflowDefinition] :definition
-    #   @option params [Time] :created_time
-    #   @option params [Time] :last_updated_time
-    #   @option params [String] :run_mode
-    #   @option params [String] :status
+    #   @option params [WorkflowDefinition] :definition (0)
+    #   @option params [Time] :created_time (0)
+    #   @option params [Time] :last_updated_time (0)
+    #   @option params [String] :run_mode (0)
+    #   @option params [String] :status (0)
     # @!attribute space_name
     #   <p>The name of the space.</p>
     #   @return [String]
@@ -1623,15 +1623,15 @@ module AWS::SDK::CodeCatalyst
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :space_name
-    #   @option params [String] :project_name
-    #   @option params [String] :id
-    #   @option params [String] :workflow_id
-    #   @option params [String] :status
+    #   @option params [String] :space_name (0)
+    #   @option params [String] :project_name (0)
+    #   @option params [String] :id (0)
+    #   @option params [String] :workflow_id (0)
+    #   @option params [String] :status (0)
     #   @option params [Array<WorkflowRunStatusReason>] :status_reasons
-    #   @option params [Time] :start_time
+    #   @option params [Time] :start_time (0)
     #   @option params [Time] :end_time
-    #   @option params [Time] :last_updated_time
+    #   @option params [Time] :last_updated_time (0)
     # @!attribute space_name
     #   <p>The name of the space.</p>
     #   @return [String]
@@ -1761,7 +1761,7 @@ module AWS::SDK::CodeCatalyst
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Array<AccessTokenSummary>] :items
+    #   @option params [Array<AccessTokenSummary>] :items (0)
     #   @option params [String] :next_token
     # @!attribute items
     #   <p>A list of personal access tokens (PATs) associated with the calling user identity.</p>
@@ -1818,7 +1818,7 @@ module AWS::SDK::CodeCatalyst
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Array<DevEnvironmentSessionSummary>] :items
+    #   @option params [Array<DevEnvironmentSessionSummary>] :items (0)
     #   @option params [String] :next_token
     # @!attribute items
     #   <p>Information about each session retrieved in the list.</p>
@@ -1875,7 +1875,7 @@ module AWS::SDK::CodeCatalyst
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Array<DevEnvironmentSummary>] :items
+    #   @option params [Array<DevEnvironmentSummary>] :items (0)
     #   @option params [String] :next_token
     # @!attribute items
     #   <p>Information about the Dev Environments in a project.</p>
@@ -1938,7 +1938,7 @@ module AWS::SDK::CodeCatalyst
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [String] :next_token
-    #   @option params [Array<EventLogEntry>] :items
+    #   @option params [Array<EventLogEntry>] :items (0)
     # @!attribute next_token
     #   <p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>
     #   @return [String]
@@ -2042,11 +2042,11 @@ module AWS::SDK::CodeCatalyst
     # <p>Information about a source repository returned in a list of source repositories.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :id
-    #   @option params [String] :name
+    #   @option params [String] :id (0)
+    #   @option params [String] :name (0)
     #   @option params [String] :description
-    #   @option params [Time] :last_updated_time
-    #   @option params [Time] :created_time
+    #   @option params [Time] :last_updated_time (0)
+    #   @option params [Time] :created_time (0)
     # @!attribute id
     #   <p>The system-generated unique ID of the source repository.</p>
     #   @return [String]
@@ -2168,7 +2168,7 @@ module AWS::SDK::CodeCatalyst
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [String] :next_token
-    #   @option params [Array<ListSourceRepositoryBranchesItem>] :items
+    #   @option params [Array<ListSourceRepositoryBranchesItem>] :items (0)
     # @!attribute next_token
     #   <p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>
     #   @return [String]
@@ -2352,7 +2352,7 @@ module AWS::SDK::CodeCatalyst
     # <p>Information about the persistent storage for a Dev Environment.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Integer] :size_in_gi_b
+    #   @option params [Integer] :size_in_gi_b (0)
     # @!attribute size_in_gi_b
     #   <p>The size of the persistent storage in gigabytes (specifically GiB).</p>
     #            <note>
@@ -2373,7 +2373,7 @@ module AWS::SDK::CodeCatalyst
     # <p>Information about the configuration of persistent storage for a Dev Environment. </p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Integer] :size_in_gi_b
+    #   @option params [Integer] :size_in_gi_b (0)
     # @!attribute size_in_gi_b
     #   <p>The size of the persistent storage in gigabytes (specifically GiB).</p>
     #            <note>
@@ -2416,8 +2416,8 @@ module AWS::SDK::CodeCatalyst
     # <p>nformation about the filter used to narrow the results returned in a list of projects.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :key
-    #   @option params [Array<String>] :values
+    #   @option params [String] :key (0)
+    #   @option params [Array<String>] :values (0)
     #   @option params [String] :comparison_operator
     # @!attribute key
     #   <p>A key that can be used to sort results.</p>
@@ -2445,7 +2445,7 @@ module AWS::SDK::CodeCatalyst
     # <p>Information about a project.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :name
+    #   @option params [String] :name (0)
     #   @option params [String] :display_name
     #   @option params [String] :description
     # @!attribute name
@@ -2472,7 +2472,7 @@ module AWS::SDK::CodeCatalyst
     # <p>Information about a repository that will be cloned to a Dev Environment.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :repository_name
+    #   @option params [String] :repository_name (0)
     #   @option params [String] :branch_name
     # @!attribute repository_name
     #   <p>The name of the source repository.</p>
@@ -2494,7 +2494,7 @@ module AWS::SDK::CodeCatalyst
     # <p>The request was denied because the specified resource was not found. Verify that the spelling is correct and that you have access to the resource.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :message
+    #   @option params [String] :message (0)
     # @!attribute message
     #   @return [String]
     class ResourceNotFoundException
@@ -2511,7 +2511,7 @@ module AWS::SDK::CodeCatalyst
     #       the number of resources, or change the tier if applicable.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :message
+    #   @option params [String] :message (0)
     # @!attribute message
     #   @return [String]
     class ServiceQuotaExceededException
@@ -2527,8 +2527,8 @@ module AWS::SDK::CodeCatalyst
     # <p>Information about an space.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :name
-    #   @option params [String] :region_name
+    #   @option params [String] :name (0)
+    #   @option params [String] :region_name (0)
     #   @option params [String] :display_name
     #   @option params [String] :description
     # @!attribute name
@@ -2564,7 +2564,7 @@ module AWS::SDK::CodeCatalyst
     #   @option params [String] :id
     #   @option params [Array<IdeConfiguration>] :ides
     #   @option params [String] :instance_type
-    #   @option params [Integer] :inactivity_timeout_minutes (0)
+    #   @option params [Integer] :inactivity_timeout_minutes
     # @!attribute space_name
     #   <p>The name of the space.</p>
     #   @return [String]
@@ -2601,10 +2601,10 @@ module AWS::SDK::CodeCatalyst
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :space_name
-    #   @option params [String] :project_name
-    #   @option params [String] :id
-    #   @option params [String] :status
+    #   @option params [String] :space_name (0)
+    #   @option params [String] :project_name (0)
+    #   @option params [String] :id (0)
+    #   @option params [String] :status (0)
     # @!attribute space_name
     #   <p>The name of the space.</p>
     #   @return [String]
@@ -2664,11 +2664,11 @@ module AWS::SDK::CodeCatalyst
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [DevEnvironmentAccessDetails] :access_details
+    #   @option params [DevEnvironmentAccessDetails] :access_details (0)
     #   @option params [String] :session_id
-    #   @option params [String] :space_name
-    #   @option params [String] :project_name
-    #   @option params [String] :id
+    #   @option params [String] :space_name (0)
+    #   @option params [String] :project_name (0)
+    #   @option params [String] :id (0)
     # @!attribute access_details
     #   <p>Information about connection details for a Dev Environment.</p>
     #   @return [DevEnvironmentAccessDetails]
@@ -2741,10 +2741,10 @@ module AWS::SDK::CodeCatalyst
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :space_name
-    #   @option params [String] :project_name
-    #   @option params [String] :id
-    #   @option params [String] :workflow_id
+    #   @option params [String] :space_name (0)
+    #   @option params [String] :project_name (0)
+    #   @option params [String] :id (0)
+    #   @option params [String] :workflow_id (0)
     # @!attribute space_name
     #   <p>The name of the space.</p>
     #   @return [String]
@@ -2798,10 +2798,10 @@ module AWS::SDK::CodeCatalyst
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :space_name
-    #   @option params [String] :project_name
-    #   @option params [String] :id
-    #   @option params [String] :status
+    #   @option params [String] :space_name (0)
+    #   @option params [String] :project_name (0)
+    #   @option params [String] :id (0)
+    #   @option params [String] :status (0)
     # @!attribute space_name
     #   <p>The name of the space.</p>
     #   @return [String]
@@ -2861,10 +2861,10 @@ module AWS::SDK::CodeCatalyst
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :space_name
-    #   @option params [String] :project_name
-    #   @option params [String] :id
-    #   @option params [String] :session_id
+    #   @option params [String] :space_name (0)
+    #   @option params [String] :project_name (0)
+    #   @option params [String] :id (0)
+    #   @option params [String] :session_id (0)
     # @!attribute space_name
     #   <p>The name of the space.</p>
     #   @return [String]
@@ -2893,7 +2893,7 @@ module AWS::SDK::CodeCatalyst
     # <p>The request was denied due to request throttling.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :message
+    #   @option params [String] :message (0)
     # @!attribute message
     #   @return [String]
     class ThrottlingException
@@ -2914,7 +2914,7 @@ module AWS::SDK::CodeCatalyst
     #   @option params [String] :alias
     #   @option params [Array<IdeConfiguration>] :ides
     #   @option params [String] :instance_type
-    #   @option params [Integer] :inactivity_timeout_minutes (0)
+    #   @option params [Integer] :inactivity_timeout_minutes
     #   @option params [String] :client_token
     # @!attribute space_name
     #   <p>The name of the space.</p>
@@ -2968,9 +2968,9 @@ module AWS::SDK::CodeCatalyst
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :id
-    #   @option params [String] :space_name
-    #   @option params [String] :project_name
+    #   @option params [String] :id (0)
+    #   @option params [String] :space_name (0)
+    #   @option params [String] :project_name (0)
     #   @option params [String] :alias
     #   @option params [Array<IdeConfiguration>] :ides
     #   @option params [String] :instance_type
@@ -3134,8 +3134,8 @@ module AWS::SDK::CodeCatalyst
     # <p>Information about a user whose activity is recorded in an event for a space.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :user_type
-    #   @option params [String] :principal_id
+    #   @option params [String] :user_type (0)
+    #   @option params [String] :principal_id (0)
     #   @option params [String] :user_name
     #   @option params [String] :aws_account_id
     # @!attribute user_type
@@ -3176,7 +3176,7 @@ module AWS::SDK::CodeCatalyst
     # <p>The request was denied because an input failed to satisfy the constraints specified by the service. Check the spelling and input requirements, and then try again.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :message
+    #   @option params [String] :message (0)
     # @!attribute message
     #   @return [String]
     class ValidationException
@@ -3218,7 +3218,7 @@ module AWS::SDK::CodeCatalyst
     # <p>Information about a workflow definition file.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :path
+    #   @option params [String] :path (0)
     # @!attribute path
     #   <p>The path to the workflow definition file stored in the source repository for the project, including the file name.</p>
     #   @return [String]
@@ -3235,7 +3235,7 @@ module AWS::SDK::CodeCatalyst
     # <p>Information about a workflow definition.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :path
+    #   @option params [String] :path (0)
     # @!attribute path
     #   <p>The path to the workflow definition file stored in the source repository for the project, including the file name.</p>
     #   @return [String]
@@ -3308,14 +3308,14 @@ module AWS::SDK::CodeCatalyst
     # <p>Information about a workflow run.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :id
-    #   @option params [String] :workflow_id
-    #   @option params [String] :workflow_name
-    #   @option params [String] :status
+    #   @option params [String] :id (0)
+    #   @option params [String] :workflow_id (0)
+    #   @option params [String] :workflow_name (0)
+    #   @option params [String] :status (0)
     #   @option params [Array<WorkflowRunStatusReason>] :status_reasons
-    #   @option params [Time] :start_time
+    #   @option params [Time] :start_time (0)
     #   @option params [Time] :end_time
-    #   @option params [Time] :last_updated_time
+    #   @option params [Time] :last_updated_time (0)
     # @!attribute id
     #   <p>The system-generated unique ID of the workflow run.</p>
     #   @return [String]
@@ -3381,15 +3381,15 @@ module AWS::SDK::CodeCatalyst
     # <p>Information about a workflow.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :id
-    #   @option params [String] :name
-    #   @option params [String] :source_repository_name
-    #   @option params [String] :source_branch_name
-    #   @option params [WorkflowDefinitionSummary] :definition
-    #   @option params [Time] :created_time
-    #   @option params [Time] :last_updated_time
-    #   @option params [String] :run_mode
-    #   @option params [String] :status
+    #   @option params [String] :id (0)
+    #   @option params [String] :name (0)
+    #   @option params [String] :source_repository_name (0)
+    #   @option params [String] :source_branch_name (0)
+    #   @option params [WorkflowDefinitionSummary] :definition (0)
+    #   @option params [Time] :created_time (0)
+    #   @option params [Time] :last_updated_time (0)
+    #   @option params [String] :run_mode (0)
+    #   @option params [String] :status (0)
     # @!attribute id
     #   <p>The system-generated unique ID of a workflow.</p>
     #   @return [String]

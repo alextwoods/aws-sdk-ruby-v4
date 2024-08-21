@@ -52,7 +52,7 @@ module AWS::SDK::SSOOIDC
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::AuthorizationPendingException, Errors::ExpiredTokenException, Errors::InternalServerException, Errors::InvalidClientException, Errors::InvalidGrantException, Errors::InvalidRequestException, Errors::InvalidScopeException, Errors::SlowDownException, Errors::UnauthorizedClientException, Errors::UnsupportedGrantTypeException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::AuthorizationPendingException, Parsers::ExpiredTokenException, Parsers::InternalServerException, Parsers::InvalidClientException, Parsers::InvalidGrantException, Parsers::InvalidRequestException, Parsers::InvalidScopeException, Parsers::SlowDownException, Parsers::UnauthorizedClientException, Parsers::UnsupportedGrantTypeException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -108,7 +108,7 @@ module AWS::SDK::SSOOIDC
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::AuthorizationPendingException, Errors::ExpiredTokenException, Errors::InternalServerException, Errors::InvalidClientException, Errors::InvalidGrantException, Errors::InvalidRequestException, Errors::InvalidRequestRegionException, Errors::InvalidScopeException, Errors::SlowDownException, Errors::UnauthorizedClientException, Errors::UnsupportedGrantTypeException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::AuthorizationPendingException, Parsers::ExpiredTokenException, Parsers::InternalServerException, Parsers::InvalidClientException, Parsers::InvalidGrantException, Parsers::InvalidRequestException, Parsers::InvalidRequestRegionException, Parsers::InvalidScopeException, Parsers::SlowDownException, Parsers::UnauthorizedClientException, Parsers::UnsupportedGrantTypeException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -164,7 +164,7 @@ module AWS::SDK::SSOOIDC
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerException, Errors::InvalidClientMetadataException, Errors::InvalidRedirectUriException, Errors::InvalidRequestException, Errors::InvalidScopeException, Errors::UnsupportedGrantTypeException]
+            error_parsers: [Parsers::InternalServerException, Parsers::InvalidClientMetadataException, Parsers::InvalidRedirectUriException, Parsers::InvalidRequestException, Parsers::InvalidScopeException, Parsers::UnsupportedGrantTypeException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -220,7 +220,7 @@ module AWS::SDK::SSOOIDC
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerException, Errors::InvalidClientException, Errors::InvalidRequestException, Errors::SlowDownException, Errors::UnauthorizedClientException]
+            error_parsers: [Parsers::InternalServerException, Parsers::InvalidClientException, Parsers::InvalidRequestException, Parsers::SlowDownException, Parsers::UnauthorizedClientException]
           )
         )
         stack.use(Middleware::RequestId)

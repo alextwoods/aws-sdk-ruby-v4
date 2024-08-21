@@ -94,15 +94,36 @@ module AWS::SDK::S3
 
       def parse_event(type, message)
         case type
-        when 'initial-response' then Parsers::EventStream::SelectObjectContentInitialResponse.parse(message)
-        when 'Records' then Types::SelectObjectContentEventStream::Records.new(Parsers::EventStream::RecordsEvent.parse(message))
-        when 'Stats' then Types::SelectObjectContentEventStream::Stats.new(Parsers::EventStream::StatsEvent.parse(message))
-        when 'Progress' then Types::SelectObjectContentEventStream::Progress.new(Parsers::EventStream::ProgressEvent.parse(message))
-        when 'Cont' then Types::SelectObjectContentEventStream::Cont.new(Parsers::EventStream::ContinuationEvent.parse(message))
-        when 'End' then Types::SelectObjectContentEventStream::End.new(Parsers::EventStream::EndEvent.parse(message))
+        when 'initial-response'
+          Parsers::EventStream::SelectObjectContentInitialResponse.parse(message)
+        when 'Records'
+          Types::SelectObjectContentEventStream::Records.new(Parsers::EventStream::RecordsEvent.parse(message))
+        when 'Stats'
+          Types::SelectObjectContentEventStream::Stats.new(Parsers::EventStream::StatsEvent.parse(message))
+        when 'Progress'
+          Types::SelectObjectContentEventStream::Progress.new(Parsers::EventStream::ProgressEvent.parse(message))
+        when 'Cont'
+          Types::SelectObjectContentEventStream::Cont.new(Parsers::EventStream::ContinuationEvent.parse(message))
+        when 'End'
+          Types::SelectObjectContentEventStream::End.new(Parsers::EventStream::EndEvent.parse(message))
         else
           Types::SelectObjectContentEventStream::Unknown.new(name: type || 'unknown', value: message)
         end
+      end
+
+      def parse_exception_event(type, message)
+        case type
+        else
+          data = Types::SelectObjectContentEventStream::Unknown.new(name: type || 'unknown', value: message)
+          Errors::ApiError.new(error_code: type || 'unknown', metadata: {data: data})
+        end
+      end
+
+      def parse_error_event(message)
+        error_code = message.headers.delete(':error-code')&.value
+        error_message = message.headers.delete(':error-message')&.value
+        metadata = {message: message}
+        Errors::ApiError.new(error_code: error_code, metadata: metadata, message: error_message)
       end
     end
   end

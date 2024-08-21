@@ -364,142 +364,152 @@ module AWS::SDK::CloudWatch
     end
 
     class DeleteAlarms
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::DeleteAlarmsOutput.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('DeleteAlarmsResult')
-        data
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('DeleteAlarmsResult')
+        end
+        Errors::DeleteAlarmsOutput.new(data: data, **kwargs)
       end
     end
 
     class DeleteAnomalyDetector
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::DeleteAnomalyDetectorOutput.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('DeleteAnomalyDetectorResult')
-        data
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('DeleteAnomalyDetectorResult')
+        end
+        Errors::DeleteAnomalyDetectorOutput.new(data: data, **kwargs)
       end
     end
 
     class DeleteDashboards
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::DeleteDashboardsOutput.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('DeleteDashboardsResult')
-        data
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('DeleteDashboardsResult')
+        end
+        Errors::DeleteDashboardsOutput.new(data: data, **kwargs)
       end
     end
 
     class DeleteInsightRules
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::DeleteInsightRulesOutput.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('DeleteInsightRulesResult')
-        xml.at('Failures') do |node|
-          children = node.children('member')
-          data.failures = BatchFailures.parse(children)
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('DeleteInsightRulesResult')
+          xml.at('Failures') do |node|
+            children = node.children('member')
+            data.failures = BatchFailures.parse(children)
+          end
         end
-        data
+        Errors::DeleteInsightRulesOutput.new(data: data, **kwargs)
       end
     end
 
     class DeleteMetricStream
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::DeleteMetricStreamOutput.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('DeleteMetricStreamResult')
-        data
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('DeleteMetricStreamResult')
+        end
+        Errors::DeleteMetricStreamOutput.new(data: data, **kwargs)
       end
     end
 
     class DescribeAlarmHistory
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::DescribeAlarmHistoryOutput.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('DescribeAlarmHistoryResult')
-        xml.at('AlarmHistoryItems') do |node|
-          children = node.children('member')
-          data.alarm_history_items = AlarmHistoryItems.parse(children)
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('DescribeAlarmHistoryResult')
+          xml.at('AlarmHistoryItems') do |node|
+            children = node.children('member')
+            data.alarm_history_items = AlarmHistoryItems.parse(children)
+          end
+          xml.at('NextToken') do |node|
+            data.next_token = (node.text || '')
+          end
         end
-        xml.at('NextToken') do |node|
-          data.next_token = (node.text || '')
-        end
-        data
+        Errors::DescribeAlarmHistoryOutput.new(data: data, **kwargs)
       end
     end
 
     class DescribeAlarms
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::DescribeAlarmsOutput.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('DescribeAlarmsResult')
-        xml.at('CompositeAlarms') do |node|
-          children = node.children('member')
-          data.composite_alarms = CompositeAlarms.parse(children)
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('DescribeAlarmsResult')
+          xml.at('CompositeAlarms') do |node|
+            children = node.children('member')
+            data.composite_alarms = CompositeAlarms.parse(children)
+          end
+          xml.at('MetricAlarms') do |node|
+            children = node.children('member')
+            data.metric_alarms = MetricAlarms.parse(children)
+          end
+          xml.at('NextToken') do |node|
+            data.next_token = (node.text || '')
+          end
         end
-        xml.at('MetricAlarms') do |node|
-          children = node.children('member')
-          data.metric_alarms = MetricAlarms.parse(children)
-        end
-        xml.at('NextToken') do |node|
-          data.next_token = (node.text || '')
-        end
-        data
+        Errors::DescribeAlarmsOutput.new(data: data, **kwargs)
       end
     end
 
     class DescribeAlarmsForMetric
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::DescribeAlarmsForMetricOutput.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('DescribeAlarmsForMetricResult')
-        xml.at('MetricAlarms') do |node|
-          children = node.children('member')
-          data.metric_alarms = MetricAlarms.parse(children)
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('DescribeAlarmsForMetricResult')
+          xml.at('MetricAlarms') do |node|
+            children = node.children('member')
+            data.metric_alarms = MetricAlarms.parse(children)
+          end
         end
-        data
+        Errors::DescribeAlarmsForMetricOutput.new(data: data, **kwargs)
       end
     end
 
     class DescribeAnomalyDetectors
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::DescribeAnomalyDetectorsOutput.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('DescribeAnomalyDetectorsResult')
-        xml.at('AnomalyDetectors') do |node|
-          children = node.children('member')
-          data.anomaly_detectors = AnomalyDetectors.parse(children)
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('DescribeAnomalyDetectorsResult')
+          xml.at('AnomalyDetectors') do |node|
+            children = node.children('member')
+            data.anomaly_detectors = AnomalyDetectors.parse(children)
+          end
+          xml.at('NextToken') do |node|
+            data.next_token = (node.text || '')
+          end
         end
-        xml.at('NextToken') do |node|
-          data.next_token = (node.text || '')
-        end
-        data
+        Errors::DescribeAnomalyDetectorsOutput.new(data: data, **kwargs)
       end
     end
 
     class DescribeInsightRules
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::DescribeInsightRulesOutput.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('DescribeInsightRulesResult')
-        xml.at('NextToken') do |node|
-          data.next_token = (node.text || '')
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('DescribeInsightRulesResult')
+          xml.at('NextToken') do |node|
+            data.next_token = (node.text || '')
+          end
+          xml.at('InsightRules') do |node|
+            children = node.children('member')
+            data.insight_rules = InsightRules.parse(children)
+          end
         end
-        xml.at('InsightRules') do |node|
-          children = node.children('member')
-          data.insight_rules = InsightRules.parse(children)
-        end
-        data
+        Errors::DescribeInsightRulesOutput.new(data: data, **kwargs)
       end
     end
 
@@ -527,200 +537,210 @@ module AWS::SDK::CloudWatch
     end
 
     class DisableAlarmActions
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::DisableAlarmActionsOutput.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('DisableAlarmActionsResult')
-        data
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('DisableAlarmActionsResult')
+        end
+        Errors::DisableAlarmActionsOutput.new(data: data, **kwargs)
       end
     end
 
     class DisableInsightRules
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::DisableInsightRulesOutput.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('DisableInsightRulesResult')
-        xml.at('Failures') do |node|
-          children = node.children('member')
-          data.failures = BatchFailures.parse(children)
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('DisableInsightRulesResult')
+          xml.at('Failures') do |node|
+            children = node.children('member')
+            data.failures = BatchFailures.parse(children)
+          end
         end
-        data
+        Errors::DisableInsightRulesOutput.new(data: data, **kwargs)
       end
     end
 
     class EnableAlarmActions
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::EnableAlarmActionsOutput.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('EnableAlarmActionsResult')
-        data
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('EnableAlarmActionsResult')
+        end
+        Errors::EnableAlarmActionsOutput.new(data: data, **kwargs)
       end
     end
 
     class EnableInsightRules
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::EnableInsightRulesOutput.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('EnableInsightRulesResult')
-        xml.at('Failures') do |node|
-          children = node.children('member')
-          data.failures = BatchFailures.parse(children)
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('EnableInsightRulesResult')
+          xml.at('Failures') do |node|
+            children = node.children('member')
+            data.failures = BatchFailures.parse(children)
+          end
         end
-        data
+        Errors::EnableInsightRulesOutput.new(data: data, **kwargs)
       end
     end
 
     class GetDashboard
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::GetDashboardOutput.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('GetDashboardResult')
-        xml.at('DashboardArn') do |node|
-          data.dashboard_arn = (node.text || '')
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('GetDashboardResult')
+          xml.at('DashboardArn') do |node|
+            data.dashboard_arn = (node.text || '')
+          end
+          xml.at('DashboardBody') do |node|
+            data.dashboard_body = (node.text || '')
+          end
+          xml.at('DashboardName') do |node|
+            data.dashboard_name = (node.text || '')
+          end
         end
-        xml.at('DashboardBody') do |node|
-          data.dashboard_body = (node.text || '')
-        end
-        xml.at('DashboardName') do |node|
-          data.dashboard_name = (node.text || '')
-        end
-        data
+        Errors::GetDashboardOutput.new(data: data, **kwargs)
       end
     end
 
     class GetInsightRuleReport
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::GetInsightRuleReportOutput.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('GetInsightRuleReportResult')
-        xml.at('KeyLabels') do |node|
-          children = node.children('member')
-          data.key_labels = InsightRuleContributorKeyLabels.parse(children)
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('GetInsightRuleReportResult')
+          xml.at('KeyLabels') do |node|
+            children = node.children('member')
+            data.key_labels = InsightRuleContributorKeyLabels.parse(children)
+          end
+          xml.at('AggregationStatistic') do |node|
+            data.aggregation_statistic = (node.text || '')
+          end
+          xml.at('AggregateValue') do |node|
+            data.aggregate_value = Hearth::NumberHelper.deserialize(node.text)
+          end
+          xml.at('ApproximateUniqueCount') do |node|
+            data.approximate_unique_count = node.text&.to_i
+          end
+          xml.at('Contributors') do |node|
+            children = node.children('member')
+            data.contributors = InsightRuleContributors.parse(children)
+          end
+          xml.at('MetricDatapoints') do |node|
+            children = node.children('member')
+            data.metric_datapoints = InsightRuleMetricDatapoints.parse(children)
+          end
         end
-        xml.at('AggregationStatistic') do |node|
-          data.aggregation_statistic = (node.text || '')
-        end
-        xml.at('AggregateValue') do |node|
-          data.aggregate_value = Hearth::NumberHelper.deserialize(node.text)
-        end
-        xml.at('ApproximateUniqueCount') do |node|
-          data.approximate_unique_count = node.text&.to_i
-        end
-        xml.at('Contributors') do |node|
-          children = node.children('member')
-          data.contributors = InsightRuleContributors.parse(children)
-        end
-        xml.at('MetricDatapoints') do |node|
-          children = node.children('member')
-          data.metric_datapoints = InsightRuleMetricDatapoints.parse(children)
-        end
-        data
+        Errors::GetInsightRuleReportOutput.new(data: data, **kwargs)
       end
     end
 
     class GetMetricData
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::GetMetricDataOutput.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('GetMetricDataResult')
-        xml.at('MetricDataResults') do |node|
-          children = node.children('member')
-          data.metric_data_results = MetricDataResults.parse(children)
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('GetMetricDataResult')
+          xml.at('MetricDataResults') do |node|
+            children = node.children('member')
+            data.metric_data_results = MetricDataResults.parse(children)
+          end
+          xml.at('NextToken') do |node|
+            data.next_token = (node.text || '')
+          end
+          xml.at('Messages') do |node|
+            children = node.children('member')
+            data.messages = MetricDataResultMessages.parse(children)
+          end
         end
-        xml.at('NextToken') do |node|
-          data.next_token = (node.text || '')
-        end
-        xml.at('Messages') do |node|
-          children = node.children('member')
-          data.messages = MetricDataResultMessages.parse(children)
-        end
-        data
+        Errors::GetMetricDataOutput.new(data: data, **kwargs)
       end
     end
 
     class GetMetricStatistics
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::GetMetricStatisticsOutput.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('GetMetricStatisticsResult')
-        xml.at('Label') do |node|
-          data.label = (node.text || '')
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('GetMetricStatisticsResult')
+          xml.at('Label') do |node|
+            data.label = (node.text || '')
+          end
+          xml.at('Datapoints') do |node|
+            children = node.children('member')
+            data.datapoints = Datapoints.parse(children)
+          end
         end
-        xml.at('Datapoints') do |node|
-          children = node.children('member')
-          data.datapoints = Datapoints.parse(children)
-        end
-        data
+        Errors::GetMetricStatisticsOutput.new(data: data, **kwargs)
       end
     end
 
     class GetMetricStream
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::GetMetricStreamOutput.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('GetMetricStreamResult')
-        xml.at('Arn') do |node|
-          data.arn = (node.text || '')
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('GetMetricStreamResult')
+          xml.at('Arn') do |node|
+            data.arn = (node.text || '')
+          end
+          xml.at('Name') do |node|
+            data.name = (node.text || '')
+          end
+          xml.at('IncludeFilters') do |node|
+            children = node.children('member')
+            data.include_filters = MetricStreamFilters.parse(children)
+          end
+          xml.at('ExcludeFilters') do |node|
+            children = node.children('member')
+            data.exclude_filters = MetricStreamFilters.parse(children)
+          end
+          xml.at('FirehoseArn') do |node|
+            data.firehose_arn = (node.text || '')
+          end
+          xml.at('RoleArn') do |node|
+            data.role_arn = (node.text || '')
+          end
+          xml.at('State') do |node|
+            data.state = (node.text || '')
+          end
+          xml.at('CreationDate') do |node|
+            data.creation_date = Time.parse(node.text) if node.text
+          end
+          xml.at('LastUpdateDate') do |node|
+            data.last_update_date = Time.parse(node.text) if node.text
+          end
+          xml.at('OutputFormat') do |node|
+            data.output_format = (node.text || '')
+          end
+          xml.at('StatisticsConfigurations') do |node|
+            children = node.children('member')
+            data.statistics_configurations = MetricStreamStatisticsConfigurations.parse(children)
+          end
+          xml.at('IncludeLinkedAccountsMetrics') do |node|
+            data.include_linked_accounts_metrics = (node.text == 'true')
+          end
         end
-        xml.at('Name') do |node|
-          data.name = (node.text || '')
-        end
-        xml.at('IncludeFilters') do |node|
-          children = node.children('member')
-          data.include_filters = MetricStreamFilters.parse(children)
-        end
-        xml.at('ExcludeFilters') do |node|
-          children = node.children('member')
-          data.exclude_filters = MetricStreamFilters.parse(children)
-        end
-        xml.at('FirehoseArn') do |node|
-          data.firehose_arn = (node.text || '')
-        end
-        xml.at('RoleArn') do |node|
-          data.role_arn = (node.text || '')
-        end
-        xml.at('State') do |node|
-          data.state = (node.text || '')
-        end
-        xml.at('CreationDate') do |node|
-          data.creation_date = Time.parse(node.text) if node.text
-        end
-        xml.at('LastUpdateDate') do |node|
-          data.last_update_date = Time.parse(node.text) if node.text
-        end
-        xml.at('OutputFormat') do |node|
-          data.output_format = (node.text || '')
-        end
-        xml.at('StatisticsConfigurations') do |node|
-          children = node.children('member')
-          data.statistics_configurations = MetricStreamStatisticsConfigurations.parse(children)
-        end
-        xml.at('IncludeLinkedAccountsMetrics') do |node|
-          data.include_linked_accounts_metrics = (node.text == 'true')
-        end
-        data
+        Errors::GetMetricStreamOutput.new(data: data, **kwargs)
       end
     end
 
     class GetMetricWidgetImage
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::GetMetricWidgetImageOutput.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('GetMetricWidgetImageResult')
-        xml.at('MetricWidgetImage') do |node|
-          data.metric_widget_image = ((::Base64::decode64(node.text) unless node.text.nil?) || '')
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('GetMetricWidgetImageResult')
+          xml.at('MetricWidgetImage') do |node|
+            data.metric_widget_image = ((::Base64::decode64(node.text) unless node.text.nil?) || '')
+          end
         end
-        data
+        Errors::GetMetricWidgetImageOutput.new(data: data, **kwargs)
       end
     end
 
@@ -967,88 +987,93 @@ module AWS::SDK::CloudWatch
     end
 
     class ListDashboards
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::ListDashboardsOutput.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('ListDashboardsResult')
-        xml.at('DashboardEntries') do |node|
-          children = node.children('member')
-          data.dashboard_entries = DashboardEntries.parse(children)
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('ListDashboardsResult')
+          xml.at('DashboardEntries') do |node|
+            children = node.children('member')
+            data.dashboard_entries = DashboardEntries.parse(children)
+          end
+          xml.at('NextToken') do |node|
+            data.next_token = (node.text || '')
+          end
         end
-        xml.at('NextToken') do |node|
-          data.next_token = (node.text || '')
-        end
-        data
+        Errors::ListDashboardsOutput.new(data: data, **kwargs)
       end
     end
 
     class ListManagedInsightRules
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::ListManagedInsightRulesOutput.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('ListManagedInsightRulesResult')
-        xml.at('ManagedRules') do |node|
-          children = node.children('member')
-          data.managed_rules = ManagedRuleDescriptions.parse(children)
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('ListManagedInsightRulesResult')
+          xml.at('ManagedRules') do |node|
+            children = node.children('member')
+            data.managed_rules = ManagedRuleDescriptions.parse(children)
+          end
+          xml.at('NextToken') do |node|
+            data.next_token = (node.text || '')
+          end
         end
-        xml.at('NextToken') do |node|
-          data.next_token = (node.text || '')
-        end
-        data
+        Errors::ListManagedInsightRulesOutput.new(data: data, **kwargs)
       end
     end
 
     class ListMetricStreams
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::ListMetricStreamsOutput.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('ListMetricStreamsResult')
-        xml.at('NextToken') do |node|
-          data.next_token = (node.text || '')
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('ListMetricStreamsResult')
+          xml.at('NextToken') do |node|
+            data.next_token = (node.text || '')
+          end
+          xml.at('Entries') do |node|
+            children = node.children('member')
+            data.entries = MetricStreamEntries.parse(children)
+          end
         end
-        xml.at('Entries') do |node|
-          children = node.children('member')
-          data.entries = MetricStreamEntries.parse(children)
-        end
-        data
+        Errors::ListMetricStreamsOutput.new(data: data, **kwargs)
       end
     end
 
     class ListMetrics
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::ListMetricsOutput.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('ListMetricsResult')
-        xml.at('Metrics') do |node|
-          children = node.children('member')
-          data.metrics = Metrics.parse(children)
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('ListMetricsResult')
+          xml.at('Metrics') do |node|
+            children = node.children('member')
+            data.metrics = Metrics.parse(children)
+          end
+          xml.at('NextToken') do |node|
+            data.next_token = (node.text || '')
+          end
+          xml.at('OwningAccounts') do |node|
+            children = node.children('member')
+            data.owning_accounts = OwningAccounts.parse(children)
+          end
         end
-        xml.at('NextToken') do |node|
-          data.next_token = (node.text || '')
-        end
-        xml.at('OwningAccounts') do |node|
-          children = node.children('member')
-          data.owning_accounts = OwningAccounts.parse(children)
-        end
-        data
+        Errors::ListMetricsOutput.new(data: data, **kwargs)
       end
     end
 
     class ListTagsForResource
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::ListTagsForResourceOutput.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('ListTagsForResourceResult')
-        xml.at('Tags') do |node|
-          children = node.children('member')
-          data.tags = TagList.parse(children)
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('ListTagsForResourceResult')
+          xml.at('Tags') do |node|
+            children = node.children('member')
+            data.tags = TagList.parse(children)
+          end
         end
-        data
+        Errors::ListTagsForResourceOutput.new(data: data, **kwargs)
       end
     end
 
@@ -1530,93 +1555,101 @@ module AWS::SDK::CloudWatch
     end
 
     class PutAnomalyDetector
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::PutAnomalyDetectorOutput.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('PutAnomalyDetectorResult')
-        data
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('PutAnomalyDetectorResult')
+        end
+        Errors::PutAnomalyDetectorOutput.new(data: data, **kwargs)
       end
     end
 
     class PutCompositeAlarm
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::PutCompositeAlarmOutput.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('PutCompositeAlarmResult')
-        data
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('PutCompositeAlarmResult')
+        end
+        Errors::PutCompositeAlarmOutput.new(data: data, **kwargs)
       end
     end
 
     class PutDashboard
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::PutDashboardOutput.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('PutDashboardResult')
-        xml.at('DashboardValidationMessages') do |node|
-          children = node.children('member')
-          data.dashboard_validation_messages = DashboardValidationMessages.parse(children)
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('PutDashboardResult')
+          xml.at('DashboardValidationMessages') do |node|
+            children = node.children('member')
+            data.dashboard_validation_messages = DashboardValidationMessages.parse(children)
+          end
         end
-        data
+        Errors::PutDashboardOutput.new(data: data, **kwargs)
       end
     end
 
     class PutInsightRule
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::PutInsightRuleOutput.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('PutInsightRuleResult')
-        data
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('PutInsightRuleResult')
+        end
+        Errors::PutInsightRuleOutput.new(data: data, **kwargs)
       end
     end
 
     class PutManagedInsightRules
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::PutManagedInsightRulesOutput.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('PutManagedInsightRulesResult')
-        xml.at('Failures') do |node|
-          children = node.children('member')
-          data.failures = BatchFailures.parse(children)
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('PutManagedInsightRulesResult')
+          xml.at('Failures') do |node|
+            children = node.children('member')
+            data.failures = BatchFailures.parse(children)
+          end
         end
-        data
+        Errors::PutManagedInsightRulesOutput.new(data: data, **kwargs)
       end
     end
 
     class PutMetricAlarm
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::PutMetricAlarmOutput.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('PutMetricAlarmResult')
-        data
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('PutMetricAlarmResult')
+        end
+        Errors::PutMetricAlarmOutput.new(data: data, **kwargs)
       end
     end
 
     class PutMetricData
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::PutMetricDataOutput.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('PutMetricDataResult')
-        data
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('PutMetricDataResult')
+        end
+        Errors::PutMetricDataOutput.new(data: data, **kwargs)
       end
     end
 
     class PutMetricStream
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::PutMetricStreamOutput.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('PutMetricStreamResult')
-        xml.at('Arn') do |node|
-          data.arn = (node.text || '')
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('PutMetricStreamResult')
+          xml.at('Arn') do |node|
+            data.arn = (node.text || '')
+          end
         end
-        data
+        Errors::PutMetricStreamOutput.new(data: data, **kwargs)
       end
     end
 
@@ -1678,12 +1711,13 @@ module AWS::SDK::CloudWatch
     end
 
     class SetAlarmState
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::SetAlarmStateOutput.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('SetAlarmStateResult')
-        data
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('SetAlarmStateResult')
+        end
+        Errors::SetAlarmStateOutput.new(data: data, **kwargs)
       end
     end
 
@@ -1708,22 +1742,24 @@ module AWS::SDK::CloudWatch
     end
 
     class StartMetricStreams
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::StartMetricStreamsOutput.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('StartMetricStreamsResult')
-        data
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('StartMetricStreamsResult')
+        end
+        Errors::StartMetricStreamsOutput.new(data: data, **kwargs)
       end
     end
 
     class StopMetricStreams
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::StopMetricStreamsOutput.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('StopMetricStreamsResult')
-        data
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('StopMetricStreamsResult')
+        end
+        Errors::StopMetricStreamsOutput.new(data: data, **kwargs)
       end
     end
 
@@ -1751,12 +1787,13 @@ module AWS::SDK::CloudWatch
     end
 
     class TagResource
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::TagResourceOutput.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('TagResourceResult')
-        data
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('TagResourceResult')
+        end
+        Errors::TagResourceOutput.new(data: data, **kwargs)
       end
     end
 
@@ -1771,12 +1808,13 @@ module AWS::SDK::CloudWatch
     end
 
     class UntagResource
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::UntagResourceOutput.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('UntagResourceResult')
-        data
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('UntagResourceResult')
+        end
+        Errors::UntagResourceOutput.new(data: data, **kwargs)
       end
     end
   end

@@ -25,18 +25,16 @@ module AWS::SDK::DynamoDB
     end
 
     # Base class for all errors returned by this service
-    class ApiError < Hearth::HTTP::ApiError; end
+    class ApiError < Hearth::ApiError; end
 
     # Base class for all errors returned where the client is at fault.
-    # These are generally errors with 4XX HTTP status codes.
     class ApiClientError < ApiError; end
 
     # Base class for all errors returned where the server is at fault.
-    # These are generally errors with 5XX HTTP status codes.
     class ApiServerError < ApiError; end
 
     # Base class for all errors returned where the service returned
-    # a 3XX redirection.
+    # a redirection.
     class ApiRedirectError < ApiError
       def initialize(location:, **kwargs)
         @location = location
@@ -48,11 +46,11 @@ module AWS::SDK::DynamoDB
     end
 
     class BackupInUseException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::BackupInUseException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::BackupInUseException]
@@ -60,11 +58,11 @@ module AWS::SDK::DynamoDB
     end
 
     class BackupNotFoundException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::BackupNotFoundException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::BackupNotFoundException]
@@ -72,11 +70,11 @@ module AWS::SDK::DynamoDB
     end
 
     class ConditionalCheckFailedException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::ConditionalCheckFailedException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::ConditionalCheckFailedException]
@@ -84,11 +82,11 @@ module AWS::SDK::DynamoDB
     end
 
     class ContinuousBackupsUnavailableException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::ContinuousBackupsUnavailableException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::ContinuousBackupsUnavailableException]
@@ -96,11 +94,11 @@ module AWS::SDK::DynamoDB
     end
 
     class DuplicateItemException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::DuplicateItemException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::DuplicateItemException]
@@ -108,11 +106,11 @@ module AWS::SDK::DynamoDB
     end
 
     class ExportConflictException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::ExportConflictException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::ExportConflictException]
@@ -120,11 +118,11 @@ module AWS::SDK::DynamoDB
     end
 
     class ExportNotFoundException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::ExportNotFoundException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::ExportNotFoundException]
@@ -132,11 +130,11 @@ module AWS::SDK::DynamoDB
     end
 
     class GlobalTableAlreadyExistsException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::GlobalTableAlreadyExistsException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::GlobalTableAlreadyExistsException]
@@ -144,11 +142,11 @@ module AWS::SDK::DynamoDB
     end
 
     class GlobalTableNotFoundException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::GlobalTableNotFoundException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::GlobalTableNotFoundException]
@@ -156,11 +154,11 @@ module AWS::SDK::DynamoDB
     end
 
     class IdempotentParameterMismatchException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::IdempotentParameterMismatchException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::IdempotentParameterMismatchException]
@@ -168,11 +166,11 @@ module AWS::SDK::DynamoDB
     end
 
     class ImportConflictException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::ImportConflictException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::ImportConflictException]
@@ -180,11 +178,11 @@ module AWS::SDK::DynamoDB
     end
 
     class ImportNotFoundException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::ImportNotFoundException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::ImportNotFoundException]
@@ -192,11 +190,11 @@ module AWS::SDK::DynamoDB
     end
 
     class IndexNotFoundException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::IndexNotFoundException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::IndexNotFoundException]
@@ -204,11 +202,11 @@ module AWS::SDK::DynamoDB
     end
 
     class InternalServerError < ApiServerError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::InternalServerError.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::InternalServerError]
@@ -216,11 +214,11 @@ module AWS::SDK::DynamoDB
     end
 
     class InvalidEndpointException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::InvalidEndpointException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::InvalidEndpointException]
@@ -228,11 +226,11 @@ module AWS::SDK::DynamoDB
     end
 
     class InvalidExportTimeException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::InvalidExportTimeException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::InvalidExportTimeException]
@@ -240,11 +238,11 @@ module AWS::SDK::DynamoDB
     end
 
     class InvalidRestoreTimeException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::InvalidRestoreTimeException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::InvalidRestoreTimeException]
@@ -252,11 +250,11 @@ module AWS::SDK::DynamoDB
     end
 
     class ItemCollectionSizeLimitExceededException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::ItemCollectionSizeLimitExceededException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::ItemCollectionSizeLimitExceededException]
@@ -264,11 +262,11 @@ module AWS::SDK::DynamoDB
     end
 
     class LimitExceededException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::LimitExceededException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::LimitExceededException]
@@ -276,11 +274,11 @@ module AWS::SDK::DynamoDB
     end
 
     class PointInTimeRecoveryUnavailableException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::PointInTimeRecoveryUnavailableException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::PointInTimeRecoveryUnavailableException]
@@ -288,11 +286,11 @@ module AWS::SDK::DynamoDB
     end
 
     class ProvisionedThroughputExceededException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::ProvisionedThroughputExceededException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::ProvisionedThroughputExceededException]
@@ -300,11 +298,11 @@ module AWS::SDK::DynamoDB
     end
 
     class ReplicaAlreadyExistsException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::ReplicaAlreadyExistsException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::ReplicaAlreadyExistsException]
@@ -312,11 +310,11 @@ module AWS::SDK::DynamoDB
     end
 
     class ReplicaNotFoundException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::ReplicaNotFoundException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::ReplicaNotFoundException]
@@ -324,11 +322,11 @@ module AWS::SDK::DynamoDB
     end
 
     class RequestLimitExceeded < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::RequestLimitExceeded.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::RequestLimitExceeded]
@@ -336,11 +334,11 @@ module AWS::SDK::DynamoDB
     end
 
     class ResourceInUseException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::ResourceInUseException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::ResourceInUseException]
@@ -348,11 +346,11 @@ module AWS::SDK::DynamoDB
     end
 
     class ResourceNotFoundException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::ResourceNotFoundException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::ResourceNotFoundException]
@@ -360,11 +358,11 @@ module AWS::SDK::DynamoDB
     end
 
     class TableAlreadyExistsException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::TableAlreadyExistsException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::TableAlreadyExistsException]
@@ -372,11 +370,11 @@ module AWS::SDK::DynamoDB
     end
 
     class TableInUseException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::TableInUseException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::TableInUseException]
@@ -384,11 +382,11 @@ module AWS::SDK::DynamoDB
     end
 
     class TableNotFoundException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::TableNotFoundException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::TableNotFoundException]
@@ -396,11 +394,11 @@ module AWS::SDK::DynamoDB
     end
 
     class TransactionCanceledException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::TransactionCanceledException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::TransactionCanceledException]
@@ -408,11 +406,11 @@ module AWS::SDK::DynamoDB
     end
 
     class TransactionConflictException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::TransactionConflictException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::TransactionConflictException]
@@ -420,11 +418,11 @@ module AWS::SDK::DynamoDB
     end
 
     class TransactionInProgressException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::TransactionInProgressException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::TransactionInProgressException]

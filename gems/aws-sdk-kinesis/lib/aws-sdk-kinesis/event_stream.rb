@@ -55,96 +55,6 @@ module AWS::SDK::Kinesis
         on(Types::SubscribeToShardEventStream::SubscribeToShardEvent, block)
       end
 
-      # Register an event handler for resource_not_found_exception events
-      # @yield [event] Called when resource_not_found_exception events are received.
-      # @yieldparam event [Types::SubscribeToShardEventStream::ResourceNotFoundException] the event.
-      # @example Event structure
-      #   event #=> Types::ResourceNotFoundException
-      #   event.message #=> String
-      def on_resource_not_found_exception(&block)
-        on(Types::SubscribeToShardEventStream::ResourceNotFoundException, block)
-      end
-
-      # Register an event handler for resource_in_use_exception events
-      # @yield [event] Called when resource_in_use_exception events are received.
-      # @yieldparam event [Types::SubscribeToShardEventStream::ResourceInUseException] the event.
-      # @example Event structure
-      #   event #=> Types::ResourceInUseException
-      #   event.message #=> String
-      def on_resource_in_use_exception(&block)
-        on(Types::SubscribeToShardEventStream::ResourceInUseException, block)
-      end
-
-      # Register an event handler for kms_disabled_exception events
-      # @yield [event] Called when kms_disabled_exception events are received.
-      # @yieldparam event [Types::SubscribeToShardEventStream::KmsDisabledException] the event.
-      # @example Event structure
-      #   event #=> Types::KMSDisabledException
-      #   event.message #=> String
-      def on_kms_disabled_exception(&block)
-        on(Types::SubscribeToShardEventStream::KmsDisabledException, block)
-      end
-
-      # Register an event handler for kms_invalid_state_exception events
-      # @yield [event] Called when kms_invalid_state_exception events are received.
-      # @yieldparam event [Types::SubscribeToShardEventStream::KmsInvalidStateException] the event.
-      # @example Event structure
-      #   event #=> Types::KMSInvalidStateException
-      #   event.message #=> String
-      def on_kms_invalid_state_exception(&block)
-        on(Types::SubscribeToShardEventStream::KmsInvalidStateException, block)
-      end
-
-      # Register an event handler for kms_access_denied_exception events
-      # @yield [event] Called when kms_access_denied_exception events are received.
-      # @yieldparam event [Types::SubscribeToShardEventStream::KmsAccessDeniedException] the event.
-      # @example Event structure
-      #   event #=> Types::KMSAccessDeniedException
-      #   event.message #=> String
-      def on_kms_access_denied_exception(&block)
-        on(Types::SubscribeToShardEventStream::KmsAccessDeniedException, block)
-      end
-
-      # Register an event handler for kms_not_found_exception events
-      # @yield [event] Called when kms_not_found_exception events are received.
-      # @yieldparam event [Types::SubscribeToShardEventStream::KmsNotFoundException] the event.
-      # @example Event structure
-      #   event #=> Types::KMSNotFoundException
-      #   event.message #=> String
-      def on_kms_not_found_exception(&block)
-        on(Types::SubscribeToShardEventStream::KmsNotFoundException, block)
-      end
-
-      # Register an event handler for kms_opt_in_required events
-      # @yield [event] Called when kms_opt_in_required events are received.
-      # @yieldparam event [Types::SubscribeToShardEventStream::KmsOptInRequired] the event.
-      # @example Event structure
-      #   event #=> Types::KMSOptInRequired
-      #   event.message #=> String
-      def on_kms_opt_in_required(&block)
-        on(Types::SubscribeToShardEventStream::KmsOptInRequired, block)
-      end
-
-      # Register an event handler for kms_throttling_exception events
-      # @yield [event] Called when kms_throttling_exception events are received.
-      # @yieldparam event [Types::SubscribeToShardEventStream::KmsThrottlingException] the event.
-      # @example Event structure
-      #   event #=> Types::KMSThrottlingException
-      #   event.message #=> String
-      def on_kms_throttling_exception(&block)
-        on(Types::SubscribeToShardEventStream::KmsThrottlingException, block)
-      end
-
-      # Register an event handler for internal_failure_exception events
-      # @yield [event] Called when internal_failure_exception events are received.
-      # @yieldparam event [Types::SubscribeToShardEventStream::InternalFailureException] the event.
-      # @example Event structure
-      #   event #=> Types::InternalFailureException
-      #   event.message #=> String
-      def on_internal_failure_exception(&block)
-        on(Types::SubscribeToShardEventStream::InternalFailureException, block)
-      end
-
       # Register an event handler for any unknown events.
       # @yield [event] Called when unknown events are received.
       # @yieldparam event [Types::SubscribeToShardEventStream::Unknown] the event with value set to the Message
@@ -156,20 +66,73 @@ module AWS::SDK::Kinesis
 
       def parse_event(type, message)
         case type
-        when 'initial-response' then Parsers::EventStream::SubscribeToShardInitialResponse.parse(message)
-        when 'SubscribeToShardEvent' then Types::SubscribeToShardEventStream::SubscribeToShardEvent.new(Parsers::EventStream::SubscribeToShardEvent.parse(message))
-        when 'ResourceNotFoundException' then Types::SubscribeToShardEventStream::ResourceNotFoundException.new(Parsers::EventStream::ResourceNotFoundException.parse(message))
-        when 'ResourceInUseException' then Types::SubscribeToShardEventStream::ResourceInUseException.new(Parsers::EventStream::ResourceInUseException.parse(message))
-        when 'KmsDisabledException' then Types::SubscribeToShardEventStream::KmsDisabledException.new(Parsers::EventStream::KMSDisabledException.parse(message))
-        when 'KmsInvalidStateException' then Types::SubscribeToShardEventStream::KmsInvalidStateException.new(Parsers::EventStream::KMSInvalidStateException.parse(message))
-        when 'KmsAccessDeniedException' then Types::SubscribeToShardEventStream::KmsAccessDeniedException.new(Parsers::EventStream::KMSAccessDeniedException.parse(message))
-        when 'KmsNotFoundException' then Types::SubscribeToShardEventStream::KmsNotFoundException.new(Parsers::EventStream::KMSNotFoundException.parse(message))
-        when 'KmsOptInRequired' then Types::SubscribeToShardEventStream::KmsOptInRequired.new(Parsers::EventStream::KMSOptInRequired.parse(message))
-        when 'KmsThrottlingException' then Types::SubscribeToShardEventStream::KmsThrottlingException.new(Parsers::EventStream::KMSThrottlingException.parse(message))
-        when 'InternalFailureException' then Types::SubscribeToShardEventStream::InternalFailureException.new(Parsers::EventStream::InternalFailureException.parse(message))
+        when 'initial-response'
+          Parsers::EventStream::SubscribeToShardInitialResponse.parse(message)
+        when 'SubscribeToShardEvent'
+          Types::SubscribeToShardEventStream::SubscribeToShardEvent.new(Parsers::EventStream::SubscribeToShardEvent.parse(message))
+        when 'ResourceNotFoundException'
+          Types::SubscribeToShardEventStream::ResourceNotFoundException.new(Parsers::EventStream::ResourceNotFoundException.parse(message))
+        when 'ResourceInUseException'
+          Types::SubscribeToShardEventStream::ResourceInUseException.new(Parsers::EventStream::ResourceInUseException.parse(message))
+        when 'KmsDisabledException'
+          Types::SubscribeToShardEventStream::KmsDisabledException.new(Parsers::EventStream::KMSDisabledException.parse(message))
+        when 'KmsInvalidStateException'
+          Types::SubscribeToShardEventStream::KmsInvalidStateException.new(Parsers::EventStream::KMSInvalidStateException.parse(message))
+        when 'KmsAccessDeniedException'
+          Types::SubscribeToShardEventStream::KmsAccessDeniedException.new(Parsers::EventStream::KMSAccessDeniedException.parse(message))
+        when 'KmsNotFoundException'
+          Types::SubscribeToShardEventStream::KmsNotFoundException.new(Parsers::EventStream::KMSNotFoundException.parse(message))
+        when 'KmsOptInRequired'
+          Types::SubscribeToShardEventStream::KmsOptInRequired.new(Parsers::EventStream::KMSOptInRequired.parse(message))
+        when 'KmsThrottlingException'
+          Types::SubscribeToShardEventStream::KmsThrottlingException.new(Parsers::EventStream::KMSThrottlingException.parse(message))
+        when 'InternalFailureException'
+          Types::SubscribeToShardEventStream::InternalFailureException.new(Parsers::EventStream::InternalFailureException.parse(message))
         else
           Types::SubscribeToShardEventStream::Unknown.new(name: type || 'unknown', value: message)
         end
+      end
+
+      def parse_exception_event(type, message)
+        case type
+        when 'ResourceNotFoundException'
+          data = Parsers::EventStream::ResourceNotFoundException.parse(message)
+          Errors::ResourceNotFoundException.new(data: data, error_code: 'AWS::SDK::Kinesis::Types::SubscribeToShardEventStream::ResourceNotFoundException')
+        when 'ResourceInUseException'
+          data = Parsers::EventStream::ResourceInUseException.parse(message)
+          Errors::ResourceInUseException.new(data: data, error_code: 'AWS::SDK::Kinesis::Types::SubscribeToShardEventStream::ResourceInUseException')
+        when 'KmsDisabledException'
+          data = Parsers::EventStream::KMSDisabledException.parse(message)
+          Errors::KMSDisabledException.new(data: data, error_code: 'AWS::SDK::Kinesis::Types::SubscribeToShardEventStream::KmsDisabledException')
+        when 'KmsInvalidStateException'
+          data = Parsers::EventStream::KMSInvalidStateException.parse(message)
+          Errors::KMSInvalidStateException.new(data: data, error_code: 'AWS::SDK::Kinesis::Types::SubscribeToShardEventStream::KmsInvalidStateException')
+        when 'KmsAccessDeniedException'
+          data = Parsers::EventStream::KMSAccessDeniedException.parse(message)
+          Errors::KMSAccessDeniedException.new(data: data, error_code: 'AWS::SDK::Kinesis::Types::SubscribeToShardEventStream::KmsAccessDeniedException')
+        when 'KmsNotFoundException'
+          data = Parsers::EventStream::KMSNotFoundException.parse(message)
+          Errors::KMSNotFoundException.new(data: data, error_code: 'AWS::SDK::Kinesis::Types::SubscribeToShardEventStream::KmsNotFoundException')
+        when 'KmsOptInRequired'
+          data = Parsers::EventStream::KMSOptInRequired.parse(message)
+          Errors::KMSOptInRequired.new(data: data, error_code: 'AWS::SDK::Kinesis::Types::SubscribeToShardEventStream::KmsOptInRequired')
+        when 'KmsThrottlingException'
+          data = Parsers::EventStream::KMSThrottlingException.parse(message)
+          Errors::KMSThrottlingException.new(data: data, error_code: 'AWS::SDK::Kinesis::Types::SubscribeToShardEventStream::KmsThrottlingException')
+        when 'InternalFailureException'
+          data = Parsers::EventStream::InternalFailureException.parse(message)
+          Errors::InternalFailureException.new(data: data, error_code: 'AWS::SDK::Kinesis::Types::SubscribeToShardEventStream::InternalFailureException')
+        else
+          data = Types::SubscribeToShardEventStream::Unknown.new(name: type || 'unknown', value: message)
+          Errors::ApiError.new(error_code: type || 'unknown', metadata: {data: data})
+        end
+      end
+
+      def parse_error_event(message)
+        error_code = message.headers.delete(':error-code')&.value
+        error_message = message.headers.delete(':error-message')&.value
+        metadata = {message: message}
+        Errors::ApiError.new(error_code: error_code, metadata: metadata, message: error_message)
       end
     end
   end

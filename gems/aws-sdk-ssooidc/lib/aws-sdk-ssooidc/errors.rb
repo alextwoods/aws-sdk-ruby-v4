@@ -24,18 +24,16 @@ module AWS::SDK::SSOOIDC
     end
 
     # Base class for all errors returned by this service
-    class ApiError < Hearth::HTTP::ApiError; end
+    class ApiError < Hearth::ApiError; end
 
     # Base class for all errors returned where the client is at fault.
-    # These are generally errors with 4XX HTTP status codes.
     class ApiClientError < ApiError; end
 
     # Base class for all errors returned where the server is at fault.
-    # These are generally errors with 5XX HTTP status codes.
     class ApiServerError < ApiError; end
 
     # Base class for all errors returned where the service returned
-    # a 3XX redirection.
+    # a redirection.
     class ApiRedirectError < ApiError
       def initialize(location:, **kwargs)
         @location = location
@@ -47,11 +45,11 @@ module AWS::SDK::SSOOIDC
     end
 
     class AccessDeniedException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::AccessDeniedException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::AccessDeniedException]
@@ -59,11 +57,11 @@ module AWS::SDK::SSOOIDC
     end
 
     class AuthorizationPendingException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::AuthorizationPendingException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::AuthorizationPendingException]
@@ -71,11 +69,11 @@ module AWS::SDK::SSOOIDC
     end
 
     class ExpiredTokenException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::ExpiredTokenException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::ExpiredTokenException]
@@ -83,11 +81,11 @@ module AWS::SDK::SSOOIDC
     end
 
     class InternalServerException < ApiServerError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::InternalServerException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::InternalServerException]
@@ -95,11 +93,11 @@ module AWS::SDK::SSOOIDC
     end
 
     class InvalidClientException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::InvalidClientException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::InvalidClientException]
@@ -107,11 +105,11 @@ module AWS::SDK::SSOOIDC
     end
 
     class InvalidClientMetadataException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::InvalidClientMetadataException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::InvalidClientMetadataException]
@@ -119,11 +117,11 @@ module AWS::SDK::SSOOIDC
     end
 
     class InvalidGrantException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::InvalidGrantException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::InvalidGrantException]
@@ -131,11 +129,11 @@ module AWS::SDK::SSOOIDC
     end
 
     class InvalidRedirectUriException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::InvalidRedirectUriException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::InvalidRedirectUriException]
@@ -143,11 +141,11 @@ module AWS::SDK::SSOOIDC
     end
 
     class InvalidRequestException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::InvalidRequestException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::InvalidRequestException]
@@ -155,11 +153,11 @@ module AWS::SDK::SSOOIDC
     end
 
     class InvalidRequestRegionException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::InvalidRequestRegionException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::InvalidRequestRegionException]
@@ -167,11 +165,11 @@ module AWS::SDK::SSOOIDC
     end
 
     class InvalidScopeException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::InvalidScopeException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::InvalidScopeException]
@@ -179,11 +177,11 @@ module AWS::SDK::SSOOIDC
     end
 
     class SlowDownException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::SlowDownException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::SlowDownException]
@@ -191,11 +189,11 @@ module AWS::SDK::SSOOIDC
     end
 
     class UnauthorizedClientException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::UnauthorizedClientException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::UnauthorizedClientException]
@@ -203,11 +201,11 @@ module AWS::SDK::SSOOIDC
     end
 
     class UnsupportedGrantTypeException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::UnsupportedGrantTypeException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::UnsupportedGrantTypeException]

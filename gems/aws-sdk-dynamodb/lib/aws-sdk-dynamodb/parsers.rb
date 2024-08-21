@@ -167,25 +167,27 @@ module AWS::SDK::DynamoDB
 
     # Error Parser for BackupInUseException
     class BackupInUseException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::BackupInUseException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message'] unless map['message'].nil?
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message'] unless map['message'].nil?
+        end
+        Errors::BackupInUseException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for BackupNotFoundException
     class BackupNotFoundException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::BackupNotFoundException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message'] unless map['message'].nil?
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message'] unless map['message'].nil?
+        end
+        Errors::BackupNotFoundException.new(data: data, **kwargs)
       end
     end
 
@@ -349,14 +351,15 @@ module AWS::SDK::DynamoDB
 
     # Error Parser for ConditionalCheckFailedException
     class ConditionalCheckFailedException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::ConditionalCheckFailedException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message'] unless map['message'].nil?
-        data.item = AttributeMap.parse(map['Item']) unless map['Item'].nil?
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message'] unless map['message'].nil?
+          data.item = AttributeMap.parse(map['Item']) unless map['Item'].nil?
+        end
+        Errors::ConditionalCheckFailedException.new(data: data, **kwargs)
       end
     end
 
@@ -393,13 +396,14 @@ module AWS::SDK::DynamoDB
 
     # Error Parser for ContinuousBackupsUnavailableException
     class ContinuousBackupsUnavailableException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::ContinuousBackupsUnavailableException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message'] unless map['message'].nil?
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message'] unless map['message'].nil?
+        end
+        Errors::ContinuousBackupsUnavailableException.new(data: data, **kwargs)
       end
     end
 
@@ -691,13 +695,14 @@ module AWS::SDK::DynamoDB
 
     # Error Parser for DuplicateItemException
     class DuplicateItemException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::DuplicateItemException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message'] unless map['message'].nil?
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message'] unless map['message'].nil?
+        end
+        Errors::DuplicateItemException.new(data: data, **kwargs)
       end
     end
 
@@ -768,13 +773,14 @@ module AWS::SDK::DynamoDB
 
     # Error Parser for ExportConflictException
     class ExportConflictException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::ExportConflictException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message'] unless map['message'].nil?
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message'] unless map['message'].nil?
+        end
+        Errors::ExportConflictException.new(data: data, **kwargs)
       end
     end
 
@@ -808,13 +814,14 @@ module AWS::SDK::DynamoDB
 
     # Error Parser for ExportNotFoundException
     class ExportNotFoundException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::ExportNotFoundException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message'] unless map['message'].nil?
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message'] unless map['message'].nil?
+        end
+        Errors::ExportNotFoundException.new(data: data, **kwargs)
       end
     end
 
@@ -951,13 +958,14 @@ module AWS::SDK::DynamoDB
 
     # Error Parser for GlobalTableAlreadyExistsException
     class GlobalTableAlreadyExistsException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::GlobalTableAlreadyExistsException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message'] unless map['message'].nil?
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message'] unless map['message'].nil?
+        end
+        Errors::GlobalTableAlreadyExistsException.new(data: data, **kwargs)
       end
     end
 
@@ -983,49 +991,53 @@ module AWS::SDK::DynamoDB
 
     # Error Parser for GlobalTableNotFoundException
     class GlobalTableNotFoundException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::GlobalTableNotFoundException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message'] unless map['message'].nil?
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message'] unless map['message'].nil?
+        end
+        Errors::GlobalTableNotFoundException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for IdempotentParameterMismatchException
     class IdempotentParameterMismatchException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::IdempotentParameterMismatchException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['Message'] unless map['Message'].nil?
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['Message'] unless map['Message'].nil?
+        end
+        Errors::IdempotentParameterMismatchException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for ImportConflictException
     class ImportConflictException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::ImportConflictException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message'] unless map['message'].nil?
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message'] unless map['message'].nil?
+        end
+        Errors::ImportConflictException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for ImportNotFoundException
     class ImportNotFoundException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::ImportNotFoundException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message'] unless map['message'].nil?
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message'] unless map['message'].nil?
+        end
+        Errors::ImportNotFoundException.new(data: data, **kwargs)
       end
     end
 
@@ -1101,13 +1113,14 @@ module AWS::SDK::DynamoDB
 
     # Error Parser for IndexNotFoundException
     class IndexNotFoundException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::IndexNotFoundException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message'] unless map['message'].nil?
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message'] unless map['message'].nil?
+        end
+        Errors::IndexNotFoundException.new(data: data, **kwargs)
       end
     end
 
@@ -1121,49 +1134,53 @@ module AWS::SDK::DynamoDB
 
     # Error Parser for InternalServerError
     class InternalServerError
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::InternalServerError.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message'] unless map['message'].nil?
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message'] unless map['message'].nil?
+        end
+        Errors::InternalServerError.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for InvalidEndpointException
     class InvalidEndpointException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::InvalidEndpointException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['Message'] unless map['Message'].nil?
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['Message'] unless map['Message'].nil?
+        end
+        Errors::InvalidEndpointException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for InvalidExportTimeException
     class InvalidExportTimeException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::InvalidExportTimeException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message'] unless map['message'].nil?
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message'] unless map['message'].nil?
+        end
+        Errors::InvalidExportTimeException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for InvalidRestoreTimeException
     class InvalidRestoreTimeException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::InvalidRestoreTimeException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message'] unless map['message'].nil?
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message'] unless map['message'].nil?
+        end
+        Errors::InvalidRestoreTimeException.new(data: data, **kwargs)
       end
     end
 
@@ -1214,13 +1231,14 @@ module AWS::SDK::DynamoDB
 
     # Error Parser for ItemCollectionSizeLimitExceededException
     class ItemCollectionSizeLimitExceededException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::ItemCollectionSizeLimitExceededException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message'] unless map['message'].nil?
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message'] unless map['message'].nil?
+        end
+        Errors::ItemCollectionSizeLimitExceededException.new(data: data, **kwargs)
       end
     end
 
@@ -1316,13 +1334,14 @@ module AWS::SDK::DynamoDB
 
     # Error Parser for LimitExceededException
     class LimitExceededException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::LimitExceededException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message'] unless map['message'].nil?
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message'] unless map['message'].nil?
+        end
+        Errors::LimitExceededException.new(data: data, **kwargs)
       end
     end
 
@@ -1503,13 +1522,14 @@ module AWS::SDK::DynamoDB
 
     # Error Parser for PointInTimeRecoveryUnavailableException
     class PointInTimeRecoveryUnavailableException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::PointInTimeRecoveryUnavailableException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message'] unless map['message'].nil?
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message'] unless map['message'].nil?
+        end
+        Errors::PointInTimeRecoveryUnavailableException.new(data: data, **kwargs)
       end
     end
 
@@ -1545,13 +1565,14 @@ module AWS::SDK::DynamoDB
 
     # Error Parser for ProvisionedThroughputExceededException
     class ProvisionedThroughputExceededException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::ProvisionedThroughputExceededException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message'] unless map['message'].nil?
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message'] unless map['message'].nil?
+        end
+        Errors::ProvisionedThroughputExceededException.new(data: data, **kwargs)
       end
     end
 
@@ -1619,13 +1640,14 @@ module AWS::SDK::DynamoDB
 
     # Error Parser for ReplicaAlreadyExistsException
     class ReplicaAlreadyExistsException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::ReplicaAlreadyExistsException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message'] unless map['message'].nil?
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message'] unless map['message'].nil?
+        end
+        Errors::ReplicaAlreadyExistsException.new(data: data, **kwargs)
       end
     end
 
@@ -1740,13 +1762,14 @@ module AWS::SDK::DynamoDB
 
     # Error Parser for ReplicaNotFoundException
     class ReplicaNotFoundException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::ReplicaNotFoundException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message'] unless map['message'].nil?
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message'] unless map['message'].nil?
+        end
+        Errors::ReplicaNotFoundException.new(data: data, **kwargs)
       end
     end
 
@@ -1776,37 +1799,40 @@ module AWS::SDK::DynamoDB
 
     # Error Parser for RequestLimitExceeded
     class RequestLimitExceeded
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::RequestLimitExceeded.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message'] unless map['message'].nil?
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message'] unless map['message'].nil?
+        end
+        Errors::RequestLimitExceeded.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for ResourceInUseException
     class ResourceInUseException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::ResourceInUseException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message'] unless map['message'].nil?
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message'] unless map['message'].nil?
+        end
+        Errors::ResourceInUseException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for ResourceNotFoundException
     class ResourceNotFoundException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::ResourceNotFoundException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message'] unless map['message'].nil?
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message'] unless map['message'].nil?
+        end
+        Errors::ResourceNotFoundException.new(data: data, **kwargs)
       end
     end
 
@@ -1946,13 +1972,14 @@ module AWS::SDK::DynamoDB
 
     # Error Parser for TableAlreadyExistsException
     class TableAlreadyExistsException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::TableAlreadyExistsException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message'] unless map['message'].nil?
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message'] unless map['message'].nil?
+        end
+        Errors::TableAlreadyExistsException.new(data: data, **kwargs)
       end
     end
 
@@ -2021,13 +2048,14 @@ module AWS::SDK::DynamoDB
 
     # Error Parser for TableInUseException
     class TableInUseException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::TableInUseException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message'] unless map['message'].nil?
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message'] unless map['message'].nil?
+        end
+        Errors::TableInUseException.new(data: data, **kwargs)
       end
     end
 
@@ -2041,13 +2069,14 @@ module AWS::SDK::DynamoDB
 
     # Error Parser for TableNotFoundException
     class TableNotFoundException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::TableNotFoundException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message'] unless map['message'].nil?
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message'] unless map['message'].nil?
+        end
+        Errors::TableNotFoundException.new(data: data, **kwargs)
       end
     end
 
@@ -2122,38 +2151,41 @@ module AWS::SDK::DynamoDB
 
     # Error Parser for TransactionCanceledException
     class TransactionCanceledException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::TransactionCanceledException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['Message'] unless map['Message'].nil?
-        data.cancellation_reasons = CancellationReasonList.parse(map['CancellationReasons']) unless map['CancellationReasons'].nil?
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['Message'] unless map['Message'].nil?
+          data.cancellation_reasons = CancellationReasonList.parse(map['CancellationReasons']) unless map['CancellationReasons'].nil?
+        end
+        Errors::TransactionCanceledException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for TransactionConflictException
     class TransactionConflictException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::TransactionConflictException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message'] unless map['message'].nil?
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message'] unless map['message'].nil?
+        end
+        Errors::TransactionConflictException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for TransactionInProgressException
     class TransactionInProgressException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::TransactionInProgressException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['Message'] unless map['Message'].nil?
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['Message'] unless map['Message'].nil?
+        end
+        Errors::TransactionInProgressException.new(data: data, **kwargs)
       end
     end
 

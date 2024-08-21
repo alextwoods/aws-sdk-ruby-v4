@@ -180,23 +180,23 @@ module AWS::SDK::S3
 
     # Error Parser for BucketAlreadyExists
     class BucketAlreadyExists
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::BucketAlreadyExists.new
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data
+        Errors::BucketAlreadyExists.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for BucketAlreadyOwnedByYou
     class BucketAlreadyOwnedByYou
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::BucketAlreadyOwnedByYou.new
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data
+        Errors::BucketAlreadyOwnedByYou.new(data: data, **kwargs)
       end
     end
 
@@ -1535,7 +1535,7 @@ module AWS::SDK::S3
 
     # Error Parser for InvalidObjectState
     class InvalidObjectState
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::InvalidObjectState.new
         body = http_resp.body.read
         return data if body.empty?
@@ -1546,7 +1546,7 @@ module AWS::SDK::S3
         xml.at('AccessTier') do |node|
           data.access_tier = (node.text || '')
         end
-        data
+        Errors::InvalidObjectState.new(data: data, **kwargs)
       end
     end
 
@@ -2310,34 +2310,34 @@ module AWS::SDK::S3
 
     # Error Parser for NoSuchBucket
     class NoSuchBucket
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::NoSuchBucket.new
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data
+        Errors::NoSuchBucket.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for NoSuchKey
     class NoSuchKey
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::NoSuchKey.new
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data
+        Errors::NoSuchKey.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for NoSuchUpload
     class NoSuchUpload
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::NoSuchUpload.new
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data
+        Errors::NoSuchUpload.new(data: data, **kwargs)
       end
     end
 
@@ -2382,12 +2382,12 @@ module AWS::SDK::S3
 
     # Error Parser for NotFound
     class NotFound
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::NotFound.new
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data
+        Errors::NotFound.new(data: data, **kwargs)
       end
     end
 
@@ -2434,12 +2434,12 @@ module AWS::SDK::S3
 
     # Error Parser for ObjectAlreadyInActiveTierError
     class ObjectAlreadyInActiveTierError
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::ObjectAlreadyInActiveTierError.new
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data
+        Errors::ObjectAlreadyInActiveTierError.new(data: data, **kwargs)
       end
     end
 
@@ -2501,12 +2501,12 @@ module AWS::SDK::S3
 
     # Error Parser for ObjectNotInActiveTierError
     class ObjectNotInActiveTierError
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::ObjectNotInActiveTierError.new
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data
+        Errors::ObjectNotInActiveTierError.new(data: data, **kwargs)
       end
     end
 

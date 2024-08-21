@@ -166,86 +166,6 @@ module AWS::SDK::LexRuntimeV2
         on(Types::StartConversationResponseEventStream::HeartbeatEvent, block)
       end
 
-      # Register an event handler for access_denied_exception events
-      # @yield [event] Called when access_denied_exception events are received.
-      # @yieldparam event [Types::StartConversationResponseEventStream::AccessDeniedException] the event.
-      # @example Event structure
-      #   event #=> Types::AccessDeniedException
-      #   event.message #=> String
-      def on_access_denied_exception(&block)
-        on(Types::StartConversationResponseEventStream::AccessDeniedException, block)
-      end
-
-      # Register an event handler for resource_not_found_exception events
-      # @yield [event] Called when resource_not_found_exception events are received.
-      # @yieldparam event [Types::StartConversationResponseEventStream::ResourceNotFoundException] the event.
-      # @example Event structure
-      #   event #=> Types::ResourceNotFoundException
-      #   event.message #=> String
-      def on_resource_not_found_exception(&block)
-        on(Types::StartConversationResponseEventStream::ResourceNotFoundException, block)
-      end
-
-      # Register an event handler for validation_exception events
-      # @yield [event] Called when validation_exception events are received.
-      # @yieldparam event [Types::StartConversationResponseEventStream::ValidationException] the event.
-      # @example Event structure
-      #   event #=> Types::ValidationException
-      #   event.message #=> String
-      def on_validation_exception(&block)
-        on(Types::StartConversationResponseEventStream::ValidationException, block)
-      end
-
-      # Register an event handler for throttling_exception events
-      # @yield [event] Called when throttling_exception events are received.
-      # @yieldparam event [Types::StartConversationResponseEventStream::ThrottlingException] the event.
-      # @example Event structure
-      #   event #=> Types::ThrottlingException
-      #   event.message #=> String
-      def on_throttling_exception(&block)
-        on(Types::StartConversationResponseEventStream::ThrottlingException, block)
-      end
-
-      # Register an event handler for internal_server_exception events
-      # @yield [event] Called when internal_server_exception events are received.
-      # @yieldparam event [Types::StartConversationResponseEventStream::InternalServerException] the event.
-      # @example Event structure
-      #   event #=> Types::InternalServerException
-      #   event.message #=> String
-      def on_internal_server_exception(&block)
-        on(Types::StartConversationResponseEventStream::InternalServerException, block)
-      end
-
-      # Register an event handler for conflict_exception events
-      # @yield [event] Called when conflict_exception events are received.
-      # @yieldparam event [Types::StartConversationResponseEventStream::ConflictException] the event.
-      # @example Event structure
-      #   event #=> Types::ConflictException
-      #   event.message #=> String
-      def on_conflict_exception(&block)
-        on(Types::StartConversationResponseEventStream::ConflictException, block)
-      end
-
-      # Register an event handler for dependency_failed_exception events
-      # @yield [event] Called when dependency_failed_exception events are received.
-      # @yieldparam event [Types::StartConversationResponseEventStream::DependencyFailedException] the event.
-      # @example Event structure
-      #   event #=> Types::DependencyFailedException
-      #   event.message #=> String
-      def on_dependency_failed_exception(&block)
-        on(Types::StartConversationResponseEventStream::DependencyFailedException, block)
-      end
-
-      # Register an event handler for bad_gateway_exception events
-      # @yield [event] Called when bad_gateway_exception events are received.
-      # @yieldparam event [Types::StartConversationResponseEventStream::BadGatewayException] the event.
-      # @example Event structure
-      #   event #=> Types::BadGatewayException
-      #   event.message #=> String
-      def on_bad_gateway_exception(&block)
-        on(Types::StartConversationResponseEventStream::BadGatewayException, block)
-      end
-
       # Register an event handler for any unknown events.
       # @yield [event] Called when unknown events are received.
       # @yieldparam event [Types::StartConversationResponseEventStream::Unknown] the event with value set to the Message
@@ -257,24 +177,78 @@ module AWS::SDK::LexRuntimeV2
 
       def parse_event(type, message)
         case type
-        when 'initial-response' then Parsers::EventStream::StartConversationInitialResponse.parse(message)
-        when 'PlaybackInterruptionEvent' then Types::StartConversationResponseEventStream::PlaybackInterruptionEvent.new(Parsers::EventStream::PlaybackInterruptionEvent.parse(message))
-        when 'TranscriptEvent' then Types::StartConversationResponseEventStream::TranscriptEvent.new(Parsers::EventStream::TranscriptEvent.parse(message))
-        when 'IntentResultEvent' then Types::StartConversationResponseEventStream::IntentResultEvent.new(Parsers::EventStream::IntentResultEvent.parse(message))
-        when 'TextResponseEvent' then Types::StartConversationResponseEventStream::TextResponseEvent.new(Parsers::EventStream::TextResponseEvent.parse(message))
-        when 'AudioResponseEvent' then Types::StartConversationResponseEventStream::AudioResponseEvent.new(Parsers::EventStream::AudioResponseEvent.parse(message))
-        when 'HeartbeatEvent' then Types::StartConversationResponseEventStream::HeartbeatEvent.new(Parsers::EventStream::HeartbeatEvent.parse(message))
-        when 'AccessDeniedException' then Types::StartConversationResponseEventStream::AccessDeniedException.new(Parsers::EventStream::AccessDeniedException.parse(message))
-        when 'ResourceNotFoundException' then Types::StartConversationResponseEventStream::ResourceNotFoundException.new(Parsers::EventStream::ResourceNotFoundException.parse(message))
-        when 'ValidationException' then Types::StartConversationResponseEventStream::ValidationException.new(Parsers::EventStream::ValidationException.parse(message))
-        when 'ThrottlingException' then Types::StartConversationResponseEventStream::ThrottlingException.new(Parsers::EventStream::ThrottlingException.parse(message))
-        when 'InternalServerException' then Types::StartConversationResponseEventStream::InternalServerException.new(Parsers::EventStream::InternalServerException.parse(message))
-        when 'ConflictException' then Types::StartConversationResponseEventStream::ConflictException.new(Parsers::EventStream::ConflictException.parse(message))
-        when 'DependencyFailedException' then Types::StartConversationResponseEventStream::DependencyFailedException.new(Parsers::EventStream::DependencyFailedException.parse(message))
-        when 'BadGatewayException' then Types::StartConversationResponseEventStream::BadGatewayException.new(Parsers::EventStream::BadGatewayException.parse(message))
+        when 'initial-response'
+          Parsers::EventStream::StartConversationInitialResponse.parse(message)
+        when 'PlaybackInterruptionEvent'
+          Types::StartConversationResponseEventStream::PlaybackInterruptionEvent.new(Parsers::EventStream::PlaybackInterruptionEvent.parse(message))
+        when 'TranscriptEvent'
+          Types::StartConversationResponseEventStream::TranscriptEvent.new(Parsers::EventStream::TranscriptEvent.parse(message))
+        when 'IntentResultEvent'
+          Types::StartConversationResponseEventStream::IntentResultEvent.new(Parsers::EventStream::IntentResultEvent.parse(message))
+        when 'TextResponseEvent'
+          Types::StartConversationResponseEventStream::TextResponseEvent.new(Parsers::EventStream::TextResponseEvent.parse(message))
+        when 'AudioResponseEvent'
+          Types::StartConversationResponseEventStream::AudioResponseEvent.new(Parsers::EventStream::AudioResponseEvent.parse(message))
+        when 'HeartbeatEvent'
+          Types::StartConversationResponseEventStream::HeartbeatEvent.new(Parsers::EventStream::HeartbeatEvent.parse(message))
+        when 'AccessDeniedException'
+          Types::StartConversationResponseEventStream::AccessDeniedException.new(Parsers::EventStream::AccessDeniedException.parse(message))
+        when 'ResourceNotFoundException'
+          Types::StartConversationResponseEventStream::ResourceNotFoundException.new(Parsers::EventStream::ResourceNotFoundException.parse(message))
+        when 'ValidationException'
+          Types::StartConversationResponseEventStream::ValidationException.new(Parsers::EventStream::ValidationException.parse(message))
+        when 'ThrottlingException'
+          Types::StartConversationResponseEventStream::ThrottlingException.new(Parsers::EventStream::ThrottlingException.parse(message))
+        when 'InternalServerException'
+          Types::StartConversationResponseEventStream::InternalServerException.new(Parsers::EventStream::InternalServerException.parse(message))
+        when 'ConflictException'
+          Types::StartConversationResponseEventStream::ConflictException.new(Parsers::EventStream::ConflictException.parse(message))
+        when 'DependencyFailedException'
+          Types::StartConversationResponseEventStream::DependencyFailedException.new(Parsers::EventStream::DependencyFailedException.parse(message))
+        when 'BadGatewayException'
+          Types::StartConversationResponseEventStream::BadGatewayException.new(Parsers::EventStream::BadGatewayException.parse(message))
         else
           Types::StartConversationResponseEventStream::Unknown.new(name: type || 'unknown', value: message)
         end
+      end
+
+      def parse_exception_event(type, message)
+        case type
+        when 'AccessDeniedException'
+          data = Parsers::EventStream::AccessDeniedException.parse(message)
+          Errors::AccessDeniedException.new(data: data, error_code: 'AWS::SDK::LexRuntimeV2::Types::StartConversationResponseEventStream::AccessDeniedException')
+        when 'ResourceNotFoundException'
+          data = Parsers::EventStream::ResourceNotFoundException.parse(message)
+          Errors::ResourceNotFoundException.new(data: data, error_code: 'AWS::SDK::LexRuntimeV2::Types::StartConversationResponseEventStream::ResourceNotFoundException')
+        when 'ValidationException'
+          data = Parsers::EventStream::ValidationException.parse(message)
+          Errors::ValidationException.new(data: data, error_code: 'AWS::SDK::LexRuntimeV2::Types::StartConversationResponseEventStream::ValidationException')
+        when 'ThrottlingException'
+          data = Parsers::EventStream::ThrottlingException.parse(message)
+          Errors::ThrottlingException.new(data: data, error_code: 'AWS::SDK::LexRuntimeV2::Types::StartConversationResponseEventStream::ThrottlingException')
+        when 'InternalServerException'
+          data = Parsers::EventStream::InternalServerException.parse(message)
+          Errors::InternalServerException.new(data: data, error_code: 'AWS::SDK::LexRuntimeV2::Types::StartConversationResponseEventStream::InternalServerException')
+        when 'ConflictException'
+          data = Parsers::EventStream::ConflictException.parse(message)
+          Errors::ConflictException.new(data: data, error_code: 'AWS::SDK::LexRuntimeV2::Types::StartConversationResponseEventStream::ConflictException')
+        when 'DependencyFailedException'
+          data = Parsers::EventStream::DependencyFailedException.parse(message)
+          Errors::DependencyFailedException.new(data: data, error_code: 'AWS::SDK::LexRuntimeV2::Types::StartConversationResponseEventStream::DependencyFailedException')
+        when 'BadGatewayException'
+          data = Parsers::EventStream::BadGatewayException.parse(message)
+          Errors::BadGatewayException.new(data: data, error_code: 'AWS::SDK::LexRuntimeV2::Types::StartConversationResponseEventStream::BadGatewayException')
+        else
+          data = Types::StartConversationResponseEventStream::Unknown.new(name: type || 'unknown', value: message)
+          Errors::ApiError.new(error_code: type || 'unknown', metadata: {data: data})
+        end
+      end
+
+      def parse_error_event(message)
+        error_code = message.headers.delete(':error-code')&.value
+        error_message = message.headers.delete(':error-message')&.value
+        metadata = {message: message}
+        Errors::ApiError.new(error_code: error_code, metadata: metadata, message: error_message)
       end
     end
 

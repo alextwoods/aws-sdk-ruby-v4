@@ -51,7 +51,7 @@ module AWS::SDK::CloudWatch
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::ResourceNotFound]
+            error_parsers: [Parsers::ResourceNotFound]
           )
         )
         stack.use(Middleware::RequestId)
@@ -106,7 +106,7 @@ module AWS::SDK::CloudWatch
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::ResourceNotFoundException, Errors::InvalidParameterCombinationException, Errors::InvalidParameterValueException, Errors::InternalServiceFault, Errors::MissingRequiredParameterException]
+            error_parsers: [Parsers::ResourceNotFoundException, Parsers::InvalidParameterCombinationException, Parsers::InvalidParameterValueException, Parsers::InternalServiceFault, Parsers::MissingRequiredParameterException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -161,7 +161,7 @@ module AWS::SDK::CloudWatch
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::DashboardNotFoundError, Errors::InvalidParameterValueException, Errors::InternalServiceFault]
+            error_parsers: [Parsers::DashboardNotFoundError, Parsers::InvalidParameterValueException, Parsers::InternalServiceFault]
           )
         )
         stack.use(Middleware::RequestId)
@@ -216,7 +216,7 @@ module AWS::SDK::CloudWatch
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InvalidParameterValueException, Errors::MissingRequiredParameterException]
+            error_parsers: [Parsers::InvalidParameterValueException, Parsers::MissingRequiredParameterException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -271,7 +271,7 @@ module AWS::SDK::CloudWatch
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InvalidParameterValueException, Errors::InternalServiceFault, Errors::MissingRequiredParameterException]
+            error_parsers: [Parsers::InvalidParameterValueException, Parsers::InternalServiceFault, Parsers::MissingRequiredParameterException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -326,7 +326,7 @@ module AWS::SDK::CloudWatch
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InvalidNextToken]
+            error_parsers: [Parsers::InvalidNextToken]
           )
         )
         stack.use(Middleware::RequestId)
@@ -381,7 +381,7 @@ module AWS::SDK::CloudWatch
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InvalidNextToken]
+            error_parsers: [Parsers::InvalidNextToken]
           )
         )
         stack.use(Middleware::RequestId)
@@ -436,7 +436,7 @@ module AWS::SDK::CloudWatch
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -491,7 +491,7 @@ module AWS::SDK::CloudWatch
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InvalidNextToken, Errors::InvalidParameterCombinationException, Errors::InvalidParameterValueException, Errors::InternalServiceFault]
+            error_parsers: [Parsers::InvalidNextToken, Parsers::InvalidParameterCombinationException, Parsers::InvalidParameterValueException, Parsers::InternalServiceFault]
           )
         )
         stack.use(Middleware::RequestId)
@@ -546,7 +546,7 @@ module AWS::SDK::CloudWatch
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InvalidNextToken]
+            error_parsers: [Parsers::InvalidNextToken]
           )
         )
         stack.use(Middleware::RequestId)
@@ -601,7 +601,7 @@ module AWS::SDK::CloudWatch
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -656,7 +656,7 @@ module AWS::SDK::CloudWatch
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InvalidParameterValueException, Errors::MissingRequiredParameterException]
+            error_parsers: [Parsers::InvalidParameterValueException, Parsers::MissingRequiredParameterException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -711,7 +711,7 @@ module AWS::SDK::CloudWatch
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -766,7 +766,7 @@ module AWS::SDK::CloudWatch
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::LimitExceededException, Errors::InvalidParameterValueException, Errors::MissingRequiredParameterException]
+            error_parsers: [Parsers::LimitExceededException, Parsers::InvalidParameterValueException, Parsers::MissingRequiredParameterException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -821,7 +821,7 @@ module AWS::SDK::CloudWatch
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::DashboardNotFoundError, Errors::InvalidParameterValueException, Errors::InternalServiceFault]
+            error_parsers: [Parsers::DashboardNotFoundError, Parsers::InvalidParameterValueException, Parsers::InternalServiceFault]
           )
         )
         stack.use(Middleware::RequestId)
@@ -876,7 +876,7 @@ module AWS::SDK::CloudWatch
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::ResourceNotFoundException, Errors::InvalidParameterValueException, Errors::MissingRequiredParameterException]
+            error_parsers: [Parsers::ResourceNotFoundException, Parsers::InvalidParameterValueException, Parsers::MissingRequiredParameterException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -931,7 +931,7 @@ module AWS::SDK::CloudWatch
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InvalidNextToken]
+            error_parsers: [Parsers::InvalidNextToken]
           )
         )
         stack.use(Middleware::RequestId)
@@ -986,7 +986,7 @@ module AWS::SDK::CloudWatch
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InvalidParameterCombinationException, Errors::InvalidParameterValueException, Errors::InternalServiceFault, Errors::MissingRequiredParameterException]
+            error_parsers: [Parsers::InvalidParameterCombinationException, Parsers::InvalidParameterValueException, Parsers::InternalServiceFault, Parsers::MissingRequiredParameterException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1041,7 +1041,7 @@ module AWS::SDK::CloudWatch
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::ResourceNotFoundException, Errors::InvalidParameterCombinationException, Errors::InvalidParameterValueException, Errors::InternalServiceFault, Errors::MissingRequiredParameterException]
+            error_parsers: [Parsers::ResourceNotFoundException, Parsers::InvalidParameterCombinationException, Parsers::InvalidParameterValueException, Parsers::InternalServiceFault, Parsers::MissingRequiredParameterException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1096,7 +1096,7 @@ module AWS::SDK::CloudWatch
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -1151,7 +1151,7 @@ module AWS::SDK::CloudWatch
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InvalidParameterValueException, Errors::InternalServiceFault]
+            error_parsers: [Parsers::InvalidParameterValueException, Parsers::InternalServiceFault]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1206,7 +1206,7 @@ module AWS::SDK::CloudWatch
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InvalidNextToken, Errors::InvalidParameterValueException, Errors::MissingRequiredParameterException]
+            error_parsers: [Parsers::InvalidNextToken, Parsers::InvalidParameterValueException, Parsers::MissingRequiredParameterException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1261,7 +1261,7 @@ module AWS::SDK::CloudWatch
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InvalidNextToken, Errors::InvalidParameterValueException, Errors::InternalServiceFault, Errors::MissingRequiredParameterException]
+            error_parsers: [Parsers::InvalidNextToken, Parsers::InvalidParameterValueException, Parsers::InternalServiceFault, Parsers::MissingRequiredParameterException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1316,7 +1316,7 @@ module AWS::SDK::CloudWatch
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InvalidParameterValueException, Errors::InternalServiceFault]
+            error_parsers: [Parsers::InvalidParameterValueException, Parsers::InternalServiceFault]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1371,7 +1371,7 @@ module AWS::SDK::CloudWatch
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::ResourceNotFoundException, Errors::InvalidParameterValueException, Errors::InternalServiceFault]
+            error_parsers: [Parsers::ResourceNotFoundException, Parsers::InvalidParameterValueException, Parsers::InternalServiceFault]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1426,7 +1426,7 @@ module AWS::SDK::CloudWatch
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::LimitExceededException, Errors::InvalidParameterCombinationException, Errors::InvalidParameterValueException, Errors::InternalServiceFault, Errors::MissingRequiredParameterException]
+            error_parsers: [Parsers::LimitExceededException, Parsers::InvalidParameterCombinationException, Parsers::InvalidParameterValueException, Parsers::InternalServiceFault, Parsers::MissingRequiredParameterException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1481,7 +1481,7 @@ module AWS::SDK::CloudWatch
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::LimitExceededFault]
+            error_parsers: [Parsers::LimitExceededFault]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1536,7 +1536,7 @@ module AWS::SDK::CloudWatch
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::DashboardInvalidInputError, Errors::InternalServiceFault]
+            error_parsers: [Parsers::DashboardInvalidInputError, Parsers::InternalServiceFault]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1591,7 +1591,7 @@ module AWS::SDK::CloudWatch
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::LimitExceededException, Errors::InvalidParameterValueException, Errors::MissingRequiredParameterException]
+            error_parsers: [Parsers::LimitExceededException, Parsers::InvalidParameterValueException, Parsers::MissingRequiredParameterException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1646,7 +1646,7 @@ module AWS::SDK::CloudWatch
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InvalidParameterValueException, Errors::MissingRequiredParameterException]
+            error_parsers: [Parsers::InvalidParameterValueException, Parsers::MissingRequiredParameterException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1701,7 +1701,7 @@ module AWS::SDK::CloudWatch
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::LimitExceededFault]
+            error_parsers: [Parsers::LimitExceededFault]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1762,7 +1762,7 @@ module AWS::SDK::CloudWatch
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServiceFault, Errors::InvalidParameterCombinationException, Errors::InvalidParameterValueException, Errors::MissingRequiredParameterException]
+            error_parsers: [Parsers::InternalServiceFault, Parsers::InvalidParameterCombinationException, Parsers::InvalidParameterValueException, Parsers::MissingRequiredParameterException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1817,7 +1817,7 @@ module AWS::SDK::CloudWatch
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InvalidParameterCombinationException, Errors::ConcurrentModificationException, Errors::InvalidParameterValueException, Errors::InternalServiceFault, Errors::MissingRequiredParameterException]
+            error_parsers: [Parsers::InvalidParameterCombinationException, Parsers::ConcurrentModificationException, Parsers::InvalidParameterValueException, Parsers::InternalServiceFault, Parsers::MissingRequiredParameterException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1872,7 +1872,7 @@ module AWS::SDK::CloudWatch
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InvalidFormatFault, Errors::ResourceNotFound]
+            error_parsers: [Parsers::InvalidFormatFault, Parsers::ResourceNotFound]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1927,7 +1927,7 @@ module AWS::SDK::CloudWatch
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InvalidParameterValueException, Errors::InternalServiceFault, Errors::MissingRequiredParameterException]
+            error_parsers: [Parsers::InvalidParameterValueException, Parsers::InternalServiceFault, Parsers::MissingRequiredParameterException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1982,7 +1982,7 @@ module AWS::SDK::CloudWatch
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InvalidParameterValueException, Errors::InternalServiceFault, Errors::MissingRequiredParameterException]
+            error_parsers: [Parsers::InvalidParameterValueException, Parsers::InternalServiceFault, Parsers::MissingRequiredParameterException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -2037,7 +2037,7 @@ module AWS::SDK::CloudWatch
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::ResourceNotFoundException, Errors::ConcurrentModificationException, Errors::InvalidParameterValueException, Errors::InternalServiceFault]
+            error_parsers: [Parsers::ResourceNotFoundException, Parsers::ConcurrentModificationException, Parsers::InvalidParameterValueException, Parsers::InternalServiceFault]
           )
         )
         stack.use(Middleware::RequestId)
@@ -2092,7 +2092,7 @@ module AWS::SDK::CloudWatch
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::ResourceNotFoundException, Errors::ConcurrentModificationException, Errors::InvalidParameterValueException, Errors::InternalServiceFault]
+            error_parsers: [Parsers::ResourceNotFoundException, Parsers::ConcurrentModificationException, Parsers::InvalidParameterValueException, Parsers::InternalServiceFault]
           )
         )
         stack.use(Middleware::RequestId)

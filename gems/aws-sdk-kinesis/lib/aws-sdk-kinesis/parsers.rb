@@ -15,13 +15,14 @@ module AWS::SDK::Kinesis
 
     # Error Parser for AccessDeniedException
     class AccessDeniedException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::AccessDeniedException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::AccessDeniedException.new(data: data, **kwargs)
       end
     end
 
@@ -227,25 +228,27 @@ module AWS::SDK::Kinesis
 
     # Error Parser for ExpiredIteratorException
     class ExpiredIteratorException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::ExpiredIteratorException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::ExpiredIteratorException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for ExpiredNextTokenException
     class ExpiredNextTokenException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::ExpiredNextTokenException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::ExpiredNextTokenException.new(data: data, **kwargs)
       end
     end
 
@@ -306,109 +309,118 @@ module AWS::SDK::Kinesis
 
     # Error Parser for InternalFailureException
     class InternalFailureException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::InternalFailureException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::InternalFailureException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for InvalidArgumentException
     class InvalidArgumentException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::InvalidArgumentException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::InvalidArgumentException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for KMSAccessDeniedException
     class KMSAccessDeniedException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::KMSAccessDeniedException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::KMSAccessDeniedException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for KMSDisabledException
     class KMSDisabledException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::KMSDisabledException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::KMSDisabledException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for KMSInvalidStateException
     class KMSInvalidStateException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::KMSInvalidStateException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::KMSInvalidStateException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for KMSNotFoundException
     class KMSNotFoundException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::KMSNotFoundException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::KMSNotFoundException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for KMSOptInRequired
     class KMSOptInRequired
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::KMSOptInRequired.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::KMSOptInRequired.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for KMSThrottlingException
     class KMSThrottlingException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::KMSThrottlingException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::KMSThrottlingException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for LimitExceededException
     class LimitExceededException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::LimitExceededException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::LimitExceededException.new(data: data, **kwargs)
       end
     end
 
@@ -482,13 +494,14 @@ module AWS::SDK::Kinesis
 
     # Error Parser for ProvisionedThroughputExceededException
     class ProvisionedThroughputExceededException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::ProvisionedThroughputExceededException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::ProvisionedThroughputExceededException.new(data: data, **kwargs)
       end
     end
 
@@ -590,25 +603,27 @@ module AWS::SDK::Kinesis
 
     # Error Parser for ResourceInUseException
     class ResourceInUseException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::ResourceInUseException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::ResourceInUseException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for ResourceNotFoundException
     class ResourceNotFoundException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::ResourceNotFoundException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::ResourceNotFoundException.new(data: data, **kwargs)
       end
     end
 
@@ -816,13 +831,14 @@ module AWS::SDK::Kinesis
 
     # Error Parser for ValidationException
     class ValidationException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::ValidationException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::ValidationException.new(data: data, **kwargs)
       end
     end
 

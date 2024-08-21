@@ -33,11 +33,11 @@ module AWS::SDK::TranscribeStreaming
 
     # Error Parser for BadRequestException
     class BadRequestException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::BadRequestException.new
         map = Hearth::JSON.parse(http_resp.body.read)
         data.message = map['Message'] unless map['Message'].nil?
-        data
+        Errors::BadRequestException.new(data: data, **kwargs)
       end
     end
 
@@ -108,11 +108,11 @@ module AWS::SDK::TranscribeStreaming
 
     # Error Parser for ConflictException
     class ConflictException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::ConflictException.new
         map = Hearth::JSON.parse(http_resp.body.read)
         data.message = map['Message'] unless map['Message'].nil?
-        data
+        Errors::ConflictException.new(data: data, **kwargs)
       end
     end
 
@@ -141,11 +141,11 @@ module AWS::SDK::TranscribeStreaming
 
     # Error Parser for InternalFailureException
     class InternalFailureException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::InternalFailureException.new
         map = Hearth::JSON.parse(http_resp.body.read)
         data.message = map['Message'] unless map['Message'].nil?
-        data
+        Errors::InternalFailureException.new(data: data, **kwargs)
       end
     end
 
@@ -213,11 +213,11 @@ module AWS::SDK::TranscribeStreaming
 
     # Error Parser for LimitExceededException
     class LimitExceededException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::LimitExceededException.new
         map = Hearth::JSON.parse(http_resp.body.read)
         data.message = map['Message'] unless map['Message'].nil?
-        data
+        Errors::LimitExceededException.new(data: data, **kwargs)
       end
     end
 
@@ -370,11 +370,11 @@ module AWS::SDK::TranscribeStreaming
 
     # Error Parser for ServiceUnavailableException
     class ServiceUnavailableException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::ServiceUnavailableException.new
         map = Hearth::JSON.parse(http_resp.body.read)
         data.message = map['Message'] unless map['Message'].nil?
-        data
+        Errors::ServiceUnavailableException.new(data: data, **kwargs)
       end
     end
 

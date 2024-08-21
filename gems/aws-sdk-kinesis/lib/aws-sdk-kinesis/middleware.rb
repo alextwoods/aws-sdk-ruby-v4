@@ -51,7 +51,7 @@ module AWS::SDK::Kinesis
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::InvalidArgumentException, Errors::LimitExceededException, Errors::ResourceInUseException, Errors::ResourceNotFoundException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::InvalidArgumentException, Parsers::LimitExceededException, Parsers::ResourceInUseException, Parsers::ResourceNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -106,7 +106,7 @@ module AWS::SDK::Kinesis
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InvalidArgumentException, Errors::LimitExceededException, Errors::ResourceInUseException]
+            error_parsers: [Parsers::InvalidArgumentException, Parsers::LimitExceededException, Parsers::ResourceInUseException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -161,7 +161,7 @@ module AWS::SDK::Kinesis
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::InvalidArgumentException, Errors::LimitExceededException, Errors::ResourceInUseException, Errors::ResourceNotFoundException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::InvalidArgumentException, Parsers::LimitExceededException, Parsers::ResourceInUseException, Parsers::ResourceNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -216,7 +216,7 @@ module AWS::SDK::Kinesis
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::InvalidArgumentException, Errors::LimitExceededException, Errors::ResourceInUseException, Errors::ResourceNotFoundException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::InvalidArgumentException, Parsers::LimitExceededException, Parsers::ResourceInUseException, Parsers::ResourceNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -271,7 +271,7 @@ module AWS::SDK::Kinesis
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::InvalidArgumentException, Errors::LimitExceededException, Errors::ResourceInUseException, Errors::ResourceNotFoundException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::InvalidArgumentException, Parsers::LimitExceededException, Parsers::ResourceInUseException, Parsers::ResourceNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -326,7 +326,7 @@ module AWS::SDK::Kinesis
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InvalidArgumentException, Errors::LimitExceededException, Errors::ResourceNotFoundException]
+            error_parsers: [Parsers::InvalidArgumentException, Parsers::LimitExceededException, Parsers::ResourceNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -381,7 +381,7 @@ module AWS::SDK::Kinesis
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::LimitExceededException]
+            error_parsers: [Parsers::LimitExceededException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -436,7 +436,7 @@ module AWS::SDK::Kinesis
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::InvalidArgumentException, Errors::LimitExceededException, Errors::ResourceNotFoundException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::InvalidArgumentException, Parsers::LimitExceededException, Parsers::ResourceNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -491,7 +491,7 @@ module AWS::SDK::Kinesis
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InvalidArgumentException, Errors::LimitExceededException, Errors::ResourceNotFoundException]
+            error_parsers: [Parsers::InvalidArgumentException, Parsers::LimitExceededException, Parsers::ResourceNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -546,7 +546,7 @@ module AWS::SDK::Kinesis
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::InvalidArgumentException, Errors::LimitExceededException, Errors::ResourceNotFoundException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::InvalidArgumentException, Parsers::LimitExceededException, Parsers::ResourceNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -601,7 +601,7 @@ module AWS::SDK::Kinesis
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::InvalidArgumentException, Errors::LimitExceededException, Errors::ResourceInUseException, Errors::ResourceNotFoundException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::InvalidArgumentException, Parsers::LimitExceededException, Parsers::ResourceInUseException, Parsers::ResourceNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -656,7 +656,7 @@ module AWS::SDK::Kinesis
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::InvalidArgumentException, Errors::LimitExceededException, Errors::ResourceInUseException, Errors::ResourceNotFoundException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::InvalidArgumentException, Parsers::LimitExceededException, Parsers::ResourceInUseException, Parsers::ResourceNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -711,7 +711,7 @@ module AWS::SDK::Kinesis
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::KMSAccessDeniedException, Errors::KMSDisabledException, Errors::AccessDeniedException, Errors::KMSNotFoundException, Errors::ExpiredIteratorException, Errors::KMSOptInRequired, Errors::KMSThrottlingException, Errors::ProvisionedThroughputExceededException, Errors::InvalidArgumentException, Errors::KMSInvalidStateException, Errors::ResourceNotFoundException]
+            error_parsers: [Parsers::KMSAccessDeniedException, Parsers::KMSDisabledException, Parsers::AccessDeniedException, Parsers::KMSNotFoundException, Parsers::ExpiredIteratorException, Parsers::KMSOptInRequired, Parsers::KMSThrottlingException, Parsers::ProvisionedThroughputExceededException, Parsers::InvalidArgumentException, Parsers::KMSInvalidStateException, Parsers::ResourceNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -766,7 +766,7 @@ module AWS::SDK::Kinesis
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::InvalidArgumentException, Errors::LimitExceededException, Errors::ResourceNotFoundException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::InvalidArgumentException, Parsers::LimitExceededException, Parsers::ResourceNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -821,7 +821,7 @@ module AWS::SDK::Kinesis
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::ProvisionedThroughputExceededException, Errors::InvalidArgumentException, Errors::ResourceNotFoundException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::ProvisionedThroughputExceededException, Parsers::InvalidArgumentException, Parsers::ResourceNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -876,7 +876,7 @@ module AWS::SDK::Kinesis
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::InvalidArgumentException, Errors::LimitExceededException, Errors::ResourceInUseException, Errors::ResourceNotFoundException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::InvalidArgumentException, Parsers::LimitExceededException, Parsers::ResourceInUseException, Parsers::ResourceNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -931,7 +931,7 @@ module AWS::SDK::Kinesis
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::ExpiredNextTokenException, Errors::InvalidArgumentException, Errors::ResourceInUseException, Errors::LimitExceededException, Errors::ResourceNotFoundException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::ExpiredNextTokenException, Parsers::InvalidArgumentException, Parsers::ResourceInUseException, Parsers::LimitExceededException, Parsers::ResourceNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -986,7 +986,7 @@ module AWS::SDK::Kinesis
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::ExpiredNextTokenException, Errors::InvalidArgumentException, Errors::ResourceInUseException, Errors::LimitExceededException, Errors::ResourceNotFoundException]
+            error_parsers: [Parsers::ExpiredNextTokenException, Parsers::InvalidArgumentException, Parsers::ResourceInUseException, Parsers::LimitExceededException, Parsers::ResourceNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1041,7 +1041,7 @@ module AWS::SDK::Kinesis
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::ExpiredNextTokenException, Errors::InvalidArgumentException, Errors::LimitExceededException]
+            error_parsers: [Parsers::ExpiredNextTokenException, Parsers::InvalidArgumentException, Parsers::LimitExceededException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1096,7 +1096,7 @@ module AWS::SDK::Kinesis
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::InvalidArgumentException, Errors::LimitExceededException, Errors::ResourceNotFoundException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::InvalidArgumentException, Parsers::LimitExceededException, Parsers::ResourceNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1151,7 +1151,7 @@ module AWS::SDK::Kinesis
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::InvalidArgumentException, Errors::LimitExceededException, Errors::ResourceInUseException, Errors::ResourceNotFoundException, Errors::ValidationException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::InvalidArgumentException, Parsers::LimitExceededException, Parsers::ResourceInUseException, Parsers::ResourceNotFoundException, Parsers::ValidationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1206,7 +1206,7 @@ module AWS::SDK::Kinesis
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::KMSAccessDeniedException, Errors::KMSDisabledException, Errors::AccessDeniedException, Errors::KMSNotFoundException, Errors::KMSOptInRequired, Errors::KMSThrottlingException, Errors::ProvisionedThroughputExceededException, Errors::InvalidArgumentException, Errors::KMSInvalidStateException, Errors::ResourceNotFoundException]
+            error_parsers: [Parsers::KMSAccessDeniedException, Parsers::KMSDisabledException, Parsers::AccessDeniedException, Parsers::KMSNotFoundException, Parsers::KMSOptInRequired, Parsers::KMSThrottlingException, Parsers::ProvisionedThroughputExceededException, Parsers::InvalidArgumentException, Parsers::KMSInvalidStateException, Parsers::ResourceNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1261,7 +1261,7 @@ module AWS::SDK::Kinesis
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::KMSAccessDeniedException, Errors::KMSDisabledException, Errors::AccessDeniedException, Errors::KMSNotFoundException, Errors::KMSOptInRequired, Errors::KMSThrottlingException, Errors::ProvisionedThroughputExceededException, Errors::InvalidArgumentException, Errors::KMSInvalidStateException, Errors::ResourceNotFoundException]
+            error_parsers: [Parsers::KMSAccessDeniedException, Parsers::KMSDisabledException, Parsers::AccessDeniedException, Parsers::KMSNotFoundException, Parsers::KMSOptInRequired, Parsers::KMSThrottlingException, Parsers::ProvisionedThroughputExceededException, Parsers::InvalidArgumentException, Parsers::KMSInvalidStateException, Parsers::ResourceNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1316,7 +1316,7 @@ module AWS::SDK::Kinesis
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::InvalidArgumentException, Errors::LimitExceededException, Errors::ResourceInUseException, Errors::ResourceNotFoundException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::InvalidArgumentException, Parsers::LimitExceededException, Parsers::ResourceInUseException, Parsers::ResourceNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1371,7 +1371,7 @@ module AWS::SDK::Kinesis
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InvalidArgumentException, Errors::ResourceInUseException, Errors::LimitExceededException, Errors::ResourceNotFoundException]
+            error_parsers: [Parsers::InvalidArgumentException, Parsers::ResourceInUseException, Parsers::LimitExceededException, Parsers::ResourceNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1426,7 +1426,7 @@ module AWS::SDK::Kinesis
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::InvalidArgumentException, Errors::LimitExceededException, Errors::ResourceInUseException, Errors::ResourceNotFoundException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::InvalidArgumentException, Parsers::LimitExceededException, Parsers::ResourceInUseException, Parsers::ResourceNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1481,7 +1481,7 @@ module AWS::SDK::Kinesis
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::InvalidArgumentException, Errors::LimitExceededException, Errors::ResourceInUseException, Errors::ResourceNotFoundException, Errors::ValidationException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::InvalidArgumentException, Parsers::LimitExceededException, Parsers::ResourceInUseException, Parsers::ResourceNotFoundException, Parsers::ValidationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1536,7 +1536,7 @@ module AWS::SDK::Kinesis
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::InvalidArgumentException, Errors::KMSAccessDeniedException, Errors::KMSDisabledException, Errors::KMSInvalidStateException, Errors::KMSNotFoundException, Errors::KMSOptInRequired, Errors::KMSThrottlingException, Errors::LimitExceededException, Errors::ResourceInUseException, Errors::ResourceNotFoundException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::InvalidArgumentException, Parsers::KMSAccessDeniedException, Parsers::KMSDisabledException, Parsers::KMSInvalidStateException, Parsers::KMSNotFoundException, Parsers::KMSOptInRequired, Parsers::KMSThrottlingException, Parsers::LimitExceededException, Parsers::ResourceInUseException, Parsers::ResourceNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1591,7 +1591,7 @@ module AWS::SDK::Kinesis
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::InvalidArgumentException, Errors::LimitExceededException, Errors::ResourceInUseException, Errors::ResourceNotFoundException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::InvalidArgumentException, Parsers::LimitExceededException, Parsers::ResourceInUseException, Parsers::ResourceNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1700,7 +1700,7 @@ module AWS::SDK::Kinesis
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::ValidationException, Errors::InvalidArgumentException, Errors::ResourceInUseException, Errors::LimitExceededException, Errors::ResourceNotFoundException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::ValidationException, Parsers::InvalidArgumentException, Parsers::ResourceInUseException, Parsers::LimitExceededException, Parsers::ResourceNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1755,7 +1755,7 @@ module AWS::SDK::Kinesis
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InvalidArgumentException, Errors::LimitExceededException, Errors::ResourceInUseException, Errors::ResourceNotFoundException]
+            error_parsers: [Parsers::InvalidArgumentException, Parsers::LimitExceededException, Parsers::ResourceInUseException, Parsers::ResourceNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)

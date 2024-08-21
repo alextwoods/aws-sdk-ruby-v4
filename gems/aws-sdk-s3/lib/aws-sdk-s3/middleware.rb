@@ -55,7 +55,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 204,
-            errors: [Errors::NoSuchUpload]
+            error_parsers: [Parsers::NoSuchUpload]
           )
         )
         stack.use(Middleware::RequestId)
@@ -114,7 +114,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -173,7 +173,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::ObjectNotInActiveTierError]
+            error_parsers: [Parsers::ObjectNotInActiveTierError]
           )
         )
         stack.use(Middleware::RequestId)
@@ -232,7 +232,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::BucketAlreadyExists, Errors::BucketAlreadyOwnedByYou]
+            error_parsers: [Parsers::BucketAlreadyExists, Parsers::BucketAlreadyOwnedByYou]
           )
         )
         stack.use(Middleware::RequestId)
@@ -291,7 +291,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -350,7 +350,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::NoSuchBucket]
+            error_parsers: [Parsers::NoSuchBucket]
           )
         )
         stack.use(Middleware::RequestId)
@@ -409,7 +409,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 204,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -468,7 +468,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 204,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -527,7 +527,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 204,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -586,7 +586,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 204,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -645,7 +645,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 204,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -704,7 +704,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 204,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -763,7 +763,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 204,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -822,7 +822,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 204,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -881,7 +881,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 204,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -940,7 +940,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 204,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -999,7 +999,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 204,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -1058,7 +1058,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 204,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -1117,7 +1117,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 204,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -1176,7 +1176,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 204,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -1235,7 +1235,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 204,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -1298,7 +1298,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -1357,7 +1357,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 204,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -1416,7 +1416,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -1475,7 +1475,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -1534,7 +1534,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -1593,7 +1593,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -1652,7 +1652,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -1711,7 +1711,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -1770,7 +1770,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -1829,7 +1829,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -1888,7 +1888,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -1947,7 +1947,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -2006,7 +2006,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -2065,7 +2065,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -2124,7 +2124,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -2183,7 +2183,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -2242,7 +2242,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -2301,7 +2301,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -2360,7 +2360,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -2419,7 +2419,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -2478,7 +2478,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -2537,7 +2537,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -2601,7 +2601,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InvalidObjectState, Errors::NoSuchKey]
+            error_parsers: [Parsers::InvalidObjectState, Parsers::NoSuchKey]
           )
         )
         stack.use(Middleware::RequestId)
@@ -2660,7 +2660,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::NoSuchKey]
+            error_parsers: [Parsers::NoSuchKey]
           )
         )
         stack.use(Middleware::RequestId)
@@ -2719,7 +2719,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::NoSuchKey]
+            error_parsers: [Parsers::NoSuchKey]
           )
         )
         stack.use(Middleware::RequestId)
@@ -2778,7 +2778,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -2837,7 +2837,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -2896,7 +2896,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -2955,7 +2955,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -3014,7 +3014,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -3073,7 +3073,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -3132,7 +3132,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::NotFound]
+            error_parsers: [Parsers::NotFound]
           )
         )
         stack.use(Middleware::RequestId)
@@ -3191,7 +3191,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::NotFound]
+            error_parsers: [Parsers::NotFound]
           )
         )
         stack.use(Middleware::RequestId)
@@ -3250,7 +3250,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -3309,7 +3309,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -3368,7 +3368,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -3427,7 +3427,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -3486,7 +3486,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -3545,7 +3545,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -3604,7 +3604,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -3663,7 +3663,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -3722,7 +3722,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::NoSuchBucket]
+            error_parsers: [Parsers::NoSuchBucket]
           )
         )
         stack.use(Middleware::RequestId)
@@ -3781,7 +3781,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::NoSuchBucket]
+            error_parsers: [Parsers::NoSuchBucket]
           )
         )
         stack.use(Middleware::RequestId)
@@ -3840,7 +3840,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -3903,7 +3903,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -3966,7 +3966,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -4025,7 +4025,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -4088,7 +4088,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -4151,7 +4151,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -4210,7 +4210,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -4269,7 +4269,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -4332,7 +4332,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -4395,7 +4395,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -4454,7 +4454,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -4513,7 +4513,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -4575,7 +4575,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -4638,7 +4638,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -4701,7 +4701,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -4764,7 +4764,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -4827,7 +4827,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -4890,7 +4890,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -4953,7 +4953,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -5019,7 +5019,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -5082,7 +5082,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::NoSuchKey]
+            error_parsers: [Parsers::NoSuchKey]
           )
         )
         stack.use(Middleware::RequestId)
@@ -5145,7 +5145,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -5208,7 +5208,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -5271,7 +5271,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -5334,7 +5334,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -5397,7 +5397,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -5460,7 +5460,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::ObjectAlreadyInActiveTierError]
+            error_parsers: [Parsers::ObjectAlreadyInActiveTierError]
           )
         )
         stack.use(Middleware::RequestId)
@@ -5584,7 +5584,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -5643,7 +5643,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -5706,7 +5706,7 @@ module AWS::SDK::S3
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
