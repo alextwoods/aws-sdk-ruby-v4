@@ -21,11 +21,13 @@ import software.amazon.smithy.gradle.tasks.SmithyBuild
 import software.amazon.smithy.model.Model
 import software.amazon.smithy.model.node.Node
 import software.amazon.smithy.model.shapes.ServiceShape
+import software.amazon.smithy.model.traits.TitleTrait
 
 val smithyVersion: String by project
 
 class ServiceDefinition(val file: File) {
     val sdkId: String
+    val title: String
     val model: Model
     val service: ServiceShape
     val moduleName: String
@@ -46,8 +48,10 @@ class ServiceDefinition(val file: File) {
         service = services[0]
         val serviceTrait = service.getTrait(ServiceTrait::class.javaObjectType).get();
         sdkId = serviceTrait.sdkId
+        title = service.getTrait(TitleTrait::class.javaObjectType).map { t -> t.value }.orElse(sdkId);
 
         moduleName = sdkId.split(" ").joinToString("") { it.capitalize() }
+        // TODO: use legacy names from V3
         gemName = "aws-sdk-" + sdkId.replace(" ", "").toLowerCase()
 
         projectionName = moduleName + "." + service.version.toLowerCase();
@@ -127,7 +131,9 @@ tasks.register("generate-smithy-build") {
                                     Node.objectNodeBuilder()
                                         .withMember("gemName", service.gemName)
                                         .withMember("gemVersion", "2.0.0.pre") // TODO: Read the VERSION file
-                                        .withMember("gemSummary", "TEST SERVICE")
+                                        .withMember("gemSummary",
+                                            "Official AWS Ruby gem for ${service.title}. " +
+                                                    "This gem is part of the AWS SDK for Ruby.")
                                         .build()
                                 ).build()
                         )
