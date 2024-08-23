@@ -10,6 +10,7 @@
 require 'stringio'
 
 require_relative 'plugins/global_config'
+require_relative 'plugins/telemetry'
 
 module AWS::SDK::S3
   # <p></p>
@@ -17,7 +18,8 @@ module AWS::SDK::S3
 
     # @api private
     @plugins = Hearth::PluginList.new([
-      Plugins::GlobalConfig.new
+      Plugins::GlobalConfig.new,
+      Plugins::Telemetry.new
     ])
 
     # @param [Hash] options
