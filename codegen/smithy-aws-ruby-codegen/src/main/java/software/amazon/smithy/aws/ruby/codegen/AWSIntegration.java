@@ -25,11 +25,7 @@ import software.amazon.smithy.aws.ruby.codegen.protocol.restjson.RestJson1;
 import software.amazon.smithy.aws.ruby.codegen.protocol.restxml.RestXml;
 import software.amazon.smithy.aws.traits.auth.SigV4Trait;
 import software.amazon.smithy.codegen.core.Symbol;
-import software.amazon.smithy.ruby.codegen.GenerationContext;
-import software.amazon.smithy.ruby.codegen.Hearth;
-import software.amazon.smithy.ruby.codegen.ProtocolGenerator;
-import software.amazon.smithy.ruby.codegen.RubyDependency;
-import software.amazon.smithy.ruby.codegen.RubyIntegration;
+import software.amazon.smithy.ruby.codegen.*;
 import software.amazon.smithy.ruby.codegen.auth.AuthParam;
 import software.amazon.smithy.ruby.codegen.auth.AuthScheme;
 import software.amazon.smithy.ruby.codegen.config.ClientConfig;
@@ -58,6 +54,14 @@ public class AWSIntegration implements RubyIntegration {
                 .importPath("aws-sdk-core")
                 .version("~> 4.0.0.pre1")
                 .addDependency(RubyDependency.HEARTH)
+                .build());
+    }
+
+    @Override
+    public List<RubyRuntimePlugin> getAdditionalRuntimePlugins(GenerationContext context) {
+        return List.of(RubyRuntimePlugin.builder()
+                .rubySource("plugins/telemetry.rb")
+                .pluginClass("Plugins::Telemetry")
                 .build());
     }
 
