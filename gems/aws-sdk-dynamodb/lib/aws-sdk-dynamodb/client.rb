@@ -10,6 +10,7 @@
 require 'stringio'
 
 require_relative 'plugins/global_config'
+require_relative 'plugins/telemetry'
 
 module AWS::SDK::DynamoDB
   # <fullname>Amazon DynamoDB</fullname>
@@ -33,7 +34,8 @@ module AWS::SDK::DynamoDB
 
     # @api private
     @plugins = Hearth::PluginList.new([
-      Plugins::GlobalConfig.new
+      Plugins::GlobalConfig.new,
+      Plugins::Telemetry.new
     ])
 
     # @param [Hash] options

@@ -10,6 +10,7 @@
 require 'stringio'
 
 require_relative 'plugins/global_config'
+require_relative 'plugins/telemetry'
 
 module AWS::SDK::Kinesis
   # <fullname>Amazon Kinesis Data Streams Service API Reference</fullname>
@@ -19,7 +20,8 @@ module AWS::SDK::Kinesis
 
     # @api private
     @plugins = Hearth::PluginList.new([
-      Plugins::GlobalConfig.new
+      Plugins::GlobalConfig.new,
+      Plugins::Telemetry.new
     ])
 
     # @param [Hash] options
