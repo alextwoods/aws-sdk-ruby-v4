@@ -5,7 +5,7 @@ module AWS::SDK::Core
   class InvalidSharedConfigError < RuntimeError; end
 
   # A PORO for a profile in a profile file. It may have properties.
-  class SharedConfigFileSection
+  class ConfigFileSection
     def initialize(name, properties = {})
       @name = name
       @properties = {}
@@ -53,13 +53,13 @@ module AWS::SDK::Core
       def parse_sub_properties(value)
         sub_properties = {}
         value.split(/[\r\n]+/).each do |raw_sub_property_line|
-          next if SharedConfigFileUtils.empty_line?(raw_sub_property_line)
+          next if ConfigFileUtils.empty_line?(raw_sub_property_line)
 
-          left, right = SharedConfigFileUtils.parse_property_definition_line(
+          left, right = ConfigFileUtils.parse_property_definition_line(
             raw_sub_property_line,
             "in sub-property of #{@name}"
           )
-          next unless SharedConfigFileUtils.valid_identifier?(left)
+          next unless ConfigFileUtils.valid_identifier?(left)
 
           if sub_properties.key?(left)
             Kernel.warn(

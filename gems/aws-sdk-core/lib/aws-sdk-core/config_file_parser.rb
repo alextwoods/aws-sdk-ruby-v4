@@ -4,7 +4,7 @@ module AWS::SDK::Core
   # Parses file contents into a map of maps representing
   # profiles and properties.
   # @api private
-  class SharedConfigFileParser
+  class ConfigFileParser
     def initialize(profile_file_contents)
       @profile_file_contents = profile_file_contents
     end
@@ -22,12 +22,12 @@ module AWS::SDK::Core
 
       @profile_file_contents.split(/[\r\n]+/).each do |line|
         @current_line_number += 1
-        next if SharedConfigFileUtils.empty_line?(line) ||
-                SharedConfigFileUtils.comment_line?(line)
+        next if ConfigFileUtils.empty_line?(line) ||
+                ConfigFileUtils.comment_line?(line)
 
-        if SharedConfigFileUtils.profile_line?(line)
+        if ConfigFileUtils.profile_line?(line)
           read_profile_line(line)
-        elsif SharedConfigFileUtils.property_continuation_line?(line)
+        elsif ConfigFileUtils.property_continuation_line?(line)
           read_property_continuation_line(line)
         else
           read_property_definition_line(line)
@@ -38,7 +38,7 @@ module AWS::SDK::Core
     def read_profile_line(line)
       line_without_comments = remove_trailing_comments(line, %w[# ;])
       line_without_whitespace =
-        SharedConfigFileUtils.trim_whitespace(line_without_comments)
+        ConfigFileUtils.trim_whitespace(line_without_comments)
 
       unless line_without_whitespace[-1] == ']'
         raise InvalidSharedConfigError,
@@ -49,7 +49,7 @@ module AWS::SDK::Core
       line_without_brackets = line_without_whitespace[1..-2]
 
       @current_profile =
-        SharedConfigFileUtils.trim_whitespace(line_without_brackets)
+        ConfigFileUtils.trim_whitespace(line_without_brackets)
       @current_property = nil
 
       @profiles[@current_profile] ||= {}
@@ -67,9 +67,9 @@ module AWS::SDK::Core
         [' #', ' ;', "\t#", "\t;"]
       )
       line_without_whitespace =
-        SharedConfigFileUtils.trim_whitespace(line_without_comments)
+        ConfigFileUtils.trim_whitespace(line_without_comments)
 
-      key, value = SharedConfigFileUtils.parse_property_definition_line(
+      key, value = ConfigFileUtils.parse_property_definition_line(
         line_without_whitespace,
         "on line #{@current_line_number}"
       )
@@ -89,7 +89,7 @@ module AWS::SDK::Core
               "on line #{@current_line_number}"
       end
 
-      line = SharedConfigFileUtils.trim_whitespace(line)
+      line = ConfigFileUtils.trim_whitespace(line)
       profile_properties = @profiles[@current_profile]
       current_property_value = profile_properties[@current_property]
       new_property_value = "#{current_property_value}\n#{line}"

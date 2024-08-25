@@ -3,7 +3,7 @@
 module AWS::SDK::Core
   # Converts a raw map of maps into a map of profiles.
   # @api private
-  class SharedConfigFileStandardizer
+  class ConfigFileStandardizer
     def initialize(raw_file, file_type)
       @raw_file = raw_file
       @file_type = file_type
@@ -61,7 +61,7 @@ module AWS::SDK::Core
         end
 
         if standardized_profile_name &&
-           !SharedConfigFileUtils.valid_identifier?(standardized_profile_name)
+           !ConfigFileUtils.valid_identifier?(standardized_profile_name)
           Kernel.warn(
             "Ignoring profile '#{standardized_profile_name}' because it " \
             'was not alphanumeric with dashes or underscores.'
@@ -70,7 +70,7 @@ module AWS::SDK::Core
         end
 
         if standardized_sso_session_name &&
-           !SharedConfigFileUtils.valid_identifier?(
+           !ConfigFileUtils.valid_identifier?(
              standardized_sso_session_name
            )
           Kernel.warn(
@@ -108,12 +108,12 @@ module AWS::SDK::Core
           end
 
           @standardized_profiles[standardized_profile_name] =
-            SharedConfigFileSection.new(standardized_profile_name)
+            ConfigFileSection.new(standardized_profile_name)
         end
 
         unless @standardized_sso_sessions.key?(standardized_sso_session_name)
           @standardized_sso_sessions[standardized_sso_session_name] =
-            SharedConfigFileSection.new(standardized_sso_session_name)
+            ConfigFileSection.new(standardized_sso_session_name)
         end
 
         if standardized_sso_session_name
@@ -139,7 +139,7 @@ module AWS::SDK::Core
       standardized_properties = {}
 
       raw_properties.each do |property_name, property_value|
-        unless SharedConfigFileUtils.valid_identifier?(property_name)
+        unless ConfigFileUtils.valid_identifier?(property_name)
           Kernel.warn(
             "Ignoring property '#{property_name}' in profile " \
             "'#{profile_name}' because its name was not alphanumeric with " \
@@ -149,7 +149,7 @@ module AWS::SDK::Core
         end
 
         standardized_properties[property_name] =
-          SharedConfigFileSection::Property.new(property_name, property_value)
+          ConfigFileSection::Property.new(property_name, property_value)
       end
 
       standardized_properties

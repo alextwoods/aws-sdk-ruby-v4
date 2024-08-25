@@ -3,7 +3,7 @@
 module AWS::SDK::Core
   # Represents the configuration and credentials files as a single profile file.
   # @api private
-  class SharedConfigFile
+  class ConfigFile
     def initialize(config_profiles:, credentials_profiles:, sso_sessions:)
       merge_files!(config_profiles, credentials_profiles)
       @profiles = config_profiles.transform_values(&:to_h)

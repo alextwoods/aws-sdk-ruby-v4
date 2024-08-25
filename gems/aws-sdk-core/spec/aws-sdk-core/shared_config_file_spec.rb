@@ -3,7 +3,7 @@
 require_relative '../spec_helper'
 
 module AWS::SDK::Core
-  describe SharedConfigFile do
+  describe ConfigFile do
     subject { described_class }
 
     before do
@@ -14,14 +14,14 @@ module AWS::SDK::Core
       test_config_file = input['configFile']
       test_credentials_file = input['credentialsFile']
       if test_config_file
-        config_profiles, sso_sessions = SharedConfigFileStandardizer.new(
-          SharedConfigFileParser.new(test_config_file).parse,
+        config_profiles, sso_sessions = ConfigFileStandardizer.new(
+          ConfigFileParser.new(test_config_file).parse,
           :config
         ).standardize
       end
       if test_credentials_file
-        credentials_profiles = SharedConfigFileStandardizer.new(
-          SharedConfigFileParser.new(test_credentials_file).parse,
+        credentials_profiles = ConfigFileStandardizer.new(
+          ConfigFileParser.new(test_credentials_file).parse,
           :credentials
         ).standardize
       end

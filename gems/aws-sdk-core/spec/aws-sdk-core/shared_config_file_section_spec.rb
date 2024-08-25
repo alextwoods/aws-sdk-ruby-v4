@@ -3,7 +3,7 @@
 require_relative '../spec_helper'
 
 module AWS::SDK::Core
-  describe SharedConfigFileSection do
+  describe ConfigFileSection do
     subject { described_class }
 
     before do
@@ -31,7 +31,7 @@ module AWS::SDK::Core
         context "testSuite: #{i}" do
           profiles = test_case['profiles']
           profiles = profiles.each_with_object({}) do |(profile, values), h|
-            h[profile] = SharedConfigFileSection.new(profile, values)
+            h[profile] = ConfigFileSection.new(profile, values)
           end
 
           if (region_tests = test_case['regionTests'])

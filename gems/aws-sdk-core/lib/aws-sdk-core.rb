@@ -79,13 +79,13 @@ require_relative 'aws-sdk-core/sso_credentials_provider'
 require_relative 'aws-sdk-core/static_credentials_provider'
 
 # Shared Config
+require_relative 'aws-sdk-core/config_file'
+require_relative 'aws-sdk-core/config_file_factory'
+require_relative 'aws-sdk-core/config_file_parser'
+require_relative 'aws-sdk-core/config_file_section'
+require_relative 'aws-sdk-core/config_file_standardizer'
+require_relative 'aws-sdk-core/config_file_utils'
 require_relative 'aws-sdk-core/shared_config'
-require_relative 'aws-sdk-core/shared_config_file'
-require_relative 'aws-sdk-core/shared_config_file_factory'
-require_relative 'aws-sdk-core/shared_config_file_parser'
-require_relative 'aws-sdk-core/shared_config_file_section'
-require_relative 'aws-sdk-core/shared_config_file_standardizer'
-require_relative 'aws-sdk-core/shared_config_file_utils'
 require_relative 'aws-sdk-core/shared_config_provider'
 
 # Utilities

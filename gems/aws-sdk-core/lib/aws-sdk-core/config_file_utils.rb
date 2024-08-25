@@ -3,7 +3,7 @@
 module AWS::SDK::Core
   # Utilities for parsing a profile file.
   # @api private
-  class SharedConfigFileUtils
+  class ConfigFileUtils
     class << self
       def parse_property_definition_line(line, location)
         first_equals_location = line.index('=')

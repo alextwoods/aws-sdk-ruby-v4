@@ -6,25 +6,25 @@ module AWS::SDK::Core
   # from the config and credentials files. The profile file is a hash of
   # profile names to profile objects.
   # @api private
-  class SharedConfigFileFactory
+  class ConfigFileFactory
     def create(config_file_path: nil, credentials_file_path: nil)
-      parsed_config_file = SharedConfigFileParser.new(
+      parsed_config_file = ConfigFileParser.new(
         config_file(config_file_path)
       ).parse
-      parsed_credentials_file = SharedConfigFileParser.new(
+      parsed_credentials_file = ConfigFileParser.new(
         credentials_file(credentials_file_path)
       ).parse
 
-      config_profiles, sso_sessions = SharedConfigFileStandardizer.new(
+      config_profiles, sso_sessions = ConfigFileStandardizer.new(
         parsed_config_file,
         :config
       ).standardize
-      credentials_profiles = SharedConfigFileStandardizer.new(
+      credentials_profiles = ConfigFileStandardizer.new(
         parsed_credentials_file,
         :credentials
       ).standardize
 
-      SharedConfigFile.new(
+      ConfigFile.new(
         config_profiles: config_profiles,
         credentials_profiles: credentials_profiles,
         sso_sessions: sso_sessions

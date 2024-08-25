@@ -3,7 +3,7 @@
 require_relative '../spec_helper'
 
 module AWS::SDK::Core
-  describe SharedConfigFileFactory do
+  describe ConfigFileFactory do
     subject { described_class }
 
     before do

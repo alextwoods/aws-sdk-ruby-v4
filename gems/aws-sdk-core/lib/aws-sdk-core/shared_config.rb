@@ -25,7 +25,7 @@ module AWS::SDK::Core
       #   If not specified, will check `ENV['AWS_SHARED_CREDENTIALS_FILE']`
       #   before using the default value of "#{Dir.home}/.aws/credentials".
       def load(credentials_path: nil, config_path: nil)
-        factory = SharedConfigFileFactory.new
+        factory = ConfigFileFactory.new
         config_path = nil unless loadable?(config_path)
         credentials_path = nil unless loadable?(credentials_path)
 
