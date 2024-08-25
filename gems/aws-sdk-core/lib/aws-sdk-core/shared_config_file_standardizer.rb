@@ -10,7 +10,7 @@ module AWS::SDK::Core
     end
 
     def standardize
-      standardize_profile_file
+      standardize_config_file
       if @file_type == :config
         [@standardized_profiles, @standardized_sso_sessions]
       else
@@ -21,7 +21,7 @@ module AWS::SDK::Core
     private
 
     # rubocop:disable Metrics
-    def standardize_profile_file
+    def standardize_config_file
       @standardized_profiles = {}
       @standardized_sso_sessions = {}
 
@@ -77,6 +77,7 @@ module AWS::SDK::Core
             "Ignoring sso-session '#{standardized_sso_session_name}' because " \
             'it was not alphanumeric with dashes or underscores.'
           )
+          next
         end
 
         is_default_profile = standardized_profile_name == 'default'

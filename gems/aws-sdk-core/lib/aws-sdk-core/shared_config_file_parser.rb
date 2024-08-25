@@ -42,7 +42,7 @@ module AWS::SDK::Core
 
       unless line_without_whitespace[-1] == ']'
         raise InvalidSharedConfigError,
-              "Profile definition must end with ']' " \
+              "Section definition must end with ']' " \
               "on line #{@current_line_number}"
       end
 
@@ -58,7 +58,7 @@ module AWS::SDK::Core
     def read_property_definition_line(line)
       unless @current_profile
         raise InvalidSharedConfigError,
-              'Expected a profile definition, found property ' \
+              'Expected a section definition, found property ' \
               "on line #{@current_line_number}"
       end
 
@@ -80,7 +80,7 @@ module AWS::SDK::Core
     def read_property_continuation_line(line)
       unless @current_profile
         raise InvalidSharedConfigError,
-              'Expected a profile definition, found continuation ' \
+              'Expected a section definition, found continuation ' \
               "on line #{@current_line_number}"
       end
       unless @current_property

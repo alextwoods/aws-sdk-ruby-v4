@@ -1,7 +1,7 @@
 {
   "description": [
     "These are test descriptions that describe how to convert a raw configuration and credentials file into an ",
-    "in-memory representation of the profile file.",
+    "in-memory representation of the config file for profiles.",
     "See 'parser-tests.schema.json' for a description of this file's structure."
   ],
 
@@ -34,7 +34,7 @@
         "configFile": "[profile foo"
       },
       "output": {
-        "errorContaining": "Profile definition must end with ']'"
+        "errorContaining": "Section definition must end with ']'"
       }
     },
 
@@ -51,7 +51,7 @@
     },
 
     {
-      "name": "Tabs can separate profile names from profile prefix.",
+      "name": "Tabs can separate profile names from the section.",
       "input": {
         "configFile": "[profile\tfoo]"
       },
@@ -63,12 +63,12 @@
     },
 
     {
-      "name": "Properties must be defined in a profile.",
+      "name": "Properties must be defined in a section.",
       "input": {
         "configFile": "name = value"
       },
       "output": {
-        "errorContaining": "Expected a profile definition"
+        "errorContaining": "Expected a section definition"
       }
     },
 
@@ -123,21 +123,6 @@
         "profiles": {
           "foo": {
             "name": "😂"
-          }
-        }
-      }
-    },
-
-    {
-      "name": "Profiles can contain multiple properties.",
-      "input": {
-        "configFile": "[profile foo]\nname = value\nname2 = value2"
-      },
-      "output": {
-        "profiles": {
-          "foo": {
-            "name": "value",
-            "name2": "value2"
           }
         }
       }
@@ -410,7 +395,7 @@
         "configFile": " -continued"
       },
       "output": {
-        "errorContaining": "Expected a profile definition"
+        "errorContaining": "Expected a section definition"
       }
     },
 
@@ -529,7 +514,7 @@
     },
 
     {
-      "name": "All valid profile name characters are supported.",
+      "name": "All valid identifier characters are supported.",
       "input": {
         "configFile": "[profile ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-/.%@:+]"
       },
@@ -832,6 +817,7 @@
         }
       }
     },
+
     {
       "name": "Duplicate properties in duplicate profiles use the last one defined (case insensitive).",
       "input": {
@@ -845,5 +831,6 @@
         }
       }
     }
+
   ]
 }

@@ -1,0 +1,720 @@
+{
+  "description": [
+    "These are test descriptions that describe how to convert a raw configuration file into an ",
+    "in-memory representation of the config file for sso-sessions.",
+    "See 'parser-tests.schema.json' for a description of this file's structure."
+  ],
+
+  "tests": [
+    {
+      "name": "Empty files have no sso sessions.",
+      "input": {
+        "configFile": ""
+      },
+      "output": {
+        "ssoSessions": {}
+      }
+    },
+
+    {
+      "name": "Empty sso sessions have no properties.",
+      "input": {
+        "configFile": "[sso-session foo]\n"
+      },
+      "output": {
+        "ssoSessions": {
+          "foo": {}
+        }
+      }
+    },
+
+    {
+      "name": "sso-sessions without a name are ignored.",
+      "input": {
+        "configFile": "[sso-session]\nname = value"
+      },
+      "output": {
+          "ssoSessions": {}
+      }
+    },
+
+    {
+      "name": "sso-session definitions must end with brackets.",
+      "input": {
+        "configFile": "[sso-session foo"
+      },
+      "output": {
+        "errorContaining": "Section definition must end with ']'"
+      }
+    },
+
+    {
+      "name": "sso-session names should be trimmed.",
+      "input": {
+        "configFile": "[sso-session \tfoo \t]"
+      },
+      "output": {
+        "ssoSessions": {
+          "foo": {}
+        }
+      }
+    },
+
+    {
+      "name": "Tabs can separate sso-session names from the section.",
+      "input": {
+        "configFile": "[sso-session\tfoo]"
+      },
+      "output": {
+        "ssoSessions": {
+          "foo": {}
+        }
+      }
+    },
+
+    {
+      "name": "sso-sessions can contain properties.",
+      "input": {
+        "configFile": "[sso-session foo]\nname = value"
+      },
+      "output": {
+        "ssoSessions": {
+          "foo": {
+            "name": "value"
+          }
+        }
+      }
+    },
+
+    {
+      "name": "Windows style line endings are supported.",
+      "input": {
+        "configFile": "[sso-session foo]\r\nname = value"
+      },
+      "output": {
+        "ssoSessions": {
+          "foo": {
+            "name": "value"
+          }
+        }
+      }
+    },
+
+    {
+      "name": "Equals signs are supported in property values.",
+      "input": {
+        "configFile": "[sso-session foo]\nname = val=ue"
+      },
+      "output": {
+        "ssoSessions": {
+          "foo": {
+            "name": "val=ue"
+          }
+        }
+      }
+    },
+
+    {
+      "name": "Unicode characters are supported in property values.",
+      "input": {
+        "configFile": "[sso-session foo]\nname = 😂"
+      },
+      "output": {
+        "ssoSessions": {
+          "foo": {
+            "name": "😂"
+          }
+        }
+      }
+    },
+
+    {
+      "name": "sso-sessions can contain multiple properties.",
+      "input": {
+        "configFile": "[sso-session foo]\nname = value\nname2 = value2"
+      },
+      "output": {
+        "ssoSessions": {
+          "foo": {
+            "name": "value",
+            "name2": "value2"
+          }
+        }
+      }
+    },
+
+    {
+      "name": "Property keys and values are trimmed.",
+      "input": {
+        "configFile": "[sso-session foo]\nname \t=  \tvalue \t"
+      },
+      "output": {
+        "ssoSessions": {
+          "foo": {
+            "name": "value"
+          }
+        }
+      }
+    },
+
+    {
+      "name": "Property values can be empty.",
+      "input": {
+        "configFile": "[sso-session foo]\nname ="
+      },
+      "output": {
+        "ssoSessions": {
+          "foo": {
+            "name": ""
+          }
+        }
+      }
+    },
+
+    {
+      "name": "Property key cannot be empty.",
+      "input": {
+        "configFile": "[sso-session foo]\n= value"
+      },
+      "output": {
+        "errorContaining": "Property did not have a name"
+      }
+    },
+
+    {
+      "name": "Property definitions must contain an equals sign.",
+      "input": {
+        "configFile": "[sso-session foo]\nkey : value"
+      },
+      "output": {
+        "errorContaining": "Expected an '=' sign defining a property"
+      }
+    },
+
+    {
+      "name": "Multiple sso-sessions can be empty.",
+      "input": {
+        "configFile": "[sso-session foo]\n[sso-session bar]"
+      },
+      "output": {
+        "ssoSessions": {
+          "foo": {},
+          "bar": {}
+        }
+      }
+    },
+
+    {
+      "name": "Multiple sso-sessions can have properties.",
+      "input": {
+        "configFile": "[sso-session foo]\nname = value\n[sso-session bar]\nname2 = value2"
+      },
+      "output": {
+        "ssoSessions": {
+          "foo": {
+            "name": "value"
+          },
+          "bar": {
+            "name2": "value2"
+          }
+        }
+      }
+    },
+
+    {
+      "name": "Blank lines are ignored.",
+      "input": {
+        "configFile": "\t \n[sso-session foo]\n\t\n \nname = value\n\t \n[sso-session bar]\n \t"
+      },
+      "output": {
+        "ssoSessions": {
+          "foo": {
+            "name": "value"
+          },
+          "bar": {}
+        }
+      }
+    },
+
+    {
+      "name": "Pound sign comments are ignored.",
+      "input": {
+        "configFile": "# Comment\n[sso-session foo] # Comment\nname = value # Comment with # sign"
+      },
+      "output": {
+        "ssoSessions": {
+          "foo": {
+            "name": "value"
+          }
+        }
+      }
+    },
+
+    {
+      "name": "Semicolon sign comments are ignored.",
+      "input": {
+        "configFile": "; Comment\n[sso-session foo] ; Comment\nname = value ; Comment with ; sign"
+      },
+      "output": {
+        "ssoSessions": {
+          "foo": {
+            "name": "value"
+          }
+        }
+      }
+    },
+
+    {
+      "name": "All comment types can be used together.",
+      "input": {
+        "configFile": "# Comment\n[sso-session foo] ; Comment\nname = value # Comment with ; sign"
+      },
+      "output": {
+        "ssoSessions": {
+          "foo": {
+            "name": "value"
+          }
+        }
+      }
+    },
+
+    {
+      "name": "Comments can be empty.",
+      "input": {
+        "configFile": ";\n[sso-session foo];\nname = value ;\n"
+      },
+      "output": {
+        "ssoSessions": {
+          "foo": {
+            "name": "value"
+          }
+        }
+      }
+    },
+
+    {
+      "name": "Comments can be adjacent to sso-session names.",
+      "input": {
+        "configFile": "[sso-session foo]; Adjacent semicolons\n[sso-session bar]# Adjacent pound signs"
+      },
+      "output": {
+        "ssoSessions": {
+          "foo": {},
+          "bar": {}
+        }
+      }
+    },
+
+    {
+      "name": "Comments adjacent to values are included in the value.",
+      "input": {
+        "configFile": "[sso-session foo]\nname = value; Adjacent semicolons\nname2 = value# Adjacent pound signs"
+      },
+      "output": {
+        "ssoSessions": {
+          "foo": {
+            "name": "value; Adjacent semicolons",
+            "name2": "value# Adjacent pound signs"
+          }
+        }
+      }
+    },
+
+    {
+      "name": "Property values can be continued on the next line.",
+      "input": {
+        "configFile": "[sso-session foo]\nname = value\n -continued"
+      },
+      "output": {
+        "ssoSessions": {
+          "foo": {
+            "name": "value\n-continued"
+          }
+        }
+      }
+    },
+
+    {
+      "name": "Property values can be continued with multiple lines.",
+      "input": {
+        "configFile": "[sso-session foo]\nname = value\n -continued\n -and-continued"
+      },
+      "output": {
+        "ssoSessions": {
+          "foo": {
+            "name": "value\n-continued\n-and-continued"
+          }
+        }
+      }
+    },
+
+    {
+      "name": "Continuations are trimmed.",
+      "input": {
+        "configFile": "[sso-session foo]\nname = value\n \t -continued \t "
+      },
+      "output": {
+        "ssoSessions": {
+          "foo": {
+            "name": "value\n-continued"
+          }
+        }
+      }
+    },
+
+    {
+      "name": "Continuation values include pound comments.",
+      "input": {
+        "configFile": "[sso-session foo]\nname = value\n -continued # Comment"
+      },
+      "output": {
+        "ssoSessions": {
+          "foo": {
+            "name": "value\n-continued # Comment"
+          }
+        }
+      }
+    },
+
+    {
+      "name": "Continuation values include semicolon comments.",
+      "input": {
+        "configFile": "[sso-session foo]\nname = value\n -continued ; Comment"
+      },
+      "output": {
+        "ssoSessions": {
+          "foo": {
+            "name": "value\n-continued ; Comment"
+          }
+        }
+      }
+    },
+
+    {
+      "name": "Continuations cannot be used outside of a sso-session.",
+      "input": {
+        "configFile": " -continued"
+      },
+      "output": {
+        "errorContaining": "Expected a section definition"
+      }
+    },
+
+    {
+      "name": "Continuations cannot be used outside of a property.",
+      "input": {
+        "configFile": "[sso-session foo]\n -continued"
+      },
+      "output": {
+        "errorContaining": "Expected a property definition"
+      }
+    },
+
+    {
+      "name": "Continuations reset with sso-session definitions.",
+      "input": {
+        "configFile": "[sso-session foo]\nname = value\n[sso-session foo]\n -continued"
+      },
+      "output": {
+        "errorContaining": "Expected a property definition"
+      }
+    },
+
+    {
+      "name": "Duplicate sso-sessions in the same file merge properties.",
+      "input": {
+        "configFile": "[sso-session foo]\nname = value\n[sso-session foo]\nname2 = value2"
+      },
+      "output": {
+        "ssoSessions": {
+          "foo": {
+            "name": "value",
+            "name2": "value2"
+          }
+        }
+      }
+    },
+
+    {
+      "name": "Duplicate properties in an sso-session use the last one defined.",
+      "input": {
+        "configFile": "[sso-session foo]\nname = value\nname = value2"
+      },
+      "output": {
+        "ssoSessions": {
+          "foo": {
+            "name": "value2"
+          }
+        }
+      }
+    },
+
+    {
+      "name": "Duplicate properties in duplicate sso-sessions use the last one defined.",
+      "input": {
+        "configFile": "[sso-session foo]\nname = value\n[sso-session foo]\nname = value2"
+      },
+      "output": {
+        "ssoSessions": {
+          "foo": {
+            "name": "value2"
+          }
+        }
+      }
+    },
+
+    {
+      "name": "Invalid sso-session names are ignored.",
+      "input": {
+        "configFile": "[sso-session in valid]\nname = value"
+      },
+      "output": {
+        "ssoSessions": {}
+      }
+    },
+
+    {
+      "name": "Invalid property names are ignored.",
+      "input": {
+        "configFile": "[sso-session foo]\nin valid = value"
+      },
+      "output": {
+        "ssoSessions": {
+          "foo": {}
+        }
+      }
+    },
+
+    {
+      "name": "All valid identifier characters are supported.",
+      "input": {
+        "configFile": "[sso-session ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-/.%@:+]"
+      },
+      "output": {
+        "ssoSessions": {
+          "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-/.%@:+": {}
+        }
+      }
+    },
+
+    {
+      "name": "All valid property name characters are supported.",
+      "input": {
+        "configFile": "[sso-session foo]\nABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-/.%@:+ = value"
+      },
+      "output": {
+        "ssoSessions": {
+          "foo": {
+            "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz0123456789_-/.%@:+": "value"
+          }
+        }
+      }
+    },
+
+    {
+      "name": "Properties can have sub-properties.",
+      "input": {
+        "configFile": "[sso-session foo]\ns3 =\n name = value"
+      },
+      "output": {
+        "ssoSessions": {
+          "foo": {
+            "s3": {
+              "name": "value"
+            }
+          }
+        }
+      }
+    },
+
+    {
+      "name": "Invalid sub-property definitions cause an error.",
+      "input": {
+        "configFile": "[sso-session foo]\ns3 =\n invalid"
+      },
+      "output": {
+        "errorContaining": "Expected an '=' sign defining a property in sub-property"
+      }
+    },
+
+    {
+      "name": "Sub-property definitions can have an empty value.",
+      "input": {
+        "configFile": "[sso-session foo]\ns3 =\n name ="
+      },
+      "output": {
+        "ssoSessions": {
+          "foo": {
+            "s3": {
+              "name": ""
+            }
+          }
+        }
+      }
+    },
+
+    {
+      "name": "Sub property definitions have pound comments applied to the value.",
+      "input": {
+        "configFile": "[sso-session foo]\ns3 =\n name = value # Comment"
+      },
+      "output": {
+        "ssoSessions": {
+          "foo": {
+            "s3": {
+              "name": "value # Comment"
+            }
+          }
+        }
+      }
+    },
+
+    {
+      "name": "Sub property definitions have semicolon comments applied to the value.",
+      "input": {
+        "configFile": "[sso-session foo]\ns3 =\n name = value ; Comment"
+      },
+      "output": {
+        "ssoSessions": {
+          "foo": {
+            "s3": {
+              "name": "value ; Comment"
+            }
+          }
+        }
+      }
+    },
+
+    {
+      "name": "Sub-property definitions cannot have an empty name.",
+      "input": {
+        "configFile": "[sso-session foo]\ns3 =\n = value"
+      },
+      "output": {
+        "errorContaining": "Property did not have a name in sub-property"
+      }
+    },
+
+    {
+      "name": "Sub-property definitions cannot have an invalid name.",
+      "input": {
+        "configFile": "[sso-session foo]\ns3 =\n in valid = value"
+      },
+      "output": {
+        "ssoSessions": {
+          "foo": {
+            "s3": {}
+          }
+        }
+      }
+    },
+
+    {
+      "name": "Sub-properties can have blank lines that are ignored",
+      "input": {
+        "configFile": "[sso-session foo]\ns3 =\n name = value\n\t \n name2 = value2"
+      },
+      "output": {
+        "ssoSessions": {
+          "foo": {
+            "s3": {
+              "name": "value",
+              "name2": "value2"
+            }
+          }
+        }
+      }
+    },
+
+    {
+      "name": "Config profiles without prefix are ignored.",
+      "input": {
+        "configFile": "[foo]\nname = value"
+      },
+      "output": {
+        "ssoSessions": {}
+      }
+    },
+
+    {
+      "name": "Comment characters adjacent to sso-session decls",
+      "input": {
+        "configFile": "[sso-session foo]; semicolon\n[sso-session bar]# pound"
+      },
+      "output": {
+        "ssoSessions": {
+          "foo": {},
+          "bar": {}
+        }
+      }
+    },
+
+    {
+      "name": "Invalid continuation",
+      "input": {
+        "configFile": "[sso-session foo]\nname = value\n[sso-session foo]\n -continued"
+      },
+      "output": {
+        "errorContaining": "Expected a property definition, found continuation"
+      }
+    },
+
+    {
+      "name": "profile name with no space after `sso-session` is invalid",
+      "input": {
+        "configFile": "[sso-sessionfoo]\nname = value\n[sso-session bar]"
+      },
+      "output": {
+        "ssoSessions": {
+          "bar": {}
+        }
+      }
+    },
+
+    {
+      "name": "sso-session name with extra whitespace",
+      "input": {
+        "configFile": "[   sso-session foo    ]\nname = value\n[sso-session bar]"
+      },
+      "output": {
+        "ssoSessions": {
+          "bar": {},
+          "foo": {
+            "name": "value"
+          }
+        }
+      }
+    },
+
+    {
+      "name": "properties from an invalid sso-session name are ignored",
+      "input": {
+        "configFile": "[sso-session foo]\nname = value\n[sso-session in valid]\nx = 1\n[sso-session bar]\nname = value2"
+      },
+      "output": {
+        "ssoSessions": {
+          "bar": {
+            "name": "value2"
+          },
+          "foo": {
+            "name": "value"
+          }
+        }
+      }
+    },
+
+    {
+      "name": "Duplicate properties in duplicate profiles use the last one defined (case insensitive).",
+      "input": {
+        "configFile": "[sso-session foo]\nName = value\n[sso-session foo]\nname = value2"
+      },
+      "output": {
+        "ssoSessions": {
+          "foo": {
+            "name": "value2"
+          }
+        }
+      }
+    }
+  ]
+}
