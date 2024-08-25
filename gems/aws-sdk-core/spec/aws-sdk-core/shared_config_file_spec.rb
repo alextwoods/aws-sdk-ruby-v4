@@ -18,7 +18,7 @@ module AWS::SDK::Core
         test_config_file = input['configFile']
         test_credentials_file = input['credentialsFile']
         if test_config_file
-          config_profiles, sso_sessions = SharedConfigFileStandardizer.new(
+          config_profiles, = SharedConfigFileStandardizer.new(
             SharedConfigFileParser.new(test_config_file).parse,
             :config
           ).standardize

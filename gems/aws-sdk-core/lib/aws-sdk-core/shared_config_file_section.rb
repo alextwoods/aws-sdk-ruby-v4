@@ -24,10 +24,10 @@ module AWS::SDK::Core
         end
         @properties[key] = value
       end
+    end
 
-      def to_h
-        @properties.transform_values(&:to_h)
-      end
+    def to_h
+      @properties.transform_values(&:to_h)
     end
 
     # A PORO for a property in a profile. It may have sub-properties.

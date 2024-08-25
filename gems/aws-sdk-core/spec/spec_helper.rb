@@ -40,15 +40,18 @@ end
 
 # Use in an example block to set the shared config for the duration of a test.
 def mock_shared_config(config_contents = '', credentials_contents = '')
-  parsed_config = AWS::SDK::Core::SharedConfigFileParser.new(config_contents).parse
+  parsed_config = AWS::SDK::Core::SharedConfigFileParser.new(
+    config_contents
+  ).parse
   parsed_credentials = AWS::SDK::Core::SharedConfigFileParser.new(
     credentials_contents
   ).parse
 
-  config_profiles, sso_sessions = AWS::SDK::Core::SharedConfigFileStandardizer.new(
-    parsed_config,
-    :config
-  ).standardize
+  config_profiles, sso_sessions =
+    AWS::SDK::Core::SharedConfigFileStandardizer.new(
+      parsed_config,
+      :config
+    ).standardize
   credentials_profiles = AWS::SDK::Core::SharedConfigFileStandardizer.new(
     parsed_credentials,
     :credentials

@@ -48,7 +48,8 @@ module AWS::SDK::Core
 
       line_without_brackets = line_without_whitespace[1..-2]
 
-      @current_profile = SharedConfigFileUtils.trim_whitespace(line_without_brackets)
+      @current_profile =
+        SharedConfigFileUtils.trim_whitespace(line_without_brackets)
       @current_property = nil
 
       @profiles[@current_profile] ||= {}

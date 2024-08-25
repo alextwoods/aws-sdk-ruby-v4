@@ -6,8 +6,8 @@ module AWS::SDK::Core
   class SharedConfigFile
     def initialize(config_profiles:, credentials_profiles:, sso_sessions:)
       merge_files!(config_profiles, credentials_profiles)
-      @profiles = config_profiles.transform_values { |profile| profile.to_h }
-      @sso_sessions = sso_sessions.transform_values { |sso_session| sso_session.to_h }
+      @profiles = config_profiles.transform_values(&:to_h)
+      @sso_sessions = sso_sessions.transform_values(&:to_h)
     end
 
     attr_reader :profiles, :sso_sessions

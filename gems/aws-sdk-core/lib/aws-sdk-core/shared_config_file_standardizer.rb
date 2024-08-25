@@ -70,10 +70,12 @@ module AWS::SDK::Core
         end
 
         if standardized_sso_session_name &&
-           !SharedConfigFileUtils.valid_identifier?(standardized_sso_session_name)
+           !SharedConfigFileUtils.valid_identifier?(
+             standardized_sso_session_name
+           )
           Kernel.warn(
-            "Ignoring sso-session '#{standardized_sso_session_name}' because it " \
-            'was not alphanumeric with dashes or underscores.'
+            "Ignoring sso-session '#{standardized_sso_session_name}' because " \
+            'it was not alphanumeric with dashes or underscores.'
           )
         end
 
