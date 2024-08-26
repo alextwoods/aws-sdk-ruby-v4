@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.name          = 'aws-sdk-ec2'
   spec.version       = File.read(File.expand_path('VERSION', __dir__)).strip
   spec.author        = 'Amazon Web Services'
-  spec.summary       = 'TEST SERVICE'
+  spec.summary       = 'Official AWS Ruby gem for Amazon Elastic Compute Cloud. This gem is part of the AWS SDK for Ruby.'
   spec.files         = Dir['lib/**/*.rb', 'VERSION']
   spec.license       = 'Apache-2.0'
 

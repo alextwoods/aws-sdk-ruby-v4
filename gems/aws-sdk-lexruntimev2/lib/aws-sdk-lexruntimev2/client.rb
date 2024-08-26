@@ -10,6 +10,7 @@
 require 'stringio'
 
 require_relative 'plugins/global_config'
+require_relative 'plugins/telemetry'
 
 module AWS::SDK::LexRuntimeV2
   # <p>This section contains documentation for the Amazon Lex V2 Runtime V2 API operations.</p>
@@ -17,7 +18,8 @@ module AWS::SDK::LexRuntimeV2
 
     # @api private
     @plugins = Hearth::PluginList.new([
-      Plugins::GlobalConfig.new
+      Plugins::GlobalConfig.new,
+      Plugins::Telemetry.new
     ])
 
     # @param [Hash] options

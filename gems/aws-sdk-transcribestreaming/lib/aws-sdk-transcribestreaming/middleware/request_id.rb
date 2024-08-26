@@ -18,13 +18,12 @@ module AWS::SDK::TranscribeStreaming
       end
 
       def call(input, context)
-        context.tracer.in_span('Middleware.RequestId') do |span|
-          output = @app.call(input, context)
-          request_id = context.response.headers['x-amz-request-id']
-          output.metadata[:request_id] = request_id
-          span.set_attribute('aws.request_id', request_id)
-          output
-        end
+        output = @app.call(input, context)
+        request_id = context.response.headers['x-amz-request-id']
+        output.metadata[:request_id] = request_id
+        current_span = context.tracer.current_span
+        current_span.set_attribute('aws.request_id', request_id) if request_id
+        output
       end
     end
   end
