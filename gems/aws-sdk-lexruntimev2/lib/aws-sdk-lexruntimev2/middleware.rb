@@ -51,7 +51,7 @@ module AWS::SDK::LexRuntimeV2
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::ConflictException, Errors::InternalServerException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::ValidationException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::ConflictException, Parsers::InternalServerException, Parsers::ResourceNotFoundException, Parsers::ThrottlingException, Parsers::ValidationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -106,7 +106,7 @@ module AWS::SDK::LexRuntimeV2
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::InternalServerException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::ValidationException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::InternalServerException, Parsers::ResourceNotFoundException, Parsers::ThrottlingException, Parsers::ValidationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -162,7 +162,7 @@ module AWS::SDK::LexRuntimeV2
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::BadGatewayException, Errors::ConflictException, Errors::DependencyFailedException, Errors::InternalServerException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::ValidationException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::BadGatewayException, Parsers::ConflictException, Parsers::DependencyFailedException, Parsers::InternalServerException, Parsers::ResourceNotFoundException, Parsers::ThrottlingException, Parsers::ValidationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -218,7 +218,7 @@ module AWS::SDK::LexRuntimeV2
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::BadGatewayException, Errors::ConflictException, Errors::DependencyFailedException, Errors::InternalServerException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::ValidationException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::BadGatewayException, Parsers::ConflictException, Parsers::DependencyFailedException, Parsers::InternalServerException, Parsers::ResourceNotFoundException, Parsers::ThrottlingException, Parsers::ValidationException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -273,7 +273,7 @@ module AWS::SDK::LexRuntimeV2
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::AccessDeniedException, Errors::BadGatewayException, Errors::ConflictException, Errors::DependencyFailedException, Errors::InternalServerException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::ValidationException]
+            error_parsers: [Parsers::AccessDeniedException, Parsers::BadGatewayException, Parsers::ConflictException, Parsers::DependencyFailedException, Parsers::InternalServerException, Parsers::ResourceNotFoundException, Parsers::ThrottlingException, Parsers::ValidationException]
           )
         )
         stack.use(Middleware::RequestId)

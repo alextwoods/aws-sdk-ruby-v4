@@ -98,56 +98,6 @@ module AWS::SDK::TranscribeStreaming
         on(Types::CallAnalyticsTranscriptResultStream::CategoryEvent, block)
       end
 
-      # Register an event handler for bad_request_exception events
-      # @yield [event] Called when bad_request_exception events are received.
-      # @yieldparam event [Types::CallAnalyticsTranscriptResultStream::BadRequestException] the event.
-      # @example Event structure
-      #   event #=> Types::BadRequestException
-      #   event.message #=> String
-      def on_bad_request_exception(&block)
-        on(Types::CallAnalyticsTranscriptResultStream::BadRequestException, block)
-      end
-
-      # Register an event handler for limit_exceeded_exception events
-      # @yield [event] Called when limit_exceeded_exception events are received.
-      # @yieldparam event [Types::CallAnalyticsTranscriptResultStream::LimitExceededException] the event.
-      # @example Event structure
-      #   event #=> Types::LimitExceededException
-      #   event.message #=> String
-      def on_limit_exceeded_exception(&block)
-        on(Types::CallAnalyticsTranscriptResultStream::LimitExceededException, block)
-      end
-
-      # Register an event handler for internal_failure_exception events
-      # @yield [event] Called when internal_failure_exception events are received.
-      # @yieldparam event [Types::CallAnalyticsTranscriptResultStream::InternalFailureException] the event.
-      # @example Event structure
-      #   event #=> Types::InternalFailureException
-      #   event.message #=> String
-      def on_internal_failure_exception(&block)
-        on(Types::CallAnalyticsTranscriptResultStream::InternalFailureException, block)
-      end
-
-      # Register an event handler for conflict_exception events
-      # @yield [event] Called when conflict_exception events are received.
-      # @yieldparam event [Types::CallAnalyticsTranscriptResultStream::ConflictException] the event.
-      # @example Event structure
-      #   event #=> Types::ConflictException
-      #   event.message #=> String
-      def on_conflict_exception(&block)
-        on(Types::CallAnalyticsTranscriptResultStream::ConflictException, block)
-      end
-
-      # Register an event handler for service_unavailable_exception events
-      # @yield [event] Called when service_unavailable_exception events are received.
-      # @yieldparam event [Types::CallAnalyticsTranscriptResultStream::ServiceUnavailableException] the event.
-      # @example Event structure
-      #   event #=> Types::ServiceUnavailableException
-      #   event.message #=> String
-      def on_service_unavailable_exception(&block)
-        on(Types::CallAnalyticsTranscriptResultStream::ServiceUnavailableException, block)
-      end
-
       # Register an event handler for any unknown events.
       # @yield [event] Called when unknown events are received.
       # @yieldparam event [Types::CallAnalyticsTranscriptResultStream::Unknown] the event with value set to the Message
@@ -159,17 +109,55 @@ module AWS::SDK::TranscribeStreaming
 
       def parse_event(type, message)
         case type
-        when 'initial-response' then Parsers::EventStream::StartCallAnalyticsStreamTranscriptionInitialResponse.parse(message)
-        when 'UtteranceEvent' then Types::CallAnalyticsTranscriptResultStream::UtteranceEvent.new(Parsers::EventStream::UtteranceEvent.parse(message))
-        when 'CategoryEvent' then Types::CallAnalyticsTranscriptResultStream::CategoryEvent.new(Parsers::EventStream::CategoryEvent.parse(message))
-        when 'BadRequestException' then Types::CallAnalyticsTranscriptResultStream::BadRequestException.new(Parsers::EventStream::BadRequestException.parse(message))
-        when 'LimitExceededException' then Types::CallAnalyticsTranscriptResultStream::LimitExceededException.new(Parsers::EventStream::LimitExceededException.parse(message))
-        when 'InternalFailureException' then Types::CallAnalyticsTranscriptResultStream::InternalFailureException.new(Parsers::EventStream::InternalFailureException.parse(message))
-        when 'ConflictException' then Types::CallAnalyticsTranscriptResultStream::ConflictException.new(Parsers::EventStream::ConflictException.parse(message))
-        when 'ServiceUnavailableException' then Types::CallAnalyticsTranscriptResultStream::ServiceUnavailableException.new(Parsers::EventStream::ServiceUnavailableException.parse(message))
+        when 'initial-response'
+          Parsers::EventStream::StartCallAnalyticsStreamTranscriptionInitialResponse.parse(message)
+        when 'UtteranceEvent'
+          Types::CallAnalyticsTranscriptResultStream::UtteranceEvent.new(Parsers::EventStream::UtteranceEvent.parse(message))
+        when 'CategoryEvent'
+          Types::CallAnalyticsTranscriptResultStream::CategoryEvent.new(Parsers::EventStream::CategoryEvent.parse(message))
+        when 'BadRequestException'
+          Types::CallAnalyticsTranscriptResultStream::BadRequestException.new(Parsers::EventStream::BadRequestException.parse(message))
+        when 'LimitExceededException'
+          Types::CallAnalyticsTranscriptResultStream::LimitExceededException.new(Parsers::EventStream::LimitExceededException.parse(message))
+        when 'InternalFailureException'
+          Types::CallAnalyticsTranscriptResultStream::InternalFailureException.new(Parsers::EventStream::InternalFailureException.parse(message))
+        when 'ConflictException'
+          Types::CallAnalyticsTranscriptResultStream::ConflictException.new(Parsers::EventStream::ConflictException.parse(message))
+        when 'ServiceUnavailableException'
+          Types::CallAnalyticsTranscriptResultStream::ServiceUnavailableException.new(Parsers::EventStream::ServiceUnavailableException.parse(message))
         else
-          Types::CallAnalyticsTranscriptResultStream::Unknown.new(name: type || 'unknown', value: message)
+          Types::CallAnalyticsTranscriptResultStream::Unknown.new(name: type, value: message)
         end
+      end
+
+      def parse_exception_event(type, message)
+        case type
+        when 'BadRequestException'
+          data = Parsers::EventStream::BadRequestException.parse(message)
+          Errors::BadRequestException.new(data: data, error_code: 'AWS::SDK::TranscribeStreaming::Types::CallAnalyticsTranscriptResultStream::BadRequestException')
+        when 'LimitExceededException'
+          data = Parsers::EventStream::LimitExceededException.parse(message)
+          Errors::LimitExceededException.new(data: data, error_code: 'AWS::SDK::TranscribeStreaming::Types::CallAnalyticsTranscriptResultStream::LimitExceededException')
+        when 'InternalFailureException'
+          data = Parsers::EventStream::InternalFailureException.parse(message)
+          Errors::InternalFailureException.new(data: data, error_code: 'AWS::SDK::TranscribeStreaming::Types::CallAnalyticsTranscriptResultStream::InternalFailureException')
+        when 'ConflictException'
+          data = Parsers::EventStream::ConflictException.parse(message)
+          Errors::ConflictException.new(data: data, error_code: 'AWS::SDK::TranscribeStreaming::Types::CallAnalyticsTranscriptResultStream::ConflictException')
+        when 'ServiceUnavailableException'
+          data = Parsers::EventStream::ServiceUnavailableException.parse(message)
+          Errors::ServiceUnavailableException.new(data: data, error_code: 'AWS::SDK::TranscribeStreaming::Types::CallAnalyticsTranscriptResultStream::ServiceUnavailableException')
+        else
+          data = Types::CallAnalyticsTranscriptResultStream::Unknown.new(name: type, value: message)
+          Errors::ApiError.new(error_code: type, metadata: {data: data})
+        end
+      end
+
+      def parse_error_event(message)
+        error_code = message.headers.delete(':error-code')&.value
+        error_message = message.headers.delete(':error-message')&.value
+        metadata = {message: message}
+        Errors::ApiError.new(error_code: error_code, metadata: metadata, message: error_message)
       end
     end
 
@@ -239,56 +227,6 @@ module AWS::SDK::TranscribeStreaming
         on(Types::MedicalTranscriptResultStream::TranscriptEvent, block)
       end
 
-      # Register an event handler for bad_request_exception events
-      # @yield [event] Called when bad_request_exception events are received.
-      # @yieldparam event [Types::MedicalTranscriptResultStream::BadRequestException] the event.
-      # @example Event structure
-      #   event #=> Types::BadRequestException
-      #   event.message #=> String
-      def on_bad_request_exception(&block)
-        on(Types::MedicalTranscriptResultStream::BadRequestException, block)
-      end
-
-      # Register an event handler for limit_exceeded_exception events
-      # @yield [event] Called when limit_exceeded_exception events are received.
-      # @yieldparam event [Types::MedicalTranscriptResultStream::LimitExceededException] the event.
-      # @example Event structure
-      #   event #=> Types::LimitExceededException
-      #   event.message #=> String
-      def on_limit_exceeded_exception(&block)
-        on(Types::MedicalTranscriptResultStream::LimitExceededException, block)
-      end
-
-      # Register an event handler for internal_failure_exception events
-      # @yield [event] Called when internal_failure_exception events are received.
-      # @yieldparam event [Types::MedicalTranscriptResultStream::InternalFailureException] the event.
-      # @example Event structure
-      #   event #=> Types::InternalFailureException
-      #   event.message #=> String
-      def on_internal_failure_exception(&block)
-        on(Types::MedicalTranscriptResultStream::InternalFailureException, block)
-      end
-
-      # Register an event handler for conflict_exception events
-      # @yield [event] Called when conflict_exception events are received.
-      # @yieldparam event [Types::MedicalTranscriptResultStream::ConflictException] the event.
-      # @example Event structure
-      #   event #=> Types::ConflictException
-      #   event.message #=> String
-      def on_conflict_exception(&block)
-        on(Types::MedicalTranscriptResultStream::ConflictException, block)
-      end
-
-      # Register an event handler for service_unavailable_exception events
-      # @yield [event] Called when service_unavailable_exception events are received.
-      # @yieldparam event [Types::MedicalTranscriptResultStream::ServiceUnavailableException] the event.
-      # @example Event structure
-      #   event #=> Types::ServiceUnavailableException
-      #   event.message #=> String
-      def on_service_unavailable_exception(&block)
-        on(Types::MedicalTranscriptResultStream::ServiceUnavailableException, block)
-      end
-
       # Register an event handler for any unknown events.
       # @yield [event] Called when unknown events are received.
       # @yieldparam event [Types::MedicalTranscriptResultStream::Unknown] the event with value set to the Message
@@ -300,16 +238,53 @@ module AWS::SDK::TranscribeStreaming
 
       def parse_event(type, message)
         case type
-        when 'initial-response' then Parsers::EventStream::StartMedicalStreamTranscriptionInitialResponse.parse(message)
-        when 'TranscriptEvent' then Types::MedicalTranscriptResultStream::TranscriptEvent.new(Parsers::EventStream::MedicalTranscriptEvent.parse(message))
-        when 'BadRequestException' then Types::MedicalTranscriptResultStream::BadRequestException.new(Parsers::EventStream::BadRequestException.parse(message))
-        when 'LimitExceededException' then Types::MedicalTranscriptResultStream::LimitExceededException.new(Parsers::EventStream::LimitExceededException.parse(message))
-        when 'InternalFailureException' then Types::MedicalTranscriptResultStream::InternalFailureException.new(Parsers::EventStream::InternalFailureException.parse(message))
-        when 'ConflictException' then Types::MedicalTranscriptResultStream::ConflictException.new(Parsers::EventStream::ConflictException.parse(message))
-        when 'ServiceUnavailableException' then Types::MedicalTranscriptResultStream::ServiceUnavailableException.new(Parsers::EventStream::ServiceUnavailableException.parse(message))
+        when 'initial-response'
+          Parsers::EventStream::StartMedicalStreamTranscriptionInitialResponse.parse(message)
+        when 'TranscriptEvent'
+          Types::MedicalTranscriptResultStream::TranscriptEvent.new(Parsers::EventStream::MedicalTranscriptEvent.parse(message))
+        when 'BadRequestException'
+          Types::MedicalTranscriptResultStream::BadRequestException.new(Parsers::EventStream::BadRequestException.parse(message))
+        when 'LimitExceededException'
+          Types::MedicalTranscriptResultStream::LimitExceededException.new(Parsers::EventStream::LimitExceededException.parse(message))
+        when 'InternalFailureException'
+          Types::MedicalTranscriptResultStream::InternalFailureException.new(Parsers::EventStream::InternalFailureException.parse(message))
+        when 'ConflictException'
+          Types::MedicalTranscriptResultStream::ConflictException.new(Parsers::EventStream::ConflictException.parse(message))
+        when 'ServiceUnavailableException'
+          Types::MedicalTranscriptResultStream::ServiceUnavailableException.new(Parsers::EventStream::ServiceUnavailableException.parse(message))
         else
-          Types::MedicalTranscriptResultStream::Unknown.new(name: type || 'unknown', value: message)
+          Types::MedicalTranscriptResultStream::Unknown.new(name: type, value: message)
         end
+      end
+
+      def parse_exception_event(type, message)
+        case type
+        when 'BadRequestException'
+          data = Parsers::EventStream::BadRequestException.parse(message)
+          Errors::BadRequestException.new(data: data, error_code: 'AWS::SDK::TranscribeStreaming::Types::MedicalTranscriptResultStream::BadRequestException')
+        when 'LimitExceededException'
+          data = Parsers::EventStream::LimitExceededException.parse(message)
+          Errors::LimitExceededException.new(data: data, error_code: 'AWS::SDK::TranscribeStreaming::Types::MedicalTranscriptResultStream::LimitExceededException')
+        when 'InternalFailureException'
+          data = Parsers::EventStream::InternalFailureException.parse(message)
+          Errors::InternalFailureException.new(data: data, error_code: 'AWS::SDK::TranscribeStreaming::Types::MedicalTranscriptResultStream::InternalFailureException')
+        when 'ConflictException'
+          data = Parsers::EventStream::ConflictException.parse(message)
+          Errors::ConflictException.new(data: data, error_code: 'AWS::SDK::TranscribeStreaming::Types::MedicalTranscriptResultStream::ConflictException')
+        when 'ServiceUnavailableException'
+          data = Parsers::EventStream::ServiceUnavailableException.parse(message)
+          Errors::ServiceUnavailableException.new(data: data, error_code: 'AWS::SDK::TranscribeStreaming::Types::MedicalTranscriptResultStream::ServiceUnavailableException')
+        else
+          data = Types::MedicalTranscriptResultStream::Unknown.new(name: type, value: message)
+          Errors::ApiError.new(error_code: type, metadata: {data: data})
+        end
+      end
+
+      def parse_error_event(message)
+        error_code = message.headers.delete(':error-code')&.value
+        error_message = message.headers.delete(':error-message')&.value
+        metadata = {message: message}
+        Errors::ApiError.new(error_code: error_code, metadata: metadata, message: error_message)
       end
     end
 
@@ -398,56 +373,6 @@ module AWS::SDK::TranscribeStreaming
         on(Types::TranscriptResultStream::TranscriptEvent, block)
       end
 
-      # Register an event handler for bad_request_exception events
-      # @yield [event] Called when bad_request_exception events are received.
-      # @yieldparam event [Types::TranscriptResultStream::BadRequestException] the event.
-      # @example Event structure
-      #   event #=> Types::BadRequestException
-      #   event.message #=> String
-      def on_bad_request_exception(&block)
-        on(Types::TranscriptResultStream::BadRequestException, block)
-      end
-
-      # Register an event handler for limit_exceeded_exception events
-      # @yield [event] Called when limit_exceeded_exception events are received.
-      # @yieldparam event [Types::TranscriptResultStream::LimitExceededException] the event.
-      # @example Event structure
-      #   event #=> Types::LimitExceededException
-      #   event.message #=> String
-      def on_limit_exceeded_exception(&block)
-        on(Types::TranscriptResultStream::LimitExceededException, block)
-      end
-
-      # Register an event handler for internal_failure_exception events
-      # @yield [event] Called when internal_failure_exception events are received.
-      # @yieldparam event [Types::TranscriptResultStream::InternalFailureException] the event.
-      # @example Event structure
-      #   event #=> Types::InternalFailureException
-      #   event.message #=> String
-      def on_internal_failure_exception(&block)
-        on(Types::TranscriptResultStream::InternalFailureException, block)
-      end
-
-      # Register an event handler for conflict_exception events
-      # @yield [event] Called when conflict_exception events are received.
-      # @yieldparam event [Types::TranscriptResultStream::ConflictException] the event.
-      # @example Event structure
-      #   event #=> Types::ConflictException
-      #   event.message #=> String
-      def on_conflict_exception(&block)
-        on(Types::TranscriptResultStream::ConflictException, block)
-      end
-
-      # Register an event handler for service_unavailable_exception events
-      # @yield [event] Called when service_unavailable_exception events are received.
-      # @yieldparam event [Types::TranscriptResultStream::ServiceUnavailableException] the event.
-      # @example Event structure
-      #   event #=> Types::ServiceUnavailableException
-      #   event.message #=> String
-      def on_service_unavailable_exception(&block)
-        on(Types::TranscriptResultStream::ServiceUnavailableException, block)
-      end
-
       # Register an event handler for any unknown events.
       # @yield [event] Called when unknown events are received.
       # @yieldparam event [Types::TranscriptResultStream::Unknown] the event with value set to the Message
@@ -459,16 +384,53 @@ module AWS::SDK::TranscribeStreaming
 
       def parse_event(type, message)
         case type
-        when 'initial-response' then Parsers::EventStream::StartStreamTranscriptionInitialResponse.parse(message)
-        when 'TranscriptEvent' then Types::TranscriptResultStream::TranscriptEvent.new(Parsers::EventStream::TranscriptEvent.parse(message))
-        when 'BadRequestException' then Types::TranscriptResultStream::BadRequestException.new(Parsers::EventStream::BadRequestException.parse(message))
-        when 'LimitExceededException' then Types::TranscriptResultStream::LimitExceededException.new(Parsers::EventStream::LimitExceededException.parse(message))
-        when 'InternalFailureException' then Types::TranscriptResultStream::InternalFailureException.new(Parsers::EventStream::InternalFailureException.parse(message))
-        when 'ConflictException' then Types::TranscriptResultStream::ConflictException.new(Parsers::EventStream::ConflictException.parse(message))
-        when 'ServiceUnavailableException' then Types::TranscriptResultStream::ServiceUnavailableException.new(Parsers::EventStream::ServiceUnavailableException.parse(message))
+        when 'initial-response'
+          Parsers::EventStream::StartStreamTranscriptionInitialResponse.parse(message)
+        when 'TranscriptEvent'
+          Types::TranscriptResultStream::TranscriptEvent.new(Parsers::EventStream::TranscriptEvent.parse(message))
+        when 'BadRequestException'
+          Types::TranscriptResultStream::BadRequestException.new(Parsers::EventStream::BadRequestException.parse(message))
+        when 'LimitExceededException'
+          Types::TranscriptResultStream::LimitExceededException.new(Parsers::EventStream::LimitExceededException.parse(message))
+        when 'InternalFailureException'
+          Types::TranscriptResultStream::InternalFailureException.new(Parsers::EventStream::InternalFailureException.parse(message))
+        when 'ConflictException'
+          Types::TranscriptResultStream::ConflictException.new(Parsers::EventStream::ConflictException.parse(message))
+        when 'ServiceUnavailableException'
+          Types::TranscriptResultStream::ServiceUnavailableException.new(Parsers::EventStream::ServiceUnavailableException.parse(message))
         else
-          Types::TranscriptResultStream::Unknown.new(name: type || 'unknown', value: message)
+          Types::TranscriptResultStream::Unknown.new(name: type, value: message)
         end
+      end
+
+      def parse_exception_event(type, message)
+        case type
+        when 'BadRequestException'
+          data = Parsers::EventStream::BadRequestException.parse(message)
+          Errors::BadRequestException.new(data: data, error_code: 'AWS::SDK::TranscribeStreaming::Types::TranscriptResultStream::BadRequestException')
+        when 'LimitExceededException'
+          data = Parsers::EventStream::LimitExceededException.parse(message)
+          Errors::LimitExceededException.new(data: data, error_code: 'AWS::SDK::TranscribeStreaming::Types::TranscriptResultStream::LimitExceededException')
+        when 'InternalFailureException'
+          data = Parsers::EventStream::InternalFailureException.parse(message)
+          Errors::InternalFailureException.new(data: data, error_code: 'AWS::SDK::TranscribeStreaming::Types::TranscriptResultStream::InternalFailureException')
+        when 'ConflictException'
+          data = Parsers::EventStream::ConflictException.parse(message)
+          Errors::ConflictException.new(data: data, error_code: 'AWS::SDK::TranscribeStreaming::Types::TranscriptResultStream::ConflictException')
+        when 'ServiceUnavailableException'
+          data = Parsers::EventStream::ServiceUnavailableException.parse(message)
+          Errors::ServiceUnavailableException.new(data: data, error_code: 'AWS::SDK::TranscribeStreaming::Types::TranscriptResultStream::ServiceUnavailableException')
+        else
+          data = Types::TranscriptResultStream::Unknown.new(name: type, value: message)
+          Errors::ApiError.new(error_code: type, metadata: {data: data})
+        end
+      end
+
+      def parse_error_event(message)
+        error_code = message.headers.delete(':error-code')&.value
+        error_message = message.headers.delete(':error-message')&.value
+        metadata = {message: message}
+        Errors::ApiError.new(error_code: error_code, metadata: metadata, message: error_message)
       end
     end
 

@@ -13,11 +13,11 @@ module AWS::SDK::LexRuntimeV2
 
     # Error Parser for AccessDeniedException
     class AccessDeniedException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::AccessDeniedException.new
         map = Hearth::JSON.parse(http_resp.body.read)
         data.message = map['message'] || map['Message'] unless map['message'] || map['Message'].nil?
-        data
+        Errors::AccessDeniedException.new(data: data, **kwargs)
       end
     end
 
@@ -72,11 +72,11 @@ module AWS::SDK::LexRuntimeV2
 
     # Error Parser for BadGatewayException
     class BadGatewayException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::BadGatewayException.new
         map = Hearth::JSON.parse(http_resp.body.read)
         data.message = map['message'] || map['Message'] unless map['message'] || map['Message'].nil?
-        data
+        Errors::BadGatewayException.new(data: data, **kwargs)
       end
     end
 
@@ -109,11 +109,11 @@ module AWS::SDK::LexRuntimeV2
 
     # Error Parser for ConflictException
     class ConflictException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::ConflictException.new
         map = Hearth::JSON.parse(http_resp.body.read)
         data.message = map['message'] || map['Message'] unless map['message'] || map['Message'].nil?
-        data
+        Errors::ConflictException.new(data: data, **kwargs)
       end
     end
 
@@ -131,11 +131,11 @@ module AWS::SDK::LexRuntimeV2
 
     # Error Parser for DependencyFailedException
     class DependencyFailedException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::DependencyFailedException.new
         map = Hearth::JSON.parse(http_resp.body.read)
         data.message = map['message'] || map['Message'] unless map['message'] || map['Message'].nil?
-        data
+        Errors::DependencyFailedException.new(data: data, **kwargs)
       end
     end
 
@@ -217,11 +217,11 @@ module AWS::SDK::LexRuntimeV2
 
     # Error Parser for InternalServerException
     class InternalServerException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::InternalServerException.new
         map = Hearth::JSON.parse(http_resp.body.read)
         data.message = map['message'] || map['Message'] unless map['message'] || map['Message'].nil?
-        data
+        Errors::InternalServerException.new(data: data, **kwargs)
       end
     end
 
@@ -331,11 +331,11 @@ module AWS::SDK::LexRuntimeV2
 
     # Error Parser for ResourceNotFoundException
     class ResourceNotFoundException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::ResourceNotFoundException.new
         map = Hearth::JSON.parse(http_resp.body.read)
         data.message = map['message'] || map['Message'] unless map['message'] || map['Message'].nil?
-        data
+        Errors::ResourceNotFoundException.new(data: data, **kwargs)
       end
     end
 
@@ -487,11 +487,11 @@ module AWS::SDK::LexRuntimeV2
 
     # Error Parser for ThrottlingException
     class ThrottlingException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::ThrottlingException.new
         map = Hearth::JSON.parse(http_resp.body.read)
         data.message = map['message'] || map['Message'] unless map['message'] || map['Message'].nil?
-        data
+        Errors::ThrottlingException.new(data: data, **kwargs)
       end
     end
 
@@ -506,11 +506,11 @@ module AWS::SDK::LexRuntimeV2
 
     # Error Parser for ValidationException
     class ValidationException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::ValidationException.new
         map = Hearth::JSON.parse(http_resp.body.read)
         data.message = map['message'] || map['Message'] unless map['message'] || map['Message'].nil?
-        data
+        Errors::ValidationException.new(data: data, **kwargs)
       end
     end
 

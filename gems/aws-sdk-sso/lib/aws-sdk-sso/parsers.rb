@@ -42,11 +42,11 @@ module AWS::SDK::SSO
 
     # Error Parser for InvalidRequestException
     class InvalidRequestException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::InvalidRequestException.new
         map = Hearth::JSON.parse(http_resp.body.read)
         data.message = map['message'] || map['Message'] unless map['message'] || map['Message'].nil?
-        data
+        Errors::InvalidRequestException.new(data: data, **kwargs)
       end
     end
 
@@ -80,11 +80,11 @@ module AWS::SDK::SSO
 
     # Error Parser for ResourceNotFoundException
     class ResourceNotFoundException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::ResourceNotFoundException.new
         map = Hearth::JSON.parse(http_resp.body.read)
         data.message = map['message'] || map['Message'] unless map['message'] || map['Message'].nil?
-        data
+        Errors::ResourceNotFoundException.new(data: data, **kwargs)
       end
     end
 
@@ -120,21 +120,21 @@ module AWS::SDK::SSO
 
     # Error Parser for TooManyRequestsException
     class TooManyRequestsException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::TooManyRequestsException.new
         map = Hearth::JSON.parse(http_resp.body.read)
         data.message = map['message'] || map['Message'] unless map['message'] || map['Message'].nil?
-        data
+        Errors::TooManyRequestsException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for UnauthorizedException
     class UnauthorizedException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::UnauthorizedException.new
         map = Hearth::JSON.parse(http_resp.body.read)
         data.message = map['message'] || map['Message'] unless map['message'] || map['Message'].nil?
-        data
+        Errors::UnauthorizedException.new(data: data, **kwargs)
       end
     end
   end

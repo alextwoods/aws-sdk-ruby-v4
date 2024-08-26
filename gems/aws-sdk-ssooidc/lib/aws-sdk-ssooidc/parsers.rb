@@ -13,23 +13,23 @@ module AWS::SDK::SSOOIDC
 
     # Error Parser for AccessDeniedException
     class AccessDeniedException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::AccessDeniedException.new
         map = Hearth::JSON.parse(http_resp.body.read)
         data.error = map['error'] unless map['error'].nil?
         data.error_description = map['error_description'] unless map['error_description'].nil?
-        data
+        Errors::AccessDeniedException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for AuthorizationPendingException
     class AuthorizationPendingException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::AuthorizationPendingException.new
         map = Hearth::JSON.parse(http_resp.body.read)
         data.error = map['error'] unless map['error'].nil?
         data.error_description = map['error_description'] unless map['error_description'].nil?
-        data
+        Errors::AuthorizationPendingException.new(data: data, **kwargs)
       end
     end
 
@@ -63,102 +63,102 @@ module AWS::SDK::SSOOIDC
 
     # Error Parser for ExpiredTokenException
     class ExpiredTokenException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::ExpiredTokenException.new
         map = Hearth::JSON.parse(http_resp.body.read)
         data.error = map['error'] unless map['error'].nil?
         data.error_description = map['error_description'] unless map['error_description'].nil?
-        data
+        Errors::ExpiredTokenException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for InternalServerException
     class InternalServerException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::InternalServerException.new
         map = Hearth::JSON.parse(http_resp.body.read)
         data.error = map['error'] unless map['error'].nil?
         data.error_description = map['error_description'] unless map['error_description'].nil?
-        data
+        Errors::InternalServerException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for InvalidClientException
     class InvalidClientException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::InvalidClientException.new
         map = Hearth::JSON.parse(http_resp.body.read)
         data.error = map['error'] unless map['error'].nil?
         data.error_description = map['error_description'] unless map['error_description'].nil?
-        data
+        Errors::InvalidClientException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for InvalidClientMetadataException
     class InvalidClientMetadataException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::InvalidClientMetadataException.new
         map = Hearth::JSON.parse(http_resp.body.read)
         data.error = map['error'] unless map['error'].nil?
         data.error_description = map['error_description'] unless map['error_description'].nil?
-        data
+        Errors::InvalidClientMetadataException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for InvalidGrantException
     class InvalidGrantException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::InvalidGrantException.new
         map = Hearth::JSON.parse(http_resp.body.read)
         data.error = map['error'] unless map['error'].nil?
         data.error_description = map['error_description'] unless map['error_description'].nil?
-        data
+        Errors::InvalidGrantException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for InvalidRedirectUriException
     class InvalidRedirectUriException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::InvalidRedirectUriException.new
         map = Hearth::JSON.parse(http_resp.body.read)
         data.error = map['error'] unless map['error'].nil?
         data.error_description = map['error_description'] unless map['error_description'].nil?
-        data
+        Errors::InvalidRedirectUriException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for InvalidRequestException
     class InvalidRequestException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::InvalidRequestException.new
         map = Hearth::JSON.parse(http_resp.body.read)
         data.error = map['error'] unless map['error'].nil?
         data.error_description = map['error_description'] unless map['error_description'].nil?
-        data
+        Errors::InvalidRequestException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for InvalidRequestRegionException
     class InvalidRequestRegionException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::InvalidRequestRegionException.new
         map = Hearth::JSON.parse(http_resp.body.read)
         data.error = map['error'] unless map['error'].nil?
         data.error_description = map['error_description'] unless map['error_description'].nil?
         data.endpoint = map['endpoint'] unless map['endpoint'].nil?
         data.region = map['region'] unless map['region'].nil?
-        data
+        Errors::InvalidRequestRegionException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for InvalidScopeException
     class InvalidScopeException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::InvalidScopeException.new
         map = Hearth::JSON.parse(http_resp.body.read)
         data.error = map['error'] unless map['error'].nil?
         data.error_description = map['error_description'] unless map['error_description'].nil?
-        data
+        Errors::InvalidScopeException.new(data: data, **kwargs)
       end
     end
 
@@ -188,12 +188,12 @@ module AWS::SDK::SSOOIDC
 
     # Error Parser for SlowDownException
     class SlowDownException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::SlowDownException.new
         map = Hearth::JSON.parse(http_resp.body.read)
         data.error = map['error'] unless map['error'].nil?
         data.error_description = map['error_description'] unless map['error_description'].nil?
-        data
+        Errors::SlowDownException.new(data: data, **kwargs)
       end
     end
 
@@ -213,23 +213,23 @@ module AWS::SDK::SSOOIDC
 
     # Error Parser for UnauthorizedClientException
     class UnauthorizedClientException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::UnauthorizedClientException.new
         map = Hearth::JSON.parse(http_resp.body.read)
         data.error = map['error'] unless map['error'].nil?
         data.error_description = map['error_description'] unless map['error_description'].nil?
-        data
+        Errors::UnauthorizedClientException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for UnsupportedGrantTypeException
     class UnsupportedGrantTypeException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::UnsupportedGrantTypeException.new
         map = Hearth::JSON.parse(http_resp.body.read)
         data.error = map['error'] unless map['error'].nil?
         data.error_description = map['error_description'] unless map['error_description'].nil?
-        data
+        Errors::UnsupportedGrantTypeException.new(data: data, **kwargs)
       end
     end
   end

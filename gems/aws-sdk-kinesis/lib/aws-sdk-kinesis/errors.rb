@@ -25,18 +25,16 @@ module AWS::SDK::Kinesis
     end
 
     # Base class for all errors returned by this service
-    class ApiError < Hearth::HTTP::ApiError; end
+    class ApiError < Hearth::ApiError; end
 
     # Base class for all errors returned where the client is at fault.
-    # These are generally errors with 4XX HTTP status codes.
     class ApiClientError < ApiError; end
 
     # Base class for all errors returned where the server is at fault.
-    # These are generally errors with 5XX HTTP status codes.
     class ApiServerError < ApiError; end
 
     # Base class for all errors returned where the service returned
-    # a 3XX redirection.
+    # a redirection.
     class ApiRedirectError < ApiError
       def initialize(location:, **kwargs)
         @location = location
@@ -48,11 +46,11 @@ module AWS::SDK::Kinesis
     end
 
     class AccessDeniedException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::AccessDeniedException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::AccessDeniedException]
@@ -60,11 +58,11 @@ module AWS::SDK::Kinesis
     end
 
     class ExpiredIteratorException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::ExpiredIteratorException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::ExpiredIteratorException]
@@ -72,11 +70,11 @@ module AWS::SDK::Kinesis
     end
 
     class ExpiredNextTokenException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::ExpiredNextTokenException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::ExpiredNextTokenException]
@@ -84,11 +82,11 @@ module AWS::SDK::Kinesis
     end
 
     class InternalFailureException < ApiServerError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::InternalFailureException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::InternalFailureException]
@@ -96,11 +94,11 @@ module AWS::SDK::Kinesis
     end
 
     class InvalidArgumentException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::InvalidArgumentException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::InvalidArgumentException]
@@ -108,11 +106,11 @@ module AWS::SDK::Kinesis
     end
 
     class KMSAccessDeniedException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::KMSAccessDeniedException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::KMSAccessDeniedException]
@@ -120,11 +118,11 @@ module AWS::SDK::Kinesis
     end
 
     class KMSDisabledException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::KMSDisabledException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::KMSDisabledException]
@@ -132,11 +130,11 @@ module AWS::SDK::Kinesis
     end
 
     class KMSInvalidStateException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::KMSInvalidStateException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::KMSInvalidStateException]
@@ -144,11 +142,11 @@ module AWS::SDK::Kinesis
     end
 
     class KMSNotFoundException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::KMSNotFoundException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::KMSNotFoundException]
@@ -156,11 +154,11 @@ module AWS::SDK::Kinesis
     end
 
     class KMSOptInRequired < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::KMSOptInRequired.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::KMSOptInRequired]
@@ -168,11 +166,11 @@ module AWS::SDK::Kinesis
     end
 
     class KMSThrottlingException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::KMSThrottlingException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::KMSThrottlingException]
@@ -180,11 +178,11 @@ module AWS::SDK::Kinesis
     end
 
     class LimitExceededException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::LimitExceededException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::LimitExceededException]
@@ -192,11 +190,11 @@ module AWS::SDK::Kinesis
     end
 
     class ProvisionedThroughputExceededException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::ProvisionedThroughputExceededException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::ProvisionedThroughputExceededException]
@@ -204,11 +202,11 @@ module AWS::SDK::Kinesis
     end
 
     class ResourceInUseException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::ResourceInUseException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::ResourceInUseException]
@@ -216,11 +214,11 @@ module AWS::SDK::Kinesis
     end
 
     class ResourceNotFoundException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::ResourceNotFoundException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::ResourceNotFoundException]
@@ -228,11 +226,11 @@ module AWS::SDK::Kinesis
     end
 
     class ValidationException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::ValidationException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::ValidationException]

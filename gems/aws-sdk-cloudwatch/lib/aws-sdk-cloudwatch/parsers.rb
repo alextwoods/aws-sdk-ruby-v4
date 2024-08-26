@@ -203,15 +203,16 @@ module AWS::SDK::CloudWatch
 
     # Error Parser for ConcurrentModificationException
     class ConcurrentModificationException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::ConcurrentModificationException.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('Error')
-        xml.at('Message') do |node|
-          data.message = (node.text || '')
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('Error')
+          xml.at('Message') do |node|
+            data.message = (node.text || '')
+          end
         end
-        data
+        Errors::ConcurrentModificationException.new(data: data, **kwargs)
       end
     end
 
@@ -246,33 +247,35 @@ module AWS::SDK::CloudWatch
 
     # Error Parser for DashboardInvalidInputError
     class DashboardInvalidInputError
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::DashboardInvalidInputError.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('Error')
-        xml.at('message') do |node|
-          data.message = (node.text || '')
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('Error')
+          xml.at('message') do |node|
+            data.message = (node.text || '')
+          end
+          xml.at('dashboardValidationMessages') do |node|
+            children = node.children('member')
+            data.dashboard_validation_messages = DashboardValidationMessages.parse(children)
+          end
         end
-        xml.at('dashboardValidationMessages') do |node|
-          children = node.children('member')
-          data.dashboard_validation_messages = DashboardValidationMessages.parse(children)
-        end
-        data
+        Errors::DashboardInvalidInputError.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for DashboardNotFoundError
     class DashboardNotFoundError
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::DashboardNotFoundError.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('Error')
-        xml.at('message') do |node|
-          data.message = (node.text || '')
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('Error')
+          xml.at('message') do |node|
+            data.message = (node.text || '')
+          end
         end
-        data
+        Errors::DashboardNotFoundError.new(data: data, **kwargs)
       end
     end
 
@@ -870,99 +873,106 @@ module AWS::SDK::CloudWatch
 
     # Error Parser for InternalServiceFault
     class InternalServiceFault
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::InternalServiceFault.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('Error')
-        xml.at('Message') do |node|
-          data.message = (node.text || '')
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('Error')
+          xml.at('Message') do |node|
+            data.message = (node.text || '')
+          end
         end
-        data
+        Errors::InternalServiceFault.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for InvalidFormatFault
     class InvalidFormatFault
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::InvalidFormatFault.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('Error')
-        xml.at('message') do |node|
-          data.message = (node.text || '')
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('Error')
+          xml.at('message') do |node|
+            data.message = (node.text || '')
+          end
         end
-        data
+        Errors::InvalidFormatFault.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for InvalidNextToken
     class InvalidNextToken
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::InvalidNextToken.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('Error')
-        xml.at('message') do |node|
-          data.message = (node.text || '')
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('Error')
+          xml.at('message') do |node|
+            data.message = (node.text || '')
+          end
         end
-        data
+        Errors::InvalidNextToken.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for InvalidParameterCombinationException
     class InvalidParameterCombinationException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::InvalidParameterCombinationException.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('Error')
-        xml.at('message') do |node|
-          data.message = (node.text || '')
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('Error')
+          xml.at('message') do |node|
+            data.message = (node.text || '')
+          end
         end
-        data
+        Errors::InvalidParameterCombinationException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for InvalidParameterValueException
     class InvalidParameterValueException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::InvalidParameterValueException.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('Error')
-        xml.at('message') do |node|
-          data.message = (node.text || '')
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('Error')
+          xml.at('message') do |node|
+            data.message = (node.text || '')
+          end
         end
-        data
+        Errors::InvalidParameterValueException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for LimitExceededException
     class LimitExceededException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::LimitExceededException.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('Error')
-        xml.at('Message') do |node|
-          data.message = (node.text || '')
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('Error')
+          xml.at('Message') do |node|
+            data.message = (node.text || '')
+          end
         end
-        data
+        Errors::LimitExceededException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for LimitExceededFault
     class LimitExceededFault
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::LimitExceededFault.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('Error')
-        xml.at('message') do |node|
-          data.message = (node.text || '')
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('Error')
+          xml.at('message') do |node|
+            data.message = (node.text || '')
+          end
         end
-        data
+        Errors::LimitExceededFault.new(data: data, **kwargs)
       end
     end
 
@@ -1488,15 +1498,16 @@ module AWS::SDK::CloudWatch
 
     # Error Parser for MissingRequiredParameterException
     class MissingRequiredParameterException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::MissingRequiredParameterException.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('Error')
-        xml.at('message') do |node|
-          data.message = (node.text || '')
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('Error')
+          xml.at('message') do |node|
+            data.message = (node.text || '')
+          end
         end
-        data
+        Errors::MissingRequiredParameterException.new(data: data, **kwargs)
       end
     end
 
@@ -1645,35 +1656,37 @@ module AWS::SDK::CloudWatch
 
     # Error Parser for ResourceNotFound
     class ResourceNotFound
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::ResourceNotFound.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('Error')
-        xml.at('message') do |node|
-          data.message = (node.text || '')
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('Error')
+          xml.at('message') do |node|
+            data.message = (node.text || '')
+          end
         end
-        data
+        Errors::ResourceNotFound.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for ResourceNotFoundException
     class ResourceNotFoundException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::ResourceNotFoundException.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('Error')
-        xml.at('ResourceType') do |node|
-          data.resource_type = (node.text || '')
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('Error')
+          xml.at('ResourceType') do |node|
+            data.resource_type = (node.text || '')
+          end
+          xml.at('ResourceId') do |node|
+            data.resource_id = (node.text || '')
+          end
+          xml.at('Message') do |node|
+            data.message = (node.text || '')
+          end
         end
-        xml.at('ResourceId') do |node|
-          data.resource_id = (node.text || '')
-        end
-        xml.at('Message') do |node|
-          data.message = (node.text || '')
-        end
-        data
+        Errors::ResourceNotFoundException.new(data: data, **kwargs)
       end
     end
 

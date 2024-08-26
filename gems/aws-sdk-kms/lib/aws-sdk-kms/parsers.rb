@@ -35,13 +35,14 @@ module AWS::SDK::KMS
 
     # Error Parser for AlreadyExistsException
     class AlreadyExistsException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::AlreadyExistsException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::AlreadyExistsException.new(data: data, **kwargs)
       end
     end
 
@@ -58,61 +59,66 @@ module AWS::SDK::KMS
 
     # Error Parser for CloudHsmClusterInUseException
     class CloudHsmClusterInUseException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::CloudHsmClusterInUseException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::CloudHsmClusterInUseException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for CloudHsmClusterInvalidConfigurationException
     class CloudHsmClusterInvalidConfigurationException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::CloudHsmClusterInvalidConfigurationException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::CloudHsmClusterInvalidConfigurationException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for CloudHsmClusterNotActiveException
     class CloudHsmClusterNotActiveException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::CloudHsmClusterNotActiveException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::CloudHsmClusterNotActiveException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for CloudHsmClusterNotFoundException
     class CloudHsmClusterNotFoundException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::CloudHsmClusterNotFoundException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::CloudHsmClusterNotFoundException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for CloudHsmClusterNotRelatedException
     class CloudHsmClusterNotRelatedException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::CloudHsmClusterNotRelatedException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::CloudHsmClusterNotRelatedException.new(data: data, **kwargs)
       end
     end
 
@@ -172,49 +178,53 @@ module AWS::SDK::KMS
 
     # Error Parser for CustomKeyStoreHasCMKsException
     class CustomKeyStoreHasCMKsException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::CustomKeyStoreHasCMKsException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::CustomKeyStoreHasCMKsException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for CustomKeyStoreInvalidStateException
     class CustomKeyStoreInvalidStateException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::CustomKeyStoreInvalidStateException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::CustomKeyStoreInvalidStateException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for CustomKeyStoreNameInUseException
     class CustomKeyStoreNameInUseException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::CustomKeyStoreNameInUseException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::CustomKeyStoreNameInUseException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for CustomKeyStoreNotFoundException
     class CustomKeyStoreNotFoundException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::CustomKeyStoreNotFoundException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::CustomKeyStoreNotFoundException.new(data: data, **kwargs)
       end
     end
 
@@ -288,13 +298,14 @@ module AWS::SDK::KMS
 
     # Error Parser for DependencyTimeoutException
     class DependencyTimeoutException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::DependencyTimeoutException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::DependencyTimeoutException.new(data: data, **kwargs)
       end
     end
 
@@ -344,13 +355,14 @@ module AWS::SDK::KMS
 
     # Error Parser for DisabledException
     class DisabledException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::DisabledException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::DisabledException.new(data: data, **kwargs)
       end
     end
 
@@ -366,13 +378,14 @@ module AWS::SDK::KMS
 
     # Error Parser for DryRunOperationException
     class DryRunOperationException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::DryRunOperationException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::DryRunOperationException.new(data: data, **kwargs)
       end
     end
 
@@ -429,13 +442,14 @@ module AWS::SDK::KMS
 
     # Error Parser for ExpiredImportTokenException
     class ExpiredImportTokenException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::ExpiredImportTokenException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::ExpiredImportTokenException.new(data: data, **kwargs)
       end
     end
 
@@ -626,181 +640,196 @@ module AWS::SDK::KMS
 
     # Error Parser for IncorrectKeyException
     class IncorrectKeyException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::IncorrectKeyException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::IncorrectKeyException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for IncorrectKeyMaterialException
     class IncorrectKeyMaterialException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::IncorrectKeyMaterialException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::IncorrectKeyMaterialException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for IncorrectTrustAnchorException
     class IncorrectTrustAnchorException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::IncorrectTrustAnchorException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::IncorrectTrustAnchorException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for InvalidAliasNameException
     class InvalidAliasNameException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::InvalidAliasNameException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::InvalidAliasNameException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for InvalidArnException
     class InvalidArnException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::InvalidArnException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::InvalidArnException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for InvalidCiphertextException
     class InvalidCiphertextException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::InvalidCiphertextException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::InvalidCiphertextException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for InvalidGrantIdException
     class InvalidGrantIdException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::InvalidGrantIdException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::InvalidGrantIdException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for InvalidGrantTokenException
     class InvalidGrantTokenException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::InvalidGrantTokenException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::InvalidGrantTokenException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for InvalidImportTokenException
     class InvalidImportTokenException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::InvalidImportTokenException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::InvalidImportTokenException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for InvalidKeyUsageException
     class InvalidKeyUsageException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::InvalidKeyUsageException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::InvalidKeyUsageException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for InvalidMarkerException
     class InvalidMarkerException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::InvalidMarkerException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::InvalidMarkerException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for KMSInternalException
     class KMSInternalException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::KMSInternalException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::KMSInternalException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for KMSInvalidMacException
     class KMSInvalidMacException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::KMSInvalidMacException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::KMSInvalidMacException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for KMSInvalidSignatureException
     class KMSInvalidSignatureException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::KMSInvalidSignatureException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::KMSInvalidSignatureException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for KMSInvalidStateException
     class KMSInvalidStateException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::KMSInvalidStateException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::KMSInvalidStateException.new(data: data, **kwargs)
       end
     end
 
@@ -854,25 +883,27 @@ module AWS::SDK::KMS
 
     # Error Parser for KeyUnavailableException
     class KeyUnavailableException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::KeyUnavailableException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::KeyUnavailableException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for LimitExceededException
     class LimitExceededException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::LimitExceededException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::LimitExceededException.new(data: data, **kwargs)
       end
     end
 
@@ -964,13 +995,14 @@ module AWS::SDK::KMS
 
     # Error Parser for MalformedPolicyDocumentException
     class MalformedPolicyDocumentException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::MalformedPolicyDocumentException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::MalformedPolicyDocumentException.new(data: data, **kwargs)
       end
     end
 
@@ -1003,13 +1035,14 @@ module AWS::SDK::KMS
 
     # Error Parser for NotFoundException
     class NotFoundException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::NotFoundException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::NotFoundException.new(data: data, **kwargs)
       end
     end
 
@@ -1125,13 +1158,14 @@ module AWS::SDK::KMS
 
     # Error Parser for TagException
     class TagException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::TagException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::TagException.new(data: data, **kwargs)
       end
     end
 
@@ -1155,13 +1189,14 @@ module AWS::SDK::KMS
 
     # Error Parser for UnsupportedOperationException
     class UnsupportedOperationException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::UnsupportedOperationException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::UnsupportedOperationException.new(data: data, **kwargs)
       end
     end
 
@@ -1243,13 +1278,14 @@ module AWS::SDK::KMS
 
     # Error Parser for XksKeyAlreadyInUseException
     class XksKeyAlreadyInUseException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::XksKeyAlreadyInUseException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::XksKeyAlreadyInUseException.new(data: data, **kwargs)
       end
     end
 
@@ -1263,25 +1299,27 @@ module AWS::SDK::KMS
 
     # Error Parser for XksKeyInvalidConfigurationException
     class XksKeyInvalidConfigurationException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::XksKeyInvalidConfigurationException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::XksKeyInvalidConfigurationException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for XksKeyNotFoundException
     class XksKeyNotFoundException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::XksKeyNotFoundException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::XksKeyNotFoundException.new(data: data, **kwargs)
       end
     end
 
@@ -1299,109 +1337,118 @@ module AWS::SDK::KMS
 
     # Error Parser for XksProxyIncorrectAuthenticationCredentialException
     class XksProxyIncorrectAuthenticationCredentialException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::XksProxyIncorrectAuthenticationCredentialException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::XksProxyIncorrectAuthenticationCredentialException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for XksProxyInvalidConfigurationException
     class XksProxyInvalidConfigurationException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::XksProxyInvalidConfigurationException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::XksProxyInvalidConfigurationException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for XksProxyInvalidResponseException
     class XksProxyInvalidResponseException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::XksProxyInvalidResponseException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::XksProxyInvalidResponseException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for XksProxyUriEndpointInUseException
     class XksProxyUriEndpointInUseException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::XksProxyUriEndpointInUseException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::XksProxyUriEndpointInUseException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for XksProxyUriInUseException
     class XksProxyUriInUseException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::XksProxyUriInUseException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::XksProxyUriInUseException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for XksProxyUriUnreachableException
     class XksProxyUriUnreachableException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::XksProxyUriUnreachableException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::XksProxyUriUnreachableException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for XksProxyVpcEndpointServiceInUseException
     class XksProxyVpcEndpointServiceInUseException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::XksProxyVpcEndpointServiceInUseException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::XksProxyVpcEndpointServiceInUseException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for XksProxyVpcEndpointServiceInvalidConfigurationException
     class XksProxyVpcEndpointServiceInvalidConfigurationException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::XksProxyVpcEndpointServiceInvalidConfigurationException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::XksProxyVpcEndpointServiceInvalidConfigurationException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for XksProxyVpcEndpointServiceNotFoundException
     class XksProxyVpcEndpointServiceNotFoundException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::XksProxyVpcEndpointServiceNotFoundException.new
         body = http_resp.body.read
-        return data if body.empty?
-        map = Hearth::JSON.parse(body)
-        data.message = map['message']
-        data
+        unless body.empty?
+          map = Hearth::JSON.parse(body)
+          data.message = map['message']
+        end
+        Errors::XksProxyVpcEndpointServiceNotFoundException.new(data: data, **kwargs)
       end
     end
   end

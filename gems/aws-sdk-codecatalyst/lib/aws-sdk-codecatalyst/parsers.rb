@@ -13,11 +13,11 @@ module AWS::SDK::CodeCatalyst
 
     # Error Parser for AccessDeniedException
     class AccessDeniedException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::AccessDeniedException.new
         map = Hearth::JSON.parse(http_resp.body.read)
         data.message = map['message'] || map['Message'] unless map['message'] || map['Message'].nil?
-        data
+        Errors::AccessDeniedException.new(data: data, **kwargs)
       end
     end
 
@@ -43,11 +43,11 @@ module AWS::SDK::CodeCatalyst
 
     # Error Parser for ConflictException
     class ConflictException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::ConflictException.new
         map = Hearth::JSON.parse(http_resp.body.read)
         data.message = map['message'] || map['Message'] unless map['message'] || map['Message'].nil?
-        data
+        Errors::ConflictException.new(data: data, **kwargs)
       end
     end
 
@@ -643,21 +643,21 @@ module AWS::SDK::CodeCatalyst
 
     # Error Parser for ResourceNotFoundException
     class ResourceNotFoundException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::ResourceNotFoundException.new
         map = Hearth::JSON.parse(http_resp.body.read)
         data.message = map['message'] || map['Message'] unless map['message'] || map['Message'].nil?
-        data
+        Errors::ResourceNotFoundException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for ServiceQuotaExceededException
     class ServiceQuotaExceededException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::ServiceQuotaExceededException.new
         map = Hearth::JSON.parse(http_resp.body.read)
         data.message = map['message'] || map['Message'] unless map['message'] || map['Message'].nil?
-        data
+        Errors::ServiceQuotaExceededException.new(data: data, **kwargs)
       end
     end
 
@@ -745,11 +745,11 @@ module AWS::SDK::CodeCatalyst
 
     # Error Parser for ThrottlingException
     class ThrottlingException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::ThrottlingException.new
         map = Hearth::JSON.parse(http_resp.body.read)
         data.message = map['message'] || map['Message'] unless map['message'] || map['Message'].nil?
-        data
+        Errors::ThrottlingException.new(data: data, **kwargs)
       end
     end
 
@@ -805,11 +805,11 @@ module AWS::SDK::CodeCatalyst
 
     # Error Parser for ValidationException
     class ValidationException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::ValidationException.new
         map = Hearth::JSON.parse(http_resp.body.read)
         data.message = map['message'] || map['Message'] unless map['message'] || map['Message'].nil?
-        data
+        Errors::ValidationException.new(data: data, **kwargs)
       end
     end
 

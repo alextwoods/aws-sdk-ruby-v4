@@ -81,7 +81,7 @@ module AWS::SDK::TranscribeStreaming
 
       class Unknown < AudioStream
         def initialize(name:, value:)
-          super({name: name, value: value})
+          super({name: name || 'Unknown', value: value})
         end
 
         def to_h
@@ -303,7 +303,7 @@ module AWS::SDK::TranscribeStreaming
 
       class Unknown < CallAnalyticsTranscriptResultStream
         def initialize(name:, value:)
-          super({name: name, value: value})
+          super({name: name || 'Unknown', value: value})
         end
 
         def to_h
@@ -342,7 +342,7 @@ module AWS::SDK::TranscribeStreaming
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [Integer] :channel_id (0)
-    #   @option params [String] :participant_role
+    #   @option params [String] :participant_role (0)
     # @!attribute channel_id
     #   <p>Specify the audio channel you want to define.</p>
     #   @return [Integer]
@@ -1020,7 +1020,7 @@ module AWS::SDK::TranscribeStreaming
 
       class Unknown < MedicalTranscriptResultStream
         def initialize(name:, value:)
-          super({name: name, value: value})
+          super({name: name || 'Unknown', value: value})
         end
 
         def to_h
@@ -1071,8 +1071,8 @@ module AWS::SDK::TranscribeStreaming
     #       <code>OutputLocation</code> are required fields.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :output_location
-    #   @option params [String] :data_access_role_arn
+    #   @option params [String] :output_location (0)
+    #   @option params [String] :data_access_role_arn (0)
     #   @option params [String] :content_redaction_output
     #   @option params [String] :output_encryption_kms_key_id
     # @!attribute output_location
@@ -1289,7 +1289,7 @@ module AWS::SDK::TranscribeStreaming
     #   @option params [String] :vocabulary_filter_name
     #   @option params [String] :vocabulary_filter_method
     #   @option params [String] :language_model_name
-    #   @option params [Boolean] :enable_partial_results_stabilization (false)
+    #   @option params [Boolean] :enable_partial_results_stabilization
     #   @option params [String] :partial_results_stability
     #   @option params [String] :content_identification_type
     #   @option params [String] :content_redaction_type
@@ -1547,10 +1547,10 @@ module AWS::SDK::TranscribeStreaming
     #   @option params [String] :vocabulary_name
     #   @option params [String] :specialty
     #   @option params [String] :type
-    #   @option params [Boolean] :show_speaker_label (false)
+    #   @option params [Boolean] :show_speaker_label
     #   @option params [String] :session_id
     #   @option params [AudioStream] :audio_stream
-    #   @option params [Boolean] :enable_channel_identification (false)
+    #   @option params [Boolean] :enable_channel_identification
     #   @option params [Integer] :number_of_channels
     #   @option params [String] :content_identification_type
     # @!attribute language_code
@@ -1754,19 +1754,19 @@ module AWS::SDK::TranscribeStreaming
     #   @option params [AudioStream] :audio_stream
     #   @option params [String] :vocabulary_filter_name
     #   @option params [String] :vocabulary_filter_method
-    #   @option params [Boolean] :show_speaker_label (false)
-    #   @option params [Boolean] :enable_channel_identification (false)
+    #   @option params [Boolean] :show_speaker_label
+    #   @option params [Boolean] :enable_channel_identification
     #   @option params [Integer] :number_of_channels
-    #   @option params [Boolean] :enable_partial_results_stabilization (false)
+    #   @option params [Boolean] :enable_partial_results_stabilization
     #   @option params [String] :partial_results_stability
     #   @option params [String] :content_identification_type
     #   @option params [String] :content_redaction_type
     #   @option params [String] :pii_entity_types
     #   @option params [String] :language_model_name
-    #   @option params [Boolean] :identify_language (false)
+    #   @option params [Boolean] :identify_language
     #   @option params [String] :language_options
     #   @option params [String] :preferred_language
-    #   @option params [Boolean] :identify_multiple_languages (false)
+    #   @option params [Boolean] :identify_multiple_languages
     #   @option params [String] :vocabulary_names
     #   @option params [String] :vocabulary_filter_names
     # @!attribute language_code
@@ -2300,7 +2300,7 @@ module AWS::SDK::TranscribeStreaming
 
       class Unknown < TranscriptResultStream
         def initialize(name:, value:)
-          super({name: name, value: value})
+          super({name: name || 'Unknown', value: value})
         end
 
         def to_h

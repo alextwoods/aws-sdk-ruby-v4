@@ -51,7 +51,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::RequestLimitExceeded]
+            error_parsers: [Parsers::InternalServerError, Parsers::RequestLimitExceeded]
           )
         )
         stack.use(Middleware::RequestId)
@@ -106,7 +106,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]
+            error_parsers: [Parsers::InternalServerError, Parsers::InvalidEndpointException, Parsers::ResourceNotFoundException, Parsers::RequestLimitExceeded, Parsers::ProvisionedThroughputExceededException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -161,7 +161,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]
+            error_parsers: [Parsers::InternalServerError, Parsers::InvalidEndpointException, Parsers::ResourceNotFoundException, Parsers::RequestLimitExceeded, Parsers::ItemCollectionSizeLimitExceededException, Parsers::ProvisionedThroughputExceededException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -216,7 +216,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::TableInUseException, Errors::BackupInUseException, Errors::TableNotFoundException, Errors::ContinuousBackupsUnavailableException]
+            error_parsers: [Parsers::InternalServerError, Parsers::InvalidEndpointException, Parsers::LimitExceededException, Parsers::TableInUseException, Parsers::BackupInUseException, Parsers::TableNotFoundException, Parsers::ContinuousBackupsUnavailableException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -271,7 +271,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::TableNotFoundException, Errors::GlobalTableAlreadyExistsException]
+            error_parsers: [Parsers::InternalServerError, Parsers::InvalidEndpointException, Parsers::LimitExceededException, Parsers::TableNotFoundException, Parsers::GlobalTableAlreadyExistsException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -326,7 +326,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::ResourceInUseException]
+            error_parsers: [Parsers::InternalServerError, Parsers::InvalidEndpointException, Parsers::LimitExceededException, Parsers::ResourceInUseException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -381,7 +381,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::BackupNotFoundException, Errors::LimitExceededException, Errors::BackupInUseException]
+            error_parsers: [Parsers::InternalServerError, Parsers::InvalidEndpointException, Parsers::BackupNotFoundException, Parsers::LimitExceededException, Parsers::BackupInUseException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -436,7 +436,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::TransactionConflictException, Errors::ConditionalCheckFailedException, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]
+            error_parsers: [Parsers::InternalServerError, Parsers::InvalidEndpointException, Parsers::ResourceNotFoundException, Parsers::RequestLimitExceeded, Parsers::TransactionConflictException, Parsers::ConditionalCheckFailedException, Parsers::ItemCollectionSizeLimitExceededException, Parsers::ProvisionedThroughputExceededException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -491,7 +491,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]
+            error_parsers: [Parsers::InternalServerError, Parsers::InvalidEndpointException, Parsers::ResourceNotFoundException, Parsers::LimitExceededException, Parsers::ResourceInUseException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -546,7 +546,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::BackupNotFoundException]
+            error_parsers: [Parsers::InternalServerError, Parsers::InvalidEndpointException, Parsers::BackupNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -601,7 +601,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::TableNotFoundException]
+            error_parsers: [Parsers::InternalServerError, Parsers::InvalidEndpointException, Parsers::TableNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -656,7 +656,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::ResourceNotFoundException]
+            error_parsers: [Parsers::InternalServerError, Parsers::ResourceNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -711,7 +711,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -766,7 +766,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::LimitExceededException, Errors::ExportNotFoundException]
+            error_parsers: [Parsers::InternalServerError, Parsers::LimitExceededException, Parsers::ExportNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -821,7 +821,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::GlobalTableNotFoundException]
+            error_parsers: [Parsers::InternalServerError, Parsers::InvalidEndpointException, Parsers::GlobalTableNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -876,7 +876,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::GlobalTableNotFoundException]
+            error_parsers: [Parsers::InternalServerError, Parsers::InvalidEndpointException, Parsers::GlobalTableNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -931,7 +931,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::ImportNotFoundException]
+            error_parsers: [Parsers::ImportNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -986,7 +986,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException]
+            error_parsers: [Parsers::InternalServerError, Parsers::InvalidEndpointException, Parsers::ResourceNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1041,7 +1041,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::InvalidEndpointException]
+            error_parsers: [Parsers::InternalServerError, Parsers::InvalidEndpointException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1096,7 +1096,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException]
+            error_parsers: [Parsers::InternalServerError, Parsers::InvalidEndpointException, Parsers::ResourceNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1151,7 +1151,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::ResourceNotFoundException]
+            error_parsers: [Parsers::InternalServerError, Parsers::ResourceNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1206,7 +1206,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException]
+            error_parsers: [Parsers::InternalServerError, Parsers::InvalidEndpointException, Parsers::ResourceNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1261,7 +1261,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::ResourceInUseException, Errors::ResourceNotFoundException]
+            error_parsers: [Parsers::InternalServerError, Parsers::InvalidEndpointException, Parsers::LimitExceededException, Parsers::ResourceInUseException, Parsers::ResourceNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1316,7 +1316,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::ResourceInUseException, Errors::ResourceNotFoundException]
+            error_parsers: [Parsers::InternalServerError, Parsers::InvalidEndpointException, Parsers::LimitExceededException, Parsers::ResourceInUseException, Parsers::ResourceNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1371,7 +1371,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::ResourceNotFoundException, Errors::DuplicateItemException, Errors::RequestLimitExceeded, Errors::TransactionConflictException, Errors::ConditionalCheckFailedException, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]
+            error_parsers: [Parsers::InternalServerError, Parsers::ResourceNotFoundException, Parsers::DuplicateItemException, Parsers::RequestLimitExceeded, Parsers::TransactionConflictException, Parsers::ConditionalCheckFailedException, Parsers::ItemCollectionSizeLimitExceededException, Parsers::ProvisionedThroughputExceededException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1426,7 +1426,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::ResourceNotFoundException, Errors::IdempotentParameterMismatchException, Errors::TransactionCanceledException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException, Errors::TransactionInProgressException]
+            error_parsers: [Parsers::InternalServerError, Parsers::ResourceNotFoundException, Parsers::IdempotentParameterMismatchException, Parsers::TransactionCanceledException, Parsers::RequestLimitExceeded, Parsers::ProvisionedThroughputExceededException, Parsers::TransactionInProgressException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1481,7 +1481,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::InvalidExportTimeException, Errors::LimitExceededException, Errors::PointInTimeRecoveryUnavailableException, Errors::ExportConflictException, Errors::TableNotFoundException]
+            error_parsers: [Parsers::InternalServerError, Parsers::InvalidExportTimeException, Parsers::LimitExceededException, Parsers::PointInTimeRecoveryUnavailableException, Parsers::ExportConflictException, Parsers::TableNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1536,7 +1536,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]
+            error_parsers: [Parsers::InternalServerError, Parsers::InvalidEndpointException, Parsers::ResourceNotFoundException, Parsers::RequestLimitExceeded, Parsers::ProvisionedThroughputExceededException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1591,7 +1591,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::LimitExceededException, Errors::ResourceInUseException, Errors::ImportConflictException]
+            error_parsers: [Parsers::LimitExceededException, Parsers::ResourceInUseException, Parsers::ImportConflictException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1646,7 +1646,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::InvalidEndpointException]
+            error_parsers: [Parsers::InternalServerError, Parsers::InvalidEndpointException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1701,7 +1701,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::ResourceNotFoundException]
+            error_parsers: [Parsers::InternalServerError, Parsers::ResourceNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1756,7 +1756,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::LimitExceededException]
+            error_parsers: [Parsers::InternalServerError, Parsers::LimitExceededException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1811,7 +1811,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::InvalidEndpointException]
+            error_parsers: [Parsers::InternalServerError, Parsers::InvalidEndpointException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1866,7 +1866,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::LimitExceededException]
+            error_parsers: [Parsers::LimitExceededException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1921,7 +1921,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::InvalidEndpointException]
+            error_parsers: [Parsers::InternalServerError, Parsers::InvalidEndpointException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -1976,7 +1976,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException]
+            error_parsers: [Parsers::InternalServerError, Parsers::InvalidEndpointException, Parsers::ResourceNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -2031,7 +2031,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::TransactionConflictException, Errors::ConditionalCheckFailedException, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]
+            error_parsers: [Parsers::InternalServerError, Parsers::InvalidEndpointException, Parsers::ResourceNotFoundException, Parsers::RequestLimitExceeded, Parsers::TransactionConflictException, Parsers::ConditionalCheckFailedException, Parsers::ItemCollectionSizeLimitExceededException, Parsers::ProvisionedThroughputExceededException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -2086,7 +2086,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]
+            error_parsers: [Parsers::InternalServerError, Parsers::InvalidEndpointException, Parsers::ResourceNotFoundException, Parsers::RequestLimitExceeded, Parsers::ProvisionedThroughputExceededException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -2141,7 +2141,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::BackupNotFoundException, Errors::LimitExceededException, Errors::TableInUseException, Errors::BackupInUseException, Errors::TableAlreadyExistsException]
+            error_parsers: [Parsers::InternalServerError, Parsers::InvalidEndpointException, Parsers::BackupNotFoundException, Parsers::LimitExceededException, Parsers::TableInUseException, Parsers::BackupInUseException, Parsers::TableAlreadyExistsException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -2196,7 +2196,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::TableInUseException, Errors::PointInTimeRecoveryUnavailableException, Errors::InvalidRestoreTimeException, Errors::TableAlreadyExistsException, Errors::TableNotFoundException]
+            error_parsers: [Parsers::InternalServerError, Parsers::InvalidEndpointException, Parsers::LimitExceededException, Parsers::TableInUseException, Parsers::PointInTimeRecoveryUnavailableException, Parsers::InvalidRestoreTimeException, Parsers::TableAlreadyExistsException, Parsers::TableNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -2251,7 +2251,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]
+            error_parsers: [Parsers::InternalServerError, Parsers::InvalidEndpointException, Parsers::ResourceNotFoundException, Parsers::RequestLimitExceeded, Parsers::ProvisionedThroughputExceededException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -2306,7 +2306,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::ResourceInUseException, Errors::ResourceNotFoundException]
+            error_parsers: [Parsers::InternalServerError, Parsers::InvalidEndpointException, Parsers::LimitExceededException, Parsers::ResourceInUseException, Parsers::ResourceNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -2361,7 +2361,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::TransactionCanceledException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]
+            error_parsers: [Parsers::InternalServerError, Parsers::InvalidEndpointException, Parsers::ResourceNotFoundException, Parsers::TransactionCanceledException, Parsers::RequestLimitExceeded, Parsers::ProvisionedThroughputExceededException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -2416,7 +2416,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::IdempotentParameterMismatchException, Errors::TransactionCanceledException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException, Errors::TransactionInProgressException]
+            error_parsers: [Parsers::InternalServerError, Parsers::InvalidEndpointException, Parsers::ResourceNotFoundException, Parsers::IdempotentParameterMismatchException, Parsers::TransactionCanceledException, Parsers::RequestLimitExceeded, Parsers::ProvisionedThroughputExceededException, Parsers::TransactionInProgressException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -2471,7 +2471,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::ResourceInUseException, Errors::ResourceNotFoundException]
+            error_parsers: [Parsers::InternalServerError, Parsers::InvalidEndpointException, Parsers::LimitExceededException, Parsers::ResourceInUseException, Parsers::ResourceNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -2526,7 +2526,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::TableNotFoundException, Errors::ContinuousBackupsUnavailableException]
+            error_parsers: [Parsers::InternalServerError, Parsers::InvalidEndpointException, Parsers::TableNotFoundException, Parsers::ContinuousBackupsUnavailableException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -2581,7 +2581,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::ResourceNotFoundException]
+            error_parsers: [Parsers::InternalServerError, Parsers::ResourceNotFoundException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -2636,7 +2636,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::GlobalTableNotFoundException, Errors::ReplicaNotFoundException, Errors::TableNotFoundException, Errors::ReplicaAlreadyExistsException]
+            error_parsers: [Parsers::InternalServerError, Parsers::InvalidEndpointException, Parsers::GlobalTableNotFoundException, Parsers::ReplicaNotFoundException, Parsers::TableNotFoundException, Parsers::ReplicaAlreadyExistsException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -2691,7 +2691,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::GlobalTableNotFoundException, Errors::IndexNotFoundException, Errors::ReplicaNotFoundException, Errors::ResourceInUseException]
+            error_parsers: [Parsers::InternalServerError, Parsers::InvalidEndpointException, Parsers::LimitExceededException, Parsers::GlobalTableNotFoundException, Parsers::IndexNotFoundException, Parsers::ReplicaNotFoundException, Parsers::ResourceInUseException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -2746,7 +2746,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::TransactionConflictException, Errors::ConditionalCheckFailedException, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]
+            error_parsers: [Parsers::InternalServerError, Parsers::InvalidEndpointException, Parsers::ResourceNotFoundException, Parsers::RequestLimitExceeded, Parsers::TransactionConflictException, Parsers::ConditionalCheckFailedException, Parsers::ItemCollectionSizeLimitExceededException, Parsers::ProvisionedThroughputExceededException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -2801,7 +2801,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]
+            error_parsers: [Parsers::InternalServerError, Parsers::InvalidEndpointException, Parsers::ResourceNotFoundException, Parsers::LimitExceededException, Parsers::ResourceInUseException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -2856,7 +2856,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]
+            error_parsers: [Parsers::InternalServerError, Parsers::InvalidEndpointException, Parsers::ResourceNotFoundException, Parsers::LimitExceededException, Parsers::ResourceInUseException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -2911,7 +2911,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]
+            error_parsers: [Parsers::InternalServerError, Parsers::ResourceNotFoundException, Parsers::LimitExceededException, Parsers::ResourceInUseException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -2966,7 +2966,7 @@ module AWS::SDK::DynamoDB
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]
+            error_parsers: [Parsers::InternalServerError, Parsers::InvalidEndpointException, Parsers::ResourceNotFoundException, Parsers::LimitExceededException, Parsers::ResourceInUseException]
           )
         )
         stack.use(Middleware::RequestId)

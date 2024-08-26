@@ -157,7 +157,7 @@ module AWS::SDK::S3
     # <p>A container for information about access control for replicas.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :owner
+    #   @option params [String] :owner (0)
     # @!attribute owner
     #   <p>Specifies the replica ownership. For default and valid values, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html">PUT bucket
     #               replication</a> in the <i>Amazon S3 API Reference</i>.</p>
@@ -202,9 +202,9 @@ module AWS::SDK::S3
     #          bucket.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :id
+    #   @option params [String] :id (0)
     #   @option params [AnalyticsFilter] :filter
-    #   @option params [StorageClassAnalysis] :storage_class_analysis
+    #   @option params [StorageClassAnalysis] :storage_class_analysis (0)
     # @!attribute id
     #   <p>The ID that identifies the analytics configuration.</p>
     #   @return [String]
@@ -232,7 +232,7 @@ module AWS::SDK::S3
     # <p>Where to publish the analytics results.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [AnalyticsS3BucketDestination] :s3_bucket_destination
+    #   @option params [AnalyticsS3BucketDestination] :s3_bucket_destination (0)
     # @!attribute s3_bucket_destination
     #   <p>A destination signifying output to an S3 bucket.</p>
     #   @return [AnalyticsS3BucketDestination]
@@ -274,7 +274,7 @@ module AWS::SDK::S3
 
       class Unknown < AnalyticsFilter
         def initialize(name:, value:)
-          super({name: name, value: value})
+          super({name: name || 'Unknown', value: value})
         end
 
         def to_h
@@ -286,9 +286,9 @@ module AWS::SDK::S3
     # <p>Contains information about where to publish the analytics results.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :format
+    #   @option params [String] :format (0)
     #   @option params [String] :bucket_account_id
-    #   @option params [String] :bucket
+    #   @option params [String] :bucket (0)
     #   @option params [String] :prefix
     # @!attribute format
     #   <p>Specifies the file format used when exporting data to Amazon S3.</p>
@@ -433,7 +433,7 @@ module AWS::SDK::S3
     #          in the <i>Amazon S3 User Guide</i>.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Array<LifecycleRule>] :rules
+    #   @option params [Array<LifecycleRule>] :rules (0)
     # @!attribute rules
     #   <p>A lifecycle rule for individual objects in an Amazon S3 bucket.</p>
     #   @return [Array<LifecycleRule>]
@@ -552,7 +552,7 @@ module AWS::SDK::S3
     #          <i>Amazon S3 User Guide</i>.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Array<CORSRule>] :cors_rules
+    #   @option params [Array<CORSRule>] :cors_rules (0)
     # @!attribute cors_rules
     #   <p>A set of origins and methods (cross-origin access that you want to allow). You can add
     #            up to 100 rules to the configuration.</p>
@@ -572,8 +572,8 @@ module AWS::SDK::S3
     #   @param [Hash] params
     #   @option params [String] :id
     #   @option params [Array<String>] :allowed_headers
-    #   @option params [Array<String>] :allowed_methods
-    #   @option params [Array<String>] :allowed_origins
+    #   @option params [Array<String>] :allowed_methods (0)
+    #   @option params [Array<String>] :allowed_origins (0)
     #   @option params [Array<String>] :expose_headers
     #   @option params [Integer] :max_age_seconds
     # @!attribute id
@@ -3171,7 +3171,7 @@ module AWS::SDK::S3
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [SessionCredentials] :credentials
+    #   @option params [SessionCredentials] :credentials (0)
     # @!attribute credentials
     #   <p>The established temporary security credentials  for the created session..</p>
     #   @return [SessionCredentials]
@@ -3238,7 +3238,7 @@ module AWS::SDK::S3
     # <p>Container for the objects to delete.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Array<ObjectIdentifier>] :objects
+    #   @option params [Array<ObjectIdentifier>] :objects (0)
     #   @option params [Boolean] :quiet
     # @!attribute objects
     #   <p>The object to delete.</p>
@@ -4187,7 +4187,7 @@ module AWS::SDK::S3
     #          Amazon S3 bucket and S3 Replication Time Control (S3 RTC).</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :bucket
+    #   @option params [String] :bucket (0)
     #   @option params [String] :account
     #   @option params [String] :storage_class
     #   @option params [AccessControlTranslation] :access_control_translation
@@ -4263,7 +4263,7 @@ module AWS::SDK::S3
     # <p>Contains the type of server-side encryption used.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :encryption_type
+    #   @option params [String] :encryption_type (0)
     #   @option params [String] :kms_key_id
     #   @option params [String] :kms_context
     # @!attribute encryption_type
@@ -6241,7 +6241,7 @@ module AWS::SDK::S3
     # <p>The error information.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :key
+    #   @option params [String] :key (0)
     # @!attribute key
     #   <p>The object key name to use when a 4XX class error occurs.</p>
     #            <important>
@@ -6334,7 +6334,7 @@ module AWS::SDK::S3
     #       </p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :status
+    #   @option params [String] :status (0)
     # @!attribute status
     #   <p>Specifies whether Amazon S3 replicates existing source bucket objects. </p>
     #   Enum, one of: ["Enabled", "Disabled"]
@@ -7180,7 +7180,7 @@ module AWS::SDK::S3
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Array<Tag>] :tag_set
+    #   @option params [Array<Tag>] :tag_set (0)
     # @!attribute tag_set
     #   <p>Contains the tag set.</p>
     #   @return [Array<Tag>]
@@ -8036,7 +8036,7 @@ module AWS::SDK::S3
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [IO] :body
+    #   @option params [IO] :body (0)
     #   @option params [Boolean] :delete_marker
     #   @option params [String] :accept_ranges
     #   @option params [String] :expiration
@@ -8495,7 +8495,7 @@ module AWS::SDK::S3
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [String] :version_id
-    #   @option params [Array<Tag>] :tag_set
+    #   @option params [Array<Tag>] :tag_set (0)
     # @!attribute version_id
     #   <p>The versionId of the object for which you got the tagging information.</p>
     #   @return [String]
@@ -8555,7 +8555,7 @@ module AWS::SDK::S3
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [IO] :body
+    #   @option params [IO] :body (0)
     #   @option params [String] :request_charged
     # @!attribute body
     #   <p>A Bencoded dictionary as defined by the BitTorrent specification</p>
@@ -8629,7 +8629,7 @@ module AWS::SDK::S3
     # <p>Container for S3 Glacier job parameters.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :tier
+    #   @option params [String] :tier (0)
     # @!attribute tier
     #   <p>Retrieval tier at which the restore will be processed.</p>
     #   Enum, one of: ["Standard", "Bulk", "Expedited"]
@@ -8674,7 +8674,7 @@ module AWS::SDK::S3
     #   @option params [String] :email_address
     #   @option params [String] :id
     #   @option params [String] :uri
-    #   @option params [String] :type
+    #   @option params [String] :type (0)
     # @!attribute display_name
     #   <p>Screen name of the grantee.</p>
     #   @return [String]
@@ -9421,7 +9421,7 @@ module AWS::SDK::S3
     # <p>Container for the <code>Suffix</code> element.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :suffix
+    #   @option params [String] :suffix (0)
     # @!attribute suffix
     #   <p>A suffix that is appended to a request that is for a directory on the website endpoint
     #            (for example,if the suffix is index.html and you make a request to samplebucket/images/ the
@@ -9546,10 +9546,10 @@ module AWS::SDK::S3
     #          objects</a>.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :id
+    #   @option params [String] :id (0)
     #   @option params [IntelligentTieringFilter] :filter
-    #   @option params [String] :status
-    #   @option params [Array<Tiering>] :tierings
+    #   @option params [String] :status (0)
+    #   @option params [Array<Tiering>] :tierings (0)
     # @!attribute id
     #   <p>The ID used to identify the S3 Intelligent-Tiering configuration.</p>
     #   @return [String]
@@ -9653,13 +9653,13 @@ module AWS::SDK::S3
     #             <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html">GET Bucket inventory</a> in the <i>Amazon S3 API Reference</i>. </p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [InventoryDestination] :destination
-    #   @option params [Boolean] :is_enabled
+    #   @option params [InventoryDestination] :destination (0)
+    #   @option params [Boolean] :is_enabled (false)
     #   @option params [InventoryFilter] :filter
-    #   @option params [String] :id
-    #   @option params [String] :included_object_versions
+    #   @option params [String] :id (0)
+    #   @option params [String] :included_object_versions (0)
     #   @option params [Array<String>] :optional_fields
-    #   @option params [InventorySchedule] :schedule
+    #   @option params [InventorySchedule] :schedule (0)
     # @!attribute destination
     #   <p>Contains information about where to publish the inventory results.</p>
     #   @return [InventoryDestination]
@@ -9708,7 +9708,7 @@ module AWS::SDK::S3
     # <p>Specifies the inventory configuration for an Amazon S3 bucket.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [InventoryS3BucketDestination] :s3_bucket_destination
+    #   @option params [InventoryS3BucketDestination] :s3_bucket_destination (0)
     # @!attribute s3_bucket_destination
     #   <p>Contains the bucket name, file format, bucket owner (optional), and prefix (optional)
     #            where inventory results are published.</p>
@@ -9750,7 +9750,7 @@ module AWS::SDK::S3
     #          filter's criteria.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :prefix
+    #   @option params [String] :prefix (0)
     # @!attribute prefix
     #   <p>The prefix that an object must have to be included in the inventory results.</p>
     #   @return [String]
@@ -9825,8 +9825,8 @@ module AWS::SDK::S3
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [String] :account_id
-    #   @option params [String] :bucket
-    #   @option params [String] :format
+    #   @option params [String] :bucket (0)
+    #   @option params [String] :format (0)
     #   @option params [String] :prefix
     #   @option params [InventoryEncryption] :encryption
     # @!attribute account_id
@@ -9869,7 +9869,7 @@ module AWS::SDK::S3
     # <p>Specifies the schedule for generating inventory results.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :frequency
+    #   @option params [String] :frequency (0)
     # @!attribute frequency
     #   <p>Specifies how frequently inventory results are produced.</p>
     #   Enum, one of: ["Daily", "Weekly"]
@@ -9931,8 +9931,8 @@ module AWS::SDK::S3
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [String] :id
-    #   @option params [String] :lambda_function_arn
-    #   @option params [Array<String>] :events
+    #   @option params [String] :lambda_function_arn (0)
+    #   @option params [Array<String>] :events (0)
     #   @option params [NotificationConfigurationFilter] :filter
     # @!attribute id
     #   <p>An optional unique identifier for configurations in a notification configuration. If you
@@ -10008,7 +10008,7 @@ module AWS::SDK::S3
     #   @option params [String] :id
     #   @option params [String] :prefix
     #   @option params [LifecycleRuleFilter] :filter
-    #   @option params [String] :status
+    #   @option params [String] :status (0)
     #   @option params [Array<Transition>] :transitions
     #   @option params [Array<NoncurrentVersionTransition>] :noncurrent_version_transitions
     #   @option params [NoncurrentVersionExpiration] :noncurrent_version_expiration
@@ -10164,7 +10164,7 @@ module AWS::SDK::S3
 
       class Unknown < LifecycleRuleFilter
         def initialize(name:, value:)
-          super({name: name, value: value})
+          super({name: name || 'Unknown', value: value})
         end
 
         def to_h
@@ -11691,9 +11691,9 @@ module AWS::SDK::S3
     #             <i>Amazon S3 API Reference</i>.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :target_bucket
+    #   @option params [String] :target_bucket (0)
     #   @option params [Array<TargetGrant>] :target_grants
-    #   @option params [String] :target_prefix
+    #   @option params [String] :target_prefix (0)
     #   @option params [TargetObjectKeyFormat] :target_object_key_format
     # @!attribute target_bucket
     #   <p>Specifies the bucket where you want Amazon S3 to store server access logs. You can have your
@@ -11776,7 +11776,7 @@ module AWS::SDK::S3
     #          metrics and events.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :status
+    #   @option params [String] :status (0)
     #   @option params [ReplicationTimeValue] :event_threshold
     # @!attribute status
     #   <p> Specifies whether the replication metrics are enabled. </p>
@@ -11833,7 +11833,7 @@ module AWS::SDK::S3
     #          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html">PutBucketMetricsConfiguration</a>.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :id
+    #   @option params [String] :id (0)
     #   @option params [MetricsFilter] :filter
     # @!attribute id
     #   <p>The ID used to identify the metrics configuration. The ID has a 64 character limit and
@@ -11891,7 +11891,7 @@ module AWS::SDK::S3
 
       class Unknown < MetricsFilter
         def initialize(name:, value:)
-          super({name: name, value: value})
+          super({name: name || 'Unknown', value: value})
         end
 
         def to_h
@@ -12276,7 +12276,7 @@ module AWS::SDK::S3
     # <p>Object Identifier is unique value to identify objects.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :key
+    #   @option params [String] :key (0)
     #   @option params [String] :version_id
     # @!attribute key
     #   <p>Key name of the object.</p>
@@ -12717,7 +12717,7 @@ module AWS::SDK::S3
     # <p>The container element for a bucket's ownership controls.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Array<OwnershipControlsRule>] :rules
+    #   @option params [Array<OwnershipControlsRule>] :rules (0)
     # @!attribute rules
     #   <p>The container element for an ownership control rule.</p>
     #   @return [Array<OwnershipControlsRule>]
@@ -12734,7 +12734,7 @@ module AWS::SDK::S3
     # <p>The container element for an ownership control rule.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :object_ownership
+    #   @option params [String] :object_ownership (0)
     # @!attribute object_ownership
     #   <p>The container element for object ownership for a bucket's ownership controls.</p>
     #            <p>
@@ -15261,8 +15261,8 @@ module AWS::SDK::S3
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [String] :id
-    #   @option params [String] :queue_arn
-    #   @option params [Array<String>] :events
+    #   @option params [String] :queue_arn (0)
+    #   @option params [Array<String>] :events (0)
     #   @option params [NotificationConfigurationFilter] :filter
     # @!attribute id
     #   <p>An optional unique identifier for configurations in a notification configuration. If you
@@ -15380,7 +15380,7 @@ module AWS::SDK::S3
     #          bucket.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :host_name
+    #   @option params [String] :host_name (0)
     #   @option params [String] :protocol
     # @!attribute host_name
     #   <p>Name of the host where requests are redirected.</p>
@@ -15412,7 +15412,7 @@ module AWS::SDK::S3
     #          </note>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :status
+    #   @option params [String] :status (0)
     # @!attribute status
     #   <p>Specifies whether Amazon S3 replicates modifications on replicas.</p>
     #   Enum, one of: ["Enabled", "Disabled"]
@@ -15438,8 +15438,8 @@ module AWS::SDK::S3
     #          replication configuration is 2 MB.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :role
-    #   @option params [Array<ReplicationRule>] :rules
+    #   @option params [String] :role (0)
+    #   @option params [Array<ReplicationRule>] :rules (0)
     # @!attribute role
     #   <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that Amazon S3 assumes when
     #            replicating objects. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-how-setup.html">How to Set Up Replication</a>
@@ -15467,10 +15467,10 @@ module AWS::SDK::S3
     #   @option params [Integer] :priority
     #   @option params [String] :prefix
     #   @option params [ReplicationRuleFilter] :filter
-    #   @option params [String] :status
+    #   @option params [String] :status (0)
     #   @option params [SourceSelectionCriteria] :source_selection_criteria
     #   @option params [ExistingObjectReplication] :existing_object_replication
-    #   @option params [Destination] :destination
+    #   @option params [Destination] :destination (0)
     #   @option params [DeleteMarkerReplication] :delete_marker_replication
     # @!attribute id
     #   <p>A unique identifier for the rule. The maximum value is 255 characters.</p>
@@ -15633,7 +15633,7 @@ module AWS::SDK::S3
 
       class Unknown < ReplicationRuleFilter
         def initialize(name:, value:)
-          super({name: name, value: value})
+          super({name: name || 'Unknown', value: value})
         end
 
         def to_h
@@ -15667,8 +15667,8 @@ module AWS::SDK::S3
     #          specified together with a <code>Metrics</code> block. </p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :status
-    #   @option params [ReplicationTimeValue] :time
+    #   @option params [String] :status (0)
+    #   @option params [ReplicationTimeValue] :time (0)
     # @!attribute status
     #   <p> Specifies whether the replication time is enabled. </p>
     #   Enum, one of: ["Enabled", "Disabled"]
@@ -15741,7 +15741,7 @@ module AWS::SDK::S3
     # <p>Container for Payer.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :payer
+    #   @option params [String] :payer (0)
     # @!attribute payer
     #   <p>Specifies who pays for the download and request fees.</p>
     #   Enum, one of: ["Requester", "BucketOwner"]
@@ -15977,7 +15977,7 @@ module AWS::SDK::S3
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [Condition] :condition
-    #   @option params [Redirect] :redirect
+    #   @option params [Redirect] :redirect (0)
     # @!attribute condition
     #   <p>A container for describing a condition that must be met for the specified redirect to
     #            apply. For example, 1. If request is for pages in the <code>/docs</code> folder, redirect
@@ -16021,8 +16021,8 @@ module AWS::SDK::S3
     # <p>Describes an Amazon S3 location that will receive the results of the restore request.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :bucket_name
-    #   @option params [String] :prefix
+    #   @option params [String] :bucket_name (0)
+    #   @option params [String] :prefix (0)
     #   @option params [Encryption] :encryption
     #   @option params [String] :canned_acl
     #   @option params [Array<Grant>] :access_control_list
@@ -16075,7 +16075,7 @@ module AWS::SDK::S3
     # <p>Specifies the use of SSE-KMS to encrypt delivered inventory reports.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :key_id
+    #   @option params [String] :key_id (0)
     # @!attribute key_id
     #   <p>Specifies the ID of the Key Management Service (KMS) symmetric encryption customer managed key to use for
     #            encrypting inventory reports.</p>
@@ -16179,7 +16179,7 @@ module AWS::SDK::S3
 
       class Unknown < SelectObjectContentEventStream
         def initialize(name:, value:)
-          super({name: name, value: value})
+          super({name: name || 'Unknown', value: value})
         end
 
         def to_h
@@ -16333,10 +16333,10 @@ module AWS::SDK::S3
     # <p>Describes the parameters for Select job types.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [InputSerialization] :input_serialization
-    #   @option params [String] :expression_type
-    #   @option params [String] :expression
-    #   @option params [OutputSerialization] :output_serialization
+    #   @option params [InputSerialization] :input_serialization (0)
+    #   @option params [String] :expression_type (0)
+    #   @option params [String] :expression (0)
+    #   @option params [OutputSerialization] :output_serialization (0)
     # @!attribute input_serialization
     #   <p>Describes the serialization format of the object.</p>
     #   @return [InputSerialization]
@@ -16381,7 +16381,7 @@ module AWS::SDK::S3
     #          the <i>Amazon S3 API Reference</i>.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :sse_algorithm
+    #   @option params [String] :sse_algorithm (0)
     #   @option params [String] :kms_master_key_id
     # @!attribute sse_algorithm
     #   <p>Server-side encryption algorithm to use for the default encryption.</p>
@@ -16436,7 +16436,7 @@ module AWS::SDK::S3
     # <p>Specifies the default server-side-encryption configuration.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Array<ServerSideEncryptionRule>] :rules
+    #   @option params [Array<ServerSideEncryptionRule>] :rules (0)
     # @!attribute rules
     #   <p>Container for information about a particular server-side encryption configuration
     #            rule.</p>
@@ -16487,10 +16487,10 @@ module AWS::SDK::S3
     #          </note>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :access_key_id
-    #   @option params [String] :secret_access_key
-    #   @option params [String] :session_token
-    #   @option params [Time] :expiration
+    #   @option params [String] :access_key_id (0)
+    #   @option params [String] :secret_access_key (0)
+    #   @option params [String] :session_token (0)
+    #   @option params [Time] :expiration (0)
     # @!attribute access_key_id
     #   <p>A unique identifier that's associated with a secret access key. The access key ID and the secret access key are used together to sign programmatic Amazon Web Services requests cryptographically. </p>
     #   @return [String]
@@ -16588,7 +16588,7 @@ module AWS::SDK::S3
     #          KMS.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :status
+    #   @option params [String] :status (0)
     # @!attribute status
     #   <p>Specifies whether Amazon S3 replicates objects created with server-side encryption using an
     #            Amazon Web Services KMS key stored in Amazon Web Services Key Management Service.</p>
@@ -16703,8 +16703,8 @@ module AWS::SDK::S3
     #          export.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :output_schema_version
-    #   @option params [AnalyticsExportDestination] :destination
+    #   @option params [String] :output_schema_version (0)
+    #   @option params [AnalyticsExportDestination] :destination (0)
     # @!attribute output_schema_version
     #   <p>The version of the output schema to use when exporting data. Must be
     #            <code>V_1</code>.</p>
@@ -16732,8 +16732,8 @@ module AWS::SDK::S3
     # <p>A container of a key value name pair.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :key
-    #   @option params [String] :value
+    #   @option params [String] :key (0)
+    #   @option params [String] :value (0)
     # @!attribute key
     #   <p>Name of the object key.</p>
     #   @return [String]
@@ -16754,7 +16754,7 @@ module AWS::SDK::S3
     # <p>Container for <code>TagSet</code> elements.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Array<Tag>] :tag_set
+    #   @option params [Array<Tag>] :tag_set (0)
     # @!attribute tag_set
     #   <p>A collection for a set of tags</p>
     #   @return [Array<Tag>]
@@ -16837,8 +16837,8 @@ module AWS::SDK::S3
     #          additional operational overhead.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Integer] :days
-    #   @option params [String] :access_tier
+    #   @option params [Integer] :days (0)
+    #   @option params [String] :access_tier (0)
     # @!attribute days
     #   <p>The number of consecutive days of no access after which an object will be eligible to be
     #            transitioned to the corresponding tier. The minimum number of days specified for
@@ -16867,8 +16867,8 @@ module AWS::SDK::S3
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [String] :id
-    #   @option params [String] :topic_arn
-    #   @option params [Array<String>] :events
+    #   @option params [String] :topic_arn (0)
+    #   @option params [Array<String>] :events (0)
     #   @option params [NotificationConfigurationFilter] :filter
     # @!attribute id
     #   <p>An optional unique identifier for configurations in a notification configuration. If you

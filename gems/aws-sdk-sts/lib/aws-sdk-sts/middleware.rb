@@ -51,7 +51,7 @@ module AWS::SDK::STS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::ExpiredTokenException, Errors::MalformedPolicyDocumentException, Errors::PackedPolicyTooLargeException, Errors::RegionDisabledException]
+            error_parsers: [Parsers::ExpiredTokenException, Parsers::MalformedPolicyDocumentException, Parsers::PackedPolicyTooLargeException, Parsers::RegionDisabledException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -106,7 +106,7 @@ module AWS::SDK::STS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::ExpiredTokenException, Errors::IDPRejectedClaimException, Errors::InvalidIdentityTokenException, Errors::MalformedPolicyDocumentException, Errors::PackedPolicyTooLargeException, Errors::RegionDisabledException]
+            error_parsers: [Parsers::ExpiredTokenException, Parsers::IDPRejectedClaimException, Parsers::InvalidIdentityTokenException, Parsers::MalformedPolicyDocumentException, Parsers::PackedPolicyTooLargeException, Parsers::RegionDisabledException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -161,7 +161,7 @@ module AWS::SDK::STS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::ExpiredTokenException, Errors::IDPCommunicationErrorException, Errors::IDPRejectedClaimException, Errors::InvalidIdentityTokenException, Errors::MalformedPolicyDocumentException, Errors::PackedPolicyTooLargeException, Errors::RegionDisabledException]
+            error_parsers: [Parsers::ExpiredTokenException, Parsers::IDPCommunicationErrorException, Parsers::IDPRejectedClaimException, Parsers::InvalidIdentityTokenException, Parsers::MalformedPolicyDocumentException, Parsers::PackedPolicyTooLargeException, Parsers::RegionDisabledException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -216,7 +216,7 @@ module AWS::SDK::STS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InvalidAuthorizationMessageException]
+            error_parsers: [Parsers::InvalidAuthorizationMessageException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -271,7 +271,7 @@ module AWS::SDK::STS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -326,7 +326,7 @@ module AWS::SDK::STS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: []
+            error_parsers: []
           )
         )
         stack.use(Middleware::RequestId)
@@ -381,7 +381,7 @@ module AWS::SDK::STS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::MalformedPolicyDocumentException, Errors::PackedPolicyTooLargeException, Errors::RegionDisabledException]
+            error_parsers: [Parsers::MalformedPolicyDocumentException, Parsers::PackedPolicyTooLargeException, Parsers::RegionDisabledException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -436,7 +436,7 @@ module AWS::SDK::STS
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::RegionDisabledException]
+            error_parsers: [Parsers::RegionDisabledException]
           )
         )
         stack.use(Middleware::RequestId)

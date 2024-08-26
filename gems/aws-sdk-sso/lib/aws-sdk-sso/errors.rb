@@ -24,18 +24,16 @@ module AWS::SDK::SSO
     end
 
     # Base class for all errors returned by this service
-    class ApiError < Hearth::HTTP::ApiError; end
+    class ApiError < Hearth::ApiError; end
 
     # Base class for all errors returned where the client is at fault.
-    # These are generally errors with 4XX HTTP status codes.
     class ApiClientError < ApiError; end
 
     # Base class for all errors returned where the server is at fault.
-    # These are generally errors with 5XX HTTP status codes.
     class ApiServerError < ApiError; end
 
     # Base class for all errors returned where the service returned
-    # a 3XX redirection.
+    # a redirection.
     class ApiRedirectError < ApiError
       def initialize(location:, **kwargs)
         @location = location
@@ -47,11 +45,11 @@ module AWS::SDK::SSO
     end
 
     class InvalidRequestException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::InvalidRequestException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::InvalidRequestException]
@@ -59,11 +57,11 @@ module AWS::SDK::SSO
     end
 
     class ResourceNotFoundException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::ResourceNotFoundException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::ResourceNotFoundException]
@@ -71,11 +69,11 @@ module AWS::SDK::SSO
     end
 
     class TooManyRequestsException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::TooManyRequestsException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::TooManyRequestsException]
@@ -83,11 +81,11 @@ module AWS::SDK::SSO
     end
 
     class UnauthorizedException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::UnauthorizedException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::UnauthorizedException]

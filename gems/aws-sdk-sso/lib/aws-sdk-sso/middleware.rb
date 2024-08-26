@@ -50,7 +50,7 @@ module AWS::SDK::SSO
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InvalidRequestException, Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::UnauthorizedException]
+            error_parsers: [Parsers::InvalidRequestException, Parsers::ResourceNotFoundException, Parsers::TooManyRequestsException, Parsers::UnauthorizedException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -104,7 +104,7 @@ module AWS::SDK::SSO
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InvalidRequestException, Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::UnauthorizedException]
+            error_parsers: [Parsers::InvalidRequestException, Parsers::ResourceNotFoundException, Parsers::TooManyRequestsException, Parsers::UnauthorizedException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -158,7 +158,7 @@ module AWS::SDK::SSO
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InvalidRequestException, Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::UnauthorizedException]
+            error_parsers: [Parsers::InvalidRequestException, Parsers::ResourceNotFoundException, Parsers::TooManyRequestsException, Parsers::UnauthorizedException]
           )
         )
         stack.use(Middleware::RequestId)
@@ -212,7 +212,7 @@ module AWS::SDK::SSO
           error_parser: Hearth::HTTP::ErrorParser.new(
             error_module: Errors,
             success_status: 200,
-            errors: [Errors::InvalidRequestException, Errors::TooManyRequestsException, Errors::UnauthorizedException]
+            error_parsers: [Parsers::InvalidRequestException, Parsers::TooManyRequestsException, Parsers::UnauthorizedException]
           )
         )
         stack.use(Middleware::RequestId)

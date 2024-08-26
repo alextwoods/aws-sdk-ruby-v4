@@ -148,15 +148,16 @@ module AWS::SDK::STS
 
     # Error Parser for ExpiredTokenException
     class ExpiredTokenException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::ExpiredTokenException.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('Error')
-        xml.at('message') do |node|
-          data.message = (node.text || '')
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('Error')
+          xml.at('message') do |node|
+            data.message = (node.text || '')
+          end
         end
-        data
+        Errors::ExpiredTokenException.new(data: data, **kwargs)
       end
     end
 
@@ -239,99 +240,106 @@ module AWS::SDK::STS
 
     # Error Parser for IDPCommunicationErrorException
     class IDPCommunicationErrorException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::IDPCommunicationErrorException.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('Error')
-        xml.at('message') do |node|
-          data.message = (node.text || '')
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('Error')
+          xml.at('message') do |node|
+            data.message = (node.text || '')
+          end
         end
-        data
+        Errors::IDPCommunicationErrorException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for IDPRejectedClaimException
     class IDPRejectedClaimException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::IDPRejectedClaimException.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('Error')
-        xml.at('message') do |node|
-          data.message = (node.text || '')
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('Error')
+          xml.at('message') do |node|
+            data.message = (node.text || '')
+          end
         end
-        data
+        Errors::IDPRejectedClaimException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for InvalidAuthorizationMessageException
     class InvalidAuthorizationMessageException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::InvalidAuthorizationMessageException.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('Error')
-        xml.at('message') do |node|
-          data.message = (node.text || '')
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('Error')
+          xml.at('message') do |node|
+            data.message = (node.text || '')
+          end
         end
-        data
+        Errors::InvalidAuthorizationMessageException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for InvalidIdentityTokenException
     class InvalidIdentityTokenException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::InvalidIdentityTokenException.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('Error')
-        xml.at('message') do |node|
-          data.message = (node.text || '')
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('Error')
+          xml.at('message') do |node|
+            data.message = (node.text || '')
+          end
         end
-        data
+        Errors::InvalidIdentityTokenException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for MalformedPolicyDocumentException
     class MalformedPolicyDocumentException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::MalformedPolicyDocumentException.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('Error')
-        xml.at('message') do |node|
-          data.message = (node.text || '')
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('Error')
+          xml.at('message') do |node|
+            data.message = (node.text || '')
+          end
         end
-        data
+        Errors::MalformedPolicyDocumentException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for PackedPolicyTooLargeException
     class PackedPolicyTooLargeException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::PackedPolicyTooLargeException.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('Error')
-        xml.at('message') do |node|
-          data.message = (node.text || '')
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('Error')
+          xml.at('message') do |node|
+            data.message = (node.text || '')
+          end
         end
-        data
+        Errors::PackedPolicyTooLargeException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for RegionDisabledException
     class RegionDisabledException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::RegionDisabledException.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('Error')
-        xml.at('message') do |node|
-          data.message = (node.text || '')
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('Error')
+          xml.at('message') do |node|
+            data.message = (node.text || '')
+          end
         end
-        data
+        Errors::RegionDisabledException.new(data: data, **kwargs)
       end
     end
   end

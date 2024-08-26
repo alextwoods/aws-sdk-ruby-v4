@@ -39,18 +39,16 @@ module AWS::SDK::CloudWatch
     end
 
     # Base class for all errors returned by this service
-    class ApiError < Hearth::HTTP::ApiError; end
+    class ApiError < Hearth::ApiError; end
 
     # Base class for all errors returned where the client is at fault.
-    # These are generally errors with 4XX HTTP status codes.
     class ApiClientError < ApiError; end
 
     # Base class for all errors returned where the server is at fault.
-    # These are generally errors with 5XX HTTP status codes.
     class ApiServerError < ApiError; end
 
     # Base class for all errors returned where the service returned
-    # a 3XX redirection.
+    # a redirection.
     class ApiRedirectError < ApiError
       def initialize(location:, **kwargs)
         @location = location
@@ -62,11 +60,11 @@ module AWS::SDK::CloudWatch
     end
 
     class ConcurrentModificationException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::ConcurrentModificationException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::ConcurrentModificationException]
@@ -74,11 +72,11 @@ module AWS::SDK::CloudWatch
     end
 
     class DashboardInvalidInputError < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::DashboardInvalidInputError.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::DashboardInvalidInputError]
@@ -86,11 +84,11 @@ module AWS::SDK::CloudWatch
     end
 
     class DashboardNotFoundError < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::DashboardNotFoundError.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::DashboardNotFoundError]
@@ -98,11 +96,11 @@ module AWS::SDK::CloudWatch
     end
 
     class InternalServiceFault < ApiServerError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::InternalServiceFault.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::InternalServiceFault]
@@ -110,11 +108,11 @@ module AWS::SDK::CloudWatch
     end
 
     class InvalidFormatFault < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::InvalidFormatFault.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::InvalidFormatFault]
@@ -122,11 +120,11 @@ module AWS::SDK::CloudWatch
     end
 
     class InvalidNextToken < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::InvalidNextToken.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::InvalidNextToken]
@@ -134,11 +132,11 @@ module AWS::SDK::CloudWatch
     end
 
     class InvalidParameterCombinationException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::InvalidParameterCombinationException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::InvalidParameterCombinationException]
@@ -146,11 +144,11 @@ module AWS::SDK::CloudWatch
     end
 
     class InvalidParameterValueException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::InvalidParameterValueException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::InvalidParameterValueException]
@@ -158,11 +156,11 @@ module AWS::SDK::CloudWatch
     end
 
     class LimitExceededException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::LimitExceededException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::LimitExceededException]
@@ -170,11 +168,11 @@ module AWS::SDK::CloudWatch
     end
 
     class LimitExceededFault < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::LimitExceededFault.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::LimitExceededFault]
@@ -182,11 +180,11 @@ module AWS::SDK::CloudWatch
     end
 
     class MissingRequiredParameterException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::MissingRequiredParameterException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::MissingRequiredParameterException]
@@ -194,11 +192,11 @@ module AWS::SDK::CloudWatch
     end
 
     class ResourceNotFound < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::ResourceNotFound.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::ResourceNotFound]
@@ -206,11 +204,11 @@ module AWS::SDK::CloudWatch
     end
 
     class ResourceNotFoundException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::ResourceNotFoundException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::ResourceNotFoundException]

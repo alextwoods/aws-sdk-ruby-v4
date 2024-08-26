@@ -68,9 +68,9 @@ module AWS::SDK::Kinesis
     #             shard.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :shard_id
-    #   @option params [Array<String>] :parent_shards
-    #   @option params [HashKeyRange] :hash_key_range
+    #   @option params [String] :shard_id (0)
+    #   @option params [Array<String>] :parent_shards (0)
+    #   @option params [HashKeyRange] :hash_key_range (0)
     # @!attribute shard_id
     #   <p>The shard ID of the existing child shard of the current shard.</p>
     #   @return [String]
@@ -97,10 +97,10 @@ module AWS::SDK::Kinesis
     #             object is returned by <a>RegisterStreamConsumer</a>.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :consumer_name
-    #   @option params [String] :consumer_arn
-    #   @option params [String] :consumer_status
-    #   @option params [Time] :consumer_creation_timestamp
+    #   @option params [String] :consumer_name (0)
+    #   @option params [String] :consumer_arn (0)
+    #   @option params [String] :consumer_status (0)
+    #   @option params [Time] :consumer_creation_timestamp (0)
     # @!attribute consumer_name
     #   <p>The name of the consumer is something you choose when you register the
     #               consumer.</p>
@@ -137,11 +137,11 @@ module AWS::SDK::Kinesis
     #             returned by <a>DescribeStreamConsumer</a>.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :consumer_name
-    #   @option params [String] :consumer_arn
-    #   @option params [String] :consumer_status
-    #   @option params [Time] :consumer_creation_timestamp
-    #   @option params [String] :stream_arn
+    #   @option params [String] :consumer_name (0)
+    #   @option params [String] :consumer_arn (0)
+    #   @option params [String] :consumer_status (0)
+    #   @option params [Time] :consumer_creation_timestamp (0)
+    #   @option params [String] :stream_arn (0)
     # @!attribute consumer_name
     #   <p>The name of the consumer is something you choose when you register the
     #               consumer.</p>
@@ -389,10 +389,10 @@ module AWS::SDK::Kinesis
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Integer] :shard_limit
-    #   @option params [Integer] :open_shard_count
-    #   @option params [Integer] :on_demand_stream_count
-    #   @option params [Integer] :on_demand_stream_count_limit
+    #   @option params [Integer] :shard_limit (0)
+    #   @option params [Integer] :open_shard_count (0)
+    #   @option params [Integer] :on_demand_stream_count (0)
+    #   @option params [Integer] :on_demand_stream_count_limit (0)
     # @!attribute shard_limit
     #   <p>The maximum number of shards.</p>
     #   @return [Integer]
@@ -448,7 +448,7 @@ module AWS::SDK::Kinesis
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [ConsumerDescription] :consumer_description
+    #   @option params [ConsumerDescription] :consumer_description (0)
     # @!attribute consumer_description
     #   <p>An object that represents the details of the consumer.</p>
     #   @return [ConsumerDescription]
@@ -503,7 +503,7 @@ module AWS::SDK::Kinesis
     # <p>Represents the output for <code>DescribeStream</code>.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [StreamDescription] :stream_description
+    #   @option params [StreamDescription] :stream_description (0)
     # @!attribute stream_description
     #   <p>The current status of the stream, the stream Amazon Resource Name (ARN), an array of
     #               shard objects that comprise the stream, and whether there are more shards
@@ -542,7 +542,7 @@ module AWS::SDK::Kinesis
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [StreamDescriptionSummary] :stream_description_summary
+    #   @option params [StreamDescriptionSummary] :stream_description_summary (0)
     # @!attribute stream_description_summary
     #   <p>A <a>StreamDescriptionSummary</a> containing information about the
     #               stream.</p>
@@ -911,7 +911,7 @@ module AWS::SDK::Kinesis
     # <p>Represents the output for <a>GetRecords</a>.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Array<Record>] :records
+    #   @option params [Array<Record>] :records (0)
     #   @option params [String] :next_shard_iterator
     #   @option params [Integer] :millis_behind_latest
     #   @option params [Array<ChildShard>] :child_shards
@@ -964,7 +964,7 @@ module AWS::SDK::Kinesis
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :policy
+    #   @option params [String] :policy (0)
     # @!attribute policy
     #   <p>Details of the resource policy. This is formatted as a JSON string.</p>
     #   @return [String]
@@ -1077,8 +1077,8 @@ module AWS::SDK::Kinesis
     #             contiguous positive integers.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :starting_hash_key
-    #   @option params [String] :ending_hash_key
+    #   @option params [String] :starting_hash_key (0)
+    #   @option params [String] :ending_hash_key (0)
     # @!attribute starting_hash_key
     #   <p>The starting hash key of the hash key range.</p>
     #   @return [String]
@@ -1562,8 +1562,8 @@ module AWS::SDK::Kinesis
     # <p>Represents the output for <code>ListStreams</code>.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Array<String>] :stream_names
-    #   @option params [Boolean] :has_more_streams
+    #   @option params [Array<String>] :stream_names (0)
+    #   @option params [Boolean] :has_more_streams (false)
     #   @option params [String] :next_token
     #   @option params [Array<StreamSummary>] :stream_summaries
     # @!attribute stream_names
@@ -1632,8 +1632,8 @@ module AWS::SDK::Kinesis
     # <p>Represents the output for <code>ListTagsForStream</code>.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Array<Tag>] :tags
-    #   @option params [Boolean] :has_more_tags
+    #   @option params [Array<Tag>] :tags (0)
+    #   @option params [Boolean] :has_more_tags (false)
     # @!attribute tags
     #   <p>A list of tags associated with <code>StreamName</code>, starting with the first tag
     #               after <code>ExclusiveStartTagKey</code> and up to the specified <code>Limit</code>.
@@ -1795,8 +1795,8 @@ module AWS::SDK::Kinesis
     # <p>Represents the output for <code>PutRecord</code>.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :shard_id
-    #   @option params [String] :sequence_number
+    #   @option params [String] :shard_id (0)
+    #   @option params [String] :sequence_number (0)
     #   @option params [String] :encryption_type
     # @!attribute shard_id
     #   <p>The shard ID of the shard where the data record was placed.</p>
@@ -1866,7 +1866,7 @@ module AWS::SDK::Kinesis
     # @!method initialize(params = {})
     #   @param [Hash] params
     #   @option params [Integer] :failed_record_count
-    #   @option params [Array<PutRecordsResultEntry>] :records
+    #   @option params [Array<PutRecordsResultEntry>] :records (0)
     #   @option params [String] :encryption_type
     # @!attribute failed_record_count
     #   <p>The number of unsuccessfully processed records in a <code>PutRecords</code>
@@ -1909,9 +1909,9 @@ module AWS::SDK::Kinesis
     # <p>Represents the output for <code>PutRecords</code>.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :data
+    #   @option params [String] :data (0)
     #   @option params [String] :explicit_hash_key
-    #   @option params [String] :partition_key
+    #   @option params [String] :partition_key (0)
     # @!attribute data
     #   <p>The data blob to put into the record, which is base64-encoded when the blob is
     #               serialized. When the data blob (the payload before base64-encoding) is added to the
@@ -2019,10 +2019,10 @@ module AWS::SDK::Kinesis
     #             partition key, and a data blob.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :sequence_number
+    #   @option params [String] :sequence_number (0)
     #   @option params [Time] :approximate_arrival_timestamp
-    #   @option params [String] :data
-    #   @option params [String] :partition_key
+    #   @option params [String] :data (0)
+    #   @option params [String] :partition_key (0)
     #   @option params [String] :encryption_type
     # @!attribute sequence_number
     #   <p>The unique identifier of the record within its shard.</p>
@@ -2095,7 +2095,7 @@ module AWS::SDK::Kinesis
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Consumer] :consumer
+    #   @option params [Consumer] :consumer (0)
     # @!attribute consumer
     #   <p>An object that represents the details of the consumer you registered. When you
     #               register a consumer, it gets an ARN that is generated by Kinesis Data Streams.</p>
@@ -2191,7 +2191,7 @@ module AWS::SDK::Kinesis
     # <p>The range of possible sequence numbers for the shard.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :starting_sequence_number
+    #   @option params [String] :starting_sequence_number (0)
     #   @option params [String] :ending_sequence_number
     # @!attribute starting_sequence_number
     #   <p>The starting sequence number for the range.</p>
@@ -2214,11 +2214,11 @@ module AWS::SDK::Kinesis
     # <p>A uniquely identified group of data records in a Kinesis data stream.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :shard_id
+    #   @option params [String] :shard_id (0)
     #   @option params [String] :parent_shard_id
     #   @option params [String] :adjacent_parent_shard_id
-    #   @option params [HashKeyRange] :hash_key_range
-    #   @option params [SequenceNumberRange] :sequence_number_range
+    #   @option params [HashKeyRange] :hash_key_range (0)
+    #   @option params [SequenceNumberRange] :sequence_number_range (0)
     # @!attribute shard_id
     #   <p>The unique identifier of the shard within the stream.</p>
     #   @return [String]
@@ -2253,7 +2253,7 @@ module AWS::SDK::Kinesis
     #             API.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :type
+    #   @option params [String] :type (0)
     #   @option params [String] :shard_id
     #   @option params [Time] :timestamp
     # @!attribute type
@@ -2474,7 +2474,7 @@ module AWS::SDK::Kinesis
     # <p>The starting position in the data stream from which to start streaming.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :type
+    #   @option params [String] :type (0)
     #   @option params [String] :sequence_number
     #   @option params [Time] :timestamp
     # @!attribute type
@@ -2597,15 +2597,15 @@ module AWS::SDK::Kinesis
     # <p>Represents the output for <a>DescribeStream</a>.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :stream_name
-    #   @option params [String] :stream_arn
-    #   @option params [String] :stream_status
+    #   @option params [String] :stream_name (0)
+    #   @option params [String] :stream_arn (0)
+    #   @option params [String] :stream_status (0)
     #   @option params [StreamModeDetails] :stream_mode_details
-    #   @option params [Array<Shard>] :shards
-    #   @option params [Boolean] :has_more_shards
-    #   @option params [Integer] :retention_period_hours
-    #   @option params [Time] :stream_creation_timestamp
-    #   @option params [Array<EnhancedMetrics>] :enhanced_monitoring
+    #   @option params [Array<Shard>] :shards (0)
+    #   @option params [Boolean] :has_more_shards (false)
+    #   @option params [Integer] :retention_period_hours (0)
+    #   @option params [Time] :stream_creation_timestamp (0)
+    #   @option params [Array<EnhancedMetrics>] :enhanced_monitoring (0)
     #   @option params [String] :encryption_type
     #   @option params [String] :key_id
     # @!attribute stream_name
@@ -2738,16 +2738,16 @@ module AWS::SDK::Kinesis
     #          </p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :stream_name
-    #   @option params [String] :stream_arn
-    #   @option params [String] :stream_status
+    #   @option params [String] :stream_name (0)
+    #   @option params [String] :stream_arn (0)
+    #   @option params [String] :stream_status (0)
     #   @option params [StreamModeDetails] :stream_mode_details
-    #   @option params [Integer] :retention_period_hours
-    #   @option params [Time] :stream_creation_timestamp
-    #   @option params [Array<EnhancedMetrics>] :enhanced_monitoring
+    #   @option params [Integer] :retention_period_hours (0)
+    #   @option params [Time] :stream_creation_timestamp (0)
+    #   @option params [Array<EnhancedMetrics>] :enhanced_monitoring (0)
     #   @option params [String] :encryption_type
     #   @option params [String] :key_id
-    #   @option params [Integer] :open_shard_count
+    #   @option params [Integer] :open_shard_count (0)
     #   @option params [Integer] :consumer_count
     # @!attribute stream_name
     #   <p>The name of the stream being described.</p>
@@ -2884,7 +2884,7 @@ module AWS::SDK::Kinesis
     #             Kinesis Data Streams, you can choose between an <b>on-demand</b> capacity mode and a <b>provisioned</b> capacity mode for your data streams. </p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :stream_mode
+    #   @option params [String] :stream_mode (0)
     # @!attribute stream_mode
     #   <p> Specifies the capacity mode to which you want to set your data stream. Currently, in
     #               Kinesis Data Streams, you can choose between an <b>on-demand</b> capacity mode and a <b>provisioned</b> capacity mode for your data streams. </p>
@@ -2914,9 +2914,9 @@ module AWS::SDK::Kinesis
     # <p>The summary of a stream.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :stream_name
-    #   @option params [String] :stream_arn
-    #   @option params [String] :stream_status
+    #   @option params [String] :stream_name (0)
+    #   @option params [String] :stream_arn (0)
+    #   @option params [String] :stream_status (0)
     #   @option params [StreamModeDetails] :stream_mode_details
     #   @option params [Time] :stream_creation_timestamp
     # @!attribute stream_name
@@ -2954,9 +2954,9 @@ module AWS::SDK::Kinesis
     #             of this type over an HTTP/2 connection to your consumer.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [Array<Record>] :records
-    #   @option params [String] :continuation_sequence_number
-    #   @option params [Integer] :millis_behind_latest
+    #   @option params [Array<Record>] :records (0)
+    #   @option params [String] :continuation_sequence_number (0)
+    #   @option params [Integer] :millis_behind_latest (0)
     #   @option params [Array<ChildShard>] :child_shards
     # @!attribute records
     #   <p></p>
@@ -3078,7 +3078,7 @@ module AWS::SDK::Kinesis
 
       class Unknown < SubscribeToShardEventStream
         def initialize(name:, value:)
-          super({name: name, value: value})
+          super({name: name || 'Unknown', value: value})
         end
 
         def to_h
@@ -3116,7 +3116,7 @@ module AWS::SDK::Kinesis
 
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [SubscribeToShardEventStream] :event_stream
+    #   @option params [SubscribeToShardEventStream] :event_stream (0)
     # @!attribute event_stream
     #   <p>The event stream that your consumer can use to read records from the shard.</p>
     #   @return [SubscribeToShardEventStream]
@@ -3133,7 +3133,7 @@ module AWS::SDK::Kinesis
     # <p>Metadata assigned to the stream, consisting of a key-value pair.</p>
     # @!method initialize(params = {})
     #   @param [Hash] params
-    #   @option params [String] :key
+    #   @option params [String] :key (0)
     #   @option params [String] :value
     # @!attribute key
     #   <p>A unique identifier for the tag. Maximum length: 128 characters. Valid characters:

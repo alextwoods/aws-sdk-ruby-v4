@@ -25,18 +25,16 @@ module AWS::SDK::KMS
     end
 
     # Base class for all errors returned by this service
-    class ApiError < Hearth::HTTP::ApiError; end
+    class ApiError < Hearth::ApiError; end
 
     # Base class for all errors returned where the client is at fault.
-    # These are generally errors with 4XX HTTP status codes.
     class ApiClientError < ApiError; end
 
     # Base class for all errors returned where the server is at fault.
-    # These are generally errors with 5XX HTTP status codes.
     class ApiServerError < ApiError; end
 
     # Base class for all errors returned where the service returned
-    # a 3XX redirection.
+    # a redirection.
     class ApiRedirectError < ApiError
       def initialize(location:, **kwargs)
         @location = location
@@ -48,11 +46,11 @@ module AWS::SDK::KMS
     end
 
     class AlreadyExistsException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::AlreadyExistsException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::AlreadyExistsException]
@@ -60,11 +58,11 @@ module AWS::SDK::KMS
     end
 
     class CloudHsmClusterInUseException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::CloudHsmClusterInUseException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::CloudHsmClusterInUseException]
@@ -72,11 +70,11 @@ module AWS::SDK::KMS
     end
 
     class CloudHsmClusterInvalidConfigurationException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::CloudHsmClusterInvalidConfigurationException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::CloudHsmClusterInvalidConfigurationException]
@@ -84,11 +82,11 @@ module AWS::SDK::KMS
     end
 
     class CloudHsmClusterNotActiveException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::CloudHsmClusterNotActiveException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::CloudHsmClusterNotActiveException]
@@ -96,11 +94,11 @@ module AWS::SDK::KMS
     end
 
     class CloudHsmClusterNotFoundException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::CloudHsmClusterNotFoundException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::CloudHsmClusterNotFoundException]
@@ -108,11 +106,11 @@ module AWS::SDK::KMS
     end
 
     class CloudHsmClusterNotRelatedException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::CloudHsmClusterNotRelatedException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::CloudHsmClusterNotRelatedException]
@@ -120,11 +118,11 @@ module AWS::SDK::KMS
     end
 
     class CustomKeyStoreHasCMKsException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::CustomKeyStoreHasCMKsException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::CustomKeyStoreHasCMKsException]
@@ -132,11 +130,11 @@ module AWS::SDK::KMS
     end
 
     class CustomKeyStoreInvalidStateException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::CustomKeyStoreInvalidStateException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::CustomKeyStoreInvalidStateException]
@@ -144,11 +142,11 @@ module AWS::SDK::KMS
     end
 
     class CustomKeyStoreNameInUseException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::CustomKeyStoreNameInUseException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::CustomKeyStoreNameInUseException]
@@ -156,11 +154,11 @@ module AWS::SDK::KMS
     end
 
     class CustomKeyStoreNotFoundException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::CustomKeyStoreNotFoundException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::CustomKeyStoreNotFoundException]
@@ -168,11 +166,11 @@ module AWS::SDK::KMS
     end
 
     class DependencyTimeoutException < ApiServerError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::DependencyTimeoutException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::DependencyTimeoutException]
@@ -180,11 +178,11 @@ module AWS::SDK::KMS
     end
 
     class DisabledException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::DisabledException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::DisabledException]
@@ -192,11 +190,11 @@ module AWS::SDK::KMS
     end
 
     class DryRunOperationException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::DryRunOperationException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::DryRunOperationException]
@@ -204,11 +202,11 @@ module AWS::SDK::KMS
     end
 
     class ExpiredImportTokenException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::ExpiredImportTokenException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::ExpiredImportTokenException]
@@ -216,11 +214,11 @@ module AWS::SDK::KMS
     end
 
     class IncorrectKeyException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::IncorrectKeyException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::IncorrectKeyException]
@@ -228,11 +226,11 @@ module AWS::SDK::KMS
     end
 
     class IncorrectKeyMaterialException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::IncorrectKeyMaterialException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::IncorrectKeyMaterialException]
@@ -240,11 +238,11 @@ module AWS::SDK::KMS
     end
 
     class IncorrectTrustAnchorException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::IncorrectTrustAnchorException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::IncorrectTrustAnchorException]
@@ -252,11 +250,11 @@ module AWS::SDK::KMS
     end
 
     class InvalidAliasNameException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::InvalidAliasNameException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::InvalidAliasNameException]
@@ -264,11 +262,11 @@ module AWS::SDK::KMS
     end
 
     class InvalidArnException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::InvalidArnException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::InvalidArnException]
@@ -276,11 +274,11 @@ module AWS::SDK::KMS
     end
 
     class InvalidCiphertextException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::InvalidCiphertextException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::InvalidCiphertextException]
@@ -288,11 +286,11 @@ module AWS::SDK::KMS
     end
 
     class InvalidGrantIdException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::InvalidGrantIdException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::InvalidGrantIdException]
@@ -300,11 +298,11 @@ module AWS::SDK::KMS
     end
 
     class InvalidGrantTokenException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::InvalidGrantTokenException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::InvalidGrantTokenException]
@@ -312,11 +310,11 @@ module AWS::SDK::KMS
     end
 
     class InvalidImportTokenException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::InvalidImportTokenException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::InvalidImportTokenException]
@@ -324,11 +322,11 @@ module AWS::SDK::KMS
     end
 
     class InvalidKeyUsageException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::InvalidKeyUsageException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::InvalidKeyUsageException]
@@ -336,11 +334,11 @@ module AWS::SDK::KMS
     end
 
     class InvalidMarkerException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::InvalidMarkerException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::InvalidMarkerException]
@@ -348,11 +346,11 @@ module AWS::SDK::KMS
     end
 
     class KMSInternalException < ApiServerError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::KMSInternalException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::KMSInternalException]
@@ -360,11 +358,11 @@ module AWS::SDK::KMS
     end
 
     class KMSInvalidMacException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::KMSInvalidMacException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::KMSInvalidMacException]
@@ -372,11 +370,11 @@ module AWS::SDK::KMS
     end
 
     class KMSInvalidSignatureException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::KMSInvalidSignatureException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::KMSInvalidSignatureException]
@@ -384,11 +382,11 @@ module AWS::SDK::KMS
     end
 
     class KMSInvalidStateException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::KMSInvalidStateException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::KMSInvalidStateException]
@@ -396,11 +394,11 @@ module AWS::SDK::KMS
     end
 
     class KeyUnavailableException < ApiServerError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::KeyUnavailableException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::KeyUnavailableException]
@@ -408,11 +406,11 @@ module AWS::SDK::KMS
     end
 
     class LimitExceededException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::LimitExceededException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::LimitExceededException]
@@ -420,11 +418,11 @@ module AWS::SDK::KMS
     end
 
     class MalformedPolicyDocumentException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::MalformedPolicyDocumentException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::MalformedPolicyDocumentException]
@@ -432,11 +430,11 @@ module AWS::SDK::KMS
     end
 
     class NotFoundException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::NotFoundException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::NotFoundException]
@@ -444,11 +442,11 @@ module AWS::SDK::KMS
     end
 
     class TagException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::TagException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::TagException]
@@ -456,11 +454,11 @@ module AWS::SDK::KMS
     end
 
     class UnsupportedOperationException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::UnsupportedOperationException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::UnsupportedOperationException]
@@ -468,11 +466,11 @@ module AWS::SDK::KMS
     end
 
     class XksKeyAlreadyInUseException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::XksKeyAlreadyInUseException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::XksKeyAlreadyInUseException]
@@ -480,11 +478,11 @@ module AWS::SDK::KMS
     end
 
     class XksKeyInvalidConfigurationException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::XksKeyInvalidConfigurationException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::XksKeyInvalidConfigurationException]
@@ -492,11 +490,11 @@ module AWS::SDK::KMS
     end
 
     class XksKeyNotFoundException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::XksKeyNotFoundException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::XksKeyNotFoundException]
@@ -504,11 +502,11 @@ module AWS::SDK::KMS
     end
 
     class XksProxyIncorrectAuthenticationCredentialException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::XksProxyIncorrectAuthenticationCredentialException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::XksProxyIncorrectAuthenticationCredentialException]
@@ -516,11 +514,11 @@ module AWS::SDK::KMS
     end
 
     class XksProxyInvalidConfigurationException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::XksProxyInvalidConfigurationException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::XksProxyInvalidConfigurationException]
@@ -528,11 +526,11 @@ module AWS::SDK::KMS
     end
 
     class XksProxyInvalidResponseException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::XksProxyInvalidResponseException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::XksProxyInvalidResponseException]
@@ -540,11 +538,11 @@ module AWS::SDK::KMS
     end
 
     class XksProxyUriEndpointInUseException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::XksProxyUriEndpointInUseException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::XksProxyUriEndpointInUseException]
@@ -552,11 +550,11 @@ module AWS::SDK::KMS
     end
 
     class XksProxyUriInUseException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::XksProxyUriInUseException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::XksProxyUriInUseException]
@@ -564,11 +562,11 @@ module AWS::SDK::KMS
     end
 
     class XksProxyUriUnreachableException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::XksProxyUriUnreachableException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::XksProxyUriUnreachableException]
@@ -576,11 +574,11 @@ module AWS::SDK::KMS
     end
 
     class XksProxyVpcEndpointServiceInUseException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::XksProxyVpcEndpointServiceInUseException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::XksProxyVpcEndpointServiceInUseException]
@@ -588,11 +586,11 @@ module AWS::SDK::KMS
     end
 
     class XksProxyVpcEndpointServiceInvalidConfigurationException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::XksProxyVpcEndpointServiceInvalidConfigurationException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::XksProxyVpcEndpointServiceInvalidConfigurationException]
@@ -600,11 +598,11 @@ module AWS::SDK::KMS
     end
 
     class XksProxyVpcEndpointServiceNotFoundException < ApiClientError
-      def initialize(http_resp:, **kwargs)
-        @data = Parsers::XksProxyVpcEndpointServiceNotFoundException.parse(http_resp)
+      def initialize(data:, **kwargs)
+        @data = data
         kwargs[:message] = @data.message if @data.respond_to?(:message)
 
-        super(http_resp: http_resp, **kwargs)
+        super(**kwargs)
       end
 
       # @return [Types::XksProxyVpcEndpointServiceNotFoundException]
