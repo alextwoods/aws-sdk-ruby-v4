@@ -28,7 +28,7 @@ jobs:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
 
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Install gems
         run: bundle install
@@ -37,7 +37,7 @@ jobs:
         run: EXECUTION_ENV=github-action bundle exec rake benchmark:run
 
       - name: configure aws credentials
-        uses: aws-actions/configure-aws-credentials@v2
+        uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: arn:aws:iam::469596866844:role/aws-sdk-ruby-performance-reporter
           role-session-name: benchmark-report
