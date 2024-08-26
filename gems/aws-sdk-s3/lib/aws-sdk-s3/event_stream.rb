@@ -107,16 +107,13 @@ module AWS::SDK::S3
         when 'End'
           Types::SelectObjectContentEventStream::End.new(Parsers::EventStream::EndEvent.parse(message))
         else
-          Types::SelectObjectContentEventStream::Unknown.new(name: type || 'unknown', value: message)
+          Types::SelectObjectContentEventStream::Unknown.new(name: type, value: message)
         end
       end
 
       def parse_exception_event(type, message)
-        case type
-        else
-          data = Types::SelectObjectContentEventStream::Unknown.new(name: type || 'unknown', value: message)
-          Errors::ApiError.new(error_code: type || 'unknown', metadata: {data: data})
-        end
+        data = Types::SelectObjectContentEventStream::Unknown.new(name: type, value: message)
+        Errors::ApiError.new(error_code: type, metadata: {data: data})
       end
 
       def parse_error_event(message)

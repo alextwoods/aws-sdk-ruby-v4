@@ -126,7 +126,7 @@ module AWS::SDK::TranscribeStreaming
         when 'ServiceUnavailableException'
           Types::CallAnalyticsTranscriptResultStream::ServiceUnavailableException.new(Parsers::EventStream::ServiceUnavailableException.parse(message))
         else
-          Types::CallAnalyticsTranscriptResultStream::Unknown.new(name: type || 'unknown', value: message)
+          Types::CallAnalyticsTranscriptResultStream::Unknown.new(name: type, value: message)
         end
       end
 
@@ -148,8 +148,8 @@ module AWS::SDK::TranscribeStreaming
           data = Parsers::EventStream::ServiceUnavailableException.parse(message)
           Errors::ServiceUnavailableException.new(data: data, error_code: 'AWS::SDK::TranscribeStreaming::Types::CallAnalyticsTranscriptResultStream::ServiceUnavailableException')
         else
-          data = Types::CallAnalyticsTranscriptResultStream::Unknown.new(name: type || 'unknown', value: message)
-          Errors::ApiError.new(error_code: type || 'unknown', metadata: {data: data})
+          data = Types::CallAnalyticsTranscriptResultStream::Unknown.new(name: type, value: message)
+          Errors::ApiError.new(error_code: type, metadata: {data: data})
         end
       end
 
@@ -253,7 +253,7 @@ module AWS::SDK::TranscribeStreaming
         when 'ServiceUnavailableException'
           Types::MedicalTranscriptResultStream::ServiceUnavailableException.new(Parsers::EventStream::ServiceUnavailableException.parse(message))
         else
-          Types::MedicalTranscriptResultStream::Unknown.new(name: type || 'unknown', value: message)
+          Types::MedicalTranscriptResultStream::Unknown.new(name: type, value: message)
         end
       end
 
@@ -275,8 +275,8 @@ module AWS::SDK::TranscribeStreaming
           data = Parsers::EventStream::ServiceUnavailableException.parse(message)
           Errors::ServiceUnavailableException.new(data: data, error_code: 'AWS::SDK::TranscribeStreaming::Types::MedicalTranscriptResultStream::ServiceUnavailableException')
         else
-          data = Types::MedicalTranscriptResultStream::Unknown.new(name: type || 'unknown', value: message)
-          Errors::ApiError.new(error_code: type || 'unknown', metadata: {data: data})
+          data = Types::MedicalTranscriptResultStream::Unknown.new(name: type, value: message)
+          Errors::ApiError.new(error_code: type, metadata: {data: data})
         end
       end
 
@@ -399,7 +399,7 @@ module AWS::SDK::TranscribeStreaming
         when 'ServiceUnavailableException'
           Types::TranscriptResultStream::ServiceUnavailableException.new(Parsers::EventStream::ServiceUnavailableException.parse(message))
         else
-          Types::TranscriptResultStream::Unknown.new(name: type || 'unknown', value: message)
+          Types::TranscriptResultStream::Unknown.new(name: type, value: message)
         end
       end
 
@@ -421,8 +421,8 @@ module AWS::SDK::TranscribeStreaming
           data = Parsers::EventStream::ServiceUnavailableException.parse(message)
           Errors::ServiceUnavailableException.new(data: data, error_code: 'AWS::SDK::TranscribeStreaming::Types::TranscriptResultStream::ServiceUnavailableException')
         else
-          data = Types::TranscriptResultStream::Unknown.new(name: type || 'unknown', value: message)
-          Errors::ApiError.new(error_code: type || 'unknown', metadata: {data: data})
+          data = Types::TranscriptResultStream::Unknown.new(name: type, value: message)
+          Errors::ApiError.new(error_code: type, metadata: {data: data})
         end
       end
 

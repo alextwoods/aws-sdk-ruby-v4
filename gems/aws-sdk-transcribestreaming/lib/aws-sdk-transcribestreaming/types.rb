@@ -81,7 +81,7 @@ module AWS::SDK::TranscribeStreaming
 
       class Unknown < AudioStream
         def initialize(name:, value:)
-          super({name: name, value: value})
+          super({name: name || 'Unknown', value: value})
         end
 
         def to_h
@@ -303,7 +303,7 @@ module AWS::SDK::TranscribeStreaming
 
       class Unknown < CallAnalyticsTranscriptResultStream
         def initialize(name:, value:)
-          super({name: name, value: value})
+          super({name: name || 'Unknown', value: value})
         end
 
         def to_h
@@ -1020,7 +1020,7 @@ module AWS::SDK::TranscribeStreaming
 
       class Unknown < MedicalTranscriptResultStream
         def initialize(name:, value:)
-          super({name: name, value: value})
+          super({name: name || 'Unknown', value: value})
         end
 
         def to_h
@@ -2300,7 +2300,7 @@ module AWS::SDK::TranscribeStreaming
 
       class Unknown < TranscriptResultStream
         def initialize(name:, value:)
-          super({name: name, value: value})
+          super({name: name || 'Unknown', value: value})
         end
 
         def to_h

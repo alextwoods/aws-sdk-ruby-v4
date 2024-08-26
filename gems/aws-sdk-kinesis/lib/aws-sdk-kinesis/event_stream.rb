@@ -89,7 +89,7 @@ module AWS::SDK::Kinesis
         when 'InternalFailureException'
           Types::SubscribeToShardEventStream::InternalFailureException.new(Parsers::EventStream::InternalFailureException.parse(message))
         else
-          Types::SubscribeToShardEventStream::Unknown.new(name: type || 'unknown', value: message)
+          Types::SubscribeToShardEventStream::Unknown.new(name: type, value: message)
         end
       end
 
@@ -123,8 +123,8 @@ module AWS::SDK::Kinesis
           data = Parsers::EventStream::InternalFailureException.parse(message)
           Errors::InternalFailureException.new(data: data, error_code: 'AWS::SDK::Kinesis::Types::SubscribeToShardEventStream::InternalFailureException')
         else
-          data = Types::SubscribeToShardEventStream::Unknown.new(name: type || 'unknown', value: message)
-          Errors::ApiError.new(error_code: type || 'unknown', metadata: {data: data})
+          data = Types::SubscribeToShardEventStream::Unknown.new(name: type, value: message)
+          Errors::ApiError.new(error_code: type, metadata: {data: data})
         end
       end
 

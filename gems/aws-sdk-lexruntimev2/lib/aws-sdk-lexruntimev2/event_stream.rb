@@ -208,7 +208,7 @@ module AWS::SDK::LexRuntimeV2
         when 'BadGatewayException'
           Types::StartConversationResponseEventStream::BadGatewayException.new(Parsers::EventStream::BadGatewayException.parse(message))
         else
-          Types::StartConversationResponseEventStream::Unknown.new(name: type || 'unknown', value: message)
+          Types::StartConversationResponseEventStream::Unknown.new(name: type, value: message)
         end
       end
 
@@ -239,8 +239,8 @@ module AWS::SDK::LexRuntimeV2
           data = Parsers::EventStream::BadGatewayException.parse(message)
           Errors::BadGatewayException.new(data: data, error_code: 'AWS::SDK::LexRuntimeV2::Types::StartConversationResponseEventStream::BadGatewayException')
         else
-          data = Types::StartConversationResponseEventStream::Unknown.new(name: type || 'unknown', value: message)
-          Errors::ApiError.new(error_code: type || 'unknown', metadata: {data: data})
+          data = Types::StartConversationResponseEventStream::Unknown.new(name: type, value: message)
+          Errors::ApiError.new(error_code: type, metadata: {data: data})
         end
       end
 

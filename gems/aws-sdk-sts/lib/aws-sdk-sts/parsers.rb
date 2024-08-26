@@ -12,95 +12,92 @@ module AWS::SDK::STS
   module Parsers
 
     class AssumeRole
-      def self.parse(http_resp, **kwargs)
+      def self.parse(http_resp)
         data = Types::AssumeRoleOutput.new
         body = http_resp.body.read
-        unless body.empty?
-          xml = Hearth::XML.parse(body).at('AssumeRoleResult')
-          xml.at('Credentials') do |node|
-            data.credentials = Credentials.parse(node)
-          end
-          xml.at('AssumedRoleUser') do |node|
-            data.assumed_role_user = AssumedRoleUser.parse(node)
-          end
-          xml.at('PackedPolicySize') do |node|
-            data.packed_policy_size = node.text&.to_i
-          end
-          xml.at('SourceIdentity') do |node|
-            data.source_identity = (node.text || '')
-          end
+        return data if body.empty?
+        xml = Hearth::XML.parse(body).at('AssumeRoleResult')
+        xml.at('Credentials') do |node|
+          data.credentials = Credentials.parse(node)
         end
-        Errors::AssumeRoleOutput.new(data: data, **kwargs)
+        xml.at('AssumedRoleUser') do |node|
+          data.assumed_role_user = AssumedRoleUser.parse(node)
+        end
+        xml.at('PackedPolicySize') do |node|
+          data.packed_policy_size = node.text&.to_i
+        end
+        xml.at('SourceIdentity') do |node|
+          data.source_identity = (node.text || '')
+        end
+        data
       end
     end
 
     class AssumeRoleWithSAML
-      def self.parse(http_resp, **kwargs)
+      def self.parse(http_resp)
         data = Types::AssumeRoleWithSAMLOutput.new
         body = http_resp.body.read
-        unless body.empty?
-          xml = Hearth::XML.parse(body).at('AssumeRoleWithSAMLResult')
-          xml.at('Credentials') do |node|
-            data.credentials = Credentials.parse(node)
-          end
-          xml.at('AssumedRoleUser') do |node|
-            data.assumed_role_user = AssumedRoleUser.parse(node)
-          end
-          xml.at('PackedPolicySize') do |node|
-            data.packed_policy_size = node.text&.to_i
-          end
-          xml.at('Subject') do |node|
-            data.subject = (node.text || '')
-          end
-          xml.at('SubjectType') do |node|
-            data.subject_type = (node.text || '')
-          end
-          xml.at('Issuer') do |node|
-            data.issuer = (node.text || '')
-          end
-          xml.at('Audience') do |node|
-            data.audience = (node.text || '')
-          end
-          xml.at('NameQualifier') do |node|
-            data.name_qualifier = (node.text || '')
-          end
-          xml.at('SourceIdentity') do |node|
-            data.source_identity = (node.text || '')
-          end
+        return data if body.empty?
+        xml = Hearth::XML.parse(body).at('AssumeRoleWithSAMLResult')
+        xml.at('Credentials') do |node|
+          data.credentials = Credentials.parse(node)
         end
-        Errors::AssumeRoleWithSAMLOutput.new(data: data, **kwargs)
+        xml.at('AssumedRoleUser') do |node|
+          data.assumed_role_user = AssumedRoleUser.parse(node)
+        end
+        xml.at('PackedPolicySize') do |node|
+          data.packed_policy_size = node.text&.to_i
+        end
+        xml.at('Subject') do |node|
+          data.subject = (node.text || '')
+        end
+        xml.at('SubjectType') do |node|
+          data.subject_type = (node.text || '')
+        end
+        xml.at('Issuer') do |node|
+          data.issuer = (node.text || '')
+        end
+        xml.at('Audience') do |node|
+          data.audience = (node.text || '')
+        end
+        xml.at('NameQualifier') do |node|
+          data.name_qualifier = (node.text || '')
+        end
+        xml.at('SourceIdentity') do |node|
+          data.source_identity = (node.text || '')
+        end
+        data
       end
     end
 
     class AssumeRoleWithWebIdentity
-      def self.parse(http_resp, **kwargs)
+      def self.parse(http_resp)
         data = Types::AssumeRoleWithWebIdentityOutput.new
         body = http_resp.body.read
-        unless body.empty?
-          xml = Hearth::XML.parse(body).at('AssumeRoleWithWebIdentityResult')
-          xml.at('Credentials') do |node|
-            data.credentials = Credentials.parse(node)
-          end
-          xml.at('SubjectFromWebIdentityToken') do |node|
-            data.subject_from_web_identity_token = (node.text || '')
-          end
-          xml.at('AssumedRoleUser') do |node|
-            data.assumed_role_user = AssumedRoleUser.parse(node)
-          end
-          xml.at('PackedPolicySize') do |node|
-            data.packed_policy_size = node.text&.to_i
-          end
-          xml.at('Provider') do |node|
-            data.provider = (node.text || '')
-          end
-          xml.at('Audience') do |node|
-            data.audience = (node.text || '')
-          end
-          xml.at('SourceIdentity') do |node|
-            data.source_identity = (node.text || '')
-          end
+        return data if body.empty?
+        xml = Hearth::XML.parse(body).at('AssumeRoleWithWebIdentityResult')
+        xml.at('Credentials') do |node|
+          data.credentials = Credentials.parse(node)
         end
-        Errors::AssumeRoleWithWebIdentityOutput.new(data: data, **kwargs)
+        xml.at('SubjectFromWebIdentityToken') do |node|
+          data.subject_from_web_identity_token = (node.text || '')
+        end
+        xml.at('AssumedRoleUser') do |node|
+          data.assumed_role_user = AssumedRoleUser.parse(node)
+        end
+        xml.at('PackedPolicySize') do |node|
+          data.packed_policy_size = node.text&.to_i
+        end
+        xml.at('Provider') do |node|
+          data.provider = (node.text || '')
+        end
+        xml.at('Audience') do |node|
+          data.audience = (node.text || '')
+        end
+        xml.at('SourceIdentity') do |node|
+          data.source_identity = (node.text || '')
+        end
+        data
       end
     end
 
@@ -137,30 +134,30 @@ module AWS::SDK::STS
     end
 
     class DecodeAuthorizationMessage
-      def self.parse(http_resp, **kwargs)
+      def self.parse(http_resp)
         data = Types::DecodeAuthorizationMessageOutput.new
         body = http_resp.body.read
-        unless body.empty?
-          xml = Hearth::XML.parse(body).at('DecodeAuthorizationMessageResult')
-          xml.at('DecodedMessage') do |node|
-            data.decoded_message = (node.text || '')
-          end
+        return data if body.empty?
+        xml = Hearth::XML.parse(body).at('DecodeAuthorizationMessageResult')
+        xml.at('DecodedMessage') do |node|
+          data.decoded_message = (node.text || '')
         end
-        Errors::DecodeAuthorizationMessageOutput.new(data: data, **kwargs)
+        data
       end
     end
 
     # Error Parser for ExpiredTokenException
     class ExpiredTokenException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::ExpiredTokenException.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('Error')
-        xml.at('message') do |node|
-          data.message = (node.text || '')
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('Error')
+          xml.at('message') do |node|
+            data.message = (node.text || '')
+          end
         end
-        data
+        Errors::ExpiredTokenException.new(data: data, **kwargs)
       end
     end
 
@@ -178,168 +175,171 @@ module AWS::SDK::STS
     end
 
     class GetAccessKeyInfo
-      def self.parse(http_resp, **kwargs)
+      def self.parse(http_resp)
         data = Types::GetAccessKeyInfoOutput.new
         body = http_resp.body.read
-        unless body.empty?
-          xml = Hearth::XML.parse(body).at('GetAccessKeyInfoResult')
-          xml.at('Account') do |node|
-            data.account = (node.text || '')
-          end
+        return data if body.empty?
+        xml = Hearth::XML.parse(body).at('GetAccessKeyInfoResult')
+        xml.at('Account') do |node|
+          data.account = (node.text || '')
         end
-        Errors::GetAccessKeyInfoOutput.new(data: data, **kwargs)
+        data
       end
     end
 
     class GetCallerIdentity
-      def self.parse(http_resp, **kwargs)
+      def self.parse(http_resp)
         data = Types::GetCallerIdentityOutput.new
         body = http_resp.body.read
-        unless body.empty?
-          xml = Hearth::XML.parse(body).at('GetCallerIdentityResult')
-          xml.at('UserId') do |node|
-            data.user_id = (node.text || '')
-          end
-          xml.at('Account') do |node|
-            data.account = (node.text || '')
-          end
-          xml.at('Arn') do |node|
-            data.arn = (node.text || '')
-          end
+        return data if body.empty?
+        xml = Hearth::XML.parse(body).at('GetCallerIdentityResult')
+        xml.at('UserId') do |node|
+          data.user_id = (node.text || '')
         end
-        Errors::GetCallerIdentityOutput.new(data: data, **kwargs)
+        xml.at('Account') do |node|
+          data.account = (node.text || '')
+        end
+        xml.at('Arn') do |node|
+          data.arn = (node.text || '')
+        end
+        data
       end
     end
 
     class GetFederationToken
-      def self.parse(http_resp, **kwargs)
+      def self.parse(http_resp)
         data = Types::GetFederationTokenOutput.new
         body = http_resp.body.read
-        unless body.empty?
-          xml = Hearth::XML.parse(body).at('GetFederationTokenResult')
-          xml.at('Credentials') do |node|
-            data.credentials = Credentials.parse(node)
-          end
-          xml.at('FederatedUser') do |node|
-            data.federated_user = FederatedUser.parse(node)
-          end
-          xml.at('PackedPolicySize') do |node|
-            data.packed_policy_size = node.text&.to_i
-          end
+        return data if body.empty?
+        xml = Hearth::XML.parse(body).at('GetFederationTokenResult')
+        xml.at('Credentials') do |node|
+          data.credentials = Credentials.parse(node)
         end
-        Errors::GetFederationTokenOutput.new(data: data, **kwargs)
+        xml.at('FederatedUser') do |node|
+          data.federated_user = FederatedUser.parse(node)
+        end
+        xml.at('PackedPolicySize') do |node|
+          data.packed_policy_size = node.text&.to_i
+        end
+        data
       end
     end
 
     class GetSessionToken
-      def self.parse(http_resp, **kwargs)
+      def self.parse(http_resp)
         data = Types::GetSessionTokenOutput.new
         body = http_resp.body.read
-        unless body.empty?
-          xml = Hearth::XML.parse(body).at('GetSessionTokenResult')
-          xml.at('Credentials') do |node|
-            data.credentials = Credentials.parse(node)
-          end
+        return data if body.empty?
+        xml = Hearth::XML.parse(body).at('GetSessionTokenResult')
+        xml.at('Credentials') do |node|
+          data.credentials = Credentials.parse(node)
         end
-        Errors::GetSessionTokenOutput.new(data: data, **kwargs)
+        data
       end
     end
 
     # Error Parser for IDPCommunicationErrorException
     class IDPCommunicationErrorException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::IDPCommunicationErrorException.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('Error')
-        xml.at('message') do |node|
-          data.message = (node.text || '')
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('Error')
+          xml.at('message') do |node|
+            data.message = (node.text || '')
+          end
         end
-        data
+        Errors::IDPCommunicationErrorException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for IDPRejectedClaimException
     class IDPRejectedClaimException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::IDPRejectedClaimException.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('Error')
-        xml.at('message') do |node|
-          data.message = (node.text || '')
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('Error')
+          xml.at('message') do |node|
+            data.message = (node.text || '')
+          end
         end
-        data
+        Errors::IDPRejectedClaimException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for InvalidAuthorizationMessageException
     class InvalidAuthorizationMessageException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::InvalidAuthorizationMessageException.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('Error')
-        xml.at('message') do |node|
-          data.message = (node.text || '')
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('Error')
+          xml.at('message') do |node|
+            data.message = (node.text || '')
+          end
         end
-        data
+        Errors::InvalidAuthorizationMessageException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for InvalidIdentityTokenException
     class InvalidIdentityTokenException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::InvalidIdentityTokenException.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('Error')
-        xml.at('message') do |node|
-          data.message = (node.text || '')
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('Error')
+          xml.at('message') do |node|
+            data.message = (node.text || '')
+          end
         end
-        data
+        Errors::InvalidIdentityTokenException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for MalformedPolicyDocumentException
     class MalformedPolicyDocumentException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::MalformedPolicyDocumentException.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('Error')
-        xml.at('message') do |node|
-          data.message = (node.text || '')
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('Error')
+          xml.at('message') do |node|
+            data.message = (node.text || '')
+          end
         end
-        data
+        Errors::MalformedPolicyDocumentException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for PackedPolicyTooLargeException
     class PackedPolicyTooLargeException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::PackedPolicyTooLargeException.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('Error')
-        xml.at('message') do |node|
-          data.message = (node.text || '')
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('Error')
+          xml.at('message') do |node|
+            data.message = (node.text || '')
+          end
         end
-        data
+        Errors::PackedPolicyTooLargeException.new(data: data, **kwargs)
       end
     end
 
     # Error Parser for RegionDisabledException
     class RegionDisabledException
-      def self.parse(http_resp)
+      def self.parse(http_resp, **kwargs)
         data = Types::RegionDisabledException.new
         body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('Error')
-        xml.at('message') do |node|
-          data.message = (node.text || '')
+        unless body.empty?
+          xml = Hearth::XML.parse(body).at('Error')
+          xml.at('message') do |node|
+            data.message = (node.text || '')
+          end
         end
-        data
+        Errors::RegionDisabledException.new(data: data, **kwargs)
       end
     end
   end

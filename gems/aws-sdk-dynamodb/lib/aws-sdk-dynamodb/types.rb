@@ -216,7 +216,7 @@ module AWS::SDK::DynamoDB
 
       class Unknown < AttributeValue
         def initialize(name:, value:)
-          super({name: name, value: value})
+          super({name: name || 'Unknown', value: value})
         end
 
         def to_h
