@@ -102,33 +102,33 @@ module AWS::SDK::Core
           end
         end
 
-        unless @standardized_profiles.key?(standardized_profile_name)
-          if is_default_profile && raw_section_name_has_profile_prefix
-            @default_profile_has_profile_prefix = true
+        if standardized_profile_name
+          unless @standardized_profiles.key?(standardized_profile_name)
+            if is_default_profile && raw_section_name_has_profile_prefix
+              @default_profile_has_profile_prefix = true
+            end
+
+            @standardized_profiles[standardized_profile_name] =
+              ConfigFileSection.new(standardized_profile_name)
           end
 
-          @standardized_profiles[standardized_profile_name] =
-            ConfigFileSection.new(standardized_profile_name)
-        end
-
-        unless @standardized_sso_sessions.key?(standardized_sso_session_name)
-          @standardized_sso_sessions[standardized_sso_session_name] =
-            ConfigFileSection.new(standardized_sso_session_name)
-        end
-
-        if standardized_sso_session_name
-          standardized_properties = standardize_properties(
-            standardized_sso_session_name, section_properties
-          )
-
-          @standardized_sso_sessions[standardized_sso_session_name]
-            .update_properties(standardized_properties)
-        else
           standardized_properties = standardize_properties(
             standardized_profile_name, section_properties
           )
 
           @standardized_profiles[standardized_profile_name]
+            .update_properties(standardized_properties)
+        elsif standardized_sso_session_name
+          unless @standardized_sso_sessions.key?(standardized_sso_session_name)
+            @standardized_sso_sessions[standardized_sso_session_name] =
+              ConfigFileSection.new(standardized_sso_session_name)
+          end
+
+          standardized_properties = standardize_properties(
+            standardized_sso_session_name, section_properties
+          )
+
+          @standardized_sso_sessions[standardized_sso_session_name]
             .update_properties(standardized_properties)
         end
       end

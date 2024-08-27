@@ -85,7 +85,7 @@ module AWS::SDK::Core
       end
       unless @current_property
         raise InvalidSharedConfigError,
-              'Expected a property definition, found continuation  ' \
+              'Expected a property definition, found continuation ' \
               "on line #{@current_line_number}"
       end
 
