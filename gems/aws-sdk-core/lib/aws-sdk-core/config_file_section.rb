@@ -19,7 +19,7 @@ module AWS::SDK::Core
         if @properties.key?(key)
           Kernel.warn(
             "Warning: Duplicate property '#{key}' detected in " \
-            "profile #{@name}. One value will be ignored."
+            "section #{@name}. One value will be ignored."
           )
         end
         @properties[key] = value
@@ -59,7 +59,13 @@ module AWS::SDK::Core
             raw_sub_property_line,
             "in sub-property of #{@name}"
           )
-          next unless ConfigFileUtils.valid_identifier?(left)
+          unless ConfigFileUtils.valid_identifier?(left)
+            Kernel.warn(
+              "Ignoring property '#{left}' in property '#{@name}' because " \
+              "its name was not alphanumeric with dashes or underscores."
+            )
+            next
+          end
 
           if sub_properties.key?(left)
             Kernel.warn(

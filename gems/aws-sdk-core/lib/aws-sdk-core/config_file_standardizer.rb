@@ -29,7 +29,7 @@ module AWS::SDK::Core
         raw_section_name_has_profile_prefix =
           raw_section_name.start_with?('profile ') ||
           raw_section_name.start_with?("profile\t")
-        raw_sso_session_name_has_sso_session_prefix =
+        raw_section_name_has_sso_session_prefix =
           raw_section_name.start_with?('sso-session ') ||
           raw_section_name.start_with?("sso-session\t")
 
@@ -37,7 +37,7 @@ module AWS::SDK::Core
           if raw_section_name_has_profile_prefix
             standardized_profile_name =
               raw_section_name[('profile'.length)..].strip
-          elsif raw_sso_session_name_has_sso_session_prefix
+          elsif raw_section_name_has_sso_session_prefix
             standardized_sso_session_name =
               raw_section_name[('sso-session'.length)..].strip
           elsif raw_section_name == 'default'
@@ -49,8 +49,8 @@ module AWS::SDK::Core
             )
             next
           end
-        elsif @file_type == :credentials
-          if raw_sso_session_name_has_sso_session_prefix
+        else
+          if raw_section_name_has_sso_session_prefix
             Kernel.warn(
               "Ignoring sso-session '#{raw_section_name}' because ' \
               'it is only valid in the config file'"
@@ -135,14 +135,14 @@ module AWS::SDK::Core
     end
     # rubocop:enable Metrics
 
-    def standardize_properties(profile_name, raw_properties)
+    def standardize_properties(section_name, raw_properties)
       standardized_properties = {}
 
       raw_properties.each do |property_name, property_value|
         unless ConfigFileUtils.valid_identifier?(property_name)
           Kernel.warn(
-            "Ignoring property '#{property_name}' in profile " \
-            "'#{profile_name}' because its name was not alphanumeric with " \
+            "Ignoring property '#{property_name}' in section " \
+            "'#{section_name}' because its name was not alphanumeric with " \
             'dashes or underscores.'
           )
           next

@@ -856,7 +856,7 @@
         "configFile": "[sso-session]\nname = value"
       },
       "output": {
-          "ssoSessions": {}
+        "ssoSessions": {}
       }
     },
 
@@ -1526,7 +1526,7 @@
     },
 
     {
-      "name": "Duplicate properties in duplicate profiles use the last one defined (case insensitive).",
+      "name": "Duplicate properties in duplicate sso-sessions use the last one defined (case insensitive).",
       "input": {
         "configFile": "[sso-session foo]\nName = value\n[sso-session foo]\nname = value2"
       },
@@ -1536,6 +1536,16 @@
             "name": "value2"
           }
         }
+      }
+    },
+
+    {
+      "name": "sso-sessions in the credentials file are ignored.",
+      "input": {
+        "credentialsFile": "[sso-session foo]\nName = value"
+      },
+      "output": {
+        "ssoSessions": {}
       }
     },
 
