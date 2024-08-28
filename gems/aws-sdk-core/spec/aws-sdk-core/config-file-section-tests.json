@@ -1,9 +1,5 @@
 {
-  "description": [
-    "These are test descriptions that describe how specific data should be loaded from a profile file based on a ",
-    "profile name.",
-    "See 'profile-tests.schema.json' for a description of this file's structure."
-  ],
+  "description": "These are test descriptions that describe how specific data should be loaded from a profile file based on a profile name.",
 
   "testSuites": [
     {

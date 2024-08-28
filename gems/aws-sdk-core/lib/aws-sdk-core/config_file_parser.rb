@@ -2,31 +2,31 @@
 
 module AWS::SDK::Core
   # Parses file contents into a map of maps representing
-  # profiles and properties.
+  # sections and properties.
   # @api private
   class ConfigFileParser
-    def initialize(profile_file_contents)
-      @profile_file_contents = profile_file_contents
+    def initialize(config_file_contents)
+      @config_file_contents = config_file_contents
     end
 
     def parse
-      initialize_profiles
-      @profiles
+      initialize_sections
+      @sections
     end
 
     private
 
-    def initialize_profiles
-      @profiles = {}
+    def initialize_sections
+      @sections = {}
       @current_line_number = 0
 
-      @profile_file_contents.split(/[\r\n]+/).each do |line|
+      @config_file_contents.split(/[\r\n]+/).each do |line|
         @current_line_number += 1
         next if ConfigFileUtils.empty_line?(line) ||
                 ConfigFileUtils.comment_line?(line)
 
-        if ConfigFileUtils.profile_line?(line)
-          read_profile_line(line)
+        if ConfigFileUtils.section_line?(line)
+          read_section_line(line)
         elsif ConfigFileUtils.property_continuation_line?(line)
           read_property_continuation_line(line)
         else
@@ -35,7 +35,7 @@ module AWS::SDK::Core
       end
     end
 
-    def read_profile_line(line)
+    def read_section_line(line)
       line_without_comments = remove_trailing_comments(line, %w[# ;])
       line_without_whitespace =
         ConfigFileUtils.trim_whitespace(line_without_comments)
@@ -48,15 +48,15 @@ module AWS::SDK::Core
 
       line_without_brackets = line_without_whitespace[1..-2]
 
-      @current_profile =
+      @current_section =
         ConfigFileUtils.trim_whitespace(line_without_brackets)
       @current_property = nil
 
-      @profiles[@current_profile] ||= {}
+      @sections[@current_section] ||= {}
     end
 
     def read_property_definition_line(line)
-      unless @current_profile
+      unless @current_section
         raise InvalidSharedConfigError,
               'Expected a section definition, found property ' \
               "on line #{@current_line_number}"
@@ -74,11 +74,11 @@ module AWS::SDK::Core
         "on line #{@current_line_number}"
       )
       @current_property = key
-      @profiles[@current_profile][key] = value
+      @sections[@current_section][key] = value
     end
 
     def read_property_continuation_line(line)
-      unless @current_profile
+      unless @current_section
         raise InvalidSharedConfigError,
               'Expected a section definition, found continuation ' \
               "on line #{@current_line_number}"
@@ -90,11 +90,11 @@ module AWS::SDK::Core
       end
 
       line = ConfigFileUtils.trim_whitespace(line)
-      profile_properties = @profiles[@current_profile]
-      current_property_value = profile_properties[@current_property]
+      section_properties = @sections[@current_section]
+      current_property_value = section_properties[@current_property]
       new_property_value = "#{current_property_value}\n#{line}"
 
-      profile_properties[@current_property] = new_property_value
+      section_properties[@current_property] = new_property_value
     end
 
     def remove_trailing_comments(line, *comment_patterns)

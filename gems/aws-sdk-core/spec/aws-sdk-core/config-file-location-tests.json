@@ -1,10 +1,5 @@
 {
-  "description": [
-    "These are test descriptions that specify which files and profiles should be loaded based on the specified environment ",
-    "variables.",
-    "See 'file-location-tests.schema.json' for a description of this file's structure."
-  ],
-
+  "description": "These are test descriptions that specify which files and profiles should be loaded based on the specified environment variables.",
   "tests": [
     {
       "name": "User home is loaded from $HOME with highest priority on non-windows platforms.",

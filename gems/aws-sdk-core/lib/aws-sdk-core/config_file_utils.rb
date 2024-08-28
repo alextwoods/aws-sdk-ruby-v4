@@ -44,7 +44,7 @@ module AWS::SDK::Core
         line.start_with?('#') || line.start_with?(';')
       end
 
-      def profile_line?(line)
+      def section_line?(line)
         line.start_with?('[')
       end
 

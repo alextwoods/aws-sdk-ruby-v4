@@ -1,9 +1,5 @@
 {
-  "description": [
-    "These are test descriptions that describe how to convert a raw configuration and credentials file into an ",
-    "in-memory representation of the config file for profiles and sso-sessions.",
-    "See 'parser-tests.schema.json' for a description of this file's structure."
-  ],
+  "description": "These are test descriptions that describe how to convert a raw configuration and credentials file into an in-memory representation of the config file for profiles and sso-sessions.",
 
   "tests": [
     {
