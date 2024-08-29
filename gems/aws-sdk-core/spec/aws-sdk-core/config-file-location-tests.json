@@ -90,6 +90,7 @@
         "HOME": "/home/user"
       },
       "platform": "linux",
+      "profile": "default",
       "configLocation": "/other/path/config",
       "credentialsLocation": "/home/user/.aws/credentials"
     },

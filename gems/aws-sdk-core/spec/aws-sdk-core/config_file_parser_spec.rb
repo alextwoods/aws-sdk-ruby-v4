@@ -3,9 +3,7 @@
 require_relative '../spec_helper'
 
 module AWS::SDK::Core
-  describe ConfigFile do
-    subject { described_class }
-
+  describe ConfigFileParser do
     before do
       allow(Kernel).to receive(:warn)
     end
@@ -25,7 +23,7 @@ module AWS::SDK::Core
           :credentials
         ).standardize
       end
-      subject.new(
+      ConfigFile.new(
         config_profiles: config_profiles || {},
         credentials_profiles: credentials_profiles || {},
         sso_sessions: sso_sessions || {}

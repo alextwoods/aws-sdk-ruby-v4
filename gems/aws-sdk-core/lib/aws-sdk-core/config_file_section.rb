@@ -32,7 +32,7 @@ module AWS::SDK::Core
 
     # A PORO for a property in a profile. It may have sub-properties.
     # @api private
-    class Property
+    class ConfigFileProperty
       attr_reader :name, :value
 
       def initialize(name, value)
@@ -50,6 +50,7 @@ module AWS::SDK::Core
 
       private
 
+      # rubocop:disable Metrics/MethodLength
       def parse_sub_properties(value)
         sub_properties = {}
         value.split(/[\r\n]+/).each do |raw_sub_property_line|
@@ -62,7 +63,7 @@ module AWS::SDK::Core
           unless ConfigFileUtils.valid_identifier?(left)
             Kernel.warn(
               "Ignoring property '#{left}' in property '#{@name}' because " \
-              "its name was not alphanumeric with dashes or underscores."
+              'its name was not alphanumeric with dashes or underscores.'
             )
             next
           end
@@ -74,10 +75,11 @@ module AWS::SDK::Core
             )
           end
 
-          sub_properties[left] = Property.new(left, right)
+          sub_properties[left] = ConfigFileProperty.new(left, right)
         end
         sub_properties
       end
+      # rubocop:enable Metrics/MethodLength
     end
   end
 end
