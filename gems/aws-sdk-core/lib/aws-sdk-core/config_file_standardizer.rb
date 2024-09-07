@@ -149,7 +149,10 @@ module AWS::SDK::Core
         end
 
         standardized_properties[property_name] =
-          ConfigFileSection::ConfigFileProperty.new(property_name, property_value)
+          ConfigFileSection::ConfigFileProperty.new(
+            property_name,
+            property_value
+          )
       end
 
       standardized_properties

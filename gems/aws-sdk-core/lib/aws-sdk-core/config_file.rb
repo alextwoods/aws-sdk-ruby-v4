@@ -12,45 +12,6 @@ module AWS::SDK::Core
 
     attr_reader :profiles, :sso_sessions
 
-    # TODO: fill these out
-    #
-    # def credentials(profile_name)
-    #   return nil unless @profiles.key?(profile_name)
-    #
-    #   properties = @profiles[profile_name].properties
-    #
-    #   if properties.key?('role_arn')
-    #     return AssumeRoleCredentials.new(profile_name, @profiles)
-    #   elsif properties.key?('aws_access_key_id')
-    #     aws_access_key_id = properties['aws_access_key_id']
-    #     aws_secret_access_key = properties['aws_secret_access_key']
-    #     aws_session_token = properties['aws_session_token']
-    #
-    #     raise "'aws_secret_access_key' was not specified in profile:
-    # #{profile_name}" unless aws_secret_access_key
-    #
-    #     if aws_session_token
-    #       return SessionCredentials.new(aws_access_key_id.value,
-    # aws_secret_access_key.value, aws_session_token.value)
-    #     else
-    #       return BasicCredentials.new(aws_access_key_id.value,
-    # aws_secret_access_key.value)
-    #     end
-    #   else
-    #     return nil
-    #   end
-    # end
-    #
-    # def region(profile_name)
-    #   return nil unless @profiles.key?(profile_name)
-    #
-    #   region = @profiles[profile_name].properties['region']
-    #
-    #   return nil unless region
-    #
-    #   region.value
-    # end
-
     private
 
     def merge_files!(config_file, credentials_file)
