@@ -11,13 +11,12 @@ module AWS::SDK::Core
 
     describe 'SSOCredentialProvider::PROFILE' do
       before do
-        allow(AWS::SDK::Core).to receive(:shared_config)
-          .and_return(shared_config)
+        mock_shared_config(shared_config)
       end
 
       context 'legacy sso profile' do
         let(:shared_config) do
-          IniParser.ini_parse(<<~CONFIG)
+          <<~CONFIG
             [profile legacy_sso_profile]
             sso_account_id = SSO_ACCOUNT_ID
             sso_region = us-east-1
@@ -38,7 +37,7 @@ module AWS::SDK::Core
 
       context 'profile has sso information' do
         let(:shared_config) do
-          IniParser.ini_parse(<<~CONFIG)
+          <<~CONFIG
             [profile sso_credentials]
             sso_account_id = SSO_ACCOUNT_ID
             sso_role_name = SSO_ROLE_NAME
@@ -59,7 +58,7 @@ module AWS::SDK::Core
 
       context 'profile does not have sso information' do
         let(:shared_config) do
-          IniParser.ini_parse(<<~CONFIG)
+          <<~CONFIG
             [profile default]
             some_key = some_value
           CONFIG

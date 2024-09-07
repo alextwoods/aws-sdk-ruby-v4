@@ -49,7 +49,7 @@ module AWS::SDK::Core
     PROFILE = proc do |cfg|
       next unless AWS::SDK::Core.sts_loaded?
 
-      profile_config = AWS::SDK::Core.shared_config[cfg[:profile]]
+      profile_config = AWS::SDK::Core.shared_config.profiles[cfg[:profile]]
 
       next unless profile_config && profile_config['role_arn']
 
@@ -119,7 +119,7 @@ module AWS::SDK::Core
       def resolve_source_profile(profile, cfg)
         visited_profiles = cfg[:visited_profiles] || Set.new
 
-        unless AWS::SDK::Core.shared_config.key?(profile)
+        unless AWS::SDK::Core.shared_config.profiles.key?(profile)
           raise NoSuchProfileError,
                 "source_profile #{profile} does not exist."
         end
@@ -173,7 +173,7 @@ module AWS::SDK::Core
       def resolve_credentials_source(credentials_source, cfg)
         case credentials_source
         when 'Ec2InstanceMetadata'
-          profile_config = AWS::SDK::Core.shared_config[cfg[:profile]]
+          profile_config = AWS::SDK::Core.shared_config.profiles[cfg[:profile]]
           client = build_ec2_metadata_client(profile_config)
           EC2CredentialsProvider.new(client: client)
         when 'EcsContainer'

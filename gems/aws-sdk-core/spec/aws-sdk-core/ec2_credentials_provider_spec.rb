@@ -18,12 +18,11 @@ module AWS::SDK::Core
 
       context 'environment does not have ec2 metadata disabled' do
         before do
-          allow(AWS::SDK::Core).to receive(:shared_config)
-            .and_return(shared_config)
+          mock_shared_config(shared_config)
         end
 
         let(:shared_config) do
-          IniParser.ini_parse(<<~CONFIG)
+          <<~CONFIG
             [profile default]
             some_key = some_value
 
@@ -135,7 +134,7 @@ module AWS::SDK::Core
         }
         JSON
 
-        before(:each) do
+        before do
           allow(client).to receive(:get)
             .with(EC2CredentialsProvider::METADATA_PATH_BASE)
             .and_return(metadata_resp)

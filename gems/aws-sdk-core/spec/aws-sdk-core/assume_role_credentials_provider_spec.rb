@@ -10,18 +10,13 @@ module AWS::SDK::Core
     end
 
     describe 'AssumeRoleCredentialsProvider::PROFILE' do
-      let(:shared_config) do
-        {}
-      end
-
       before do
-        allow(AWS::SDK::Core).to receive(:shared_config)
-          .and_return(shared_config)
+        mock_shared_config(shared_config)
       end
 
       context 'base case' do
         let(:shared_config) do
-          IniParser.ini_parse(<<~CONFIG)
+          <<~CONFIG
             [profile A]
             role_arn = arn:aws:iam::123456789:role/RoleA
             source_profile = B
@@ -60,7 +55,7 @@ module AWS::SDK::Core
 
       context 'First profile contains credentials' do
         let(:shared_config) do
-          IniParser.ini_parse(<<~CONFIG)
+          <<~CONFIG
             [profile A]
             aws_access_key_id = abc123
             aws_secret_access_key = def456
@@ -102,7 +97,7 @@ module AWS::SDK::Core
       # combine tests for all assume role parameters
       context 'Assume role parameters provided' do
         let(:shared_config) do
-          IniParser.ini_parse(<<~CONFIG)
+          <<~CONFIG
             [profile A]
             role_arn = arn:aws:iam::123456789:role/RoleA
             role_session_name = my_session_name
@@ -151,7 +146,7 @@ module AWS::SDK::Core
 
       context 'Credential Source: EC2 Instance Metadata' do
         let(:shared_config) do
-          IniParser.ini_parse(<<~CONFIG)
+          <<~CONFIG
             [profile A]
             role_arn = arn:aws:iam::123456789:role/RoleA
             credential_source = Ec2InstanceMetadata
@@ -188,7 +183,7 @@ module AWS::SDK::Core
 
       context 'Credential Source: Environment Variables' do
         let(:shared_config) do
-          IniParser.ini_parse(<<~CONFIG)
+          <<~CONFIG
             [profile A]
             role_arn = arn:aws:iam::123456789:role/RoleA
             credential_source = Environment
@@ -231,7 +226,7 @@ module AWS::SDK::Core
 
       context 'Credential Source: ECS Container' do
         let(:shared_config) do
-          IniParser.ini_parse(<<~CONFIG)
+          <<~CONFIG
             [profile A]
             role_arn = arn:aws:iam::123456789:role/RoleA
             credential_source = EcsContainer
@@ -262,7 +257,7 @@ module AWS::SDK::Core
 
       context 'No source profile or credential source' do
         let(:shared_config) do
-          IniParser.ini_parse(<<~CONFIG)
+          <<~CONFIG
             [profile A]
             role_arn = arn:aws:iam::123456789:role/RoleA
           CONFIG
@@ -284,7 +279,7 @@ module AWS::SDK::Core
 
       context 'Both source profile and credential source' do
         let(:shared_config) do
-          IniParser.ini_parse(<<~CONFIG)
+          <<~CONFIG
             [profile A]
             role_arn = arn:aws:iam::123456789:role/RoleA
             credential_source = Environment
@@ -311,7 +306,7 @@ module AWS::SDK::Core
 
       context 'Source Profile Has Partial Credentials' do
         let(:shared_config) do
-          IniParser.ini_parse(<<~CONFIG)
+          <<~CONFIG
             [profile A]
             role_arn = arn:aws:iam::123456789:role/RoleA
             source_profile = B
@@ -336,7 +331,7 @@ module AWS::SDK::Core
 
       context "Source Profile Doesn't Exist" do
         let(:shared_config) do
-          IniParser.ini_parse(<<~CONFIG)
+          <<~CONFIG
             [profile A]
             role_arn = arn:aws:iam::123456789:role/RoleA
             source_profile = B
@@ -358,7 +353,7 @@ module AWS::SDK::Core
 
       context 'Credential Source Not Supported' do
         let(:shared_config) do
-          IniParser.ini_parse(<<~CONFIG)
+          <<~CONFIG
             [profile A]
             role_arn = arn:aws:iam::123456789:role/RoleA
             credential_source = CustomUnsupportedProvider
@@ -380,7 +375,7 @@ module AWS::SDK::Core
 
       context 'Chained Assume Role Profiles' do
         let(:shared_config) do
-          IniParser.ini_parse(<<~CONFIG)
+          <<~CONFIG
             [profile A]
             role_arn = arn:aws:iam::123456789:role/RoleA
             source_profile = B
@@ -436,7 +431,7 @@ module AWS::SDK::Core
 
       context 'Chained Assume Role Profiles With Static Credentials' do
         let(:shared_config) do
-          IniParser.ini_parse(<<~CONFIG)
+          <<~CONFIG
             [profile A]
             aws_access_key_id = abc123
             aws_secret_access_key = def456
@@ -483,7 +478,7 @@ module AWS::SDK::Core
 
       context 'Chained Assume Role Profiles Loop Infinitely' do
         let(:shared_config) do
-          IniParser.ini_parse(<<~CONFIG)
+          <<~CONFIG
             [profile A]
             role_arn = arn:aws:iam::123456789:role/RoleA
             source_profile = B

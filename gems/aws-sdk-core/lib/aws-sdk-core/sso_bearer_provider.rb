@@ -29,7 +29,7 @@ module AWS::SDK::Core
     PROFILE = proc do |cfg|
       next unless AWS::SDK::Core.sso_oidc_loaded?
 
-      profile_config = AWS::SDK::Core.shared_config[cfg[:profile]]
+      profile_config = AWS::SDK::Core.shared_config.profiles[cfg[:profile]]
       if profile_config && profile_config['sso_session']
         sso_session_cfg = AWS::SDK::Core::SharedConfig.sso_session(
           AWS::SDK::Core.shared_config,

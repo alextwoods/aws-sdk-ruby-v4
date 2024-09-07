@@ -68,37 +68,34 @@ require_relative 'aws-sdk-core/auth_schemes/sigv4'
 require_relative 'aws-sdk-core/identities/credentials'
 require_relative 'aws-sdk-core/signers/sigv4'
 
-# Credential Providers
+# Identity Providers
 require_relative 'aws-sdk-core/assume_role_credentials_provider'
 require_relative 'aws-sdk-core/assume_role_web_identity_credentials_provider'
 require_relative 'aws-sdk-core/ec2_credentials_provider'
 require_relative 'aws-sdk-core/ecs_credentials_provider'
 require_relative 'aws-sdk-core/process_credentials_provider'
+require_relative 'aws-sdk-core/sso_bearer_provider'
 require_relative 'aws-sdk-core/sso_credentials_provider'
 require_relative 'aws-sdk-core/static_credentials_provider'
 
-# HTTP Bearer token providers
-require_relative 'aws-sdk-core/sso_bearer_provider'
-
-# ARNS
-require_relative 'aws-sdk-core/arn'
-require_relative 'aws-sdk-core/arn_parser'
-
 # Shared Config
-require_relative 'aws-sdk-core/ini_parser'
+require_relative 'aws-sdk-core/config_file'
+require_relative 'aws-sdk-core/config_file_factory'
+require_relative 'aws-sdk-core/config_file_parser'
+require_relative 'aws-sdk-core/config_file_section'
+require_relative 'aws-sdk-core/config_file_standardizer'
+require_relative 'aws-sdk-core/config_file_utils'
 require_relative 'aws-sdk-core/shared_config'
 require_relative 'aws-sdk-core/shared_config_provider'
 
 # Utilities
+require_relative 'aws-sdk-core/arn'
+require_relative 'aws-sdk-core/arn_parser'
+require_relative 'aws-sdk-core/checksums'
 require_relative 'aws-sdk-core/ec2_metadata'
 
-# Checksums
-require_relative 'aws-sdk-core/checksums'
-
-# Middleware
+# Middleware / Runtime
 require_relative 'aws-sdk-core/middleware'
-
-# Endpoint Rules
 require_relative 'aws-sdk-core/endpoint_rules'
 
 # Namespace for AWS::SDK Core components

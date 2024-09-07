@@ -19,7 +19,7 @@ module AWS::SDK::Core
     # ENV and shared config values.
     # @api private
     ENVIRONMENT = proc do |cfg|
-      profile_config = AWS::SDK::Core.shared_config[cfg[:profile]]
+      profile_config = AWS::SDK::Core.shared_config.profiles[cfg[:profile]]
       unless ENV['AWS_EC2_METADATA_DISABLED']
         client = EC2Metadata.new(
           endpoint: ENV.fetch('AWS_EC2_METADATA_SERVICE_ENDPOINT') do

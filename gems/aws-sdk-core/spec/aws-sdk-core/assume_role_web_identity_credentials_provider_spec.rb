@@ -10,13 +10,12 @@ module AWS::SDK::Core
 
     describe 'AssumeRoleWebIdentityCredentialProvider::PROFILE' do
       before do
-        allow(AWS::SDK::Core).to receive(:shared_config)
-          .and_return(shared_config)
+        mock_shared_config(shared_config)
       end
 
       context 'profile has assume role web identity' do
         let(:shared_config) do
-          IniParser.ini_parse(<<~CONFIG)
+          <<~CONFIG
             [profile assume_role_web_identity_credentials]
             web_identity_token_file = my-token.jwt
             role_arn = arn:aws:iam::123456789012:role/foo
@@ -46,7 +45,7 @@ module AWS::SDK::Core
 
       context 'profile does not have assume role web identity' do
         let(:shared_config) do
-          IniParser.ini_parse(<<~CONFIG)
+          <<~CONFIG
             [profile default]
             some_key = some_value
           CONFIG

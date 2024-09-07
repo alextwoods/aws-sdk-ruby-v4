@@ -9,12 +9,11 @@ module AWS::SDK::Core
     let(:cfg) { { profile: 'default' } }
 
     before do
-      allow(AWS::SDK::Core).to receive(:shared_config)
-        .and_return(shared_config)
+      mock_shared_config(shared_config)
     end
 
     let(:shared_config) do
-      IniParser.ini_parse(<<~CONFIG)
+      <<~CONFIG
         [profile default]
         float = 1.0
         not_float = not 1.0
