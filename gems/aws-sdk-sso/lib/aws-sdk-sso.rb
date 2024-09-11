@@ -8,7 +8,6 @@
 # WARNING ABOUT GENERATED CODE
 
 require 'aws-sdk-core'
-
 require_relative 'aws-sdk-sso/auth'
 require_relative 'aws-sdk-sso/builders'
 require_relative 'aws-sdk-sso/client'
@@ -24,6 +23,9 @@ require_relative 'aws-sdk-sso/telemetry'
 require_relative 'aws-sdk-sso/types'
 require_relative 'aws-sdk-sso/validators'
 require_relative 'aws-sdk-sso/waiters'
+begin
+  require_relative 'aws-sdk-sso/customizations'
+rescue LoadError; end
 
 module AWS::SDK::SSO
   VERSION = File.read(File.expand_path('../VERSION', __dir__)).strip

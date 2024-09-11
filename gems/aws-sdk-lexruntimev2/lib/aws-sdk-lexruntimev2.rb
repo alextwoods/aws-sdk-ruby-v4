@@ -8,7 +8,6 @@
 # WARNING ABOUT GENERATED CODE
 
 require 'aws-sdk-core'
-
 require_relative 'aws-sdk-lexruntimev2/auth'
 require_relative 'aws-sdk-lexruntimev2/builders'
 require_relative 'aws-sdk-lexruntimev2/client'
@@ -25,6 +24,9 @@ require_relative 'aws-sdk-lexruntimev2/types'
 require_relative 'aws-sdk-lexruntimev2/validators'
 require_relative 'aws-sdk-lexruntimev2/waiters'
 require_relative 'aws-sdk-lexruntimev2/event_stream'
+begin
+  require_relative 'aws-sdk-lexruntimev2/customizations'
+rescue LoadError; end
 
 module AWS::SDK::LexRuntimeV2
   VERSION = File.read(File.expand_path('../VERSION', __dir__)).strip

@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require_relative '../spec_helper'
+require_relative 'spec_helper'
 
-module AWS::SDK::Core
+module AWS::SDK::STS
   describe AssumeRoleCredentialsProvider do
     before do
       allow(AWS::SDK::Core).to receive(:sts_loaded?).and_return(true)
@@ -160,14 +160,14 @@ module AWS::SDK::Core
 
         it 'Assumes RoleA using EC2CredentialProvider' do
           ec2_metadata = double('EC2Metadata')
-          expect(EC2Metadata).to receive(:new)
+          expect(AWS::SDK::Core::EC2Metadata).to receive(:new)
             .with(endpoint_mode: 'IPv4', endpoint: 'http://169.254.169.254')
             .and_return(ec2_metadata)
-          expect(EC2CredentialsProvider).to receive(:new)
+          expect(AWS::SDK::Core::EC2CredentialsProvider).to receive(:new)
             .with(client: ec2_metadata).and_return(source_credentials)
 
           # verify client is created with credentials from B
-          expect(AWS::SDK::STS::Client).to receive(:new) do |cfg|
+          expect(Client).to receive(:new) do |cfg|
             expect(cfg[:credentials_provider]).to be(source_credentials)
           end.and_return(client)
 
@@ -194,11 +194,11 @@ module AWS::SDK::Core
         let(:client) { double }
 
         it 'Assumes RoleA using credentials from the environment' do
-          expect(StaticCredentialsProvider::ENVIRONMENT)
+          expect(AWS::SDK::Core::StaticCredentialsProvider::ENVIRONMENT)
             .to receive(:call).and_return(source_credentials)
 
           # verify client is created with credentials from B
-          expect(AWS::SDK::STS::Client).to receive(:new) do |cfg|
+          expect(Client).to receive(:new) do |cfg|
             expect(cfg[:credentials_provider]).to be(source_credentials)
           end.and_return(client)
 
@@ -212,7 +212,7 @@ module AWS::SDK::Core
         end
 
         it 'raises when missing' do
-          expect(StaticCredentialsProvider::ENVIRONMENT)
+          expect(AWS::SDK::Core::StaticCredentialsProvider::ENVIRONMENT)
             .to receive(:call).and_return(nil)
 
           expect do
@@ -237,11 +237,11 @@ module AWS::SDK::Core
         let(:client) { double }
 
         it 'Assumes RoleA using credentials from the environment' do
-          expect(ECSCredentialsProvider)
+          expect(AWS::SDK::Core::ECSCredentialsProvider)
             .to receive(:new).and_return(source_credentials)
 
           # verify client is created with credentials from B
-          expect(AWS::SDK::STS::Client).to receive(:new) do |cfg|
+          expect(Client).to receive(:new) do |cfg|
             expect(cfg[:credentials_provider]).to be(source_credentials)
           end.and_return(client)
 
@@ -404,7 +404,7 @@ module AWS::SDK::Core
             .and_return(credentials_from_c)
 
           # verify client for B is created with credentials from C
-          expect(AWS::SDK::STS::Client).to receive(:new) do |cfg|
+          expect(Client).to receive(:new) do |cfg|
             expect(cfg[:credentials_provider]).to be(credentials_from_c)
           end.and_return(client_b)
 
@@ -415,7 +415,7 @@ module AWS::SDK::Core
           end.and_return(credentials_from_b)
 
           # verify client for A  is created with credentials from B
-          expect(AWS::SDK::STS::Client).to receive(:new) do |cfg|
+          expect(Client).to receive(:new) do |cfg|
             expect(cfg[:credentials_provider]).to be(credentials_from_b)
           end.and_return(client_a)
 
@@ -551,15 +551,6 @@ module AWS::SDK::Core
         AssumeRoleCredentialsProvider.new(
           **assume_role_params.merge(client: client)
         )
-      end
-
-      context 'aws-sdk-sts not available' do
-        it 'raises an error' do
-          expect(AWS::SDK::Core).to receive(:sts_loaded?).and_return(false)
-          expect do
-            AssumeRoleCredentialsProvider.new(**assume_role_params)
-          end.to raise_error(StandardError, /aws-sdk-sts is required/)
-        end
       end
     end
 

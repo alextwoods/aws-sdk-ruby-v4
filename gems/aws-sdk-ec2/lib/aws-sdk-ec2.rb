@@ -8,7 +8,6 @@
 # WARNING ABOUT GENERATED CODE
 
 require 'aws-sdk-core'
-
 require_relative 'aws-sdk-ec2/auth'
 require_relative 'aws-sdk-ec2/builders'
 require_relative 'aws-sdk-ec2/client'
@@ -24,6 +23,9 @@ require_relative 'aws-sdk-ec2/telemetry'
 require_relative 'aws-sdk-ec2/types'
 require_relative 'aws-sdk-ec2/validators'
 require_relative 'aws-sdk-ec2/waiters'
+begin
+  require_relative 'aws-sdk-ec2/customizations'
+rescue LoadError; end
 
 module AWS::SDK::EC2
   VERSION = File.read(File.expand_path('../VERSION', __dir__)).strip

@@ -1,16 +1,15 @@
 # frozen_string_literal: true
 
-module AWS::SDK::Core
+module AWS::SDK::STS
   # An auto-refreshing credentials provider that assumes a role via
   # {AWS::SDK::STS::Client#assume_role}.
   #
-  #     provider = AWS::SDK::Core::AssumeRoleCredentialsProvider.new(
+  #     provider = AWS::SDK::STS::AssumeRoleCredentialsProvider.new(
   #       client: AWS::SDK::STS::Client.new(...),
   #       role_arn: "linked::account::arn",
   #       role_session_name: "session-name"
   #     )
-  #     ec2_config = AWS::SDK::EC2::Config.new(credentials_provider: provider)
-  #     ec2 = AWS::SDK::EC2::Client.new(ec2_config)
+  #     ec2 = AWS::SDK::EC2::Client.new(...)
   #
   # If you omit `:client` option, a new {AWS::SDK::STS::Client} object will be
   # constructed with additional options that were provided.
@@ -47,8 +46,6 @@ module AWS::SDK::Core
     # shared config profile.
     # @api private
     PROFILE = proc do |cfg|
-      next unless AWS::SDK::Core.sts_loaded?
-
       profile_config = AWS::SDK::Core.shared_config.profiles[cfg[:profile]]
 
       next unless profile_config && profile_config['role_arn']
@@ -82,11 +79,7 @@ module AWS::SDK::Core
     #
     # @see AWS::SDK::STS::Client#assume_role
     def initialize(options)
-      unless AWS::SDK::Core.sts_loaded?
-        raise 'aws-sdk-sts is required to create an ' \
-              'AssumeRoleCredentialsProvider.'
-      end
-      @client = options.delete(:client) || AWS::SDK::STS::Client.new
+      @client = options.delete(:client) || Client.new
       @token_code = options.delete(:token_code)
       @assume_role_params = options
       @assume_role_params[:role_session_name] ||=
@@ -126,7 +119,15 @@ module AWS::SDK::Core
 
         cfg = visit_source_profile(visited_profiles, cfg, profile)
 
-        ASSUME_ROLE_PROFILE_CREDENTIAL_PROVIDER_CHAIN.each do |p|
+        assume_role_chain = [
+          AWS::SDK::Core::StaticCredentialsProvider::PROFILE,
+          AssumeRoleCredentialsProvider::PROFILE,
+          AssumeRoleWebIdentityCredentialsProvider::PROFILE,
+          AWS::SDK::Core::ProcessCredentialsProvider::PROFILE,
+          AWS::SDK::Core::SSOCredentialsProvider::PROFILE
+        ].freeze
+
+        assume_role_chain.each do |p|
           provider = p.call(cfg)
           return provider unless provider.nil?
         end
@@ -175,11 +176,11 @@ module AWS::SDK::Core
         when 'Ec2InstanceMetadata'
           profile_config = AWS::SDK::Core.shared_config.profiles[cfg[:profile]]
           client = build_ec2_metadata_client(profile_config)
-          EC2CredentialsProvider.new(client: client)
+          AWS::SDK::Core::EC2CredentialsProvider.new(client: client)
         when 'EcsContainer'
-          ECSCredentialsProvider.new
+          AWS::SDK::Core::ECSCredentialsProvider.new
         when 'Environment'
-          StaticCredentialsProvider::ENVIRONMENT.call(cfg)
+          AWS::SDK::Core::StaticCredentialsProvider::ENVIRONMENT.call(cfg)
         else
           raise InvalidCredentialSourceError,
                 "Unsupported credential_source: #{credentials_source}"
@@ -187,7 +188,7 @@ module AWS::SDK::Core
       end
 
       def build_ec2_metadata_client(profile_config)
-        EC2Metadata.new(
+        AWS::SDK::Core::EC2Metadata.new(
           endpoint: ENV.fetch('AWS_EC2_METADATA_SERVICE_ENDPOINT') do
                       profile_config['ec2_metadata_service_endpoint']
                     end,
@@ -198,7 +199,7 @@ module AWS::SDK::Core
       end
 
       def build_profile_provider(cfg, profile_config, source_provider)
-        sts_client = AWS::SDK::STS::Client.new(
+        sts_client = Client.new(
           region: cfg[:region],
           credentials_provider: source_provider
         )

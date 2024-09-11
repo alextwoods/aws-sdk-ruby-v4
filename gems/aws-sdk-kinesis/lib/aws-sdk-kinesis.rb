@@ -8,7 +8,6 @@
 # WARNING ABOUT GENERATED CODE
 
 require 'aws-sdk-core'
-
 require_relative 'aws-sdk-kinesis/auth'
 require_relative 'aws-sdk-kinesis/builders'
 require_relative 'aws-sdk-kinesis/client'
@@ -25,6 +24,9 @@ require_relative 'aws-sdk-kinesis/types'
 require_relative 'aws-sdk-kinesis/validators'
 require_relative 'aws-sdk-kinesis/waiters'
 require_relative 'aws-sdk-kinesis/event_stream'
+begin
+  require_relative 'aws-sdk-kinesis/customizations'
+rescue LoadError; end
 
 module AWS::SDK::Kinesis
   VERSION = File.read(File.expand_path('../VERSION', __dir__)).strip

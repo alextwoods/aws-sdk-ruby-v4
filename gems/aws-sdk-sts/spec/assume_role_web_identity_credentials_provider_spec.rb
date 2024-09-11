@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require_relative '../spec_helper'
+require_relative 'spec_helper'
 
-module AWS::SDK::Core
+module AWS::SDK::STS
   describe AssumeRoleWebIdentityCredentialsProvider do
     before do
       allow(AWS::SDK::Core).to receive(:sts_loaded?).and_return(true)
@@ -142,13 +142,6 @@ module AWS::SDK::Core
           **provider_options
         )
         expect(provider.client).to be(client)
-      end
-
-      it 'raises when aws-sdk-sts is not available' do
-        expect(AWS::SDK::Core).to receive(:sts_loaded?).and_return(false)
-        expect do
-          AssumeRoleWebIdentityCredentialsProvider.new(**provider_options)
-        end.to raise_error(RuntimeError, /aws-sdk-sts is required/)
       end
 
       it 'uses a provided client' do

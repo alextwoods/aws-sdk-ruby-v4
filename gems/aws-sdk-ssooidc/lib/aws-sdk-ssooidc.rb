@@ -8,7 +8,6 @@
 # WARNING ABOUT GENERATED CODE
 
 require 'aws-sdk-core'
-
 require_relative 'aws-sdk-ssooidc/auth'
 require_relative 'aws-sdk-ssooidc/builders'
 require_relative 'aws-sdk-ssooidc/client'
@@ -24,6 +23,9 @@ require_relative 'aws-sdk-ssooidc/telemetry'
 require_relative 'aws-sdk-ssooidc/types'
 require_relative 'aws-sdk-ssooidc/validators'
 require_relative 'aws-sdk-ssooidc/waiters'
+begin
+  require_relative 'aws-sdk-ssooidc/customizations'
+rescue LoadError; end
 
 module AWS::SDK::SSOOIDC
   VERSION = File.read(File.expand_path('../VERSION', __dir__)).strip

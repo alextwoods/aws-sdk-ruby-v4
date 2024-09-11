@@ -2,18 +2,17 @@
 
 require 'securerandom'
 
-module AWS::SDK::Core
+module AWS::SDK::STS
   # An auto-refreshing credentials provider that assumes a role via
   # {AWS::SDK::STS::Client#assume_role_with_web_identity}.
   #
-  #     provider = AWS::SDK::Core::AssumeRoleWebIdentityCredentialProvider.new(
+  #     provider = AWS::SDK::STS::AssumeRoleWebIdentityCredentialProvider.new(
   #       client: AWS::SDK::STS::Client.new(...),
   #       web_identity_token_file: "/path/to/token/file",
   #       role_arn: "linked::account::arn",
   #       role_session_name: "session-name"
   #     )
-  #     ec2_config = AWS::SDK::EC2::Config.new(credentials_provider: provider)
-  #     ec2 = AWS::SDK::EC2::Client.new(ec2_config)
+  #     ec2 = AWS::SDK::EC2::Client.new(...)
   #
   # If you omit the `:client` option, a new {AWS::SDK::STS::Client} will be
   # created.
@@ -31,8 +30,6 @@ module AWS::SDK::Core
     # shared config profile.
     # @api private
     PROFILE = proc do |cfg|
-      next unless AWS::SDK::Core.sts_loaded?
-
       profile_config = AWS::SDK::Core.shared_config.profiles[cfg[:profile]]
       if profile_config && profile_config['web_identity_token_file'] &&
          profile_config['role_arn']
@@ -51,8 +48,6 @@ module AWS::SDK::Core
     end
 
     ENVIRONMENT = proc do |_cfg|
-      next unless AWS::SDK::Core.sts_loaded?
-
       if ENV['AWS_ROLE_ARN'] && ENV['AWS_WEB_IDENTITY_TOKEN_FILE']
         new(
           web_identity_token_file: ENV['AWS_WEB_IDENTITY_TOKEN_FILE'],
@@ -74,14 +69,7 @@ module AWS::SDK::Core
     #
     # @see AWS::SDK::STS::Client#assume_role_with_web_identity
     def initialize(options = {})
-      unless AWS::SDK::Core.sts_loaded?
-        raise 'aws-sdk-sts is required to create an ' \
-              'AssumeRoleWebIdentityCredentialProvider.'
-      end
-
-      @client = options.delete(:client) || AWS::SDK::STS::Client.new(
-        credentials_provider: nil
-      )
+      @client = options.delete(:client) || Client.new(credentials_provider: nil)
       @web_identity_token_file = options.delete(:web_identity_token_file)
       @assume_role_with_web_identity_params = options
       @assume_role_with_web_identity_params[:role_session_name] ||=
