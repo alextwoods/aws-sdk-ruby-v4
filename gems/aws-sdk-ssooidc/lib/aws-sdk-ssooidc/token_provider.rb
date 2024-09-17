@@ -1,71 +1,58 @@
 # frozen_string_literal: true
 
-module AWS::SDK::Core
-  # A refreshing identity provider that provides HTTP Bearer Identities from
-  # SSOOIDC. The SDK does not manage refreshing of
-  # the token value, but this can be done by running `aws login` with the
-  # correct profile.
+module AWS::SDK::SSOOIDC
+  # A refreshing identity provider that provides an HTTP Bearer Identity from
+  # SSOOIDC. The SDK does not manage refreshing of the token value, but this
+  # can be done by running `aws login` with the correct profile.
   #
   #     # You must first run aws sso login --profile your-sso-profile
-  #     provider = AWS::SDK::Core::SSOBearerProvider.new(
+  #     provider = AWS::SDK::SSOOIDC::TokenProvider.new(
   #       sso_region: "'s-east-1',
   #       sso_session: 'your-sso-session'
   #     )
-  #
-  #     client = AWS::SDK::CodeCatalyst::Client.new(
-  #       http_bearer_provider: provider)
-  class SSOBearerProvider < Hearth::IdentityProvider
+  #     code_catalyst = AWS::SDK::CodeCatalyst::Client.new(
+  #       http_bearer_provider: provider
+  #     )
+  class TokenProvider < Hearth::IdentityProvider
     include Hearth::RefreshingIdentityProvider
 
-    # @api private
-    SSO_LOGIN_GUIDANCE = 'The SSO session associated with this profile has ' \
-                         'expired or is otherwise invalid. To refresh this ' \
-                         'SSO session run aws sso login with the ' \
-                         'corresponding profile.'
+    # Raised when SSO Token is invalid
+    class InvalidSSOToken < RuntimeError; end
 
-    # Initializes an instance of SSOBearerProvider using
-    # shared config profile.
     # @api private
-    PROFILE = proc do |cfg|
-      next unless AWS::SDK::Core.sso_oidc_loaded?
+    SSO_LOGIN_GUIDANCE =
+      'The SSO session associated with this profile has expired or is ' \
+      'otherwise invalid. To refresh this SSO session, run `aws sso login` ' \
+      'with the corresponding profile.'
 
-      profile_config = AWS::SDK::Core.shared_config.profiles[cfg[:profile]]
-      if profile_config && profile_config['sso_session']
-        sso_session_cfg = AWS::SDK::Core::SharedConfig.sso_session(
-          AWS::SDK::Core.shared_config,
-          cfg[:profile],
-          profile_config['sso_session']
-        )
-        new(
-          sso_region: sso_session_cfg['sso_region'],
-          sso_session: profile_config['sso_session']
-        )
-      end
+    # Initializes an instance of TokenProvider using a profile.
+    def self.from_profile(config, options = {})
+      profile = options[:profile] || config[:profile]
+      profile_config = AWS::SDK::Core.shared_config.profiles[profile]
+      return unless profile_config&['sso_session']
+
+      sso_session_cfg = AWS::SDK::Core::SharedConfig.sso_session(
+        AWS::SDK::Core.shared_config,
+        cfg[:profile],
+        profile_config['sso_session']
+      )
+      new(
+        sso_region: sso_session_cfg['sso_region'],
+        sso_session: profile_config['sso_session']
+      )
     end
 
-    # @param[required, String] :sso_region The AWS region where the
-    #   SSO directory for the given sso_session is hosted.
-    #
-    # @param [required, String] :sso_session The SSO Session used to
-    #   for fetching this token.
-    #
-    # @param [SSOOIDC::Client] :client Optional `SSOOIDC::Client`.  If not
-    #   provided, a client will be constructed.
-    #
+    # @param [String] :sso_region The AWS region where the SSO directory
+    #   for the given sso_session is hosted.
+    # @param [String] :sso_session The SSO Session used for fetching this token.
+    # @param [AWS::SDK::SSOOIDC::Client] :client (Client.new)
     def initialize(sso_region:, sso_session:, client: nil)
-      unless AWS::SDK::Core.sso_oidc_loaded?
-        raise 'aws-sdk-ssooidc is required to create a SSOBearerProvider.'
-      end
-
       @sso_region = sso_region
       @sso_session = sso_session
-
-      options = {
+      @client = client || AWS::SDK::SSOOIDC::Client.new(
         region: @sso_region,
         credentials_provider: nil
-      }
-      @client = client || AWS::SDK::SSOOIDC::Client.new(options)
-
+      )
       super()
     end
 
@@ -174,7 +161,4 @@ module AWS::SDK::Core
       end
     end
   end
-
-  # Raised when SSO Token is invalid
-  class InvalidSSOToken < RuntimeError; end
 end

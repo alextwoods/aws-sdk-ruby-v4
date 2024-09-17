@@ -8,7 +8,7 @@ module AWS::SDK::STS
       allow(AWS::SDK::Core).to receive(:sts_loaded?).and_return(true)
     end
 
-    describe 'AssumeRoleWebIdentityCredentialProvider::PROFILE' do
+    describe '.from_profile' do
       before do
         mock_shared_config(shared_config)
       end
@@ -26,7 +26,7 @@ module AWS::SDK::STS
         let(:cfg) { { profile: 'assume_role_web_identity_credentials' } }
 
         it 'returns an instance of AssumeRoleWebIdentityCredentialProvider' do
-          provider = AssumeRoleWebIdentityCredentialsProvider::PROFILE.call(cfg)
+          provider = AssumeRoleWebIdentityCredentialsProvider.from_profile(cfg)
           expect(provider)
             .to be_an_instance_of(AssumeRoleWebIdentityCredentialsProvider)
         end
@@ -38,7 +38,7 @@ module AWS::SDK::STS
               credentials_provider: nil
             )
             .and_return(client)
-          provider = AssumeRoleWebIdentityCredentialsProvider::PROFILE.call(cfg)
+          provider = AssumeRoleWebIdentityCredentialsProvider.from_profile(cfg)
           expect(provider.client).to be(client)
         end
       end
@@ -53,13 +53,13 @@ module AWS::SDK::STS
 
         it 'returns nil' do
           cfg = { profile: 'default' }
-          provider = AssumeRoleWebIdentityCredentialsProvider::PROFILE.call(cfg)
+          provider = AssumeRoleWebIdentityCredentialsProvider.from_profile(cfg)
           expect(provider).to be_nil
         end
       end
     end
 
-    describe 'AssumeRoleWebIdentityCredentialProvider::ENVIRONMENT' do
+    describe '.from_env' do
       context 'environment has assume role web identity' do
         let_env(
           'AWS_ROLE_ARN' => 'arn:aws:iam::123456789012:role/foo',
@@ -68,8 +68,7 @@ module AWS::SDK::STS
         )
 
         it 'returns an instance of AssumeRoleWebIdentityCredentialProvider' do
-          provider = AssumeRoleWebIdentityCredentialsProvider::
-              ENVIRONMENT.call({})
+          provider = AssumeRoleWebIdentityCredentialsProvider.from_env({})
           expect(provider)
             .to be_an_instance_of(AssumeRoleWebIdentityCredentialsProvider)
         end
@@ -77,8 +76,7 @@ module AWS::SDK::STS
 
       context 'environment does not have assume role web identity' do
         it 'returns nil' do
-          provider = AssumeRoleWebIdentityCredentialsProvider::
-              ENVIRONMENT.call({})
+          provider = AssumeRoleWebIdentityCredentialsProvider.from_env({})
           expect(provider).to be_nil
         end
       end

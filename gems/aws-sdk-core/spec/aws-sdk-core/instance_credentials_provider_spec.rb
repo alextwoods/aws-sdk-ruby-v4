@@ -3,15 +3,15 @@
 require_relative '../spec_helper'
 
 module AWS::SDK::Core
-  describe EC2CredentialsProvider do
-    describe 'EC2CredentialProvider::ENVIRONMENT' do
+  describe InstanceCredentialsProvider do
+    describe '.from_env' do
       context 'environment has ec2 metadata disabled' do
         let_env(
           'AWS_EC2_METADATA_DISABLED' => 'true'
         )
 
         it 'returns nil' do
-          provider = EC2CredentialsProvider::ENVIRONMENT.call({})
+          provider = InstanceCredentialsProvider.from_env({})
           expect(provider).to be_nil
         end
       end
@@ -34,9 +34,9 @@ module AWS::SDK::Core
 
         let(:cfg) { { profile: 'ec2_metadata_service' } }
 
-        it 'returns an instance of EC2CredentialProvider' do
-          provider = EC2CredentialsProvider::ENVIRONMENT.call(cfg)
-          expect(provider).to be_an_instance_of(EC2CredentialsProvider)
+        it 'returns an instance of InstanceCredentialsProvider' do
+          provider = InstanceCredentialsProvider.from_env(cfg)
+          expect(provider).to be_an_instance_of(InstanceCredentialsProvider)
         end
 
         it 'constructs an EC2Metadata client with shared config values' do
@@ -44,7 +44,7 @@ module AWS::SDK::Core
             endpoint_mode: 'IPv4',
             endpoint: 'http://169.254.169.254'
           ).and_return(client)
-          provider = EC2CredentialsProvider::ENVIRONMENT.call(cfg)
+          provider = InstanceCredentialsProvider.from_env(cfg)
           expect(provider.client).to be(client)
         end
 
@@ -59,7 +59,7 @@ module AWS::SDK::Core
               endpoint_mode: 'IPv6',
               endpoint: 'http://[fd00:ec2::254]'
             ).and_return(client)
-            provider = EC2CredentialsProvider::ENVIRONMENT.call(cfg)
+            provider = InstanceCredentialsProvider.from_env(cfg)
             expect(provider.client).to be(client)
           end
         end
@@ -78,14 +78,14 @@ module AWS::SDK::Core
       }.to_json
     end
 
-    subject { EC2CredentialsProvider.new(client: client) }
+    subject { InstanceCredentialsProvider.new(client: client) }
 
     include_examples 'refreshing_credentials_provider'
 
     describe '#initialize' do
       it 'constructs an EC2Metadata client if not provided' do
         expect(EC2Metadata).to receive(:new).and_return(client)
-        provider = EC2CredentialsProvider.new
+        provider = InstanceCredentialsProvider.new
         expect(provider.client).to be(client)
       end
     end
@@ -93,10 +93,10 @@ module AWS::SDK::Core
     describe '#identity' do
       it 'will read valid credentials from EC2 Metadata' do
         allow(client).to receive(:get)
-          .with(EC2CredentialsProvider::METADATA_PATH_BASE)
+          .with(InstanceCredentialsProvider::METADATA_PATH_BASE)
           .and_return(metadata_resp)
         allow(client).to receive(:get)
-          .with(EC2CredentialsProvider::METADATA_PATH_BASE + metadata_resp)
+          .with(InstanceCredentialsProvider::METADATA_PATH_BASE + metadata_resp)
           .and_return(credentials_json)
 
         creds = subject.identity
@@ -106,7 +106,7 @@ module AWS::SDK::Core
         expect(creds.expiration).to eq(expiration)
       end
 
-      describe 'static stability' do
+      context 'static stability' do
         let(:expired) { Time.at(Time.now.to_i - 3600).utc }
         let(:near_expiration) { Time.at(Time.now.to_i + 10).utc }
 
@@ -136,16 +136,16 @@ module AWS::SDK::Core
 
         before do
           allow(client).to receive(:get)
-            .with(EC2CredentialsProvider::METADATA_PATH_BASE)
+            .with(InstanceCredentialsProvider::METADATA_PATH_BASE)
             .and_return(metadata_resp)
         end
 
         it 'provides credentials when the first call is expired credentials' do
-          expect_any_instance_of(EC2CredentialsProvider)
+          expect_any_instance_of(InstanceCredentialsProvider)
             .to receive(:warn).at_least(:once)
 
           expect(client).to receive(:get)
-            .with(EC2CredentialsProvider::METADATA_PATH_BASE + metadata_resp)
+            .with(InstanceCredentialsProvider::METADATA_PATH_BASE + metadata_resp)
             .once
             .and_return(expired_resp)
 
@@ -164,13 +164,13 @@ module AWS::SDK::Core
         it 'provides credentials after a read timeout during a refresh' do
           # seed with valid credentials that will trigger a refresh on next call
           expect(client).to receive(:get)
-            .with(EC2CredentialsProvider::METADATA_PATH_BASE + metadata_resp)
+            .with(InstanceCredentialsProvider::METADATA_PATH_BASE + metadata_resp)
             .and_return(near_expiration_resp)
           subject.identity
 
           # failed response
           expect(client).to receive(:get)
-            .with(EC2CredentialsProvider::METADATA_PATH_BASE + metadata_resp)
+            .with(InstanceCredentialsProvider::METADATA_PATH_BASE + metadata_resp)
             .and_raise(Timeout::Error)
           expect(subject).to receive(:warn)
 
@@ -184,13 +184,13 @@ module AWS::SDK::Core
         it 'uses expired credentials during a refresh and warns' do
           # seed with valid credentials that will trigger a refresh on next call
           expect(client).to receive(:get)
-            .with(EC2CredentialsProvider::METADATA_PATH_BASE + metadata_resp)
+            .with(InstanceCredentialsProvider::METADATA_PATH_BASE + metadata_resp)
             .and_return(near_expiration_resp)
           subject.identity
 
           # expired response
           expect(client).to receive(:get)
-            .with(EC2CredentialsProvider::METADATA_PATH_BASE + metadata_resp)
+            .with(InstanceCredentialsProvider::METADATA_PATH_BASE + metadata_resp)
             .and_return(expired_resp)
           expect(subject).to receive(:warn)
 

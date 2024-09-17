@@ -7,8 +7,7 @@ module AWS::SDK::Core
   #     provider = AWS::SDK::Core::ProcessCredentials.new(
   #       '/usr/bin/credential_proc'
   #     )
-  #     ec2_config = AWS::SDK::EC2::Config.new(credentials_provider: provider)
-  #     ec2 = AWS::SDK::EC2::Client.new(ec2_config)
+  #     ec2 = AWS::SDK::EC2::Client.new(credentials_provider: provider)
   #
   # Automatically handles refreshing credentials if an Expiration time is
   # provided in the credentials payload.
@@ -17,14 +16,13 @@ module AWS::SDK::Core
   class ProcessCredentialsProvider < Hearth::IdentityProvider
     include Hearth::RefreshingIdentityProvider
 
-    # Initializes an instance of ProcessCredentialProvider using
-    # shared config profile.
-    # @api private
-    PROFILE = proc do |cfg|
-      profile_config = AWS::SDK::Core.shared_config.profiles[cfg[:profile]]
-      if profile_config && profile_config['credential_process']
-        new(process: profile_config['credential_process'])
-      end
+    # Initializes an instance of ProcessCredentialProvider using a profile.
+    def self.from_profile(config, options = {})
+      profile = options[:profile] || config[:profile]
+      profile_config = AWS::SDK::Core.shared_config.profiles[profile]
+      return unless profile_config && profile_config['credential_process']
+
+      new(process: profile_config['credential_process'])
     end
 
     # Creates a new ProcessCredentialProvider object, which allows an

@@ -83,30 +83,27 @@ public class AWSIntegration implements RubyIntegration {
     private AuthScheme sigv4AuthScheme() {
         String credentialProviderDocumentation = """
                 A credentials provider is a class that fetches your AWS credentials and responds to the `#identity` 
-                method. This can be an instance of any one of the following classes
+                method. This can be an instance of any one of the following classes:
                         
                 * `AWS::SDK::Core::StaticCredentialsProvider` - Used for fetching static, non-refreshing
                   credentials.
-                        
-                * `AWS::SDK::Core::AssumeRoleCredentialsProvider` - Used when you need to assume a role.
-                        
-                * `AWS::SDK::Core::AssumeRoleWebIdentityCredentialsProvider` - Used when you need to
-                  assume a role after providing credentials via the web using a token.
-                        
-                * `AWS::SDK::Core::SSOCredentialsProvider` - Used for loading credentials from AWS SSO
-                  using an access token generated from `aws login`.
-                        
+
                 * `AWS::SDK::Core::ProcessCredentialsProvider` - Used for loading credentials from a
                   process that outputs JSON to stdout.
+
+                * `AWS::SDK::STS::AssumeRoleCredentialsProvider` - Used when you need to assume a role.
                         
-                * `AWS::SDK::Core::EC2CredentialsProvider` - Used for loading credentials from the instance
+                * `AWS::SDK::STS::AssumeRoleWebIdentityCredentialsProvider` - Used when you need to
+                  assume a role after providing credentials via the web using a token.
+                        
+                * `AWS::SDK::SSO::RoleCredentialsProvider` - Used for loading credentials from AWS SSO
+                  using an access token generated from `aws login`.
+                        
+                * `AWS::SDK::Core::InstanceCredentialsProvider` - Used for loading credentials from the instance
                   metadata service (IMDS) on an EC2 instance.
                         
-                * `AWS::SDK::Core::ECSCredentialsProvider - Used for loading credentials from instances
+                * `AWS::SDK::Core::ContainerCredentialsProvider - Used for loading credentials from instances
                   running in ECS.
-                        
-                * `AWS::SDK::CognitoIdentity::CredentialsProvider` - Used for loading credentials
-                  from the Cognito Identity service.
                         
                 When `:credentials_provider` is not configured directly, the following
                 locations will be searched for credentials:
@@ -116,27 +113,21 @@ public class AWSIntegration implements RubyIntegration {
                 * `~/.aws/credentials` and `~/.aws/config`
                 * EC2/ECS instance profiles.
                   
-                @see AWS::SDK::Core::CREDENTIALS_PROVIDER_CHAIN""";
-
-        Symbol awsCredentialsIdentity = Symbol.builder()
-                .namespace("AWS::SDK::Core::Identities", "::")
-                .name("Credentials").build();
-        String identityProviderChain = " *AWS::SDK::Core::CREDENTIALS_PROVIDER_CHAIN";
-
-        String defaultIdentity = "%s.new(access_key_id: 'stubbed-akid', secret_access_key: 'stubbed-secret')"
-                .formatted(awsCredentialsIdentity);
-        String defaultConfigValue = "cfg[:stub_responses] ? %s.new(proc { %s }) : nil"
-                .formatted(Hearth.IDENTITY_PROVIDER, defaultIdentity);
+                @see AWS::SDK::Core::CredentialsProviderChain
+                """;
 
         ClientConfig identityProviderConfig = ClientConfig.builder()
                 .name("credentials_provider")
                 .documentationRbsAndValidationType(Hearth.IDENTITY_PROVIDER.toString())
                 .documentation(credentialProviderDocumentation)
                 .defaults(ConfigProviderChain.builder()
-                        .dynamicProvider(defaultConfigValue)
-                        .staticProvider(identityProviderChain)
+                        .staticProvider("AWS::SDK::Core::CredentialsProviderChain.new")
                         .build())
                 .build();
+
+        Symbol awsCredentialsIdentity = Symbol.builder()
+                .namespace("AWS::SDK::Core::Identities", "::")
+                .name("Credentials").build();
 
         return AuthScheme.builder()
                 .shapeId(SigV4Trait.ID)

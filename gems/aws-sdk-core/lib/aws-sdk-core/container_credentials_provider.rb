@@ -2,24 +2,24 @@
 
 module AWS::SDK::Core
   # An auto-refreshing credentials provider that loads credentials from
-  # instances running in ECS.
+  # container instances running in ECS or EKS.
   #
-  #     provider = AWS::SDK::Core::ECSCredentialProvider.new(
+  #     provider = AWS::SDK::Core::ContainerCredentialsProvider.new(
   #       credential_path: '/path/to/credentials.json'
   #     )
-  #     ec2_config = AWS::SDK::EC2::Config.new(credentials_provider: provider)
-  #     ec2 = AWS::SDK::EC2::Client.new(ec2_config)
-  class ECSCredentialsProvider < Hearth::IdentityProvider
+  #     ec2 = AWS::SDK::EC2::Client.new(credentials_provider: provider)
+  class ContainerCredentialsProvider < Hearth::IdentityProvider
     include Hearth::RefreshingIdentityProvider
-
-    # Initializes an instance of ECSCredentialProvider using ENV.
-    # @api private
-    ENVIRONMENT = proc do |_cfg|
-      new if ENV['AWS_CONTAINER_CREDENTIALS_RELATIVE_URI']
-    end
 
     # @api private
     class Non200Response < RuntimeError; end
+
+    # Initializes an instance of ContainerCredentialsProvider using ENV.
+    def self.from_env(_config)
+      return unless ENV['AWS_CONTAINER_CREDENTIALS_RELATIVE_URI']
+
+      new(credential_path: ENV['AWS_CONTAINER_CREDENTIALS_RELATIVE_URI'])
+    end
 
     # @param [Hash] options
     # @option options [Integer] :retries (3) Number of times to retry
@@ -39,8 +39,7 @@ module AWS::SDK::Core
       @retries = options[:retries] || 3
       @endpoint = options[:endpoint] || 'http://169.254.170.2'
       @credential_path = options[:credential_path] ||
-                         ENV.fetch('AWS_CONTAINER_CREDENTIALS_RELATIVE_URI',
-                                   nil)
+                         ENV['AWS_CONTAINER_CREDENTIALS_RELATIVE_URI']
       unless @credential_path
         raise ArgumentError, 'Missing required credential path.'
       end

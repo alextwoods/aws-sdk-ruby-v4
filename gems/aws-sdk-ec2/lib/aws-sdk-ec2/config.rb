@@ -17,32 +17,29 @@ module AWS::SDK::EC2
   #     An ordered list of {Hearth::AuthSchemes::Base} objects that will considered when attempting to authenticate
   #     the request. The first scheme that returns an Identity from its Hearth::IdentityProvider will be used to
   #     authenticate the request.
-  #   @option args [Hearth::IdentityProvider] :credentials_provider ( *AWS::SDK::Core::CREDENTIALS_PROVIDER_CHAIN)
+  #   @option args [Hearth::IdentityProvider] :credentials_provider (AWS::SDK::Core::CredentialsProviderChain.new)
   #     A credentials provider is a class that fetches your AWS credentials and responds to the `#identity`
-  #     method. This can be an instance of any one of the following classes
+  #     method. This can be an instance of any one of the following classes:
   #
   #     * `AWS::SDK::Core::StaticCredentialsProvider` - Used for fetching static, non-refreshing
   #       credentials.
   #
-  #     * `AWS::SDK::Core::AssumeRoleCredentialsProvider` - Used when you need to assume a role.
-  #
-  #     * `AWS::SDK::Core::AssumeRoleWebIdentityCredentialsProvider` - Used when you need to
-  #       assume a role after providing credentials via the web using a token.
-  #
-  #     * `AWS::SDK::Core::SSOCredentialsProvider` - Used for loading credentials from AWS SSO
-  #       using an access token generated from `aws login`.
-  #
   #     * `AWS::SDK::Core::ProcessCredentialsProvider` - Used for loading credentials from a
   #       process that outputs JSON to stdout.
   #
-  #     * `AWS::SDK::Core::EC2CredentialsProvider` - Used for loading credentials from the instance
+  #     * `AWS::SDK::STS::AssumeRoleCredentialsProvider` - Used when you need to assume a role.
+  #
+  #     * `AWS::SDK::STS::AssumeRoleWebIdentityCredentialsProvider` - Used when you need to
+  #       assume a role after providing credentials via the web using a token.
+  #
+  #     * `AWS::SDK::SSO::RoleCredentialsProvider` - Used for loading credentials from AWS SSO
+  #       using an access token generated from `aws login`.
+  #
+  #     * `AWS::SDK::Core::InstanceCredentialsProvider` - Used for loading credentials from the instance
   #       metadata service (IMDS) on an EC2 instance.
   #
-  #     * `AWS::SDK::Core::ECSCredentialsProvider - Used for loading credentials from instances
+  #     * `AWS::SDK::Core::ContainerCredentialsProvider - Used for loading credentials from instances
   #       running in ECS.
-  #
-  #     * `AWS::SDK::CognitoIdentity::CredentialsProvider` - Used for loading credentials
-  #       from the Cognito Identity service.
   #
   #     When `:credentials_provider` is not configured directly, the following
   #     locations will be searched for credentials:
@@ -52,7 +49,7 @@ module AWS::SDK::EC2
   #     * `~/.aws/credentials` and `~/.aws/config`
   #     * EC2/ECS instance profiles.
   #
-  #     @see AWS::SDK::Core::CREDENTIALS_PROVIDER_CHAIN
+  #     @see AWS::SDK::Core::CredentialsProviderChain
   #   @option args [Boolean] :disable_host_prefix (false)
   #     When `true`, does not perform host prefix injection using @endpoint trait's hostPrefix property.
   #   @option args [String] :endpoint
@@ -207,7 +204,7 @@ module AWS::SDK::EC2
       {
         auth_resolver: [Auth::Resolver.new],
         auth_schemes: [Auth::SCHEMES],
-        credentials_provider: [proc { |cfg| cfg[:stub_responses] ? Hearth::IdentityProvider.new(proc { AWS::SDK::Core::Identities::Credentials.new(access_key_id: 'stubbed-akid', secret_access_key: 'stubbed-secret') }) : nil }, *AWS::SDK::Core::CREDENTIALS_PROVIDER_CHAIN],
+        credentials_provider: [AWS::SDK::Core::CredentialsProviderChain.new],
         disable_host_prefix: [false],
         endpoint: [proc { |cfg| cfg[:stub_responses] ? 'http://localhost' : nil }],
         endpoint_resolver: [Endpoint::Resolver.new],

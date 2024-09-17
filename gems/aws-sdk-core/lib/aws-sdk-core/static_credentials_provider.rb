@@ -8,46 +8,48 @@ module AWS::SDK::Core
   #       secret_access_key: 'SECRET_KEY_1',
   #       session_token: 'TOKEN_1'
   #     )
-  #     ec2_config = AWS::SDK::EC2::Config.new(credentials_provider: provider)
-  #     ec2 = AWS::SDK::EC2::Client.new(ec2_config)
+  #     ec2 = AWS::SDK::EC2::Client.new(credentials_provider: provider)
   class StaticCredentialsProvider < Hearth::IdentityProvider
-    # Initializes an instance of StaticCredentialsProvider using
-    # shared config profile.
-    # @api private
-    PROFILE = proc do |cfg|
-      profile_config = AWS::SDK::Core.shared_config.profiles[cfg[:profile]]
-      if profile_config &&
-         profile_config['aws_access_key_id'] &&
-         profile_config['aws_secret_access_key']
-        new(
-          access_key_id: profile_config['aws_access_key_id'],
-          secret_access_key: profile_config['aws_secret_access_key'],
-          session_token: profile_config['aws_session_token']
-        )
-      end
-    end
-
     # Initializes an instance of StaticCredentialsProvider using ENV.
-    # @api private
-    ENVIRONMENT = proc do |_cfg|
-      if ENV['AWS_ACCESS_KEY_ID'] && ENV['AWS_SECRET_ACCESS_KEY']
-        new(
-          access_key_id: ENV['AWS_ACCESS_KEY_ID'],
-          secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
-          session_token: ENV.fetch('AWS_SESSION_TOKEN', nil)
-        )
-      end
-    end
+    def self.from_env(_config)
+      return unless ENV['AWS_ACCESS_KEY_ID'] && ENV['AWS_SECRET_ACCESS_KEY']
 
-    def initialize(options = {})
-      @identity = AWS::SDK::Core::Identities::Credentials.new(
-        access_key_id: options[:access_key_id],
-        secret_access_key: options[:secret_access_key],
-        session_token: options[:session_token]
+      new(
+        access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+        secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
+        session_token: ENV['AWS_SESSION_TOKEN']
       )
-      super(nil)
     end
 
+    # Initializes an instance of StaticCredentialsProvider using a profile.
+    def self.from_profile(config, options = {})
+      profile = options[:profile] || config[:profile]
+      profile_config = AWS::SDK::Core.shared_config.profiles[profile]
+      return unless profile_config &&
+                    profile_config['aws_access_key_id'] &&
+                    profile_config['aws_secret_access_key']
+
+      new(
+        access_key_id: profile_config['aws_access_key_id'],
+        secret_access_key: profile_config['aws_secret_access_key'],
+        session_token: profile_config['aws_session_token']
+      )
+    end
+
+    # Initializes an instance of StaticCredentialsProvider using options.
+    # @param [String] access_key_id
+    # @param [String] secret_access_key
+    # @param [String] session_token (nil)
+    def initialize(access_key_id:, secret_access_key:, session_token: nil)
+      @identity = Identities::Credentials.new(
+        access_key_id: access_key_id,
+        secret_access_key: secret_access_key,
+        session_token: session_token
+      )
+      super
+    end
+
+    # @return [AWS::SDK::Core::Identities::Credentials]
     def identity(_properties = nil)
       @identity
     end

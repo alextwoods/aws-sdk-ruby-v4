@@ -4,7 +4,7 @@ module AWS::SDK::Core
   # An auto-refreshing credentials provider that loads credentials from
   # EC2 instances using IMDSv2.
   #
-  #     provider = AWS::SDK::Core::EC2CredentialProvider.new(
+  #     provider = AWS::SDK::Core::InstanceCredentialsProvider.new(
   #       client: AWS::SDK::Core::EC2Metadata.new(...)
   #     )
   #     ec2_config = AWS::SDK::EC2::Config.new(credentials_provider: provider)
@@ -12,30 +12,27 @@ module AWS::SDK::Core
   #
   # If you omit the `:client` option, a new {AWS::SDK::Core::EC2Metadata} will
   # be created.
-  class EC2CredentialsProvider < Hearth::IdentityProvider
+  class InstanceCredentialsProvider < Hearth::IdentityProvider
     include Hearth::RefreshingIdentityProvider
-
-    # Initializes an instance of EC2CredentialProvider using
-    # ENV and shared config values.
-    # @api private
-    ENVIRONMENT = proc do |cfg|
-      profile_config = AWS::SDK::Core.shared_config.profiles[cfg[:profile]]
-      unless ENV['AWS_EC2_METADATA_DISABLED']
-        client = EC2Metadata.new(
-          endpoint: ENV.fetch('AWS_EC2_METADATA_SERVICE_ENDPOINT') do
-                      profile_config['ec2_metadata_service_endpoint']
-                    end,
-          endpoint_mode: ENV.fetch('AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE') do
-                           profile_config['ec2_metadata_service_endpoint_mode']
-                         end
-        )
-        new(client: client)
-      end
-    end
 
     # Path base for GET request for profile and credentials.
     # @api private
     METADATA_PATH_BASE = '/latest/meta-data/iam/security-credentials/'
+
+    # Initializes an instance of InstanceCredentialsProvider using ENV and
+    # profile values.
+    def self.from_env(config)
+      profile = config[:profile]
+      profile_config = AWS::SDK::Core.shared_config.profiles[profile]
+      return if ENV['AWS_EC2_METADATA_DISABLED']
+
+      endpoint = ENV['AWS_EC2_METADATA_SERVICE_ENDPOINT'] ||
+                 profile_config['ec2_metadata_service_endpoint']
+      endpoint_mode = ENV['AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE'] ||
+                      profile_config['ec2_metadata_service_endpoint_mode']
+      client = EC2Metadata.new(endpoint: endpoint, endpoint_mode: endpoint_mode)
+      new(client: client)
+    end
 
     # @param [EC2Metadata] client
     def initialize(client: nil)

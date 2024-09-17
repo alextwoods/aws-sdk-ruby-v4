@@ -9,7 +9,7 @@ module AWS::SDK::STS
       allow(AWS::SDK::Core).to receive(:sso_loaded?).and_return(false)
     end
 
-    describe 'AssumeRoleCredentialsProvider::PROFILE' do
+    describe '.from_profile' do
       before do
         mock_shared_config(shared_config)
       end
@@ -49,7 +49,7 @@ module AWS::SDK::STS
             expect(kwargs[:role_arn]).to eq('arn:aws:iam::123456789:role/RoleA')
           end
 
-          AssumeRoleCredentialsProvider::PROFILE.call({ profile: 'A' })
+          AssumeRoleCredentialsProvider.from_profile({ profile: 'A' })
         end
       end
 
@@ -90,7 +90,7 @@ module AWS::SDK::STS
             expect(kwargs[:role_arn]).to eq('arn:aws:iam::123456789:role/RoleA')
           end
 
-          AssumeRoleCredentialsProvider::PROFILE.call({ profile: 'A' })
+          AssumeRoleCredentialsProvider.from_profile({ profile: 'A' })
         end
       end
 
@@ -140,7 +140,7 @@ module AWS::SDK::STS
             expect(kwargs[:duration_seconds]).to eq(1234)
           end
 
-          AssumeRoleCredentialsProvider::PROFILE.call({ profile: 'A' })
+          AssumeRoleCredentialsProvider.from_profile({ profile: 'A' })
         end
       end
 
@@ -158,12 +158,12 @@ module AWS::SDK::STS
         let(:source_credentials) { double }
         let(:client) { double }
 
-        it 'Assumes RoleA using EC2CredentialProvider' do
+        it 'Assumes RoleA using InstanceCredentialsProvider' do
           ec2_metadata = double('EC2Metadata')
           expect(AWS::SDK::Core::EC2Metadata).to receive(:new)
             .with(endpoint_mode: 'IPv4', endpoint: 'http://169.254.169.254')
             .and_return(ec2_metadata)
-          expect(AWS::SDK::Core::EC2CredentialsProvider).to receive(:new)
+          expect(AWS::SDK::Core::InstanceCredentialsProvider).to receive(:new)
             .with(client: ec2_metadata).and_return(source_credentials)
 
           # verify client is created with credentials from B
@@ -177,7 +177,7 @@ module AWS::SDK::STS
             expect(kwargs[:role_arn]).to eq('arn:aws:iam::123456789:role/RoleA')
           end
 
-          AssumeRoleCredentialsProvider::PROFILE.call({ profile: 'A' })
+          AssumeRoleCredentialsProvider.from_profile({ profile: 'A' })
         end
       end
 
@@ -194,8 +194,8 @@ module AWS::SDK::STS
         let(:client) { double }
 
         it 'Assumes RoleA using credentials from the environment' do
-          expect(AWS::SDK::Core::StaticCredentialsProvider::ENVIRONMENT)
-            .to receive(:call).and_return(source_credentials)
+          expect(AWS::SDK::Core::StaticCredentialsProvider)
+            .to receive(:from_env).and_return(source_credentials)
 
           # verify client is created with credentials from B
           expect(Client).to receive(:new) do |cfg|
@@ -208,19 +208,7 @@ module AWS::SDK::STS
             expect(kwargs[:role_arn]).to eq('arn:aws:iam::123456789:role/RoleA')
           end
 
-          AssumeRoleCredentialsProvider::PROFILE.call({ profile: 'A' })
-        end
-
-        it 'raises when missing' do
-          expect(AWS::SDK::Core::StaticCredentialsProvider::ENVIRONMENT)
-            .to receive(:call).and_return(nil)
-
-          expect do
-            AssumeRoleCredentialsProvider::PROFILE.call({ profile: 'A' })
-          end.to raise_error(
-            AssumeRoleCredentialsProvider::NoSourceCredentialsError,
-            /could not get source credentials/
-          )
+          AssumeRoleCredentialsProvider.from_profile({ profile: 'A' })
         end
       end
 
@@ -237,7 +225,7 @@ module AWS::SDK::STS
         let(:client) { double }
 
         it 'Assumes RoleA using credentials from the environment' do
-          expect(AWS::SDK::Core::ECSCredentialsProvider)
+          expect(AWS::SDK::Core::ContainerCredentialsProvider)
             .to receive(:new).and_return(source_credentials)
 
           # verify client is created with credentials from B
@@ -251,7 +239,7 @@ module AWS::SDK::STS
             expect(kwargs[:role_arn]).to eq('arn:aws:iam::123456789:role/RoleA')
           end
 
-          AssumeRoleCredentialsProvider::PROFILE.call({ profile: 'A' })
+          AssumeRoleCredentialsProvider.from_profile({ profile: 'A' })
         end
       end
 
@@ -268,7 +256,7 @@ module AWS::SDK::STS
 
         it 'Raise error due to lack of source_profile or credential_source' do
           expect do
-            AssumeRoleCredentialsProvider::PROFILE.call({ profile: 'A' })
+            AssumeRoleCredentialsProvider.from_profile({ profile: 'A' })
           end.to raise_error(
             AssumeRoleCredentialsProvider::NoSourceProfileError,
             'Profile A has a role_arn but no source_profile ' \
@@ -296,7 +284,7 @@ module AWS::SDK::STS
 
         it 'Raise error due to lack of source_profile or credential_source' do
           expect do
-            AssumeRoleCredentialsProvider::PROFILE.call({ profile: 'A' })
+            AssumeRoleCredentialsProvider.from_profile({ profile: 'A' })
           end.to raise_error(
             AssumeRoleCredentialsProvider::CredentialSourceConflictError,
             /Profile A has a source_profile and a credential_source/
@@ -321,7 +309,7 @@ module AWS::SDK::STS
 
         it 'Raises error due to lack of complete credentials' do
           expect do
-            AssumeRoleCredentialsProvider::PROFILE.call({ profile: 'A' })
+            AssumeRoleCredentialsProvider.from_profile({ profile: 'A' })
           end.to raise_error(
             AssumeRoleCredentialsProvider::NoSourceCredentialsError,
             /source_profile does not have credentials/
@@ -343,7 +331,7 @@ module AWS::SDK::STS
 
         it 'Raise error due to missing profile' do
           expect do
-            AssumeRoleCredentialsProvider::PROFILE.call({ profile: 'A' })
+            AssumeRoleCredentialsProvider.from_profile({ profile: 'A' })
           end.to raise_error(
             AssumeRoleCredentialsProvider::NoSuchProfileError,
             /source_profile B does not exist/
@@ -365,7 +353,7 @@ module AWS::SDK::STS
 
         it 'Raise error due to unsupported credential source' do
           expect do
-            AssumeRoleCredentialsProvider::PROFILE.call({ profile: 'A' })
+            AssumeRoleCredentialsProvider.from_profile({ profile: 'A' })
           end.to raise_error(
             AssumeRoleCredentialsProvider::InvalidCredentialSourceError,
             /Unsupported credential_source/
@@ -425,7 +413,7 @@ module AWS::SDK::STS
             expect(kwargs[:role_arn]).to eq('arn:aws:iam::123456789:role/RoleA')
           end
 
-          AssumeRoleCredentialsProvider::PROFILE.call({ profile: 'A' })
+          AssumeRoleCredentialsProvider.from_profile({ profile: 'A' })
         end
       end
 
@@ -472,7 +460,7 @@ module AWS::SDK::STS
             expect(kwargs[:role_arn]).to eq('arn:aws:iam::123456789:role/RoleA')
           end
 
-          AssumeRoleCredentialsProvider::PROFILE.call({ profile: 'A' })
+          AssumeRoleCredentialsProvider.from_profile({ profile: 'A' })
         end
       end
 
@@ -491,7 +479,7 @@ module AWS::SDK::STS
 
         it 'Raises an error due to Profile B referencing a visited profile' do
           expect do
-            AssumeRoleCredentialsProvider::PROFILE.call({ profile: 'A' })
+            AssumeRoleCredentialsProvider.from_profile({ profile: 'A' })
           end.to raise_error(
             AssumeRoleCredentialsProvider::SourceProfileCircularReferenceError,
             /Circular reference/

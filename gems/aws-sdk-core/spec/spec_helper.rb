@@ -73,38 +73,7 @@ RSpec.configure do |config|
   end
 end
 
-## Necessary to run for aws-sdk-core tests on their own
-# rubocop:disable Lint/MissingSuper
-module AWS::SDK::SSO
-  class Client < Hearth::Client
-    def initialize(_config = Config.new, _options = {})
-      nil
-    end
-  end
-  Config = Struct.new(:region, keyword_init: true)
-end
-
-module AWS::SDK::SSOOIDC
-  class Client < Hearth::Client
-    def initialize(_config = Config.new, _options = {})
-      nil
-    end
-  end
-  Config = Struct.new(:region, keyword_init: true)
-end
-
-module AWS::SDK::STS
-  class Client < Hearth::Client
-    def initialize(_config = Config.new, _options = {})
-      nil
-    end
-  end
-  Config = Struct.new(
-    :region, :profile, :credentials_provider, keyword_init: true
-  )
-end
-# rubocop:enable Lint/MissingSuper
-
+## Necessary for aws-sdk-core tests
 module Aws
   module Crt
     module Checksums

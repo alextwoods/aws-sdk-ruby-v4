@@ -39,32 +39,22 @@ public class HttpBearerAuth implements RubyIntegration {
 
     @Override
     public List<ClientConfig> getAdditionalClientConfig(GenerationContext context) {
-        // override the Hearth configuration (specifically documentation and defaults) with
-        // AWS specific values.
         String providerDocumentation = """
                 A credentials provider fetches an HTTP Bearer Token and responds to the `#identity` 
                 method. This can be an instance of any one of the following classes:
                         
-                * `AWS::SDK::Core::SSOBearerProvider` - Used for fetching a bearer token from
+                * `AWS::SDK::SSO::TokenProvider` - Used for fetching a bearer token from
                   SSO-OIDC.
-                  
-                When `:http_bearer_provider` is not configured directly, the 
-                AWS::SDK::Core::HTTP_BEARER_PROVIDER_CHAIN is searched.
-                                
+
                 @see AWS::SDK::Core::CREDENTIALS_PROVIDER_CHAIN
                 """;
-        String identityProviderChain = " *AWS::SDK::Core::HTTP_BEARER_PROVIDER_CHAIN";
-        String defaultIdentity = "Hearth::Identities::HTTPBearer.new(token: 'token')";
-        String defaultConfigValue = "cfg[:stub_responses] ? %s.new(proc { %s }) : nil"
-                .formatted(Hearth.IDENTITY_PROVIDER, defaultIdentity);
 
         ClientConfig identityProviderConfig = ClientConfig.builder()
                 .name("http_bearer_provider")
                 .documentationRbsAndValidationType(Hearth.IDENTITY_PROVIDER.toString())
                 .documentation(providerDocumentation)
                 .defaults(ConfigProviderChain.builder()
-                        .dynamicProvider(defaultConfigValue)
-                        .staticProvider(identityProviderChain)
+                        .staticProvider("AWS::SDK::Core::TokenProviderChain.new")
                         .build())
                 .build();
 

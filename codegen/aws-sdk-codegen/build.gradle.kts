@@ -94,11 +94,7 @@ dependencies {
     implementation(project(":aws-sdk-gem-utils"))
 }
 
-// This project doesn't produce a JAR.
 tasks["jar"].enabled = false
-
-// Run the SmithyBuild task manually since this project needs the built JAR
-// from smithy-aws-typescript-codegen.
 tasks["smithyBuildJar"].enabled = false
 
 tasks.create<SmithyBuild>("buildSdk") {
@@ -148,17 +144,6 @@ tasks.register("generate-smithy-build") {
     }
 }
 
-// Run the `buildSdk` automatically.
-tasks["build"]
-        .dependsOn(tasks["generate-smithy-build"])
-        .finalizedBy(tasks["buildSdk"])
-
-
-tasks.register<Delete>("cleanGems") {
-    forEachService { service ->
-        delete("$buildDir/../../../gems/${service.gemName}/")
-    }
-}
 tasks.register<Copy>("copyGeneratedGems") {
     forEachService { service ->
         from("$buildDir/smithyprojections/aws-sdk-codegen/${service.projectionName}/ruby-codegen")
@@ -166,5 +151,12 @@ tasks.register<Copy>("copyGeneratedGems") {
     into("$buildDir/../../../gems/")
 }
 
-tasks["buildSdk"].dependsOn(tasks["cleanGems"])
-tasks["buildSdk"].finalizedBy(tasks["copyGeneratedGems"])
+tasks["build"]
+    .dependsOn(
+        tasks["generate-smithy-build"],
+        tasks["buildSdk"])
+    .finalizedBy(tasks["copyGeneratedGems"])
+
+java.sourceSets["main"].java {
+    srcDirs("model", "src/main/smithy")
+}

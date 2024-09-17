@@ -1,13 +1,9 @@
 # frozen_string_literal: true
 
-require_relative '../spec_helper'
+require_relative 'spec_helper'
 
-module AWS::SDK::Core
-  describe SSOBearerProvider do
-    before do
-      allow(AWS::SDK::Core).to receive(:sso_oidc_loaded?).and_return(true)
-    end
-
+module AWS::SDK::SSOOIDC
+  describe TokenProvider do
     let(:client) do
       AWS::SDK::SSOOIDC::Client.new(
         region: 'us-west-2',
@@ -76,12 +72,12 @@ module AWS::SDK::Core
 
         mock_token_file(sso_session, cached_token)
 
-        provider = SSOBearerProvider.new(**sso_opts)
+        provider = TokenProvider.new(**sso_opts)
         expect(provider.client).to be(client)
       end
 
       it 'raises an argument error when arguments are missing' do
-        expect { SSOBearerProvider.new }.to raise_error(
+        expect { TokenProvider.new }.to raise_error(
           ArgumentError, /missing keywords: :sso_region, :sso_session/
         )
       end
@@ -100,8 +96,8 @@ module AWS::SDK::Core
         allow(File).to receive(:read).with(path).and_raise(Errno::ENOENT)
 
         expect do
-          SSOBearerProvider.new(**sso_opts).identity
-        end.to raise_error(InvalidSSOToken)
+          TokenProvider.new(**sso_opts).identity
+        end.to raise_error(TokenProvider::InvalidSSOToken)
       end
 
       it 'raises an InvalidSSOCredentials error when ' \
@@ -109,8 +105,8 @@ module AWS::SDK::Core
         mock_token_file(sso_session, { 'accessToken' => access_token })
 
         expect do
-          SSOBearerProvider.new(**sso_opts).identity
-        end.to raise_error(InvalidSSOToken)
+          TokenProvider.new(**sso_opts).identity
+        end.to raise_error(TokenProvider::InvalidSSOToken)
       end
 
       it 'sets the client when passed in and does not create a new one' do
@@ -119,7 +115,7 @@ module AWS::SDK::Core
 
         mock_token_file(sso_session, cached_token)
 
-        provider = SSOBearerProvider.new(**sso_opts.merge(client: test_client))
+        provider = TokenProvider.new(**sso_opts.merge(client: test_client))
         expect(provider.client).to be(test_client)
       end
     end
@@ -129,7 +125,7 @@ module AWS::SDK::Core
         test_client = client # force construction
         sso_session = 'admin'
         mock_token_file(sso_session, cached_token)
-        provider = SSOBearerProvider.new(**sso_opts.merge(
+        provider = TokenProvider.new(**sso_opts.merge(
           sso_session: sso_session, client: test_client
         ))
         expect(File.basename(provider.send(:sso_cache_file)))
@@ -140,7 +136,7 @@ module AWS::SDK::Core
         test_client = client # force construction
         sso_session = 'dev-scopes'
         mock_token_file(sso_session, cached_token)
-        provider = SSOBearerProvider.new(**sso_opts.merge(
+        provider = TokenProvider.new(**sso_opts.merge(
           sso_session: sso_session, client: test_client
         ))
         expect(File.basename(provider.send(:sso_cache_file)))
@@ -186,7 +182,7 @@ module AWS::SDK::Core
 
         it 'returns the token' do
           mock_token_file(sso_session, cached_token)
-          provider = SSOBearerProvider.new(**sso_opts)
+          provider = TokenProvider.new(**sso_opts)
           expect(provider.identity.token).to eq('cachedtoken')
           expect(provider.identity.expiration)
             .to eq(Time.parse('2021-12-25T21:30:00Z'))
@@ -205,7 +201,7 @@ module AWS::SDK::Core
 
         it 'returns the token' do
           mock_token_file(sso_session, cached_token)
-          provider = SSOBearerProvider.new(**sso_opts)
+          provider = TokenProvider.new(**sso_opts)
           expect(provider.identity.token).to eq('cachedtoken')
           expect(provider.identity.expiration)
             .to eq(Time.parse('2021-12-25T21:30:00Z'))
@@ -226,8 +222,8 @@ module AWS::SDK::Core
           mock_token_file(sso_session, cached_token)
 
           expect do
-            SSOBearerProvider.new(**sso_opts).identity
-          end.to raise_error(InvalidSSOToken)
+            TokenProvider.new(**sso_opts).identity
+          end.to raise_error(TokenProvider::InvalidSSOToken)
         end
       end
 
@@ -244,8 +240,8 @@ module AWS::SDK::Core
           mock_token_file(sso_session, cached_token)
 
           expect do
-            SSOBearerProvider.new(**sso_opts).identity
-          end.to raise_error(InvalidSSOToken)
+            TokenProvider.new(**sso_opts).identity
+          end.to raise_error(TokenProvider::InvalidSSOToken)
         end
       end
 
@@ -262,8 +258,8 @@ module AWS::SDK::Core
           mock_token_file(sso_session, cached_token)
 
           expect do
-            SSOBearerProvider.new(**sso_opts).identity
-          end.to raise_error(InvalidSSOToken)
+            TokenProvider.new(**sso_opts).identity
+          end.to raise_error(TokenProvider::InvalidSSOToken)
         end
       end
 
@@ -318,7 +314,7 @@ module AWS::SDK::Core
 
           expect_token_write_back(sso_session, execpted_token_write_back)
 
-          provider = SSOBearerProvider.new(**sso_opts)
+          provider = TokenProvider.new(**sso_opts)
 
           expect(provider.identity.token).to eq('newtoken')
           expect(provider.identity.expiration)
@@ -377,7 +373,7 @@ module AWS::SDK::Core
 
           expect_token_write_back(sso_session, execpted_token_write_back)
 
-          provider = SSOBearerProvider.new(**sso_opts)
+          provider = TokenProvider.new(**sso_opts)
 
           expect(provider.identity.token).to eq('newtoken')
           expect(provider.identity.expiration)
@@ -406,8 +402,8 @@ module AWS::SDK::Core
           expect(client).not_to receive(:create_token)
 
           expect do
-            SSOBearerProvider.new(**sso_opts).identity
-          end.to raise_error(InvalidSSOToken)
+            TokenProvider.new(**sso_opts).identity
+          end.to raise_error(TokenProvider::InvalidSSOToken)
         end
       end
     end

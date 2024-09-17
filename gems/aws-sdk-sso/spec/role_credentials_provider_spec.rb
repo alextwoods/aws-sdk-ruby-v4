@@ -1,15 +1,10 @@
 # frozen_string_literal: true
 
-require_relative '../spec_helper'
+require_relative 'spec_helper'
 
-module AWS::SDK::Core
-  describe SSOCredentialsProvider do
-    before do
-      allow(AWS::SDK::Core).to receive(:sso_loaded?).and_return(true)
-      allow(AWS::SDK::Core).to receive(:sso_oidc_loaded?).and_return(true)
-    end
-
-    describe 'SSOCredentialProvider::PROFILE' do
+module AWS::SDK::SSO
+  describe RoleCredentialsProvider do
+    describe '.from_profile' do
       before do
         mock_shared_config(shared_config)
       end
@@ -30,7 +25,7 @@ module AWS::SDK::Core
         it 'returns nil and logs a warning' do
           cfg = { profile: 'legacy_sso_profile', logger: logger }
           expect(logger).to receive(:warn)
-          provider = SSOCredentialsProvider::PROFILE.call(cfg)
+          provider = RoleCredentialsProvider.from_profile(cfg)
           expect(provider).to be_nil
         end
       end
@@ -51,8 +46,8 @@ module AWS::SDK::Core
 
         it 'returns an instance of SSOCredentialProvider' do
           cfg = { profile: 'sso_credentials' }
-          provider = SSOCredentialsProvider::PROFILE.call(cfg)
-          expect(provider).to be_an_instance_of(SSOCredentialsProvider)
+          provider = RoleCredentialsProvider.from_profile(cfg)
+          expect(provider).to be_an_instance_of(RoleCredentialsProvider)
         end
       end
 
@@ -66,7 +61,7 @@ module AWS::SDK::Core
 
         it 'returns nil' do
           cfg = { profile: 'default' }
-          provider = SSOCredentialsProvider::PROFILE.call(cfg)
+          provider = RoleCredentialsProvider.from_profile(cfg)
           expect(provider).to be_nil
         end
       end
@@ -106,16 +101,17 @@ module AWS::SDK::Core
     end
 
     let(:token_provider) do
-      double('AWS::SDK::Core::SSOBearerProvider', identity: token)
+      double('AWS::SDK::SSOOIDC::TokenProvider', identity: token)
     end
 
     before do
-      allow(AWS::SDK::Core::SSOBearerProvider)
+      stub_const('AWS::SDK::SSOOIDC::TokenProvider', Class.new)
+      allow(AWS::SDK::SSOOIDC::TokenProvider)
         .to receive(:new).and_return(token_provider)
     end
 
     subject do
-      SSOCredentialsProvider.new(**provider_options.merge(client: client))
+      RoleCredentialsProvider.new(**provider_options.merge(client: client))
     end
 
     let(:get_role_credentials_resp) do
@@ -143,21 +139,14 @@ module AWS::SDK::Core
         expect(AWS::SDK::SSO::Client).to receive(:new)
           .with(region: sso_region).and_return(client)
 
-        provider = SSOCredentialsProvider.new(**provider_options)
+        provider = RoleCredentialsProvider.new(**provider_options)
         expect(provider.client).to be(client)
-      end
-
-      it 'raises when aws-sdk-sso is not available' do
-        expect(AWS::SDK::Core).to receive(:sso_loaded?).and_return(false)
-        expect do
-          SSOCredentialsProvider.new(**provider_options)
-        end.to raise_error(RuntimeError, /aws-sdk-sso is required/)
       end
 
       it 'uses a provided client' do
         expect(AWS::SDK::SSO::Client).not_to receive(:new)
 
-        provider = SSOCredentialsProvider.new(
+        provider = RoleCredentialsProvider.new(
           **provider_options.merge(client: client)
         )
         expect(provider.client).to be(client)
