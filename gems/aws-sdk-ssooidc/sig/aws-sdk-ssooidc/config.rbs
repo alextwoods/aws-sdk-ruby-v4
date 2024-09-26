@@ -1,6 +1,7 @@
 module AWS::SDK::SSOOIDC
   class Config
     include Hearth::Configuration[instance]
+    attr_accessor access_key_id (): String?
     attr_accessor auth_resolver (): Hearth::_AuthResolver[Auth::Params]?
     attr_accessor auth_schemes (): Array[Hearth::AuthSchemes::Base]?
     attr_accessor credentials_provider (): Hearth::IdentityProvider?
@@ -14,6 +15,8 @@ module AWS::SDK::SSOOIDC
     attr_accessor profile (): String?
     attr_accessor region (): String?
     attr_accessor retry_strategy (): Hearth::_RetryStrategy?
+    attr_accessor secret_access_key (): String?
+    attr_accessor session_token (): String?
     attr_accessor stub_responses (): bool?
     attr_accessor stubs (): Hearth::Stubs?
     attr_accessor telemetry_provider (): Hearth::Telemetry::TelemetryProviderBase?

@@ -9,6 +9,8 @@
 
 module AWS::SDK::S3
   # @!method initialize(*options)
+  #   @option args [String] :access_key_id
+  #     The AWS access key ID to use.
   #   @option args [#resolve(params)] :auth_resolver (Auth::Resolver.new)
   #     A class that responds to a `resolve(auth_params)` method where `auth_params` is
   #     the {Auth::Params} struct. For a given operation_name, the method must return an
@@ -17,7 +19,7 @@ module AWS::SDK::S3
   #     An ordered list of {Hearth::AuthSchemes::Base} objects that will considered when attempting to authenticate
   #     the request. The first scheme that returns an Identity from its Hearth::IdentityProvider will be used to
   #     authenticate the request.
-  #   @option args [Hearth::IdentityProvider] :credentials_provider (AWS::SDK::Core::CredentialsProviderChain.new)
+  #   @option args [Hearth::IdentityProvider] :credentials_provider (AWS::SDK::Core::CredentialsProviderChain)
   #     A credentials provider is a class that fetches your AWS credentials and responds to the `#identity`
   #     method. This can be an instance of any one of the following classes:
   #
@@ -102,6 +104,10 @@ module AWS::SDK::S3
   #     * `Retry::Adaptive` - An experimental retry mode that includes all the functionality
   #       of `standard` mode along with automatic client side throttling. This is a provisional
   #       mode that may change behavior in the future.
+  #   @option args [String] :secret_access_key
+  #     The AWS secret access key to use.
+  #   @option args [String] :session_token
+  #     The AWS session token to use.
   #   @option args [Boolean] :stub_responses (false)
   #     Enable response stubbing for testing. See {Hearth::ClientStubs#stub_responses}.
   #   @option args [Hearth::Stubs] :stubs (Hearth::Stubs.new)
@@ -120,13 +126,15 @@ module AWS::SDK::S3
   #     For S3 ARNs passed into the `:bucket` parameter, this option will
   #     use the region in the ARN, allowing for cross-region requests to
   #     be made. Set to `false` to use the client's region instead.
-  #   @option args [Boolean] :use_dualstack_endpoint
+  #   @option args [Boolean] :use_dualstack_endpoint (false)
   #     When set to `true`, DualStack enabled endpoints (with `.aws` TLD)
   #     will be used if available.
-  #   @option args [Boolean] :use_fips_endpoint
+  #   @option args [Boolean] :use_fips_endpoint (false)
   #     When set to `true`, FIPS compatible endpoints will be used if available.
   #   @option args [Boolean] :validate_input (true)
   #     When `true`, request parameters are validated using the modeled shapes.
+  # @!attribute access_key_id
+  #   @return [String]
   # @!attribute auth_resolver
   #   @return [#resolve(params)]
   # @!attribute auth_schemes
@@ -159,6 +167,10 @@ module AWS::SDK::S3
   #   @return [String]
   # @!attribute retry_strategy
   #   @return [#acquire_initial_retry_token(token_scope),#refresh_retry_token(retry_token, error_info),#record_success(retry_token)]
+  # @!attribute secret_access_key
+  #   @return [String]
+  # @!attribute session_token
+  #   @return [String]
   # @!attribute stub_responses
   #   @return [Boolean]
   # @!attribute stubs
@@ -179,6 +191,7 @@ module AWS::SDK::S3
     include Hearth::Configuration
 
     MEMBERS = %i[
+      access_key_id
       auth_resolver
       auth_schemes
       credentials_provider
@@ -195,6 +208,8 @@ module AWS::SDK::S3
       profile
       region
       retry_strategy
+      secret_access_key
+      session_token
       stub_responses
       stubs
       telemetry_provider
@@ -209,6 +224,7 @@ module AWS::SDK::S3
 
     # Validates the configuration.
     def validate!
+      Hearth::Validator.validate_types!(access_key_id, String, context: 'config[:access_key_id]')
       Hearth::Validator.validate_responds_to!(auth_resolver, :resolve, context: 'config[:auth_resolver]')
       Hearth::Validator.validate_types!(auth_schemes, Array, context: 'config[:auth_schemes]')
       Hearth::Validator.validate_types!(credentials_provider, Hearth::IdentityProvider, context: 'config[:credentials_provider]')
@@ -225,6 +241,8 @@ module AWS::SDK::S3
       Hearth::Validator.validate_types!(profile, String, context: 'config[:profile]')
       Hearth::Validator.validate_types!(region, String, context: 'config[:region]')
       Hearth::Validator.validate_responds_to!(retry_strategy, :acquire_initial_retry_token, :refresh_retry_token, :record_success, context: 'config[:retry_strategy]')
+      Hearth::Validator.validate_types!(secret_access_key, String, context: 'config[:secret_access_key]')
+      Hearth::Validator.validate_types!(session_token, String, context: 'config[:session_token]')
       Hearth::Validator.validate_types!(stub_responses, TrueClass, FalseClass, context: 'config[:stub_responses]')
       Hearth::Validator.validate_types!(stubs, Hearth::Stubs, context: 'config[:stubs]')
       Hearth::Validator.validate_types!(telemetry_provider, Hearth::Telemetry::TelemetryProviderBase, context: 'config[:telemetry_provider]')
@@ -239,29 +257,32 @@ module AWS::SDK::S3
 
     def _defaults
       {
+        access_key_id: [proc { |cfg| ('stubbed-ak' if cfg[:stub_responses]) }],
         auth_resolver: [Auth::Resolver.new],
         auth_schemes: [Auth::SCHEMES],
-        credentials_provider: [AWS::SDK::Core::CredentialsProviderChain.new],
-        disable_express_session_auth: [Hearth::Config::EnvProvider.new('AWS_S3_DISABLE_EXPRESS_SESSION_AUTH', type: 'Boolean'),AWS::SDK::Core::SharedConfigProvider.new('s3_disable_express_session_auth', type: 'Boolean'),false],
+        credentials_provider: [AWS::SDK::Core::CredentialsProviderChain],
+        disable_express_session_auth: [Hearth::Config::EnvProvider.new('AWS_S3_DISABLE_EXPRESS_SESSION_AUTH', type: 'Boolean'), AWS::SDK::Core::SharedConfigProvider.new('s3_disable_express_session_auth', type: 'Boolean'), false],
         disable_host_prefix: [false],
-        disable_multiregion_access_points: [Hearth::Config::EnvProvider.new('AWS_S3_DISABLE_MULTIREGION_ACCESS_POINTS', type: 'Boolean'),AWS::SDK::Core::SharedConfigProvider.new('s3_disable_multiregion_access_points', type: 'Boolean'),false],
-        endpoint: [proc { |cfg| cfg[:stub_responses] ? 'http://localhost' : nil }],
+        disable_multiregion_access_points: [Hearth::Config::EnvProvider.new('AWS_S3_DISABLE_MULTIREGION_ACCESS_POINTS', type: 'Boolean'), AWS::SDK::Core::SharedConfigProvider.new('s3_disable_multiregion_access_points', type: 'Boolean'), false],
+        endpoint: [proc { |cfg| ('http://localhost' if cfg[:stub_responses]) }],
         endpoint_resolver: [Endpoint::Resolver.new],
         force_path_style: [false],
         http_client: [proc { |cfg| Hearth::HTTP::Client.new(logger: cfg[:logger]) }],
         interceptors: [Hearth::InterceptorList.new],
         logger: [Logger.new(IO::NULL)],
         plugins: [Hearth::PluginList.new],
-        profile: [Hearth::Config::EnvProvider.new('AWS_PROFILE', type: 'String'),'default'],
-        region: [proc { |cfg| cfg[:stub_responses] ?  'us-stubbed-1' : nil },Hearth::Config::EnvProvider.new('AWS_REGION', type: 'String'),AWS::SDK::Core::SharedConfigProvider.new('region', type: 'String')],
+        profile: [Hearth::Config::EnvProvider.new('AWS_PROFILE', type: 'String'), 'default'],
+        region: [proc { |cfg| ('us-stubbed-1' if cfg[:stub_responses]) }, Hearth::Config::EnvProvider.new('AWS_REGION', type: 'String'), AWS::SDK::Core::SharedConfigProvider.new('region', type: 'String')],
         retry_strategy: [Hearth::Retry::Standard.new],
+        secret_access_key: [proc { |cfg| ('stubbed-secret' if cfg[:stub_responses]) }],
+        session_token: [proc { |cfg| ('stubbed-token' if cfg[:stub_responses]) }],
         stub_responses: [false],
         stubs: [Hearth::Stubs.new],
         telemetry_provider: [Hearth::Telemetry::NoOpTelemetryProvider.new],
         use_accelerate_endpoint: [false],
-        use_arn_region: [Hearth::Config::EnvProvider.new('AWS_S3_USE_ARN_REGION', type: 'Boolean'),AWS::SDK::Core::SharedConfigProvider.new('s3_use_arn_region', type: 'Boolean'),true],
-        use_dualstack_endpoint: [Hearth::Config::EnvProvider.new('AWS_USE_DUALSTACK_ENDPOINT', type: 'Boolean'),AWS::SDK::Core::SharedConfigProvider.new('use_dualstack_endpoint', type: 'Boolean')],
-        use_fips_endpoint: [Hearth::Config::EnvProvider.new('AWS_USE_FIPS_ENDPOINT', type: 'Boolean'),AWS::SDK::Core::SharedConfigProvider.new('use_fips_endpoint', type: 'Boolean')],
+        use_arn_region: [Hearth::Config::EnvProvider.new('AWS_S3_USE_ARN_REGION', type: 'Boolean'), AWS::SDK::Core::SharedConfigProvider.new('s3_use_arn_region', type: 'Boolean'), true],
+        use_dualstack_endpoint: [Hearth::Config::EnvProvider.new('AWS_USE_DUALSTACK_ENDPOINT', type: 'Boolean'), AWS::SDK::Core::SharedConfigProvider.new('use_dualstack_endpoint', type: 'Boolean'), false],
+        use_fips_endpoint: [Hearth::Config::EnvProvider.new('AWS_USE_FIPS_ENDPOINT', type: 'Boolean'), AWS::SDK::Core::SharedConfigProvider.new('use_fips_endpoint', type: 'Boolean'), false],
         validate_input: [true]
       }.freeze
     end

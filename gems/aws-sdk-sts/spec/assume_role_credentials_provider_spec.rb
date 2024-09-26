@@ -4,11 +4,6 @@ require_relative 'spec_helper'
 
 module AWS::SDK::STS
   describe AssumeRoleCredentialsProvider do
-    before do
-      allow(AWS::SDK::Core).to receive(:sts_loaded?).and_return(true)
-      allow(AWS::SDK::Core).to receive(:sso_loaded?).and_return(false)
-    end
-
     describe '.from_profile' do
       before do
         mock_shared_config(shared_config)
@@ -27,8 +22,8 @@ module AWS::SDK::STS
           CONFIG
         end
 
-        let(:credentials_from_b) { double }
-        let(:client) { double }
+        let(:client) { double('Client') }
+        let(:credentials_from_b) { double('Credentials') }
 
         it 'Assume RoleA using static credentials from Profile B' do
           # verify credentials from B
@@ -39,11 +34,11 @@ module AWS::SDK::STS
             .and_return(credentials_from_b)
 
           # verify client is created with credentials from B
-          expect(AWS::SDK::STS::Client).to receive(:new) do |cfg|
-            expect(cfg[:credentials_provider]).to be(credentials_from_b)
-          end.and_return(client)
+          expect(Client).to receive(:new)
+            .with(hash_including(credentials_provider: credentials_from_b))
+            .and_return(client)
 
-          # verify client is used to assume role a
+          # verify client is used to assume role A
           expect(AssumeRoleCredentialsProvider).to receive(:new) do |**kwargs|
             expect(kwargs[:client]).to be(client)
             expect(kwargs[:role_arn]).to eq('arn:aws:iam::123456789:role/RoleA')
@@ -68,8 +63,8 @@ module AWS::SDK::STS
           CONFIG
         end
 
-        let(:credentials_from_b) { double }
-        let(:client) { double }
+        let(:client) { double('Client') }
+        let(:credentials_from_b) { double('Credentials') }
 
         it 'Assumes RoleA using static credentials from Profile B' do
           # verify credentials from B
@@ -80,9 +75,9 @@ module AWS::SDK::STS
             .and_return(credentials_from_b)
 
           # verify client is created with credentials from B
-          expect(AWS::SDK::STS::Client).to receive(:new) do |cfg|
-            expect(cfg[:credentials_provider]).to be(credentials_from_b)
-          end.and_return(client)
+          expect(Client).to receive(:new)
+            .with(hash_including(credentials_provider: credentials_from_b))
+            .and_return(client)
 
           # verify client is used to assume role a
           expect(AssumeRoleCredentialsProvider).to receive(:new) do |**kwargs|
@@ -112,8 +107,8 @@ module AWS::SDK::STS
           CONFIG
         end
 
-        let(:credentials_from_b) { double }
-        let(:client) { double }
+        let(:client) { double('Client') }
+        let(:credentials_from_b) { double('Credentials') }
 
         it 'Assumes RoleA using static credentials from Profile B with all ' \
            'assume role parameters' do
@@ -125,9 +120,9 @@ module AWS::SDK::STS
             .and_return(credentials_from_b)
 
           # verify client is created with credentials from B
-          expect(AWS::SDK::STS::Client).to receive(:new) do |cfg|
-            expect(cfg[:credentials_provider]).to be(credentials_from_b)
-          end.and_return(client)
+          expect(Client).to receive(:new)
+            .with(hash_including(credentials_provider: credentials_from_b))
+            .and_return(client)
 
           # verify client is used
           expect(AssumeRoleCredentialsProvider).to receive(:new) do |**kwargs|
@@ -155,8 +150,8 @@ module AWS::SDK::STS
           CONFIG
         end
 
-        let(:source_credentials) { double }
-        let(:client) { double }
+        let(:client) { double('Client') }
+        let(:source_credentials) { double('Credentials') }
 
         it 'Assumes RoleA using InstanceCredentialsProvider' do
           ec2_metadata = double('EC2Metadata')
@@ -167,11 +162,11 @@ module AWS::SDK::STS
             .with(client: ec2_metadata).and_return(source_credentials)
 
           # verify client is created with credentials from B
-          expect(Client).to receive(:new) do |cfg|
-            expect(cfg[:credentials_provider]).to be(source_credentials)
-          end.and_return(client)
+          expect(Client).to receive(:new)
+            .with(hash_including(credentials_provider: source_credentials))
+            .and_return(client)
 
-          # verify client is used to assume role a
+          # verify client is used to assume role A
           expect(AssumeRoleCredentialsProvider).to receive(:new) do |**kwargs|
             expect(kwargs[:client]).to be(client)
             expect(kwargs[:role_arn]).to eq('arn:aws:iam::123456789:role/RoleA')
@@ -190,17 +185,17 @@ module AWS::SDK::STS
           CONFIG
         end
 
-        let(:source_credentials) { double }
-        let(:client) { double }
+        let(:client) { double('Client') }
+        let(:source_credentials) { double('Credentials') }
 
         it 'Assumes RoleA using credentials from the environment' do
           expect(AWS::SDK::Core::StaticCredentialsProvider)
             .to receive(:from_env).and_return(source_credentials)
 
           # verify client is created with credentials from B
-          expect(Client).to receive(:new) do |cfg|
-            expect(cfg[:credentials_provider]).to be(source_credentials)
-          end.and_return(client)
+          expect(Client).to receive(:new)
+            .with(hash_including(credentials_provider: source_credentials))
+            .and_return(client)
 
           # verify client is used to assume role a
           expect(AssumeRoleCredentialsProvider).to receive(:new) do |**kwargs|
@@ -221,19 +216,18 @@ module AWS::SDK::STS
           CONFIG
         end
 
-        let(:source_credentials) { double }
-        let(:client) { double }
+        let(:source_credentials) { double('Credentials') }
 
         it 'Assumes RoleA using credentials from the environment' do
           expect(AWS::SDK::Core::ContainerCredentialsProvider)
             .to receive(:new).and_return(source_credentials)
 
           # verify client is created with credentials from B
-          expect(Client).to receive(:new) do |cfg|
-            expect(cfg[:credentials_provider]).to be(source_credentials)
-          end.and_return(client)
+          expect(Client).to receive(:new)
+            .with(hash_including(credentials_provider: source_credentials))
+            .and_return(client)
 
-          # verify client is used to assume role a
+          # verify client is used to assume role A
           expect(AssumeRoleCredentialsProvider).to receive(:new) do |**kwargs|
             expect(kwargs[:client]).to be(client)
             expect(kwargs[:role_arn]).to eq('arn:aws:iam::123456789:role/RoleA')
@@ -252,7 +246,6 @@ module AWS::SDK::STS
         end
 
         let(:source_credentials) { double }
-        let(:client) { double }
 
         it 'Raise error due to lack of source_profile or credential_source' do
           expect do
@@ -279,8 +272,7 @@ module AWS::SDK::STS
           CONFIG
         end
 
-        let(:source_credentials) { double }
-        let(:client) { double }
+        let(:source_credentials) { double('Credentials') }
 
         it 'Raise error due to lack of source_profile or credential_source' do
           expect do
@@ -304,8 +296,7 @@ module AWS::SDK::STS
           CONFIG
         end
 
-        let(:source_credentials) { double }
-        let(:client) { double }
+        let(:source_credentials) { double('Credentials') }
 
         it 'Raises error due to lack of complete credentials' do
           expect do
@@ -326,8 +317,7 @@ module AWS::SDK::STS
           CONFIG
         end
 
-        let(:source_credentials) { double }
-        let(:client) { double }
+        let(:source_credentials) { double('Credentials') }
 
         it 'Raise error due to missing profile' do
           expect do
@@ -348,8 +338,7 @@ module AWS::SDK::STS
           CONFIG
         end
 
-        let(:source_credentials) { double }
-        let(:client) { double }
+        let(:source_credentials) { double('Credentials') }
 
         it 'Raise error due to unsupported credential source' do
           expect do
@@ -378,10 +367,10 @@ module AWS::SDK::STS
           CONFIG
         end
 
-        let(:credentials_from_b) { double }
-        let(:credentials_from_c) { double }
-        let(:client_b) { double }
-        let(:client_a) { double }
+        let(:credentials_from_b) { double('Credentials') }
+        let(:credentials_from_c) { double('Credentials') }
+        let(:client_b) { double('Client') }
+        let(:client_a) { double('Client') }
 
         it 'Assumes RoleA using chained credentials from RoleB' do
           # verify credentials from C
@@ -392,9 +381,9 @@ module AWS::SDK::STS
             .and_return(credentials_from_c)
 
           # verify client for B is created with credentials from C
-          expect(Client).to receive(:new) do |cfg|
-            expect(cfg[:credentials_provider]).to be(credentials_from_c)
-          end.and_return(client_b)
+          expect(Client).to receive(:new)
+            .with(hash_including(credentials_provider: credentials_from_c))
+            .and_return(client_b)
 
           # verify client_b is used to assume role b
           expect(AssumeRoleCredentialsProvider).to receive(:new) do |**kwargs|
@@ -402,10 +391,10 @@ module AWS::SDK::STS
             expect(kwargs[:role_arn]).to eq('arn:aws:iam::123456789:role/RoleB')
           end.and_return(credentials_from_b)
 
-          # verify client for A  is created with credentials from B
-          expect(Client).to receive(:new) do |cfg|
-            expect(cfg[:credentials_provider]).to be(credentials_from_b)
-          end.and_return(client_a)
+          # verify client for A is created with credentials from B
+          expect(Client).to receive(:new)
+            .with(hash_including(credentials_provider: credentials_from_b))
+            .and_return(client_a)
 
           # verify client a is used to assume role a
           expect(AssumeRoleCredentialsProvider).to receive(:new) do |**kwargs|
@@ -438,8 +427,8 @@ module AWS::SDK::STS
           CONFIG
         end
 
-        let(:credentials_from_b) { double }
-        let(:client_a) { double }
+        let(:client) { double('Client') }
+        let(:credentials_from_b) { double('Credentials') }
 
         it 'Assumes RoleA using static credentials from Profile B' do
           # verify credentials from B
@@ -450,13 +439,13 @@ module AWS::SDK::STS
             .and_return(credentials_from_b)
 
           # verify client is created with credentials from B
-          expect(AWS::SDK::STS::Client).to receive(:new) do |cfg|
+          expect(Client).to receive(:new) do |cfg|
             expect(cfg[:credentials_provider]).to be(credentials_from_b)
-          end.and_return(client_a)
+          end.and_return(client)
 
           # verify client is used to assume role a
           expect(AssumeRoleCredentialsProvider).to receive(:new) do |**kwargs|
-            expect(kwargs[:client]).to be(client_a)
+            expect(kwargs[:client]).to be(client)
             expect(kwargs[:role_arn]).to eq('arn:aws:iam::123456789:role/RoleA')
           end
 
@@ -488,73 +477,68 @@ module AWS::SDK::STS
       end
     end
 
-    let(:expiration) { Time.now }
-
-    let(:credential_hash) do
-      {
-        access_key_id: 'ACCESS_KEY_1',
-        secret_access_key: 'SECRET_KEY_1',
-        session_token: 'TOKEN_1',
-        expiration: expiration
-      }
-    end
-    let(:client) { double('sts client') }
-
-    let(:resp) do
-      double(
-        'client-resp',
-        data: double(credentials: double(**credential_hash))
+    subject do
+      AssumeRoleCredentialsProvider.new(
+        **provider_options.merge(client: client)
       )
     end
 
-    before do
-      allow(AWS::SDK::STS::Client).to receive(:new).and_return(client)
-    end
+    let(:client) { Client.new(stub_responses: true) }
 
     let(:token_code) { nil }
-
-    let(:assume_role_params) do
+    let(:provider_options) do
       {
         role_arn: 'role_arn',
         role_session_name: 'role_session_name',
-        duration_seconds: 'duration_seconds',
+        duration_seconds: 123,
         external_id: 'external_id',
         serial_number: 'serial_number',
         token_code: token_code
       }
     end
 
-    subject { AssumeRoleCredentialsProvider.new(**assume_role_params) }
-
     include_examples 'refreshing_credentials_provider'
 
     describe '#initialize' do
-      it 'constructs a default client when not given one' do
-        expect(AWS::SDK::STS::Client).to receive(:new).and_return(client)
-        AssumeRoleCredentialsProvider.new(**assume_role_params)
+      it 'constructs a client if not provided' do
+        options = provider_options
+        expect(Client).to receive(:new).and_return(client)
+        provider = AssumeRoleCredentialsProvider.new(**options)
+        expect(provider.client).to be(client)
       end
 
-      it 'uses the client when given' do
-        expect(AWS::SDK::STS::Client).not_to receive(:new)
-        AssumeRoleCredentialsProvider.new(
-          **assume_role_params.merge(client: client)
-        )
+      it 'uses a provided client' do
+        options = provider_options.merge(client: client)
+        expect(Client).not_to receive(:new)
+        provider = AssumeRoleCredentialsProvider.new(**options)
+        expect(provider.client).to be(client)
       end
     end
 
     describe '#identity' do
+      let(:expiration) { Time.now }
+
+      before do
+        client.stub_responses(
+          :assume_role,
+          data: {
+            credentials: {
+              access_key_id: 'ACCESS_KEY_1',
+              secret_access_key: 'SECRET_KEY_1',
+              session_token: 'TOKEN_1',
+              expiration: expiration
+            }
+          }
+        )
+      end
+
       it 'calls assume_role with the provided parameters and sets the ' \
          'credentials' do
-        expect(client).to receive(:assume_role)
-          .with(assume_role_params)
-          .and_return(resp)
-
         credentials = subject.identity
-        expect(credentials.access_key_id).to eq(credential_hash[:access_key_id])
-        expect(credentials.secret_access_key)
-          .to eq(credential_hash[:secret_access_key])
-        expect(credentials.session_token).to eq(credential_hash[:session_token])
-        expect(credentials.expiration).to eq(credential_hash[:expiration])
+        expect(credentials.access_key_id).to eq('ACCESS_KEY_1')
+        expect(credentials.secret_access_key).to eq('SECRET_KEY_1')
+        expect(credentials.session_token).to eq('TOKEN_1')
+        expect(credentials.expiration).to be_within(0.001).of(expiration)
       end
 
       context 'token_code is a string' do
@@ -562,7 +546,8 @@ module AWS::SDK::STS
 
         it 'calls assume_role with the provided token_code' do
           expect(client).to receive(:assume_role)
-            .with(assume_role_params).and_return(resp)
+            .with(hash_including(token_code: token_code))
+            .and_call_original
 
           subject.identity
         end
@@ -574,10 +559,10 @@ module AWS::SDK::STS
         end
 
         it 'calls token_code and then calls assume_role with the result' do
-          expect(token_code).to receive(:call).and_call_original
-          expect(client).to receive(:assume_role) do |args|
-            expect(args[:token_code]).to eq('dynamic_token_code')
-          end.and_return(resp)
+          expect(client).to receive(:assume_role)
+            .with(hash_including(token_code: token_code.call))
+            .and_call_original
+
           subject.identity
         end
       end

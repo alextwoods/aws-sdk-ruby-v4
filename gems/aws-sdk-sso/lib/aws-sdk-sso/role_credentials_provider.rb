@@ -100,7 +100,7 @@ module AWS::SDK::SSO
         access_key_id: c.access_key_id,
         secret_access_key: c.secret_access_key,
         session_token: c.session_token,
-        expiration: c.expiration
+        expiration: Time.at(c.expiration / 1000.0)
       )
     end
   end

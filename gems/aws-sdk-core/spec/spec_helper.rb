@@ -62,13 +62,12 @@ def mock_shared_config(config_contents = '', credentials_contents = '')
     credentials_profiles: credentials_profiles,
     sso_sessions: sso_sessions
   )
-  allow(AWS::SDK::Core::SharedConfig).to receive(:load).and_return(config)
+  allow(AWS::SDK::Core).to receive(:shared_config).and_return(config)
 end
 
 RSpec.configure do |config|
   config.before(:each) do
     # Default all shared config to be empty
-    AWS::SDK::Core.instance_variable_set(:@shared_config, nil)
     mock_shared_config
   end
 end

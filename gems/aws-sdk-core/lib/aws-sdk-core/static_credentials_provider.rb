@@ -10,6 +10,17 @@ module AWS::SDK::Core
   #     )
   #     ec2 = AWS::SDK::EC2::Client.new(credentials_provider: provider)
   class StaticCredentialsProvider < Hearth::IdentityProvider
+    # Initializes an instance of StaticCredentialsProvider using code options.
+    def self.from_code(config)
+      return unless config[:access_key_id] && config[:secret_access_key]
+
+      new(
+        access_key_id: config[:access_key_id],
+        secret_access_key: config[:secret_access_key],
+        session_token: config[:session_token]
+      )
+    end
+
     # Initializes an instance of StaticCredentialsProvider using ENV.
     def self.from_env(_config)
       return unless ENV['AWS_ACCESS_KEY_ID'] && ENV['AWS_SECRET_ACCESS_KEY']

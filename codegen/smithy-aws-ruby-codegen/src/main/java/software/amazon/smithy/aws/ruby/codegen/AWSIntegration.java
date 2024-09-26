@@ -26,7 +26,6 @@ import software.amazon.smithy.aws.ruby.codegen.protocol.restxml.RestXml;
 import software.amazon.smithy.aws.traits.auth.SigV4Trait;
 import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
-import software.amazon.smithy.ruby.codegen.Hearth;
 import software.amazon.smithy.ruby.codegen.ProtocolGenerator;
 import software.amazon.smithy.ruby.codegen.RubyDependency;
 import software.amazon.smithy.ruby.codegen.RubyIntegration;
@@ -34,7 +33,6 @@ import software.amazon.smithy.ruby.codegen.RubyRuntimePlugin;
 import software.amazon.smithy.ruby.codegen.auth.AuthParam;
 import software.amazon.smithy.ruby.codegen.auth.AuthScheme;
 import software.amazon.smithy.ruby.codegen.config.ClientConfig;
-import software.amazon.smithy.ruby.codegen.config.ConfigProviderChain;
 import software.amazon.smithy.utils.ListUtils;
 
 @SuppressWarnings("checkstyle:AbbreviationAsWordInName")
@@ -81,50 +79,6 @@ public class AWSIntegration implements RubyIntegration {
     }
 
     private AuthScheme sigv4AuthScheme() {
-        String credentialProviderDocumentation = """
-                A credentials provider is a class that fetches your AWS credentials and responds to the `#identity` 
-                method. This can be an instance of any one of the following classes:
-                        
-                * `AWS::SDK::Core::StaticCredentialsProvider` - Used for fetching static, non-refreshing
-                  credentials.
-
-                * `AWS::SDK::Core::ProcessCredentialsProvider` - Used for loading credentials from a
-                  process that outputs JSON to stdout.
-
-                * `AWS::SDK::STS::AssumeRoleCredentialsProvider` - Used when you need to assume a role.
-                        
-                * `AWS::SDK::STS::AssumeRoleWebIdentityCredentialsProvider` - Used when you need to
-                  assume a role after providing credentials via the web using a token.
-                        
-                * `AWS::SDK::SSO::RoleCredentialsProvider` - Used for loading credentials from AWS SSO
-                  using an access token generated from `aws login`.
-                        
-                * `AWS::SDK::Core::InstanceCredentialsProvider` - Used for loading credentials from the instance
-                  metadata service (IMDS) on an EC2 instance.
-                        
-                * `AWS::SDK::Core::ContainerCredentialsProvider - Used for loading credentials from instances
-                  running in ECS.
-                        
-                When `:credentials_provider` is not configured directly, the following
-                locations will be searched for credentials:
-                        
-                * ENV['AWS_ACCESS_KEY_ID'], ENV['AWS_SECRET_ACCESS_KEY'], and other
-                  ENV variables that influence credentials.
-                * `~/.aws/credentials` and `~/.aws/config`
-                * EC2/ECS instance profiles.
-                  
-                @see AWS::SDK::Core::CredentialsProviderChain
-                """;
-
-        ClientConfig identityProviderConfig = ClientConfig.builder()
-                .name("credentials_provider")
-                .documentationRbsAndValidationType(Hearth.IDENTITY_PROVIDER.toString())
-                .documentation(credentialProviderDocumentation)
-                .defaults(ConfigProviderChain.builder()
-                        .staticProvider("AWS::SDK::Core::CredentialsProviderChain.new")
-                        .build())
-                .build();
-
         Symbol awsCredentialsIdentity = Symbol.builder()
                 .namespace("AWS::SDK::Core::Identities", "::")
                 .name("Credentials").build();
@@ -133,7 +87,7 @@ public class AWSIntegration implements RubyIntegration {
                 .shapeId(SigV4Trait.ID)
                 .rubyAuthScheme("AWS::SDK::Core::AuthSchemes::SigV4.new")
                 .rubyIdentityType(awsCredentialsIdentity.toString())
-                .identityProviderConfig(identityProviderConfig)
+                .identityProviderConfig(AWSConfig.CREDENTIALS_PROVIDER)
                 .extractSignerProperties((trait -> {
                     SigV4Trait sigv4 = (SigV4Trait) trait;
                     return Map.of(
@@ -141,6 +95,10 @@ public class AWSIntegration implements RubyIntegration {
                             "region", "params.region"
                     );
                 }))
+                .additionalConfig(AWSConfig.ACCESS_KEY_ID)
+                .additionalConfig(AWSConfig.SECRET_ACCESS_KEY)
+                .additionalConfig(AWSConfig.SESSION_TOKEN)
+                //.additionalConfig(AWSConfig.CREDENTIALS_PROVIDER_CHAIN)
                 .additionalConfig(AWSConfig.REGION)
                 .additionalAuthParam(AuthParam.builder()
                         .name("region")

@@ -4,10 +4,6 @@ require_relative 'spec_helper'
 
 module AWS::SDK::STS
   describe AssumeRoleWebIdentityCredentialsProvider do
-    before do
-      allow(AWS::SDK::Core).to receive(:sts_loaded?).and_return(true)
-    end
-
     describe '.from_profile' do
       before do
         mock_shared_config(shared_config)
@@ -32,7 +28,7 @@ module AWS::SDK::STS
         end
 
         it 'forwards profile to the STS client' do
-          expect(AWS::SDK::STS::Client).to receive(:new)
+          expect(Client).to receive(:new)
             .with(
               profile: 'assume_role_web_identity_credentials',
               credentials_provider: nil
@@ -82,44 +78,20 @@ module AWS::SDK::STS
       end
     end
 
+    subject do
+       AssumeRoleWebIdentityCredentialsProvider.new(
+         **provider_options.merge(client: client)
+       )
+     end
+
+    let(:client) { Client.new(stub_responses: true) }
+
     let(:web_identity_token_file) { 'my-token.jwt' }
     let(:provider_options) do
       {
         web_identity_token_file: web_identity_token_file,
         role_arn: 'arn:aws:iam::123456789012:role/foo',
         role_session_name: 'my-session'
-      }
-    end
-
-    subject do
-      AssumeRoleWebIdentityCredentialsProvider.new(
-        **provider_options.merge(client: client)
-      )
-    end
-
-    let(:config) { double('AWS::SDK::STS::Config') }
-    let(:client) do
-      double(
-        'AWS::SDK::STS::Client',
-        assume_role_with_web_identity: assume_role_with_web_identity_resp
-      )
-    end
-    let(:assume_role_with_web_identity_resp) do
-      double(
-        'Hearth::Output',
-        data: double(
-          'AWS::SDK::SSO::Types::AssumeRoleWithWebIdentityResponse',
-          credentials: double(**credentials_hash)
-        )
-      )
-    end
-    let(:expiration) { Time.now }
-    let(:credentials_hash) do
-      {
-        access_key_id: 'ACCESS_KEY_1',
-        secret_access_key: 'SECRET_KEY_1',
-        session_token: 'TOKEN_1',
-        expiration: expiration
       }
     end
 
@@ -132,34 +104,45 @@ module AWS::SDK::STS
     include_examples 'refreshing_credentials_provider'
 
     describe '#initialize' do
-      it 'constructs an client if not provided' do
-        expect(AWS::SDK::STS::Client).to receive(:new)
-          .and_return(client)
-
-        provider = AssumeRoleWebIdentityCredentialsProvider.new(
-          **provider_options
-        )
+      it 'constructs a client if not provided' do
+        options = provider_options
+        expect(Client).to receive(:new).and_return(client)
+        provider = AssumeRoleWebIdentityCredentialsProvider.new(**options)
         expect(provider.client).to be(client)
       end
 
       it 'uses a provided client' do
-        expect(AWS::SDK::SSO::Client).not_to receive(:new)
-
-        provider = AssumeRoleWebIdentityCredentialsProvider.new(
-          **provider_options.merge(client: client)
-        )
+        options = provider_options.merge(client: client)
+        expect(Client).not_to receive(:new)
+        provider = AssumeRoleWebIdentityCredentialsProvider.new(**options)
         expect(provider.client).to be(client)
       end
     end
 
     describe '#identity' do
+      let(:expiration) { Time.now }
+
+      before do
+        client.stub_responses(
+          :assume_role_with_web_identity,
+          data: {
+            credentials: {
+              access_key_id: 'ACCESS_KEY_1',
+              secret_access_key: 'SECRET_KEY_1',
+              session_token: 'TOKEN_1',
+              expiration: expiration
+            }
+          }
+        )
+      end
+
       it 'will read valid credentials from assume_role_with_web_identity' do
         mock_token_file(web_identity_token_file)
         creds = subject.identity
         expect(creds.access_key_id).to eq('ACCESS_KEY_1')
         expect(creds.secret_access_key).to eq('SECRET_KEY_1')
         expect(creds.session_token).to eq('TOKEN_1')
-        expect(creds.expiration).to eq(expiration)
+        expect(creds.expiration).to be_within(0.001).of(expiration)
       end
 
       it 'raises a MissingWebIdentityTokenFile when token file is missing' do

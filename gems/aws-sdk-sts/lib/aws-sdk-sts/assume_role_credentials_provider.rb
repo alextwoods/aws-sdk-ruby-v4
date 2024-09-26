@@ -79,6 +79,9 @@ module AWS::SDK::STS
       super()
     end
 
+    # @return [Client]
+    attr_reader :client
+
     private
 
     def refresh(_properties = {})

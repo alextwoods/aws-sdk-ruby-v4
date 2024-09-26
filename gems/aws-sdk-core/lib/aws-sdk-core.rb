@@ -55,6 +55,7 @@ require_relative 'aws-sdk-core/signers/sigv4'
 
 # Identity Providers
 require_relative 'aws-sdk-core/credentials_provider_chain'
+require_relative 'aws-sdk-core/http_bearer_provider_chain'
 require_relative 'aws-sdk-core/instance_credentials_provider'
 require_relative 'aws-sdk-core/container_credentials_provider'
 require_relative 'aws-sdk-core/process_credentials_provider'

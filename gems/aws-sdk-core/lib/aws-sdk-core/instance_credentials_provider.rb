@@ -22,16 +22,24 @@ module AWS::SDK::Core
     # Initializes an instance of InstanceCredentialsProvider using ENV and
     # profile values.
     def self.from_env(config)
+      return if ENV['AWS_EC2_METADATA_DISABLED']
       profile = config[:profile]
       profile_config = AWS::SDK::Core.shared_config.profiles[profile]
-      return if ENV['AWS_EC2_METADATA_DISABLED']
 
       endpoint = ENV['AWS_EC2_METADATA_SERVICE_ENDPOINT'] ||
-                 profile_config['ec2_metadata_service_endpoint']
+                 (profile_config &&
+                   profile_config['ec2_metadata_service_endpoint'])
       endpoint_mode = ENV['AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE'] ||
-                      profile_config['ec2_metadata_service_endpoint_mode']
+                 (profile_config &&
+                   profile_config['ec2_metadata_service_endpoint_mode'])
       client = EC2Metadata.new(endpoint: endpoint, endpoint_mode: endpoint_mode)
+      # temporary - possible fix
+      return if client.get(METADATA_PATH_BASE).empty?
+
       new(client: client)
+    rescue StandardError
+      puts "no networking"
+      nil
     end
 
     # @param [EC2Metadata] client
@@ -69,7 +77,7 @@ module AWS::SDK::Core
       expiration = if new_creds['Expiration']
                      Time.iso8601(new_creds['Expiration'])
                    end
-      @identity = AWS::SDK::Core::Identities::Credentials.new(
+      @identity = Identities::Credentials.new(
         access_key_id: new_creds['AccessKeyId'],
         secret_access_key: new_creds['SecretAccessKey'],
         session_token: new_creds['Token'],

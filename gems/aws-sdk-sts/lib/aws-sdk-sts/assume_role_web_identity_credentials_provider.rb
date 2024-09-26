@@ -75,7 +75,7 @@ module AWS::SDK::STS
       super()
     end
 
-    # @return [AWS::SDK::STS::Client]
+    # @return [Client]
     attr_reader :client
 
     private

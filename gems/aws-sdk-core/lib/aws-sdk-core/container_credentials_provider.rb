@@ -16,6 +16,7 @@ module AWS::SDK::Core
 
     # Initializes an instance of ContainerCredentialsProvider using ENV.
     def self.from_env(_config)
+      # TODO: add FULL_URI support
       return unless ENV['AWS_CONTAINER_CREDENTIALS_RELATIVE_URI']
 
       new(credential_path: ENV['AWS_CONTAINER_CREDENTIALS_RELATIVE_URI'])
@@ -58,7 +59,7 @@ module AWS::SDK::Core
         open_connection do |conn|
           c = JSON.parse(http_get(conn))
           expiration = Time.iso8601(c['Expiration']) if c['Expiration']
-          @identity = AWS::SDK::Core::Identities::Credentials.new(
+          @identity = Identities::Credentials.new(
             access_key_id: c['AccessKeyId'],
             secret_access_key: c['SecretAccessKey'],
             session_token: c['Token'],

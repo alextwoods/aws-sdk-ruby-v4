@@ -20,9 +20,8 @@ module AWS::SDK::SSO
           CONFIG
         end
 
-        let(:logger) { double }
-
         it 'returns nil and logs a warning' do
+          logger = double('Logger')
           cfg = { profile: 'legacy_sso_profile', logger: logger }
           expect(logger).to receive(:warn)
           provider = RoleCredentialsProvider.from_profile(cfg)
@@ -67,23 +66,16 @@ module AWS::SDK::SSO
       end
     end
 
-    let(:in_one_hour) { Time.now + (60 * 60) }
-    let(:one_hour_ago) { Time.now - (60 * 60) }
-    let(:expiration) { in_one_hour }
-    let(:token_expiration) { in_one_hour }
-
-    let(:access_token) { 'token' }
-    let(:token) do
-      Hearth::Identities::HTTPBearer.new(
-        token: access_token, expiration: token_expiration
-      )
+    subject do
+      RoleCredentialsProvider.new(**provider_options.merge(client: client))
     end
+
+    let(:client) { Client.new(stub_responses: true) }
 
     let(:sso_role_name) { 'role' }
     let(:sso_region) { 'us-west-2' }
     let(:sso_account_id) { '12345' }
     let(:sso_session) { 'sso-session' }
-
     let(:provider_options) do
       {
         sso_session: sso_session,
@@ -93,73 +85,57 @@ module AWS::SDK::SSO
       }
     end
 
-    let(:client) do
-      double(
-        'AWS::SDK::SSO::Client',
-        get_role_credentials: get_role_credentials_resp
-      )
-    end
-
-    let(:token_provider) do
-      double('AWS::SDK::SSOOIDC::TokenProvider', identity: token)
-    end
+    let(:token) { Hearth::Identities::HTTPBearer.new(token: 'token') }
 
     before do
+      token_provider = double('TokenProvider', identity: token)
       stub_const('AWS::SDK::SSOOIDC::TokenProvider', Class.new)
       allow(AWS::SDK::SSOOIDC::TokenProvider)
         .to receive(:new).and_return(token_provider)
     end
 
-    subject do
-      RoleCredentialsProvider.new(**provider_options.merge(client: client))
-    end
-
-    let(:get_role_credentials_resp) do
-      double(
-        'Hearth::Output',
-        data: double(
-          'AWS::SDK::SSO::Types::GetRoleCredentialsOutput',
-          role_credentials: double(**credential_hash)
-        )
-      )
-    end
-    let(:credential_hash) do
-      {
-        access_key_id: 'ACCESS_KEY_1',
-        secret_access_key: 'SECRET_KEY_1',
-        session_token: 'TOKEN_1',
-        expiration: expiration
-      }
-    end
-
     include_examples 'refreshing_credentials_provider'
 
     describe '#initialize' do
-      it 'constructs an client with sso_region if not provided' do
-        expect(AWS::SDK::SSO::Client).to receive(:new)
+      it 'constructs a client if not provided' do
+        options = provider_options
+        expect(Client).to receive(:new)
           .with(region: sso_region).and_return(client)
-
-        provider = RoleCredentialsProvider.new(**provider_options)
+        provider = RoleCredentialsProvider.new(**options)
         expect(provider.client).to be(client)
       end
 
       it 'uses a provided client' do
-        expect(AWS::SDK::SSO::Client).not_to receive(:new)
-
-        provider = RoleCredentialsProvider.new(
-          **provider_options.merge(client: client)
-        )
+        options = provider_options.merge(client: client)
+        expect(Client).not_to receive(:new)
+        provider = RoleCredentialsProvider.new(**options)
         expect(provider.client).to be(client)
       end
     end
 
     describe '#identity' do
+      let(:expiration) { Time.now.round }
+
+      before do
+        client.stub_responses(
+          :get_role_credentials,
+          data: {
+            role_credentials: {
+              access_key_id: 'ACCESS_KEY_1',
+              secret_access_key: 'SECRET_KEY_1',
+              session_token: 'TOKEN_1',
+              expiration: expiration.to_i * 1000
+            }
+          }
+        )
+      end
+
       it 'will read valid credentials from get_role_credentials' do
         creds = subject.identity
         expect(creds.access_key_id).to eq('ACCESS_KEY_1')
         expect(creds.secret_access_key).to eq('SECRET_KEY_1')
         expect(creds.session_token).to eq('TOKEN_1')
-        expect(creds.expiration).to eq(expiration)
+        expect(creds.expiration).to be_within(0.001).of(expiration)
       end
     end
   end

@@ -4,6 +4,32 @@ require_relative '../spec_helper'
 
 module AWS::SDK::Core
   describe StaticCredentialsProvider do
+    describe '.from_code' do
+      context 'code has credentials' do
+        it 'returns an instance of StaticCredentialsProvider' do
+          cfg = {
+            access_key_id: 'ACCESS_KEY_1',
+            secret_access_key: 'SECRET_KEY_1',
+            session_token: 'TOKEN_1'
+          }
+          provider = StaticCredentialsProvider.from_code(cfg)
+          expect(provider).to be_an_instance_of(StaticCredentialsProvider)
+          credentials = provider.identity
+          expect(credentials.access_key_id).to eq('ACCESS_KEY_1')
+          expect(credentials.secret_access_key).to eq('SECRET_KEY_1')
+          expect(credentials.session_token).to eq('TOKEN_1')
+        end
+      end
+
+      context 'code does not have credentials' do
+        it 'returns nil' do
+          cfg = {}
+          provider = StaticCredentialsProvider.from_code(cfg)
+          expect(provider).to be_nil
+        end
+      end
+    end
+
     describe '.from_profile' do
       before do
         mock_shared_config(shared_config)
@@ -23,6 +49,10 @@ module AWS::SDK::Core
           cfg = { profile: 'static_credentials' }
           provider = StaticCredentialsProvider.from_profile(cfg)
           expect(provider).to be_an_instance_of(StaticCredentialsProvider)
+          credentials = provider.identity
+          expect(credentials.access_key_id).to eq('ACCESS_KEY_1')
+          expect(credentials.secret_access_key).to eq('SECRET_KEY_1')
+          expect(credentials.session_token).to eq('TOKEN_1')
         end
       end
 
@@ -42,7 +72,7 @@ module AWS::SDK::Core
       end
     end
 
-    describe 'StaticCredentialProvider.from_env' do
+    describe '.from_env' do
       context 'environment has credentials' do
         let_env(
           'AWS_ACCESS_KEY_ID' => 'ACCESS_KEY_1',

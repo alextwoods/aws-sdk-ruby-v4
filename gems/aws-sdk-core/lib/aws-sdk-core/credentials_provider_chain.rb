@@ -1,21 +1,24 @@
 # frozen_string_literal: true
 
 module AWS::SDK::Core
-  class CredentialsProviderChain
-    def call(config)
+  # @api private
+  module CredentialsProviderChain
+    def self.call(config)
       providers.each do |method_name|
         provider = send(method_name, config)
-        return provider if provider
+        if provider
+          puts "returning #{method_name}"
+          return provider
+        end
       end
       nil
     end
 
     private
 
-    def providers
+    def self.providers
       [
-        :stubbed_credentials,
-        # in-code credentials are resolved by Config
+        :code_static_credentials,
         :env_static_credentials,
         :env_assume_role_web_identity_credentials,
         :profile_assume_role_credentials,
@@ -28,23 +31,15 @@ module AWS::SDK::Core
       ]
     end
 
-    def stubbed_credentials(config)
-      return unless config[:stub_responses]
-
-      Hearth::IdentityProvider.new(proc do
-        Identities::Credentials.new(
-          access_key_id: 'stubbed-akid',
-          secret_access_key: 'stubbed-secret',
-          session_token: 'stubbed-session'
-        )
-      end)
+    def self.code_static_credentials(config)
+      StaticCredentialsProvider.from_code(config)
     end
 
-    def env_static_credentials(config)
+    def self.env_static_credentials(config)
       StaticCredentialsProvider.from_env(config)
     end
 
-    def env_assume_role_web_identity_credentials(config)
+    def self.env_assume_role_web_identity_credentials(config)
       return unless defined?(AWS::SDK::STS)
       sts = AWS::SDK::STS
       return unless defined?(sts::AssumeRoleWebIdentityCredentialsProvider)
@@ -52,7 +47,7 @@ module AWS::SDK::Core
       sts::AssumeRoleWebIdentityCredentialsProvider.from_env(config)
     end
 
-    def profile_assume_role_credentials(config)
+    def self.profile_assume_role_credentials(config)
       return unless defined?(AWS::SDK::STS)
       sts = AWS::SDK::STS
       return unless defined?(sts::AssumeRoleCredentialsProvider)
@@ -60,11 +55,11 @@ module AWS::SDK::Core
       sts::AssumeRoleCredentialsProvider.from_profile(config)
     end
 
-    def profile_static_credentials(config)
+    def self.profile_static_credentials(config)
       StaticCredentialsProvider.from_profile(config)
     end
 
-    def profile_assume_role_web_identity_credentials(config)
+    def self.profile_assume_role_web_identity_credentials(config)
       return unless defined?(AWS::SDK::STS)
       sts = AWS::SDK::STS
       return unless defined?(sts::AssumeRoleWebIdentityCredentialsProvider)
@@ -72,7 +67,7 @@ module AWS::SDK::Core
       sts::AssumeRoleWebIdentityCredentialsProvider.from_profile(config)
     end
 
-    def profile_sso_role_credentials(config)
+    def self.profile_sso_role_credentials(config)
       return unless defined?(AWS::SDK::SSO) && defined?(AWS::SDK::SSOOIDC)
       sso = AWS::SDK::SSO
       sso_oidc = AWS::SDK::SSOOIDC
@@ -82,15 +77,15 @@ module AWS::SDK::Core
       sso::RoleCredentialsProvider.from_profile(config)
     end
 
-    def profile_process_credentials(config)
+    def self.profile_process_credentials(config)
       ProcessCredentialsProvider.from_profile(config)
     end
 
-    def container_credentials(config)
+    def self.container_credentials(config)
       ContainerCredentialsProvider.from_env(config)
     end
 
-    def instance_credentials(config)
+    def self.instance_credentials(config)
       InstanceCredentialsProvider.from_env(config)
     end
   end
