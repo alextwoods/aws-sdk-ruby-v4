@@ -4,9 +4,18 @@ $LOAD_PATH.unshift(File.expand_path('../lib', __dir__))
 $LOAD_PATH.unshift(File.expand_path('../../aws-sigv4/lib', __dir__))
 # $LOAD_PATH.unshift(File.expand_path('../../aws-eventstream/lib',  __FILE__))
 
+# test optional dependencies
+$LOAD_PATH.unshift(File.expand_path('../../aws-sdk-sts/lib', __dir__))
+$LOAD_PATH.unshift(File.expand_path('../../aws-sdk-sso/lib', __dir__))
+$LOAD_PATH.unshift(File.expand_path('../../aws-sdk-ssooidc/lib', __dir__))
+
 require 'simplecov'
 require 'webmock/rspec'
+
 require 'aws-sdk-core'
+require 'aws-sdk-sts'
+require 'aws-sdk-sso'
+require 'aws-sdk-ssooidc'
 
 require_relative 'support/credentials_provider'
 require_relative 'support/refreshing_credentials_provider'

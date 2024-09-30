@@ -29,15 +29,14 @@ module AWS::SDK::SSOOIDC
     def self.from_profile(config, options = {})
       profile = options[:profile] || config[:profile]
       profile_config = AWS::SDK::Core.shared_config.profiles[profile]
-      return unless profile_config&['sso_session']
+      return unless profile_config && profile_config['sso_session']
 
-      sso_session_cfg = AWS::SDK::Core::SharedConfig.sso_session(
-        AWS::SDK::Core.shared_config,
-        cfg[:profile],
+      sso_session = AWS::SDK::Core::SharedConfig.sso_session(
+        profile,
         profile_config['sso_session']
       )
       new(
-        sso_region: sso_session_cfg['sso_region'],
+        sso_region: sso_session['sso_region'],
         sso_session: profile_config['sso_session']
       )
     end
@@ -72,7 +71,8 @@ module AWS::SDK::SSOOIDC
       # another process/application may have refreshed already
       token_json = read_cached_token
       @identity = Hearth::Identities::HTTPBearer.new(
-        token: token_json['accessToken'], expiration: token_json['expiresAt']
+        token: token_json['accessToken'],
+        expiration: token_json['expiresAt']
       )
       return if @identity&.expiration && !near_expiration?(EXPIRATION_WINDOW)
 

@@ -13,9 +13,9 @@ module AWS::SDK::Core
 
       def credentials(values)
         Identities::Credentials.new(
-          access_key_id: values['aws_access_key_id'],
-          secret_access_key: values['aws_secret_access_key'],
-          session_token: values['aws_session_token']
+          access_key_id: values['accessKeyId'],
+          secret_access_key: values['secretAccessKey'],
+          session_token: values['sessionToken']
         )
       end
 
@@ -23,41 +23,16 @@ module AWS::SDK::Core
         test_case['input'].each do |input, values|
           case input
           when 'code'
-            config[:access_key_id] = values['aws_access_key_id']
-            config[:secret_access_key] = values['aws_secret_access_key']
-            config[:session_token] = values['aws_session_token']
+            config[:access_key_id] = values['accessKeyId']
+            config[:secret_access_key] = values['secretAccessKey']
+            config[:session_token] = values['sessionToken']
           when 'jvmSystemProperties'
             # ignore
           when 'env'
             mock_env(values)
           when 'configFiles'
-            mock_shared_config(values['aws'])
+            mock_shared_config(values['aws']) if values['aws']
           when 'stsResponse'
-            # assume_role_provider = double(
-            #   'AssumeRoleCredentialsProvider',
-            #   identity: credentials(values)
-            # )
-            # assume_role_provider_class = class_double(
-            #   'AssumeRoleCredentialsProvider',
-            #   from_profile: assume_role_provider
-            # )
-            # assume_role_web_identity_provider = double(
-            #   'AssumeRoleWebIdentityCredentialsProvider',
-            #   identity: credentials(values)
-            # )
-            # assume_role_web_identity_provider_class = class_double(
-            #   'AssumeRoleWebIdentityCredentialsProvider',
-            #   from_profile: assume_role_web_identity_provider,
-            #   from_env: assume_role_web_identity_provider
-            # )
-            # stub_const(
-            #   'AWS::SDK::STS::AssumeRoleCredentialsProvider',
-            #   assume_role_provider_class
-            # )
-            # stub_const(
-            #   'AWS::SDK::STS::AssumeRoleWebIdentityCredentialsProvider',
-            #   assume_role_web_identity_provider_class
-            # )
             assume_role_provider = double(
               'AssumeRoleCredentialsProvider',
               identity: credentials(values)
@@ -66,48 +41,38 @@ module AWS::SDK::Core
               'AssumeRoleWebIdentityCredentialsProvider',
               identity: credentials(values)
             )
-            # stub_const(
-            #   'AWS::SDK::STS::AssumeRoleCredentialsProvider',
-            #   assume_role_provider_class
-            # )
-            # stub_const(
-            #   'AWS::SDK::STS::AssumeRoleWebIdentityCredentialsProvider',
-            #   assume_role_web_identity_provider_class
-            # )
-            sts = AWS::SDK::STS
-            allow_any_instance_of(sts::AssumeRoleCredentialsProvider)
+            allow(AWS::SDK::STS::Client).to receive(:new).and_return(double)
+            allow(AWS::SDK::STS::AssumeRoleCredentialsProvider)
               .to receive(:new).and_return(assume_role_provider)
-            allow_any_instance_of(sts::AssumeRoleWebIdentityCredentialsProvider)
+            allow(AWS::SDK::STS::AssumeRoleWebIdentityCredentialsProvider)
               .to receive(:new).and_return(assume_role_web_identity_provider)
           when 'ssoResponse'
             role_provider = double(
               'RoleCredentialsProvider',
               identity: credentials(values)
             )
-            stub_const('AWS::SDK::SSO::RoleCredentialsProvider', Class.new)
-            sso = AWS::SDK::SSO
-            allow_any_instance_of(sso::RoleCredentialsProvider)
+            allow(AWS::SDK::SSO::RoleCredentialsProvider)
               .to receive(:new).and_return(role_provider)
           when 'processResponse'
             process_provider = double(
               'ProcessCredentialsProvider',
               identity: credentials(values)
             )
-            allow_any_instance_of(ProcessCredentialsProvider)
+            allow(ProcessCredentialsProvider)
               .to receive(:new).and_return(process_provider)
-          when 'containerResponse'
+          when 'httpResponse'
             container_provider = double(
               'ContainerCredentialsProvider',
               identity: credentials(values)
             )
-            allow_any_instance_of(ContainerCredentialsProvider)
+            allow(ContainerCredentialsProvider)
               .to receive(:new).and_return(container_provider)
-          when 'instanceResponse'
+          when 'imdsResponse'
             instance_provider = double(
               'InstanceCredentialsProvider',
               identity: credentials(values)
             )
-            allow_any_instance_of(InstanceCredentialsProvider)
+            allow(InstanceCredentialsProvider)
               .to receive(:new).and_return(instance_provider)
           else
             raise 'Unknown input type'
@@ -116,19 +81,20 @@ module AWS::SDK::Core
       end
 
       test_cases.each do |test_case|
-        skippable = [
-          'JVM system properties: credentials',
-          'Boto 2 config file',
-          'Windows AWS SDK store'
-        ]
+        skippable = {
+          '2' => 'JVM is not used',
+          '10' => 'Legacy SSO is not supported',
+          '12' => 'Boto 2 config file is not supported',
+          '13' => 'Windows AWS SDK store is not supported'
+        }
 
         it "passes: #{test_case['documentation']}" do
-          skip if skippable.include?(test_case['documentation'])
+          skip(skippable[test_case['id']]) if skippable.key?(test_case['id'])
 
-          config = {}
+          config = { profile: 'default', logger: Logger.new(IO::NULL) }
           mock_input(test_case, config)
 
-          expected = credentials(test_case['expected'])
+          expected = credentials(test_case['expected'] || {})
           actual = subject.call(config).identity
 
           expect(actual.access_key_id).to eq(expected.access_key_id)

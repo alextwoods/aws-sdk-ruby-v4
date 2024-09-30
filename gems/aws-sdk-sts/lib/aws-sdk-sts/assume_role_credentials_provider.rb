@@ -27,6 +27,10 @@ module AWS::SDK::STS
     class NoSourceProfileError < RuntimeError; end
 
     # Raised when a client is constructed with Assume Role credentials using
+    # a credential_source, and that source doesn't provide credentials.
+    class NoSourceCredentialsError < RuntimeError; end
+
+    # Raised when a client is constructed with Assume Role credentials using
     # a credential_source, and that source type is unsupported.
     class InvalidCredentialSourceError < RuntimeError; end
 
@@ -37,10 +41,6 @@ module AWS::SDK::STS
     # Raised when there is a circular reference in chained
     # source_profiles
     class SourceProfileCircularReferenceError < RuntimeError; end
-
-    # Raised when a client is constructed with Assume Role credentials using
-    # a credential_source, and that source doesn't provide credentials.
-    class NoSourceCredentialsError < RuntimeError; end
 
     # Initializes an instance of AssumeRoleCredentialsProvider using a profile.
     def self.from_profile(config, options = {})

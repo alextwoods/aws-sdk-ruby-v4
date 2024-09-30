@@ -38,21 +38,20 @@ module AWS::SDK::Core
       # Return an sso_session from shared config.
       # Raises errors if the the session cannot be found or is invalid.
       #
-      # @param cfg [Hash] - Shared config
-      # @param profile [String] - the profile this sso session is referenced in.
-      # @param sso_session_name [String] - name of the sso_session
-      def sso_session(cfg, profile, sso_session_name)
-        sso_session = cfg[sso_session_name]
+      # @param profile [String] The profile this sso session is referenced in.
+      # @param session_name [String] The name of the sso_session.
+      def sso_session(profile, session_name)
+        sso_session = AWS::SDK::Core.shared_config.sso_sessions[session_name]
 
         unless sso_session
           raise ArgumentError,
-                "sso-session #{sso_session_name} must be defined in the " \
-                "config file. Referenced by profile #{profile}"
+                "sso-session #{session_name} referenced by #{profile} must " \
+                'be defined in the config file.'
         end
 
         unless sso_session['sso_region']
           raise ArgumentError,
-                "sso-session #{sso_session_name} missing required " \
+                "sso-session #{session_name} missing required " \
                 'parameter: sso_region'
         end
 

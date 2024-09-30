@@ -28,6 +28,10 @@ module AWS::SDK::SSO
   class RoleCredentialsProvider < Hearth::IdentityProvider
     include Hearth::RefreshingIdentityProvider
 
+    # Raised when the profile's SSO start url conflicts with
+    # the SSO session's start url.
+    class StartUrlConflictError < RuntimeError; end
+
     # @api private
     SSO_LOGIN_GUIDANCE =
       'The SSO session associated with this profile has ' \
@@ -40,26 +44,39 @@ module AWS::SDK::SSO
       profile_config = AWS::SDK::Core.shared_config.profiles[profile]
       return unless profile_config
 
-      if profile_config['sso_start_url']
+      # legacy case - sso_start_url should be in an sso_session instead.
+      if profile_config['sso_start_url'] && !profile_config['sso_session']
         config[:logger].warn(
           "#{profile} is a legacy SSO profile and is not supported. " \
           'Please configure an sso_session instead.'
         )
-      elsif profile_config['sso_session'] &&
-            profile_config['sso_account_id'] &&
-            profile_config['sso_role_name']
-        sso_session_cfg = AWS::SDK::Core::SharedConfig.sso_session(
-          AWS::SDK::Core.shared_config.sso_sessions,
-          profile,
-          profile_config['sso_session']
-        )
-        new(
-          sso_session: profile_config['sso_session'],
-          sso_account_id: profile_config['sso_account_id'],
-          sso_role_name: profile_config['sso_role_name'],
-          sso_region: sso_session_cfg['sso_region']
-        )
+        return
       end
+
+      # non-legacy case - sso_session should be present.
+      return unless profile_config['sso_session'] &&
+                    profile_config['sso_account_id'] &&
+                    profile_config['sso_role_name']
+
+      sso_session = AWS::SDK::Core::SharedConfig.sso_session(
+        profile,
+        profile_config['sso_session']
+      )
+
+      if profile_config['sso_start_url'] &&
+         profile_config['sso_start_url'] != sso_session['sso_start_url']
+        raise StartUrlConflictError,
+              'The SSO start URL in the profile does not match the ' \
+              'SSO start URL in the SSO session. Please remove the ' \
+              'SSO start URL from the profile.'
+      end
+
+      new(
+        sso_session: profile_config['sso_session'],
+        sso_account_id: profile_config['sso_account_id'],
+        sso_role_name: profile_config['sso_role_name'],
+        sso_region: sso_session['sso_region']
+      )
     end
 
     # @param [String] :sso_session The SSO Session used for fetching
@@ -74,10 +91,10 @@ module AWS::SDK::SSO
     def initialize(sso_session:, sso_account_id:, sso_region:, sso_role_name:,
                    client: nil)
       @sso_session = sso_session
+      @sso_account_id = sso_account_id
       @sso_region = sso_region
       @sso_role_name = sso_role_name
-      @sso_account_id = sso_account_id
-      @client = client || AWS::SDK::SSO::Client.new(region: sso_region)
+      @client = client || Client.new(region: sso_region)
       @token_provider = AWS::SDK::SSOOIDC::TokenProvider.new(
         sso_region: sso_region,
         sso_session: sso_session
