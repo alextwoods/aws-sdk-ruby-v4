@@ -5,7 +5,7 @@ module AWS::SDK::Core
   class CredentialsProviderChain < Hearth::IdentityProvider
     def initialize(config)
       @config = config
-      super()
+      super(nil)
     end
 
     def identity(_properties = {})
