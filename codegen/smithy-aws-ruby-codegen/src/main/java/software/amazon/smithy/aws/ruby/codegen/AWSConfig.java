@@ -137,26 +137,9 @@ public final class AWSConfig {
             .documentation(CREDENTIALS_PROVIDER_DOCUMENTATION)
             .documentationDefaultValue("AWS::SDK::Core::CredentialsProviderChain.new")
             .defaults(ConfigProviderChain.builder()
-                    // .dynamicProvider("cfg[:credentials_provider_chain]")
                     .dynamicProvider("AWS::SDK::Core::CredentialsProviderChain.new(cfg)")
                     .build())
             .build();
-
-//    private static final String CREDENTIALS_PROVIDER_CHAIN_DOCUMENTATION = """
-//            The credentials provider chain responds to `#call(config)` and evaluates a chain of
-//            potential credentials providers. The first non-nil value from the chain is used and is
-//            expected to be a class that responds to the `#identity` method.
-//            """;
-//    public static final ClientConfig CREDENTIALS_PROVIDER_CHAIN = ClientConfig.builder()
-//            .name("credentials_provider_chain")
-//            .documentationType("#call(config)")
-//            .documentationDefaultValue("AWS::SDK::Core::CredentialsProviderChain")
-//            .documentation(CREDENTIALS_PROVIDER_CHAIN_DOCUMENTATION)
-//            .defaults(ConfigProviderChain.builder()
-//                    .staticProvider("AWS::SDK::Core::CredentialsProviderChain")
-//                    .build())
-//            .constraint(new RespondsToConstraint(List.of("call")))
-//            .build();
 
     private static final String DUALSTACK_DOCUMENTATION = """
             When set to `true`, DualStack enabled endpoints (with `.aws` TLD)

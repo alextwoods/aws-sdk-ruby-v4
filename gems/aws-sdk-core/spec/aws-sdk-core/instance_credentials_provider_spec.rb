@@ -93,10 +93,10 @@ module AWS::SDK::Core
     describe '#identity' do
       it 'will read valid credentials from EC2 Metadata' do
         allow(client).to receive(:get)
-          .with(InstanceCredentialsProvider::METADATA_PATH_BASE)
+          .with(InstanceCredentialsProvider::METADATA_PATH)
           .and_return(metadata_resp)
         allow(client).to receive(:get)
-          .with(InstanceCredentialsProvider::METADATA_PATH_BASE + metadata_resp)
+          .with(InstanceCredentialsProvider::METADATA_PATH + metadata_resp)
           .and_return(credentials_json)
 
         creds = subject.identity
@@ -136,7 +136,7 @@ module AWS::SDK::Core
 
         before do
           allow(client).to receive(:get)
-            .with(InstanceCredentialsProvider::METADATA_PATH_BASE)
+            .with(InstanceCredentialsProvider::METADATA_PATH)
             .and_return(metadata_resp)
         end
 
@@ -145,7 +145,7 @@ module AWS::SDK::Core
             .to receive(:warn).at_least(:once)
 
           expect(client).to receive(:get)
-            .with(InstanceCredentialsProvider::METADATA_PATH_BASE + metadata_resp)
+            .with(InstanceCredentialsProvider::METADATA_PATH + metadata_resp)
             .once
             .and_return(expired_resp)
 
@@ -164,13 +164,13 @@ module AWS::SDK::Core
         it 'provides credentials after a read timeout during a refresh' do
           # seed with valid credentials that will trigger a refresh on next call
           expect(client).to receive(:get)
-            .with(InstanceCredentialsProvider::METADATA_PATH_BASE + metadata_resp)
+            .with(InstanceCredentialsProvider::METADATA_PATH + metadata_resp)
             .and_return(near_expiration_resp)
           subject.identity
 
           # failed response
           expect(client).to receive(:get)
-            .with(InstanceCredentialsProvider::METADATA_PATH_BASE + metadata_resp)
+            .with(InstanceCredentialsProvider::METADATA_PATH + metadata_resp)
             .and_raise(Timeout::Error)
           expect(subject).to receive(:warn)
 
@@ -184,13 +184,13 @@ module AWS::SDK::Core
         it 'uses expired credentials during a refresh and warns' do
           # seed with valid credentials that will trigger a refresh on next call
           expect(client).to receive(:get)
-            .with(InstanceCredentialsProvider::METADATA_PATH_BASE + metadata_resp)
+            .with(InstanceCredentialsProvider::METADATA_PATH + metadata_resp)
             .and_return(near_expiration_resp)
           subject.identity
 
           # expired response
           expect(client).to receive(:get)
-            .with(InstanceCredentialsProvider::METADATA_PATH_BASE + metadata_resp)
+            .with(InstanceCredentialsProvider::METADATA_PATH + metadata_resp)
             .and_return(expired_resp)
           expect(subject).to receive(:warn)
 

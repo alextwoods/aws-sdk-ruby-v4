@@ -98,7 +98,6 @@ public class AWSIntegration implements RubyIntegration {
                 .additionalConfig(AWSConfig.ACCESS_KEY_ID)
                 .additionalConfig(AWSConfig.SECRET_ACCESS_KEY)
                 .additionalConfig(AWSConfig.SESSION_TOKEN)
-                //.additionalConfig(AWSConfig.CREDENTIALS_PROVIDER_CHAIN)
                 .additionalConfig(AWSConfig.REGION)
                 .additionalAuthParam(AuthParam.builder()
                         .name("region")

@@ -17,7 +17,7 @@ module AWS::SDK::Core
 
     # Path base for GET request for profile and credentials.
     # @api private
-    METADATA_PATH_BASE = '/latest/meta-data/iam/security-credentials/'
+    METADATA_PATH = '/latest/meta-data/iam/security-credentials/'
 
     # Initializes an instance of InstanceCredentialsProvider using ENV and
     # profile values.
@@ -31,8 +31,8 @@ module AWS::SDK::Core
                  (profile_config &&
                    profile_config['ec2_metadata_service_endpoint'])
       endpoint_mode = ENV['AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE'] ||
-                 (profile_config &&
-                   profile_config['ec2_metadata_service_endpoint_mode'])
+                      (profile_config &&
+                        profile_config['ec2_metadata_service_endpoint_mode'])
       client = EC2Metadata.new(endpoint: endpoint, endpoint_mode: endpoint_mode)
       new(client: client)
     end
@@ -85,10 +85,10 @@ module AWS::SDK::Core
     end
 
     def fetch_credentials
-      metadata = @client.get(METADATA_PATH_BASE)
+      metadata = @client.get(METADATA_PATH)
       profile_name = metadata.lines.first.strip
       ::JSON.parse(
-        @client.get(METADATA_PATH_BASE + profile_name)
+        @client.get(METADATA_PATH + profile_name)
       )
     rescue StandardError
       {}

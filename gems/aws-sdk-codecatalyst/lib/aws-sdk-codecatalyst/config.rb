@@ -175,7 +175,7 @@ module AWS::SDK::CodeCatalyst
         disable_host_prefix: [false],
         endpoint: [proc { |cfg| ('http://localhost' if cfg[:stub_responses]) }],
         endpoint_resolver: [Endpoint::Resolver.new],
-        http_bearer_provider: [proc { |cfg| cfg[:stub_responses] ? Hearth::IdentityProvider.new(proc { Hearth::Identities::HTTPBearer.new(token: 'token') }) : nil }, AWS::SDK::Core::HTTPBearerProviderChain],
+        http_bearer_provider: [proc { |cfg| (Hearth::IdentityProvider.new(proc { Hearth::Identities::HTTPBearer.new(token: 'token') }) if cfg[:stub_responses]) }, AWS::SDK::Core::HTTPBearerProviderChain],
         http_client: [proc { |cfg| Hearth::HTTP::Client.new(logger: cfg[:logger]) }],
         interceptors: [Hearth::InterceptorList.new],
         logger: [Logger.new(IO::NULL)],

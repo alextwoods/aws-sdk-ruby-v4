@@ -51,7 +51,7 @@ public class HttpBearerAuth implements RubyIntegration {
 
         String identityProviderChain = "AWS::SDK::Core::HTTPBearerProviderChain";
         String defaultIdentity = "Hearth::Identities::HTTPBearer.new(token: 'token')";
-        String defaultConfigValue = "cfg[:stub_responses] ? %s.new(proc { %s }) : nil"
+        String defaultConfigValue = "(%s.new(proc { %s }) if cfg[:stub_responses])"
                 .formatted(Hearth.IDENTITY_PROVIDER, defaultIdentity);
 
         ClientConfig identityProviderConfig = ClientConfig.builder()

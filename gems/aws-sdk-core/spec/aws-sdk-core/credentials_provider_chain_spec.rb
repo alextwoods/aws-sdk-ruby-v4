@@ -6,7 +6,7 @@ module AWS::SDK::Core
   describe CredentialsProviderChain do
     subject { described_class }
 
-    context '#identity' do
+    describe '#identity' do
       file = File.join(File.dirname(__FILE__),
                        'credentials-provider-chain-tests.json')
       test_cases = JSON.load_file(file)
@@ -68,6 +68,8 @@ module AWS::SDK::Core
             allow(ContainerCredentialsProvider)
               .to receive(:new).and_return(container_provider)
           when 'imdsResponse'
+            # Error case is handled transparently since IMDS credentials
+            # will rescue from StandardError and return empty credentials.
             instance_provider = double(
               'InstanceCredentialsProvider',
               identity: credentials(values)

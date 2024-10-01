@@ -18,10 +18,6 @@ module AWS::SDK::STS
   class AssumeRoleCredentialsProvider < Hearth::IdentityProvider
     include Hearth::RefreshingIdentityProvider
 
-    # Raised when a client is constructed and the specified shared
-    # credentials profile does not exist.
-    class NoSuchProfileError < RuntimeError; end
-
     # Raised when a client is constructed, where Assume Role credentials are
     # expected, and there is no source profile specified.
     class NoSourceProfileError < RuntimeError; end
@@ -35,8 +31,12 @@ module AWS::SDK::STS
     class InvalidCredentialSourceError < RuntimeError; end
 
     # Raised when a client is constructed with Assume Role credentials, but
+    # the profile does not have a source_profile or credential_source.
+    class NoSourceError < RuntimeError; end
+
+    # Raised when a client is constructed with Assume Role credentials, but
     # the profile has both source_profile and credential_source.
-    class CredentialSourceConflictError < RuntimeError; end
+    class SourceConflictError < RuntimeError; end
 
     # Raised when there is a circular reference in chained
     # source_profiles
@@ -110,7 +110,7 @@ module AWS::SDK::STS
         credential_source = profile_config['credential_source']
 
         if source_profile && credential_source
-          raise CredentialSourceConflictError,
+          raise SourceConflictError,
                 "Profile #{profile} has a source_profile and " \
                 'a credential_source. For assume role credentials, it must ' \
                 'provide only source_profile or credential_source, not both.'
@@ -124,7 +124,7 @@ module AWS::SDK::STS
             credential_source
           )
         else
-          raise NoSourceProfileError,
+          raise NoSourceError,
                 "Profile #{profile} has a role_arn " \
                 'but no source_profile or credential_source'
         end
@@ -133,7 +133,7 @@ module AWS::SDK::STS
       def resolve_source_profile(config, options, source_profile)
         visited_profiles = options[:visited_profiles] || Set.new
         unless AWS::SDK::Core.shared_config.profiles.key?(source_profile)
-          raise NoSuchProfileError,
+          raise NoSourceProfileError,
                 "source_profile #{source_profile} does not exist."
         end
 

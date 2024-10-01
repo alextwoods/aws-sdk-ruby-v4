@@ -251,7 +251,7 @@ module AWS::SDK::STS
           expect do
             AssumeRoleCredentialsProvider.from_profile({ profile: 'A' })
           end.to raise_error(
-            AssumeRoleCredentialsProvider::NoSourceProfileError,
+            AssumeRoleCredentialsProvider::NoSourceError,
             'Profile A has a role_arn but no source_profile ' \
             'or credential_source'
           )
@@ -274,11 +274,11 @@ module AWS::SDK::STS
 
         let(:source_credentials) { double('Credentials') }
 
-        it 'Raise error due to lack of source_profile or credential_source' do
+        it 'Raise error due to both source_profile and credential_source' do
           expect do
             AssumeRoleCredentialsProvider.from_profile({ profile: 'A' })
           end.to raise_error(
-            AssumeRoleCredentialsProvider::CredentialSourceConflictError,
+            AssumeRoleCredentialsProvider::SourceConflictError,
             /Profile A has a source_profile and a credential_source/
           )
         end
@@ -323,7 +323,7 @@ module AWS::SDK::STS
           expect do
             AssumeRoleCredentialsProvider.from_profile({ profile: 'A' })
           end.to raise_error(
-            AssumeRoleCredentialsProvider::NoSuchProfileError,
+            AssumeRoleCredentialsProvider::NoSourceProfileError,
             /source_profile B does not exist/
           )
         end

@@ -4,7 +4,7 @@ require_relative 'spec_helper'
 
 describe AWS::SDK::Core do
   feature_checks = [
-    [:crt_loaded?, :@use_crt, 'aws-crt'],
+    [:crt_loaded?, :@use_crt, 'aws-crt']
   ].freeze
 
   feature_checks.each do |feature_check|

@@ -11,8 +11,6 @@ module AWS::SDK::Core
       nil
     end
 
-    private
-
     def self.providers
       [
         # in-code token providers are resolved by Config
@@ -22,6 +20,7 @@ module AWS::SDK::Core
 
     def self.profile_ssooidc_token_provider(config)
       return unless defined?(AWS::SDK::SSOOIDC)
+
       ssooidc = AWS::SDK::SSOOIDC
       return unless defined?(ssooidc::TokenProvider)
 
