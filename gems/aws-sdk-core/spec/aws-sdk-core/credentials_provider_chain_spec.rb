@@ -97,9 +97,6 @@ module AWS::SDK::Core
           expected = credentials(test_case['expected'] || {})
           actual = subject.new(config).identity
 
-          puts "Expected: #{expected.inspect}"
-          puts "Actual: #{actual.inspect}"
-
           expect(actual.access_key_id).to eq(expected.access_key_id)
           expect(actual.secret_access_key).to eq(expected.secret_access_key)
           expect(actual.session_token).to eq(expected.session_token)

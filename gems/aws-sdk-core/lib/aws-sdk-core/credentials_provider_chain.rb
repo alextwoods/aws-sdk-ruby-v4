@@ -7,7 +7,7 @@ module AWS::SDK::Core
       @config = config
     end
 
-    def identity
+    def identity(_properties = {})
       @identity ||=
         providers.each do |method_name|
           provider = send(method_name)
@@ -24,8 +24,8 @@ module AWS::SDK::Core
         :env_static_credentials,
         :env_assume_role_web_identity_credentials,
         :profile_static_credentials,
-        :profile_assume_role_credentials,
         :profile_assume_role_web_identity_credentials,
+        :profile_assume_role_credentials,
         :profile_sso_role_credentials,
         :profile_process_credentials,
         :container_credentials,
@@ -53,20 +53,20 @@ module AWS::SDK::Core
       StaticCredentialsProvider.from_profile(@config)
     end
 
-    def profile_assume_role_credentials
-      return unless defined?(AWS::SDK::STS)
-      sts = AWS::SDK::STS
-      return unless defined?(sts::AssumeRoleCredentialsProvider)
-
-      sts::AssumeRoleCredentialsProvider.from_profile(@config)
-    end
-
     def profile_assume_role_web_identity_credentials
       return unless defined?(AWS::SDK::STS)
       sts = AWS::SDK::STS
       return unless defined?(sts::AssumeRoleWebIdentityCredentialsProvider)
 
       sts::AssumeRoleWebIdentityCredentialsProvider.from_profile(@config)
+    end
+
+    def profile_assume_role_credentials
+      return unless defined?(AWS::SDK::STS)
+      sts = AWS::SDK::STS
+      return unless defined?(sts::AssumeRoleCredentialsProvider)
+
+      sts::AssumeRoleCredentialsProvider.from_profile(@config)
     end
 
     def profile_sso_role_credentials
