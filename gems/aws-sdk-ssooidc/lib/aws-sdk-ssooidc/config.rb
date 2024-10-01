@@ -19,7 +19,7 @@ module AWS::SDK::SSOOIDC
   #     An ordered list of {Hearth::AuthSchemes::Base} objects that will considered when attempting to authenticate
   #     the request. The first scheme that returns an Identity from its Hearth::IdentityProvider will be used to
   #     authenticate the request.
-  #   @option args [Hearth::IdentityProvider] :credentials_provider (AWS::SDK::Core::CredentialsProviderChain)
+  #   @option args [Hearth::IdentityProvider] :credentials_provider (AWS::SDK::Core::CredentialsProviderChain.new)
   #     A credentials provider is a class that fetches your AWS credentials and responds to the `#identity`
   #     method. This can be an instance of any one of the following classes:
   #
@@ -223,7 +223,7 @@ module AWS::SDK::SSOOIDC
         access_key_id: [proc { |cfg| ('stubbed-ak' if cfg[:stub_responses]) }],
         auth_resolver: [Auth::Resolver.new],
         auth_schemes: [Auth::SCHEMES],
-        credentials_provider: [AWS::SDK::Core::CredentialsProviderChain],
+        credentials_provider: [proc { |cfg| AWS::SDK::Core::CredentialsProviderChain.new(cfg) }],
         disable_host_prefix: [false],
         endpoint: [proc { |cfg| ('http://localhost' if cfg[:stub_responses]) }],
         endpoint_resolver: [Endpoint::Resolver.new],

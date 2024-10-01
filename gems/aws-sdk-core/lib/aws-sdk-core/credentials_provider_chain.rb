@@ -2,28 +2,30 @@
 
 module AWS::SDK::Core
   # @api private
-  module CredentialsProviderChain
-    def self.call(config)
-      providers.each do |method_name|
-        provider = send(method_name, config)
-        if provider
-          puts "returning #{method_name}"
-          return provider
+  class CredentialsProviderChain < Hearth::IdentityProvider
+    def initialize(config)
+      @config = config
+    end
+
+    def identity
+      @identity ||=
+        providers.each do |method_name|
+          provider = send(method_name)
+          return provider.identity if provider
         end
-      end
-      nil
+        nil
     end
 
     private
 
-    def self.providers
+    def providers
       [
         :code_static_credentials,
         :env_static_credentials,
         :env_assume_role_web_identity_credentials,
         :profile_static_credentials,
-        :profile_assume_role_web_identity_credentials,
         :profile_assume_role_credentials,
+        :profile_assume_role_web_identity_credentials,
         :profile_sso_role_credentials,
         :profile_process_credentials,
         :container_credentials,
@@ -31,62 +33,62 @@ module AWS::SDK::Core
       ]
     end
 
-    def self.code_static_credentials(config)
-      StaticCredentialsProvider.from_code(config)
+    def code_static_credentials
+      StaticCredentialsProvider.from_code(@config)
     end
 
-    def self.env_static_credentials(config)
-      StaticCredentialsProvider.from_env(config)
+    def env_static_credentials
+      StaticCredentialsProvider.from_env(@config)
     end
 
-    def self.env_assume_role_web_identity_credentials(config)
+    def env_assume_role_web_identity_credentials
       return unless defined?(AWS::SDK::STS)
       sts = AWS::SDK::STS
       return unless defined?(sts::AssumeRoleWebIdentityCredentialsProvider)
 
-      sts::AssumeRoleWebIdentityCredentialsProvider.from_env(config)
+      sts::AssumeRoleWebIdentityCredentialsProvider.from_env(@config)
     end
 
-    def self.profile_static_credentials(config)
-      StaticCredentialsProvider.from_profile(config)
+    def profile_static_credentials
+      StaticCredentialsProvider.from_profile(@config)
     end
 
-    def self.profile_assume_role_web_identity_credentials(config)
-      return unless defined?(AWS::SDK::STS)
-      sts = AWS::SDK::STS
-      return unless defined?(sts::AssumeRoleWebIdentityCredentialsProvider)
-
-      sts::AssumeRoleWebIdentityCredentialsProvider.from_profile(config)
-    end
-
-    def self.profile_assume_role_credentials(config)
+    def profile_assume_role_credentials
       return unless defined?(AWS::SDK::STS)
       sts = AWS::SDK::STS
       return unless defined?(sts::AssumeRoleCredentialsProvider)
 
-      sts::AssumeRoleCredentialsProvider.from_profile(config)
+      sts::AssumeRoleCredentialsProvider.from_profile(@config)
     end
 
-    def self.profile_sso_role_credentials(config)
+    def profile_assume_role_web_identity_credentials
+      return unless defined?(AWS::SDK::STS)
+      sts = AWS::SDK::STS
+      return unless defined?(sts::AssumeRoleWebIdentityCredentialsProvider)
+
+      sts::AssumeRoleWebIdentityCredentialsProvider.from_profile(@config)
+    end
+
+    def profile_sso_role_credentials
       return unless defined?(AWS::SDK::SSO) && defined?(AWS::SDK::SSOOIDC)
       sso = AWS::SDK::SSO
       sso_oidc = AWS::SDK::SSOOIDC
       return unless defined?(sso::RoleCredentialsProvider)
       return unless defined?(sso_oidc::TokenProvider)
 
-      sso::RoleCredentialsProvider.from_profile(config)
+      sso::RoleCredentialsProvider.from_profile(@config)
     end
 
-    def self.profile_process_credentials(config)
-      ProcessCredentialsProvider.from_profile(config)
+    def profile_process_credentials
+      ProcessCredentialsProvider.from_profile(@config)
     end
 
-    def self.container_credentials(config)
-      ContainerCredentialsProvider.from_env(config)
+    def container_credentials
+      ContainerCredentialsProvider.from_env(@config)
     end
 
-    def self.instance_credentials(config)
-      InstanceCredentialsProvider.from_env(config)
+    def instance_credentials
+      InstanceCredentialsProvider.from_env(@config)
     end
   end
 end

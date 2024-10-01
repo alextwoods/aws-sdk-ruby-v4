@@ -46,7 +46,11 @@ module AWS::SDK::STS
     def self.from_profile(config, options = {})
       profile = options[:profile] || config[:profile]
       profile_config = AWS::SDK::Core.shared_config.profiles[profile]
-      return unless profile_config && profile_config['role_arn']
+      return unless profile_config &&
+                    ((profile_config['role_arn'] &&
+                      profile_config['source_profile']) ||
+                      (profile_config['role_arn'] &&
+                      profile_config['credential_source']))
 
       source_provider = resolve_source_provider(
         config,

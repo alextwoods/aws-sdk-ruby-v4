@@ -6,7 +6,7 @@ module AWS::SDK::Core
   describe CredentialsProviderChain do
     subject { described_class }
 
-    context '.call' do
+    context '#identity' do
       file = File.join(File.dirname(__FILE__),
                        'credentials-provider-chain-tests.json')
       test_cases = JSON.load_file(file)
@@ -95,7 +95,10 @@ module AWS::SDK::Core
           mock_input(test_case, config)
 
           expected = credentials(test_case['expected'] || {})
-          actual = subject.call(config).identity
+          actual = subject.new(config).identity
+
+          puts "Expected: #{expected.inspect}"
+          puts "Actual: #{actual.inspect}"
 
           expect(actual.access_key_id).to eq(expected.access_key_id)
           expect(actual.secret_access_key).to eq(expected.secret_access_key)

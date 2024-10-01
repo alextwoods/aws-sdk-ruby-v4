@@ -135,9 +135,10 @@ public final class AWSConfig {
             .name("credentials_provider")
             .documentationRbsAndValidationType(Hearth.IDENTITY_PROVIDER.toString())
             .documentation(CREDENTIALS_PROVIDER_DOCUMENTATION)
+            .documentationDefaultValue("AWS::SDK::Core::CredentialsProviderChain.new")
             .defaults(ConfigProviderChain.builder()
                     // .dynamicProvider("cfg[:credentials_provider_chain]")
-                    .staticProvider("AWS::SDK::Core::CredentialsProviderChain")
+                    .dynamicProvider("AWS::SDK::Core::CredentialsProviderChain.new(cfg)")
                     .build())
             .build();
 
