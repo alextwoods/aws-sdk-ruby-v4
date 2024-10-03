@@ -9,16 +9,16 @@ module AWS::SDK::Core
     end
 
     def identity(_properties = {})
-      return @identity if @identity
+      return @provider.identity if @provider
 
       providers.each do |method_name|
         provider = send(method_name)
         if provider
-          @identity = provider.identity
+          @provider = provider
           break
         end
       end
-      @identity
+      @provider.identity
     end
 
     private
