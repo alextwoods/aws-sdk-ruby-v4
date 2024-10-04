@@ -8,7 +8,6 @@
 # WARNING ABOUT GENERATED CODE
 
 require 'aws-sdk-core'
-
 require_relative 'aws-sdk-kms/auth'
 require_relative 'aws-sdk-kms/builders'
 require_relative 'aws-sdk-kms/client'
@@ -24,6 +23,9 @@ require_relative 'aws-sdk-kms/telemetry'
 require_relative 'aws-sdk-kms/types'
 require_relative 'aws-sdk-kms/validators'
 require_relative 'aws-sdk-kms/waiters'
+begin
+  require_relative 'aws-sdk-kms/customizations'
+rescue LoadError; end
 
 module AWS::SDK::KMS
   VERSION = File.read(File.expand_path('../VERSION', __dir__)).strip

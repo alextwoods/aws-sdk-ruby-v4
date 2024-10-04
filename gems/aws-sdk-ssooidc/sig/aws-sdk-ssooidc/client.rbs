@@ -14,6 +14,7 @@ module AWS::SDK::SSOOIDC
 
     def initialize: (?::Hash[::Symbol, untyped] options) -> void |
       (
+        ?access_key_id: String,
         ?auth_resolver: Hearth::_AuthResolver[Auth::Params],
         ?auth_schemes: Array[Hearth::AuthSchemes::Base],
         ?credentials_provider: Hearth::IdentityProvider,
@@ -27,6 +28,8 @@ module AWS::SDK::SSOOIDC
         ?profile: String,
         ?region: String,
         ?retry_strategy: Hearth::_RetryStrategy,
+        ?secret_access_key: String,
+        ?session_token: String,
         ?stub_responses: bool,
         ?stubs: Hearth::Stubs,
         ?telemetry_provider: Hearth::Telemetry::TelemetryProviderBase,

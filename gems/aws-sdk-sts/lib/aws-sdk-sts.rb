@@ -8,7 +8,6 @@
 # WARNING ABOUT GENERATED CODE
 
 require 'aws-sdk-core'
-
 require_relative 'aws-sdk-sts/auth'
 require_relative 'aws-sdk-sts/builders'
 require_relative 'aws-sdk-sts/client'
@@ -24,6 +23,9 @@ require_relative 'aws-sdk-sts/telemetry'
 require_relative 'aws-sdk-sts/types'
 require_relative 'aws-sdk-sts/validators'
 require_relative 'aws-sdk-sts/waiters'
+begin
+  require_relative 'aws-sdk-sts/customizations'
+rescue LoadError; end
 
 module AWS::SDK::STS
   VERSION = File.read(File.expand_path('../VERSION', __dir__)).strip

@@ -8,7 +8,6 @@
 # WARNING ABOUT GENERATED CODE
 
 require 'aws-sdk-core'
-
 require_relative 'aws-sdk-codecatalyst/auth'
 require_relative 'aws-sdk-codecatalyst/builders'
 require_relative 'aws-sdk-codecatalyst/client'
@@ -24,6 +23,9 @@ require_relative 'aws-sdk-codecatalyst/telemetry'
 require_relative 'aws-sdk-codecatalyst/types'
 require_relative 'aws-sdk-codecatalyst/validators'
 require_relative 'aws-sdk-codecatalyst/waiters'
+begin
+  require_relative 'aws-sdk-codecatalyst/customizations'
+rescue LoadError; end
 
 module AWS::SDK::CodeCatalyst
   VERSION = File.read(File.expand_path('../VERSION', __dir__)).strip

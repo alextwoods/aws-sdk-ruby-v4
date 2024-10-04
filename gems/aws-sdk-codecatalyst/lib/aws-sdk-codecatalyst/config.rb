@@ -24,15 +24,12 @@ module AWS::SDK::CodeCatalyst
   #   @option args [#resolve(params)] :endpoint_resolver (Endpoint::Resolver.new)
   #     The endpoint resolver used to resolve endpoints. Any object that responds to
   #     `#resolve(parameters)`
-  #   @option args [Hearth::IdentityProvider] :http_bearer_provider ( *AWS::SDK::Core::HTTP_BEARER_PROVIDER_CHAIN)
+  #   @option args [Hearth::IdentityProvider] :http_bearer_provider (AWS::SDK::Core::HTTPBearerProviderChain)
   #     A credentials provider fetches an HTTP Bearer Token and responds to the `#identity`
   #     method. This can be an instance of any one of the following classes:
   #
-  #     * `AWS::SDK::Core::SSOBearerProvider` - Used for fetching a bearer token from
+  #     * `AWS::SDK::SSO::TokenProvider` - Used for fetching a bearer token from
   #       SSO-OIDC.
-  #
-  #     When `:http_bearer_provider` is not configured directly, the
-  #     AWS::SDK::Core::HTTP_BEARER_PROVIDER_CHAIN is searched.
   #
   #     @see AWS::SDK::Core::CREDENTIALS_PROVIDER_CHAIN
   #   @option args [Hearth::HTTP::Client] :http_client (Hearth::HTTP::Client.new)
@@ -81,7 +78,7 @@ module AWS::SDK::CodeCatalyst
   #     The SDK currently supports OpenTelemetry (OTel) as a provider. To use
   #     the OTel provider, require the +opentelemetry-sdk+ gem and then, pass
   #     in an instance of a +Hearth::Telemetry::OTelProvider+ for telemetry provider.
-  #   @option args [Boolean] :use_fips_endpoint
+  #   @option args [Boolean] :use_fips_endpoint (false)
   #     When set to `true`, FIPS compatible endpoints will be used if available.
   #   @option args [Boolean] :validate_input (true)
   #     When `true`, request parameters are validated using the modeled shapes.
@@ -176,20 +173,20 @@ module AWS::SDK::CodeCatalyst
         auth_resolver: [Auth::Resolver.new],
         auth_schemes: [Auth::SCHEMES],
         disable_host_prefix: [false],
-        endpoint: [proc { |cfg| cfg[:stub_responses] ? 'http://localhost' : nil }],
+        endpoint: [proc { |cfg| ('http://localhost' if cfg[:stub_responses]) }],
         endpoint_resolver: [Endpoint::Resolver.new],
-        http_bearer_provider: [proc { |cfg| cfg[:stub_responses] ? Hearth::IdentityProvider.new(proc { Hearth::Identities::HTTPBearer.new(token: 'token') }) : nil }, *AWS::SDK::Core::HTTP_BEARER_PROVIDER_CHAIN],
+        http_bearer_provider: [proc { |cfg| (Hearth::IdentityProvider.new(proc { Hearth::Identities::HTTPBearer.new(token: 'token') }) if cfg[:stub_responses]) }, AWS::SDK::Core::HTTPBearerProviderChain],
         http_client: [proc { |cfg| Hearth::HTTP::Client.new(logger: cfg[:logger]) }],
         interceptors: [Hearth::InterceptorList.new],
         logger: [Logger.new(IO::NULL)],
         plugins: [Hearth::PluginList.new],
-        profile: [Hearth::Config::EnvProvider.new('AWS_PROFILE', type: 'String'),'default'],
-        region: [proc { |cfg| cfg[:stub_responses] ?  'us-stubbed-1' : nil },Hearth::Config::EnvProvider.new('AWS_REGION', type: 'String'),AWS::SDK::Core::SharedConfigProvider.new('region', type: 'String')],
+        profile: [Hearth::Config::EnvProvider.new('AWS_PROFILE', type: 'String'), 'default'],
+        region: [proc { |cfg| ('us-stubbed-1' if cfg[:stub_responses]) }, Hearth::Config::EnvProvider.new('AWS_REGION', type: 'String'), AWS::SDK::Core::SharedConfigProvider.new('region', type: 'String')],
         retry_strategy: [Hearth::Retry::Standard.new],
         stub_responses: [false],
         stubs: [Hearth::Stubs.new],
         telemetry_provider: [Hearth::Telemetry::NoOpTelemetryProvider.new],
-        use_fips_endpoint: [Hearth::Config::EnvProvider.new('AWS_USE_FIPS_ENDPOINT', type: 'Boolean'),AWS::SDK::Core::SharedConfigProvider.new('use_fips_endpoint', type: 'Boolean')],
+        use_fips_endpoint: [Hearth::Config::EnvProvider.new('AWS_USE_FIPS_ENDPOINT', type: 'Boolean'), AWS::SDK::Core::SharedConfigProvider.new('use_fips_endpoint', type: 'Boolean'), false],
         validate_input: [true]
       }.freeze
     end

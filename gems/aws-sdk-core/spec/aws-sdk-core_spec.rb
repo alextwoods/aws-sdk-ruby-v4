@@ -3,20 +3,8 @@
 require_relative 'spec_helper'
 
 describe AWS::SDK::Core do
-  describe '.shared_config' do
-    it 'loads SharedConfig and memoized it' do
-      expect(AWS::SDK::Core::SharedConfig).to receive(:load).once
-      AWS::SDK::Core.shared_config
-      # call again to ensure we don't load again
-      AWS::SDK::Core.shared_config
-    end
-  end
-
   feature_checks = [
-    [:crt_loaded?, :@use_crt, 'aws-crt'],
-    [:sso_loaded?, :@use_sso, 'aws-sdk-sso'],
-    [:sso_oidc_loaded?, :@use_ssooidc, 'aws-sdk-ssooidc'],
-    [:sts_loaded?, :@use_sts, 'aws-sdk-sts']
+    [:crt_loaded?, :@use_crt, 'aws-crt']
   ].freeze
 
   feature_checks.each do |feature_check|

@@ -1,0 +1,4 @@
+# frozen_string_literal: true
+
+require_relative 'assume_role_credentials_provider'
+require_relative 'assume_role_web_identity_credentials_provider'

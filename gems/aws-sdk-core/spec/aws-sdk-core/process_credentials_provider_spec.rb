@@ -4,7 +4,7 @@ require_relative '../spec_helper'
 
 module AWS::SDK::Core
   describe ProcessCredentialsProvider do
-    describe 'ProcessCredentialProvider::PROFILE' do
+    describe '.from_profile' do
       before do
         mock_shared_config(shared_config)
       end
@@ -19,7 +19,7 @@ module AWS::SDK::Core
 
         it 'returns an instance of ProcessCredentialProvider' do
           cfg = { profile: 'process_credentials' }
-          provider = ProcessCredentialsProvider::PROFILE.call(cfg)
+          provider = ProcessCredentialsProvider.from_profile(cfg)
           expect(provider).to be_an_instance_of(ProcessCredentialsProvider)
         end
       end
@@ -34,7 +34,7 @@ module AWS::SDK::Core
 
         it 'returns nil' do
           cfg = { profile: 'default' }
-          provider = ProcessCredentialsProvider::PROFILE.call(cfg)
+          provider = ProcessCredentialsProvider.from_profile(cfg)
           expect(provider).to be_nil
         end
       end

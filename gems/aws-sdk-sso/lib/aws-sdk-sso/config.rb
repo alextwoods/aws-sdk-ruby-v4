@@ -70,10 +70,10 @@ module AWS::SDK::SSO
   #     The SDK currently supports OpenTelemetry (OTel) as a provider. To use
   #     the OTel provider, require the +opentelemetry-sdk+ gem and then, pass
   #     in an instance of a +Hearth::Telemetry::OTelProvider+ for telemetry provider.
-  #   @option args [Boolean] :use_dualstack_endpoint
+  #   @option args [Boolean] :use_dualstack_endpoint (false)
   #     When set to `true`, DualStack enabled endpoints (with `.aws` TLD)
   #     will be used if available.
-  #   @option args [Boolean] :use_fips_endpoint
+  #   @option args [Boolean] :use_fips_endpoint (false)
   #     When set to `true`, FIPS compatible endpoints will be used if available.
   #   @option args [Boolean] :validate_input (true)
   #     When `true`, request parameters are validated using the modeled shapes.
@@ -168,20 +168,20 @@ module AWS::SDK::SSO
         auth_resolver: [Auth::Resolver.new],
         auth_schemes: [Auth::SCHEMES],
         disable_host_prefix: [false],
-        endpoint: [proc { |cfg| cfg[:stub_responses] ? 'http://localhost' : nil }],
+        endpoint: [proc { |cfg| ('http://localhost' if cfg[:stub_responses]) }],
         endpoint_resolver: [Endpoint::Resolver.new],
         http_client: [proc { |cfg| Hearth::HTTP::Client.new(logger: cfg[:logger]) }],
         interceptors: [Hearth::InterceptorList.new],
         logger: [Logger.new(IO::NULL)],
         plugins: [Hearth::PluginList.new],
-        profile: [Hearth::Config::EnvProvider.new('AWS_PROFILE', type: 'String'),'default'],
-        region: [proc { |cfg| cfg[:stub_responses] ?  'us-stubbed-1' : nil },Hearth::Config::EnvProvider.new('AWS_REGION', type: 'String'),AWS::SDK::Core::SharedConfigProvider.new('region', type: 'String')],
+        profile: [Hearth::Config::EnvProvider.new('AWS_PROFILE', type: 'String'), 'default'],
+        region: [proc { |cfg| ('us-stubbed-1' if cfg[:stub_responses]) }, Hearth::Config::EnvProvider.new('AWS_REGION', type: 'String'), AWS::SDK::Core::SharedConfigProvider.new('region', type: 'String')],
         retry_strategy: [Hearth::Retry::Standard.new],
         stub_responses: [false],
         stubs: [Hearth::Stubs.new],
         telemetry_provider: [Hearth::Telemetry::NoOpTelemetryProvider.new],
-        use_dualstack_endpoint: [Hearth::Config::EnvProvider.new('AWS_USE_DUALSTACK_ENDPOINT', type: 'Boolean'),AWS::SDK::Core::SharedConfigProvider.new('use_dualstack_endpoint', type: 'Boolean')],
-        use_fips_endpoint: [Hearth::Config::EnvProvider.new('AWS_USE_FIPS_ENDPOINT', type: 'Boolean'),AWS::SDK::Core::SharedConfigProvider.new('use_fips_endpoint', type: 'Boolean')],
+        use_dualstack_endpoint: [Hearth::Config::EnvProvider.new('AWS_USE_DUALSTACK_ENDPOINT', type: 'Boolean'), AWS::SDK::Core::SharedConfigProvider.new('use_dualstack_endpoint', type: 'Boolean'), false],
+        use_fips_endpoint: [Hearth::Config::EnvProvider.new('AWS_USE_FIPS_ENDPOINT', type: 'Boolean'), AWS::SDK::Core::SharedConfigProvider.new('use_fips_endpoint', type: 'Boolean'), false],
         validate_input: [true]
       }.freeze
     end

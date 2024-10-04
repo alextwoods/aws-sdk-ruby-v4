@@ -3,7 +3,7 @@
 require_relative '../spec_helper'
 
 module AWS::SDK::Core
-  describe ECSCredentialsProvider do
+  describe ContainerCredentialsProvider do
     describe 'ECSCredentialProvider::ENVIRONMENT' do
       context 'environment has container credentials relative uri' do
         let_env(
@@ -11,14 +11,14 @@ module AWS::SDK::Core
         )
 
         it 'returns an instance of ECSCredentialProvider' do
-          provider = ECSCredentialsProvider::ENVIRONMENT.call({})
-          expect(provider).to be_an_instance_of(ECSCredentialsProvider)
+          provider = ContainerCredentialsProvider.from_env({})
+          expect(provider).to be_an_instance_of(ContainerCredentialsProvider)
         end
       end
 
       context 'environment does not have container credentials relative uri' do
         it 'returns nil' do
-          provider = ECSCredentialsProvider::ENVIRONMENT.call({})
+          provider = ContainerCredentialsProvider.from_env({})
           expect(provider).to be_nil
         end
       end
@@ -46,11 +46,11 @@ module AWS::SDK::Core
       )
     end
 
-    subject { ECSCredentialsProvider.new }
+    subject { ContainerCredentialsProvider.new }
 
     describe '#initialize' do
       it 'raises ArgumentError when credential_path is missing' do
-        expect { ECSCredentialsProvider.new }
+        expect { ContainerCredentialsProvider.new }
           .to raise_error(ArgumentError, /credential path/)
       end
     end
@@ -80,7 +80,7 @@ module AWS::SDK::Core
         it 'raises Non200Response' do
           expect { subject.identity }
             .to raise_error(
-              ECSCredentialsProvider::Non200Response,
+              ContainerCredentialsProvider::Non200Response,
               /404 page not found/
             )
         end
@@ -98,7 +98,7 @@ module AWS::SDK::Core
         it 'raises the json message' do
           expect { subject.identity }
             .to raise_error(
-              ECSCredentialsProvider::Non200Response,
+              ContainerCredentialsProvider::Non200Response,
               /Error!/
             )
         end
@@ -113,7 +113,7 @@ module AWS::SDK::Core
         end
 
         it 'retries with a proc' do
-          provider = ECSCredentialsProvider.new(
+          provider = ContainerCredentialsProvider.new(
             backoff: ->(n) { Kernel.sleep(2**n) }
           )
           expect(Kernel).to receive(:sleep).with(1)
@@ -124,14 +124,14 @@ module AWS::SDK::Core
         end
 
         it 'retries with a number of seconds to sleep' do
-          provider = ECSCredentialsProvider.new(backoff: 3)
+          provider = ContainerCredentialsProvider.new(backoff: 3)
           expect(Kernel).to receive(:sleep).with(3).exactly(3).times
           expect { provider.identity }
             .to raise_error(Errno::ECONNREFUSED)
         end
 
         it 'defaults to exponential backoff' do
-          provider = ECSCredentialsProvider.new
+          provider = ContainerCredentialsProvider.new
           expect(Kernel).to receive(:sleep).with(1.0)
           expect(Kernel).to receive(:sleep).with(1.2)
           expect(Kernel).to receive(:sleep).with(1.44)

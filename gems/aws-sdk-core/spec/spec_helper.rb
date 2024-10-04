@@ -4,9 +4,18 @@ $LOAD_PATH.unshift(File.expand_path('../lib', __dir__))
 $LOAD_PATH.unshift(File.expand_path('../../aws-sigv4/lib', __dir__))
 # $LOAD_PATH.unshift(File.expand_path('../../aws-eventstream/lib',  __FILE__))
 
+# test optional dependencies
+$LOAD_PATH.unshift(File.expand_path('../../aws-sdk-sts/lib', __dir__))
+$LOAD_PATH.unshift(File.expand_path('../../aws-sdk-sso/lib', __dir__))
+$LOAD_PATH.unshift(File.expand_path('../../aws-sdk-ssooidc/lib', __dir__))
+
 require 'simplecov'
 require 'webmock/rspec'
+
 require 'aws-sdk-core'
+require 'aws-sdk-sts'
+require 'aws-sdk-sso'
+require 'aws-sdk-ssooidc'
 
 require_relative 'support/credentials_provider'
 require_relative 'support/refreshing_credentials_provider'
@@ -62,49 +71,17 @@ def mock_shared_config(config_contents = '', credentials_contents = '')
     credentials_profiles: credentials_profiles,
     sso_sessions: sso_sessions
   )
-  allow(AWS::SDK::Core::SharedConfig).to receive(:load).and_return(config)
+  allow(AWS::SDK::Core).to receive(:shared_config).and_return(config)
 end
 
 RSpec.configure do |config|
   config.before(:each) do
     # Default all shared config to be empty
-    AWS::SDK::Core.instance_variable_set(:@shared_config, nil)
     mock_shared_config
   end
 end
 
-## Necessary to run for aws-sdk-core tests on their own
-# rubocop:disable Lint/MissingSuper
-module AWS::SDK::SSO
-  class Client < Hearth::Client
-    def initialize(_config = Config.new, _options = {})
-      nil
-    end
-  end
-  Config = Struct.new(:region, keyword_init: true)
-end
-
-module AWS::SDK::SSOOIDC
-  class Client < Hearth::Client
-    def initialize(_config = Config.new, _options = {})
-      nil
-    end
-  end
-  Config = Struct.new(:region, keyword_init: true)
-end
-
-module AWS::SDK::STS
-  class Client < Hearth::Client
-    def initialize(_config = Config.new, _options = {})
-      nil
-    end
-  end
-  Config = Struct.new(
-    :region, :profile, :credentials_provider, keyword_init: true
-  )
-end
-# rubocop:enable Lint/MissingSuper
-
+## Necessary for aws-sdk-core tests
 module Aws
   module Crt
     module Checksums

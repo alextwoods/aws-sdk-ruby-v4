@@ -8,7 +8,6 @@
 # WARNING ABOUT GENERATED CODE
 
 require 'aws-sdk-core'
-
 require_relative 'aws-sdk-s3/auth'
 require_relative 'aws-sdk-s3/builders'
 require_relative 'aws-sdk-s3/client'
@@ -25,6 +24,9 @@ require_relative 'aws-sdk-s3/types'
 require_relative 'aws-sdk-s3/validators'
 require_relative 'aws-sdk-s3/waiters'
 require_relative 'aws-sdk-s3/event_stream'
+begin
+  require_relative 'aws-sdk-s3/customizations'
+rescue LoadError; end
 
 module AWS::SDK::S3
   VERSION = File.read(File.expand_path('../VERSION', __dir__)).strip

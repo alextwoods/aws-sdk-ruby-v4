@@ -27,21 +27,6 @@ module AWS
           @use_crt
         end
 
-        # @api private
-        def sso_loaded?
-          gem_loaded?('aws-sdk-sso')
-        end
-
-        # @api private
-        def sso_oidc_loaded?
-          gem_loaded?('aws-sdk-ssooidc')
-        end
-
-        # @api private
-        def sts_loaded?
-          gem_loaded?('aws-sdk-sts')
-        end
-
         private
 
         def gem_loaded?(gem_name)
@@ -69,13 +54,11 @@ require_relative 'aws-sdk-core/identities/credentials'
 require_relative 'aws-sdk-core/signers/sigv4'
 
 # Identity Providers
-require_relative 'aws-sdk-core/assume_role_credentials_provider'
-require_relative 'aws-sdk-core/assume_role_web_identity_credentials_provider'
-require_relative 'aws-sdk-core/ec2_credentials_provider'
-require_relative 'aws-sdk-core/ecs_credentials_provider'
+require_relative 'aws-sdk-core/credentials_provider_chain'
+require_relative 'aws-sdk-core/http_bearer_provider_chain'
+require_relative 'aws-sdk-core/instance_credentials_provider'
+require_relative 'aws-sdk-core/container_credentials_provider'
 require_relative 'aws-sdk-core/process_credentials_provider'
-require_relative 'aws-sdk-core/sso_bearer_provider'
-require_relative 'aws-sdk-core/sso_credentials_provider'
 require_relative 'aws-sdk-core/static_credentials_provider'
 
 # Shared Config
@@ -101,36 +84,6 @@ require_relative 'aws-sdk-core/endpoint_rules'
 # Namespace for AWS::SDK Core components
 module AWS::SDK::Core
   GEM_VERSION = File.read(File.expand_path('../VERSION', __dir__)).strip
-
-  # This chain is the order in which Credential Providers are loaded.
-  # @api private
-  CREDENTIALS_PROVIDER_CHAIN = [
-    AssumeRoleWebIdentityCredentialsProvider::PROFILE,
-    SSOCredentialsProvider::PROFILE,
-    AssumeRoleCredentialsProvider::PROFILE,
-    StaticCredentialsProvider::PROFILE,
-    ProcessCredentialsProvider::PROFILE,
-    StaticCredentialsProvider::ENVIRONMENT,
-    AssumeRoleWebIdentityCredentialsProvider::ENVIRONMENT,
-    ECSCredentialsProvider::ENVIRONMENT,
-    EC2CredentialsProvider::ENVIRONMENT
-  ].freeze
-
-  HTTP_BEARER_PROVIDER_CHAIN = [
-    SSOBearerProvider::PROFILE
-  ].freeze
-
-  # This chain is the used by the AssumeRoleCredentialsProvider
-  # when a source_profile is specified to resolve the credentials
-  # from that source profile.
-  # @api private
-  ASSUME_ROLE_PROFILE_CREDENTIAL_PROVIDER_CHAIN = [
-    StaticCredentialsProvider::PROFILE,
-    AssumeRoleCredentialsProvider::PROFILE,
-    AssumeRoleWebIdentityCredentialsProvider::PROFILE,
-    ProcessCredentialsProvider::PROFILE,
-    SSOCredentialsProvider::PROFILE
-  ].freeze
 
   def self.shared_config
     @shared_config ||= SharedConfig.load

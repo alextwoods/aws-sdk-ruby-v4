@@ -2,24 +2,28 @@
 
 module AWS::SDK::Core
   # An auto-refreshing credentials provider that loads credentials from
-  # instances running in ECS.
+  # container instances running in ECS or EKS.
   #
-  #     provider = AWS::SDK::Core::ECSCredentialProvider.new(
+  #     provider = AWS::SDK::Core::ContainerCredentialsProvider.new(
   #       credential_path: '/path/to/credentials.json'
   #     )
-  #     ec2_config = AWS::SDK::EC2::Config.new(credentials_provider: provider)
-  #     ec2 = AWS::SDK::EC2::Client.new(ec2_config)
-  class ECSCredentialsProvider < Hearth::IdentityProvider
+  #     ec2 = AWS::SDK::EC2::Client.new(credentials_provider: provider)
+  class ContainerCredentialsProvider < Hearth::IdentityProvider
     include Hearth::RefreshingIdentityProvider
-
-    # Initializes an instance of ECSCredentialProvider using ENV.
-    # @api private
-    ENVIRONMENT = proc do |_cfg|
-      new if ENV['AWS_CONTAINER_CREDENTIALS_RELATIVE_URI']
-    end
 
     # @api private
     class Non200Response < RuntimeError; end
+
+    # Initializes an instance of ContainerCredentialsProvider using ENV.
+    def self.from_env(_config)
+      # TODO: add FULL_URI support
+      # TODO: add account ID support
+      return unless ENV['AWS_CONTAINER_CREDENTIALS_RELATIVE_URI'] ||
+                    ENV['AWS_CONTAINER_CREDENTIALS_FULL_URI']
+
+      new(credential_path: ENV.fetch('AWS_CONTAINER_CREDENTIALS_RELATIVE_URI',
+                                     nil))
+    end
 
     # @param [Hash] options
     # @option options [Integer] :retries (3) Number of times to retry
@@ -59,7 +63,7 @@ module AWS::SDK::Core
         open_connection do |conn|
           c = JSON.parse(http_get(conn))
           expiration = Time.iso8601(c['Expiration']) if c['Expiration']
-          @identity = AWS::SDK::Core::Identities::Credentials.new(
+          @identity = Identities::Credentials.new(
             access_key_id: c['AccessKeyId'],
             secret_access_key: c['SecretAccessKey'],
             session_token: c['Token'],
