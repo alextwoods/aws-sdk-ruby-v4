@@ -8,6 +8,7 @@ gem 'rexml'
 gem 'hearth',
     git: 'https://github.com/smithy-lang/smithy-ruby',
     glob: 'hearth/hearth.gemspec'
+    # path: '../smithy-ruby/hearth'
 
 if defined?(JRUBY_VERSION)
   # get the latest jruby-openssl to support sigv4a

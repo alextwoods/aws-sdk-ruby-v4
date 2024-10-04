@@ -15,7 +15,8 @@ module AWS::SDK::Core
         Identities::Credentials.new(
           access_key_id: values['accessKeyId'],
           secret_access_key: values['secretAccessKey'],
-          session_token: values['sessionToken']
+          session_token: values['sessionToken'],
+          account_id: values['accountId']
         )
       end
 
@@ -26,6 +27,7 @@ module AWS::SDK::Core
             config[:access_key_id] = values['accessKeyId']
             config[:secret_access_key] = values['secretAccessKey']
             config[:session_token] = values['sessionToken']
+            config[:account_id] = values['accountId']
           when 'jvmSystemProperties'
             # ignore
           when 'env'
@@ -102,6 +104,7 @@ module AWS::SDK::Core
           expect(actual.access_key_id).to eq(expected.access_key_id)
           expect(actual.secret_access_key).to eq(expected.secret_access_key)
           expect(actual.session_token).to eq(expected.session_token)
+          expect(actual.account_id).to eq(expected.account_id)
         end
       end
     end

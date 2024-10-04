@@ -6,21 +6,25 @@ module AWS::SDK::Core
     # AWS Credentials Identity used for Sigv4 and Sigv4a
     class Credentials < Hearth::Identities::Base
       def initialize(access_key_id:, secret_access_key:, session_token: nil,
-                     **kwargs)
+                     account_id: nil, **kwargs)
         super(**kwargs)
         @access_key_id = access_key_id
         @secret_access_key = secret_access_key
         @session_token = session_token
+        @account_id = account_id
       end
 
-      # @return [String, nil]
+      # @return [String]
       attr_reader :access_key_id
 
-      # @return [String, nil]
+      # @return [String]
       attr_reader :secret_access_key
 
       # @return [String, nil]
       attr_reader :session_token
+
+      # @return [String, nil]
+      attr_reader :account_id
 
       # @return [Boolean] Returns `true` if the access key id and secret
       #   access key are both set.

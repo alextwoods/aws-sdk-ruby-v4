@@ -9,6 +9,8 @@ module AWS::SDK::Core
     end
 
     def identity(_properties = {})
+      # TODO: cache the provider based on config keys - so that operation
+      # overrides on profile name, etc, can change default providers.
       return @provider.identity if @provider
 
       providers.each do |method_name|

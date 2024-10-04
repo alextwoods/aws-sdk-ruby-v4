@@ -30,7 +30,7 @@ module AWS::SDK::STS
           expect(AWS::SDK::Core::StaticCredentialsProvider)
             .to receive(:new)
             .with(access_key_id: 'abc123', secret_access_key: 'def456',
-                  session_token: nil)
+                  session_token: nil, account_id: nil)
             .and_return(credentials_from_b)
 
           # verify client is created with credentials from B
@@ -71,7 +71,7 @@ module AWS::SDK::STS
           expect(AWS::SDK::Core::StaticCredentialsProvider)
             .to receive(:new)
             .with(access_key_id: 'ghi890', secret_access_key: 'jkl123',
-                  session_token: nil)
+                  session_token: nil, account_id: nil)
             .and_return(credentials_from_b)
 
           # verify client is created with credentials from B
@@ -116,7 +116,7 @@ module AWS::SDK::STS
           expect(AWS::SDK::Core::StaticCredentialsProvider)
             .to receive(:new)
             .with(access_key_id: 'abc123', secret_access_key: 'def456',
-                  session_token: nil)
+                  session_token: nil, account_id: nil)
             .and_return(credentials_from_b)
 
           # verify client is created with credentials from B
@@ -377,7 +377,7 @@ module AWS::SDK::STS
           expect(AWS::SDK::Core::StaticCredentialsProvider)
             .to receive(:new)
             .with(access_key_id: 'mno456', secret_access_key: 'pqr789',
-                  session_token: nil)
+                  session_token: nil, account_id: nil)
             .and_return(credentials_from_c)
 
           # verify client for B is created with credentials from C
@@ -435,7 +435,7 @@ module AWS::SDK::STS
           expect(AWS::SDK::Core::StaticCredentialsProvider)
             .to receive(:new)
             .with(access_key_id: 'ghi890', secret_access_key: 'jkl123',
-                  session_token: nil)
+                  session_token: nil, account_id: nil)
             .and_return(credentials_from_b)
 
           # verify client is created with credentials from B
