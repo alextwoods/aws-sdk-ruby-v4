@@ -28,10 +28,10 @@ module AWS::SDK::Core
       return unless ENV['AWS_ACCESS_KEY_ID'] && ENV['AWS_SECRET_ACCESS_KEY']
 
       new(
-        access_key_id: ENV['AWS_ACCESS_KEY_ID'],
-        secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
-        session_token: ENV['AWS_SESSION_TOKEN'],
-        account_id: ENV['AWS_ACCOUNT_ID']
+        access_key_id: ENV.fetch('AWS_ACCESS_KEY_ID'),
+        secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY'),
+        session_token: ENV.fetch('AWS_SESSION_TOKEN', nil),
+        account_id: ENV.fetch('AWS_ACCOUNT_ID', nil)
       )
     end
 
