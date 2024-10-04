@@ -17,6 +17,7 @@ module AWS::SDK::Core
     # Initializes an instance of ContainerCredentialsProvider using ENV.
     def self.from_env(_config)
       # TODO: add FULL_URI support
+      # TODO: add account ID support
       return unless ENV['AWS_CONTAINER_CREDENTIALS_RELATIVE_URI'] ||
                     ENV['AWS_CONTAINER_CREDENTIALS_FULL_URI']
 

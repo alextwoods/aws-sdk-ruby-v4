@@ -22,6 +22,7 @@ module AWS::SDK::Core
     # Initializes an instance of InstanceCredentialsProvider using ENV and
     # profile values.
     def self.from_env(config)
+      # TODO: add account ID support
       return if ENV['AWS_EC2_METADATA_DISABLED']
 
       profile = config[:profile]

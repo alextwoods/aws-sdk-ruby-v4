@@ -44,6 +44,7 @@ module AWS::SDK::STS
 
     # Initializes an instance of AssumeRoleCredentialsProvider using a profile.
     def self.from_profile(config, options = {})
+      # TODO: add account ID support
       profile = options[:profile] || config[:profile]
       profile_config = AWS::SDK::Core.shared_config.profiles[profile]
       return unless profile_config && profile_config['role_arn']
