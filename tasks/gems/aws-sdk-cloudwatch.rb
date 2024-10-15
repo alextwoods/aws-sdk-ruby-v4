@@ -7,6 +7,10 @@ module Benchmark
         'aws-sdk-cloudwatch'
       end
 
+      def gem_dir
+        'gems/aws-sdk-cloudwatch'
+      end
+
       def client_module_name
         'AWS::SDK::CloudWatch'
       end

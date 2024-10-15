@@ -7,6 +7,10 @@ module Benchmark
         'aws-sdk-s3'
       end
 
+      def gem_dir
+        'gems/aws-sdk-s3'
+      end
+
       def client_module_name
         'AWS::SDK::S3'
       end
