@@ -16,6 +16,8 @@
 package software.amazon.smithy.aws.ruby.codegen.protocol.json.generators;
 
 import java.util.stream.Stream;
+import software.amazon.smithy.aws.traits.protocols.AwsQueryCompatibleTrait;
+import software.amazon.smithy.model.knowledge.OperationIndex;
 import software.amazon.smithy.model.shapes.BlobShape;
 import software.amazon.smithy.model.shapes.DoubleShape;
 import software.amazon.smithy.model.shapes.FloatShape;
@@ -34,7 +36,6 @@ import software.amazon.smithy.model.traits.StreamingTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
 import software.amazon.smithy.ruby.codegen.Hearth;
-import software.amazon.smithy.ruby.codegen.RubyCodeWriter;
 import software.amazon.smithy.ruby.codegen.RubyImportContainer;
 import software.amazon.smithy.ruby.codegen.generators.BuilderGeneratorBase;
 import software.amazon.smithy.ruby.codegen.traits.NoSerializeTrait;
@@ -73,11 +74,7 @@ public class BuilderGenerator extends BuilderGeneratorBase {
                 .openBlock("def self.build(http_req, input:)")
                 .write("http_req.http_method = 'POST'")
                 .write("http_req.append_path('/')")
-                .call(() -> {
-                    renderContentTypeHeader(operation, isEventStream);
-                })
-
-                .write("http_req.headers['X-Amz-Target'] = '$L'", target)
+                .call(() -> renderHeaders(operation, target, isEventStream))
                 .call(() -> {
                     if (isEventStream) {
                         renderEventStreamInitialRequestMessage(inputShape);
@@ -116,14 +113,26 @@ public class BuilderGenerator extends BuilderGeneratorBase {
         }
     }
 
-    private void renderContentTypeHeader(OperationShape operation, boolean isEventStream) {
-        if (isEventStream) {
-            writer.write("http_req.headers['Content-Type'] = 'application/vnd.amazon.eventstream'");
-            if (Streaming.isEventStreaming(model, model.expectShape(operation.getOutputShape()))) {
-                writer.write("http_req.headers['Accept'] = 'application/vnd.amazon.eventstream'");
+    private void renderHeaders(OperationShape operation, String target, boolean isEventStream) {
+        // Only modeled inputs should have this header
+        if (OperationIndex.of(model).getInput(operation).isPresent()) {
+            String contentTypeHeader;
+            if (isEventStream) {
+                contentTypeHeader = "application/vnd.amazon.eventstream";
+            } else {
+                contentTypeHeader = "application/x-amz-json-1.1";
             }
-        } else {
-            writer.write("http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'");
+            writer.write("http_req.headers['Content-Type'] = '$L'", contentTypeHeader);
+        }
+
+        if (Streaming.isEventStreaming(model, model.expectShape(operation.getOutputShape()))) {
+            writer.write("http_req.headers['Accept'] = 'application/vnd.amazon.eventstream'");
+        }
+
+        writer.write("http_req.headers['X-Amz-Target'] = '$L'", target);
+
+        if (context.service().hasTrait(AwsQueryCompatibleTrait.class)) {
+            writer.write("http_req.headers['X-Amzn-Query-Mode'] = 'true'");
         }
     }
 

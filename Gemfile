@@ -17,17 +17,21 @@ end
 
 group :benchmark do
   gem 'memory_profiler'
+
+  # required for uploading archive/metrics
+  gem 'aws-sdk-cloudwatch'
+  gem 'aws-sdk-s3'
 end
 
 group :development do
   gem 'byebug'
-  gem 'rbs'
   gem 'rubocop'
   gem 'rubocop-rake'
-  gem 'racc' # required still by rubocop but moved to bundled gem in 3.3
-  gem 'steep'
-  gem 'opentelemetry-sdk'
-  gem 'opentelemetry-exporter-otlp'
+end
+
+group :rbs do
+  gem 'rbs', platforms: :ruby
+  gem 'steep', platforms: :ruby
 end
 
 group :repl do
@@ -38,4 +42,6 @@ group :test do
   gem 'rspec'
   gem 'simplecov'
   gem 'webmock'
+  gem 'opentelemetry-sdk'
+  gem 'opentelemetry-exporter-otlp'
 end

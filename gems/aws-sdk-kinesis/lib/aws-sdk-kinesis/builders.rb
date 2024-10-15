@@ -490,6 +490,7 @@ module AWS::SDK::Kinesis
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
+        http_req.headers['Accept'] = 'application/vnd.amazon.eventstream'
         http_req.headers['X-Amz-Target'] = 'Kinesis_20131202.SubscribeToShard'
         data = {}
         data['ConsumerARN'] = input.consumer_arn unless input.consumer_arn.nil?
