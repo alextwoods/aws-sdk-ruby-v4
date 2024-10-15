@@ -35,16 +35,32 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Setup Java
-        uses: actions/setup-java@v2
-        with:
-          distribution: 'zulu'
-          java-version: ${{ env.java_version }}
-
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
+
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: ${{ env.java_version }}
+
+      - name: Build and publish latest smithy-ruby from github to maven local
+        run: |
+          git clone --depth 1 https://github.com/smithy-lang/smithy-ruby.git
+          cd smithy-ruby
+          bundle install
+          bundle exec rake codegen:publish-local
 
       - name: Install gems
         run: |
