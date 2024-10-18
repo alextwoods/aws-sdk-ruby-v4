@@ -67,19 +67,19 @@ module AWS::SDK::TranscribeStreaming
         http_req.append_path('/call-analytics-stream-transcription')
         http_req.headers['Content-Type'] = 'application/vnd.amazon.eventstream'
         http_req.headers['Accept'] = 'application/vnd.amazon.eventstream'
-        http_req.headers['x-amzn-transcribe-language-code'] = input.language_code unless input.language_code.nil? || input.language_code.empty?
+        http_req.headers['x-amzn-transcribe-language-code'] = input.language_code unless input.language_code.nil?
         http_req.headers['x-amzn-transcribe-sample-rate'] = input.media_sample_rate_hertz.to_s unless input.media_sample_rate_hertz.nil?
-        http_req.headers['x-amzn-transcribe-media-encoding'] = input.media_encoding unless input.media_encoding.nil? || input.media_encoding.empty?
-        http_req.headers['x-amzn-transcribe-vocabulary-name'] = input.vocabulary_name unless input.vocabulary_name.nil? || input.vocabulary_name.empty?
-        http_req.headers['x-amzn-transcribe-session-id'] = input.session_id unless input.session_id.nil? || input.session_id.empty?
-        http_req.headers['x-amzn-transcribe-vocabulary-filter-name'] = input.vocabulary_filter_name unless input.vocabulary_filter_name.nil? || input.vocabulary_filter_name.empty?
-        http_req.headers['x-amzn-transcribe-vocabulary-filter-method'] = input.vocabulary_filter_method unless input.vocabulary_filter_method.nil? || input.vocabulary_filter_method.empty?
-        http_req.headers['x-amzn-transcribe-language-model-name'] = input.language_model_name unless input.language_model_name.nil? || input.language_model_name.empty?
+        http_req.headers['x-amzn-transcribe-media-encoding'] = input.media_encoding unless input.media_encoding.nil?
+        http_req.headers['x-amzn-transcribe-vocabulary-name'] = input.vocabulary_name unless input.vocabulary_name.nil?
+        http_req.headers['x-amzn-transcribe-session-id'] = input.session_id unless input.session_id.nil?
+        http_req.headers['x-amzn-transcribe-vocabulary-filter-name'] = input.vocabulary_filter_name unless input.vocabulary_filter_name.nil?
+        http_req.headers['x-amzn-transcribe-vocabulary-filter-method'] = input.vocabulary_filter_method unless input.vocabulary_filter_method.nil?
+        http_req.headers['x-amzn-transcribe-language-model-name'] = input.language_model_name unless input.language_model_name.nil?
         http_req.headers['x-amzn-transcribe-enable-partial-results-stabilization'] = input.enable_partial_results_stabilization.to_s unless input.enable_partial_results_stabilization.nil?
-        http_req.headers['x-amzn-transcribe-partial-results-stability'] = input.partial_results_stability unless input.partial_results_stability.nil? || input.partial_results_stability.empty?
-        http_req.headers['x-amzn-transcribe-content-identification-type'] = input.content_identification_type unless input.content_identification_type.nil? || input.content_identification_type.empty?
-        http_req.headers['x-amzn-transcribe-content-redaction-type'] = input.content_redaction_type unless input.content_redaction_type.nil? || input.content_redaction_type.empty?
-        http_req.headers['x-amzn-transcribe-pii-entity-types'] = input.pii_entity_types unless input.pii_entity_types.nil? || input.pii_entity_types.empty?
+        http_req.headers['x-amzn-transcribe-partial-results-stability'] = input.partial_results_stability unless input.partial_results_stability.nil?
+        http_req.headers['x-amzn-transcribe-content-identification-type'] = input.content_identification_type unless input.content_identification_type.nil?
+        http_req.headers['x-amzn-transcribe-content-redaction-type'] = input.content_redaction_type unless input.content_redaction_type.nil?
+        http_req.headers['x-amzn-transcribe-pii-entity-types'] = input.pii_entity_types unless input.pii_entity_types.nil?
       end
     end
 
@@ -89,17 +89,17 @@ module AWS::SDK::TranscribeStreaming
         http_req.append_path('/medical-stream-transcription')
         http_req.headers['Content-Type'] = 'application/vnd.amazon.eventstream'
         http_req.headers['Accept'] = 'application/vnd.amazon.eventstream'
-        http_req.headers['x-amzn-transcribe-language-code'] = input.language_code unless input.language_code.nil? || input.language_code.empty?
+        http_req.headers['x-amzn-transcribe-language-code'] = input.language_code unless input.language_code.nil?
         http_req.headers['x-amzn-transcribe-sample-rate'] = input.media_sample_rate_hertz.to_s unless input.media_sample_rate_hertz.nil?
-        http_req.headers['x-amzn-transcribe-media-encoding'] = input.media_encoding unless input.media_encoding.nil? || input.media_encoding.empty?
-        http_req.headers['x-amzn-transcribe-vocabulary-name'] = input.vocabulary_name unless input.vocabulary_name.nil? || input.vocabulary_name.empty?
-        http_req.headers['x-amzn-transcribe-specialty'] = input.specialty unless input.specialty.nil? || input.specialty.empty?
-        http_req.headers['x-amzn-transcribe-type'] = input.type unless input.type.nil? || input.type.empty?
+        http_req.headers['x-amzn-transcribe-media-encoding'] = input.media_encoding unless input.media_encoding.nil?
+        http_req.headers['x-amzn-transcribe-vocabulary-name'] = input.vocabulary_name unless input.vocabulary_name.nil?
+        http_req.headers['x-amzn-transcribe-specialty'] = input.specialty unless input.specialty.nil?
+        http_req.headers['x-amzn-transcribe-type'] = input.type unless input.type.nil?
         http_req.headers['x-amzn-transcribe-show-speaker-label'] = input.show_speaker_label.to_s unless input.show_speaker_label.nil?
-        http_req.headers['x-amzn-transcribe-session-id'] = input.session_id unless input.session_id.nil? || input.session_id.empty?
+        http_req.headers['x-amzn-transcribe-session-id'] = input.session_id unless input.session_id.nil?
         http_req.headers['x-amzn-transcribe-enable-channel-identification'] = input.enable_channel_identification.to_s unless input.enable_channel_identification.nil?
         http_req.headers['x-amzn-transcribe-number-of-channels'] = input.number_of_channels.to_s unless input.number_of_channels.nil?
-        http_req.headers['x-amzn-transcribe-content-identification-type'] = input.content_identification_type unless input.content_identification_type.nil? || input.content_identification_type.empty?
+        http_req.headers['x-amzn-transcribe-content-identification-type'] = input.content_identification_type unless input.content_identification_type.nil?
       end
     end
 
@@ -109,28 +109,28 @@ module AWS::SDK::TranscribeStreaming
         http_req.append_path('/stream-transcription')
         http_req.headers['Content-Type'] = 'application/vnd.amazon.eventstream'
         http_req.headers['Accept'] = 'application/vnd.amazon.eventstream'
-        http_req.headers['x-amzn-transcribe-language-code'] = input.language_code unless input.language_code.nil? || input.language_code.empty?
+        http_req.headers['x-amzn-transcribe-language-code'] = input.language_code unless input.language_code.nil?
         http_req.headers['x-amzn-transcribe-sample-rate'] = input.media_sample_rate_hertz.to_s unless input.media_sample_rate_hertz.nil?
-        http_req.headers['x-amzn-transcribe-media-encoding'] = input.media_encoding unless input.media_encoding.nil? || input.media_encoding.empty?
-        http_req.headers['x-amzn-transcribe-vocabulary-name'] = input.vocabulary_name unless input.vocabulary_name.nil? || input.vocabulary_name.empty?
-        http_req.headers['x-amzn-transcribe-session-id'] = input.session_id unless input.session_id.nil? || input.session_id.empty?
-        http_req.headers['x-amzn-transcribe-vocabulary-filter-name'] = input.vocabulary_filter_name unless input.vocabulary_filter_name.nil? || input.vocabulary_filter_name.empty?
-        http_req.headers['x-amzn-transcribe-vocabulary-filter-method'] = input.vocabulary_filter_method unless input.vocabulary_filter_method.nil? || input.vocabulary_filter_method.empty?
+        http_req.headers['x-amzn-transcribe-media-encoding'] = input.media_encoding unless input.media_encoding.nil?
+        http_req.headers['x-amzn-transcribe-vocabulary-name'] = input.vocabulary_name unless input.vocabulary_name.nil?
+        http_req.headers['x-amzn-transcribe-session-id'] = input.session_id unless input.session_id.nil?
+        http_req.headers['x-amzn-transcribe-vocabulary-filter-name'] = input.vocabulary_filter_name unless input.vocabulary_filter_name.nil?
+        http_req.headers['x-amzn-transcribe-vocabulary-filter-method'] = input.vocabulary_filter_method unless input.vocabulary_filter_method.nil?
         http_req.headers['x-amzn-transcribe-show-speaker-label'] = input.show_speaker_label.to_s unless input.show_speaker_label.nil?
         http_req.headers['x-amzn-transcribe-enable-channel-identification'] = input.enable_channel_identification.to_s unless input.enable_channel_identification.nil?
         http_req.headers['x-amzn-transcribe-number-of-channels'] = input.number_of_channels.to_s unless input.number_of_channels.nil?
         http_req.headers['x-amzn-transcribe-enable-partial-results-stabilization'] = input.enable_partial_results_stabilization.to_s unless input.enable_partial_results_stabilization.nil?
-        http_req.headers['x-amzn-transcribe-partial-results-stability'] = input.partial_results_stability unless input.partial_results_stability.nil? || input.partial_results_stability.empty?
-        http_req.headers['x-amzn-transcribe-content-identification-type'] = input.content_identification_type unless input.content_identification_type.nil? || input.content_identification_type.empty?
-        http_req.headers['x-amzn-transcribe-content-redaction-type'] = input.content_redaction_type unless input.content_redaction_type.nil? || input.content_redaction_type.empty?
-        http_req.headers['x-amzn-transcribe-pii-entity-types'] = input.pii_entity_types unless input.pii_entity_types.nil? || input.pii_entity_types.empty?
-        http_req.headers['x-amzn-transcribe-language-model-name'] = input.language_model_name unless input.language_model_name.nil? || input.language_model_name.empty?
+        http_req.headers['x-amzn-transcribe-partial-results-stability'] = input.partial_results_stability unless input.partial_results_stability.nil?
+        http_req.headers['x-amzn-transcribe-content-identification-type'] = input.content_identification_type unless input.content_identification_type.nil?
+        http_req.headers['x-amzn-transcribe-content-redaction-type'] = input.content_redaction_type unless input.content_redaction_type.nil?
+        http_req.headers['x-amzn-transcribe-pii-entity-types'] = input.pii_entity_types unless input.pii_entity_types.nil?
+        http_req.headers['x-amzn-transcribe-language-model-name'] = input.language_model_name unless input.language_model_name.nil?
         http_req.headers['x-amzn-transcribe-identify-language'] = input.identify_language.to_s unless input.identify_language.nil?
-        http_req.headers['x-amzn-transcribe-language-options'] = input.language_options unless input.language_options.nil? || input.language_options.empty?
-        http_req.headers['x-amzn-transcribe-preferred-language'] = input.preferred_language unless input.preferred_language.nil? || input.preferred_language.empty?
+        http_req.headers['x-amzn-transcribe-language-options'] = input.language_options unless input.language_options.nil?
+        http_req.headers['x-amzn-transcribe-preferred-language'] = input.preferred_language unless input.preferred_language.nil?
         http_req.headers['x-amzn-transcribe-identify-multiple-languages'] = input.identify_multiple_languages.to_s unless input.identify_multiple_languages.nil?
-        http_req.headers['x-amzn-transcribe-vocabulary-names'] = input.vocabulary_names unless input.vocabulary_names.nil? || input.vocabulary_names.empty?
-        http_req.headers['x-amzn-transcribe-vocabulary-filter-names'] = input.vocabulary_filter_names unless input.vocabulary_filter_names.nil? || input.vocabulary_filter_names.empty?
+        http_req.headers['x-amzn-transcribe-vocabulary-names'] = input.vocabulary_names unless input.vocabulary_names.nil?
+        http_req.headers['x-amzn-transcribe-vocabulary-filter-names'] = input.vocabulary_filter_names unless input.vocabulary_filter_names.nil?
       end
     end
     module EventStream

@@ -269,7 +269,7 @@ module AWS::SDK::LexRuntimeV2
         data['sessionState'] = SessionState.build(input.session_state) unless input.session_state.nil?
         data['requestAttributes'] = StringMap.build(input.request_attributes) unless input.request_attributes.nil?
         http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
-        http_req.headers['ResponseContentType'] = input.response_content_type unless input.response_content_type.nil? || input.response_content_type.empty?
+        http_req.headers['ResponseContentType'] = input.response_content_type unless input.response_content_type.nil?
       end
     end
 
@@ -332,10 +332,10 @@ module AWS::SDK::LexRuntimeV2
         http_req.body = input.input_stream
         http_req.headers['Transfer-Encoding'] = 'chunked'
         http_req.headers['Content-Type'] = 'application/octet-stream'
-        http_req.headers['x-amz-lex-session-state'] = input.session_state unless input.session_state.nil? || input.session_state.empty?
-        http_req.headers['x-amz-lex-request-attributes'] = input.request_attributes unless input.request_attributes.nil? || input.request_attributes.empty?
-        http_req.headers['Content-Type'] = input.request_content_type unless input.request_content_type.nil? || input.request_content_type.empty?
-        http_req.headers['Response-Content-Type'] = input.response_content_type unless input.response_content_type.nil? || input.response_content_type.empty?
+        http_req.headers['x-amz-lex-session-state'] = input.session_state unless input.session_state.nil?
+        http_req.headers['x-amz-lex-request-attributes'] = input.request_attributes unless input.request_attributes.nil?
+        http_req.headers['Content-Type'] = input.request_content_type unless input.request_content_type.nil?
+        http_req.headers['Response-Content-Type'] = input.response_content_type unless input.response_content_type.nil?
       end
     end
 
@@ -453,7 +453,7 @@ module AWS::SDK::LexRuntimeV2
         )
         http_req.headers['Content-Type'] = 'application/vnd.amazon.eventstream'
         http_req.headers['Accept'] = 'application/vnd.amazon.eventstream'
-        http_req.headers['x-amz-lex-conversation-mode'] = input.conversation_mode unless input.conversation_mode.nil? || input.conversation_mode.empty?
+        http_req.headers['x-amz-lex-conversation-mode'] = input.conversation_mode unless input.conversation_mode.nil?
       end
     end
 

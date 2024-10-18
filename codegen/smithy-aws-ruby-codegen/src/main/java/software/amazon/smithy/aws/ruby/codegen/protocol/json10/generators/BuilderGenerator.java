@@ -116,16 +116,13 @@ public class BuilderGenerator extends BuilderGeneratorBase {
     }
 
     private void renderHeaders(OperationShape operation, String target, boolean isEventStream) {
-        // Only modeled inputs should have this header
-        if (hasModeledInput(model.expectShape(operation.getInputShape()))) {
-            String contentTypeHeader;
-            if (isEventStream) {
-                contentTypeHeader = "application/vnd.amazon.eventstream";
-            } else {
-                contentTypeHeader = "application/x-amz-json-1.0";
-            }
-            writer.write("http_req.headers['Content-Type'] = '$L'", contentTypeHeader);
+        String contentTypeHeader;
+        if (isEventStream) {
+            contentTypeHeader = "application/vnd.amazon.eventstream";
+        } else {
+            contentTypeHeader = "application/x-amz-json-1.0";
         }
+        writer.write("http_req.headers['Content-Type'] = '$L'", contentTypeHeader);
 
         if (Streaming.isEventStreaming(model, model.expectShape(operation.getOutputShape()))) {
             writer.write("http_req.headers['Accept'] = 'application/vnd.amazon.eventstream'");

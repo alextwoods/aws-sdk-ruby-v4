@@ -42,8 +42,8 @@ module AWS::SDK::S3
         params = Hearth::Query::ParamList.new
         params['uploadId'] = input.upload_id.to_s unless input.upload_id.nil?
         http_req.append_query_param_list(params)
-        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil? || input.request_payer.empty?
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -265,15 +265,15 @@ module AWS::SDK::S3
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::CompletedMultipartUpload.build('CompleteMultipartUpload', input.multipart_upload) unless input.multipart_upload.nil?
         http_req.body = ::StringIO.new(xml.to_str) if xml
-        http_req.headers['x-amz-checksum-crc32'] = input.checksum_crc32 unless input.checksum_crc32.nil? || input.checksum_crc32.empty?
-        http_req.headers['x-amz-checksum-crc32c'] = input.checksum_crc32_c unless input.checksum_crc32_c.nil? || input.checksum_crc32_c.empty?
-        http_req.headers['x-amz-checksum-sha1'] = input.checksum_sha1 unless input.checksum_sha1.nil? || input.checksum_sha1.empty?
-        http_req.headers['x-amz-checksum-sha256'] = input.checksum_sha256 unless input.checksum_sha256.nil? || input.checksum_sha256.empty?
-        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil? || input.request_payer.empty?
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
-        http_req.headers['x-amz-server-side-encryption-customer-algorithm'] = input.sse_customer_algorithm unless input.sse_customer_algorithm.nil? || input.sse_customer_algorithm.empty?
-        http_req.headers['x-amz-server-side-encryption-customer-key'] = input.sse_customer_key unless input.sse_customer_key.nil? || input.sse_customer_key.empty?
-        http_req.headers['x-amz-server-side-encryption-customer-key-MD5'] = input.sse_customer_key_md5 unless input.sse_customer_key_md5.nil? || input.sse_customer_key_md5.empty?
+        http_req.headers['x-amz-checksum-crc32'] = input.checksum_crc32 unless input.checksum_crc32.nil?
+        http_req.headers['x-amz-checksum-crc32c'] = input.checksum_crc32_c unless input.checksum_crc32_c.nil?
+        http_req.headers['x-amz-checksum-sha1'] = input.checksum_sha1 unless input.checksum_sha1.nil?
+        http_req.headers['x-amz-checksum-sha256'] = input.checksum_sha256 unless input.checksum_sha256.nil?
+        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
+        http_req.headers['x-amz-server-side-encryption-customer-algorithm'] = input.sse_customer_algorithm unless input.sse_customer_algorithm.nil?
+        http_req.headers['x-amz-server-side-encryption-customer-key'] = input.sse_customer_key unless input.sse_customer_key.nil?
+        http_req.headers['x-amz-server-side-encryption-customer-key-MD5'] = input.sse_customer_key_md5 unless input.sse_customer_key_md5.nil?
       end
     end
 
@@ -335,46 +335,46 @@ module AWS::SDK::S3
             Key: (input.key.to_s).split('/').map { |s| Hearth::HTTP.uri_escape(s) }.join('/')
           )
         )
-        http_req.headers['x-amz-acl'] = input.acl unless input.acl.nil? || input.acl.empty?
-        http_req.headers['Cache-Control'] = input.cache_control unless input.cache_control.nil? || input.cache_control.empty?
-        http_req.headers['x-amz-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil? || input.checksum_algorithm.empty?
-        http_req.headers['Content-Disposition'] = input.content_disposition unless input.content_disposition.nil? || input.content_disposition.empty?
-        http_req.headers['Content-Encoding'] = input.content_encoding unless input.content_encoding.nil? || input.content_encoding.empty?
-        http_req.headers['Content-Language'] = input.content_language unless input.content_language.nil? || input.content_language.empty?
-        http_req.headers['Content-Type'] = input.content_type unless input.content_type.nil? || input.content_type.empty?
-        http_req.headers['x-amz-copy-source'] = input.copy_source unless input.copy_source.nil? || input.copy_source.empty?
-        http_req.headers['x-amz-copy-source-if-match'] = input.copy_source_if_match unless input.copy_source_if_match.nil? || input.copy_source_if_match.empty?
+        http_req.headers['x-amz-acl'] = input.acl unless input.acl.nil?
+        http_req.headers['Cache-Control'] = input.cache_control unless input.cache_control.nil?
+        http_req.headers['x-amz-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil?
+        http_req.headers['Content-Disposition'] = input.content_disposition unless input.content_disposition.nil?
+        http_req.headers['Content-Encoding'] = input.content_encoding unless input.content_encoding.nil?
+        http_req.headers['Content-Language'] = input.content_language unless input.content_language.nil?
+        http_req.headers['Content-Type'] = input.content_type unless input.content_type.nil?
+        http_req.headers['x-amz-copy-source'] = input.copy_source unless input.copy_source.nil?
+        http_req.headers['x-amz-copy-source-if-match'] = input.copy_source_if_match unless input.copy_source_if_match.nil?
         http_req.headers['x-amz-copy-source-if-modified-since'] = Hearth::TimeHelper.to_http_date(input.copy_source_if_modified_since) unless input.copy_source_if_modified_since.nil?
-        http_req.headers['x-amz-copy-source-if-none-match'] = input.copy_source_if_none_match unless input.copy_source_if_none_match.nil? || input.copy_source_if_none_match.empty?
+        http_req.headers['x-amz-copy-source-if-none-match'] = input.copy_source_if_none_match unless input.copy_source_if_none_match.nil?
         http_req.headers['x-amz-copy-source-if-unmodified-since'] = Hearth::TimeHelper.to_http_date(input.copy_source_if_unmodified_since) unless input.copy_source_if_unmodified_since.nil?
         http_req.headers['Expires'] = Hearth::TimeHelper.to_http_date(input.expires) unless input.expires.nil?
-        http_req.headers['x-amz-grant-full-control'] = input.grant_full_control unless input.grant_full_control.nil? || input.grant_full_control.empty?
-        http_req.headers['x-amz-grant-read'] = input.grant_read unless input.grant_read.nil? || input.grant_read.empty?
-        http_req.headers['x-amz-grant-read-acp'] = input.grant_read_acp unless input.grant_read_acp.nil? || input.grant_read_acp.empty?
-        http_req.headers['x-amz-grant-write-acp'] = input.grant_write_acp unless input.grant_write_acp.nil? || input.grant_write_acp.empty?
-        http_req.headers['x-amz-metadata-directive'] = input.metadata_directive unless input.metadata_directive.nil? || input.metadata_directive.empty?
-        http_req.headers['x-amz-tagging-directive'] = input.tagging_directive unless input.tagging_directive.nil? || input.tagging_directive.empty?
-        http_req.headers['x-amz-server-side-encryption'] = input.server_side_encryption unless input.server_side_encryption.nil? || input.server_side_encryption.empty?
-        http_req.headers['x-amz-storage-class'] = input.storage_class unless input.storage_class.nil? || input.storage_class.empty?
-        http_req.headers['x-amz-website-redirect-location'] = input.website_redirect_location unless input.website_redirect_location.nil? || input.website_redirect_location.empty?
-        http_req.headers['x-amz-server-side-encryption-customer-algorithm'] = input.sse_customer_algorithm unless input.sse_customer_algorithm.nil? || input.sse_customer_algorithm.empty?
-        http_req.headers['x-amz-server-side-encryption-customer-key'] = input.sse_customer_key unless input.sse_customer_key.nil? || input.sse_customer_key.empty?
-        http_req.headers['x-amz-server-side-encryption-customer-key-MD5'] = input.sse_customer_key_md5 unless input.sse_customer_key_md5.nil? || input.sse_customer_key_md5.empty?
-        http_req.headers['x-amz-server-side-encryption-aws-kms-key-id'] = input.ssekms_key_id unless input.ssekms_key_id.nil? || input.ssekms_key_id.empty?
-        http_req.headers['x-amz-server-side-encryption-context'] = input.ssekms_encryption_context unless input.ssekms_encryption_context.nil? || input.ssekms_encryption_context.empty?
+        http_req.headers['x-amz-grant-full-control'] = input.grant_full_control unless input.grant_full_control.nil?
+        http_req.headers['x-amz-grant-read'] = input.grant_read unless input.grant_read.nil?
+        http_req.headers['x-amz-grant-read-acp'] = input.grant_read_acp unless input.grant_read_acp.nil?
+        http_req.headers['x-amz-grant-write-acp'] = input.grant_write_acp unless input.grant_write_acp.nil?
+        http_req.headers['x-amz-metadata-directive'] = input.metadata_directive unless input.metadata_directive.nil?
+        http_req.headers['x-amz-tagging-directive'] = input.tagging_directive unless input.tagging_directive.nil?
+        http_req.headers['x-amz-server-side-encryption'] = input.server_side_encryption unless input.server_side_encryption.nil?
+        http_req.headers['x-amz-storage-class'] = input.storage_class unless input.storage_class.nil?
+        http_req.headers['x-amz-website-redirect-location'] = input.website_redirect_location unless input.website_redirect_location.nil?
+        http_req.headers['x-amz-server-side-encryption-customer-algorithm'] = input.sse_customer_algorithm unless input.sse_customer_algorithm.nil?
+        http_req.headers['x-amz-server-side-encryption-customer-key'] = input.sse_customer_key unless input.sse_customer_key.nil?
+        http_req.headers['x-amz-server-side-encryption-customer-key-MD5'] = input.sse_customer_key_md5 unless input.sse_customer_key_md5.nil?
+        http_req.headers['x-amz-server-side-encryption-aws-kms-key-id'] = input.ssekms_key_id unless input.ssekms_key_id.nil?
+        http_req.headers['x-amz-server-side-encryption-context'] = input.ssekms_encryption_context unless input.ssekms_encryption_context.nil?
         http_req.headers['x-amz-server-side-encryption-bucket-key-enabled'] = input.bucket_key_enabled.to_s unless input.bucket_key_enabled.nil?
-        http_req.headers['x-amz-copy-source-server-side-encryption-customer-algorithm'] = input.copy_source_sse_customer_algorithm unless input.copy_source_sse_customer_algorithm.nil? || input.copy_source_sse_customer_algorithm.empty?
-        http_req.headers['x-amz-copy-source-server-side-encryption-customer-key'] = input.copy_source_sse_customer_key unless input.copy_source_sse_customer_key.nil? || input.copy_source_sse_customer_key.empty?
-        http_req.headers['x-amz-copy-source-server-side-encryption-customer-key-MD5'] = input.copy_source_sse_customer_key_md5 unless input.copy_source_sse_customer_key_md5.nil? || input.copy_source_sse_customer_key_md5.empty?
-        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil? || input.request_payer.empty?
-        http_req.headers['x-amz-tagging'] = input.tagging unless input.tagging.nil? || input.tagging.empty?
-        http_req.headers['x-amz-object-lock-mode'] = input.object_lock_mode unless input.object_lock_mode.nil? || input.object_lock_mode.empty?
+        http_req.headers['x-amz-copy-source-server-side-encryption-customer-algorithm'] = input.copy_source_sse_customer_algorithm unless input.copy_source_sse_customer_algorithm.nil?
+        http_req.headers['x-amz-copy-source-server-side-encryption-customer-key'] = input.copy_source_sse_customer_key unless input.copy_source_sse_customer_key.nil?
+        http_req.headers['x-amz-copy-source-server-side-encryption-customer-key-MD5'] = input.copy_source_sse_customer_key_md5 unless input.copy_source_sse_customer_key_md5.nil?
+        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil?
+        http_req.headers['x-amz-tagging'] = input.tagging unless input.tagging.nil?
+        http_req.headers['x-amz-object-lock-mode'] = input.object_lock_mode unless input.object_lock_mode.nil?
         http_req.headers['x-amz-object-lock-retain-until-date'] = Hearth::TimeHelper.to_date_time(input.object_lock_retain_until_date) unless input.object_lock_retain_until_date.nil?
-        http_req.headers['x-amz-object-lock-legal-hold'] = input.object_lock_legal_hold_status unless input.object_lock_legal_hold_status.nil? || input.object_lock_legal_hold_status.empty?
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
-        http_req.headers['x-amz-source-expected-bucket-owner'] = input.expected_source_bucket_owner unless input.expected_source_bucket_owner.nil? || input.expected_source_bucket_owner.empty?
+        http_req.headers['x-amz-object-lock-legal-hold'] = input.object_lock_legal_hold_status unless input.object_lock_legal_hold_status.nil?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
+        http_req.headers['x-amz-source-expected-bucket-owner'] = input.expected_source_bucket_owner unless input.expected_source_bucket_owner.nil?
         input.metadata.each do |key, value|
-          http_req.headers["x-amz-meta-#{key}"] = value unless value.nil? || value.empty?
+          http_req.headers["x-amz-meta-#{key}"] = value unless value.nil?
         end unless input.metadata.nil?
       end
     end
@@ -393,14 +393,14 @@ module AWS::SDK::S3
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::CreateBucketConfiguration.build('CreateBucketConfiguration', input.create_bucket_configuration) unless input.create_bucket_configuration.nil?
         http_req.body = ::StringIO.new(xml.to_str) if xml
-        http_req.headers['x-amz-acl'] = input.acl unless input.acl.nil? || input.acl.empty?
-        http_req.headers['x-amz-grant-full-control'] = input.grant_full_control unless input.grant_full_control.nil? || input.grant_full_control.empty?
-        http_req.headers['x-amz-grant-read'] = input.grant_read unless input.grant_read.nil? || input.grant_read.empty?
-        http_req.headers['x-amz-grant-read-acp'] = input.grant_read_acp unless input.grant_read_acp.nil? || input.grant_read_acp.empty?
-        http_req.headers['x-amz-grant-write'] = input.grant_write unless input.grant_write.nil? || input.grant_write.empty?
-        http_req.headers['x-amz-grant-write-acp'] = input.grant_write_acp unless input.grant_write_acp.nil? || input.grant_write_acp.empty?
+        http_req.headers['x-amz-acl'] = input.acl unless input.acl.nil?
+        http_req.headers['x-amz-grant-full-control'] = input.grant_full_control unless input.grant_full_control.nil?
+        http_req.headers['x-amz-grant-read'] = input.grant_read unless input.grant_read.nil?
+        http_req.headers['x-amz-grant-read-acp'] = input.grant_read_acp unless input.grant_read_acp.nil?
+        http_req.headers['x-amz-grant-write'] = input.grant_write unless input.grant_write.nil?
+        http_req.headers['x-amz-grant-write-acp'] = input.grant_write_acp unless input.grant_write_acp.nil?
         http_req.headers['x-amz-bucket-object-lock-enabled'] = input.object_lock_enabled_for_bucket.to_s unless input.object_lock_enabled_for_bucket.nil?
-        http_req.headers['x-amz-object-ownership'] = input.object_ownership unless input.object_ownership.nil? || input.object_ownership.empty?
+        http_req.headers['x-amz-object-ownership'] = input.object_ownership unless input.object_ownership.nil?
       end
     end
 
@@ -432,35 +432,35 @@ module AWS::SDK::S3
             Key: (input.key.to_s).split('/').map { |s| Hearth::HTTP.uri_escape(s) }.join('/')
           )
         )
-        http_req.headers['x-amz-acl'] = input.acl unless input.acl.nil? || input.acl.empty?
-        http_req.headers['Cache-Control'] = input.cache_control unless input.cache_control.nil? || input.cache_control.empty?
-        http_req.headers['Content-Disposition'] = input.content_disposition unless input.content_disposition.nil? || input.content_disposition.empty?
-        http_req.headers['Content-Encoding'] = input.content_encoding unless input.content_encoding.nil? || input.content_encoding.empty?
-        http_req.headers['Content-Language'] = input.content_language unless input.content_language.nil? || input.content_language.empty?
-        http_req.headers['Content-Type'] = input.content_type unless input.content_type.nil? || input.content_type.empty?
+        http_req.headers['x-amz-acl'] = input.acl unless input.acl.nil?
+        http_req.headers['Cache-Control'] = input.cache_control unless input.cache_control.nil?
+        http_req.headers['Content-Disposition'] = input.content_disposition unless input.content_disposition.nil?
+        http_req.headers['Content-Encoding'] = input.content_encoding unless input.content_encoding.nil?
+        http_req.headers['Content-Language'] = input.content_language unless input.content_language.nil?
+        http_req.headers['Content-Type'] = input.content_type unless input.content_type.nil?
         http_req.headers['Expires'] = Hearth::TimeHelper.to_http_date(input.expires) unless input.expires.nil?
-        http_req.headers['x-amz-grant-full-control'] = input.grant_full_control unless input.grant_full_control.nil? || input.grant_full_control.empty?
-        http_req.headers['x-amz-grant-read'] = input.grant_read unless input.grant_read.nil? || input.grant_read.empty?
-        http_req.headers['x-amz-grant-read-acp'] = input.grant_read_acp unless input.grant_read_acp.nil? || input.grant_read_acp.empty?
-        http_req.headers['x-amz-grant-write-acp'] = input.grant_write_acp unless input.grant_write_acp.nil? || input.grant_write_acp.empty?
-        http_req.headers['x-amz-server-side-encryption'] = input.server_side_encryption unless input.server_side_encryption.nil? || input.server_side_encryption.empty?
-        http_req.headers['x-amz-storage-class'] = input.storage_class unless input.storage_class.nil? || input.storage_class.empty?
-        http_req.headers['x-amz-website-redirect-location'] = input.website_redirect_location unless input.website_redirect_location.nil? || input.website_redirect_location.empty?
-        http_req.headers['x-amz-server-side-encryption-customer-algorithm'] = input.sse_customer_algorithm unless input.sse_customer_algorithm.nil? || input.sse_customer_algorithm.empty?
-        http_req.headers['x-amz-server-side-encryption-customer-key'] = input.sse_customer_key unless input.sse_customer_key.nil? || input.sse_customer_key.empty?
-        http_req.headers['x-amz-server-side-encryption-customer-key-MD5'] = input.sse_customer_key_md5 unless input.sse_customer_key_md5.nil? || input.sse_customer_key_md5.empty?
-        http_req.headers['x-amz-server-side-encryption-aws-kms-key-id'] = input.ssekms_key_id unless input.ssekms_key_id.nil? || input.ssekms_key_id.empty?
-        http_req.headers['x-amz-server-side-encryption-context'] = input.ssekms_encryption_context unless input.ssekms_encryption_context.nil? || input.ssekms_encryption_context.empty?
+        http_req.headers['x-amz-grant-full-control'] = input.grant_full_control unless input.grant_full_control.nil?
+        http_req.headers['x-amz-grant-read'] = input.grant_read unless input.grant_read.nil?
+        http_req.headers['x-amz-grant-read-acp'] = input.grant_read_acp unless input.grant_read_acp.nil?
+        http_req.headers['x-amz-grant-write-acp'] = input.grant_write_acp unless input.grant_write_acp.nil?
+        http_req.headers['x-amz-server-side-encryption'] = input.server_side_encryption unless input.server_side_encryption.nil?
+        http_req.headers['x-amz-storage-class'] = input.storage_class unless input.storage_class.nil?
+        http_req.headers['x-amz-website-redirect-location'] = input.website_redirect_location unless input.website_redirect_location.nil?
+        http_req.headers['x-amz-server-side-encryption-customer-algorithm'] = input.sse_customer_algorithm unless input.sse_customer_algorithm.nil?
+        http_req.headers['x-amz-server-side-encryption-customer-key'] = input.sse_customer_key unless input.sse_customer_key.nil?
+        http_req.headers['x-amz-server-side-encryption-customer-key-MD5'] = input.sse_customer_key_md5 unless input.sse_customer_key_md5.nil?
+        http_req.headers['x-amz-server-side-encryption-aws-kms-key-id'] = input.ssekms_key_id unless input.ssekms_key_id.nil?
+        http_req.headers['x-amz-server-side-encryption-context'] = input.ssekms_encryption_context unless input.ssekms_encryption_context.nil?
         http_req.headers['x-amz-server-side-encryption-bucket-key-enabled'] = input.bucket_key_enabled.to_s unless input.bucket_key_enabled.nil?
-        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil? || input.request_payer.empty?
-        http_req.headers['x-amz-tagging'] = input.tagging unless input.tagging.nil? || input.tagging.empty?
-        http_req.headers['x-amz-object-lock-mode'] = input.object_lock_mode unless input.object_lock_mode.nil? || input.object_lock_mode.empty?
+        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil?
+        http_req.headers['x-amz-tagging'] = input.tagging unless input.tagging.nil?
+        http_req.headers['x-amz-object-lock-mode'] = input.object_lock_mode unless input.object_lock_mode.nil?
         http_req.headers['x-amz-object-lock-retain-until-date'] = Hearth::TimeHelper.to_date_time(input.object_lock_retain_until_date) unless input.object_lock_retain_until_date.nil?
-        http_req.headers['x-amz-object-lock-legal-hold'] = input.object_lock_legal_hold_status unless input.object_lock_legal_hold_status.nil? || input.object_lock_legal_hold_status.empty?
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
-        http_req.headers['x-amz-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil? || input.checksum_algorithm.empty?
+        http_req.headers['x-amz-object-lock-legal-hold'] = input.object_lock_legal_hold_status unless input.object_lock_legal_hold_status.nil?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
+        http_req.headers['x-amz-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil?
         input.metadata.each do |key, value|
-          http_req.headers["x-amz-meta-#{key}"] = value unless value.nil? || value.empty?
+          http_req.headers["x-amz-meta-#{key}"] = value unless value.nil?
         end unless input.metadata.nil?
       end
     end
@@ -479,7 +479,7 @@ module AWS::SDK::S3
             Bucket: Hearth::HTTP.uri_escape(input.bucket.to_s)
           )
         )
-        http_req.headers['x-amz-create-session-mode'] = input.session_mode unless input.session_mode.nil? || input.session_mode.empty?
+        http_req.headers['x-amz-create-session-mode'] = input.session_mode unless input.session_mode.nil?
       end
     end
 
@@ -513,7 +513,7 @@ module AWS::SDK::S3
             Bucket: Hearth::HTTP.uri_escape(input.bucket.to_s)
           )
         )
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -534,7 +534,7 @@ module AWS::SDK::S3
         params = Hearth::Query::ParamList.new
         params['id'] = input.id.to_s unless input.id.nil?
         http_req.append_query_param_list(params)
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -552,7 +552,7 @@ module AWS::SDK::S3
             Bucket: Hearth::HTTP.uri_escape(input.bucket.to_s)
           )
         )
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -570,7 +570,7 @@ module AWS::SDK::S3
             Bucket: Hearth::HTTP.uri_escape(input.bucket.to_s)
           )
         )
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -611,7 +611,7 @@ module AWS::SDK::S3
         params = Hearth::Query::ParamList.new
         params['id'] = input.id.to_s unless input.id.nil?
         http_req.append_query_param_list(params)
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -629,7 +629,7 @@ module AWS::SDK::S3
             Bucket: Hearth::HTTP.uri_escape(input.bucket.to_s)
           )
         )
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -650,7 +650,7 @@ module AWS::SDK::S3
         params = Hearth::Query::ParamList.new
         params['id'] = input.id.to_s unless input.id.nil?
         http_req.append_query_param_list(params)
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -668,7 +668,7 @@ module AWS::SDK::S3
             Bucket: Hearth::HTTP.uri_escape(input.bucket.to_s)
           )
         )
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -686,7 +686,7 @@ module AWS::SDK::S3
             Bucket: Hearth::HTTP.uri_escape(input.bucket.to_s)
           )
         )
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -704,7 +704,7 @@ module AWS::SDK::S3
             Bucket: Hearth::HTTP.uri_escape(input.bucket.to_s)
           )
         )
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -722,7 +722,7 @@ module AWS::SDK::S3
             Bucket: Hearth::HTTP.uri_escape(input.bucket.to_s)
           )
         )
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -740,7 +740,7 @@ module AWS::SDK::S3
             Bucket: Hearth::HTTP.uri_escape(input.bucket.to_s)
           )
         )
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -773,10 +773,10 @@ module AWS::SDK::S3
         params = Hearth::Query::ParamList.new
         params['versionId'] = input.version_id.to_s unless input.version_id.nil?
         http_req.append_query_param_list(params)
-        http_req.headers['x-amz-mfa'] = input.mfa unless input.mfa.nil? || input.mfa.empty?
-        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil? || input.request_payer.empty?
+        http_req.headers['x-amz-mfa'] = input.mfa unless input.mfa.nil?
+        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil?
         http_req.headers['x-amz-bypass-governance-retention'] = input.bypass_governance_retention.to_s unless input.bypass_governance_retention.nil?
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -801,7 +801,7 @@ module AWS::SDK::S3
         params = Hearth::Query::ParamList.new
         params['versionId'] = input.version_id.to_s unless input.version_id.nil?
         http_req.append_query_param_list(params)
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -822,11 +822,11 @@ module AWS::SDK::S3
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::Delete.build('Delete', input.delete) unless input.delete.nil?
         http_req.body = ::StringIO.new(xml.to_str) if xml
-        http_req.headers['x-amz-mfa'] = input.mfa unless input.mfa.nil? || input.mfa.empty?
-        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil? || input.request_payer.empty?
+        http_req.headers['x-amz-mfa'] = input.mfa unless input.mfa.nil?
+        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil?
         http_req.headers['x-amz-bypass-governance-retention'] = input.bypass_governance_retention.to_s unless input.bypass_governance_retention.nil?
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
-        http_req.headers['x-amz-sdk-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil? || input.checksum_algorithm.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
+        http_req.headers['x-amz-sdk-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil?
       end
     end
 
@@ -844,7 +844,7 @@ module AWS::SDK::S3
             Bucket: Hearth::HTTP.uri_escape(input.bucket.to_s)
           )
         )
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -956,8 +956,8 @@ module AWS::SDK::S3
             Bucket: Hearth::HTTP.uri_escape(input.bucket.to_s)
           )
         )
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
-        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil? || input.request_payer.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
+        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil?
       end
     end
 
@@ -975,7 +975,7 @@ module AWS::SDK::S3
             Bucket: Hearth::HTTP.uri_escape(input.bucket.to_s)
           )
         )
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -996,7 +996,7 @@ module AWS::SDK::S3
         params = Hearth::Query::ParamList.new
         params['id'] = input.id.to_s unless input.id.nil?
         http_req.append_query_param_list(params)
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -1014,7 +1014,7 @@ module AWS::SDK::S3
             Bucket: Hearth::HTTP.uri_escape(input.bucket.to_s)
           )
         )
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -1032,7 +1032,7 @@ module AWS::SDK::S3
             Bucket: Hearth::HTTP.uri_escape(input.bucket.to_s)
           )
         )
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -1073,7 +1073,7 @@ module AWS::SDK::S3
         params = Hearth::Query::ParamList.new
         params['id'] = input.id.to_s unless input.id.nil?
         http_req.append_query_param_list(params)
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -1091,7 +1091,7 @@ module AWS::SDK::S3
             Bucket: Hearth::HTTP.uri_escape(input.bucket.to_s)
           )
         )
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -1109,7 +1109,7 @@ module AWS::SDK::S3
             Bucket: Hearth::HTTP.uri_escape(input.bucket.to_s)
           )
         )
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -1127,7 +1127,7 @@ module AWS::SDK::S3
             Bucket: Hearth::HTTP.uri_escape(input.bucket.to_s)
           )
         )
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -1148,7 +1148,7 @@ module AWS::SDK::S3
         params = Hearth::Query::ParamList.new
         params['id'] = input.id.to_s unless input.id.nil?
         http_req.append_query_param_list(params)
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -1166,7 +1166,7 @@ module AWS::SDK::S3
             Bucket: Hearth::HTTP.uri_escape(input.bucket.to_s)
           )
         )
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -1184,7 +1184,7 @@ module AWS::SDK::S3
             Bucket: Hearth::HTTP.uri_escape(input.bucket.to_s)
           )
         )
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -1202,7 +1202,7 @@ module AWS::SDK::S3
             Bucket: Hearth::HTTP.uri_escape(input.bucket.to_s)
           )
         )
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -1220,7 +1220,7 @@ module AWS::SDK::S3
             Bucket: Hearth::HTTP.uri_escape(input.bucket.to_s)
           )
         )
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -1238,7 +1238,7 @@ module AWS::SDK::S3
             Bucket: Hearth::HTTP.uri_escape(input.bucket.to_s)
           )
         )
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -1256,7 +1256,7 @@ module AWS::SDK::S3
             Bucket: Hearth::HTTP.uri_escape(input.bucket.to_s)
           )
         )
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -1274,7 +1274,7 @@ module AWS::SDK::S3
             Bucket: Hearth::HTTP.uri_escape(input.bucket.to_s)
           )
         )
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -1292,7 +1292,7 @@ module AWS::SDK::S3
             Bucket: Hearth::HTTP.uri_escape(input.bucket.to_s)
           )
         )
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -1310,7 +1310,7 @@ module AWS::SDK::S3
             Bucket: Hearth::HTTP.uri_escape(input.bucket.to_s)
           )
         )
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -1342,17 +1342,17 @@ module AWS::SDK::S3
         params['versionId'] = input.version_id.to_s unless input.version_id.nil?
         params['partNumber'] = input.part_number.to_s unless input.part_number.nil?
         http_req.append_query_param_list(params)
-        http_req.headers['If-Match'] = input.if_match unless input.if_match.nil? || input.if_match.empty?
+        http_req.headers['If-Match'] = input.if_match unless input.if_match.nil?
         http_req.headers['If-Modified-Since'] = Hearth::TimeHelper.to_http_date(input.if_modified_since) unless input.if_modified_since.nil?
-        http_req.headers['If-None-Match'] = input.if_none_match unless input.if_none_match.nil? || input.if_none_match.empty?
+        http_req.headers['If-None-Match'] = input.if_none_match unless input.if_none_match.nil?
         http_req.headers['If-Unmodified-Since'] = Hearth::TimeHelper.to_http_date(input.if_unmodified_since) unless input.if_unmodified_since.nil?
-        http_req.headers['Range'] = input.range unless input.range.nil? || input.range.empty?
-        http_req.headers['x-amz-server-side-encryption-customer-algorithm'] = input.sse_customer_algorithm unless input.sse_customer_algorithm.nil? || input.sse_customer_algorithm.empty?
-        http_req.headers['x-amz-server-side-encryption-customer-key'] = input.sse_customer_key unless input.sse_customer_key.nil? || input.sse_customer_key.empty?
-        http_req.headers['x-amz-server-side-encryption-customer-key-MD5'] = input.sse_customer_key_md5 unless input.sse_customer_key_md5.nil? || input.sse_customer_key_md5.empty?
-        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil? || input.request_payer.empty?
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
-        http_req.headers['x-amz-checksum-mode'] = input.checksum_mode unless input.checksum_mode.nil? || input.checksum_mode.empty?
+        http_req.headers['Range'] = input.range unless input.range.nil?
+        http_req.headers['x-amz-server-side-encryption-customer-algorithm'] = input.sse_customer_algorithm unless input.sse_customer_algorithm.nil?
+        http_req.headers['x-amz-server-side-encryption-customer-key'] = input.sse_customer_key unless input.sse_customer_key.nil?
+        http_req.headers['x-amz-server-side-encryption-customer-key-MD5'] = input.sse_customer_key_md5 unless input.sse_customer_key_md5.nil?
+        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
+        http_req.headers['x-amz-checksum-mode'] = input.checksum_mode unless input.checksum_mode.nil?
       end
     end
 
@@ -1377,8 +1377,8 @@ module AWS::SDK::S3
         params = Hearth::Query::ParamList.new
         params['versionId'] = input.version_id.to_s unless input.version_id.nil?
         http_req.append_query_param_list(params)
-        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil? || input.request_payer.empty?
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -1404,13 +1404,13 @@ module AWS::SDK::S3
         params['versionId'] = input.version_id.to_s unless input.version_id.nil?
         http_req.append_query_param_list(params)
         http_req.headers['x-amz-max-parts'] = input.max_parts.to_s unless input.max_parts.nil?
-        http_req.headers['x-amz-part-number-marker'] = input.part_number_marker unless input.part_number_marker.nil? || input.part_number_marker.empty?
-        http_req.headers['x-amz-server-side-encryption-customer-algorithm'] = input.sse_customer_algorithm unless input.sse_customer_algorithm.nil? || input.sse_customer_algorithm.empty?
-        http_req.headers['x-amz-server-side-encryption-customer-key'] = input.sse_customer_key unless input.sse_customer_key.nil? || input.sse_customer_key.empty?
-        http_req.headers['x-amz-server-side-encryption-customer-key-MD5'] = input.sse_customer_key_md5 unless input.sse_customer_key_md5.nil? || input.sse_customer_key_md5.empty?
-        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil? || input.request_payer.empty?
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
-        unless input.object_attributes.nil? || input.object_attributes.empty?
+        http_req.headers['x-amz-part-number-marker'] = input.part_number_marker unless input.part_number_marker.nil?
+        http_req.headers['x-amz-server-side-encryption-customer-algorithm'] = input.sse_customer_algorithm unless input.sse_customer_algorithm.nil?
+        http_req.headers['x-amz-server-side-encryption-customer-key'] = input.sse_customer_key unless input.sse_customer_key.nil?
+        http_req.headers['x-amz-server-side-encryption-customer-key-MD5'] = input.sse_customer_key_md5 unless input.sse_customer_key_md5.nil?
+        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
+        unless input.object_attributes.nil?
           http_req.headers['x-amz-object-attributes'] = Hearth::HTTP::HeaderListBuilder.build_string_list(input.object_attributes)
         end
       end
@@ -1437,8 +1437,8 @@ module AWS::SDK::S3
         params = Hearth::Query::ParamList.new
         params['versionId'] = input.version_id.to_s unless input.version_id.nil?
         http_req.append_query_param_list(params)
-        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil? || input.request_payer.empty?
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -1456,7 +1456,7 @@ module AWS::SDK::S3
             Bucket: Hearth::HTTP.uri_escape(input.bucket.to_s)
           )
         )
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -1481,8 +1481,8 @@ module AWS::SDK::S3
         params = Hearth::Query::ParamList.new
         params['versionId'] = input.version_id.to_s unless input.version_id.nil?
         http_req.append_query_param_list(params)
-        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil? || input.request_payer.empty?
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -1507,8 +1507,8 @@ module AWS::SDK::S3
         params = Hearth::Query::ParamList.new
         params['versionId'] = input.version_id.to_s unless input.version_id.nil?
         http_req.append_query_param_list(params)
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
-        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil? || input.request_payer.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
+        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil?
       end
     end
 
@@ -1530,8 +1530,8 @@ module AWS::SDK::S3
             Key: (input.key.to_s).split('/').map { |s| Hearth::HTTP.uri_escape(s) }.join('/')
           )
         )
-        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil? || input.request_payer.empty?
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -1549,7 +1549,7 @@ module AWS::SDK::S3
             Bucket: Hearth::HTTP.uri_escape(input.bucket.to_s)
           )
         )
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -1607,7 +1607,7 @@ module AWS::SDK::S3
             Bucket: Hearth::HTTP.uri_escape(input.bucket.to_s)
           )
         )
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -1630,17 +1630,17 @@ module AWS::SDK::S3
         params['versionId'] = input.version_id.to_s unless input.version_id.nil?
         params['partNumber'] = input.part_number.to_s unless input.part_number.nil?
         http_req.append_query_param_list(params)
-        http_req.headers['If-Match'] = input.if_match unless input.if_match.nil? || input.if_match.empty?
+        http_req.headers['If-Match'] = input.if_match unless input.if_match.nil?
         http_req.headers['If-Modified-Since'] = Hearth::TimeHelper.to_http_date(input.if_modified_since) unless input.if_modified_since.nil?
-        http_req.headers['If-None-Match'] = input.if_none_match unless input.if_none_match.nil? || input.if_none_match.empty?
+        http_req.headers['If-None-Match'] = input.if_none_match unless input.if_none_match.nil?
         http_req.headers['If-Unmodified-Since'] = Hearth::TimeHelper.to_http_date(input.if_unmodified_since) unless input.if_unmodified_since.nil?
-        http_req.headers['Range'] = input.range unless input.range.nil? || input.range.empty?
-        http_req.headers['x-amz-server-side-encryption-customer-algorithm'] = input.sse_customer_algorithm unless input.sse_customer_algorithm.nil? || input.sse_customer_algorithm.empty?
-        http_req.headers['x-amz-server-side-encryption-customer-key'] = input.sse_customer_key unless input.sse_customer_key.nil? || input.sse_customer_key.empty?
-        http_req.headers['x-amz-server-side-encryption-customer-key-MD5'] = input.sse_customer_key_md5 unless input.sse_customer_key_md5.nil? || input.sse_customer_key_md5.empty?
-        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil? || input.request_payer.empty?
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
-        http_req.headers['x-amz-checksum-mode'] = input.checksum_mode unless input.checksum_mode.nil? || input.checksum_mode.empty?
+        http_req.headers['Range'] = input.range unless input.range.nil?
+        http_req.headers['x-amz-server-side-encryption-customer-algorithm'] = input.sse_customer_algorithm unless input.sse_customer_algorithm.nil?
+        http_req.headers['x-amz-server-side-encryption-customer-key'] = input.sse_customer_key unless input.sse_customer_key.nil?
+        http_req.headers['x-amz-server-side-encryption-customer-key-MD5'] = input.sse_customer_key_md5 unless input.sse_customer_key_md5.nil?
+        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
+        http_req.headers['x-amz-checksum-mode'] = input.checksum_mode unless input.checksum_mode.nil?
       end
     end
 
@@ -1886,7 +1886,7 @@ module AWS::SDK::S3
         params = Hearth::Query::ParamList.new
         params['continuation-token'] = input.continuation_token.to_s unless input.continuation_token.nil?
         http_req.append_query_param_list(params)
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -1927,7 +1927,7 @@ module AWS::SDK::S3
         params = Hearth::Query::ParamList.new
         params['continuation-token'] = input.continuation_token.to_s unless input.continuation_token.nil?
         http_req.append_query_param_list(params)
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -1948,7 +1948,7 @@ module AWS::SDK::S3
         params = Hearth::Query::ParamList.new
         params['continuation-token'] = input.continuation_token.to_s unless input.continuation_token.nil?
         http_req.append_query_param_list(params)
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -1998,8 +1998,8 @@ module AWS::SDK::S3
         params['prefix'] = input.prefix.to_s unless input.prefix.nil?
         params['upload-id-marker'] = input.upload_id_marker.to_s unless input.upload_id_marker.nil?
         http_req.append_query_param_list(params)
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
-        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil? || input.request_payer.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
+        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil?
       end
     end
 
@@ -2025,9 +2025,9 @@ module AWS::SDK::S3
         params['prefix'] = input.prefix.to_s unless input.prefix.nil?
         params['version-id-marker'] = input.version_id_marker.to_s unless input.version_id_marker.nil?
         http_req.append_query_param_list(params)
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
-        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil? || input.request_payer.empty?
-        unless input.optional_object_attributes.nil? || input.optional_object_attributes.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
+        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil?
+        unless input.optional_object_attributes.nil?
           http_req.headers['x-amz-optional-object-attributes'] = Hearth::HTTP::HeaderListBuilder.build_string_list(input.optional_object_attributes)
         end
       end
@@ -2051,9 +2051,9 @@ module AWS::SDK::S3
         params['max-keys'] = input.max_keys.to_s unless input.max_keys.nil?
         params['prefix'] = input.prefix.to_s unless input.prefix.nil?
         http_req.append_query_param_list(params)
-        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil? || input.request_payer.empty?
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
-        unless input.optional_object_attributes.nil? || input.optional_object_attributes.empty?
+        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
+        unless input.optional_object_attributes.nil?
           http_req.headers['x-amz-optional-object-attributes'] = Hearth::HTTP::HeaderListBuilder.build_string_list(input.optional_object_attributes)
         end
       end
@@ -2082,9 +2082,9 @@ module AWS::SDK::S3
         params['fetch-owner'] = input.fetch_owner.to_s unless input.fetch_owner.nil?
         params['start-after'] = input.start_after.to_s unless input.start_after.nil?
         http_req.append_query_param_list(params)
-        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil? || input.request_payer.empty?
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
-        unless input.optional_object_attributes.nil? || input.optional_object_attributes.empty?
+        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
+        unless input.optional_object_attributes.nil?
           http_req.headers['x-amz-optional-object-attributes'] = Hearth::HTTP::HeaderListBuilder.build_string_list(input.optional_object_attributes)
         end
       end
@@ -2113,11 +2113,11 @@ module AWS::SDK::S3
         params['part-number-marker'] = input.part_number_marker.to_s unless input.part_number_marker.nil?
         params['uploadId'] = input.upload_id.to_s unless input.upload_id.nil?
         http_req.append_query_param_list(params)
-        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil? || input.request_payer.empty?
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
-        http_req.headers['x-amz-server-side-encryption-customer-algorithm'] = input.sse_customer_algorithm unless input.sse_customer_algorithm.nil? || input.sse_customer_algorithm.empty?
-        http_req.headers['x-amz-server-side-encryption-customer-key'] = input.sse_customer_key unless input.sse_customer_key.nil? || input.sse_customer_key.empty?
-        http_req.headers['x-amz-server-side-encryption-customer-key-MD5'] = input.sse_customer_key_md5 unless input.sse_customer_key_md5.nil? || input.sse_customer_key_md5.empty?
+        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
+        http_req.headers['x-amz-server-side-encryption-customer-algorithm'] = input.sse_customer_algorithm unless input.sse_customer_algorithm.nil?
+        http_req.headers['x-amz-server-side-encryption-customer-key'] = input.sse_customer_key unless input.sse_customer_key.nil?
+        http_req.headers['x-amz-server-side-encryption-customer-key-MD5'] = input.sse_customer_key_md5 unless input.sse_customer_key_md5.nil?
       end
     end
 
@@ -2428,8 +2428,8 @@ module AWS::SDK::S3
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::AccelerateConfiguration.build('AccelerateConfiguration', input.accelerate_configuration) unless input.accelerate_configuration.nil?
         http_req.body = ::StringIO.new(xml.to_str) if xml
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
-        http_req.headers['x-amz-sdk-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil? || input.checksum_algorithm.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
+        http_req.headers['x-amz-sdk-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil?
       end
     end
 
@@ -2450,15 +2450,15 @@ module AWS::SDK::S3
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::AccessControlPolicy.build('AccessControlPolicy', input.access_control_policy) unless input.access_control_policy.nil?
         http_req.body = ::StringIO.new(xml.to_str) if xml
-        http_req.headers['x-amz-acl'] = input.acl unless input.acl.nil? || input.acl.empty?
-        http_req.headers['Content-MD5'] = input.content_md5 unless input.content_md5.nil? || input.content_md5.empty?
-        http_req.headers['x-amz-sdk-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil? || input.checksum_algorithm.empty?
-        http_req.headers['x-amz-grant-full-control'] = input.grant_full_control unless input.grant_full_control.nil? || input.grant_full_control.empty?
-        http_req.headers['x-amz-grant-read'] = input.grant_read unless input.grant_read.nil? || input.grant_read.empty?
-        http_req.headers['x-amz-grant-read-acp'] = input.grant_read_acp unless input.grant_read_acp.nil? || input.grant_read_acp.empty?
-        http_req.headers['x-amz-grant-write'] = input.grant_write unless input.grant_write.nil? || input.grant_write.empty?
-        http_req.headers['x-amz-grant-write-acp'] = input.grant_write_acp unless input.grant_write_acp.nil? || input.grant_write_acp.empty?
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-acl'] = input.acl unless input.acl.nil?
+        http_req.headers['Content-MD5'] = input.content_md5 unless input.content_md5.nil?
+        http_req.headers['x-amz-sdk-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil?
+        http_req.headers['x-amz-grant-full-control'] = input.grant_full_control unless input.grant_full_control.nil?
+        http_req.headers['x-amz-grant-read'] = input.grant_read unless input.grant_read.nil?
+        http_req.headers['x-amz-grant-read-acp'] = input.grant_read_acp unless input.grant_read_acp.nil?
+        http_req.headers['x-amz-grant-write'] = input.grant_write unless input.grant_write.nil?
+        http_req.headers['x-amz-grant-write-acp'] = input.grant_write_acp unless input.grant_write_acp.nil?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -2482,7 +2482,7 @@ module AWS::SDK::S3
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::AnalyticsConfiguration.build('AnalyticsConfiguration', input.analytics_configuration) unless input.analytics_configuration.nil?
         http_req.body = ::StringIO.new(xml.to_str) if xml
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -2503,9 +2503,9 @@ module AWS::SDK::S3
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::CORSConfiguration.build('CORSConfiguration', input.cors_configuration) unless input.cors_configuration.nil?
         http_req.body = ::StringIO.new(xml.to_str) if xml
-        http_req.headers['Content-MD5'] = input.content_md5 unless input.content_md5.nil? || input.content_md5.empty?
-        http_req.headers['x-amz-sdk-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil? || input.checksum_algorithm.empty?
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['Content-MD5'] = input.content_md5 unless input.content_md5.nil?
+        http_req.headers['x-amz-sdk-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -2526,9 +2526,9 @@ module AWS::SDK::S3
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::ServerSideEncryptionConfiguration.build('ServerSideEncryptionConfiguration', input.server_side_encryption_configuration) unless input.server_side_encryption_configuration.nil?
         http_req.body = ::StringIO.new(xml.to_str) if xml
-        http_req.headers['Content-MD5'] = input.content_md5 unless input.content_md5.nil? || input.content_md5.empty?
-        http_req.headers['x-amz-sdk-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil? || input.checksum_algorithm.empty?
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['Content-MD5'] = input.content_md5 unless input.content_md5.nil?
+        http_req.headers['x-amz-sdk-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -2575,7 +2575,7 @@ module AWS::SDK::S3
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::InventoryConfiguration.build('InventoryConfiguration', input.inventory_configuration) unless input.inventory_configuration.nil?
         http_req.body = ::StringIO.new(xml.to_str) if xml
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -2596,8 +2596,8 @@ module AWS::SDK::S3
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::BucketLifecycleConfiguration.build('LifecycleConfiguration', input.lifecycle_configuration) unless input.lifecycle_configuration.nil?
         http_req.body = ::StringIO.new(xml.to_str) if xml
-        http_req.headers['x-amz-sdk-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil? || input.checksum_algorithm.empty?
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-sdk-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -2618,9 +2618,9 @@ module AWS::SDK::S3
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::BucketLoggingStatus.build('BucketLoggingStatus', input.bucket_logging_status) unless input.bucket_logging_status.nil?
         http_req.body = ::StringIO.new(xml.to_str) if xml
-        http_req.headers['Content-MD5'] = input.content_md5 unless input.content_md5.nil? || input.content_md5.empty?
-        http_req.headers['x-amz-sdk-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil? || input.checksum_algorithm.empty?
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['Content-MD5'] = input.content_md5 unless input.content_md5.nil?
+        http_req.headers['x-amz-sdk-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -2644,7 +2644,7 @@ module AWS::SDK::S3
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::MetricsConfiguration.build('MetricsConfiguration', input.metrics_configuration) unless input.metrics_configuration.nil?
         http_req.body = ::StringIO.new(xml.to_str) if xml
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -2665,7 +2665,7 @@ module AWS::SDK::S3
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::NotificationConfiguration.build('NotificationConfiguration', input.notification_configuration) unless input.notification_configuration.nil?
         http_req.body = ::StringIO.new(xml.to_str) if xml
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
         http_req.headers['x-amz-skip-destination-validation'] = input.skip_destination_validation.to_s unless input.skip_destination_validation.nil?
       end
     end
@@ -2687,8 +2687,8 @@ module AWS::SDK::S3
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::OwnershipControls.build('OwnershipControls', input.ownership_controls) unless input.ownership_controls.nil?
         http_req.body = ::StringIO.new(xml.to_str) if xml
-        http_req.headers['Content-MD5'] = input.content_md5 unless input.content_md5.nil? || input.content_md5.empty?
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['Content-MD5'] = input.content_md5 unless input.content_md5.nil?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -2708,10 +2708,10 @@ module AWS::SDK::S3
         )
         http_req.headers['Content-Type'] = 'text/plain'
         http_req.body = ::StringIO.new(input.policy || '')
-        http_req.headers['Content-MD5'] = input.content_md5 unless input.content_md5.nil? || input.content_md5.empty?
-        http_req.headers['x-amz-sdk-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil? || input.checksum_algorithm.empty?
+        http_req.headers['Content-MD5'] = input.content_md5 unless input.content_md5.nil?
+        http_req.headers['x-amz-sdk-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil?
         http_req.headers['x-amz-confirm-remove-self-bucket-access'] = input.confirm_remove_self_bucket_access.to_s unless input.confirm_remove_self_bucket_access.nil?
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -2732,10 +2732,10 @@ module AWS::SDK::S3
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::ReplicationConfiguration.build('ReplicationConfiguration', input.replication_configuration) unless input.replication_configuration.nil?
         http_req.body = ::StringIO.new(xml.to_str) if xml
-        http_req.headers['Content-MD5'] = input.content_md5 unless input.content_md5.nil? || input.content_md5.empty?
-        http_req.headers['x-amz-sdk-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil? || input.checksum_algorithm.empty?
-        http_req.headers['x-amz-bucket-object-lock-token'] = input.token unless input.token.nil? || input.token.empty?
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['Content-MD5'] = input.content_md5 unless input.content_md5.nil?
+        http_req.headers['x-amz-sdk-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil?
+        http_req.headers['x-amz-bucket-object-lock-token'] = input.token unless input.token.nil?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -2756,9 +2756,9 @@ module AWS::SDK::S3
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::RequestPaymentConfiguration.build('RequestPaymentConfiguration', input.request_payment_configuration) unless input.request_payment_configuration.nil?
         http_req.body = ::StringIO.new(xml.to_str) if xml
-        http_req.headers['Content-MD5'] = input.content_md5 unless input.content_md5.nil? || input.content_md5.empty?
-        http_req.headers['x-amz-sdk-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil? || input.checksum_algorithm.empty?
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['Content-MD5'] = input.content_md5 unless input.content_md5.nil?
+        http_req.headers['x-amz-sdk-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -2779,9 +2779,9 @@ module AWS::SDK::S3
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::Tagging.build('Tagging', input.tagging) unless input.tagging.nil?
         http_req.body = ::StringIO.new(xml.to_str) if xml
-        http_req.headers['Content-MD5'] = input.content_md5 unless input.content_md5.nil? || input.content_md5.empty?
-        http_req.headers['x-amz-sdk-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil? || input.checksum_algorithm.empty?
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['Content-MD5'] = input.content_md5 unless input.content_md5.nil?
+        http_req.headers['x-amz-sdk-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -2802,10 +2802,10 @@ module AWS::SDK::S3
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::VersioningConfiguration.build('VersioningConfiguration', input.versioning_configuration) unless input.versioning_configuration.nil?
         http_req.body = ::StringIO.new(xml.to_str) if xml
-        http_req.headers['Content-MD5'] = input.content_md5 unless input.content_md5.nil? || input.content_md5.empty?
-        http_req.headers['x-amz-sdk-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil? || input.checksum_algorithm.empty?
-        http_req.headers['x-amz-mfa'] = input.mfa unless input.mfa.nil? || input.mfa.empty?
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['Content-MD5'] = input.content_md5 unless input.content_md5.nil?
+        http_req.headers['x-amz-sdk-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil?
+        http_req.headers['x-amz-mfa'] = input.mfa unless input.mfa.nil?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -2826,9 +2826,9 @@ module AWS::SDK::S3
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::WebsiteConfiguration.build('WebsiteConfiguration', input.website_configuration) unless input.website_configuration.nil?
         http_req.body = ::StringIO.new(xml.to_str) if xml
-        http_req.headers['Content-MD5'] = input.content_md5 unless input.content_md5.nil? || input.content_md5.empty?
-        http_req.headers['x-amz-sdk-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil? || input.checksum_algorithm.empty?
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['Content-MD5'] = input.content_md5 unless input.content_md5.nil?
+        http_req.headers['x-amz-sdk-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -2852,41 +2852,41 @@ module AWS::SDK::S3
         )
         http_req.body = input.body
         http_req.headers['Content-Type'] = 'application/octet-stream'
-        http_req.headers['x-amz-acl'] = input.acl unless input.acl.nil? || input.acl.empty?
-        http_req.headers['Cache-Control'] = input.cache_control unless input.cache_control.nil? || input.cache_control.empty?
-        http_req.headers['Content-Disposition'] = input.content_disposition unless input.content_disposition.nil? || input.content_disposition.empty?
-        http_req.headers['Content-Encoding'] = input.content_encoding unless input.content_encoding.nil? || input.content_encoding.empty?
-        http_req.headers['Content-Language'] = input.content_language unless input.content_language.nil? || input.content_language.empty?
+        http_req.headers['x-amz-acl'] = input.acl unless input.acl.nil?
+        http_req.headers['Cache-Control'] = input.cache_control unless input.cache_control.nil?
+        http_req.headers['Content-Disposition'] = input.content_disposition unless input.content_disposition.nil?
+        http_req.headers['Content-Encoding'] = input.content_encoding unless input.content_encoding.nil?
+        http_req.headers['Content-Language'] = input.content_language unless input.content_language.nil?
         http_req.headers['Content-Length'] = input.content_length.to_s unless input.content_length.nil?
-        http_req.headers['Content-MD5'] = input.content_md5 unless input.content_md5.nil? || input.content_md5.empty?
-        http_req.headers['Content-Type'] = input.content_type unless input.content_type.nil? || input.content_type.empty?
-        http_req.headers['x-amz-sdk-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil? || input.checksum_algorithm.empty?
-        http_req.headers['x-amz-checksum-crc32'] = input.checksum_crc32 unless input.checksum_crc32.nil? || input.checksum_crc32.empty?
-        http_req.headers['x-amz-checksum-crc32c'] = input.checksum_crc32_c unless input.checksum_crc32_c.nil? || input.checksum_crc32_c.empty?
-        http_req.headers['x-amz-checksum-sha1'] = input.checksum_sha1 unless input.checksum_sha1.nil? || input.checksum_sha1.empty?
-        http_req.headers['x-amz-checksum-sha256'] = input.checksum_sha256 unless input.checksum_sha256.nil? || input.checksum_sha256.empty?
+        http_req.headers['Content-MD5'] = input.content_md5 unless input.content_md5.nil?
+        http_req.headers['Content-Type'] = input.content_type unless input.content_type.nil?
+        http_req.headers['x-amz-sdk-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil?
+        http_req.headers['x-amz-checksum-crc32'] = input.checksum_crc32 unless input.checksum_crc32.nil?
+        http_req.headers['x-amz-checksum-crc32c'] = input.checksum_crc32_c unless input.checksum_crc32_c.nil?
+        http_req.headers['x-amz-checksum-sha1'] = input.checksum_sha1 unless input.checksum_sha1.nil?
+        http_req.headers['x-amz-checksum-sha256'] = input.checksum_sha256 unless input.checksum_sha256.nil?
         http_req.headers['Expires'] = Hearth::TimeHelper.to_http_date(input.expires) unless input.expires.nil?
-        http_req.headers['x-amz-grant-full-control'] = input.grant_full_control unless input.grant_full_control.nil? || input.grant_full_control.empty?
-        http_req.headers['x-amz-grant-read'] = input.grant_read unless input.grant_read.nil? || input.grant_read.empty?
-        http_req.headers['x-amz-grant-read-acp'] = input.grant_read_acp unless input.grant_read_acp.nil? || input.grant_read_acp.empty?
-        http_req.headers['x-amz-grant-write-acp'] = input.grant_write_acp unless input.grant_write_acp.nil? || input.grant_write_acp.empty?
-        http_req.headers['x-amz-server-side-encryption'] = input.server_side_encryption unless input.server_side_encryption.nil? || input.server_side_encryption.empty?
-        http_req.headers['x-amz-storage-class'] = input.storage_class unless input.storage_class.nil? || input.storage_class.empty?
-        http_req.headers['x-amz-website-redirect-location'] = input.website_redirect_location unless input.website_redirect_location.nil? || input.website_redirect_location.empty?
-        http_req.headers['x-amz-server-side-encryption-customer-algorithm'] = input.sse_customer_algorithm unless input.sse_customer_algorithm.nil? || input.sse_customer_algorithm.empty?
-        http_req.headers['x-amz-server-side-encryption-customer-key'] = input.sse_customer_key unless input.sse_customer_key.nil? || input.sse_customer_key.empty?
-        http_req.headers['x-amz-server-side-encryption-customer-key-MD5'] = input.sse_customer_key_md5 unless input.sse_customer_key_md5.nil? || input.sse_customer_key_md5.empty?
-        http_req.headers['x-amz-server-side-encryption-aws-kms-key-id'] = input.ssekms_key_id unless input.ssekms_key_id.nil? || input.ssekms_key_id.empty?
-        http_req.headers['x-amz-server-side-encryption-context'] = input.ssekms_encryption_context unless input.ssekms_encryption_context.nil? || input.ssekms_encryption_context.empty?
+        http_req.headers['x-amz-grant-full-control'] = input.grant_full_control unless input.grant_full_control.nil?
+        http_req.headers['x-amz-grant-read'] = input.grant_read unless input.grant_read.nil?
+        http_req.headers['x-amz-grant-read-acp'] = input.grant_read_acp unless input.grant_read_acp.nil?
+        http_req.headers['x-amz-grant-write-acp'] = input.grant_write_acp unless input.grant_write_acp.nil?
+        http_req.headers['x-amz-server-side-encryption'] = input.server_side_encryption unless input.server_side_encryption.nil?
+        http_req.headers['x-amz-storage-class'] = input.storage_class unless input.storage_class.nil?
+        http_req.headers['x-amz-website-redirect-location'] = input.website_redirect_location unless input.website_redirect_location.nil?
+        http_req.headers['x-amz-server-side-encryption-customer-algorithm'] = input.sse_customer_algorithm unless input.sse_customer_algorithm.nil?
+        http_req.headers['x-amz-server-side-encryption-customer-key'] = input.sse_customer_key unless input.sse_customer_key.nil?
+        http_req.headers['x-amz-server-side-encryption-customer-key-MD5'] = input.sse_customer_key_md5 unless input.sse_customer_key_md5.nil?
+        http_req.headers['x-amz-server-side-encryption-aws-kms-key-id'] = input.ssekms_key_id unless input.ssekms_key_id.nil?
+        http_req.headers['x-amz-server-side-encryption-context'] = input.ssekms_encryption_context unless input.ssekms_encryption_context.nil?
         http_req.headers['x-amz-server-side-encryption-bucket-key-enabled'] = input.bucket_key_enabled.to_s unless input.bucket_key_enabled.nil?
-        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil? || input.request_payer.empty?
-        http_req.headers['x-amz-tagging'] = input.tagging unless input.tagging.nil? || input.tagging.empty?
-        http_req.headers['x-amz-object-lock-mode'] = input.object_lock_mode unless input.object_lock_mode.nil? || input.object_lock_mode.empty?
+        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil?
+        http_req.headers['x-amz-tagging'] = input.tagging unless input.tagging.nil?
+        http_req.headers['x-amz-object-lock-mode'] = input.object_lock_mode unless input.object_lock_mode.nil?
         http_req.headers['x-amz-object-lock-retain-until-date'] = Hearth::TimeHelper.to_date_time(input.object_lock_retain_until_date) unless input.object_lock_retain_until_date.nil?
-        http_req.headers['x-amz-object-lock-legal-hold'] = input.object_lock_legal_hold_status unless input.object_lock_legal_hold_status.nil? || input.object_lock_legal_hold_status.empty?
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-object-lock-legal-hold'] = input.object_lock_legal_hold_status unless input.object_lock_legal_hold_status.nil?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
         input.metadata.each do |key, value|
-          http_req.headers["x-amz-meta-#{key}"] = value unless value.nil? || value.empty?
+          http_req.headers["x-amz-meta-#{key}"] = value unless value.nil?
         end unless input.metadata.nil?
       end
     end
@@ -2915,16 +2915,16 @@ module AWS::SDK::S3
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::AccessControlPolicy.build('AccessControlPolicy', input.access_control_policy) unless input.access_control_policy.nil?
         http_req.body = ::StringIO.new(xml.to_str) if xml
-        http_req.headers['x-amz-acl'] = input.acl unless input.acl.nil? || input.acl.empty?
-        http_req.headers['Content-MD5'] = input.content_md5 unless input.content_md5.nil? || input.content_md5.empty?
-        http_req.headers['x-amz-sdk-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil? || input.checksum_algorithm.empty?
-        http_req.headers['x-amz-grant-full-control'] = input.grant_full_control unless input.grant_full_control.nil? || input.grant_full_control.empty?
-        http_req.headers['x-amz-grant-read'] = input.grant_read unless input.grant_read.nil? || input.grant_read.empty?
-        http_req.headers['x-amz-grant-read-acp'] = input.grant_read_acp unless input.grant_read_acp.nil? || input.grant_read_acp.empty?
-        http_req.headers['x-amz-grant-write'] = input.grant_write unless input.grant_write.nil? || input.grant_write.empty?
-        http_req.headers['x-amz-grant-write-acp'] = input.grant_write_acp unless input.grant_write_acp.nil? || input.grant_write_acp.empty?
-        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil? || input.request_payer.empty?
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-acl'] = input.acl unless input.acl.nil?
+        http_req.headers['Content-MD5'] = input.content_md5 unless input.content_md5.nil?
+        http_req.headers['x-amz-sdk-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil?
+        http_req.headers['x-amz-grant-full-control'] = input.grant_full_control unless input.grant_full_control.nil?
+        http_req.headers['x-amz-grant-read'] = input.grant_read unless input.grant_read.nil?
+        http_req.headers['x-amz-grant-read-acp'] = input.grant_read_acp unless input.grant_read_acp.nil?
+        http_req.headers['x-amz-grant-write'] = input.grant_write unless input.grant_write.nil?
+        http_req.headers['x-amz-grant-write-acp'] = input.grant_write_acp unless input.grant_write_acp.nil?
+        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -2952,10 +2952,10 @@ module AWS::SDK::S3
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::ObjectLockLegalHold.build('LegalHold', input.legal_hold) unless input.legal_hold.nil?
         http_req.body = ::StringIO.new(xml.to_str) if xml
-        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil? || input.request_payer.empty?
-        http_req.headers['Content-MD5'] = input.content_md5 unless input.content_md5.nil? || input.content_md5.empty?
-        http_req.headers['x-amz-sdk-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil? || input.checksum_algorithm.empty?
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil?
+        http_req.headers['Content-MD5'] = input.content_md5 unless input.content_md5.nil?
+        http_req.headers['x-amz-sdk-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -2976,11 +2976,11 @@ module AWS::SDK::S3
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::ObjectLockConfiguration.build('ObjectLockConfiguration', input.object_lock_configuration) unless input.object_lock_configuration.nil?
         http_req.body = ::StringIO.new(xml.to_str) if xml
-        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil? || input.request_payer.empty?
-        http_req.headers['x-amz-bucket-object-lock-token'] = input.token unless input.token.nil? || input.token.empty?
-        http_req.headers['Content-MD5'] = input.content_md5 unless input.content_md5.nil? || input.content_md5.empty?
-        http_req.headers['x-amz-sdk-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil? || input.checksum_algorithm.empty?
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil?
+        http_req.headers['x-amz-bucket-object-lock-token'] = input.token unless input.token.nil?
+        http_req.headers['Content-MD5'] = input.content_md5 unless input.content_md5.nil?
+        http_req.headers['x-amz-sdk-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -3008,11 +3008,11 @@ module AWS::SDK::S3
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::ObjectLockRetention.build('Retention', input.retention) unless input.retention.nil?
         http_req.body = ::StringIO.new(xml.to_str) if xml
-        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil? || input.request_payer.empty?
+        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil?
         http_req.headers['x-amz-bypass-governance-retention'] = input.bypass_governance_retention.to_s unless input.bypass_governance_retention.nil?
-        http_req.headers['Content-MD5'] = input.content_md5 unless input.content_md5.nil? || input.content_md5.empty?
-        http_req.headers['x-amz-sdk-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil? || input.checksum_algorithm.empty?
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['Content-MD5'] = input.content_md5 unless input.content_md5.nil?
+        http_req.headers['x-amz-sdk-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -3040,10 +3040,10 @@ module AWS::SDK::S3
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::Tagging.build('Tagging', input.tagging) unless input.tagging.nil?
         http_req.body = ::StringIO.new(xml.to_str) if xml
-        http_req.headers['Content-MD5'] = input.content_md5 unless input.content_md5.nil? || input.content_md5.empty?
-        http_req.headers['x-amz-sdk-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil? || input.checksum_algorithm.empty?
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
-        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil? || input.request_payer.empty?
+        http_req.headers['Content-MD5'] = input.content_md5 unless input.content_md5.nil?
+        http_req.headers['x-amz-sdk-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
+        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil?
       end
     end
 
@@ -3064,9 +3064,9 @@ module AWS::SDK::S3
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::PublicAccessBlockConfiguration.build('PublicAccessBlockConfiguration', input.public_access_block_configuration) unless input.public_access_block_configuration.nil?
         http_req.body = ::StringIO.new(xml.to_str) if xml
-        http_req.headers['Content-MD5'] = input.content_md5 unless input.content_md5.nil? || input.content_md5.empty?
-        http_req.headers['x-amz-sdk-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil? || input.checksum_algorithm.empty?
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['Content-MD5'] = input.content_md5 unless input.content_md5.nil?
+        http_req.headers['x-amz-sdk-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -3240,9 +3240,9 @@ module AWS::SDK::S3
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::RestoreRequest.build('RestoreRequest', input.restore_request) unless input.restore_request.nil?
         http_req.body = ::StringIO.new(xml.to_str) if xml
-        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil? || input.request_payer.empty?
-        http_req.headers['x-amz-sdk-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil? || input.checksum_algorithm.empty?
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil?
+        http_req.headers['x-amz-sdk-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -3355,10 +3355,10 @@ module AWS::SDK::S3
         xml << OutputSerialization.build('OutputSerialization', input.output_serialization) unless input.output_serialization.nil?
         xml << ScanRange.build('ScanRange', input.scan_range) unless input.scan_range.nil?
         http_req.body = ::StringIO.new(xml.to_str) if xml
-        http_req.headers['x-amz-server-side-encryption-customer-algorithm'] = input.sse_customer_algorithm unless input.sse_customer_algorithm.nil? || input.sse_customer_algorithm.empty?
-        http_req.headers['x-amz-server-side-encryption-customer-key'] = input.sse_customer_key unless input.sse_customer_key.nil? || input.sse_customer_key.empty?
-        http_req.headers['x-amz-server-side-encryption-customer-key-MD5'] = input.sse_customer_key_md5 unless input.sse_customer_key_md5.nil? || input.sse_customer_key_md5.empty?
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['x-amz-server-side-encryption-customer-algorithm'] = input.sse_customer_algorithm unless input.sse_customer_algorithm.nil?
+        http_req.headers['x-amz-server-side-encryption-customer-key'] = input.sse_customer_key unless input.sse_customer_key.nil?
+        http_req.headers['x-amz-server-side-encryption-customer-key-MD5'] = input.sse_customer_key_md5 unless input.sse_customer_key_md5.nil?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -3594,17 +3594,17 @@ module AWS::SDK::S3
         http_req.body = input.body
         http_req.headers['Content-Type'] = 'application/octet-stream'
         http_req.headers['Content-Length'] = input.content_length.to_s unless input.content_length.nil?
-        http_req.headers['Content-MD5'] = input.content_md5 unless input.content_md5.nil? || input.content_md5.empty?
-        http_req.headers['x-amz-sdk-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil? || input.checksum_algorithm.empty?
-        http_req.headers['x-amz-checksum-crc32'] = input.checksum_crc32 unless input.checksum_crc32.nil? || input.checksum_crc32.empty?
-        http_req.headers['x-amz-checksum-crc32c'] = input.checksum_crc32_c unless input.checksum_crc32_c.nil? || input.checksum_crc32_c.empty?
-        http_req.headers['x-amz-checksum-sha1'] = input.checksum_sha1 unless input.checksum_sha1.nil? || input.checksum_sha1.empty?
-        http_req.headers['x-amz-checksum-sha256'] = input.checksum_sha256 unless input.checksum_sha256.nil? || input.checksum_sha256.empty?
-        http_req.headers['x-amz-server-side-encryption-customer-algorithm'] = input.sse_customer_algorithm unless input.sse_customer_algorithm.nil? || input.sse_customer_algorithm.empty?
-        http_req.headers['x-amz-server-side-encryption-customer-key'] = input.sse_customer_key unless input.sse_customer_key.nil? || input.sse_customer_key.empty?
-        http_req.headers['x-amz-server-side-encryption-customer-key-MD5'] = input.sse_customer_key_md5 unless input.sse_customer_key_md5.nil? || input.sse_customer_key_md5.empty?
-        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil? || input.request_payer.empty?
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
+        http_req.headers['Content-MD5'] = input.content_md5 unless input.content_md5.nil?
+        http_req.headers['x-amz-sdk-checksum-algorithm'] = input.checksum_algorithm unless input.checksum_algorithm.nil?
+        http_req.headers['x-amz-checksum-crc32'] = input.checksum_crc32 unless input.checksum_crc32.nil?
+        http_req.headers['x-amz-checksum-crc32c'] = input.checksum_crc32_c unless input.checksum_crc32_c.nil?
+        http_req.headers['x-amz-checksum-sha1'] = input.checksum_sha1 unless input.checksum_sha1.nil?
+        http_req.headers['x-amz-checksum-sha256'] = input.checksum_sha256 unless input.checksum_sha256.nil?
+        http_req.headers['x-amz-server-side-encryption-customer-algorithm'] = input.sse_customer_algorithm unless input.sse_customer_algorithm.nil?
+        http_req.headers['x-amz-server-side-encryption-customer-key'] = input.sse_customer_key unless input.sse_customer_key.nil?
+        http_req.headers['x-amz-server-side-encryption-customer-key-MD5'] = input.sse_customer_key_md5 unless input.sse_customer_key_md5.nil?
+        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
       end
     end
 
@@ -3630,21 +3630,21 @@ module AWS::SDK::S3
         params['partNumber'] = input.part_number.to_s unless input.part_number.nil?
         params['uploadId'] = input.upload_id.to_s unless input.upload_id.nil?
         http_req.append_query_param_list(params)
-        http_req.headers['x-amz-copy-source'] = input.copy_source unless input.copy_source.nil? || input.copy_source.empty?
-        http_req.headers['x-amz-copy-source-if-match'] = input.copy_source_if_match unless input.copy_source_if_match.nil? || input.copy_source_if_match.empty?
+        http_req.headers['x-amz-copy-source'] = input.copy_source unless input.copy_source.nil?
+        http_req.headers['x-amz-copy-source-if-match'] = input.copy_source_if_match unless input.copy_source_if_match.nil?
         http_req.headers['x-amz-copy-source-if-modified-since'] = Hearth::TimeHelper.to_http_date(input.copy_source_if_modified_since) unless input.copy_source_if_modified_since.nil?
-        http_req.headers['x-amz-copy-source-if-none-match'] = input.copy_source_if_none_match unless input.copy_source_if_none_match.nil? || input.copy_source_if_none_match.empty?
+        http_req.headers['x-amz-copy-source-if-none-match'] = input.copy_source_if_none_match unless input.copy_source_if_none_match.nil?
         http_req.headers['x-amz-copy-source-if-unmodified-since'] = Hearth::TimeHelper.to_http_date(input.copy_source_if_unmodified_since) unless input.copy_source_if_unmodified_since.nil?
-        http_req.headers['x-amz-copy-source-range'] = input.copy_source_range unless input.copy_source_range.nil? || input.copy_source_range.empty?
-        http_req.headers['x-amz-server-side-encryption-customer-algorithm'] = input.sse_customer_algorithm unless input.sse_customer_algorithm.nil? || input.sse_customer_algorithm.empty?
-        http_req.headers['x-amz-server-side-encryption-customer-key'] = input.sse_customer_key unless input.sse_customer_key.nil? || input.sse_customer_key.empty?
-        http_req.headers['x-amz-server-side-encryption-customer-key-MD5'] = input.sse_customer_key_md5 unless input.sse_customer_key_md5.nil? || input.sse_customer_key_md5.empty?
-        http_req.headers['x-amz-copy-source-server-side-encryption-customer-algorithm'] = input.copy_source_sse_customer_algorithm unless input.copy_source_sse_customer_algorithm.nil? || input.copy_source_sse_customer_algorithm.empty?
-        http_req.headers['x-amz-copy-source-server-side-encryption-customer-key'] = input.copy_source_sse_customer_key unless input.copy_source_sse_customer_key.nil? || input.copy_source_sse_customer_key.empty?
-        http_req.headers['x-amz-copy-source-server-side-encryption-customer-key-MD5'] = input.copy_source_sse_customer_key_md5 unless input.copy_source_sse_customer_key_md5.nil? || input.copy_source_sse_customer_key_md5.empty?
-        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil? || input.request_payer.empty?
-        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil? || input.expected_bucket_owner.empty?
-        http_req.headers['x-amz-source-expected-bucket-owner'] = input.expected_source_bucket_owner unless input.expected_source_bucket_owner.nil? || input.expected_source_bucket_owner.empty?
+        http_req.headers['x-amz-copy-source-range'] = input.copy_source_range unless input.copy_source_range.nil?
+        http_req.headers['x-amz-server-side-encryption-customer-algorithm'] = input.sse_customer_algorithm unless input.sse_customer_algorithm.nil?
+        http_req.headers['x-amz-server-side-encryption-customer-key'] = input.sse_customer_key unless input.sse_customer_key.nil?
+        http_req.headers['x-amz-server-side-encryption-customer-key-MD5'] = input.sse_customer_key_md5 unless input.sse_customer_key_md5.nil?
+        http_req.headers['x-amz-copy-source-server-side-encryption-customer-algorithm'] = input.copy_source_sse_customer_algorithm unless input.copy_source_sse_customer_algorithm.nil?
+        http_req.headers['x-amz-copy-source-server-side-encryption-customer-key'] = input.copy_source_sse_customer_key unless input.copy_source_sse_customer_key.nil?
+        http_req.headers['x-amz-copy-source-server-side-encryption-customer-key-MD5'] = input.copy_source_sse_customer_key_md5 unless input.copy_source_sse_customer_key_md5.nil?
+        http_req.headers['x-amz-request-payer'] = input.request_payer unless input.request_payer.nil?
+        http_req.headers['x-amz-expected-bucket-owner'] = input.expected_bucket_owner unless input.expected_bucket_owner.nil?
+        http_req.headers['x-amz-source-expected-bucket-owner'] = input.expected_source_bucket_owner unless input.expected_source_bucket_owner.nil?
       end
     end
 
@@ -3687,46 +3687,46 @@ module AWS::SDK::S3
         http_req.append_path('/WriteGetObjectResponse')
         http_req.body = input.body
         http_req.headers['Content-Type'] = 'application/octet-stream'
-        http_req.headers['x-amz-request-route'] = input.request_route unless input.request_route.nil? || input.request_route.empty?
-        http_req.headers['x-amz-request-token'] = input.request_token unless input.request_token.nil? || input.request_token.empty?
+        http_req.headers['x-amz-request-route'] = input.request_route unless input.request_route.nil?
+        http_req.headers['x-amz-request-token'] = input.request_token unless input.request_token.nil?
         http_req.headers['x-amz-fwd-status'] = input.status_code.to_s unless input.status_code.nil?
-        http_req.headers['x-amz-fwd-error-code'] = input.error_code unless input.error_code.nil? || input.error_code.empty?
-        http_req.headers['x-amz-fwd-error-message'] = input.error_message unless input.error_message.nil? || input.error_message.empty?
-        http_req.headers['x-amz-fwd-header-accept-ranges'] = input.accept_ranges unless input.accept_ranges.nil? || input.accept_ranges.empty?
-        http_req.headers['x-amz-fwd-header-Cache-Control'] = input.cache_control unless input.cache_control.nil? || input.cache_control.empty?
-        http_req.headers['x-amz-fwd-header-Content-Disposition'] = input.content_disposition unless input.content_disposition.nil? || input.content_disposition.empty?
-        http_req.headers['x-amz-fwd-header-Content-Encoding'] = input.content_encoding unless input.content_encoding.nil? || input.content_encoding.empty?
-        http_req.headers['x-amz-fwd-header-Content-Language'] = input.content_language unless input.content_language.nil? || input.content_language.empty?
+        http_req.headers['x-amz-fwd-error-code'] = input.error_code unless input.error_code.nil?
+        http_req.headers['x-amz-fwd-error-message'] = input.error_message unless input.error_message.nil?
+        http_req.headers['x-amz-fwd-header-accept-ranges'] = input.accept_ranges unless input.accept_ranges.nil?
+        http_req.headers['x-amz-fwd-header-Cache-Control'] = input.cache_control unless input.cache_control.nil?
+        http_req.headers['x-amz-fwd-header-Content-Disposition'] = input.content_disposition unless input.content_disposition.nil?
+        http_req.headers['x-amz-fwd-header-Content-Encoding'] = input.content_encoding unless input.content_encoding.nil?
+        http_req.headers['x-amz-fwd-header-Content-Language'] = input.content_language unless input.content_language.nil?
         http_req.headers['Content-Length'] = input.content_length.to_s unless input.content_length.nil?
-        http_req.headers['x-amz-fwd-header-Content-Range'] = input.content_range unless input.content_range.nil? || input.content_range.empty?
-        http_req.headers['x-amz-fwd-header-Content-Type'] = input.content_type unless input.content_type.nil? || input.content_type.empty?
-        http_req.headers['x-amz-fwd-header-x-amz-checksum-crc32'] = input.checksum_crc32 unless input.checksum_crc32.nil? || input.checksum_crc32.empty?
-        http_req.headers['x-amz-fwd-header-x-amz-checksum-crc32c'] = input.checksum_crc32_c unless input.checksum_crc32_c.nil? || input.checksum_crc32_c.empty?
-        http_req.headers['x-amz-fwd-header-x-amz-checksum-sha1'] = input.checksum_sha1 unless input.checksum_sha1.nil? || input.checksum_sha1.empty?
-        http_req.headers['x-amz-fwd-header-x-amz-checksum-sha256'] = input.checksum_sha256 unless input.checksum_sha256.nil? || input.checksum_sha256.empty?
+        http_req.headers['x-amz-fwd-header-Content-Range'] = input.content_range unless input.content_range.nil?
+        http_req.headers['x-amz-fwd-header-Content-Type'] = input.content_type unless input.content_type.nil?
+        http_req.headers['x-amz-fwd-header-x-amz-checksum-crc32'] = input.checksum_crc32 unless input.checksum_crc32.nil?
+        http_req.headers['x-amz-fwd-header-x-amz-checksum-crc32c'] = input.checksum_crc32_c unless input.checksum_crc32_c.nil?
+        http_req.headers['x-amz-fwd-header-x-amz-checksum-sha1'] = input.checksum_sha1 unless input.checksum_sha1.nil?
+        http_req.headers['x-amz-fwd-header-x-amz-checksum-sha256'] = input.checksum_sha256 unless input.checksum_sha256.nil?
         http_req.headers['x-amz-fwd-header-x-amz-delete-marker'] = input.delete_marker.to_s unless input.delete_marker.nil?
-        http_req.headers['x-amz-fwd-header-ETag'] = input.e_tag unless input.e_tag.nil? || input.e_tag.empty?
+        http_req.headers['x-amz-fwd-header-ETag'] = input.e_tag unless input.e_tag.nil?
         http_req.headers['x-amz-fwd-header-Expires'] = Hearth::TimeHelper.to_http_date(input.expires) unless input.expires.nil?
-        http_req.headers['x-amz-fwd-header-x-amz-expiration'] = input.expiration unless input.expiration.nil? || input.expiration.empty?
+        http_req.headers['x-amz-fwd-header-x-amz-expiration'] = input.expiration unless input.expiration.nil?
         http_req.headers['x-amz-fwd-header-Last-Modified'] = Hearth::TimeHelper.to_http_date(input.last_modified) unless input.last_modified.nil?
         http_req.headers['x-amz-fwd-header-x-amz-missing-meta'] = input.missing_meta.to_s unless input.missing_meta.nil?
-        http_req.headers['x-amz-fwd-header-x-amz-object-lock-mode'] = input.object_lock_mode unless input.object_lock_mode.nil? || input.object_lock_mode.empty?
-        http_req.headers['x-amz-fwd-header-x-amz-object-lock-legal-hold'] = input.object_lock_legal_hold_status unless input.object_lock_legal_hold_status.nil? || input.object_lock_legal_hold_status.empty?
+        http_req.headers['x-amz-fwd-header-x-amz-object-lock-mode'] = input.object_lock_mode unless input.object_lock_mode.nil?
+        http_req.headers['x-amz-fwd-header-x-amz-object-lock-legal-hold'] = input.object_lock_legal_hold_status unless input.object_lock_legal_hold_status.nil?
         http_req.headers['x-amz-fwd-header-x-amz-object-lock-retain-until-date'] = Hearth::TimeHelper.to_date_time(input.object_lock_retain_until_date) unless input.object_lock_retain_until_date.nil?
         http_req.headers['x-amz-fwd-header-x-amz-mp-parts-count'] = input.parts_count.to_s unless input.parts_count.nil?
-        http_req.headers['x-amz-fwd-header-x-amz-replication-status'] = input.replication_status unless input.replication_status.nil? || input.replication_status.empty?
-        http_req.headers['x-amz-fwd-header-x-amz-request-charged'] = input.request_charged unless input.request_charged.nil? || input.request_charged.empty?
-        http_req.headers['x-amz-fwd-header-x-amz-restore'] = input.restore unless input.restore.nil? || input.restore.empty?
-        http_req.headers['x-amz-fwd-header-x-amz-server-side-encryption'] = input.server_side_encryption unless input.server_side_encryption.nil? || input.server_side_encryption.empty?
-        http_req.headers['x-amz-fwd-header-x-amz-server-side-encryption-customer-algorithm'] = input.sse_customer_algorithm unless input.sse_customer_algorithm.nil? || input.sse_customer_algorithm.empty?
-        http_req.headers['x-amz-fwd-header-x-amz-server-side-encryption-aws-kms-key-id'] = input.ssekms_key_id unless input.ssekms_key_id.nil? || input.ssekms_key_id.empty?
-        http_req.headers['x-amz-fwd-header-x-amz-server-side-encryption-customer-key-MD5'] = input.sse_customer_key_md5 unless input.sse_customer_key_md5.nil? || input.sse_customer_key_md5.empty?
-        http_req.headers['x-amz-fwd-header-x-amz-storage-class'] = input.storage_class unless input.storage_class.nil? || input.storage_class.empty?
+        http_req.headers['x-amz-fwd-header-x-amz-replication-status'] = input.replication_status unless input.replication_status.nil?
+        http_req.headers['x-amz-fwd-header-x-amz-request-charged'] = input.request_charged unless input.request_charged.nil?
+        http_req.headers['x-amz-fwd-header-x-amz-restore'] = input.restore unless input.restore.nil?
+        http_req.headers['x-amz-fwd-header-x-amz-server-side-encryption'] = input.server_side_encryption unless input.server_side_encryption.nil?
+        http_req.headers['x-amz-fwd-header-x-amz-server-side-encryption-customer-algorithm'] = input.sse_customer_algorithm unless input.sse_customer_algorithm.nil?
+        http_req.headers['x-amz-fwd-header-x-amz-server-side-encryption-aws-kms-key-id'] = input.ssekms_key_id unless input.ssekms_key_id.nil?
+        http_req.headers['x-amz-fwd-header-x-amz-server-side-encryption-customer-key-MD5'] = input.sse_customer_key_md5 unless input.sse_customer_key_md5.nil?
+        http_req.headers['x-amz-fwd-header-x-amz-storage-class'] = input.storage_class unless input.storage_class.nil?
         http_req.headers['x-amz-fwd-header-x-amz-tagging-count'] = input.tag_count.to_s unless input.tag_count.nil?
-        http_req.headers['x-amz-fwd-header-x-amz-version-id'] = input.version_id unless input.version_id.nil? || input.version_id.empty?
+        http_req.headers['x-amz-fwd-header-x-amz-version-id'] = input.version_id unless input.version_id.nil?
         http_req.headers['x-amz-fwd-header-x-amz-server-side-encryption-bucket-key-enabled'] = input.bucket_key_enabled.to_s unless input.bucket_key_enabled.nil?
         input.metadata.each do |key, value|
-          http_req.headers["x-amz-meta-#{key}"] = value unless value.nil? || value.empty?
+          http_req.headers["x-amz-meta-#{key}"] = value unless value.nil?
         end unless input.metadata.nil?
       end
     end
