@@ -34,6 +34,8 @@ import software.amazon.smithy.model.traits.EventHeaderTrait;
 import software.amazon.smithy.model.traits.SparseTrait;
 import software.amazon.smithy.model.traits.StreamingTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
+import software.amazon.smithy.model.traits.UnitTypeTrait;
+import software.amazon.smithy.model.traits.synthetic.OriginalShapeIdTrait;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
 import software.amazon.smithy.ruby.codegen.Hearth;
 import software.amazon.smithy.ruby.codegen.RubyImportContainer;
@@ -115,7 +117,7 @@ public class BuilderGenerator extends BuilderGeneratorBase {
 
     private void renderHeaders(OperationShape operation, String target, boolean isEventStream) {
         // Only modeled inputs should have this header
-        if (OperationIndex.of(model).getInput(operation).isPresent()) {
+        if (hasModeledInput(model.expectShape(operation.getInputShape()))) {
             String contentTypeHeader;
             if (isEventStream) {
                 contentTypeHeader = "application/vnd.amazon.eventstream";
@@ -134,6 +136,11 @@ public class BuilderGenerator extends BuilderGeneratorBase {
         if (context.service().hasTrait(AwsQueryCompatibleTrait.class)) {
             writer.write("http_req.headers['X-Amzn-Query-Mode'] = 'true'");
         }
+    }
+
+    private boolean hasModeledInput(Shape inputShape) {
+        return !(inputShape.hasTrait(OriginalShapeIdTrait.class)
+                && inputShape.expectTrait(OriginalShapeIdTrait.class).getOriginalId().equals(UnitTypeTrait.UNIT));
     }
 
     @Override
