@@ -44,6 +44,19 @@ module AWS
             0x865ED22A7EADC9C5CB9D2CBACA1B3699139FEDC5043DC6661864218330C8E518
           )
         end
+
+        # ensure that encoding of private keys with MSB set result in valid EC objects
+        context 'private key with most significant bit set' do
+
+          let(:access_key_id) { 'ASIAZRFOHJT45NGNWXS3' }
+          let(:secret_access_key) { 'WOuDKprKr+rt3Dl7+RCiNpZGzi3Jw/DdVifyifuC' }
+          let(:test_value) { 'test_value' }
+
+          it 'derives a valid EC PKey' do
+            signature = ec.dsa_sign_asn1(test_value)
+            expect(ec.dsa_verify_asn1(test_value, signature)).to be_truthy
+          end
+        end
       end
     end
   end

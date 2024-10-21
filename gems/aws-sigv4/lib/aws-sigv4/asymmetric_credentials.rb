@@ -65,6 +65,16 @@ module AWS
         x
       end
 
+      # @return [Array] value of the BigNumber as a big-endian unsigned byte array.
+      def self.bn_to_be_bytes(bn)
+        bytes = []
+        while bn > 0
+          bytes << (bn & 0xff)
+          bn = bn >> 8
+        end
+        bytes.reverse
+      end
+
       # Prior to openssl3 we could directly set public and private key on EC
       # However, openssl3 deprecated those methods and we must now construct
       # a der with the keys and load the EC from it.
@@ -74,7 +84,7 @@ module AWS
         asn1 = OpenSSL::ASN1::Sequence(
           [
             OpenSSL::ASN1::Integer(OpenSSL::BN.new(1)),
-            OpenSSL::ASN1::OctetString([private_key.to_s(16)].pack('H*')),
+            OpenSSL::ASN1::OctetString(bn_to_be_bytes(d).pack('C*')),
             OpenSSL::ASN1::ASN1Data.new(
               [OpenSSL::ASN1::ObjectId('prime256v1')],
               0, :CONTEXT_SPECIFIC
